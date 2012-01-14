@@ -1,0 +1,36 @@
+html {
+background:url(../images/pattern.jpg);background-repeat:repeat;	
+}
+
+h1{font-size:40px;line-height:38px;margin:0;padding:0;}
+h2{font-size:30px}
+h3{font-size:20px}
+
+div.twitter { margin: auto; width: 300px } 
+#twitterBox { height: 560px; width: 300px; }
+
+.demoUL {
+	margin-left:260px;
+	margin-bottom:50px;
+	padding-left:20px;
+}
+
+.demoUL li {
+	margin:10px 0 20px 10px;
+	padding-left:20px;
+	font-size:15px;
+}
+
+#stickyFooter {
+	maring-top:50px;
+	padding-top:25px;
+	padding-bottom:20px;
+	text-align:center;
+	border-top:1px solid #666;
+	clear:both;	
+}
+
+.theme {
+	float:left;
+	width:200px;
+}

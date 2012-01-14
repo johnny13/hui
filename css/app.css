@@ -1,0 +1,912 @@
+/* 
+* huement-ui | A spectyle plugin 
+* style sheet
+* version: 0.01 beta
+*
+ * Copyright (c) 2011 huement-ui
+ * Dual licensed under the MIT and GPL licenses.
+ *  - http://www.opensource.org/licenses/mit-license.php
+ *  - http://www.gnu.org/copyleft/gpl.html
+ *
+ * Author: @johnnyfortune
+ * Skin Version: 1.0 (huement-ui 1.0.0)
+ * Date: 4/20th/2011
+ * This is a version of spectyle integrated with jquery-ui.
+ * Full Docs and Downloads at spectyle.huement.com
+ * 
+ * Table Of Contents (Search for S01, S02 etc)
+ * S01 Browser Reset
+ * S02 Available Body Setups
+ * S03 Characters and Fonts
+ * S04 Tables and Fonts
+ * S05 Theme Colors
+ * S06 Extra CSS3 Effects
+ * S07 REMOVED - jQuery-UI - REMOVED 
+ * S08 jGrowl
+ * S09 TipTip
+*/
+
+/* [S01] 1_reset.css  **********************************************************/
+/*
+Copyright (c) 2011, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.9.0
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
+
+html, body {
+	font:15px arial,helvetica,clean,sans-serif;
+	*font-size:normal; /* for IE */
+	*font:normal; /* for IE in quirks mode */
+	overflow-x:auto;
+}
+/* Main Layout Section */
+
+/* [S02] 2_body.css  **********************************************************/
+/* Part A */
+/* SetUp A WorkSpace  */
+body, html { 
+	min-width:100%; 
+	width:100%; 
+	min-height: 100% !important; 
+	height: 100% !important; 
+	display: block; 
+	padding:0; margin: 0 auto -75px; 
+}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
+/* Full Length Header */
+.header_center { 
+	min-width:100%; 
+	width:1000px; 
+	width: auto !important;
+	min-height:60px;
+	margin:0;
+	padding:0px;
+}
+.header_center_img { width:1000px;margin: 0 auto; }
+
+/* Fancy Header */
+.header_full { 
+	min-width:100%;
+	width:100%;
+	width: auto !important;
+	margin:0;
+}
+
+/* add this to make the Fixed a fixed top toolbar (requires step 2) */
+.Top, .top { position:fixed;top:0;z-index:888 !important;}
+/* Fixed Header Step 2:
+*Add this additional class to your main .box
+*else your content will be over run.
+*padding should be Same as Header Height 
+*/
+.boxFH { padding-top:70px;}
+
+
+/* These optional ID's can be applied to
+*create a fullscreen wallpaper background effect
+* We recommend using an image preload script (spectyle.js) or similiar
+* as your background image needs to be fairly large (in pixels and bytes)
+* for the html required see the 0_20_Wallpaper.php (or .html) example
+*/
+
+/* FullScreen Wallpaper */
+#background {
+	position:absolute;width:100%;
+	height:100%;top: 0px;left: 0px;z-index:-999;
+	overflow: hidden;
+}
+
+#doublestamp {position:absolute;
+	width:100%;height:100%;
+	top: 0px;left: 0px;z-index:-1;
+	background-image:url("images/block.png");
+	background-repeat:repeat;
+}
+
+/* body.css part B */
+/* Box SetUp (create area for content) */
+#boxSticky { 
+	overflow:auto;
+	padding-bottom: 70px;
+}
+
+/* Red Lines for Show */
+.box,.boxFix,.boxHalf,.box13,.box23,.box14,.box34,.box35,.box20,.box80	{
+	display: inline-block;zoom: 1; *display: inline;letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align: top;
+	/* Style The Folowing to Choice */
+	padding:5px; min-height:200px;
+}
+	
+/* .box and .boxFix habe no defined width. style inline */
+.box {
+	display: block;padding:5px;
+	min-height: 100%;height:100%;
+	min-width:800px;position:relative;margin:0 auto;
+}
+
+.boxFix { display: block;margin: 0px auto; }
+
+/* for the rest, think FRACTIONS 2/3 1/3 etc */
+.boxHalf {min-width:250px;width:50%;}
+.boxThird {width:32%;min-width:165px;}
+.boxTwoThird {width:65%;min-width:335px;}
+.boxFourth {width:23.5%;min-width:125px;}
+
+/* body.css part C */
+/* SetUp Columns (Divide Boxes in Further or in Half) */
+.column, .columnL, .columnR { 
+	display: block; zoom: 1; 
+	*display: inline; 
+	letter-spacing: normal; 
+	word-spacing: normal; 
+	vertical-align: top; 
+}
+
+.column {display: block;height:100%;}
+.columnL {float:left;width:49%;padding: 0 5px 5px 0;}
+.columnR {float:right;width:49%;padding: 0 0 5px 5px;}
+
+/* Clears (needed for sticky footer and helpful when using floats) */
+br {min-height:10px;height:10px;}
+.alpha:after,.alphaSticky:after, .column:after, br,  br:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
+hr { clear:both;width:90%;color:#000; border-color:#FFF;margin:0 auto;margin-bottom:20px;}
+hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margin-bottom:20px;}
+
+/* Standard Floats */
+/* Easy Float / Quick Alignment */
+.L, .l {float:left;}
+.R, .r {float:right;}
+.C, .c {margin-left: auto;margin-right: auto;text-align:center;}
+
+/* [S03] 3_character.css  **********************************************************/
+p {
+	border:none;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	padding:5x 0 0 5px;
+	line-height:18px;
+}
+
+.footnote {
+	font-size:12px;
+	font-style: italic;
+	line-height:14px;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+
+/* [S04] Forms  **********************************************************/  
+textarea, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+	padding: 6px;
+	text-align:left;
+	width:250px
+	margin-left:0;
+	padding-left:0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #8f8f8f;
+	background-color: #e0e0e0;
+	color:#595959;
+	outline: none;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4) inset, 0 2px 0 rgba(255,255,255,0.6);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4) inset, 0 2px 0 rgba(255,255,255,0.6);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4) inset, 0 2px 0 rgba(255,255,255,0.6);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25 ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+textarea:hover, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover {
+	border: 1px solid #bdbdbd;
+	background-color: #f2f2f2;
+	color:#3d3d3d;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2) inset, 0 1px 0 rgba(255,255,255,0.2);
+}
+textarea:focus, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus {
+	border: 1px solid #bb2a2d;
+	background-color: #FFFFFF;
+	color:#000000;
+	-webkit-box-shadow: 0 2px 3px rgba(214, 89, 0,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 2px 3px rgba(214, 89, 0,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+	box-shadow: 0 2px 3px rgba(214, 89, 0,0.5) inset, 0 1px 0 rgba(255,255,255,0.2);
+}
+
+textarea {
+	min-height:213px;
+	padding-left:5px;
+}
+
+form {
+	padding: 0 20px 20px 20px;
+}
+
+form, form fieldset, form fieldset textarea, form label {
+	font-family: Helvetica, Arial;
+	font-size: 18px;
+	padding:3px;
+}
+
+form label {
+	margin-top:-24px;
+	margin-right: 8px;
+	display: block;
+}
+form:after {
+	clear:both;
+	padding:4px 0px;
+}
+
+form legend {
+	color: #333;
+	padding: 0 0 20px 0;
+	text-transform: uppercase;
+}
+
+form p { position: relative; margin: 10px 0;}
+form p label { position: absolute; top: 0; left: 0;}
+form p br {display: none;}
+
+
+form fieldset p input,
+form fieldset p textarea {
+	display: block;
+	padding: 4px;
+	width: 400px;
+	margin: 0;
+	padding-left:5px;
+}
+
+form fieldset p label {
+	width: 380px;
+	display: block;
+	margin: 5px 5px 5px 6px;
+	padding: 0;
+}
+
+label {
+	font-weight:bold;
+	font-size:18px;
+	padding:2px;
+	margin:2px;
+}
+    
+/* BEGIN fancy iphone checkbox */
+.css_sized_container .iPhoneCheckContainer {
+  min-width: 250px; }
+  
+.iPhoneCheckContainer {
+  position: relative;
+  height: 35px;
+  -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 
+  cursor: pointer;
+  border:none;
+  outline:none;
+  overflow: hidden; }
+  
+.iPhoneCheckContainer input {
+	position: absolute;
+	top: 5px;
+	left: 30px;
+	opacity: 0;
+	border:none;
+	outline:none;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+.iPhoneCheckContainer label {
+	white-space: nowrap;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	display: block;
+	height: 21px;
+	position: absolute;
+	width: auto;
+	top: 0;
+	padding-top: 5px;
+	overflow: hidden; 
+}
+
+.iPhoneCheckContainer, .iPhoneCheckContainer label {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none; 
+}
+
+.iPhoneCheckDisabled {
+	opacity: 0.5;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+ }
+
+label.iPhoneCheckLabelOn {
+	color: white;
+	border:1px groove #333;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px; 
+	border-radius: 3px; 
+	text-shadow: 1px -1px 1px rgba(0, 0, 0, 0.6);
+	left: -2px;
+	padding 5px 0 0px 5px;
+}
+
+label.iPhoneCheckLabelOn span {
+	padding-left: 8px; 
+}
+
+label.iPhoneCheckLabelOff {
+	color: #333;
+	background: #8a8a8a;
+	text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.6);
+	text-align: right;
+	left: -7px;
+	border:1px groove #333;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; 
+}
+
+label.iPhoneCheckLabelOff span {
+	padding-right: 8px; }
+
+.iPhoneCheckHandle {
+	display: block;
+	height: 30px;
+	cursor: pointer;
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 42px !important;
+	border:1px solid #212121;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px; 
+}
+/* END fancy iphone checkbox */
+
+pre {
+	font-size: 16px;
+	font-weight:bold;
+	font-family: "Courier New";
+	background: #3d3d3d;
+	padding: 10px 5px;
+	color: #f5f5f5;
+	border:1px solid #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+input[type=submit] {
+	font-size: 110%;
+	text-align:center;
+	width: auto;
+	font-weight:normal;
+	padding: 8px;
+	background:#e6e49f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
+	background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
+	background-image: -o-linear-gradient(top, #f1f1d4, #e6e49f);
+	color:#333;
+	border:1px solid #aaac62;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	text-decoration:none;
+	min-width: 0;
+	text-shadow: #999999 0px 1px 0px;
+}
+
+input[type=submit]:hover {
+	background: #f0f09a;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eeeca9));
+	background-image: -moz-linear-gradient(top,(#fff), (#eeeca9));
+	background-image: -o-linear-gradient(top, #fff, #eeeca9);
+}
+
+/* [S05] 5_theme.css  **********************************************************/
+/* Fancy CSS Shits */
+/* ie 6 and older browsers dont support most this. fallback when available */
+.theme_header {
+	width:100%;
+	position:relative;
+	margin:-8px 0px auto;
+	padding:4px 0px 4px 0px;
+	text-shadow: 1px -1px 1px #111;
+	color:#FFF;
+	overflow: hidden;
+	border-bottom:1px solid #333 !important;
+}
+
+/*  THEME COLORS - this section targets alot of things, but only changes the background. */
+/* this allows space saving, and easy access to all your gradients. */
+
+/* default state colors */
+button, .iPhoneCheckHandle, .ui-widget button, .theme_back, div.jp-progress, div.jYTp-progress, .ui-widget-header, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-progressbar, .jqTransformSelectWrapper {
+	background-color: rgb(237,237,237);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, rgb(237,237,237)),color-stop(0, rgb(196,196,196)));
+	background-image: -moz-linear-gradient(center top,rgb(237,237,237),rgb(196,196,196));
+	background-image: -o-linear-gradient(top,rgb(237,237,237),rgb(196,196,196));
+}
+
+/* themes highlight color */
+.theme_back, div.jp-progress, div.jYTp-progress {
+border: 1px solid #B6B6B6; 
+	font-weight: normal; 
+	color: #bb2a2d; 
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+}
+
+/* animation properties */
+button:hover, button:active, button:focus, .ui-state-active, .ui-state-focus {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+/* no animation properties */
+.ui-slider-handle {
+	-webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+}
+
+/* active state colors */
+.theme_header, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, button:active, .theme_back:hover, .theme_back:focus, .theme_back:active, .ui-button.ui-state-focus, .ui-buttonset .ui-button.ui-state-active, .ui-dialog .ui-dialog-titlebar, .ui-datepicker .ui-datepicker-header, .ui-progressbar .ui-progressbar-value {
+/*background: #00B40F;
+background: -moz-linear-gradient(0% 100% 90deg, #67b021, #00B40F);
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#67b021), to(#00B40F));
+background-image: -o-linear-gradient(top, #67b021, #00B40F);*/
+	cursor:pointer;
+	color:#fff;
+	background-color: rgb(214, 89, 0);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, rgb(214, 89, 0)),color-stop(0, rgb(175, 51, 0)));
+	background-image: -moz-linear-gradient(center top,rgb(214, 89, 0),rgb(175, 51, 0));
+	background-image: -o-linear-gradient(top,rgb(214, 89, 0),rgb(175, 51, 0));
+}
+
+/* hover state colors (brighter than active) */
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, #audio-play-bar, #video-play-bar, .jp-volume-bar-value, #jYTp-play-bar, label.iPhoneCheckLabelOn {
+	cursor:pointer;
+	color:#fff;
+	background-color: rgb(230, 132, 44);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(1, rgb(230, 132, 44)),color-stop(0, rgb(175, 51, 0)));
+	background-image: -moz-linear-gradient(center top,rgb(230, 132, 44),rgb(175, 51, 0));
+	background-image: -o-linear-gradient(top,rgb(230, 132, 44),rgb(175, 51, 0));
+}
+
+/* music and video widgets */
+div.jp-type-playlist div.jp-playlist a:hover, div.jp-type-playlist div.jp-playlist a.jp-playlist-current:hover, ul.jYTp-playlist li a:hover, ul.jYTp-playlist li.vidcurrent a:hover, li.vidcurrent a:hover {color: #bb2a2d;}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current, ul.jYTp-playlist li.vidcurrent a {color: #940002;}
+/* end them colors */
+
+/* [S06] Extra CSS3 Effects  **********************************************************/
+.shadow {
+	-moz-box-shadow: 2px 2px 4px #111;
+	-webkit-box-shadow: 2px 2px 4px #111;
+	box-shadow: 2px 2px 4px #111;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
+}
+
+.textShadow {
+	text-shadow: 1px -1px 1px rgba(255, 255, 255, .9);
+	margin: 5px 10px;
+	line-height: 1em;
+	padding: 5px;
+	text-align: center;
+	font-family: futura, 'gill sans', verdana, helvetica, arial;
+	font-size: 3em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* CSS CORNERS */
+.round {padding:5px;-moz-border-radius: 5px;border-radius: 5px;}
+
+.shadowRound{padding:5px;-moz-border-radius: 5px;border-radius: 5px;
+	-moz-box-shadow: 2px 2px 4px #111;
+	-webkit-box-shadow: 2px 2px 4px #111;
+	box-shadow: 2px 2px 4px #111;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
+}
+
+.glass {
+   /*width: 100px;
+   height: 100px;*/
+   margin: 10px;
+   padding: 5px;
+   border: 1px solid rgba(0,0,0,0.5);
+   border-radius: 10px 10px 2px 2px;
+   -moz-border-radius: 10px 10px 2px 2px;
+   background: rgba(0,0,0,0.25);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+
+.snowWhite {
+	border: 1px solid #B6B6B6; font-weight: normal; 
+	color: #39BB2A; 
+	background: rgb(237,237,237);
+	background: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(1, rgb(237,237,237)),
+	color-stop(0, rgb(196,196,196))
+	);
+	background: -moz-linear-gradient(
+		center top,
+		rgb(237,237,237),
+		rgb(196,196,196)
+	);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+}
+
+.lookSharp {
+	border: 1px inset #B6B6B6; font-weight: normal; 
+	background: rgb(138, 138, 138);
+	background: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(1, rgb(138, 138, 138)),
+	color-stop(0, rgb(199, 199, 199))
+	);
+	background: -moz-linear-gradient(
+		center top,
+		rgb(138, 138, 138),
+		rgb(199, 199, 199)
+	);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* Cool Text Effects */
+.dropShadow {
+	color:#555;
+	font-size:2.6em;
+	margin:20px 30px 0 20px;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-family:Verdana, Geneva, sans-serif;
+	text-shadow: -1px 1px 1px #999;
+	font-weight:bold;
+	text-align:left;
+}
+
+.anaglyphic {
+	text-align: center;
+	font-family:Avantgarde, sans-serif !important;
+	text-transform: uppercase;
+	font-size:100px;
+	color: rgba(26, 255, 0, 0.6) !important;
+	text-shadow: 6px 6px 0 rgba(255, 0, 0, 0.6);
+	font-weight: bold;
+}
+
+.textShadow {
+	text-shadow: 1px -1px 1px rgba(0, 0, 0, .8);
+	font-family: futura, 'gill sans', verdana, helvetica, arial;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* [S08] jGrowl **********************************************************/
+/* huement-ui DARK GLASS THEME ******************************************* */
+div.jGrowl {
+	padding: 			0px;
+	z-index: 			9999;
+	color: 				#fff;
+	font-size: 			16px;
+}
+
+/** Special IE6 Style Positioning **/
+div.ie6 {
+	position: 			absolute;
+}
+
+div.ie6.top-right {
+	right: 				auto;
+	bottom: 			auto;
+	left: 				expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.top-left {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.bottom-right {
+	left: 				expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.bottom-left {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.ie6.center {
+	left: 				expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+	top: 				expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	width: 				100%;
+}
+
+/** Normal Style Positions **/
+div.jGrowl {
+	position:			absolute;
+}
+
+body > div.jGrowl {
+	position:			fixed;
+}
+
+div.jGrowl.top-left {
+	left: 				0px;
+	top: 				0px;
+}
+
+div.jGrowl.top-right {
+	right: 				10px;
+	top: 				0px;
+}
+
+div.jGrowl.bottom-left {
+	left: 				0px;
+	bottom:				0px;
+}
+
+div.jGrowl.bottom-right {
+	right: 				0px;
+	bottom: 			0px;
+}
+
+div.jGrowl.center {
+	top: 				0px;
+	width: 				50%;
+	left: 				25%;
+}
+
+/** Cross Browser Styling **/
+div.center div.jGrowl-notification, div.center div.jGrowl-closer {
+	margin-left: 		auto;
+	margin-right: 		auto;
+}
+
+div.jGrowl div.jGrowl-closer {
+	background-color: 		#000;
+	color:					#FFF;
+	border:					none !important;
+	opacity: 				.85;
+    -ms-filter: 			"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+    filter: 				progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+	zoom: 					1;
+	width: 					282px;
+	padding: 				10px;
+	margin-top: 			5px;
+	margin-bottom: 			5px;
+	font-family: 			Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 				18px;
+	text-align: 			left;
+	display: 				none;
+	-moz-border-radius: 	5px;
+	-webkit-border-radius:	5px;
+}
+
+div.jGrowl div.jGrowl-notification {
+	min-height: 			40px;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-header {
+	font-weight: 			bold;
+	font-size:				18px !important;
+	padding-top:			0;
+	margin-top:				0px;
+	margin-bottom:			10px;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-close {
+	z-index:				99;
+	float: 					right;
+	padding-right:			8px;
+	font-weight: 			bold;
+	font-size: 				1em;
+	cursor:					pointer;
+}
+
+div.jGrowl div.jGrowl-closer {
+	padding-top: 			4px;
+	padding-bottom: 		4px;
+	cursor: 				pointer;
+	font-size:				.9em;
+	font-weight: 			bold;
+	text-align: 			center;
+}
+
+/** Hide jGrowl when printing **/
+@media print {
+	div.jGrowl {
+		display: 			none;
+	}
+}
+
+.ui-icon-jgrowl { 
+	min-width: 32px !important;
+	width: 32px !important; 
+	min-height: 32px !important; 
+	height:32px !important;
+	background-image: url('images/hui-darkHD-large.png') !important;
+	float:left;
+	margin:10px 8px 0 -6px;
+}
+
+div.jGrowl div.jGrowl-notification {
+	/*background: 			url("images/hue.png");*/
+	border: 				1px solid #303030 !important;
+	opacity: 				.85;
+	-ms-filter: 			"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+	filter: 				progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+	background-repeat:		no-repeat;
+	color: 					#FFFFFF;
+	text-shadow: 			1px -1px 1px #222;
+	font-weight:			bold;
+	zoom: 					1;
+	min-width: 				290px;
+	height:					60px;
+	padding: 				10px 0 10px 10px;
+	margin-top: 			5px;
+	margin-bottom: 			5px;
+	font-family: 			Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 				17px;
+	line-height:			20px;
+	text-align: 			left;
+	display: 				none;
+	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+}
+
+/* fancy gradient background */
+div.jGrowl div.jGrowl-notification {
+	border: 1px solid #303030 !important;
+	background: #45484d; /* Old browsers */
+	background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #45484d 0%,#000000 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #45484d 0%,#000000 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #45484d 0%,#000000 100%); /* W3C */
+}
+
+div.jGrowl div.jGrowl-message {
+padding-left:35px;
+}
+
+/* [S09] TIPTIP SECTION **********************************************************/
+/* TipTip CSS - Version 1.2 */
+#tiptip_holder { display: none; position: absolute; top: 0; left: 0; z-index: 99999; }
+
+#tiptip_holder.tip_top { padding-bottom: 5px; }
+
+#tiptip_holder.tip_bottom { padding-top: 5px; }
+
+#tiptip_holder.tip_right { padding-left: 5px; }
+
+#tiptip_holder.tip_left { padding-right: 5px; }
+
+#tiptip_content {
+	font-size: 11px;
+	color: #fff;
+	text-shadow: 0 0 2px #000;
+	padding: 4px 8px;
+	border: 1px solid rgba(255,255,255,0.25);
+	background-color: rgb(25,25,25);
+	background-color: rgba(25,25,25,0.92);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#000));
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 0 0 3px #555;
+	-webkit-box-shadow: 0 0 3px #555;
+	-moz-box-shadow: 0 0 3px #555;
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+	border-top-color: #fff;
+	border-top-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+	border-bottom-color: #fff;
+	border-bottom-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+	border-right-color: #fff;
+	border-right-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+	border-left-color: #fff;
+	border-left-color: rgba(255,255,255,0.35);
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+	margin-top: -7px;
+	margin-left: -6px;
+	border-top-color: rgb(25,25,25);
+	border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+	margin-top: -5px;
+	margin-left: -6px;
+	border-bottom-color: rgb(25,25,25);
+	border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -5px;
+	border-right-color: rgb(25,25,25);
+	border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+	margin-top: -6px;
+	margin-left: -7px;
+	border-left-color: rgb(25,25,25);
+	border-left-color: rgba(25,25,25,0.92);
+}
+
+/* Webkit Hacks  */
+@media screen and (-webkit-min-device-pixel-ratio:0) {	
+	#tiptip_content {
+	padding: 4px 8px 5px 8px;
+	background-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+	border-bottom-color: rgba(45,45,45,0.88);
+	}
+	#tiptip_holder.tip_top #tiptip_arrow_inner { 
+	border-top-color: rgba(20,20,20,0.92);
+	}
+}
