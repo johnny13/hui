@@ -15,9 +15,9 @@
 *
 * see each section for more information and each plugin's homepage and documentation.
 *
-*  S01. Action Functions ( shuffle, preload, command, extras)
+*  S01. Action Functions ( shuffle, preload images, jgrowl command, extras)
 *  S02. jGrowl 1.2.5
-*  S03. Form Manipulation (jqTransform, jQuery.labelify, iPhone-style Checkboxes)
+*  S03. Form Manipulation (iPhone-style Checkboxes)
 *  S04. 
 *  S05. 
 *  S06. 
@@ -56,24 +56,43 @@ function suitUp(styleSheetURL){
 	$("link[rel=stylesheet]").attr({href : styleSheetURL});
 }
 
+/* notefy v0.01
+* HUI User friendly notifications and alerts 
+* Adapted from jgrowl function.
+*
+* Call it with two parameters The first is the Header. The Second is the message. 
+* example: notefy('title','message'); 
+*
+* optional options: icon class, click to close (sticky), position.
+* full list of options dev.huement.com/hui/notefy
+*
+*/
 
-/* Adapted jgrowl function. Call it with two parameters */
-/* The first is the Header. The second is the message. */
-/* example: jgrowl('title','message'); */
-
-var icon = 'ui-icon-discordial-big'; //default icon
-
-function jgrowl(headerMsg,msg,icon,sticky){
-	//icon = 'ui-icon-huement-big';
+function notefy(headerMsg,msg,user_icon,sticky,user_position){
+	
+	//default options are top-right and not sticky.
+	//with hui-icon-notefy as the class.
+	
 	if(sticky == 'undefined'){
 	var stickyop = false;
 	} else if (sticky == true){
 	var stickyop = true;
 	}
+	if(user_icon == 'undefined'){
+	var icon = 'hui-icon-notefy';
+	} else {
+	var icon = user_icon;
+	}
+	if(user_position == 'undefined'){
+	var pos = 'top-right';
+	} else {
+	var pos = user_position;
+	}
+	
 	$.jGrowl(msg, {
 	header: headerMsg,
-	position: 'top-right',
-	afterOpen:function() {$('.ui-icon-jgrowl').addClass(icon);},
+	position: pos,
+	afterOpen:function() {$('.notefyIcon').addClass(icon);},
 	sticky: stickyop
 	});
 }
@@ -350,7 +369,7 @@ function jgrowl(headerMsg,msg,icon,sticky){
 
 			var notification = $(
 				'<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
-				((o.group != undefined && o.group != '') ? ' ' + o.group : '') + '"><div class="ui-icon-jgrowl"></div>' +
+				((o.group != undefined && o.group != '') ? ' ' + o.group : '') + '"><div class="hui-icon-notefy"></div>' +
 				'<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
 				'<div class="jGrowl-header">' + o.header + '</div>' +
 				'<div class="jGrowl-message">' + message + '</div></div>'
@@ -676,271 +695,6 @@ jQuery.fn.selectOptions = function(value) {
 	return this;
 };
 
-
-/*
- *
- * jqTransForm
- * by mathieu vilaplana mvilaplana@dfc-e.com
- * Designer ghyslain armand garmand@dfc-e.com
- *
- *
- * Version 1.0 25.09.08
- * Version 1.1 06.08.09
- * Add event click on Checkbox and Radio
- * Auto calculate the size of a select element
- * Can now, disabled the elements
- * Correct bug in ff if click on select (overflow=hidden)
- * 
- *
- * huement-ui only uses the select box parts of jqTransform
- * 
- ******************************************** */
- 
-(function($){
-	var defaultOptions = {preloadImg:true};
-	var jqTransformImgPreloaded = false;
-
-	var jqTransformPreloadHoverFocusImg = function(strImgUrl) {
-		//guillemets to remove for ie
-		strImgUrl = strImgUrl.replace(/^url\((.*)\)/,'$1').replace(/^\"(.*)\"$/,'$1');
-		var imgHover = new Image();
-		imgHover.src = strImgUrl.replace(/\.([a-zA-Z]*)$/,'-hover.$1');
-		var imgFocus = new Image();
-		imgFocus.src = strImgUrl.replace(/\.([a-zA-Z]*)$/,'-focus.$1');				
-	};
-
-	
-	/***************************
-	  Select Box Labels
-	***************************/
-	var jqTransformGetLabel = function(objfield){
-		var selfForm = $(objfield.get(0).form);
-		var oLabel = objfield.next();
-		if(!oLabel.is('label')) {
-			oLabel = objfield.prev();
-			if(oLabel.is('label')){
-				var inputname = objfield.attr('id');
-				if(inputname){
-					oLabel = selfForm.find('label[for="'+inputname+'"]');
-				} 
-			}
-		}
-		if(oLabel.is('label')){return oLabel.css('cursor','pointer');}
-		return false;
-	};
-	
-	/* Hide all open selects */
-	var jqTransformHideSelect = function(oTarget){
-		var ulVisible = $('.jqTransformSelectWrapper ul:visible');
-		ulVisible.each(function(){
-			var oSelect = $(this).parents(".jqTransformSelectWrapper:first").find("select").get(0);
-			//do not hide if click on the label object associated to the select
-			if( !(oTarget && oSelect.oLabel && oSelect.oLabel.get(0) == oTarget.get(0)) ){$(this).hide();}
-		});
-	};
-	/* Check for an external click */
-	var jqTransformCheckExternalClick = function(event) {
-		if ($(event.target).parents('.jqTransformSelectWrapper').length === 0) { jqTransformHideSelect($(event.target)); }
-	};
-
-	/* Apply document listener */
-	var jqTransformAddDocumentListener = function (){
-		$(document).mousedown(jqTransformCheckExternalClick);
-	};	
-			
-	/* Add a new handler for the reset action */
-	var jqTransformReset = function(f){
-		var sel;
-		$('.jqTransformSelectWrapper select', f).each(function(){sel = (this.selectedIndex<0) ? 0 : this.selectedIndex; $('ul', $(this).parent()).each(function(){$('a:eq('+ sel +')', this).click();});});
-	};
-	
-	
-	
-	/***************************
-	  Select 
-	 ***************************/	
-	$.fn.jqTransSelect = function(){
-		return this.each(function(index){
-			var $select = $(this);
-
-			if($select.hasClass('jqTransformHidden')) {return;}
-			if($select.attr('multiple')) {return;}
-
-			var oLabel  =  jqTransformGetLabel($select);
-			/* First thing we do is Wrap it */
-			var $wrapper = $select
-				.addClass('jqTransformHidden')
-				.wrap('<div class="jqTransformSelectWrapper"></div>')
-				.parent()
-				.css({zIndex: 10-index})
-			;
-			
-			/* Now add the html for the select */
-			$wrapper.prepend('<div><span></span><a href="#" class="jqTransformSelectOpen"></a></div><ul></ul>');
-			var $ul = $('ul', $wrapper).css('width',$select.width()).hide();
-			/* Now we add the options */
-			$('option', this).each(function(i){
-				var oLi = $('<li><a href="#" index="'+ i +'">'+ $(this).html() +'</a></li>');
-				$ul.append(oLi);
-			});
-			
-			/* Add click handler to the a */
-			$ul.find('a').click(function(){
-					$('a.selected', $wrapper).removeClass('selected');
-					$(this).addClass('selected');	
-					/* Fire the onchange event */
-					if ($select[0].selectedIndex != $(this).attr('index') && $select[0].onchange) { $select[0].selectedIndex = $(this).attr('index'); $select[0].onchange(); }
-					$select[0].selectedIndex = $(this).attr('index');
-					$('span:eq(0)', $wrapper).html($(this).html());
-					$ul.hide();
-					return false;
-			});
-			/* Set the default */
-			$('a:eq('+ this.selectedIndex +')', $ul).click();
-			$('span:first', $wrapper).click(function(){$("a.jqTransformSelectOpen",$wrapper).trigger('click');});
-			oLabel && oLabel.click(function(){$("a.jqTransformSelectOpen",$wrapper).trigger('click');});
-			this.oLabel = oLabel;
-			
-			/* Apply the click handler to the Open */
-			var oLinkOpen = $('a.jqTransformSelectOpen', $wrapper)
-				.click(function(){
-					//Check if box is already open to still allow toggle, but close all other selects
-					if( $ul.css('display') == 'none' ) {jqTransformHideSelect();} 
-					if($select.attr('disabled')){return false;}
-
-					$ul.slideToggle('fast', function(){					
-						var offSet = ($('a.selected', $ul).offset().top - $ul.offset().top);
-						$ul.animate({scrollTop: offSet});
-					});
-					return false;
-				})
-			;
-
-			// Set the new width
-			var iSelectWidth = $select.outerWidth();
-			var oSpan = $('span:first',$wrapper);
-			var newWidth = (iSelectWidth > oSpan.innerWidth())?iSelectWidth+oLinkOpen.outerWidth():$wrapper.width();
-			$wrapper.css('width',newWidth);
-			$ul.css('width',newWidth-2);
-			oSpan.css({width:iSelectWidth});
-		
-			// Calculate the height if necessary, less elements that the default height
-			//show the ul to calculate the block, if ul is not displayed li height value is 0
-			$ul.css({display:'block',visibility:'hidden'});
-			var iSelectHeight = ($('li',$ul).length)*($('li:first',$ul).height());//+1 else bug ff
-			(iSelectHeight < $ul.height()) && $ul.css({height:iSelectHeight,'overflow':'hidden'});//hidden else bug with ff
-			$ul.css({display:'none',visibility:'visible'});
-			
-		});
-	};
-	$.fn.jqTransform = function(options){
-		var opt = $.extend({},defaultOptions,options);
-		
-		/* each form */
-		 return this.each(function(){
-			var selfForm = $(this);
-			if(selfForm.hasClass('jqtransformdone')) {return;}
-			selfForm.addClass('jqtransformdone');
-						
-			if( $('select', this).jqTransSelect().length > 0 ){jqTransformAddDocumentListener();}
-			selfForm.bind('reset',function(){var action = function(){jqTransformReset(this);}; window.setTimeout(action, 10);});
-
-		}); /* End Form each */
-				
-	};/* End the Plugin */
-
-})(jQuery);
-	
-/**
- * jQuery.labelify - Display in-textbox hints
- * Stuart Langridge, http://www.kryogenix.org/
- * Released into the public domain
- * Date: 25th June 2008
- * @author Stuart Langridge
- * @version 1.3
- *
- *
- * Basic calling syntax: $("input").labelify();
- * Defaults to taking the in-field label from the field's title attribute
- *
- * You can also pass an options object with the following keys:
- *   text
- *     "title" to get the in-field label from the field's title attribute 
- *      (this is the default)
- *     "label" to get the in-field label from the inner text of the field's label
- *      (note that the label must be attached to the field with for="fieldid")
- *     a function which takes one parameter, the input field, and returns
- *      whatever text it likes
- *
- *   labelledClass
- *     a class that will be applied to the input field when it contains the
- *      label and removed when it contains user input. Defaults to blank.
- *  
- */
-jQuery.fn.labelify = function(settings) {
-  settings = jQuery.extend({
-    text: "title",
-    labelledClass: ""
-  }, settings);
-  var lookups = {
-    title: function(input) {
-      return $(input).attr("title");
-    },
-    label: function(input) {
-      return $("label[for=" + input.id +"]").text();
-    }
-  };
-  var lookup;
-  var jQuery_labellified_elements = $(this);
-  return $(this).each(function() {
-    if (typeof settings.text === "string") {
-      lookup = lookups[settings.text]; // what if not there?
-    } else {
-      lookup = settings.text; // what if not a fn?
-    };
-    // bail if lookup isn't a function or if it returns undefined
-    if (typeof lookup !== "function") { return; }
-    var lookupval = lookup(this);
-    if (!lookupval) { return; }
-
-    // need to strip newlines because the browser strips them
-    // if you set textbox.value to a string containing them    
-    $(this).data("label",lookup(this).replace(/\n/g,''));
-    $(this).focus(function() {
-      if (this.value === $(this).data("label")) {
-        this.value = this.defaultValue;
-        $(this).removeClass(settings.labelledClass);
-      }
-    }).blur(function(){
-      if (this.value === this.defaultValue) {
-        this.value = $(this).data("label");
-        $(this).addClass(settings.labelledClass);
-      }
-    });
-    
-    var removeValuesOnExit = function() {
-      jQuery_labellified_elements.each(function(){
-        if (this.value === $(this).data("label")) {
-          this.value = this.defaultValue;
-          $(this).removeClass(settings.labelledClass);
-        }
-      })
-    };
-    
-    $(this).parents("form").submit(removeValuesOnExit);
-    $(window).unload(removeValuesOnExit);
-    
-    if (this.value !== this.defaultValue) {
-      // user already started typing; don't overwrite their work!
-      return;
-    }
-    // actually set the value
-    this.value = $(this).data("label");
-    $(this).addClass(settings.labelledClass);
-
-  });
-};
-
 /*!
 // iPhone-style Checkboxes jQuery plugin
 // Copyright Thomas Reynolds, licensed GPL & MIT
@@ -1152,7 +906,7 @@ $.fn[iphoneStyle] = function(options) {
 }; // End of $.fn[iphoneStyle]
 
 $[iphoneStyle].defaults = {
-  duration:          200,                       // Time spent during slide animation
+  duration:          230,                       // Time spent during slide animation
   checkedLabel:      'ON',                      // Text content of "on" state
   uncheckedLabel:    'OFF',                     // Text content of "off" state
   resizeHandle:      true,                      // Automatically resize the handle to cover either label
