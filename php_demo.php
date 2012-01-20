@@ -5,7 +5,6 @@
 <title>huement-ui | server side setup</title>
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
-
 <link href="css/hui.darkHD.css" type="text/css" rel="stylesheet" />	
 
 <!-- demo Stylings:

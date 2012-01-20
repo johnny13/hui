@@ -5,8 +5,7 @@
 <title>huement-ui | server side setup</title>
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
-<link href="css/hui.darkHD.css" type="text/css" rel="stylesheet" />	
-
+<link href="css/hui.css" type="text/css" rel="stylesheet" />	
 <!-- demo Stylings:
 
 if you were using either of both of the widgets, 
@@ -63,13 +62,12 @@ ul#icons-social-small span.ui-icon { float: left; margin: 0 4px; }
 </style>
 <!-- required scripts -->
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.1.8.js"></script>
-<script type="text/javascript" src='js/hui.0.1.js'></script>
+<script type="text/javascript" src='js/hui.js'></script>
 <!-- example docready script -->
 <script type="text/javascript" src='js/docReady.js'></script>
 </head>
 <body>
-	<div class='theme_header'>
+<div class='theme_header'>
 		<div class="L">
 		<h1 style='margin-left:10px' ><a href='http://spectyle.huement.com/Li/builds/huementUI' title='huement-ui page'><img src='demo/huementUI_32.png' style='margin:3px 5px -3px 0px' /></a> |  A <a href='http://spectyle.huement.com' title='spectyle main page'><img src='demo/spectyle_logo_32.png' style='margin:-3px 5px -5px 0px' /></a> Plugin
 		</h1>
@@ -79,741 +77,136 @@ ul#icons-social-small span.ui-icon { float: left; margin: 0 4px; }
 			<a class='black' id='mainPageBtn' href='http://dev.huement.com/git/hui'>HUI Main Page</a> <a class='black' href='http://dev.huement.com/git/hui/download.php' style='margin-left:30px;'>Downloads</a> <a id='themeBtn' href='#' style='margin-left:30px;' class='black'>change theme</a>
 		</p>
 	</div>
-<div id="boxFix" style='padding-top:20px;'>
-<br/>
-	<!-- Tabs -->
-	<div id="tabs">
-		<ul style='width:100%'>
-			<li ><a href="#tabs-1"><span class="ui-icon-big bL ui-icon-huement-big check"></span>[Intro]</a></li>
-			<li><a href="#tabs-2"><span class="ui-icon-big bL ui-icon-document-b-big check"></span>[Forms]</a></li>
-			<li><a href="#tabs-3"><span class="ui-icon-big bL ui-icon-calendar-big check"></span>[Widgets]</a></li>
-			<li><a href="#tabs-4"><span class="ui-icon-big bL ui-icon-extlink-big check"></span>[Actions]</a></li>
-		</ul>
+<div id="container">
+<ul style='width:100%'>
+	<li ><a href="#tabs-1"><span class="ui-icon-big bL ui-icon-huement-big check"></span>[Intro]</a></li>
+	<li><a href="#tabs-2"><span class="ui-icon-big bL ui-icon-document-b-big check"></span>[Forms]</a></li>
+	<li><a href="#tabs-3"><span class="ui-icon-big bL ui-icon-calendar-big check"></span>[Widgets]</a></li>
+	<li><a href="#tabs-4"><span class="ui-icon-big bL ui-icon-extlink-big check"></span>[Actions]</a></li>
+</ul>
+		
 <!-- SPECTYLE UI - TAB ONE ******************************* -->
-		<div id="tabs-1">
-			<h1>what is <span class='hue'>huement-ui</span>?</h1>
-			<p>A jQuery based multi-media user interface.</p>
-			<p>Weaving several popular javascript elemenets into a cohesive easy to use framework for user interactions. Not just clicks and drags, it integrates Forms, Notifications, and ofcourse Audio and Visual playblack.</p><br/>
-			<h2>Best Features:</h2>
-			<ul style='font-size:18px;line-height:25px;font-weight:bold;'>
-			<li>Quick Color Changing! (hue button in the header)</li>
-			<li><a href='http://www.jplayer.org' target='blank'>jPlayer Support (HTML5 & Flash Audio/Video Player)</a></li>
-			<li>YouTube Video Player</li>
-			<li>Improved Button and Icon Functionality</li>
-			<li>Working Modal Themes (Highligh and Alert)</li>
-			<li><a href='http://plugins.jquery.com/project/jGrowl' target='blank'>jGrowl Notifications</a></li>
-			<li>Spectyle CSS Form Elements & Layouts</li>
-			<li>Image Pre-Loading (Automatically from css files and any declared)</li>
+	<div id="tabs-1">
+	<h1>what is <span class='hue'>huement-ui</span>?</h1>
+	<p>A jQuery based multi-media user interface.</p>
+	<p>Weaving several popular javascript elemenets into a cohesive easy to use framework for user interactions. Not just clicks and drags, it integrates Forms, Notifications, and ofcourse Audio and Visual playblack.</p><br/>
+	<h2>Best Features:</h2>
+	<ul style='font-size:18px;line-height:25px;font-weight:bold;'>
+	<li>Quick Color Changing! (hue button in the header)</li>
+	<li><a href='http://www.jplayer.org' target='blank'>jPlayer Support (HTML5 & Flash Audio/Video Player)</a></li>
+	<li>YouTube Video Player</li>
+	<li>Improved Button and Icon Functionality</li>
+	<li>Working Modal Themes (Highligh and Alert)</li>
+	<li><a href='http://plugins.jquery.com/project/jGrowl' target='blank'>jGrowl Notifications</a></li>
+	<li>Spectyle CSS Form Elements & Layouts</li>
+	<li>Image Pre-Loading (Automatically from css files and any declared)</li>
+	</ul>
+	</div>
+			
+<!-- HUI - TAB TWO ******************************************************** -->
+<div id="tabs-2">
+	<!-- Forms -->
+	<p>Here you will find all the common form elements, and how they look when using huement-ui. The actual select box requires you declare it somewhere in the doc ready. Other elemenets like input and text boxes are themed automatically by the css and jquery.</p>
+	<h2 class="demoHeaders">Autocomplete</h2>	
+	<p>do a little typing and watch as it guesses what country you're talk'n bout.</p><br/>
+	<div class="ui-widget">
+		<label>Type a Country</label>
+		<label for="countries" class="none">Brazil</label>
+		<input type='text' id="countries">
+	</div>
+	<br/><br/><br/>
+	<h2 class="demoHeaders">Common Input Fields</h2>
+	<p>Hidden Label Fields are used to provide the default text on the input boxes, along with a small bit of jquery to ensure the new value is saved and the label is reapplied if no text is entered.</p>
+	<p>
+		<label for="name" class='none'>name example</label><br />
+		<input type="text" name="name" id="name">
+	</p>
+	<h3>login example</h3>
+	<p>
+		<label for="email" class='none'>email address</label><label for="passw" class='none'>password example</label>
+		<input type="text" name="email" id="email">  <input type="password" name="passw" id="passw" />
+	</p>
+	<p style='display:block;clear:both;'>
+		<strong>Text Area</strong><br />
+		<textarea cols="32"></textarea>
+	</p>
+	<br/><br/>
+	<div id='checkbox'>
+	<h2>CheckBoxes</h2>
+	<p>This is a jQuery replacement for standard form checkboxes. All the styling is done via CSS. No images are used!</p><br /><br />
+	 <table>
+	    <tr class="disabled">
+	      <th><label for="disabled">Disabled</label></th>
+	      <td>
+	        <input type="checkbox" id="disabled" disabled="disabled" />
+	      </td>
+	    </tr>
+	    <tr class="on_off">
+	      <th><label for="on_off">Default</label></th>
+	      <td>
+	        <input type="checkbox" id="on_off" />
+	      </td>
+	    </tr>
+	    <tr class="on_off">
+	      <th><label for="on_off_on">Default On</label></th>
+	      <td>
+	        <input type="checkbox" checked="checked" id="on_off_on"/>
+	      </td>
+	    </tr>
+	    <tr class="onchange">
+	      <th>Event tracking</th>
+	      <td>
+	        <input type="checkbox" id="onchange" />
+	        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
+	      </td>
+	    </tr>
+	  </table>
+
+	</div>
+	<br /><br />
+	<p>
+	<strong>Sample File Upload</strong><br />
+	<input type="file" /> <br />
+	</p>
+	<br/><br />
+</div>
+			
+<!-- MODAL Theme Gallery -->
+<div id="theme_switcher" title="Color Shifting" style='display:none'>
+<h3>Here You Can Change the Theme.</h3>
+	<div class='theme' style='display:none'>
+		<div id='teaLeaf' class='themeSample'>
+			<ul class="icons-big ui-widget ui-helper-clearfix" style='width:100px'>
+			<li class="ui-state-default ui-corner-all ui-state-hover themecon">
+				<span class="ui-icon-big ui-icon-play-big"></span></li>
+			<li class="ui-state-default ui-corner-all themecon">
+				<span class="ui-icon-big ui-icon-pause-big"></span></li>
+			<br style='clear:both' />
+			<li class="ui-state-default ui-corner-all themecon">
+				<span class="ui-icon-big ui-icon-stop-big"></span></li>
+			<li class="ui-state-default ui-corner-all ui-state-hover themecon">
+				<span class="ui-icon-big ui-icon-seek-next-big"></span></li>
 			</ul>
-			<p>Navigate around to see what each elemenet looks like. The tabs break the user interface into managable bits. Below this main set of tabs you'll find even more widgets that extend the native ability of the basic user interface.</p><br /><br />
-				<div style="position: relative; width: 70%; height: 200px; padding:1% 4%; overflow:hidden;margin:0 0 0 20px;border:1px solid #000" class="fakewindowcontain">
-					<p>Lorem <span class='hue'>ipsum dolor<span> sit amet,  Nulla nec tortor. Donec id elit quis purus consectetur consequat. </p><p>Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. <span class='hue'>Suspendisse scelerisque dui </span>nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. </p><p>Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus. <span class='hue'>lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede</span>. Nulla nec tortor. Donec id elit quis purus consectetur consequat. </p><p>Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. <span class='hue'>Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem</span>. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. </p><p>Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat. Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. </p><p>Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat. Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. </p>
-					
-					<!-- ui-dialog -->
-					<div class="ui-overlay"><div class="ui-widget-overlay"></div><div class="ui-widget-shadow ui-corner-all" style="width: 302px; height: 152px; position: absolute; left: 50px; top: 30px;"></div></div>
-					<div style="position: absolute; width: 280px; height: 130px;left: 50px; top: 30px; padding: 10px; overflow:hidden;" class="ui-widget ui-widget-content ui-corner-all">
-						<div class="ui-dialog-content ui-widget-content" style="background: none; border: 0;">
-							<p><span class='hue'>Lorem ipsum dolor </span>sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-					</div>
-			
-				</div>
-					<br/>
-			</div>
-			
-			<!-- HUI - TAB TWO ******************************************************** -->
-			<div id="tabs-2">
-				<!-- Forms -->
-				<p>Here you will find all the common form elements, and how they look when using huement-ui. The actual select box requires you declare it somewhere in the doc ready. Other elemenets like input and text boxes are themed automatically by the css and jquery.</p>
-				<h2 class="demoHeaders">Autocomplete</h2>	
-				<p>do a little typing and watch as it guesses what country you're talk'n bout.</p><br/>
-				<div class="ui-widget">
-					<label>Type a Country</label>
-					<label for="countries" class="none">Brazil</label>
-					<input type='text' id="countries">
-				</div>
-				<br/><br/><br/>
-				<h2 class="demoHeaders">Common Input Fields</h2>
-				<p>Hidden Label Fields are used to provide the default text on the input boxes, along with a small bit of jquery to ensure the new value is saved and the label is reapplied if no text is entered.</p>
-				<p>
-					<label for="name" class='none'>name example</label><br />
-					<input type="text" name="name" id="name">
-				</p>
-				<h3>login example</h3>
-				<p>
-					<label for="email" class='none'>email address</label><label for="passw" class='none'>password example</label>
-					<input type="text" name="email" id="email">  <input type="password" name="passw" id="passw" />
-				</p>
-				<p style='display:block;clear:both;'>
-					<strong>Text Area</strong><br />
-					<textarea cols="32"></textarea>
-				</p>
-				<br/><br/>
-				<div id='checkbox'>
-				<h2>CheckBoxes</h2>
-				<p>This is a jQuery replacement for standard form checkboxes. All the styling is done via CSS. No images are used!</p><br /><br />
-				 <table>
-				    <tr class="disabled">
-				      <th><label for="disabled">Disabled</label></th>
-				      <td>
-				        <input type="checkbox" id="disabled" disabled="disabled" />
-				      </td>
-				    </tr>
-				    <tr class="on_off">
-				      <th><label for="on_off">Default</label></th>
-				      <td>
-				        <input type="checkbox" id="on_off" />
-				      </td>
-				    </tr>
-				    <tr class="on_off">
-				      <th><label for="on_off_on">Default On</label></th>
-				      <td>
-				        <input type="checkbox" checked="checked" id="on_off_on"/>
-				      </td>
-				    </tr>
-				    <tr class="onchange">
-				      <th>Event tracking</th>
-				      <td>
-				        <input type="checkbox" id="onchange" />
-				        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
-				      </td>
-				    </tr>
-				  </table>
-
-				</div>
-				<br /><br />
-				<p>
-				<strong>Sample File Upload</strong><br />
-				<input type="file" /> <br />
-				</p>
-				<br/><br />
-			</div>
-			
-			<!-- HUI - TAB THREE ****************************************************** -->
-			<div id="tabs-3">
-				<!-- Accordion -->
-				<h2 class="color">Huement Widgets</h2>
-				<br/>
-
-				<div style="height:10px;clear:both;display:block"></div>
-				<!-- Datepicker -->
-				<h2 class="demoHeaders">Datepicker</h2>
-				<div id="datepicker"></div>
-
-				<!-- Progress Bar -->
-				<h2 class="demoHeaders">Progress Bar</h2>
-				<div id="progressbar"></div>
-				<div style='height:20px'></div>
-				<div id="progressbar_thick" style='height:50px'></div>
-				<br />
-				<button id="animateProgress" href="#">Animate to random number</button>
-
-				<br /><br />
-				<!-- Button --><br/>
-				<h2 class="demoHeaders">buttons</h2>	
-				<p>Combining both the jquery-ui button element and the css3 &lt;button&gt; tag, you can easily theme all your clickable elements. These examples are plain text or using standard size icons.</p>
-				<br/>
-				<div id="divButton">&lt;DIV&gt; Button</div>
-
-				<!-- Icon Buttons -->
-				<h2 class="demoHeaders">Standard Icon Buttons</h2>
-				<div id="leftIconButton">Left Icon</div> <br /><br />
-				<div id="bothIconButton">Left & Right Icons</div>
-				<br /><br />
-				<!-- BIG Icon Buttons -->
-				<h2 class="demoHeaders">BIG Icon Buttons</h2>	
-				<p style='line-height:24px'>Creating a large button How To:</p>
-				<ul>
-				<li>declare button. add class <b>"ui-bigBtn"</b> to the desired containter.</li>
-				<li>add the class <b>"bigBtnTxt"</b> to the button's text. (for shadow)</li>
-				<li>optionally, add icon and pick which side ie: <b>class='ui-icon-big ui-icon-star-big bL'</b></li>
-				</ul>
-				<br />
-
-				<div id='shout_btn'>comment-big
-				</div>
-				<br />
-				<div id="star_btn"style='margin-top:20px'>star-big
-				</div>
-				<h2>resulting star button</h2>
-				<pre>
-[div id="star_btn" style="margin-top:20px" 
-class="ui-button ui-widget ui-state-default ui-corner-all ui-button-big" 
-role="button"]
-[span class="ui-button-text"]
-[/span]
-[span class="ui-icon-big ui-icon-star-big"]
-[/span][/div]			
-				</pre>
-				<br />
-				<!-- Button Set -->
-				<h2 class="demoHeaders">Button Toggle</h2>	
-				<div id="radio1">
-					<input type="radio" id="radio1" name="radio" /><label for="radio1">Choice 1</label>
-					<input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">Choice 2</label>
-					<input type="radio" id="radio3" name="radio" /><label for="radio3">Choice 3</label>
-				</div>
-				<br /><br />
-				<h2 class="demoHeaders">Framework Icons</h2>
-				<span>This is an Example of All the Common jQuery-UI Icons they provide. They have the css corners and work excellent for all your button needs. However, the only size provided is rather small for most users.</span>
-				<br /> <br />
-				<ul id="icons" class="ui-widget ui-helper-clearfix">
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-n"><span class="ui-icon ui-icon-carat-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-ne"><span class="ui-icon ui-icon-carat-1-ne"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-e"><span class="ui-icon ui-icon-carat-1-e"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-se"><span class="ui-icon ui-icon-carat-1-se"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-s"><span class="ui-icon ui-icon-carat-1-s"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-sw"><span class="ui-icon ui-icon-carat-1-sw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-w"><span class="ui-icon ui-icon-carat-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-1-nw"><span class="ui-icon ui-icon-carat-1-nw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-2-n-s"><span class="ui-icon ui-icon-carat-2-n-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-carat-2-e-w"><span class="ui-icon ui-icon-carat-2-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-n"><span class="ui-icon ui-icon-triangle-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-ne"><span class="ui-icon ui-icon-triangle-1-ne"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-e"><span class="ui-icon ui-icon-triangle-1-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-se"><span class="ui-icon ui-icon-triangle-1-se"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-s"><span class="ui-icon ui-icon-triangle-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-sw"><span class="ui-icon ui-icon-triangle-1-sw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-w"><span class="ui-icon ui-icon-triangle-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-1-nw"><span class="ui-icon ui-icon-triangle-1-nw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-2-n-s"><span class="ui-icon ui-icon-triangle-2-n-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-triangle-2-e-w"><span class="ui-icon ui-icon-triangle-2-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-n"><span class="ui-icon ui-icon-arrow-1-n"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-ne"><span class="ui-icon ui-icon-arrow-1-ne"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-e"><span class="ui-icon ui-icon-arrow-1-e"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-se"><span class="ui-icon ui-icon-arrow-1-se"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-s"><span class="ui-icon ui-icon-arrow-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-sw"><span class="ui-icon ui-icon-arrow-1-sw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-w"><span class="ui-icon ui-icon-arrow-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-1-nw"><span class="ui-icon ui-icon-arrow-1-nw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-2-n-s"><span class="ui-icon ui-icon-arrow-2-n-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-2-ne-sw"><span class="ui-icon ui-icon-arrow-2-ne-sw"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-2-e-w"><span class="ui-icon ui-icon-arrow-2-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-2-se-nw"><span class="ui-icon ui-icon-arrow-2-se-nw"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-1-n"><span class="ui-icon ui-icon-arrowstop-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-1-e"><span class="ui-icon ui-icon-arrowstop-1-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-1-s"><span class="ui-icon ui-icon-arrowstop-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-1-w"><span class="ui-icon ui-icon-arrowstop-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-n"><span class="ui-icon ui-icon-arrowthick-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-ne"><span class="ui-icon ui-icon-arrowthick-1-ne"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-e"><span class="ui-icon ui-icon-arrowthick-1-e"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-se"><span class="ui-icon ui-icon-arrowthick-1-se"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-s"><span class="ui-icon ui-icon-arrowthick-1-s"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-sw"><span class="ui-icon ui-icon-arrowthick-1-sw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-w"><span class="ui-icon ui-icon-arrowthick-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-1-nw"><span class="ui-icon ui-icon-arrowthick-1-nw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-2-n-s"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-2-ne-sw"><span class="ui-icon ui-icon-arrowthick-2-ne-sw"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-2-e-w"><span class="ui-icon ui-icon-arrowthick-2-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthick-2-se-nw"><span class="ui-icon ui-icon-arrowthick-2-se-nw"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthickstop-1-n"><span class="ui-icon ui-icon-arrowthickstop-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthickstop-1-e"><span class="ui-icon ui-icon-arrowthickstop-1-e"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthickstop-1-s"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowthickstop-1-w"><span class="ui-icon ui-icon-arrowthickstop-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturnthick-1-w"><span class="ui-icon ui-icon-arrowreturnthick-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturnthick-1-n"><span class="ui-icon ui-icon-arrowreturnthick-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturnthick-1-e"><span class="ui-icon ui-icon-arrowreturnthick-1-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturnthick-1-s"><span class="ui-icon ui-icon-arrowreturnthick-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturn-1-w"><span class="ui-icon ui-icon-arrowreturn-1-w"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturn-1-n"><span class="ui-icon ui-icon-arrowreturn-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturn-1-e"><span class="ui-icon ui-icon-arrowreturn-1-e"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowreturn-1-s"><span class="ui-icon ui-icon-arrowreturn-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowrefresh-1-w"><span class="ui-icon ui-icon-arrowrefresh-1-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowrefresh-1-n"><span class="ui-icon ui-icon-arrowrefresh-1-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowrefresh-1-e"><span class="ui-icon ui-icon-arrowrefresh-1-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowrefresh-1-s"><span class="ui-icon ui-icon-arrowrefresh-1-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-4"><span class="ui-icon ui-icon-arrow-4"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-4-diag"><span class="ui-icon ui-icon-arrow-4-diag"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-extlink"><span class="ui-icon ui-icon-extlink"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-newwin"><span class="ui-icon ui-icon-newwin"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-refresh"><span class="ui-icon ui-icon-refresh"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-shuffle"><span class="ui-icon ui-icon-shuffle"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-transfer-e-w"><span class="ui-icon ui-icon-transfer-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-transferthick-e-w"><span class="ui-icon ui-icon-transferthick-e-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-folder-collapsed"><span class="ui-icon ui-icon-folder-collapsed"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-folder-open"><span class="ui-icon ui-icon-folder-open"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-document"><span class="ui-icon ui-icon-document"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-document-b"><span class="ui-icon ui-icon-document-b"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-note"><span class="ui-icon ui-icon-note"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-mail-closed"><span class="ui-icon ui-icon-mail-closed"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-mail-open"><span class="ui-icon ui-icon-mail-open"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-suitcase"><span class="ui-icon ui-icon-suitcase"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-comment"><span class="ui-icon ui-icon-comment"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-person"><span class="ui-icon ui-icon-person"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-print"><span class="ui-icon ui-icon-print"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-trash"><span class="ui-icon ui-icon-trash"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-locked"><span class="ui-icon ui-icon-locked"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-unlocked"><span class="ui-icon ui-icon-unlocked"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-bookmark"><span class="ui-icon ui-icon-bookmark"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-tag"><span class="ui-icon ui-icon-tag"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-home"><span class="ui-icon ui-icon-home"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-flag"><span class="ui-icon ui-icon-flag"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-calculator"><span class="ui-icon ui-icon-calculator"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-cart"><span class="ui-icon ui-icon-cart"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pencil"><span class="ui-icon ui-icon-pencil"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-clock"><span class="ui-icon ui-icon-clock"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-disk"><span class="ui-icon ui-icon-disk"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-calendar"><span class="ui-icon ui-icon-calendar"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-zoomin"><span class="ui-icon ui-icon-zoomin"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-zoomout"><span class="ui-icon ui-icon-zoomout"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-search"><span class="ui-icon ui-icon-search"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-wrench"><span class="ui-icon ui-icon-wrench"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-gear"><span class="ui-icon ui-icon-gear"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-heart"><span class="ui-icon ui-icon-heart"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-star"><span class="ui-icon ui-icon-star"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-link"><span class="ui-icon ui-icon-link"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-cancel"><span class="ui-icon ui-icon-cancel"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-plus"><span class="ui-icon ui-icon-plus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-plusthick"><span class="ui-icon ui-icon-plusthick"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-minus"><span class="ui-icon ui-icon-minus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-minusthick"><span class="ui-icon ui-icon-minusthick"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-close"><span class="ui-icon ui-icon-close"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-closethick"><span class="ui-icon ui-icon-closethick"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-key"><span class="ui-icon ui-icon-key"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-lightbulb"><span class="ui-icon ui-icon-lightbulb"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-scissors"><span class="ui-icon ui-icon-scissors"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-clipboard"><span class="ui-icon ui-icon-clipboard"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-copy"><span class="ui-icon ui-icon-copy"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-contact"><span class="ui-icon ui-icon-contact"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-image"><span class="ui-icon ui-icon-image"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-video"><span class="ui-icon ui-icon-video"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-script"><span class="ui-icon ui-icon-script"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-alert"><span class="ui-icon ui-icon-alert"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-info"><span class="ui-icon ui-icon-info"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-notice"><span class="ui-icon ui-icon-notice"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-help"><span class="ui-icon ui-icon-help"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-check"><span class="ui-icon ui-icon-check"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-bullet"><span class="ui-icon ui-icon-bullet"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-radio-off"><span class="ui-icon ui-icon-radio-off"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-radio-on"><span class="ui-icon ui-icon-radio-on"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pin-w"><span class="ui-icon ui-icon-pin-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pin-s"><span class="ui-icon ui-icon-pin-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-play"><span class="ui-icon ui-icon-play"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pause"><span class="ui-icon ui-icon-pause"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-next"><span class="ui-icon ui-icon-seek-next"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-prev"><span class="ui-icon ui-icon-seek-prev"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-end"><span class="ui-icon ui-icon-seek-end"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-first"><span class="ui-icon ui-icon-seek-first"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-stop"><span class="ui-icon ui-icon-stop"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-eject"><span class="ui-icon ui-icon-eject"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-volume-off"><span class="ui-icon ui-icon-volume-off"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-volume-on"><span class="ui-icon ui-icon-volume-on"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-power"><span class="ui-icon ui-icon-power"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-signal-diag"><span class="ui-icon ui-icon-signal-diag"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-signal"><span class="ui-icon ui-icon-signal"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-0"><span class="ui-icon ui-icon-battery-0"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-1"><span class="ui-icon ui-icon-battery-1"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-2"><span class="ui-icon ui-icon-battery-2"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-3"><span class="ui-icon ui-icon-battery-3"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-plus"><span class="ui-icon ui-icon-circle-plus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-minus"><span class="ui-icon ui-icon-circle-minus"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-close"><span class="ui-icon ui-icon-circle-close"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-e"><span class="ui-icon ui-icon-circle-triangle-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-s"><span class="ui-icon ui-icon-circle-triangle-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-w"><span class="ui-icon ui-icon-circle-triangle-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-n"><span class="ui-icon ui-icon-circle-triangle-n"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-e"><span class="ui-icon ui-icon-circle-arrow-e"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-s"><span class="ui-icon ui-icon-circle-arrow-s"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-w"><span class="ui-icon ui-icon-circle-arrow-w"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-n"><span class="ui-icon ui-icon-circle-arrow-n"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-zoomin"><span class="ui-icon ui-icon-circle-zoomin"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-zoomout"><span class="ui-icon ui-icon-circle-zoomout"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-check"><span class="ui-icon ui-icon-circle-check"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-plus"><span class="ui-icon ui-icon-circlesmall-plus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-minus"><span class="ui-icon ui-icon-circlesmall-minus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-close"><span class="ui-icon ui-icon-circlesmall-close"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-plus"><span class="ui-icon ui-icon-squaresmall-plus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-minus"><span class="ui-icon ui-icon-squaresmall-minus"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-close"><span class="ui-icon ui-icon-squaresmall-close"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-dotted-vertical"><span class="ui-icon ui-icon-grip-dotted-vertical"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-dotted-horizontal"><span class="ui-icon ui-icon-grip-dotted-horizontal"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-solid-vertical"><span class="ui-icon ui-icon-grip-solid-vertical"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-solid-horizontal"><span class="ui-icon ui-icon-grip-solid-horizontal"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-gripsmall-diagonal-se"><span class="ui-icon ui-icon-gripsmall-diagonal-se"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-diagonal-se"><span class="ui-icon ui-icon-grip-diagonal-se"></span></li>
-				</ul>
-				<br/><br/><h2>Special Large Icons!</h2>
-				<p>This is an add-on to the standard jQuery-Ui icon widget. To use it, simply add "-big" to any standard icon class. For instance, <b>".ui-icon-bookmark"</b> becomes <b>".ui-icon-bookmark-big"</b>. Couldn't be simplier! Plus, with these new 32 X 32 pixel icons, you can get a little more detail. Custom icon themes come with each theme. Mix and match till you drop.</p><br/>
-				<ul id="icons-big" class="ui-widget ui-helper-clearfix">
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-n-big"><span class="ui-icon-big ui-icon-arrow-n-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-ne-big"><span class="ui-icon-big ui-icon-arrow-ne-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-e-big"><span class="ui-icon-big ui-icon-arrow-e-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-se-big"><span class="ui-icon-big ui-icon-arrow-se-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-s-big"><span class="ui-icon-big ui-icon-arrow-s-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-sw-big"><span class="ui-icon-big ui-icon-arrow-sw-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-w-big"><span class="ui-icon-big ui-icon-arrow-w-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-nw-big"><span class="ui-icon-big ui-icon-arrow-nw-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-n-s-big"><span class="ui-icon-big ui-icon-arrow-n-s-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-ne-sw-big"><span class="ui-icon-big ui-icon-arrow-ne-sw-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-e-w-big"><span class="ui-icon-big ui-icon-arrow-e-w-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-se-nw-big"><span class="ui-icon-big ui-icon-arrow-se-nw-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-n-big"><span class="ui-icon-big ui-icon-arrowstop-n-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-e-big"><span class="ui-icon-big ui-icon-arrowstop-e-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-s-big"><span class="ui-icon-big ui-icon-arrowstop-s-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrowstop-w-big"><span class="ui-icon-big ui-icon-arrowstop-w-big"></span></li>
-
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-refresh-big"><span class="ui-icon-big ui-icon-arrow-refres-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-diag-max-big"><span class="ui-icon-big ui-icon-arrow-diag-max-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-arrow-diag-fresh-big"><span class="ui-icon-big ui-icon-arrow-diag-fresh-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-folder-collapsed-big"><span class="ui-icon-big ui-icon-folder-collapsed-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-folder-open-big"><span class="ui-icon-big ui-icon-folder-open-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-document-big"><span class="ui-icon-big ui-icon-document-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-document-b-big"><span class="ui-icon-big ui-icon-document-b-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-note-big"><span class="ui-icon-big ui-icon-note-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-mail-closed-big"><span class="ui-icon-big ui-icon-mail-closed-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-mail-open-big"><span class="ui-icon-big ui-icon-mail-open-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-suitcase-big"><span class="ui-icon-big ui-icon-suitcase-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-comment-big"><span class="ui-icon-big ui-icon-comment-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-person-big"><span class="ui-icon-big ui-icon-person-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-print-big"><span class="ui-icon-big ui-icon-print-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-trash-big"><span class="ui-icon-big ui-icon-trash-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-locked-big"><span class="ui-icon-big ui-icon-locked-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-unlocked-big"><span class="ui-icon-big ui-icon-unlocked-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-bookmark-big"><span class="ui-icon-big ui-icon-bookmark-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-tag-big"><span class="ui-icon-big ui-icon-tag-big"></span></li>
-
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-home-big"><span class="ui-icon-big ui-icon-home-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-flag-big"><span class="ui-icon-big ui-icon-flag-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-calculator-big"><span class="ui-icon-big ui-icon-calculator-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-cart-big"><span class="ui-icon-big ui-icon-cart-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pencil-big"><span class="ui-icon-big ui-icon-pencil-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-clock-big"><span class="ui-icon-big ui-icon-clock-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-disk-big"><span class="ui-icon-big ui-icon-disk-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-calendar-big"><span class="ui-icon-big ui-icon-calendar-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-zoomin-big"><span class="ui-icon-big ui-icon-zoomin-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-zoomout-big"><span class="ui-icon-big ui-icon-zoomout-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-search-big"><span class="ui-icon-big ui-icon-search-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-wrench-big"><span class="ui-icon-big ui-icon-wrench-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-gear-big"><span class="ui-icon-big ui-icon-gear-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-heart-big"><span class="ui-icon-big ui-icon-heart-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-star-big"><span class="ui-icon-big ui-icon-star-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-link-big"><span class="ui-icon-big ui-icon-link-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-cancel-big"><span class="ui-icon-big ui-icon-cancel-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-plus-big"><span class="ui-icon-big ui-icon-plus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-plusthick-big"><span class="ui-icon-big ui-icon-plusthick-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-minus-big"><span class="ui-icon-big ui-icon-minus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-minusthick-big"><span class="ui-icon-big ui-icon-minusthick-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-close-big"><span class="ui-icon-big ui-icon-close-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-closethick-big"><span class="ui-icon-big ui-icon-closethick-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-key-big"><span class="ui-icon-big ui-icon-key-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-lightbulb-big"><span class="ui-icon-big ui-icon-lightbulb-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-scissors-big"><span class="ui-icon-big ui-icon-scissors-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-clipboard-big"><span class="ui-icon-big ui-icon-clipboard-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-copy-big"><span class="ui-icon-big ui-icon-copy-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-contact-big"><span class="ui-icon-big ui-icon-contact-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-image-big"><span class="ui-icon-big ui-icon-image-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-video-big"><span class="ui-icon-big ui-icon-video-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-script-big"><span class="ui-icon-big ui-icon-script-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-alert-big"><span class="ui-icon-big ui-icon-alert-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-info-big"><span class="ui-icon-big ui-icon-info-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-notice-big"><span class="ui-icon-big ui-icon-notice-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-help-big"><span class="ui-icon-big ui-icon-help-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-check-big"><span class="ui-icon-big ui-icon-check-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-bullet-big"><span class="ui-icon-big ui-icon-bullet-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-radio-off-big"><span class="ui-icon-big ui-icon-radio-off-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-radio-on-big"><span class="ui-icon-big ui-icon-radio-on-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pin-w-big"><span class="ui-icon-big ui-icon-pin-w-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pin-s-big"><span class="ui-icon-big ui-icon-pin-s-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-play-big"><span class="ui-icon-big ui-icon-play-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-pause-big"><span class="ui-icon-big ui-icon-pause-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-next-big"><span class="ui-icon-big ui-icon-seek-next-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-prev-big"><span class="ui-icon-big ui-icon-seek-prev-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-end-big"><span class="ui-icon-big ui-icon-seek-end-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-seek-first-big"><span class="ui-icon-big ui-icon-seek-first-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-stop-big"><span class="ui-icon-big ui-icon-stop-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-eject-big"><span class="ui-icon-big ui-icon-eject-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-volume-off-big"><span class="ui-icon-big ui-icon-volume-off-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-volume-on-big"><span class="ui-icon-big ui-icon-volume-on-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-replay-big"><span class="ui-icon-big ui-icon-replay-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-shuffle-big"><span class="ui-icon-big ui-icon-shuffle-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-power-big"><span class="ui-icon-big ui-icon-power-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-signal-diag-big"><span class="ui-icon-big ui-icon-signal-diag-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-signal-big"><span class="ui-icon-big ui-icon-signal-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-0-big"><span class="ui-icon-big ui-icon-battery-0-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-1-big"><span class="ui-icon-big ui-icon-battery-1-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-2-big"><span class="ui-icon-big ui-icon-battery-2-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-battery-3-big"><span class="ui-icon-big ui-icon-battery-3-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-plus-big"><span class="ui-icon-big ui-icon-circle-plus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-minus-big"><span class="ui-icon-big ui-icon-circle-minus-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-replay-big"><span class="ui-icon-big ui-icon-replay-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-shuffle-big"><span class="ui-icon-big ui-icon-shuffle-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-e-big"><span class="ui-icon-big ui-icon-circle-triangle-e-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-s-big"><span class="ui-icon-big ui-icon-circle-triangle-s-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-w-big"><span class="ui-icon-big ui-icon-circle-triangle-w-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-triangle-n-big"><span class="ui-icon-big ui-icon-circle-triangle-n-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-e-big"><span class="ui-icon-big ui-icon-circle-arrow-e-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-s-big"><span class="ui-icon-big ui-icon-circle-arrow-s-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-w-big"><span class="ui-icon-big ui-icon-circle-arrow-w-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-arrow-n-big"><span class="ui-icon-big ui-icon-circle-arrow-n-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-zoomin-big"><span class="ui-icon-big ui-icon-circle-zoomin-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-zoomout-big"><span class="ui-icon-big ui-icon-circle-zoomout-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circle-check-big"><span class="ui-icon-big ui-icon-circle-check-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-plus-big"><span class="ui-icon-big ui-icon-circlesmall-plus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-minus-big"><span class="ui-icon-big ui-icon-circlesmall-minus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-circlesmall-close-big"><span class="ui-icon-big ui-icon-circlesmall-close-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-plus-big"><span class="ui-icon-big ui-icon-squaresmall-plus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-minus-big"><span class="ui-icon-big ui-icon-squaresmall-minus-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-squaresmall-close-big"><span class="ui-icon-big ui-icon-squaresmall-close-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-dotted-vertical-big"><span class="ui-icon-big ui-icon-grip-dotted-vertical-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-dotted-horizontal-big"><span class="ui-icon-big ui-icon-grip-dotted-horizontal-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-solid-vertical-big"><span class="ui-icon-big ui-icon-grip-solid-vertical-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-solid-horizontal-big"><span class="ui-icon-big ui-icon-grip-solid-horizontal-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-gripsmall-diagonal-se-big"><span class="ui-icon-big ui-icon-gripsmall-diagonal-se-big"></span></li>
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-grip-diagonal-se-big"><span class="ui-icon-big ui-icon-grip-diagonal-se-big"></span></li>
-				</ul>
-
-				<br/>
-				<h2>BONUS: Social Icons!</h2>
-				<p>These Icons are found in the <b>"-big"</b> version and regular size <b>".ui-button"</b>. They feature some of the most popular social networking icons you would need for most of your social network projects or designs.</p><br/>
-
-				<ul id="icons-social-small" class="ui-widget ui-helper-clearfix">
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-twitter"><span class="ui-icon ui-icon-twitter"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-lastfm"><span class="ui-icon ui-icon-lastfm"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-wordpress"><span class="ui-icon ui-icon-wordpress"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-delicious"><span class="ui-icon ui-icon-delicious"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-reddit"><span class="ui-icon ui-icon-reddit"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-linkin"><span class="ui-icon ui-icon-linkin"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-deviant"><span class="ui-icon ui-icon-deviant"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-openid"><span class="ui-icon ui-icon-openid"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-picasa"><span class="ui-icon ui-icon-picasa"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-stumble"><span class="ui-icon ui-icon-stumble"></span></li>
-
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-twitter-bird"><span class="ui-icon ui-icon-twitter-bird"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-apple"><span class="ui-icon ui-icon-apple"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-digg"><span class="ui-icon ui-icon-digg"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-facebook"><span class="ui-icon ui-icon-facebook"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-google"><span class="ui-icon ui-icon-google"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-youtube"><span class="ui-icon ui-icon-youtube"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-yahoo"><span class="ui-icon ui-icon-yahoo"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-tumblr"><span class="ui-icon ui-icon-tumblr"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-flickr"><span class="ui-icon ui-icon-flickr"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-rss"><span class="ui-icon ui-icon-rss"></span></li>
-
-				</ul>
-
-				<br/>
-
-
-				<ul id="icons-social" class="ui-widget ui-helper-clearfix">
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-twitter-big"><span class="ui-icon-big ui-icon-twitter-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-lastfm-big"><span class="ui-icon-big ui-icon-lastfm-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-wordpress-big"><span class="ui-icon-big ui-icon-wordpress-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-delicious-big"><span class="ui-icon-big ui-icon-delicious-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-reddit-big"><span class="ui-icon-big ui-icon-reddit-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-linkin-big"><span class="ui-icon-big ui-icon-linkin-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-deviant-big"><span class="ui-icon-big ui-icon-deviant-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-openid-big"><span class="ui-icon-big ui-icon-openid-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-picasa-big"><span class="ui-icon-big ui-icon-picasa-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-stumble-big"><span class="ui-icon-big ui-icon-stumble-big"></span></li>
-
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-twitter-bird-big"><span class="ui-icon-big ui-icon-twitter-bird-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-apple-big"><span class="ui-icon-big ui-icon-apple-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-digg-big"><span class="ui-icon-big ui-icon-digg-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-facebook-big"><span class="ui-icon-big ui-icon-facebook-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-google-big"><span class="ui-icon-big ui-icon-google-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-youtube-big"><span class="ui-icon-big ui-icon-youtube-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-yahoo-big"><span class="ui-icon-big ui-icon-yahoo-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-tumblr-big"><span class="ui-icon-big ui-icon-tumblr-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-flickr-big"><span class="ui-icon-big ui-icon-flickr-big"></span></li>
-
-				<li class="ui-state-default ui-corner-all" title=".ui-icon-rss-big"><span class="ui-icon-big ui-icon-rss-big"></span></li>
-
-				</ul>
-			</div><!-- END TAB THREE -->
-		
-			<!-- HUI - TAB FOUR ****************************************************** -->			
-			<div id="tabs-4">
-				<!-- actions -->
-				<h2 class="demoHeaders">Modal Dialog</h2>
-				<div id="dialog_link">Open Modal Dialog</div>
-
-				<h2 class="demoHeaders">jGrowl Dialog</h2>
-				<button id='jGrowlMsgBtn'>jGrowl Random Message</button>
-
-				<!-- ui-dialog -->
-				<div id="dialog" title="Your Dialog's Title">
-					<h3>Hey, Did you know you can DRAG this window about?</h3>
-					<h4>You Do Now.</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-					<a href="#" id="buttonInModal" class="uibutton">Change</a>
-				</div>
-					<!-- Horizontal Slider -->
-				<h2 class="demoHeaders">Horizontal Slider</h2>
-				<div id="horizSlider"></div>
-
-				<!-- Vertical Slider -->
-				<h2 class="demoHeaders">Vertical Slider</h2>
-				<div class="columnbox">
-					<div id="eq">
-						<span>88</span>
-						<span>77</span>
-						<span>55</span>
-						<span>33</span>
-						<span>40</span>
-						<span>45</span>
-						<span>70</span>
-					</div>
-				</div>
-				<br clear="all" />
-
-				<!-- Highlight / Error -->
-				<h2 class="demoHeaders">Highlight / Error</h2>
-				<div class="ui-widget">
-					<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 10px;background-color:#a5e5ee"> 
-						<p style='margin-top:0'><span class="ui-icon-big ui-icon-notice-big" style="float: left; margin-right: .7em;"></span>
-						<strong>Did you know:</strong> Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
-					</div><br/>
-					<button id='modalHighlight' class="ui-widget" style='margin-left:100px'>Dialog Highlight example</button>
-				</div>
-				<br/>
-				<div class="ui-widget">
-					<div class="ui-state-error ui-corner-all" style="padding:10px;"> 
-						<p style='margin-top:0'><span class="ui-icon-big ui-icon-alert-big" style="float: left; margin-right: .7em;"></span> 
-						<strong>Error:</strong> Needs more cowbell. </p>
-					</div>
-				</div><br/>
-
-				<button id='modalError' class="ui-widget" style='margin-left:100px'>Dialog ERROR! example</button>
-				<br/><br/>
-				<!-- MODAL SHITS -->
-				<div id="modalHighlight_dialog" class='highlight' style='display:none'>
-					<h3>This Is an Example of the Highlight Theme applied to the dialog widget</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
-					<button id='modalHighlightClose' style='width:150px;position:relative;margin-left:110px;' class='highlight'>understood!</button>
-				</div>
-				<div id="modalError_dialog" class='error' style='display:none'>
-					<h1>Oh Snap!</h1>
-					<p>This is what an error message would look like. if you apply the class='error' to your dialog container.</p><br/>
-					<button id='modalErrorClose' style='width:150px;position:relative;margin-left:160px;' class='error'>Alerted!</button>
-				</div>
-				<!-- -->
-			</div><!-- END TAB FOUR -->
-			
-		
-	</div><!-- END TABS -->
-			<!-- MODAL Theme Gallery -->
-			<div id="theme_switcher" title="Color Shifting" style='display:none'>
-			<h3>Here You Can Change the Theme.</h3>
-				<div class='theme' style='display:none'>
-					<div id='teaLeaf' class='themeSample'>
-						<ul class="icons-big ui-widget ui-helper-clearfix" style='width:100px'>
-						<li class="ui-state-default ui-corner-all ui-state-hover themecon">
-							<span class="ui-icon-big ui-icon-play-big"></span></li>
-						<li class="ui-state-default ui-corner-all themecon">
-							<span class="ui-icon-big ui-icon-pause-big"></span></li>
-						<br style='clear:both' />
-						<li class="ui-state-default ui-corner-all themecon">
-							<span class="ui-icon-big ui-icon-stop-big"></span></li>
-						<li class="ui-state-default ui-corner-all ui-state-hover themecon">
-							<span class="ui-icon-big ui-icon-seek-next-big"></span></li>
-						</ul>
-						<div class="theme_bar jp-progress"></div>
-					</div>
-				<button class='themeToggle' title='red'>cherryTree</button>
-				</div>
-				
-				<div class='theme'>
-				<img class='themeToggle' src='demo/themes/cherryTree.png' title='red' /><br/>
-				cherryTree
-				</div>
-
-				<div class='theme'>
-				<img class='themeToggle' src='demo/themes/teaLeaf.png' title='lucky' /><br/>
-				teaLeaf
-				</div>
-				
-				<div class='theme'>
-				<img class='themeToggle' src='demo/themes/ubuntu.png' title='ubuntu' /><br/>
-				hueman
-				</div>
-			</div>
-</div>	
+			<div class="theme_bar jp-progress"></div>
+		</div>
+	<button class='themeToggle' title='red'>cherryTree</button>
+	</div>
+	
+	<div class='theme'>
+	<img class='themeToggle' src='demo/themes/cherryTree.png' title='red' /><br/>
+	cherryTree
+	</div>
+
+	<div class='theme'>
+	<img class='themeToggle' src='demo/themes/teaLeaf.png' title='lucky' /><br/>
+	teaLeaf
+	</div>
+	
+	<div class='theme'>
+	<img class='themeToggle' src='demo/themes/ubuntu.png' title='ubuntu' /><br/>
+	hueman
+	</div>
+</div>
 <!-- theme modal -->
 <!-- theme modal -->
 <div id="stickyFooter" class='S'>
