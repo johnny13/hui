@@ -11,11 +11,6 @@ function setUp(){
 //////////////////////////////////////////////////////////////	
 	//FORM EXAMPLE FUNCTIONS
 //////////////////////////////////////////////////////////////
-		
-	$('input[type=text]').labelify({
-	  text: "label"
-	});
-	
 	//iphone style checkbox toggles
 	$('.on_off :checkbox').iphoneStyle();
 	$('.disabled :checkbox').iphoneStyle();
