@@ -5,10 +5,6 @@
 
 $(document).ready(function() {
 
-//This function preloads any images referenced in your style sheets.
-$.preloadCssImages();   
- 
-
 //FORM EXAMPLE FUNCTIONS
 
 //iphone style checkbox toggles
@@ -52,15 +48,14 @@ $('.themeToggle').click(function() {
 return false;
 });
 
-//button example for jGrowl Plugin
+//button example for notefy / jGrowl Plugin
 $("#jGrowlMsgBtn").click(function() {
 //call jgrowl as below. Params are ('header','message','icon','sticky[optionally true]')
-jgrowl('jGrowl Alert','This Uses the jGrowl Plugin','ui-icon-huement-big');
+notefy('Alert','call this with notefy()');
 //this one will be sticky.
-jgrowl('jGrowl Sticky','I Wont go away until clicked','ui-icon-huement-big',true);
+notefy('Sticky Alert','click to close');
 return false;	
 });
-
 	
 // brings up style sheet swapping dialog box.
 // TODO: Make this Work.

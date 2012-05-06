@@ -1,12 +1,26 @@
-<!-- Accordion -->
+<!-- actions -->
+<h2 class="demoHeaders">jGrowl Dialog</h2>
+<button id='jGrowlMsgBtn'>jGrowl Random Message</button>
+
+	<!-- Horizontal Slider -->
+<h2 class="demoHeaders">Horizontal Slider</h2>
+<div id="horizSlider"></div>
+
+<!-- Vertical Slider -->
+<h2 class="demoHeaders">Vertical Slider</h2>
+<div class="columnbox">
+	<div id="eq">
+		<span>88</span>
+		<span>77</span>
+		<span>55</span>
+		<span>33</span>
+		<span>40</span>
+		<span>45</span>
+		<span>70</span>
+	</div>
+</div>
+<br clear="both" />
 <h2 class="color">Huement Widgets</h2>
-<br/>
-
-<div style="height:10px;clear:both;display:block"></div>
-<!-- Datepicker -->
-<h2 class="demoHeaders">Datepicker</h2>
-<div id="datepicker"></div>
-
 <!-- Progress Bar -->
 <h2 class="demoHeaders">Progress Bar</h2>
 <div id="progressbar"></div>

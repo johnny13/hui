@@ -4,15 +4,10 @@
 * author: @johnnyfortune ------*/
 
 $(document).ready(function() {
-
-	//This function preloads any images referenced in your style sheets.
-	$.preloadCssImages();   
 	
 	// MAIN Tabs Widget
-	$('#tabs').tabs({
-	 });
-	
 	setUp();
+	$('#tabs').tabs();
 	
 	$('#shout_btn').button({icons: {big: "ui-icon-comment-big"}});
 	$('#star_btn').button({icons: {big: "ui-icon-star-big"}});
@@ -59,17 +54,7 @@ $(document).ready(function() {
 	});
 	
 	//Gives dialog functionality for the theme_switcher div
-	//also gives confirm and cancel buttons
-	$('#theme_switcher').dialog({
-		autoOpen: false,
-		width: 600,
-		buttons: {
-			"Close This": function() { 
-				$(this).dialog("close"); 
-			} 
-		},
-		modal: true
-	});
+	//also gives confirm and cancel button
 		
 	// brings up style sheet swapping dialog box.
 	// TODO: Make this Work.

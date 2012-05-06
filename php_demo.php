@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>huement-ui | server side setup</title>
+<title>hui | php demo</title>
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 <link href="favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
-<link href="css/hui.darkHD.css" type="text/css" rel="stylesheet" />	
+<link href="css/hui_phat.css" type="text/css" rel="stylesheet" />	
 
 <!-- demo Stylings:
 
@@ -23,6 +23,35 @@ get lost and only the new huement-ui css file will be in play.
 @import url("css/xmlPlayer_skin/xmlPlayer.css");
 @import url("css/youtube_skin/youtube_player.css");
 
+#cssList {
+	padding:10px; 
+	margin:10px;
+	list-style:square;
+}
+#cssList li {
+	padding:10px; 
+	margin:10px;
+	list-style:square;
+}
+#buttonClass a.white,#buttonClass a.MAC {
+	color:#222222;
+}
+#buttonClass a.iTunes,#buttonClass a.orange,#buttonClass a.red {
+	color:#FFF;
+	font-weight:bold;
+}
+.iPhoneCheckContainer {
+  position: relative;
+  height: 27px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px insert #CFCFCF;
+  max-width:300px;
+  float:left;
+  margin:3px 20px 3px 5px;
+ }
+
+tbody {width:500px;}
 ul#icons { margin: 0; padding: 0;}
 ul#icons li { margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left; list-style: none; }
 ul#icons span.ui-icon { float: left; margin: 0 4px; }
@@ -65,9 +94,8 @@ ul#icons-social-small span.ui-icon { float: left; margin: 0 4px; }
 }
 </style>
 <!-- required scripts -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui.1.8.js"></script>
-<script type="text/javascript" src='js/hui.0.1.js'></script>
+<script type="text/javascript" src="http://s3.amazonaws.com/huement/code/jquery.js"></script>	
+<script type="text/javascript" src="http://s3.amazonaws.com/huement/code/jquery-hui.phat.js"></script>	
 <!-- serverside example script -->
 <!-- youtube widget scripts -->
 <script type="text/javascript" src="js/swfobject/swfobject.js"></script> 
@@ -83,43 +111,43 @@ ul#icons-social-small span.ui-icon { float: left; margin: 0 4px; }
 </head>
 <body>
 <div class='theme_header'>
-	<div class="L">
-	<h1 style='margin-left:10px' ><a href='http://spectyle.huement.com/Li/builds/huementUI' title='huement-ui page'><img src='demo/huementUI_32.png' style='margin:3px 5px -3px 0px' /></a> |  A <a href='http://spectyle.huement.com' title='spectyle main page'><img src='demo/spectyle_logo_32.png' style='margin:-3px 5px -5px 0px' /></a> Plugin
-	</h1>
-	<h3 style='margin:25px 0 10px 30px;padding:0'>"An Easy to use and Easy to customize Multi Media Interface."</h3>
+	<div class="L" class='m10 p10'>
+	<a href='http://www.huement.com/hui/' title='hui home page' class='m10' style='margin:10px 5px 20px 20px'><img src='demo/hui_logo.png' height='55px' style='margin-top:10px' /></a>
 	</div>
-	<p style="font-size: 1.3em;margin: 10px 30px 0px 0px; float:right;padding-top:30px;">
-		<a class='black' id='mainPageBtn' href='http://dev.huement.com/git/hui'>HUI Main Page</a> <a class='black' href='http://dev.huement.com/git/hui/download.php' style='margin-left:30px;'>Downloads</a> <a id='themeBtn' href='#' style='margin-left:30px;' class='black'>change theme</a>
-	</p>
+	<div class="R m10 p10">
+	<a class='white' id='mainPageBtn' href='http://dev.huement.com/git/hui'>hui docs</a> <a class='white' href='http://dev.huement.com/git/hui/download.php' style='margin-left:30px;'>Downloads</a> <a id='themeBtn' href='#' style='margin-left:30px;' class='white'>change theme</a>
+	</div>
 </div>
-<div id="boxFix" style='padding-top:20px;'>
+<div id="content" style='padding-top:20px;'>
 <br/>
 	<!-- Tabs -->
 	<div id="tabs">
 		<ul style='width:100%'>
 			<li ><a href="#tabs-1"><span class="ui-icon-big bL ui-icon-huement-big check"></span>[Intro]</a></li>
-			<li><a href="#tabs-2"><span class="ui-icon-big bL ui-icon-document-b-big check"></span>[Forms]</a></li>
-			<li><a href="#tabs-3"><span class="ui-icon-big bL ui-icon-calendar-big check"></span>[Widgets]</a></li>
-			<li><a href="#tabs-4"><span class="ui-icon-big bL ui-icon-extlink-big check"></span>[Actions]</a></li>
+			<li><a href="#tabs-2"><span class="ui-icon-big bL ui-icon-pencil-big check"></span>[Style]</a></li>
+			<li><a href="#tabs-3"><span class="ui-icon-big bL ui-icon-person-big check"></span>[Widgets]</a></li>
+			<li><a href="#tabs-4"><span class="ui-icon-big bL ui-icon-document-b-big check"></span>[CSS]</a></li>
 			<li><a href="#tabs-5"><span class="ui-icon-big bL ui-icon-video-big check"></span>[Media]</a></li>
 		</ul>
 <!-- SPECTYLE UI - TAB ONE ******************************* -->
 		<div id="tabs-1">
-			<h1>what is <span class='hue'>huement-ui</span>?</h1>
-			<p>A jQuery based multi-media user interface.</p>
+			<h1 style='margin-top:0;'>what is <span class='hue'>hui</span>?</h1>
+			<p>Why it is a jQuery based multi-media user interface!</p>
 			<p>Weaving several popular javascript elemenets into a cohesive easy to use framework for user interactions. Not just clicks and drags, it integrates Forms, Notifications, and ofcourse Audio and Visual playblack.</p><br/>
-			<h2>Best Features:</h2>
-			<ul style='font-size:18px;line-height:25px;font-weight:bold;'>
-			<li>Quick Color Changing! (hue button in the header)</li>
-			<li><a href='http://www.jplayer.org' target='blank'>jPlayer Support (HTML5 & Flash Audio/Video Player)</a></li>
-			<li>YouTube Video Player</li>
-			<li>Improved Button and Icon Functionality</li>
-			<li>Working Modal Themes (Highligh and Alert)</li>
-			<li><a href='http://plugins.jquery.com/project/jGrowl' target='blank'>jGrowl Notifications</a></li>
-			<li>Spectyle CSS Form Elements & Layouts</li>
-			<li>Image Pre-Loading (Automatically from css files and any declared)</li>
+			
+			<h1 class='oldTimes' style='font-size:40px'>Best Features:</h1>
+			<h2 style='margin-top:-20px;padding-top:0px' class='m10 p10'>brought to you by the letter <strong class='oldTimes' style='margin-top:-30px'>W</strong></h2>
+			<hr/>
+			<ul style='font-size:18px;line-height:25px;font-weight:bold;list-style-type:square;margin-left:40px;'>
+			<li class='p10' style='list-style-type:square'>When you need Quick and Sexy HTML Styling</li>
+			<li class='p10' style='list-style-type:square'>Worked in <a href='http://www.jplayer.org' target='blank'>jPlayer</a> Support (HTML5 & Flash Audio/Video Player)</li>
+			<li class='p10' style='list-style-type:square'>Watch <a href='http://youtube.com' target='blank'>YouTube</a> Video PLAYLIST Player</li>
+			<li class='p10' style='list-style-type:square'>Write CSS3 Button Styles with ease.</li>
+			<li class='p10' style='list-style-type:square'>Well-Drawn Icon Ready Buttons</li>
+			<li class='p10' style='list-style-type:square'>Witches Brew! Also <a href='http://defunkt.io/facebox/' target='blank'>FaceBox!</a></li>
+			<li class='p10' style='list-style-type:square'>With <a href='http://plugins.jquery.com/project/jGrowl' target='blank'>jGrowl</a>  Notifications & Icon Ready HD Theme</li>
 			</ul>
-			<p>Navigate around to see what each elemenet looks like. The tabs break the user interface into managable bits. Below this main set of tabs you'll find even more widgets that extend the native ability of the basic user interface.</p><br /><br />
+			<p class='p10 m10'><span class='oldTimes' style='margin:0;padding:5px;font-size:35px'>N</span>avigate around to see what each elemenet looks like. You can also get a feel for how it works, because obviously all of this is coded using the interface itself. The tabs break the user interface into category bits. The media tab is only available in the full "phat" version, as it required not only a lot of jQuery UI but it also requires PHP and server side loading for playlist creation. More info is available on the documentation pages.</p><br /><br />
 				<div style="position: relative; width: 70%; height: 200px; padding:1% 4%; overflow:hidden;margin:0 0 0 20px;border:1px solid #000" class="fakewindowcontain">
 					<p>Lorem <span class='hue'>ipsum dolor<span> sit amet,  Nulla nec tortor. Donec id elit quis purus consectetur consequat. </p><p>Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. <span class='hue'>Suspendisse scelerisque dui </span>nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. </p><p>Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus. <span class='hue'>lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede</span>. Nulla nec tortor. Donec id elit quis purus consectetur consequat. </p><p>Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. <span class='hue'>Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem</span>. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. </p><p>Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat. Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. </p><p>Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat. Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. </p>
 					
@@ -144,11 +172,11 @@ ul#icons-social-small span.ui-icon { float: left; margin: 0 4px; }
 			<div id="tabs-3">
 			<?php require 'phpParts/widgets.php'; ?>
 			</div><!-- END TAB THREE -->
-		
-			<!-- SPECTYLE UI - TAB FOUR ****************************************************** -->			
+			
+			<!-- CSS - TAB THREE ****************************************************** -->
 			<div id="tabs-4">
-			<?php require 'phpParts/actions.php'; ?>
-			</div><!-- END TAB FOUR -->
+			<?php require 'phpParts/css.php'; ?>
+			</div><!-- END TAB THREE -->
 			
 			<!-- SPECTYLE UI - TAB FOUR ****************************************************** -->			
 			<div id="tabs-5">

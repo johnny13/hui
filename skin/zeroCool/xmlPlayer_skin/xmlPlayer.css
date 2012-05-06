@@ -1,0 +1,384 @@
+/*
+ * Skin for xmlPlayer (http://www.huement.com/code/xmlPlayer)
+ * An Adaptation of jPlayer Plugin (jQuery JavaScript Library)
+ * http://www.happyworm.com/jquery/jplayer
+ *
+ * Skin Name: huementUI
+ *
+ * Copyright (c) 2011 Huement
+ * Dual licensed under the MIT and GPL licenses.
+ *  - http://www.opensource.org/licenses/mit-license.php
+ *  - http://www.gnu.org/copyleft/gpl.html
+ *
+ * Author: @johnnyfortune
+ * Skin Version: 1.0 (huement-ui 1.0.0)
+ * Date: 4/20th/2011
+ */
+
+div.jp-audio,
+div.jp-video {
+	/* Edit the font-size to counteract inherited font sizing.
+	 * Eg. 1.25em = 1 / 0.8em
+	 */
+	font-size:0.8em; /* No parent CSS that can effect the size in these demos */
+	font-family:Verdana, Arial, sans-serif;
+	line-height:1.6;
+	color: #666;
+}
+div.jp-audio {
+	min-width:480px;
+	width:100%;
+	position:relative;
+}
+div.jp-video-270p {
+	width:480px;
+	position:relative;
+}
+div.jp-video-360p {
+	width:640px;
+}
+div.jp-interface {
+	position: relative;
+	/* width:418px; */
+	width:95%;
+	margin-left:10px;
+}
+div.jp-audio div.jp-type-single div.jp-interface {
+	min-height:80px;
+	border-bottom:none;
+}
+div.jp-audio div.jp-type-playlist div.jp-interface {
+	min-height:100px;
+	
+}
+div.jp-video div.jp-type-single div.jp-interface {
+	min-height:100px;
+	border-bottom:none;
+}
+div.jp-video div.jp-type-playlist div.jp-interface {
+	min-height:100px;
+}
+div.jp-interface ul.jp-controls {
+	margin-bottom:20px;
+}
+
+a.jp-play,
+a.jp-pause {
+}
+div.jp-audio div.jp-type-single a.jp-play,
+div.jp-audio div.jp-type-single a.jp-pause {
+	
+}
+div.jp-audio div.jp-type-playlist a.jp-play,
+div.jp-audio div.jp-type-playlist a.jp-pause {/** PLAY / PAUSE BUTTON POSITION ***/
+	
+}
+div.jp-video a.jp-play,
+div.jp-video a.jp-pause {
+	
+}
+div.jp-video-270p div.jp-type-single a.jp-play,
+div.jp-video-270p div.jp-type-single a.jp-pause {
+	
+}
+div.jp-video-270p div.jp-type-playlist a.jp-play,
+div.jp-video-270p div.jp-type-playlist a.jp-pause {
+	
+}
+div.jp-video-360p div.jp-type-single a.jp-play,
+div.jp-video-360p div.jp-type-single a.jp-pause {
+
+}
+div.jp-video-360p div.jp-type-playlist a.jp-play,
+div.jp-video-360p div.jp-type-playlist a.jp-pause {
+	
+}
+
+div.jp-audio div.jp-type-single a.jp-stop { 
+	
+}
+div.jp-audio div.jp-type-playlist a.jp-stop {/*** STOP BUTTON POSITION ****************/
+	
+}
+div.jp-video a.jp-stop {
+	
+}
+div.jp-video-270p div.jp-type-single a.jp-stop {
+	
+}
+div.jp-video-270p div.jp-type-playlist a.jp-stop {
+	
+}
+div.jp-video-360p div.jp-type-single a.jp-stop {
+	
+}
+div.jp-video-360p div.jp-type-playlist a.jp-stop {
+	
+}
+a.jp-stop {
+	
+}
+
+div.jp-audio div.jp-type-playlist a.jp-previous {/*** PREVIOUS BUTTON POSITION*/
+	
+}
+div.jp-video div.jp-type-playlist a.jp-previous {
+	
+}
+div.jp-video-270p div.jp-type-playlist a.jp-previous {
+	
+}
+div.jp-video-360p div.jp-type-playlist a.jp-previous {
+	
+}
+div.jp-audio div.jp-type-playlist a.jp-next { /**** NEXT BUTTON POSITION ***/
+	
+}
+div.jp-video div.jp-type-playlist a.jp-next {
+	
+}
+div.jp-video-270p div.jp-type-playlist a.jp-next {
+	
+}
+div.jp-video-360p div.jp-type-playlist a.jp-next {
+	
+}
+div.jp-progress {
+	
+}
+div.jp-audio div.jp-type-single div.jp-progress {
+}
+div.jp-audio div.jp-type-playlist div.jp-progress {
+	height:40px;
+	padding-right:2px;
+	padding-bottom:1px;
+}
+
+div.jp-audio div.jp-type-playlist div.jp-progress { 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px;
+border-radius: 5px; 
+}
+
+div.jp-video div.jp-progress {
+	height:40px;
+	padding-right:2px;
+	padding-bottom:1px;
+	
+}
+div.jp-seek-bar {
+	cursor: pointer;
+	height:100%;
+	height:40px;
+}
+div.jp-play-bar {
+	width:0px;
+	/* height:15px; */
+	height:100%;
+	height:40px;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+height:40px;
+}
+
+div.jp-audio div.jp-type-single a.jp-mute,
+div.jp-audio div.jp-type-single a.jp-unmute {
+	
+}
+div.jp-audio div.jp-type-playlist a.jp-mute,
+div.jp-audio div.jp-type-playlist a.jp-unmute { /* MUTE / UNMUTE BUTTON POSITION *********/
+	
+}
+div.jp-video a.jp-mute,
+div.jp-video a.jp-unmute {
+	
+}
+div.jp-video-270p div.jp-type-single a.jp-mute,
+div.jp-video-270p div.jp-type-single a.jp-unmute {
+	
+}
+div.jp-video-270p div.jp-type-playlist a.jp-unmute,
+div.jp-video-270p div.jp-type-playlist a.jp-mute {
+	
+}
+div.jp-video-360p div.jp-type-single a.jp-mute,
+div.jp-video-360p div.jp-type-single a.jp-unmute {
+	
+}
+div.jp-video-360p div.jp-type-playlist a.jp-mute,
+div.jp-video-360p div.jp-type-playlist a.jp-unmute {
+	
+}
+a.jp-unmute {
+	display: none;
+}
+div.jp-volume-bar {
+	cursor: pointer;
+	margin-top:-80px;
+	margin-right: 5px;
+}
+
+div#audiovolume {
+float:right;
+}
+
+div.jp-audio div.jp-type-single div.jp-volume-bar { 
+	
+}
+div.jp-audio div.jp-type-playlist div.jp-volume-bar {/** VOLUME BAR POSITION ********/
+	
+}
+
+div.jp-video div.jp-volume-bar {
+float:right;	
+}
+
+div.jp-video-270p div.jp-type-single div.jp-volume-bar {
+	left:332px;
+}
+div.jp-video-270p div.jp-type-playlist div.jp-volume-bar {
+}
+
+div.jp-video-360p div.jp-type-single div.jp-volume-bar {
+	left:412px;
+}
+div.jp-video-360p div.jp-type-playlist div.jp-volume-bar {
+	left:471px;
+}
+div.jp-volume-bar-value {
+	
+}
+div.jp-current-time,
+div.jp-duration {
+	font-size:20px;
+	width:100%;
+}
+div.jp-audio div.jp-duration {
+	text-align: right;
+	margin-top:-32px;
+}
+div.jp-video div.jp-duration {
+	text-align: right;
+	margin-top:-32px;
+}
+div.jp-audio div.jp-type-single div.jp-current-time,
+div.jp-audio div.jp-type-single div.jp-duration {
+	
+}
+div.jp-audio div.jp-type-playlist div.jp-current-time,
+div.jp-audio div.jp-type-playlist div.jp-duration { /*** CURRENT TIME POSITION *******/
+	
+}
+div.jp-video div.jp-current-time,
+div.jp-video div.jp-duration {
+	padding:0 1%;
+}
+div.jp-playlist {
+	/* width:418px; */
+	width:95%;
+	position:relative;
+	border-top:none;
+	
+}
+div.jp-playlist ul {
+	list-style-type:none;
+	margin:0;
+	padding:5px 0px 0 20px;
+	/* background-color:#ccc; */
+	/* border:1px solid #009be3; */
+	/* border-top:none; */
+	/* width:378px; */
+	font-size:18px;
+}
+div.jp-type-single div.jp-playlist li {
+	padding:5px 0 5px 20px;
+	font-weight:bold;
+	
+}
+div.jp-type-playlist div.jp-playlist li {
+	list-style-type: none;
+	padding:5px 0 5px 10px;
+	border-bottom: 1px inset #999999;
+}
+/*
+div.jp-video div.jp-playlist li {
+	padding:5px 0 5px 20px;
+	font-weight:bold;
+}
+*/
+/* widget stuff */
+ul#xmlPlayer { margin: 5px 0 10px 10px; padding: 0;}
+ul#xmlPlayer li { margin: 2px; position: relative; 
+padding: 4px 0; cursor: pointer; float: left; list-style: none; }
+ul#xmlPlayer a.ui-icon-big { float: left; margin: 0 4px; }
+
+ul#xmlVideoPlayer { margin: 5px 0 10px 10px; padding: 0;}
+ul#xmlVideoPlayer li { margin: 2px; position: relative; 
+padding: 4px 0; cursor: pointer; float: left; list-style: none; }
+ul#xmlVideoPlayer a.ui-icon-big { float: left; margin: 0 4px; }
+
+
+div.jp-type-playlist div.jp-playlist li.jp-playlist-last {
+	border:none;
+}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+	list-style-position:inside;
+	padding:5px 0 5px 15px;
+}
+div.jp-type-playlist div.jp-playlist a {
+	color: #666;
+	text-decoration: none;
+}
+div.jp-type-playlist div.jp-playlist a:hover {
+
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
+
+}
+div.jp-type-playlist div.jp-playlist div.jp-free-media {
+	display:inline;
+	margin-left:20px;
+}
+
+div.jp-video div.jp-video-play {
+	/* position: relative; */
+	position: absolute;
+	cursor:pointer;
+	z-index:2;
+}
+div.jp-video div.jp-video-play:hover {
+}
+div.jp-video-270p div.jp-video-play {
+	top:-270px;
+	width:480px;
+	height:270px;
+}
+div.jp-video-360p div.jp-video-play {
+	top:-360px;
+	width:640px;
+	height:360px;
+}
+
+div.jp-jplayer {
+	width:0px;
+	height:0px;
+}
+div.jp-video div.jp-jplayer {
+	border-bottom:none;
+	z-index:1;
+}
+div.jp-video-270p div.jp-jplayer {
+	width:480px;
+	height:270px;
+}
+div.jp-video-360p div.jp-jplayer {
+	width:640px;
+	height:360px;
+}
+div.jp-jplayer {
+	background-color: #000000;
+}
+
+*:focus {outline: none;}

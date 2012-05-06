@@ -1,55 +1,58 @@
 <!-- Forms -->
-<p>Here you will find all the common form elements, and how they look when using huement-ui. The actual select box requires you declare it somewhere in the doc ready. Other elemenets like input and text boxes are themed automatically by the css and jquery.</p>
-<h2 class="demoHeaders">Autocomplete</h2>	
-<p>do a little typing and watch as it guesses what country you're talk'n bout.</p><br/>
-<div class="ui-widget">
-	<label>Type a Country</label>
-	<label for="countries" class="none">Brazil</label>
-	<input type='text' id="countries">
-</div>
-<br/><br/><br/>
-<h2 class="demoHeaders">Common Input Fields</h2>
-<p>Hidden Label Fields are used to provide the default text on the input boxes, along with a small bit of jquery to ensure the new value is saved and the label is reapplied if no text is entered.</p>
-<p>
+<h2 class="demoHeaders" class='p10 m10'>Style & Form Examples</h2>
+<p class='p10 m10'>
 	<label for="name" class='none'>name example</label><br />
-	<input type="text" name="name" id="name">
+	<input type="text" name="name" id="name" value='username'>
 </p>
-<h3>login example</h3>
-<p>
-	<label for="email" class='none'>email address</label><label for="passw" class='none'>password example</label>
-	<input type="text" name="email" id="email">  <input type="password" name="passw" id="passw" />
+<h3 class='p10 m10'>input example</h3>
+<p class='p10 m10'>
+	<label for="email" class='none'>email address</label>
+	<input type="text" name="email" id="email" value='me@email'>  
+	<label for="passw" class='none'>password example</label>
+	<input type="password" name="passw" id="passw" value='username' />
 </p>
-<p style='display:block;clear:both;'>
+<p class='p10 m10' style='display:block;clear:both;'>
 	<strong>Text Area</strong><br />
 	<textarea cols="32"></textarea>
 </p>
 <br/><br/>
-<div id='checkbox'>
-<h2>CheckBoxes</h2>
-<p>This is a jQuery replacement for standard form checkboxes. All the styling is done via CSS. No images are used!</p><br /><br />
+<div id='buttonClass'>
+	<h2 class='p10 m10'>a href & submit Classes</h2>
+	<p class='p10 m10'>Sample Button Classes let you easily turn [a href]item[/a] into [a href class=black]item[/a] and you get a sexy CSS3 button!</p>
+	<br/>
+<a href='#' class='m10 black'>black</a>
+<a href='#' class='m10 white'>white</a>
+<a href='#' class='m10 MAC'>MAC</a>
+<a href='#' class='m10 red'>red</a>
+<a href='#' class='m10 iTunes'>iTunes</a>
+<a href='#' class='m10 orange'>orange</a>
+</div><br/>
+<div id='checkbox' style='margin-top:40px'>
+<h2 class='p10 m10'>CheckBoxes</h2>
+<p>This is a jQuery based replacement for the standard checkbox. It makes the checkbox more user friendly and can really help illustrate toggle functionality.</p><br /><br />
  <table>
     <tr class="disabled">
       <th><label for="disabled">Disabled</label></th>
       <td>
-        <input type="checkbox" id="disabled" disabled="disabled" />
+         <input class='mac' type='checkbox' id="disabled" disabled="disabled" />
       </td>
     </tr>
     <tr class="on_off">
       <th><label for="on_off">Default</label></th>
       <td>
-        <input type="checkbox" id="on_off" />
+        <input class='mac L m5' style='clear:none' type='checkbox' id="Default" value='noteTheme' />
+        <input class='mac R m5' style='clear:none' type="checkbox" checked='true' id="DefaultOn" />
       </td>
     </tr>
     <tr class="on_off">
-      <th><label for="on_off_on">Default On</label></th>
+      <th><label for="on_off_on">Auto Switching</label></th>
       <td>
-        <input type="checkbox" checked="checked" id="on_off_on"/>
+         <input class='mac' type='checkbox' checked='true' id="on_off_on" />
       </td>
     </tr>
     <tr class="onchange">
       <th>Event tracking</th>
       <td>
-        <input type="checkbox" id="onchange" />
         <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
       </td>
     </tr>
@@ -57,8 +60,3 @@
 
 </div>
 <br /><br />
-<p>
-<strong>Sample File Upload</strong><br />
-<input type="file" /> <br />
-</p>
-<br/><br />
