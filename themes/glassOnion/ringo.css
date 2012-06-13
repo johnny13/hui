@@ -8,7 +8,7 @@
  *  - http://www.opensource.org/licenses/mit-license.php
  *
  * Author: Derek Scott https://plus.google.com/u/1/115343423240861513721/
- * Skin Version: Restless Soul
+ * Skin Version: Glass Onion
  * Date: 1/15th/2012
  *
  * 
@@ -141,8 +141,8 @@ p.footerText {margin-top:10px;padding-top:15px;text-align:center;line-height:20p
 /* main content */
 #container {
 	position: relative;
-	padding: 10px 10%;
-	min-width:850px;
+	padding: 10px 5%;
+	min-width:800px;
 }	
 #content {
 	width:90%;
@@ -161,6 +161,11 @@ p.footerText {margin-top:10px;padding-top:15px;text-align:center;line-height:20p
 .boxThird {width:32%;min-width:165px;}
 .boxTwoThird {width:65%;min-width:335px;}
 .boxFourth {width:23.5%;min-width:125px;}
+
+.box12 {min-width:250px;width:49%;}
+.box13 {width:32%;min-width:165px;}
+.box23 {width:65%;min-width:335px;}
+.box14 {width:23.5%;min-width:125px;}
 
 /* SetUp Columns (Divide Boxes in Further or in Half) */
 .column, .columnL, .columnR { 
@@ -191,22 +196,27 @@ hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margi
 .m5 {margin:10px;}
 .p5 {padding:10px;}
 
-
 /* [S03] 3_character.css  **********************************************************/
 /*--- Basics ---*/
-h1, h2, h3, h4, h5, h6 {
-	font-weight:normal;
-	color:#111;
-	line-height: 1;
-	margin: 1.5em 0 0.5em 0;
-}
-h1 { font-size: 2.6em;color: #444444;font-weight:bold;padding-left:5px; }
-h1:first-letter { font-size: 2em;color: #333;font-weight:bold;; }
-h2, h5 { font-size: 2em; color: #666; }
-h3, h6 { font-size: 1.7em; color: #00a8e6; }
-h4 { font-size: 1.4em; }
-h5 { font-size: 1.2em; }
-h6 { font-size: 1em; }
+/* Theme Fonts */
+h1{font-size:45px;} h2{font-size:30px;} h3{font-size:25px;} h4{font-size:23px;}
+h1,h4,h5,h6,strong{font-weight:bold;}
+
+h4 {font-size: 28px;}
+h4:first-letter {font-size: 32px;}
+blockquote,ul,ol,dl{margin:1.2em;}
+ol,ul,dl{margin-left:2em;}
+ol li{list-style:none;}
+ul li{list-style:none;}
+dl dd{margin-left:1em;}
+
+li.S, li.style {background: #f6f6f6;border-bottom:1px inset #666;padding:2px 0 8px 20px;font-size:15px;min-height:10px;height:10px;}
+li.S:nth-child(2n), li.style:nth-child(2n) {background: #dbdbdb}
+
+/* Fun Fonts Styling and img padding */
+.plain { text-align: left;font-size:1.2em;
+font-family: futura, 'gill sans', verdana, helvetica, arial;}
+
 p { margin-bottom: 1em; }
 strong { font-weight: bold; }
 em { font-style: italic; }
@@ -1006,37 +1016,89 @@ label.iOSCheckLabelOff {
 
 /* [S06] Extra CSS3 Effects  **********************************************************/
 .shadow {
-	-moz-box-shadow: 2px 2px 4px #111;
-	-webkit-box-shadow: 2px 2px 4px #111;
-	box-shadow: 2px 2px 4px #111;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
-}
 
-.textShadow {
-	text-shadow: 1px -1px 1px rgba(255, 255, 255, .9);
-	margin: 5px 3px;
-	line-height: 1em;
-	padding: 2px;
-	font-family: futura, 'gill sans', verdana, helvetica, arial;
-	font-weight: bold;
-	color:#666;
+-moz-box-shadow: 2px 2px 4px #111;
+-webkit-box-shadow: 2px 2px 4px #111;
+box-shadow: 2px 2px 4px #111;
+/* For IE 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+/* For IE 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
 }
 
 /* CSS CORNERS */
 .round {padding:5px;-moz-border-radius: 5px;border-radius: 5px;}
 
 .shadowRound{padding:5px;-moz-border-radius: 5px;border-radius: 5px;
-	-moz-box-shadow: 2px 2px 4px #111;
-	-webkit-box-shadow: 2px 2px 4px #111;
-	box-shadow: 2px 2px 4px #111;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
+-moz-box-shadow: 2px 2px 4px #111;
+-webkit-box-shadow: 2px 2px 4px #111;
+box-shadow: 2px 2px 4px #111;
+/* For IE 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+/* For IE 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
 }
+
+.glass {
+   /*width: 100px;
+   height: 100px;*/
+   margin: 10px;
+   padding: 5px;
+   border: 1px solid rgba(0,0,0,0.5);
+   border-radius: 10px 10px 2px 2px;
+   background: rgba(0,0,0,0.25);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+
+/* Border Quick Styles */
+.inset { padding:5px;border:1px inset #888888}
+.solid { padding:5px;border:2px solid #222222}
+
+/* Easy Margins and Paddings */
+/* Remember: Top Left Bottom Right */
+.m5 {margin:0 5px 0 5px;}
+.m10 {margin:10px 10px 10px 10px}
+.m15 {margin:0 7.5px 0 7.5px}
+.p5 {padding: 5px}
+.p10 {padding:10px 10px 10px 10px}
+.p15 {padding:0 7.5px 0 7.5px}
+.zero {margin:0;padding:0}
+
+
+.color {text-decoration: none;}
+a.color:hover,a.color:active,a.color {text-decoration: none;font-size:1.1em;}
+
+/* Text Color Classes */
+.red {color: #F00;} 
+.orange {color: #F60;} 
+.yellow {color: #FF0;} 
+.green {color: #0C0;} 
+.blue {color: #06F;} 
+.purple {color: #FA0096;} 
+.white {color: #FFFFFF;} 
+.black {color: #000000;}
+
+/* Complimentary Color / Effects */
+a.red:hover {color:#C40000}
+a.orange:hover {color: #FF7913;} 
+a.yellow:hover {color: #FFB412;} 
+a.green:hover {color: #00AD0E;} 
+a.blue:hover {color: #09F;} 
+a.purple:hover {color: #9D16D3;} 
+a.white:hover {color: #999999;} 
+a.black:hover {color: #666666;}
+
+
+/* Background Color Classes */
+.redb {background-color: #F00;} .orangeb {background-color: #F60;} 
+.yellowb {background-color: #FF0;} .greenb {background-color: #0C0;} 
+.blueb {background-color: #06F;} .purpleb {background-color: #5C00FA;} 
+.whiteb {background-color: #FFFFFF;} .blackb {background-color: #000000;}
+.greyb {background-color:#e0e0e0 !important;}
+
 
 .glass {
    /*width: 100px;
@@ -1131,6 +1193,7 @@ label.iOSCheckLabelOff {
   left: 0;
   z-index: 9999;
   text-align: left;
+
 }
 
 
@@ -1143,16 +1206,17 @@ label.iOSCheckLabelOff {
   -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
   -moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
   box-shadow:0 0 18px rgba(0,0,0,0.4);
+width: 810px;
 }
 
 #facebox .content {
   display:table;
-  width: 980px;
-  padding: 10px;
-  background: #fff;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
+  width: 800px;
+  padding: 10px 0 10px 10px;
+  background: #ffffff;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
 }
 
 #facebox .content > p:first-child{
