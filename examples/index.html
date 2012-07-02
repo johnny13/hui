@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<!-- Mobile viewport -->
+	<meta name="viewport" content="width=device-width">
+	<title>HUI | Example Index</title>
+	<link rel="stylesheet" type="text/css" href="css/suitUpmin.css"/>
+	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	<!-- Demo Styles -->
+	<style type="text/css">
+	html, body { 
+		min-height: 100% !important; 
+		height: 100% !important; 
+		width:100%;
+		display:block;
+		background-image:url("http://huement.s3.amazonaws.com/imgs/grid.png");
+		background-repeat:repeat;
+	}
+	/*****************
+	 * HEADER STYLES *
+	 *****************/
+	#header{
+	height:65px;
+	width:100%;
+	background-image: url("http://huement.s3.amazonaws.com/imgs/bg_main.png");
+	background-repeat: repeat-x;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:900;
+	border-bottom:none;
+	}
+	@media screen{
+	  body>div#header{
+	   position: fixed;
+	  }
+	 }
+	#logo{
+		float:left;
+		padding:8px 80px 0 20px;
+	}
+	.main_menu {
+		float:left;
+	}
+	.title_text {
+		text-align:center;
+		color:#F8F8F8;
+		text-shadow: 1px -1px 1px #999;
+		clear:none;
+		margin-top:0;
+		line-height:1.4em;
+		font-size:2.5em;
+	}
+	#content .exampleList {
+		margin:100px auto 0 auto;
+		display:block;
+		position:relative;
+		width:690px;
+		color:#000000;
+	}
+	.exampleList li {
+		font-size:48px;
+		color:#000000;
+		width:500px;
+		height:50px;
+		padding:10px;
+	}
+	</style>
+</head>
+<body>
+	<!-- ***** HEADER START ***** -->
+	<div id="header">
+	    <!-- logo -->
+	    <div id="logo"><a href="index.html"><img src="http://huement.s3.amazonaws.com/imgs/huement@48.png" alt="huement" width="225" height="40"></a></div>
+	    <!-- logo -->
+	    <!-- main menu -->
+	    <div class="main_menu">
+	        <h2 class='title_text'>Basic Examples</h2>
+	    </div>
+	    <!-- end of main menu -->
+	</div><!-- End of header -->
+	<!-- ***** HEADER END ***** -->
+<div id="container">
+	<div id="content"> 
+		<ul class="exampleList">
+			<li><a href="widgets.html"><strong>jquery widgets</strong></a></li>
+			<li><a href="columns.html">css columns</a></li>
+			<li><a href="fixed_sidebar.html">css fixed_sidebar</a></li>
+			<li><a href="wallpaper.html">css wallpaper</a></li>
+			<li><a href="liquid_sidebar.html">css liquid_sidebar</a></li>
+			<li><a href="typography.html">css typography</a></li>
+		</ul>
+	</div>
+</div><!-- end #container -->
+</body>
+</html>
