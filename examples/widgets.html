@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<!-- Mobile viewport -->
+	<meta name="viewport" content="width=device-width">
+	<title>HUI | Widgets</title>
+	<link rel="stylesheet" type="text/css" href="css/suitUpmin.css"/>
+	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	<!-- Demo Styles -->
+	<style type="text/css">
+	html, body { 
+		min-height: 100% !important; 
+		height: 100% !important; 
+		width:100%;
+		display:block;
+		background-image:url("http://huement.s3.amazonaws.com/imgs/grid.png");
+		background-repeat:repeat;
+	}
+	/*****************
+	 * HEADER STYLES *
+	 *****************/
+	#header{
+	height:65px;
+	width:100%;
+	background-image: url("http://huement.s3.amazonaws.com/imgs/bg_main.png");
+	background-repeat: repeat-x;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:900;
+	border-bottom:none;
+	}
+	@media screen{
+	  body>div#header{
+	   position: fixed;
+	  }
+	 }
+	#logo{
+		float:left;
+		padding:8px 80px 0 20px;
+	}
+	#content {
+		padding:100px 100px 0 40px;
+	}
+	.title_text {
+		text-align:center;
+		color:#F8F8F8;
+		text-shadow: 1px -1px 1px #999;
+		clear:none;
+		margin-top:0;
+		line-height:1.4em;
+		font-size:2.5em;
+	}
+	th {
+      text-align: right;
+      padding: 4px;
+      padding-right: 15px;
+      vertical-align: top; }
+    .css_sized_container .iPhoneCheckContainer {
+      width: 250px; }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../hui-1.00.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		//TOOLTIP	
+		$(".titleTip, .tipTip").tipTip();
+		
+		//Facebox
+		$('a[rel*=facebox]').facebox({
+		  loadingImage : 'css/images/loading.gif',
+		  closeImage   : 'css/images/closelabel.png'
+		});
+	
+		//NOTEFY AUTOLOAD
+		var message = $('#previewPre').text();
+		if(message != ""){
+			$("#preview").hide();
+			notefy('Message!',message);
+		}
+		notefy("Sticky Message!","Click To Hide",false,true);
+		
+		$(".Sticky").click(function(){
+			notefy("Sticky Message!","Click To Hide",false,true);
+		});
+		$(".notSticky").click(function(){
+			notefy("Regular Message","Will Auto Hide");
+		});
+		
+		//iPhone Checkboxes
+		$(window).load(function() {
+	      $('.on_off :checkbox').iphoneStyle();
+	      $('.disabled :checkbox').iphoneStyle();
+	      $('.css_sized_container :checkbox').iphoneStyle({ resizeContainer: false, resizeHandle: false });
+	      $('.long_tiny :checkbox').iphoneStyle({ checkedLabel: 'Very Long Text', uncheckedLabel: 'Tiny' });
+
+	      var onchange_checkbox = ($('.onchange :checkbox')).iphoneStyle({
+	        onChange: function(elem, value) { 
+	          $('span#status').html(value.toString());
+	        }
+	      });
+
+	      setInterval(function() {
+	        onchange_checkbox.prop('checked', !onchange_checkbox.is(':checked')).iphoneStyle("refresh");
+	        return
+	      }, 2500);
+	    });
+	});
+	</script>
+</head>
+<body>
+	<!-- ***** HEADER START ***** -->
+	<div id="header">
+	    <!-- logo -->
+	    <div id="logo"><a href="index.html"><img src="http://huement.s3.amazonaws.com/imgs/huement@48.png" alt="huement" width="225" height="40"></a></div>
+	    <!-- logo -->
+	    <!-- main menu -->
+	    <div class="main_menu">
+	        <h2 class='title_text'>Widget Examples</h2>
+	    </div>
+	    <!-- end of main menu -->
+	</div><!-- End of header -->
+	<!-- ***** HEADER END ***** -->
+<div id="container">
+	<div id="content">
+		<!-- notefy autoload (like from php or whatever) -->
+		<div id='preview' style='display: none;'><pre id='previewPre'>welcome home.</pre></div>
+		<!-- toggle checkboxes -->
+		<div class="box13 L m10" style="margin-left:40px;"> 
+			<h2>toggle checkboxes</h2>
+		<table>
+		    <tr class="disabled">
+		      <th><label for="disabled">Disabled</label></th>
+		      <td>
+		        <input type="checkbox" id="disabled" disabled="disabled" />
+		      </td>
+		    </tr>
+		    <tr class="on_off">
+		      <th><label for="on_off">Default</label></th>
+		      <td>
+		        <input type="checkbox" id="on_off" />
+		      </td>
+		    </tr>
+		    <tr class="on_off">
+		      <th><label for="on_off_on">Default On</label></th>
+		      <td>
+		        <input type="checkbox" checked="checked" id="on_off_on"/>
+		      </td>
+		    </tr>
+		    
+		    <tr class="long_tiny">
+		      <th><label class="left" for="long_tiny">Long and short labels</label></th>
+		      <td>
+		        <input type="checkbox" id="long_tiny" />
+		      </td>
+		    </tr>
+		    <tr class="onchange">
+		      <th>Event tracking</th>
+		      <td>
+		        <input type="checkbox" id="onchange" />
+		        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
+		      </td>
+		    </tr>
+		  </table>
+		</div>
+		
+		<div class="box13 R m10"> 
+			<h2>Facebox</h2>
+			<p>A Facebook-style lightbox which can display images, divs, or entire remote pages. You'll need a loading image, close label, four corners, and solid border images in addition to the javascript and css files.  All are included.</p>
+			<h3>Examples</h3>
+<p> <a href="images/rainbow.jpg" rel="facebox">CLICK To View the rainbow.</a> </p>
+<p> <a href="#info" rel="facebox">CLICK To View 'info' div in Faceboxx</a> </p>
+
+
+			<div id="info" style="display:none;">
+			    <p> Hey, I'm the 'info' div! </p>
+			    <p> I look like this: </p>
+			    <pre style="width:95%;padding-right:20px;">
+&lt;div id="info" style="display:none;"&gt; <br/>
+&nbsp;&nbsp;text<br/>
+&lt;/div&gt;
+			    </pre>
+				<br/>
+				<img src="images/rainbow.jpg" class="gallery p5">
+			</div>
+			
+		</div>
+		
+		<hr/>
+		<div class="box14 L m10"> 
+			<h2>Notefy</h2>
+			<p>Based on jGrowl which itself is based on the Growl notification system for Mac OSX. This new version provides support for a new way of executing the function, along with support for icons in your notification, and a high def black glass theme.</p>
+			<h3>Examples</h3>
+<p> <a href="#Regular" class="notSticky">CLICK for Regular Notefy</a> </p>
+<p> <a href="#Sticky" class="Sticky">CLICK for Sticky Notefy</a> </p>
+		</div>
+	</div>
+</div><!-- end #container -->
+</body>
+</html>
