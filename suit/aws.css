@@ -4,8 +4,8 @@
  *
  * Copyright (c) 2012 huement
  * Licensed under the MIT and GPL licenses.
- *  - http://www.opensource.org/licenses/mit-license.php
- *		http://opensource.org/licenses/gpl-3.0.html
+ *  - https://www.opensource.org/licenses/mit-license.php
+ *		https://opensource.org/licenses/gpl-3.0.html
  *
  * Author: Derek Scott @huement
  * Skin Version: HUI BASIC
@@ -16,10 +16,11 @@
 
 /* -------   HUI BROWSER STANDARIZATION & Basic Setup  ------- */
 
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,textarea,button{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}body{font:15px arial,helvetica,clean,sans-serif;*font-size:normal;*font:normal;overflow-x:auto}h1 img,h2 img,h3 img,h4 img,h5 img,h6 img{margin:0}p{margin:0 0 1.5em;line-height:1.7em;font-size:15px}.left{float:left;margin:1.5em 1.5em 1.5em 0;padding:0}.right{float:right;margin:1.5em 0 1.5em 1.5em}a:focus,a:hover{color:#902b2b}a{color:#09f;text-decoration:none}caption{background:#eee}.small{font-size:.8em;margin-bottom:1.875em;line-height:1.875em}.large{font-size:1.2em;line-height:2.5em;margin-bottom:1.25em}.hide{display:none}.quiet{color:#666}.loud{color:#000}.highlight{background:#ff0}.added{background:#060;color:#fff}.removed{background:#900;color:#fff}.first{margin-left:0;padding-left:0}.last{margin-right:0;padding-right:0}.top{margin-top:0;padding-top:0}.bottom{margin-bottom:0;padding-bottom:0}label{font-weight:bold}fieldset{padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc}legend{font-weight:bold;font-size:1.2em}input[type=text],input[type=password],input.text,input.title,textarea,select{background-color:#fff;border:1px solid #bbb;padding:5px;font-size:13px;display:block}input[type=text]:focus,input[type=password]:focus,input.text:focus,input.title:focus,textarea:focus,select:focus{border-color:#666}input[type=text],input[type=password],input.text,input.title,textarea,select{margin:.5em 0}input.text,input.title{width:300px;padding:5px}input.title{font-size:1.5em}textarea{width:auto;padding:5px}form.inline{line-height:3}form.inline p{margin-bottom:0}.error,.notice,.success,.info{padding:.8em;margin-bottom:1em;border:2px solid #ddd}.error{background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4}.notice{background:#fff6bf;color:#514721;border-color:#ffd324}.success{background:#e6efc2;color:#264409;border-color:#c6d880}.info{background:#d5edf8;color:#205791;border-color:#92cae4}.error a{color:#8a1f11}.notice a{color:#514721}.success a{color:#264409}.info a{color:#205791}html,body{min-height:100%!important;height:100%!important;width:100%;display:block}#header{height:70px;width:100%;position:relative;margin-bottom:10px;padding-left:30px}.header_center{min-width:100%;width:1000px;width:auto!important;min-height:60px;margin:0;padding:0}.header_center_img{position:relative;display:block;margin:0 auto}.header_full{min-width:100%;width:100%;width:auto!important;margin:0}.Top,.top{position:fixed;top:0;z-index:888!important}.boxFH{padding-top:70px}#background{position:absolute;width:100%;height:100%;top:0;left:0;z-index:-999;overflow:hidden}#doublestamp{position:absolute;width:100%;height:100%;top:0;left:0;z-index:-1;background-image:url("images/block.png");background-repeat:repeat}.footer{background:#222;height:71px;color:#FFF;margin-top:10px;border-top:1px ridge #999}p.footerText{margin-top:10px;padding-top:15px;text-align:center;line-height:20px;height:20px}.fancyFooter{width:1000px;margin:0 auto;background:#FFF;padding:5px}.S,.push{height:81px;clear:both}.F{height:85px;position:fixed;bottom:0;min-width:100%;width:100%;margin-top:15px}#boxSticky{overflow:auto;padding-bottom:70px}.box{display:block;padding:5px;min-height:100%;height:100%;min-width:800px;position:relative;margin:0 auto}.boxFix{display:block;margin:0 auto}.boxHalf{min-width:250px;width:49%}.boxThird{width:32%;min-width:165px}.boxTwoThird{width:65%;min-width:335px}.boxFourth{width:23.5%;min-width:125px}.box12{min-width:250px;width:49%}.box13{width:32%;min-width:165px}.box23{width:65%;min-width:335px}.box14{width:23.5%;min-width:125px}.column,.columnL,.columnR{display:block;zoom:1;display:inline;letter-spacing:normal;word-spacing:normal;vertical-align:top}.column{display:block;height:100%}.columnL{float:left;width:49%;padding:0 5px 5px 0}.columnR{float:right;width:49%;padding:0 0 5px 5px}.L,.l{float:left}.R,.r{float:right}.C,.c{margin-left:auto;margin-right:auto}.m5{margin:0 5px 0 5px}.m10{margin:10px 10px 10px 10px}.m15{margin:0 7.5px 0 7.5px}.p5{padding:5px}.p10{padding:10px 10px 10px 10px}.p15{padding:0 7.5px 0 7.5px}.zero{margin:0;padding:0}hr{background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:1px;margin:0 0 1.45em;border:0}hr.space{background:#fff;color:#fff;visibility:hidden}.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}* html .clearfix{zoom:1}*:first-child+html .clearfix{zoom:1}.container:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}* html .container{zoom:1}*:first-child+html .container{zoom:1}.clear{clear:both}.clear{clear:both}*:first-child+html #iconautente{text-indent:0;line-height:0;font-size:0;overflow:hidden}br{min-height:10px;height:10px}.alpha:after,.alphaSticky:after,.column:after,br,br:after{content:" ";display:block;height:0;clear:both;visibility:hidden}hr.dark{clear:both;width:90%;color:#000;border-color:#666;margin:0 auto;margin-bottom:20px}hr{clear:both;width:90%;border:0;height:0;color:#000;border-color:#FFF;border-bottom:1px solid #e6e6e6;margin:0 auto;margin-bottom:20px}p{margin-bottom:1em}strong{font-weight:bold}em{font-style:italic}a{text-decoration:none;color:#636363}a,h1 a,h2 a{text-decoration:none}a:hover{color:#0051ff}a:visited:hover{color:#90f}a img{border:0}h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111;line-height:1;margin:1.5em 0 .5em 0}h1{font-size:45px}h2{font-size:30px}h3{font-size:25px}h4{font-size:23px}h1,h4,strong{font-weight:bold}ol li{list-style:none}ul li{list-style:none}p{border:0;font-family:Verdana,Geneva,sans-serif;font-size:15px;padding:5px 0 0 5px;line-height:18px}.footnote{font-size:12px;font-style:italic;line-height:14px;font-family:"Palatino Linotype","Book Antiqua",Palatino,serif}pre>code{display:block;color:white;background:#141414;border:1px solid white;padding:1em!important;overflow:auto;font-size:.9em}a code{background:transparent;border:0}a:hover code{color:inherit}code,pre,.fixed{font-family:Monaco,Courier,monospace!important;font-weight:normal;font-size:.85em;white-space:pre}code{padding:.2em .25em!important;border:1px solid #f0f0f0;background:#fafafa}pre{font-size:16px;font-weight:bold;font-family:"Courier New";background:#3d3d3d;padding:10px 5px;color:#f5f5f5;border:1px solid #fff;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}table{clear:both;width:100%;border-collapse:collapse;border-spacing:0;border:1px solid #e6e6e6;background:#fafafa;margin:12px 0}td,th{padding:.25em 1em;border:1px solid #e6e6e6;vertical-align:middle;text-align:left;font-weight:normal;color:#666;font-size:.85em}tr:nth-child(even){background:#fff}thead th,tfoot td{background:#f3f3f3;color:#333;text-align:left;font-size:1em;font-weight:bold;padding:.5em .75em}form{display:block;clear:both;padding:1em 2em 2em 2em}fieldset{padding:2em;margin:0 0 1em 0;border:1px solid #e6e6e6;background:#f3f3f3}legend{padding:.5em 1em;border:1px solid #e6e6e6;background:#fff;font-size:22px}label{padding:0 1em 0 0;color:#454545;font-weight:normal}select{clear:both;display:block;margin:.5em 0 1em 0}div.checkbox{clear:both;padding:1em 0}.checkbox label{display:inline}sup,sub{color:#666;font-size:.65em}acronym{font-weight:bold;font-style:italic;color:#333}abbr{color:#333}blockquote{padding:.15em .5em;margin:.5em 0;font-size:2em;color:#666;display:block;font-style:italic}blockquote:before,blockquote:after{display:inline;color:#e5e5e5;font-size:3em;position:relative;top:.25em;left:-0.1em}blockquote:before{content:'\D \201C'}blockquote:after{content:'\201D'}.outline{color:#d60000;border:1px dashed #d60000}.debug{color:#11b616;font-weight:bold;border:1px dashed #000}
+@import url("//huementui.s3.amazonaws.com/hui-min-latest.css");
 
-/* --------------- Standard Widget Themes -------------------- */
+/* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
+*
 *
 * [S01] Basic Theme Colors (typograghy css3 buttons links etc)
 * [S02] Extra CSS3 Effects (animations, img hover, stylish effects)
@@ -27,6 +28,8 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 * [S04] jGrowl glass theme
 * [S05] TipTip black theme
 * [S06] iOS style checkboxes
+* [S07] HW Accordian Theme
+*
 *
 */
 /************************************************ [S01] Theme Colors */
@@ -38,7 +41,7 @@ h3, h6 { font-size: 1.7em; color: #00a8e6; }
 h4 { font-size: 1.4em; }
 h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
-p { margin-bottom: 1em; }
+p { margin-bottom: 1em; } 
 strong { font-weight: bold; }
 em { font-style: italic; }
 a { text-decoration: none; color: #636363; }
@@ -46,6 +49,21 @@ a, h1 a, h2 a { text-decoration: none; }
 a:hover { color: #0051FF; }
 a:visited:hover { color: #9900FF; }
 a img { border: none; }
+
+.tC {
+	text-align:center;
+	padding:1px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.tR {
+	text-align:right;
+}
+
+.tL {
+	text-align:left;
+}
 
 p {
 	border:none;
@@ -447,23 +465,28 @@ font-family: futura, 'gill sans', verdana, helvetica, arial;}
 }
 
 .snowWhite {
-	border: 1px solid #B6B6B6; font-weight: normal; 
-	color: #39BB2A; 
-	background: rgb(237,237,237);
-	background: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(1, rgb(237,237,237)),
-	color-stop(0, rgb(196,196,196))
-	);
-	background: -moz-linear-gradient(
-		center top,
-		rgb(237,237,237),
-		rgb(196,196,196)
-	);
-	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
-	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+	background: #eee;
+	background-image: linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
+.evilWitch {
+	background: #000000; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDIxMWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #000000 0%, #1d211f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#1d211f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #000000 0%,#1d211f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #000000 0%,#1d211f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #000000 0%,#1d211f 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #000000 0%,#1d211f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1d211f',GradientType=0 ); /* IE6-8 */
+	
+	
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.7);
 }
 
 .lookSharp {
@@ -768,7 +791,7 @@ min-width: 32px !important;
 width: 32px !important; 
 min-height: 32px !important; 
 height:32px !important;
-background-image: url('images/hui-icon-notefy.png') !important;
+background-image: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/hui-icon-notefy.png') !important;
 float:left;
 margin:10px 8px 0 -6px;
 }
@@ -950,7 +973,7 @@ padding-left:35px;
 
 label.iPhoneCheckLabelOn {
   color: white;
-  background: url('images/iphone-style-checkboxes/on.png?1284697268') no-repeat;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/iphone-style-checkboxes/on.png?1284697268') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
@@ -958,7 +981,7 @@ label.iPhoneCheckLabelOn {
     padding-left: 8px; }
 label.iPhoneCheckLabelOff {
   color: #8b8b8b;
-  background: url('images/iphone-style-checkboxes/off.png?1284697268') no-repeat right 0;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/iphone-style-checkboxes/off.png?1284697268') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
   right: 0; }
@@ -973,19 +996,19 @@ label.iPhoneCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: url('images/iphone-style-checkboxes/slider_left.png?1284697268') no-repeat;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/iphone-style-checkboxes/slider_left.png?1284697268') no-repeat;
   padding-left: 3px; }
 
 .iPhoneCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: url('images/iphone-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/iphone-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
 
 .iPhoneCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: url('images/iphone-style-checkboxes/slider_center.png?1284697268'); }
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/iphone-style-checkboxes/slider_center.png?1284697268'); }
 
 .iOSCheckContainer {
   position: relative;
@@ -1023,7 +1046,7 @@ label.iPhoneCheckLabelOff {
 
 label.iOSCheckLabelOn {
   color: white;
-  background: url('images/ios-style-checkboxes/on.png?1284697268') no-repeat;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/ios-style-checkboxes/on.png?1284697268') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
@@ -1031,7 +1054,7 @@ label.iOSCheckLabelOn {
     padding-left: 8px; }
 label.iOSCheckLabelOff {
   color: #8b8b8b;
-  background: url('images/ios-style-checkboxes/off.png?1284697268') no-repeat right 0;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/ios-style-checkboxes/off.png?1284697268') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
   right: 0; }
@@ -1046,19 +1069,55 @@ label.iOSCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: url('images/ios-style-checkboxes/slider_left.png?1284697268') no-repeat;
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/ios-style-checkboxes/slider_left.png?1284697268') no-repeat;
   padding-left: 3px; }
 
 .iOSCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: url('images/ios-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/ios-style-checkboxes/slider_right.png?1284697268') no-repeat right 0; }
 
 .iOSCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: url('images/ios-style-checkboxes/slider_center.png?1284697268'); }
+  background: url('https://huement.s3.amazonaws.com/code/hui/themes/suitUp/images/ios-style-checkboxes/slider_center.png?1284697268'); }
 
+/********************************************************************************************** [S07] HW Accordian */
+/* 
+* change #acc to match your main container. add more enteries if you want multiple per page or multiple styles per site.
+*/
+#options {width:100%; margin:0px;padding:0; text-align:right; color:#9ac1c9}
+#options a {text-decoration:none; color:#9ac1c9}
+#options a:hover {color:#033}
 
-/* --------------- UNIQUE SITE STYLES ----------------- */
+#acc {width:100%; list-style:none; color:#033; margin:0 auto 20px}
+#acc h3 {
+	width:95%; border:1px solid #6D6D6D;font-size:1.2em; padding:5px 3px 5px 5px; font-weight:bold; 
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-top:2px; 
+	cursor:pointer; 
+	color:#2B2B2B;
+	background: #eee;
+	background-image: linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+	}
+#acc h3:hover {
+	background: #999;
+	border-color:#CCC;
+	text-shadow:-1px -1px 1px #FFF;
+	background-image: linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.7);
+	}
+#acc .acc-section {overflow:hidden;}
+#acc .acc-content {width:100%; padding:0px;}

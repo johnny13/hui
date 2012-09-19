@@ -1,12 +1,12 @@
-Huement User Interface [ hui ]
+Huement User Interface [ HUI ]
 ---------------------------------------------
 
-HUI is the fast, flexible and dynamic User Interface. It supports HTML 4 & 5, CSS 1-3, and numerous jQuery Plugins.
+HUI is the fast, flexible and dynamic User Interface. Based on jQuery it provides a web template and ui framework.
 
 Users First. Design Second.
 ---------------------
 
-Huement User Interface is designed around the idea that there are knowns, and unknowns, unknown unknowns, and known unknowns. HUI can adapt to almost all viewport sizes, and has multiple fallbacks for various end user systems. It also supports a standard touch interface from the get go, and can be easily integrated into any project, online or offline, anywhere supporting javascript and css.
+Huement User Interface [HUI] can adapt to almost all viewport sizes, and has multiple fallbacks for various end user systems. It also supports a standard touch interface from the get go, and can be easily integrated into any project, online or offline, anywhere supporting javascript and css.
 
 Stylish Documentations
 -------------------------
