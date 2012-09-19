@@ -140,7 +140,32 @@ table, pre > code, .shadow {
 	-webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
 	box-shadow: 2px 2px 12px rgba(0,0,0,.15);
 }
-
+code {
+	display: block;
+	color: white;
+	background: #141414;
+	border: 1px solid white;
+	padding: 1em !important; /* remove if base important is removed, too */
+	overflow: auto;
+	font-size: .9em;
+}
+code {
+	padding: .2em .25em !important;
+	border: 1px solid #F0F0F0;
+	background: #FAFAFA;
+}
+pre {
+	font-size: 16px;
+	font-weight:bold;
+	font-family: "Courier New";
+	background: #3d3d3d;
+	padding: 10px 5px;
+	color: #f5f5f5;
+	border:1px solid #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
 
 /*White button 
 ---------------------------------------------- */
