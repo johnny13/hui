@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta charset="utf-8">
+<title>hui | dj ralphio</title>
+<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+<!-- Internet Explorer -->
+<!--[if lt IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<script src="http://huementui.s3.amazonaws.com/js/html5shiv.js" type="text/javascript"></script>
+<![endif]-->
+<style type="text/css" charset="utf-8">
+	/* Load HUI and A Skin */
+	@import url("https://huementui.s3.amazonaws.com/themes/black/theme.css");	
+	@import url("css/dj_ralphio.css");	
+</style>
+<!-- required scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+<script src="http://huementui.s3.amazonaws.com/hui-min-latest.js" type="text/javascript"></script>
+<!-- widget scripts -->
+<script type="text/javascript" src="js/swfobject.js"></script> 
+<script type="text/javascript" src="js/hui.ralphio.js"></script>
+<!-- demo example docready loading script. Keep in header for your sanity. -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		//Turn Any Link into A YouTube Video W/ This Command
+		$('a.video-link').ytchromeless();
+		
+		//Turn Any UnOrdered List of Video IDs into A Playlist
+		$(".Doctor_Who").DJRalphio("Keep Calm and Dont Blink");
+	});
+</script>
+</head>
+<body class="list">
+	<div class="container">
+		<div class="row">
+			<div class="center" style="max-width:1140px;padding:10px;">
+				<div class="container">
+					<div class="row">
+						<div class="eightcol">
+
+							<a class="video-link" href="http://www.youtube.com/watch?v=j7e_igiPIUI">Old Spice | Boat</a>
+
+						</div>
+						<div class="fourcol last">
+							<h1>Single Player</h1>
+							<p>The Easiest Way to Use this Plugin. It Creates a Single Video player from some drop dead simple markup. An Example is featured below.</p>
+<pre style="padding:10px 0 10px 20px">
+&lt;div class='singlePlayer'&gt;
+  INSERT_VIDEO_ID_HERE
+&lt;/div&gt;
+
+&lt;script&gt;
+  $("WHATEVER").ytSingle();
+&lt;/script&gt;
+</pre>
+						</div>
+					</div>
+				</div>
+					<div class='push' style='height:100px'></div>
+				<div class="container">
+					<div class="row">
+						<div class="eightcol">
+								<div class='push' style='height:20px'></div>
+								<!-- This DIV's playlist class is referenced in the css. 
+								The UL's Class can be anything, and is not referenced in the css themes. -->
+								<div class="playlist">
+									<ul class="Doctor_Who">
+										<li>rX2RKJIkwYw</li>
+										<li>zqynDW3drWY</li>
+										<li>Fzj6AFqIoio</li>
+										<li>o3Q8RYMSkJo</li>
+									</ul>
+								</div>
+								<div class='push' style='height:100px'></div>
+						</div>
+
+						<div class="fourcol last">
+								<h1 style="margin-top:0;">Playlist Widget</h1>
+				<p>This plugin is a simple way to include playlists of youtube videos. More information can be found at huement.com/hui and the plugins documentation here: <a href=''>YouTube widget docs</a>. Basically, you construct an unordered list of video ids. A simple html markup example is illustrated below.</p>
+<pre style="padding:10px 0 10px 20px">
+&lt;ul class='multiList'&gt;
+  &lt;li&gt;Fzj6AFqIoio&lt;/li&gt;
+  &lt;li&gt;o3Q8RYMSkJo&lt;/li&gt;
+  &lt;li&gt;7B2UBEn2z7g&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+  $(".CLASS").DJRalphio("TITLE");
+&lt;/script&gt;
+</pre>
+
+				<p>Flash is loaded by using SWFEmbed (as recommended by Google.) and has been confirmed to work in firefox 4, provided you include google in your allowed object and script sources, and the user has flash installed (obviously).If you're not familiar with the chromeless player, read up about it here: <a href='http://code.google.com/apis/youtube/js_api_reference.html'>Google Api Refrence</a>.</p><p> If you still have questions about firefox and content security policies, see this <a href='huement.com/blog'>blog post</a></p>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -30,3 +30,14 @@ Turn on, Tune in, Drop out
 Those two files should give you a fully working framework, capable of getting your app quickly up and off the ground. Examples, and more information can be found at huement.com/hui
 
 "Turn on" meant go within to activate your neural and genetic equipment. Become sensitive to the many and various levels of consciousness and the specific triggers that engage them. Drugs were one way to accomplish this end. "Tune in" meant interact harmoniously with the world around you - externalize, materialize, express your new internal perspectives. "Drop out" suggested an active, selective, graceful process of detachment from involuntary or unconscious commitments. "Drop Out" meant self-reliance, a discovery of one's singularity, a commitment to mobility, choice, and change. Unhappily my explanations of this sequence of personal development were often misinterpreted to mean "Get stoned and abandon all constructive activity".
+
+Acknowledgements
+----------------
+hui | huement user interface
+
+Copyright (c) 2012 huement
+Licensed under the MIT and GPL licenses.
+http://www.opensource.org/licenses/mit-license.php
+http://opensource.org/licenses/gpl-3.0.html
+
+Author: Derek Scott @huement.

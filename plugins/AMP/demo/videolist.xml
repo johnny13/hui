@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playlist>
+<item>
+	<title>TWKYK - Episode One</title>
+	<m4v>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_One.m4v</m4v>
+	<oga>http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg</oga>
+	<poster>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_One.jpg</poster>
+</item>
+<item>
+	<title>TWKYK - Episode Two</title>
+	<m4v>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_Two.m4v</m4v>
+	<oga>http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg</oga>
+	<poster>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_Two.jpg</poster>
+</item>
+<item>
+	<title>TWKYK - Episode Three</title>
+	<m4v>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_Two.m4v</m4v>
+	<oga>http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg</oga>
+	<poster>http://huement.s3.amazonaws.com/demos/movies/twkuk-episode_Two.jpg</poster>
+</item>
+<item>
+	<title>Hidden (song w/ album art)</title>
+	<mp3>http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3</mp3>
+	<oga>http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg</oga>
+	<poster>http://www.jplayer.org/audio/poster/Miaow_132x132.jpg</poster>
+</item>
+<item>
+	<title>Lentement (song w/ album art)</title>
+	<mp3>http://www.jplayer.org/audio/mp3/Miaow-03-Lentement.mp3</mp3>
+	<oga>http://www.jplayer.org/audio/ogg/Miaow-03-Lentement.ogg</oga>
+	<poster>http://www.jplayer.org/audio/poster/Miaow_132x132.jpg</poster>
+</item>
+</playlist>

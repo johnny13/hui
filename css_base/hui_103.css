@@ -1,0 +1,533 @@
+@charset "UTF-8";
+/* 
+ * hui | huement user interface
+ *
+ * Copyright (c) 2012 huement
+ * Licensed under the MIT and GPL licenses.
+ *  - http://www.opensource.org/licenses/mit-license.php
+ *		http://opensource.org/licenses/gpl-3.0.html
+ *
+ * Author: Derek Scott @huement
+ * 
+ * Date: 6/26th/2012
+ *
+ *
+ * HUI BROWSER STANDARIZATION 
+ * Table Of Contents:
+ *
+ * [S01] Browser Reset
+ * [S02] Available Body Setups
+ * [S03] Characters and Fonts
+ * [S04] PRE Code Table Form Formatting
+ *
+ *
+*/
+/* [S01] 1_reset.css  **********************************************************/
+/*
+Copyright (c) 2011, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.9.0
+*/
+/* main reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}
+del,ins{text-decoration:none}li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:baseline}
+sub{vertical-align:baseline}
+legend{color:#000}
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}
+select,input,textarea,button{font:99% arial,helvetica,clean,sans-serif}
+table{font-size:inherit;font:100%}
+pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
+body {
+	font:15px arial,helvetica,clean,sans-serif;
+	*font-size:normal; /* for IE */
+	*font:normal; /* for IE in quirks mode */
+	overflow-x:auto;
+}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
+
+p {margin:0 0 1.5em; line-height:1.7em; font-size:15px;}
+.left {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;}
+.right {float:right;margin:1.5em 0 1.5em 1.5em;}
+a:focus, a:hover {color:#902B2B;}
+a {color:#09f;text-decoration:none;}
+
+caption {background:#eee;}
+.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
+.hide {display:none;}
+.quiet {color:#666;}
+.loud {color:#000;}
+.highlight {background:#ff0;}
+.added {background:#060;color:#fff;}
+.removed {background:#900;color:#fff;}
+.first {margin-left:0;padding-left:0;}
+.last {margin-right:0;padding-right:0;}
+.top {margin-top:0;padding-top:0;}
+.bottom {margin-bottom:0;padding-bottom:0;}
+
+label {font-weight:bold;}
+fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
+legend {font-weight:bold;font-size:1.2em;}
+input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #bbb; padding:5px; font-size:13px; display:block;}
+input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;}
+input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0;}
+input.text, input.title {width:300px;padding:5px;}
+input.title {font-size:1.5em;}
+textarea {width:auto;padding:5px;}
+form.inline {line-height:3;}
+form.inline p {margin-bottom:0;}
+.error, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+
+/* Main Layout Section */
+
+/* [S02] 2_body.css  **********************************************************/
+/* Part A  */
+
+/* FullScreen Wallpaper */
+/* Apply this Same Class to the A Div and the Image Inside It. <div class=wallpaper><img class=wallpaper/></div> */
+.wallpaper {
+	position:absolute;width:100%;
+	height:100%;top: 0px;left: 0px;z-index:-999;
+	overflow: hidden;
+}
+
+#wallpaperClear {position:absolute;
+	width:100%;height:100%;
+	top: 0px;left: 0px;z-index:-998;
+	background-image:url("https://huementui.s3.amazonaws.com/images/block.png");
+	background-repeat:repeat;
+}
+
+/* .box and .boxFix habe no defined width. style inline */
+.box {
+	display: block;padding:5px;
+	min-height: 100%;height:100%;
+	min-width:800px;position:relative;margin:0 auto;
+}
+
+.boxFix { display: block;margin: 0px auto; }
+
+/* for the rest, think FRACTIONS 2/3 1/3 etc */
+.boxHalf {min-width:250px;width:49%;}
+.boxThird {width:32%;min-width:165px;}
+.boxTwoThird {width:65%;min-width:335px;}
+.boxFourth {width:23.5%;min-width:125px;}
+
+.box12 {min-width:250px;width:49%;}
+.box13 {width:32%;min-width:165px;}
+.box23 {width:65%;min-width:335px;}
+.box14 {width:23.5%;min-width:125px;}
+
+/* SetUp Columns (Divide Boxes in Further or in Half) */
+.column, .columnL, .columnR { 
+	display: block; zoom: 1; 
+	display: inline; 
+	letter-spacing: normal; 
+	word-spacing: normal; 
+	vertical-align: top; 
+}
+
+.column {display: block;height:100%;}
+.columnL {float:left;width:49%;padding: 0 5px 5px 0;}
+.columnR {float:right;width:49%;padding: 0 0 5px 5px;}
+
+/* Standard Floats */
+/* Easy Float / Quick Alignment */
+.L, .l {float:left;}
+.R, .r {float:right;}
+.C, .c {margin-left: auto;margin-right: auto;}
+
+/* Easy Margins and Paddings */
+/* Remember: Top Left Bottom Right */
+.m5 {margin:0 5px 0 5px;}
+.m10 {margin:10px 10px 10px 10px}
+.m15 {margin:0 7.5px 0 7.5px}
+.p5 {padding: 5px}
+.p10 {padding:10px 10px 10px 10px}
+.p15 {padding:0 7.5px 0 7.5px}
+.zero {margin:0;padding:0}
+
+hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:1px;margin:0 0 1.45em;border:none;}
+hr.space {background:#fff;color:#fff;visibility:hidden;}
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+.container:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .container             { zoom: 1; } /* IE6 */
+*:first-child+html .container { zoom: 1; } /* IE7 */.clear {clear:both;}
+.clear {clear:both;}
+*:first-child+html #iconautente{ text-indent:0; line-height:0; font-size:0; overflow:hidden}/*ie7 hack */
+/* Clears (needed for sticky footer and helpful when using floats) */
+br {min-height:10px;height:10px;}
+.alpha:after,.alphaSticky:after, .column:after, br,  br:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
+hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margin-bottom:20px;}
+hr {
+	clear:both;width:90%;
+	border: none;
+	height: 0;
+	color:#000; border-color:#FFF;
+	border-bottom: 1px solid #e6e6e6;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+.push {
+	display:block;
+	position:relative;
+	width:99.5%;
+	height:25px;
+	clear:both;
+}
+/* [S02 Part B] Grid System Adapated From *******************************************************************************/
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+.row {
+width: 100%;
+min-width: 755px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+margin-right: 3.8%;
+float: left;
+min-height: 1px;
+}
+
+.row .onecol {
+width: 4.85%;
+}
+
+.row .twocol {
+width: 13.45%;
+}
+
+.row .threecol {
+width: 22.05%;
+}
+
+.row .fourcol {
+width: 30.75%;
+}
+
+.row .fivecol {
+width: 39.45%;
+}
+
+.row .sixcol {
+width: 48%;
+}
+
+.row .sevencol {
+width: 56.75%;
+}
+
+.row .eightcol {
+width: 65.4%;
+}
+
+.row .ninecol {
+width: 74.05%;
+}
+
+.row .tencol {
+width: 82.7%;
+}
+
+.row .elevencol {
+width: 91.35%;
+}
+
+.row .twelvecol {
+width: 100%;
+float: left;
+}
+
+.last {
+margin-right: 0px;
+}
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+
+	body {
+	font-size: 0.8em;
+	line-height: 1.5em;
+	}
+	
+	}
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+	font-size: 16px;
+	-webkit-text-size-adjust: none;
+	}
+	
+	.row, body, .container {
+	width: 100%;
+	min-width: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+	
+	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+	width: auto;
+	float: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	}
+
+}
+/* [S03] 3_character.css  **********************************************************/
+
+/*--- Basics ---*/
+p { margin-bottom: 1em; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+a { text-decoration: none; color: #636363; }
+a, h1 a, h2 a { text-decoration: none; }
+a:hover { color: #0051FF; }
+a:visited:hover { color: #9900FF; }
+a img { border: none; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	color:#111;
+	line-height: 1;
+	margin: 0.5em 0 0.5em 0;
+}
+h1{font-size:45px;} h2{font-size:30px;} h3{font-size:25px;} h4{font-size:23px;}
+h1,h4,strong{font-weight:bold;}
+
+ol li{list-style:none;}
+ul li{list-style:none;}
+
+p {
+	border:none;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	padding:5px 0 0 5px;
+	line-height:18px;
+}
+
+.footnote {
+	font-size:12px;
+	font-style: italic;
+	line-height:14px;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+/* [S04] CODE Format **********************************************************/
+/*--- Code ---*/
+code {
+	display: block;
+	color: white;
+	background: #141414;
+	border: 1px solid white;
+	padding: 1em !important; /* remove if base important is removed, too */
+	overflow: auto;
+	font-size: .9em;
+}
+a code {
+	background: transparent;
+	border: 0;
+}
+a:hover code {
+	color: inherit;
+}
+code, .fixed {
+	font-family: Monaco, Courier, monospace !important;
+	font-weight: normal;
+	font-size: 0.85em;
+	white-space: pre;
+}
+code {
+	padding: .2em .25em !important;
+	border: 1px solid #F0F0F0;
+	background: #FAFAFA;
+}
+
+
+/*--- Tables ---*/
+table {
+	clear: both;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #e6e6e6;
+	background: #fafafa;
+	margin: 12px 0;
+}
+td, th {
+	padding: .25em 1em;
+	border: 1px solid #e6e6e6;
+	vertical-align: middle;
+	text-align: left;
+	font-weight: normal;
+	color: #666;
+	font-size: 0.85em;
+}
+tr:nth-child(even) {
+	background: #fff;
+}
+thead th, tfoot td {
+	background: #f3f3f3;
+	color: #333;
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	padding: .5em .75em;
+}
+/*--- Forms ---*/
+form {
+	display: block;
+	clear: both;
+	
+	padding: 1em 2em 2em 2em;
+	
+}
+fieldset {
+	padding: 2em;
+	margin: 0 0 1em 0;
+	border: 1px solid #e6e6e6;
+	background: #f3f3f3;
+}
+legend {
+	padding: .5em 1em;
+	border: 1px solid #e6e6e6;
+	background: #fff;
+	font-size: 22px;
+}
+label {
+	padding: 0 1em 0 0;
+	color: #454545;
+	font-weight: normal;
+}
+select {
+	clear: both;
+	display: block;
+	margin: .5em 0 1em 0;
+}
+div.checkbox {
+	clear: both;
+	padding: 1em 0;
+}
+.checkbox label {
+	display: inline;
+}
+
+/*--- Misc ---*/
+sup, sub {
+	color: #666;
+	font-size: .65em;
+}
+acronym {
+	font-weight: bold;
+	font-style: italic;
+	color: #333;
+}
+abbr {
+	color: #333;
+}
+
+blockquote {
+	padding: 0.15em .5em;
+	margin: 0.5em 0;
+	font-size: 2em;
+	color: #666;
+	display: block;
+	font-style: italic;
+}
+
+blockquote:before, blockquote:after {
+	display: inline;
+	color: #e5e5e5;
+	font-size: 3em;
+	position: relative;
+	top: 0.25em;
+	left: -0.1em;
+}
+
+blockquote:before {
+	content: '\D \201C';
+}
+
+blockquote:after {
+	content: '\201D';
+}
+
+.outline {
+	color:#D60000;
+	border: 1px dashed #D60000;
+}
+
+.debug {
+	color:#11B616;
+	font-weight:bold;
+	border: 1px dashed #000000;
+}
+
+/* ************** HTML5 Reset For Older Browsers ********************** */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display:block;
+}
+
+body {
+	line-height:1;
+}
+
+ol, ul {
+	list-style:none;
+}
+
+blockquote, q {
+	quotes:none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content:'';
+	content:none;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+button, input, select, textarea {
+	width:auto;
+	overflow:visible;
+	margin:0;
+	font-size:100%;
+	vertical-align:baseline;
+}
+
+textarea {
+	overflow:auto;
+	vertical-align:text-top;
+}

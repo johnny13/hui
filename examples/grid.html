@@ -4,19 +4,32 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<!-- Mobile viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>HUI | Widgets</title>
-	<link rel="stylesheet" type="text/css" href="http://huement.s3.amazonaws.com/code/hui/suits/aws.css"/>
-	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
-	<link href="http://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
-	
+	<meta name="description" content="Huement User Interface (hui)">
+	<meta name="author" content="Derek Scott (@huement)">
+	<!-- Mobile Related Stuff -->
+	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+	<title>HUI | GRID</title>
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	<!-- Internet Explorer -->
+	<!--[if lt IE 10]>
+	  <style type="text/css">
+	    .gradient { filter: none; }
+	  </style>
+	<script src="http://huementui.s3.amazonaws.com/js/html5shiv.js" type="text/javascript"></script>
+	<![endif]-->
+	<link href="http://huementui.s3.amazonaws.com/themes/black/theme.css"type="text/css" rel="stylesheet"/>
 	<!-- Demo Styles -->
 	<style type="text/css">
-	
-	body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	html, body { 
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		min-height: 100% !important; 
+		height: 100% !important; 
+		width:100%;
+		display:block;
+		background-image:url("https://huement.s3.amazonaws.com/imgs/noisy_grid.png");
+		background-repeat:repeat;
 	}
-	
 	.container p {
 	color: #fff;
 	line-height: 100px;
@@ -24,73 +37,10 @@
 	text-align: center;
 	margin: 20px 0 0 0;
 	}
-	
-	html, body { 
-		min-height: 100% !important; 
-		height: 100% !important; 
-		width:100%;
-		display:block;
-		background-image:url("http://huement.s3.amazonaws.com/imgs/grid.png");
-		background-repeat:repeat;
-	}
-	/*****************
-	 * HEADER STYLES *
-	 *****************/
-	#header{
-	height:65px;
-	width:100%;
-	background-image: url("http://huement.s3.amazonaws.com/imgs/bg_main.png");
-	background-repeat: repeat-x;
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:900;
-	border-bottom:none;
-	}
-	@media screen{
-	  body>div#header{
-	   position: fixed;
-	  }
-	 }
-	#logo{
-		float:left;
-		padding:8px 80px 0 20px;
-	}
-	#content {
-		padding:100px 100px 0 40px;
-	}
-	.title_text {
-		text-align:center;
-		color:#F8F8F8;
-		text-shadow: 1px -1px 1px #999;
-		clear:none;
-		margin-top:0;
-		line-height:1.4em;
-		font-size:2.5em;
-	}
-	th {
-      text-align: right;
-      padding: 4px;
-      padding-right: 15px;
-      vertical-align: top; }
-    .css_sized_container .iPhoneCheckContainer {
-      width: 250px; }
 	</style>
+	<!-- javascript loaded in the body -->
 </head>
 <body>
-	<!-- ***** HEADER START ***** -->
-	<div id="header">
-	    <!-- logo -->
-	    <div id="logo"><a href="index.html"><img src="http://huement.s3.amazonaws.com/imgs/huement@48.png" alt="huement" width="225" height="40"></a></div>
-	    <!-- logo -->
-	    <!-- main menu -->
-	    <div class="main_menu">
-	        <h2 class='title_text'>1140 Grid example</h2>
-	    </div>
-	    <!-- end of main menu -->
-	</div><!-- End of header -->
-	<!-- ***** HEADER END ***** -->
-	<div class="push"></div>
 <div class="container">
 	<div class="row">
 		<div class="onecol">
@@ -320,9 +270,8 @@
 		</div>
 	</div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script src="http://huement.s3.amazonaws.com/code/hui/hui-1.01.js" type="text/javascript"></script>
-
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+	<script src="http://huementui.s3.amazonaws.com/hui-min-latest.js" type="text/javascript"></script>
 </body>
-
 </html>
