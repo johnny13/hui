@@ -16,19 +16,19 @@
 
 /* -------   HUI BROWSER STANDARIZATION & Basic Setup  ------- */
 
-@import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
+@import url("https://huementui.s3.amazonaws.com/css/hui_105.css");
 
 /* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
 *
 *
-* [S01] Basic Theme Colors (typograghy css3 buttons links etc)
+* [S01] Basic Theme Colors (typograghy action buttons links etc)
 * [S02] Extra CSS3 Effects (animations, img hover, stylish effects)
 * [S03] FaceBox
-* [S04] jGrowl glass theme
+* [S04] Notefy glass theme
 * [S05] TipTip black theme
 * [S06] iOS style checkboxes
-* [S07] HW Accordian Theme
+* [S07] HW Accordion Theme
 *
 *
 */
@@ -167,20 +167,23 @@ pre {
 	border-radius: 4px;
 }
 
-/*White button 
+/* Fancy White button or a href
 ---------------------------------------------- */
-.white {
+button.white {
+	width:100%;
+	font-size:1.5em;
+	height:40px !important;
+	line-height:1em;
+	padding:6px;
 	display: inline-block;
 	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
-	*display: inline;
 	vertical-align: baseline;
 	margin: 0 2px;
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 14px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
+	font: Arial, Helvetica, sans-serif;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
 	-moz-border-radius: .5em;
@@ -195,33 +198,39 @@ pre {
 	background: -moz-linear-gradient(top,  #fff,  #ededed);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
 }
-.white:hover {
+button.white:hover {
 	text-decoration: none;
 	background: #ededed;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
 	background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
-
 }
-.white:active {
+button.white:active {
 	position: relative;
 	top: 1px;
 	color: #999;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
 	background: -moz-linear-gradient(top,  #ededed,  #fff);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
-
 }
 
 /* MAC STYLE
 *******************************************************************************/
-.MAC {background: #eee;background: -moz-linear-gradient(0% 100% 90deg, #ccc, #eee);background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));border: 1px solid #ccc;border-bottom: 1px solid #bbb;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;color: #333;font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;font-size: 15px;font-weight: bold;line-height: 1;padding: 8px;text-align: center;text-shadow: 0 1px 0 #eee;width:120px;text-decoration:none;}
-.MAC:hover {background: #ddd;background: -moz-linear-gradient(0% 100% 90deg, #bbb, #ddd);background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#bbb));border: 1px solid #bbb;border-bottom: 1px solid #999;cursor: pointer;text-shadow: 0 1px 0 #ddd;text-decoration:none;}
-.MAC:active {border: 1px solid #aaa;border-bottom: 1px solid #888;-moz-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;-webkit-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;text-decoration:none;}
+button.MAC {
+	background: #eee;background: -moz-linear-gradient(0% 100% 90deg, #ccc, #eee);background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#ccc));border: 1px solid #ccc;border-bottom: 1px solid #bbb;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;color: #333;font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;font-weight: bold;line-height: 1em;height:40px !important;
+text-align: center;text-shadow: 0 1px 0 #eee;text-decoration:none;
+width:100%;font-size:2em;padding:5px 10px 5px 10px;
+}
+button.MAC:hover {
+	background: #ddd;background: -moz-linear-gradient(0% 100% 90deg, #bbb, #ddd);background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddd), to(#bbb));border: 1px solid #bbb;border-bottom: 1px solid #999;cursor: pointer;text-shadow: 0 1px 0 #ddd;text-decoration:none;
+}
+button.MAC:active {
+	border: 1px solid #aaa;border-bottom: 1px solid #888;-moz-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;-webkit-box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;box-shadow: inset 0 0 5px 2px #aaa, 0 1px 0 0 #eee;text-decoration:none;
+}
 
 /* Lucky You!
 *******************************************************************************/
-.lucky {
+button.lucky {
   background: #7be02e;
   background: -moz-linear-gradient(0% 100% 90deg,#54be04, #7be02e);
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7be02e), to(#54be04));
@@ -235,16 +244,16 @@ pre {
   box-shadow: inset 0 1px 0 0 #93df58;
   color: #fff;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 2em;
   font-weight: bold;
-  line-height: 1;
-  padding: 7px 0 8px 0;
+  line-height: .45em;
+  padding: 8px 0 8px 0;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
-  width: 150px;
+  min-width:150px;
+  height:40px !important;
 }
-
-.lucky:hover {
+button.lucky:hover {
   background: #76b347;
   background: -moz-linear-gradient(0% 100% 90deg,#5ea428, #86e43f);
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#86e43f), to(#5ea428));
@@ -253,9 +262,9 @@ pre {
   box-shadow: inset 0 1px 0 0 #81c84c;
   cursor: pointer;
 }
-
-.lucky:active {
+button.lucky:active {
   border: 1px solid #6bf005;
+	color:#e7e7e7;
   border-bottom: 1px solid #4fa40e;
   -moz-box-shadow: inset 0 0 8px 4px #4fa30f, 0 1px 0 0 #eee;
   -webkit-box-shadow: inset 0 0 8px 4px #4fa30f, 0 1px 0 0 #eee;
@@ -264,7 +273,7 @@ pre {
 
 /* iTunes STYLE
 *******************************************************************************/
-.iTunes {
+button.iTunes {
   background: #a5b8da;
   text-decoration:none;
   background: -moz-linear-gradient(0% 100% 90deg, #7089b3, #a5b8da);
@@ -281,17 +290,17 @@ pre {
   box-shadow: inset 0 1px 0 0 #aec3e5;
   color: #fff;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  font-size: 13px;
+  font-size: 1.5em;
   font-weight: bold;
-  line-height: 1;
-   padding:8px 20px 8px 20px;
+  line-height: 1em;
+  padding:8px 20px 8px 20px;
   text-align: center;
   text-shadow: 0 -1px 1px #64799e;
   text-transform: uppercase;
-  width: 150px;
+  min-width:150px;
+	height:40px !important;
 }
-
-.iTunes:hover, .iTunes:visited:hover {
+button.iTunes:hover {
   background: #9badcc;
   text-decoration:none;
   background: -moz-linear-gradient(0% 100% 90deg, #687fa6, #9badcc);
@@ -307,8 +316,7 @@ pre {
   color: #fbfbfb;
  
 }
-
-.iTunes:active {
+button.iTunes:active {
   border: 1px solid #546685;
   text-decoration:none;
   -moz-box-shadow: inset 0 0 8px 2px #7e8da6, 0 1px 0 0 #eee;
@@ -319,7 +327,7 @@ pre {
 
 /*black
 *******************************************************************************/
-.black {
+button.black {
 	background: #111;
 	text-decoration:none;
 	background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
@@ -341,16 +349,16 @@ pre {
 	box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
 	color:#ffffff !important;
 	font-family: "helvetica neue", helvetica, arial, sans-serif;
-	font-size: 25px;
+	font-size: 2em;
 	font-weight:bold;
 	text-align:center;
-	line-height: 1;
+	line-height: .25em;
 	padding: 12px;
 	text-shadow: 0px -1px 1px rgba(0, 0, 0, .8), 0 1px 1px rgba(255, 255, 255, 0.3);
-	width: 150px;
+	min-width:150px;
+	height:40px !important;
 }
-
-.black:hover {
+button.black:hover {
 	background: #222;
 	text-decoration:none;
 	background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
@@ -365,8 +373,7 @@ pre {
 	color-stop(1, rgba(20, 20, 20, 0.9)));
 	cursor: pointer;
 }
-
-.black:active {
+button.black:active {
 	background: #000;
 	background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
 	rgba(0, 0, 0, 0.9) 0%,
@@ -382,7 +389,7 @@ pre {
 
 /*red
 *******************************************************************************/
-.red {
+button.cherry {
   background: #c63929;
   background: -moz-linear-gradient(0% 100% 90deg, #891100 0%, #B51700 50%, #c63929 50%, #EE432E 100%);
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #ee432e), color-stop(0.5, #c63929), color-stop(0.5, #b51700), color-stop(1, #891100));
@@ -395,24 +402,23 @@ pre {
   box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333;
   color: #fff;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
-  font-size: 20px;
+  font-size: 2em;
   font-weight: bold;
-  line-height: 1;
+  line-height: .45em;
   padding: 12px;
   text-align: center;
   text-shadow: 0px -1px 1px rgba(0, 0, 0, .8);
-  width: 150px;
+	min-width:150px;
+	height:40px !important;
 }
-
-.red:hover, .red:visited:hover {
+button.cherry:hover {
   background: #cb0500;
   background: -moz-linear-gradient(0% 100% 90deg, #a20601 0%, #cb0500 50%, #db504d 50%, #f37873 100%);
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #f37873), color-stop(0.5, #db504d), color-stop(0.5, #cb0500), color-stop(1, #a20601));
   cursor: pointer;
   color: #fbfbfb;
 }
-
-.red:active {
+button.cherry:active {
   background: #b30300;
   background: -moz-linear-gradient(0% 100% 90deg, #700d00 0%, #9c1500 50%, #ad3224 50%, #d43c28 100%);
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #d43c28), color-stop(0.5, #ad3224), color-stop(0.5, #9c1500), color-stop(1, #700d00));
@@ -424,7 +430,7 @@ pre {
 
 /*orange
 *******************************************************************************/
-.orange {
+button.orange {
   background: #fd7412;
   background: -moz-linear-gradient(0% 100% 90deg, #cc4700 0%, #cc4700 50%, #fd7412 50%, #fd7412 100%);
   background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#fd7412), to(#cc4700));
@@ -434,24 +440,23 @@ pre {
   border-radius: 6px;
   color: #fcfcfc;
   font-family: "helvetica neue", helvetica, arial, sans-serif;
-  font-size: 18px;
+  font-size:2em;
   font-weight: bold;
-  line-height: 1;
+  line-height: .45em;
   padding: 10px;
   text-align: center;
   text-shadow: 0px -1px 1px #a64767;
-  min-width: 150px;
+  min-width:150px;
+	height:40px !important;
 }
-
-.orange:hover, .orange:visited:hover {
+button.orange:hover {
   background: #ff852e;
   background: -moz-linear-gradient(0% 100% 90deg, #c54c20 0%, #c54c20 50%, #ff852e 50%, #ff852e 100%);
   background: -webkit-gradient(linear, 0% 50%, 0% 51%, from(#ff852e), to(#c54c20));
   cursor: pointer;
   color:#FFFFFF;
 }
-
-.orange:active {
+button.orange:active {
   background: #e13f05;
   color:#B3ADAD;
   background: -moz-linear-gradient(0% 100% 90deg, #9b2c03 0%, #9b2c03 50%, #e13f05 50%, #e13f05 100%);
@@ -462,13 +467,13 @@ pre {
 
 /* animation properties
 *************************************/
-button, a, textarea {
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
+button.orange,button.cherry,button.black,button.iTunes,button.lucky,button.MAC,button.white {
+ -webkit-transition: all 0.25s ease-in-out;
+ -moz-transition: all 0.25s ease-in-out;
+ -o-transition: all 0.25s ease-in-out;
 }
 
-/* CSS styles
+/* Random CSS styles
 *******************************/
 /* Fun Fonts Styling and img padding */
 .plain { text-align: left;font-size:1.2em;
@@ -498,6 +503,7 @@ font-family: futura, 'gill sans', verdana, helvetica, arial;}
   background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
 }
+
 .evilWitch {
 	background: #000000; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -564,6 +570,7 @@ font-family: futura, 'gill sans', verdana, helvetica, arial;}
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
 /* CSS CORNERS Shadows or Both
 *********************************/
 .shadow {
@@ -578,7 +585,8 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Colo
 
 .round {padding:5px;-moz-border-radius: 5px;border-radius: 5px;}
 
-.shadowRound{padding:5px;-moz-border-radius: 5px;border-radius: 5px;
+.shadowRound{
+padding:5px;-moz-border-radius: 5px;border-radius: 5px;
 -moz-box-shadow: 2px 2px 4px #111;
 -webkit-box-shadow: 2px 2px 4px #111;
 box-shadow: 2px 2px 4px #111;
@@ -595,11 +603,9 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Colo
   left: 0;
   z-index: 9999;
   text-align: left;
-
 }
 
-
-#facebox .popup{
+#facebox .popup {
   position:relative;
   border:3px solid rgba(0,0,0,0);
   -webkit-border-radius:5px;
@@ -624,6 +630,7 @@ width: 810px;
 #facebox .content > p:first-child{
   margin-top:0;
 }
+
 #facebox .content > p:last-child{
   margin-bottom:0;
 }
@@ -635,9 +642,11 @@ width: 810px;
   padding:2px;
   background:#fff;
 }
+
 #facebox .close img{
   opacity:0.3;
 }
+
 #facebox .close:hover img{
   opacity:1.0;
 }
