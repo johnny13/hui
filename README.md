@@ -12,20 +12,20 @@ Allowing you to focus on either:
 2. *Page Theme and general Widget Styles*. Items like Typography, Colors, Modal Windows, and the likes.
 
 ## Install HUI in 2 Easy Steps
-
 *HUI* can be worked into your project in a few different ways. First, you will want to include the style sheet in your header. 
 
 1. Include css theme in HTML page header.
 <link href="css_base/hui-min-latest.css" type="text/css" rel="stylesheet"/>
 
 2. Load jQuery and HUI Library. [Preferably before closing </body> tag]    
-    
-```javascript    
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>    
-<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>    
-<script type="text/javascript" src="//huementui.s3.amazonaws.com/hui-min-latest.js"></script>    
-<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/hui-1.10.js"><\/script>')</script>    
+body CDN example:    
+```javascript    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>    
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>    
+
+    <script type="text/javascript" src="//huementui.s3.amazonaws.com/hui-min-latest.js"></script>    
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/hui-1.10.js"><\/script>')</script>    
 ```
 
 You can also optionally select a theme, which will provide some basic style elements, css buttons, and a number of other helpful additions. Full information can be found at huement.com/hui/themes
