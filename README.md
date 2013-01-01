@@ -15,14 +15,14 @@ Allowing you to focus on either:
 *HUI* is HTTPS:// and CDN ready out of the box. For precise control, it can Easily be worked into your project!    
 
 1. Include css base OR css theme in HTML page header.    
-''''html
- css_base/hui-min-latest.css    
-''''
-''''html
- css_themes/dark/theme-min.css    
-''''
+```html
+ 1b. css_base/hui-min-latest.css   
+ ```   
+```html
+ 1c. css_themes/dark/theme-min.css   
+ ```
 
-2. Load jQuery and HUI Library. [Preferably before closing </body> tag]    
+2. Load jQuery and HUI Library. [Preferably before closing */body* tag]    
 
 ![HUI - Loading Example](http://huement.s3.amazonaws.com/imgs/load_demo.png)
 
