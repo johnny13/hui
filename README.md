@@ -21,11 +21,11 @@ Allowing you to focus on either:
 
 body CDN example:    
 ```javascript    
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>    
-    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>    
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>    
 
-    <script type="text/javascript" src="//huementui.s3.amazonaws.com/hui-min-latest.js"></script>    
-    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/hui-1.10.js"><\/script>')</script>    
+<script src="//huementui.s3.amazonaws.com/hui-min-latest.js"></script>    
+<script type="text/javascript">$.shuffle || document.write('<script type="text/javascript" src="js/hui-1.10.js"><\/script>')</script>    
 ```
 
 You can also optionally select a theme, which will provide some basic style elements, css buttons, and a number of other helpful additions. Full information can be found at huement.com/hui/themes
