@@ -55,4 +55,4 @@ Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) & [
 
 Author: Derek Scott [@huement.com](https://twitter.com/huement).    
 
-![HUI - Huement User Interface](https://huementui.s3.amazonaws.com/images/gitpumpkin.png)
+![HUI - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)
