@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Viewport -->
+	<meta name="description" content="Huement User Interface (hui)">
+	<meta name="author" content="Derek Scott (@huement)">
+	<!-- Mobile Related Stuff -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>HUI Demo</title>
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	
+	<!-- HUI CSS the Longway -->
+	<link href="../css_base/hui-1.10.css" type="text/css" rel="stylesheet"/>
+	<link href="../css_themes/dark/dev-theme.css" type="text/css" rel="stylesheet"/>
+	
+	<!-- Old Internet Explorer -->
+	<!--[if lt IE 9]>
+	  <style type="text/css">
+	    .gradient { filter: none; }
+	  </style>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/css/ie-min.css" type="text/css" media="screen" />
+	<script src="http://huementui.s3.amazonaws.com/js/html5shiv.js" type="text/javascript"></script>
+	<![endif]-->
+	
+	<!-- Demo Styles -->
+	<style type="text/css">
+		html, body { 
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			min-height: 100% !important; 
+			height: 100% !important; 
+			width:100%;
+			display:block;
+			background-image:url("https://huement.s3.amazonaws.com/imgs/noisy_grid.png");
+			background-repeat:repeat;
+		}
+		.container p {
+		color: #fff;
+		padding:30px 0px 30px 0px;
+		background: #000;
+		text-align: center;
+		margin: 5px auto 10px auto;
+		width: 95%;
+		}
+		a {
+			color:#09F;
+			font-weight:bold;
+			
+		}
+		p.topic {
+			color: #fff;
+			font-size: 1.1em;
+			line-height: 1.2em;
+			background: #000;
+			text-align: left;
+			margin: 5px auto 10px auto;
+			padding:10px;
+			width: 95%;	
+		}
+		p.light {
+			background: #666;
+			background-color: #666;
+		}
+		.row {max-width:95%;}
+		.white{ width:30%;max-width:30%;}
+		.democolors {
+			margin:10px;
+			padding:10px;
+		}
+		.democolors li {
+			font-size:1em;
+			padding:10px;
+			margin:5px;
+			font-weight:bold;
+			color:#e7e7e7;
+			background:#666;
+		}
+		.fnote {
+			color: #666 !important;
+			padding:5px !important;
+			margin:0 !important;
+			background: transparent !important;
+			background-color: transparent !important;
+			text-align: left !important;
+			width: 95%;
+			font-size: .98em;
+			line-height: 1.1em;
+		}
+	</style>
+	
+	<!-- javascript loaded in the body -->
+</head>
+<body>
+<div class="container">
+	<div class="row" id="homerow">
+		<h1>huement user interface</h1>
+		<p class="topic light">HUI aims to make your design process two things, <strong>Simple</strong> and <strong>Stylish</strong>. It does this by breaking things into a modular architecture.</p>
+	</div>
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="action">
+		<h2>01. Action Functions</h2>
+		<p class="topic light">Nothing is perfect, and code is rarely complete. With those two things in mind, this section of the javascript will serve as a placeholder for additional snippets and commands that are helpful, but not complex enough to warrant a full plugin.</p>
+		<p class="topic light">Currently the functions here are:</p>
+		<div class="sixcol">
+			<h2>shuffle</h2>
+<pre class="jsCode">
+/* shake things up */
+var colorArray = [1,2,3];
+
+$.shuffle(colorArray);
+</pre>
+			<h2>color change animations</h2>
+<pre class="jsCode">
+$('#demodiv').animate({color: '#E4D8B8'})
+
+$('#demodiv').animate({backgroundColor: '#400101'})
+
+$('#demodiv').animate({color: 'rgba(42, 47, 76, 0.1)'})
+</pre>
+			<h2>preload images</h2>
+<pre class="jsCode">
+/* Plugin Version */
+$(['img1.jpg','img2.jpg','img3.jpg']).preload();
+
+/* Function Version */
+preload([
+ 'img/imageName.jpg',
+ 'img/anotherOne.jpg',
+ 'img/blahblahblah.jpg'
+]);
+</pre>
+<p class="light fnote">Based on some great <a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow</a> work this is a simple bit of javascript that allows individual image preloading. Perfect if you have a few large images, like background wallpapers.</p>
+		</div>
+		<div class="sixcol last">
+			<div class="p10 m10">
+					<h3>shuffle & color animate demo</h3>
+					<p class="p5 light">Shuffling through a JS array <br/><strong>"var colorArray = ["#C20000", ... "#F56200"];"</strong>,<br/> and animating the background color with the result.</p>
+						<span class="p5"><button class="black" style="width:100%;min-width:280px;" onclick="shuffledemo();return false;">shuffle & animate test</button></span>
+						<br/>
+						<ul class="democolors"> 
+							<li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
+						</ul>
+				<br/>
+			</div>
+			<div class="push"></div>
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="note">
+		<div class="sixcol">
+<h2>JS</h2>
+<pre class="jsCode">
+	
+notefy("Regular Message!","Auto Hide");
+
+//Sticky Message 
+//Options are 
+//(topmsg, btmmsg, iconclass, sticky[bool])
+
+notefy("Sticky Message!","Click To Hide",null,true);
+
+</pre>
+			
+		</div>
+		<div class="sixcol last">
+			<h2>02. Notefy</h2>
+			<button onclick="notefy('simple header','notefy message');return false;"><span class='label'>notefy test</span></button>
+			<button onclick="notefy('sticky test','stuck message',false,true);return false;"><span class='label'>sticky notefy test</span></button><br/>
+			<p class="topic light">A stylish unobtrusive notification system based on libnotify [Linux] or Growl [Mac OSX] depending on how you're living. The original code for Notefy is a fork from <a href="http://stanlemon.net/pages/jgrowl" target="_BLANK">jGrowl</a>.</p>
+			<p class="topic light">
+			Some major changes from the standard jGrowl code is the addition for icon indicators, and a simplified method for activation.<br/>the notefy() function has four parameters:<br/>"title" , "message" , <span style="font-style:italic">[optional icon class]</span>, <span style="font-style:italic">[boolean sticky]</span></p>
+			
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="formuse">
+		<h2>03. Forms & Usability</h2>
+		<p class="topic light">Increase the Usability of standard Form elements with a number of helpful commands.</p>
+		<div class="sixcol">
+<h2>checkbox JS</h2>
+<pre class="jsCode">
+$('.on_off :checkbox').iphoneStyle();
+
+$('.css_sized_container :checkbox').iphoneStyle({
+  resizeContainer: false, 
+  resizeHandle: false 
+});
+
+$('.long_tiny :checkbox').iphoneStyle({ 
+  checkedLabel: 'Very Long Text', 
+  uncheckedLabel: 'Tiny' 
+});
+</pre>
+<h2>Select Box JS</h2>
+<pre class="jsCode">
+/* Add single value (will be selected) */
+$("#myselect").addOption("Value", "Text");
+
+/* Add multiple values, but don't select */
+$("#myselect").addOption({"foo":"bar","bar":"baz"}, false);
+
+/* removing by value or by index */
+jQuery("#myselect").removeOption("Value");
+jQuery("#myselect").removeOption(0);
+
+/* Sort options 
+* (ascending or descending) 
+*/
+jQuery("#myselect").sortOptions([bool]);
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h3 class="p5">iOS Style Checkboxes</h3>
+			<p class="topic light">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
+			<br/>
+			
+			<p class="topic light">
+				<input type="checkbox" id="on_off" class="on_off" /><br/>
+				<label for="on_off_on">Default On</label>
+				<input type="checkbox" checked="checked" class="on_off" id="on_off_on"/>
+			</p>
+		
+			<h3 class="p5">Select box manipulation Plugins</h3>
+			<p class="topic light">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
+			Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
+			
+			<button onclick='$("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
+			<button onclick='$("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
+			<div class="push" style="height:5px"></div>
+			<div class="p10 m10">
+				<select id="myselect">
+					<option>default</option>
+				</select>
+			</div>
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+	
+	<div class="row" id="faceboxes">
+		<div class="sixcol">
+	<h2>button html</h2>
+<pre class="htmlCode">
+/* html markup for a button */
+&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;
+</pre>
+<h2>facebox js</h2>
+<pre class="jsCode">
+/* doc ready activate all */
+jQuery(document).ready(function($) {
+ $('a[rel*=facebox]').facebox();
+})
+
+/* Arbitrary Text */
+jQuery.facebox('something cool');
+jQuery.facebox('something cool', 'cstyle');
+
+/* Remote files */
+jQuery.facebox({ ajax: 'remote.html' });
+jQuery.facebox({ ajax: 'remote.html' }, 'cstyle');
+
+/* Image */
+jQuery.facebox({ image: 'img/s.jpg' });
+jQuery.facebox({ image: 'img/s.jpg' }, 'cstyle');
+
+/* A Page Element */
+jQuery.facebox({ div: '#box' });
+jQuery.facebox({ div: '#box' }, 'cstyle');
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h2>04. FaceBox</h2>
+			<button onclick="jQuery.facebox('<h1 class=\'tC\' style=\'margin-top:0;\'>FaceBox Example</h1><p>something cool</p><p>something cool</p><p>something cool</p>');return false;"><span class='label'>FaceBox Test</span></button>
+			<button onclick="jQuery.facebox({ ajax: '../css_base/hui-1.10.css' });return false;"><span class='label'>FaceBox Remote Test</span></button>
+			<br/>
+			<p class="topic light">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.
+			<br/>It's simple to use and easy on the eyes. For its inclusion in HUI a number of images were changed to css elements. While also altering its size to support a liquid layout.<br/>The window supports static content, remote images, even ajax in external html.<br/>Facebox can be called in functions individually, or more simply, you can include a one liner in your doc ready. Simply put, It's easier to give your Faceboxy links a rel="facebox" and hit them all onLoad.</p>
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="tooltip">
+		<div class="sixcol">
+<h2>tipTip JS</h2>
+<pre class="jsCode">
+/* doc ready activate all */
+$(function(){
+	
+ $(".tipTip").tipTip();
+
+ $(".tipTipR").tipTip({
+  defaultPosition:"right"
+ });
+
+});
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h2>05. Tooltips</h2>
+			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
+			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
+			
+			<p class="topic light" style="margin-top:30px">Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="animate">
+		<h2>06. Animations</h2>
+		<p class="topic light">....</p>
+		<div class="sixcol">
+<h2>animate JS</h2>
+<pre class="jsCode">
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h3>Kinema</h3>
+			<p class="topic light"></p>
+			<h3>Easing</h3>
+			<p class="topic light"></p>
+		</div>
+	</div>
+		<div class="push" style="height:150px"></div>
+		
+		<div class="push" style="height:150px"></div>
+	<div class="row" id="navigate">
+		<div class="twelvecol last">
+			<h2>07. Accordion Menus</h2>
+			<p class="topic light">Here are some of the Available Configurations for the Accordion Menus.</p>
+			
+			<p class="topic light">
+			For more advanced usage, see the complete HW Accordion page here:<br/>
+			<a href="http://dev.huement.com/hui/templates/Accordion.html">http://dev.huement.com/hui/templates/Accordion.html</a></p>
+		</div>
+	</div>
+		<div class="push"></div>
+	<div class="row" id="accordion">
+		<div class="sixcol">
+			<h2>HTML</h2>
+			<pre>
+&lt;ul class="accordion"&gt;
+
+ &lt;li id="one" class="files"&gt;
+
+   &lt;a href="#one"&gt;My Files&lt;span&gt;10&lt;/span&gt;&lt;/a&gt;
+
+	&lt;ul class="sub-menu"&gt;
+
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;/ul&gt;
+
+ &lt;/li&gt;
+ ...
+ ...
+&lt;/ul&gt;
+</pre>
+			<h2>JS</h2>
+			<pre>
+$(".accordion").accordionNav();
+			</pre>
+		</div>
+		<div class="sixcol last">
+			<h3>Accordion Navigate</h3>
+			<div class="p10 m10">
+				<p class="topic light">Uses Hardware Accelerated Animations. CSS3 Fallback. No jQuery required.</p>
+				<p class="topic light">Use External Button Triggers or Click the Header to toggle content.</p>
+				<br/>
+			</div>
+			<div class="push"></div>
+			<ul class="accordion">
+
+			    <li id="one" class="files">
+
+			        <a href="#one"><div class="huicon icon68"></div>My Files<span>10</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="two" class="mail">
+
+			        <a href="#two"><div class="huicon icon125"></div>Mail<span>20</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>2</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="three" class="cloud">
+
+			        <a href="#three"><div class="huicon icon72"></div>Songs<span>30</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>3</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="four" class="sign">
+
+			        <a href="#four"><div class="huicon icon108"></div>Sign Out</a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu</a></li>
+
+			        </ul>
+
+			    </li>
+
+			</ul>
+		</div>
+	</div>
+		<div class="push" style="height:70px"></div>
+	<div class="row">
+		<div class="sixcol">
+			<h2>HTML</h2>
+			<pre>
+&lt;div class="flapperStage"&gt;
+ &lt;div class="speakEasy"&gt;
+  &lt;ul&gt;
+
+    &lt;li class="title_bar" id='bsbs'&gt;Basic Setup&lt;/li&gt;
+
+	&lt;li class="basic bsbs"&gt;
+	  &lt;a href="#" class="pageloader"&gt;Download&lt;/a&gt;
+	&lt;/li&gt;
+		
+	&lt;li class="basic bsbs"&gt;
+	  &lt;a href="#" class="pageloader"&gt;Second&lt;/a&gt;
+	&lt;/li&gt;
+		
+	...
+	
+  &lt;/ul&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+			</pre>
+			<h2>JS</h2>
+			<pre>
+// 1. silly onclick callback function
+
+function callbackGirl(){
+ var iname = $(".speakEasy li.active").text();
+ notefy("clicked!", iname);
+}
+
+//2. Setup Object
+
+var ladyParts = {
+ "title":".title_bar",
+ "loader":".pageloader",
+ "stage":".speakEasy"
+};
+
+//3. Activate Flapper Girl Menu
+
+$("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
+
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h3>Flapper Girl</h3>
+			<div class="p10 m10">
+				<p class="topic light">Drop Down Tree Style Text Menus. <strong>Adapts to almost any un ordered list!</strong></p>
+				<p class="topic light">Support for OnClick External Callbacks.</p>
+				<br/>
+				
+				<div class="flapperStage">
+					<div class="speakEasy">
+						<ul>
+							<li class="title_bar" id='absbs'>Prohibition And Curls</li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 1</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 2</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 3</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 4</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 5</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 6</a></li>							
+							<li class="title_bar docked" id="bsbs">Basic Setup</li>
+							<li class="basic bsbs active" style="display: none;"><a href="#" class="pageloader">Download</a></li>
+							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Install</a></li>
+							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="title_bar docked" id="cscs">Mating</li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+							
+							
+							<li class="title_bar" id='dcscs'>Dance Number</li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Chorus</a></li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Refrain</a></li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Showstopper</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+	
+		<div class="push" style="height:170px"></div>
+	<div class="row" id="navigate">
+		<div class="twelvecol last">
+			<h2>08. Flexible Navigation</h2>
+			<h3>HorizontalNav</h3>
+			<p class="topic light" style="margin-bottom:30px;">Based on <a href="http://sebnitu.github.com/HorizontalNav/">sebnitu.github.com/HorizontalNav</a> and <a href="https://github.com/mattkersley/Responsive-Menu">mattkersley/Responsive-Menu</a>.<br/>A horizontal navigation to fit the full width of it's container. There are no requirements to how you style the navigation and adding padding, margins or borders to any of the elements won’t break the effect.<br/> Added benefit that it Turns any &lt;ol&gt; or &lt;ul&gt; into a &lt;select&gt; for mobiles and low browser sizes.</p>
+			<div id="mobilenav"></div>
+            <nav class="horizontal-nav full-width">
+                <ul>
+                    <li><a href="#">Navigation Item</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+			<div class="push" style="height:15px"></div>
+<h2>html</h2>
+<pre>
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Work&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<div class="push" style="height:15px"></div>
+<h2>js</h2>
+<pre>
+ $('.full-width').horizontalNav();
+</pre>
+			<div class="push" style="height:55px"></div>
+			<h3>Reactive Navigation</h3>
+			<p class="topic light" style="margin-bottom:30px;">
+				As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. <strong>Give the Pull and ID</strong>. You will need it Later!
+				<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
+			<div class="push"></div>
+			<nav id="flex1" class="flex clearfix">
+				<ul class="clearfix">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">How-to</a></li>
+					<li><a href="#">Icons</a></li>
+					<li><a href="#">Design</a></li>
+					<li><a href="#">Web 2.0</a></li>
+					<li><a href="#">Tools</a></li>	
+				</ul>
+				<a href="#" id="pull">Menu</a>
+			</nav>
+			<div class="push"></div>
+			<br/>
+			<p class="topic light">IMG examples. Resize this window to see Reactive Navigation in action.</p>
+			<img src="http://dev.huement.com/hui/img/menu1.png" style="width:40%" class="p5 m10 greyb L"/>
+			<img src="http://dev.huement.com/hui/img/menu2.png" style="width:40%;max-width:250px;" class="p5 m10 greyb R"/>
+			<br/>
+			<div class="push"></div>
+			<h2>js</h2>
+<pre class="jsCode">
+//Reactive Navigation Menu
+var navobj = {"pull":"#pull"};
+$("nav#flex1 ul").reactiveNav(navobj);
+</pre>
+<div class="push"></div>
+<h2>html</h2>
+<pre class="htmlCode">	
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+...
+...	
+&lt;nav class="clearfix"&gt;
+&lt;ul class="clearfix"&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;How-to&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Icons&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Design&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Web 2.0&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Tools&lt;/a&gt;&lt;/li&gt;	
+&lt;/ul&gt;
+&lt;a href="#" id="pull"&gt;Menu&lt;/a&gt;
+&lt;/nav&gt;
+</pre>
+		</div>
+	</div>
+	
+	<div class="push" style="height:150px"></div>
+	
+	
+	<div class="row">
+		<div class="twelvecol last">
+			<div class="p10">
+				
+			</div>
+			<div class="p10">
+				
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- javascript loaded in the body -->
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>
+	
+	<script src="../js/hui-1.10.js" type="text/javascript"></script>
+	<script type="text/javascript">   
+		var counter = 0;     
+		
+		//Crazy Accordion
+		//var parentAccordion=new TINY.accordion.slider("parentAccordion");
+		//parentAccordion.init("acc","h3",1,0);
+
+		function checkboxes(){
+			console.debug("this");
+			$('.on_off :checkbox').iphoneStyle();
+			
+		}
+
+		function shuffledemo(){
+			var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
+			$.shuffle(colorArray);
+			var ippo = 0;
+			$(".democolors").html(" ");
+			$(colorArray).each(function (index) {
+			    var name = colorArray[index];
+				$(".democolors").append("<li>"+name+"</li>");
+				ippo++;
+			});
+			
+			$(".democolors li").each(function (index) {
+			    var name = $(this).text();
+				$(this).animate({backgroundColor: name});
+			});
+		}
+		
+		function callbackGirl(){
+			var htmlitem = $(".speakEasy li.active").text();
+			notefy("Clicked!",htmlitem);
+		}
+		
+		
+		$(document).ready(function() {	
+			$(".testb").toggle(function(){
+				parentAccordion.pr(0,0);
+				return false;
+			}, function(){
+				parentAccordion.pr(-1,0);
+				return false;
+			});
+			$(".tests").toggle(function(){
+				parentAccordion.pr(0,1);
+				return false;
+			}, function(){
+				parentAccordion.pr(-1,1);
+				return false;
+			});
+			$(".testm").toggle(function(){
+				parentAccordion.pr(0,2);
+				return false;
+			}, function(){
+				parentAccordion.pr(-1,2);
+				return false;
+			});
+			$('.on_off').iphoneStyle();
+			$(".tipTip").tipTip();
+			$(".tipTipR").tipTip({
+				defaultPosition:"right"
+		 	});
+		
+			//Fluid Horizontal Navbar
+			$('.full-width').horizontalNav({
+			    prependTo : '#mobilenav'
+			});
+			
+			
+			//Reactive Navigation Menu
+			var navobj = {"pull":"#pull"};
+			$("nav#flex1 ul").reactiveNav(navobj);
+			
+			// var accobj = {"target":".accordion"};
+			$(".accordion").accordionNav();
+			
+			//Flapper Girl Menu
+			var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
+			$("<div></div>").flapperGirl(ladyParts, callbackGirl);
+		});	
+	</script>
+
+</body>
+</html>
