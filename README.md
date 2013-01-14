@@ -28,20 +28,18 @@ For a totally custom build, load a full theme. Along with the basic CSS style el
 Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/)    
 
 
-1. Include CSS base *OR* CSS theme in HTML Header.   
+#### Step 1| Include CSS base *OR* CSS theme in HTML Header.   
     
      css_base/hui-min-latest.css   
-    
-    
      css_themes/dark/theme-min.css   
     
-    
 
-2. Load jQuery and HUI Library (http or https).  
+#### Step 2| Load Javascript Libraries (http or https).  
     
     //huementui.s3.amazonaws.com/cdn/hui-min-latest.js    
     http(s)://huementui.s3.amazonaws.com/cdn/hui-min-latest.js    
     
+
 Preferably load all Javascript before closing */body* tag  
     
 ## Next Steps    
