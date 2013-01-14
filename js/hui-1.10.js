@@ -3244,7 +3244,7 @@ catch(e){
 					$(title_bar+" "+"li.basic:first").first().addClass("active");
 					
 					//<li id='category_example' class="title_bar"
-					$(title_bar).live("click",function(){
+					$(title_bar).click(function(){
 							var theid=$(this).attr("id");
 							$(this).toggleClass("docked");
 							$("."+theid).slideToggle();
@@ -3252,7 +3252,7 @@ catch(e){
 					
 					//<li class="basic category_example"><a href="#" class="pageloader">Download</a></li>
 					//$(".sideBar ul li").removeClass("active");
-					$(flapper).live("click",function(){
+					$(flapper).click(function(){
 							$(speakStage+" ul li").removeClass("active");
 							$(this).parent().addClass("active");
 

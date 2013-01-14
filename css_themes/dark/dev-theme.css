@@ -36,7 +36,7 @@
 * @import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
 */
 
-@import url("//huementui.s3.amazonaws.com/cdn/hui-min-latest.css");
+/* @import url("//huementui.s3.amazonaws.com/cdn/hui-min-latest.css"); */
 
 /* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
@@ -630,8 +630,17 @@ width: 32px !important;
 min-height: 32px !important; 
 height:32px !important;
 background-image: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/hui-icon-notefy.png') !important;
-float:left;
+float:left;  
 margin:10px 8px 0 -6px;
+}
+.hui-icon-star {  
+	min-width: 32px !important;
+	width: 32px !important; 
+	min-height: 32px !important; 
+	height:32px !important;
+	background-image: url('http://huement.s3.amazonaws.com/imgs/hui-icon-star.png') !important;
+	float:left;  
+	margin:10px 8px 0 -6px;
 }
 
 div.jGrowl div.jGrowl-notification {
@@ -1027,7 +1036,9 @@ label.iPhoneCheckLabelOff {
   background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/off.png') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
-  right: 0; }
+  right: 0;
+	min-width:100px;
+ }
   label.iPhoneCheckLabelOff span {
     padding-right: 8px; }
 
@@ -1726,22 +1737,61 @@ nav.flex {
 	height: 40px;
 	width: 100%;
 	
-	font-size: 1em;
-	text-align: center;
-	font-weight: bold;
+	text-align:center;
+	font-size: 1.2em;
+	font-weight:bold;
 	position: relative;
-	
-	background: #979797;
-	border: 1px solid #6D6D6D;
+
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+
+	background: rgba(0,0,0,0.7);
+
+	box-shadow: 
+	0 2px 8px rgba(0,0,0,0.5), /* Exterior Shadow */
+	inset 0 1px rgba(255,255,255,0.3), /* Top light Line */
+	inset 0 10px rgba(255,255,255,0.2), /* Top Light Shadow */
+	inset 0 10px 20px rgba(255,255,255,0.25), /* Sides Light Shadow */
+	inset 0 -15px 30px rgba(0,0,0,0.3); /* Dark Background */
+
+	-o-box-shadow: 
+	0 2px 8px rgba(0,0,0,0.5),
+	inset 0 1px rgba(255,255,255,0.3),
+	inset 0 10px rgba(255,255,255,0.2),
+	inset 0 10px 20px rgba(255,255,255,0.25),
+	inset 0 -15px 30px rgba(0,0,0,0.3);
+
+	-webkit-box-shadow: 
+	0 2px 8px rgba(0,0,0,0.5),
+	inset 0 1px rgba(255,255,255,0.3),
+	inset 0 10px rgba(255,255,255,0.2),
+	inset 0 10px 20px rgba(255,255,255,0.25),
+	inset 0 -15px 30px rgba(0,0,0,0.3);
+
+	-moz-box-shadow:
+	0 2px 8px rgba(0,0,0,0.5),
+	inset 0 1px rgba(255,255,255,0.3),
+	inset 0 10px rgba(255,255,255,0.2),
+	inset 0 10px 20px rgba(255,255,255,0.25),
+	inset 0 -15px 30px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.8);
+	border-bottom: 2px solid rgba(0,0,0,0.8);
 	border-left:none;
 	border-right:none;
+	color:#ffffff;
+	text-shadow: /* Simulating Text Stroke */
+	-1px -1px 0 #000, 
+	1px -1px 0 #000, 
+	-1px 1px 0 #000, 
+	1px 1px 0 #000;
+	
 }
 nav.flex ul {
 	padding: 0;
 	margin: 0 auto;
 	width: 600px;
 	height: 40px;
-	
 }
 nav.flex li {
 	display: inline;
@@ -1766,11 +1816,13 @@ nav.flex li:last-child a {
 	border-right: 0;
 }
 nav.flex a:hover, nav.flex a:active {
-	background-color: #858585;
-	background: #858585;
-	color:#3d3d3d;
+	background: rgba(0,0,0,0.9);
+	color:#f7f7f7;
 }
-nav.flex a#pull {
+nav.flex a.active-start {
+	background: rgba(0,0,0,1);
+}
+nav.flex a.navpuller {
 	display: none;
 }
 
@@ -1810,14 +1862,14 @@ nav.flex a#pull {
 		display: none;
 		height: auto;
 	}
-	nav.flex a#pull {
+	nav.flex a.navpuller {
 		display: block;
 		
 		background-color: #5C5C5C;
 		width: 100%;
 		position: relative;
 	}
-	nav.flex a#pull:after {
+	nav.flex a.navpuller:after {
 		content:"";
 		background:url("//huementui.s3.amazonaws.com/themes/black/images/navicon-light.png") no-repeat;
 		width: 5%;

@@ -184,7 +184,12 @@ hr {
 /* ==================================================================================================================== */
 .row {
 width: 100%;
-min-width: 755px;
+/* 
+optionally set minimum limits for your rows.
+
+min-width: 755px; 
+max-width: 1140px;
+*/
 margin: 0 auto;
 overflow: hidden;
 }

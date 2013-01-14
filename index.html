@@ -545,7 +545,9 @@ $("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 <div class="push" style="height:15px"></div>
 <h2>js</h2>
 <pre>
- $('.full-width').horizontalNav();
+$('.full-width').horizontalNav({
+  prependTo : '#mobilenav'
+});
 </pre>
 			<div class="push" style="height:55px"></div>
 			<h3>Reactive Navigation</h3>
@@ -612,14 +614,12 @@ $("nav#flex1 ul").reactiveNav(navobj);
 		</div>
 	</div>
 </div>
-
+	
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>
 	
-	<script type="text/javascript" src="//huementui.s3.amazonaws.com/hui-min-latest.js"></script>
-	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/hui-1.10.js"><\/script>')</script>
-	
+	<script src="js/hui-1.10.js" type="text/javascript"></script>
 	<script type="text/javascript">   
 		var counter = 0;     
 		
