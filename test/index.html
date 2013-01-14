@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HUI Test Suite</title>
+  
+  <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+  <link rel="stylesheet" href="../css_base/hui-min.css" media="screen">
+  <link rel="stylesheet" href="qunit/qunit.css" media="screen">
+	<style type="text/css">
+	body { 
+		font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+		min-height: 100% !important; 
+		height: 100% !important; 
+		width:100%;
+		display:block;
+		background-color:#F3F3F3;
+		background-image:url("http://huement.s3.amazonaws.com/imgs/grid-masked.png");
+		background-repeat:repeat-x;
+	}
+	.qunit-header {
+		padding: 0.5em 0 0.5em 1em;
+
+		color: #8699a4;
+		background-color: #0d3349;
+
+		font-size: 1.5em;
+		line-height: 1em;
+		font-weight: normal;
+
+		border-radius: 15px 15px 0 0;
+		-moz-border-radius: 15px 15px 0 0;
+		-webkit-border-top-right-radius: 15px;
+		-webkit-border-top-left-radius: 15px;
+	}
+
+	.qunit-header a {
+		text-decoration: none;
+		color: #c2ccd1;
+	}
+
+	.qunit-header a:hover,
+	.qunit-header a:focus {
+		color: #fff;
+	}
+
+	.qunit-header label {
+		display: inline-block;
+	}
+	.qunit-banner {
+		height: 5px;
+	}
+	.pass { color: #528CE0; background-color: #D2E0E6; }
+	.pql {
+		
+	}
+	.pql li.pass {
+		padding:15px;
+	}
+	.fail { color: #000000; background-color: #EE5757; }
+	.blackb {
+		background-color:#000;
+	}
+	.jGrowl-notification,#facebox * {display:none !important;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="margin-top:0px;">
+			<div id="animmeBox" class="twelvecol last hateIt" style="height:10px;">
+				<div id="animme" class="blackb" style="width:50px;height:10px;"></div>
+			</div>
+		</div>
+		<div class="row" style="max-width:1140px;margin-top:30px;">
+			<div class="onecol" style="height:100px;">
+				
+			</div>
+			<div class="tencol">
+				<div id="qunit"></div>
+			</div>
+			<div class="onecol last">
+				
+			</div>
+		</div>
+		
+		<div class="row" style="max-width:1140px;margin-top:50px;">
+			<div class="onecol">
+				
+			</div>
+			<div class="tencol">
+				
+				<div id="hui_alive">
+					<h1 class="qunit-header" style="margin:0;"><a href="/github/hui/test/"> CDN Status</a></h1>
+					<h2 id="qunit-banner" class="qunit-pass"></h2>
+					<ul id="version" class="cdn-tests">
+						
+					</ul>
+					
+				</div>
+				
+			</div>
+			<div class="onecol last">
+				
+			</div>
+		</div>
+		
+	</div>	
+	<div class="push" style="height:100px"></div>
+	<!-- Load local jQuery, removing access to $ (use jQuery, not $). -->
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script>jQuery.noConflict()</script>
+
+	<script src="qunit/qunit.js"></script>
+	<!-- Load local lib. -->
+	<script src="../js/hui-1.10.js"></script>
+	<!-- Load tests. -->
+	<script src="hui.test.js"></script>
+	<script src="test.accordion.js"></script>
+	
+</body>
+</html>

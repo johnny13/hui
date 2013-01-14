@@ -14,7 +14,7 @@ Allowing you to focus on either:
 ## Install HUI in 2 Easy Steps
 *HUI* is HTTPS:// and CDN ready out of the box. For precise control, it can Easily be worked into your project!    
 
-1. Include css base OR css theme in HTML page header.    
+1. Include css base OR css theme in HTML page header.   
 ```html
  1b. css_base/hui-min-latest.css   
  ```   

@@ -62,7 +62,7 @@
 			background: #666;
 			background-color: #666;
 		}
-		.row {max-width:95%;}
+		.row {max-width:95%;padding-top:50px;}
 		.white{ width:30%;max-width:30%;}
 		.democolors {
 			margin:10px;
@@ -87,11 +87,32 @@
 			font-size: .98em;
 			line-height: 1.1em;
 		}
+		
+		/* horizontalNav menu */
+		.fhead {
+			position:fixed;
+			top:0;
+			background-color:#222;
+			padding:5px 0 5px 0;
+			text-align:center;
+			border-bottom:1px solid #000;
+		}
+		
+		/* horizontalNav Select Box */
+		.mnav {
+			position:fixed;
+			top:0;
+			background-color:#e7e7e7;
+			width:100%;
+		}
+		.fhead a {color:#e7e7e7;}
+		.fhead a:hover {color:#000;}
 	</style>
 	
 	<!-- javascript loaded in the body -->
 </head>
 <body>
+	
 <div class="container">
 	<div class="row" id="homerow">
 		<h1>huement user interface</h1>
@@ -305,23 +326,40 @@ $(function(){
 		<div class="push" style="height:150px"></div>
 	<div class="row" id="animate">
 		<h2>06. Animations</h2>
-		<p class="topic light">....</p>
-		<div class="sixcol">
-<h2>animate JS</h2>
-<pre class="jsCode">
-</pre>
+		<p class="topic light">Kinema CSS Transformation Engine has many options. for a full demo Go here: <a href="http://dev.huement.com/kinema/">http://dev.huement.com/kinema/</a></p>
+		<div class="fourcol">
+			<ul>
+			    <li class="style"> x (px)</li>
+			    <li class="style"> y (px)</li>
+			</ul>
 		</div>
-		<div class="sixcol last">
-			<h3>Kinema</h3>
-			<p class="topic light"></p>
-			<h3>Easing</h3>
-			<p class="topic light"></p>
+		<div class="eightcol last">
+			<h2>Movement</h2>
+			<h3>X Y Grid Coordinates</h3>
+			<div class="p10">
+				<button class="white rdx">toggle</button>
+					<div class="push"></div>
+					<div class="blackb box_x" style="height:100px;width:100px;"></div>
+				<br/>
+			</div>
+<pre>
+$('.box_x').transition({ <b>x: '30px'</b> });
+</pre>
+			<div class="p10">
+				<button class="white rdy">toggle</button>
+					<div class="push"></div>
+					<div class="blackb box_y" style="height:100px;width:100px;"></div>
+			</div>
+<pre>
+$('.box_y').transition({ <b>y: '100px'</b> });
+</pre>
+			
 		</div>
 	</div>
 		<div class="push" style="height:150px"></div>
 		
 		<div class="push" style="height:150px"></div>
-	<div class="row" id="navigate">
+	<div class="row" id="accordion">
 		<div class="twelvecol last">
 			<h2>07. Accordion Menus</h2>
 			<p class="topic light">Here are some of the Available Configurations for the Accordion Menus.</p>
@@ -332,7 +370,7 @@ $(function(){
 		</div>
 	</div>
 		<div class="push"></div>
-	<div class="row" id="accordion">
+	<div class="row" id="accordion_two">
 		<div class="sixcol">
 			<h2>HTML</h2>
 			<pre>
@@ -522,15 +560,7 @@ $("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			<h3>HorizontalNav</h3>
 			<p class="topic light" style="margin-bottom:30px;">Based on <a href="http://sebnitu.github.com/HorizontalNav/">sebnitu.github.com/HorizontalNav</a> and <a href="https://github.com/mattkersley/Responsive-Menu">mattkersley/Responsive-Menu</a>.<br/>A horizontal navigation to fit the full width of it's container. There are no requirements to how you style the navigation and adding padding, margins or borders to any of the elements won’t break the effect.<br/> Added benefit that it Turns any &lt;ol&gt; or &lt;ul&gt; into a &lt;select&gt; for mobiles and low browser sizes.</p>
 			<div id="mobilenav"></div>
-            <nav class="horizontal-nav full-width">
-                <ul>
-                    <li><a href="#">Navigation Item</a></li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+            <h4>This Page Uses HorizontalNav for its menu. Resize to see in action.</h4>
 			<div class="push" style="height:15px"></div>
 <h2>html</h2>
 <pre>
@@ -564,7 +594,7 @@ $('.full-width').horizontalNav({
 					<li><a href="#">Web 2.0</a></li>
 					<li><a href="#">Tools</a></li>	
 				</ul>
-				<a href="#" id="pull">Menu</a>
+				<a href="#" class="navpuller">Menu</a>
 			</nav>
 			<div class="push"></div>
 			<br/>
@@ -615,6 +645,18 @@ $("nav#flex1 ul").reactiveNav(navobj);
 	</div>
 </div>
 	
+	<!-- main demo nav menu -->
+	<ul id="el_arco_iris" class="fhead none">
+	 <li><a href="#action">act</a></li>
+	 <li><a href="#note">notefy</a></li>
+	 <li><a href="#formuse">useful</a></li>
+	 <li><a href="#faceboxes">faceBox</a></li>
+	 <li><a href="#tooltip">tips</a></li>
+	 <li><a href="#animate">move</a></li>
+	 <li><a href="#accordion">dance</a></li>
+	 <li><a href="#navigate">flex</a></li>
+	</ul>
+	
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.8.3.min.js"><\/script>')</script>
@@ -622,7 +664,7 @@ $("nav#flex1 ul").reactiveNav(navobj);
 	<script src="js/hui-1.10.js" type="text/javascript"></script>
 	<script type="text/javascript">   
 		var counter = 0;     
-		
+		var colorArr = ["#C20000","#37C200","#004EC2","#8400C2","#F56200"];
 		//Crazy Accordion
 		//var parentAccordion=new TINY.accordion.slider("parentAccordion");
 		//parentAccordion.init("acc","h3",1,0);
@@ -655,8 +697,16 @@ $("nav#flex1 ul").reactiveNav(navobj);
 			notefy("Clicked!",htmlitem);
 		}
 		
+		function randomColors(){
+			var shuffleArr = $.shuffle(colorArr);
+			$("#el_arco_iris").animate({backgroundColor: colorArr[0]});
+		}
 		
 		$(document).ready(function() {	
+			/* Sample Animations */
+			setInterval("randomColors()",5555);
+			randomColors();
+			
 			$(".testb").toggle(function(){
 				parentAccordion.pr(0,0);
 				return false;
@@ -684,14 +734,46 @@ $("nav#flex1 ul").reactiveNav(navobj);
 				defaultPosition:"right"
 		 	});
 		
-			//Fluid Horizontal Navbar
-			$('.full-width').horizontalNav({
-			    prependTo : '#mobilenav'
+		
+			//Kinema Demo
+			$(".rdx").toggle(function(){
+				//Rotate
+				$('.box_x').transition({ 
+					x: "100px",
+				    duration: 1000,
+				    easing: 'ease'
+				});
+			}, function(){
+				$('.box_x').transition({ 
+					x: 0,
+				    duration: 1000,
+				    easing: 'ease'
+				});
 			});
+			$(".rdy").toggle(function(){
+				//Rotate
+				$('.box_y').transition({ 
+					y: "100px",
+				    duration: 1000,
+				    easing: 'linear'
+				});
+			}, function(){
+				$('.box_y').transition({ 
+					y: 0,
+				    duration: 1000,
+				    easing: 'linear'
+				});
+			});
+		
+			//Fluid Horizontal Navbar
 			
+			$('.fhead').horizontalNav({
+			    prependTo : 'body'
+			});
+			$('.fhead').removeClass('none');
 			
 			//Reactive Navigation Menu
-			var navobj = {"pull":"#pull"};
+			var navobj = {"pull":".navpuller"};
 			$("nav#flex1 ul").reactiveNav(navobj);
 			
 			// var accobj = {"target":".accordion"};

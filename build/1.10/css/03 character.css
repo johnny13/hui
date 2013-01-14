@@ -1,0 +1,47 @@
+/* [S03] 3_character.css  **********************************************************/
+
+/*--- Basics ---*/
+p { margin-bottom: 1em; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+a { text-decoration: none; color: #636363; }
+a, h1 a, h2 a { text-decoration: none; }
+a:hover { color: #0051FF; }
+a:visited:hover { color: #9900FF; }
+a img { border: none; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	color:#111;
+	line-height: 1;
+	margin: 0.5em 0 0.5em 0;
+}
+
+h1{font-size: 2.6em;} 
+h2{font-size: 2em;} 
+h3{font-size: 1.7em;} 
+h4{font-size: 1.4em;}
+h1,h3,h4,strong{font-weight:bold;}
+h5 { font-size: 1.2em; }
+
+ol li{list-style:none;}
+ul li{list-style:none;}
+
+p {
+	border:none;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:1em;
+	padding:5px 0 0 5px;
+	line-height:1em;
+}
+
+.footnote {
+	font-size:0.9em;
+	font-style: italic;
+	line-height:1em;
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.tC { text-align:center; }
+.tL { text-align:left; }
+.tR { text-align:right; }
