@@ -54,7 +54,8 @@ HUI has extensive documentation, a theme generator, and more helpful tools avail
 ## jQuery on,    jQuery in,    Design out
 
 #### ON    
-Using a strict no conflict environment, this library wont interfere with anything else, and frees up the $.() for anything you might need it for.
+Hey Kids, Lets get it ON. Always practice Safe Sex, and Use a Strict NO Conflict environment.    
+HUI's JS wont interfere with other JS Libraries, and frees up the ole $.() for anything you might need it for.
     
 #### IN     
 HUI has plenty of ways to increase your user INteractions. With Support for CSS transitions, Mobile Gestures, Keyboard Navigation, and upgraded Form Inputs.
