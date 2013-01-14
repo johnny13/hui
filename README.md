@@ -5,17 +5,21 @@ HUI [Huement User Interface] can adapt to viewport sizes, and has multiple fallb
 
 ## Why HUI?
 HUI aims to make your design process two things, Simple & Stylish.  
-It does this by breaking things into a modular architecture.
+It does this by breaking things into a smaller pieces.
 
-With A Modular Structure, you can easily separate design and basic elements.
+A Neat Modular Structure. separate script, design and basic UI/UX elements.
 
-#### Area 1| Internal Workings    
+#### Area 1| CSS Internals    
 
 Items like Browser Resets. HTML5 Shiv's, and Internet Explorer 8 Compatibility.    
 
-#### Area 2| Theme and Widgets    
+#### Area 2| CSS Theme and Widgets    
 
-Items like Typography, Colors, Modal Windows, and the likes.
+Items like Typography, Colors, Modal Windows, and the likes.    
+
+#### Area 3| Javascript Library    
+
+All the required code to make everything sing.
 
 ## Install HUI    
 
