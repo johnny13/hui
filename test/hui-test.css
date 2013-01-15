@@ -1,0 +1,54 @@
+body { 
+  font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100% !important; 
+  height: 100% !important; 
+  width:100%;
+  display:block;
+  background-color:#F3F3F3;
+  background-image:url("http://huement.s3.amazonaws.com/imgs/grid-masked.png");
+  background-repeat:repeat-x;
+ }
+ .qunit-header {
+  padding: 0.5em 0 0.5em 1em;
+
+  color: #8699a4;
+  background-color: #0d3349;
+
+  font-size: 1.5em;
+  line-height: 1em;
+  font-weight: normal;
+
+  border-radius: 15px 15px 0 0;
+  -moz-border-radius: 15px 15px 0 0;
+  -webkit-border-top-right-radius: 15px;
+  -webkit-border-top-left-radius: 15px;
+ }
+
+ .qunit-header a {
+  text-decoration: none;
+  color: #c2ccd1;
+ }
+
+ .qunit-header a:hover,
+ .qunit-header a:focus {
+  color: #fff;
+ }
+
+ .qunit-header label {
+  display: inline-block;
+ }
+ .qunit-banner {
+  height: 5px;
+ }
+ .pass { color: #528CE0; background-color: #D2E0E6; }
+ .pql {
+  
+ }
+ .pql li.pass {
+  padding:15px;
+ }
+ .fail { color: #000000; background-color: #EE5757; }
+ .blackb {
+  background-color:#000;
+ }
+ .jGrowl-notification,#facebox * {display:none !important;}

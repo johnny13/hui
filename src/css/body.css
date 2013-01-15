@@ -1,0 +1,215 @@
+/* [S02] 2_body.css  **********************************************************/
+/* Part A  */
+
+/* FullScreen Wallpaper */
+/* Apply this Same Class to the wallpaper Div and the Image Inside It.
+* <div class=wallpaper><img class=wallpaper/></div> 
+*/
+.wallpaper {
+	position:absolute;width:100%;
+	height:100%;top: 0px;left: 0px;z-index:-999;
+	overflow: hidden;
+}
+/* place a div w/ this id after it. stops users from accidently clicking the image. */
+#wallpaperClear {position:absolute;
+	width:100%;height:100%;
+	top: 0px;left: 0px;z-index:-998;
+	background-image:url("https://huementui.s3.amazonaws.com/images/block.png");
+	background-repeat:repeat;
+}
+
+/* .box and .boxFix habe no defined width. style inline */
+.box {
+	display: block;padding:5px;
+	min-height: 100%;height:100%;
+	min-width:800px;position:relative;margin:0 auto;
+}
+
+.boxFix { display: block;margin: 0px auto; }
+
+/* for the rest, think FRACTIONS 2/3 1/3 etc */
+.boxHalf {min-width:250px;width:49%;}
+.boxThird {width:32%;min-width:165px;}
+.boxTwoThird {width:65%;min-width:335px;}
+.boxFourth {width:23.5%;min-width:125px;}
+
+.box12 {min-width:250px;width:49%;}
+.box13 {width:32%;min-width:165px;}
+.box23 {width:65%;min-width:335px;}
+.box14 {width:23.5%;min-width:125px;}
+
+/* SetUp Columns (Divide Boxes in Further or in Half) */
+.column, .columnL, .columnR { 
+	display: block; zoom: 1; 
+	display: inline; 
+	letter-spacing: normal; 
+	word-spacing: normal; 
+	vertical-align: top; 
+}
+
+.column {display: block;height:100%;}
+.columnL {float:left;width:49%;padding: 0 5px 5px 0;}
+.columnR {float:right;width:49%;padding: 0 0 5px 5px;}
+
+/* Standard Floats */
+/* Easy Float / Quick Alignment */
+.L, .l {float:left;}
+.R, .r {float:right;}
+.C, .c {margin-left: auto;margin-right: auto;display:block;position:relative;}
+.center { display:block;position:relative;margin: 0 auto;}
+
+/* Easy Margins and Paddings */
+/* Remember: Top Left Bottom Right */
+.m5 {margin:0 5px 0 5px;}
+.m10 {margin:10px 10px 10px 10px}
+.m15 {margin:0 7.5px 0 7.5px}
+.p5 {padding: 5px}
+.p10 {padding:10px 10px 10px 10px}
+.p15 {padding:0 7.5px 0 7.5px}
+.zero {margin:0;padding:0}
+
+hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:1px;margin:0 0 1.45em;border:none;}
+hr.space {background:#fff;color:#fff;visibility:hidden;}
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+.container:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .container             { zoom: 1; } /* IE6 */
+*:first-child+html .container { zoom: 1; } /* IE7 */.clear {clear:both;}
+.clear {clear:both;}
+*:first-child+html #iconautente{ text-indent:0; line-height:0; font-size:0; overflow:hidden}/*ie7 hack */
+/* Clears (needed for sticky footer and helpful when using floats) */
+br {min-height:10px;height:10px;}
+.alpha:after,.alphaSticky:after, .column:after, br,  br:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
+hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margin-bottom:20px;}
+hr {
+	clear:both;width:90%;
+	border: none;
+	height: 0;
+	color:#000; border-color:#FFF;
+	border-bottom: 1px solid #e6e6e6;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+.push {
+	display:block;
+	position:relative;
+	width:99.5%;
+	height:25px;
+	clear:both;
+}
+/* [S02 Part B] Grid System Adapated From *******************************************************************************/
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+.row {
+width: 100%;
+/* 
+optionally set minimum limits for your rows.
+
+min-width: 755px; 
+max-width: 1140px;
+*/
+margin: 0 auto;
+overflow: hidden;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+margin-right: 3.8%;
+float: left;
+min-height: 1px;
+}
+
+.row .onecol {
+width: 4.85%;
+}
+
+.row .twocol {
+width: 13.45%;
+}
+
+.row .threecol {
+width: 22.05%;
+}
+
+.row .fourcol {
+width: 30.75%;
+}
+
+.row .fivecol {
+width: 39.45%;
+}
+
+.row .sixcol {
+width: 48%;
+}
+
+.row .sevencol {
+width: 56.75%;
+}
+
+.row .eightcol {
+width: 65.4%;
+}
+
+.row .ninecol {
+width: 74.05%;
+}
+
+.row .tencol {
+width: 82.7%;
+}
+
+.row .elevencol {
+width: 91.35%;
+}
+
+.row .twelvecol {
+width: 100%;
+float: left;
+}
+
+.last {
+margin-right: 0px;
+}
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+
+	body {
+	font-size: 0.8em;
+	line-height: 1.5em;
+	}
+	
+	}
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+	font-size: 16px;
+	-webkit-text-size-adjust: none;
+	}
+	
+	.row, body, .container {
+	width: 100%;
+	min-width: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+	
+	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+	width: auto;
+	float: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	}
+
+}
