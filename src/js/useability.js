@@ -193,7 +193,7 @@ jQuery.fn.selectOptions = function(value) {
   iOSCheckbox = (function() {
     function iOSCheckbox(elem, options) {
       var key, opts, value;
-      this.elem = $(elem);
+      this.elem = jQuery(elem);
       opts = jQuery.extend({}, iOSCheckbox.defaults, options);
       for (key in opts) {
         value = opts[key];
@@ -217,15 +217,15 @@ jQuery.fn.selectOptions = function(value) {
     iOSCheckbox.prototype.wrapCheckboxWithDivs = function() {
       this.elem.wrap("<div class='" + this.containerClass + "' />");
       this.container = this.elem.parent();
-      this.offLabel = $("<label class='" + this.labelOffClass + "'>\n  <span>" + this.uncheckedLabel + "</span>\n</label>").appendTo(this.container);
+      this.offLabel = jQuery("<label class='" + this.labelOffClass + "'>\n  <span>" + this.uncheckedLabel + "</span>\n</label>").appendTo(this.container);
       this.offSpan = this.offLabel.children('span');
-      this.onLabel = $("<label class='" + this.labelOnClass + "'>\n  <span>" + this.checkedLabel + "</span>\n</label>").appendTo(this.container);
+      this.onLabel = jQuery("<label class='" + this.labelOnClass + "'>\n  <span>" + this.checkedLabel + "</span>\n</label>").appendTo(this.container);
       this.onSpan = this.onLabel.children('span');
-      return this.handle = $("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
+      return this.handle = jQuery("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
     };
     iOSCheckbox.prototype.disableTextSelection = function() {
       if (jQuery.browser.msie) {
-        return $([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
+        return jQuery([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
       }
     };
     iOSCheckbox.prototype._getDimension = function(elem, dimension) {
@@ -343,16 +343,16 @@ jQuery.fn.selectOptions = function(value) {
       };
       localMouseUp = function(event) {
         self.onGlobalUp.apply(self, arguments);
-        $(document).unbind('mousemove touchmove', localMouseMove);
-        return $(document).unbind('mouseup touchend', localMouseUp);
+        jQuery(document).unbind('mousemove touchmove', localMouseMove);
+        return jQuery(document).unbind('mouseup touchend', localMouseUp);
       };
       this.elem.change(function() {
         return self.refresh();
       });
       return this.container.bind('mousedown touchstart', function(event) {
         self.onMouseDown.apply(self, arguments);
-        $(document).bind('mousemove touchmove', localMouseMove);
-        return $(document).bind('mouseup touchend', localMouseUp);
+        jQuery(document).bind('mousemove touchmove', localMouseMove);
+        return jQuery(document).bind('mouseup touchend', localMouseUp);
       });
     };
     iOSCheckbox.prototype.initialPosition = function() {
@@ -440,7 +440,7 @@ jQuery.fn.selectOptions = function(value) {
     _ref3 = this.filter(':checkbox');
     for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
       checkbox = _ref3[_i];
-      existingControl = $(checkbox).data(dataName);
+      existingControl = jQuery(checkbox).data(dataName);
       if (existingControl != null) {
         method = args[0], params = 2 <= args.length ? __slice.call(args, 1) : [];
         if ((_ref4 = existingControl[method]) != null) {

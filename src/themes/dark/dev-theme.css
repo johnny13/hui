@@ -1859,10 +1859,11 @@ nav.flex a.navpuller {
 	nav.flex {
 		border-bottom: 0;
 	}
-	nav.flex ul {
+	nav.flex ul, .horizontalNav-processed {
 		display: none;
 		height: auto;
 	}
+	
 	nav.flex a.navpuller {
 		display: block;
 		

@@ -68,13 +68,23 @@
  */
 ;(function($) {
   jQuery.facebox = function(data, klass) {
-    jQuery.facebox.loading(data.settings || [])
+    jQuery.facebox.loading(data.settings || []);
 
-    if (data.ajax) fillFaceboxFromAjax(data.ajax, klass)
-    else if (data.image) fillFaceboxFromImage(data.image, klass)
-    else if (data.div) fillFaceboxFromHref(data.div, klass)
-    else if (jQuery.isFunction(data)) data.call($)
-    else jQuery.facebox.reveal(data, klass)
+    if (data.ajax) {
+   fillFaceboxFromAjax(data.ajax, klass);
+  }
+    else if (data.image) {
+    fillFaceboxFromImage(data.image, klass);
+  }
+    else if (data.div) {
+   fillFaceboxFromHref(data.div, klass);
+  }
+    else if (jQuery.isFunction(data)) {
+   data.call($);
+  }
+    else {
+   jQuery.facebox.reveal(data, klass);
+  }
   }
 
   /*
@@ -88,27 +98,23 @@
       loadingImage : 'https://huementui.s3.amazonaws.com/images/loading.gif',
       closeImage   : 'https://huementui.s3.amazonaws.com/images/closelabel.png',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
-      faceboxHtml  : '\
-    <div id="facebox" style="display:none;"> \
-      <div class="popup"> \
-        <div class="content"> \
-        </div> \
-        <a href="#" class="close"></a> \
-      </div> \
-    </div>'
+      faceboxHtml  : '<div id="facebox" style="display:none;"><div class="popup"><div class="content"></div><a href="#" class="close"></a> </div></div>'
     },
 
     loading: function() {
-      init()
-      if ($('#facebox .loading').length === 1) return true;
+      init();
+      if ($('#facebox .loading').length === 1) {
+    return true;
+   }
+   
       showOverlay();
 
       $('#facebox .content').empty().
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'"/></div>');
 
       $('#facebox').show().css({
-        top:	getPageScroll()[1] + (getPageHeight() / 10),
-        left:	$(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2)
+        top: getPageScroll()[1] + (getPageHeight() / 10),
+        left: $(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2)
       });
 
       $(document).bind('keydown.facebox', function(e) {
@@ -163,8 +169,12 @@
 
   // called one time to setup facebox on this page
   function init(settings) {
-    if (jQuery.facebox.settings.inited) return true
-    else jQuery.facebox.settings.inited = true
+    if (jQuery.facebox.settings.inited) {
+   return true;
+  }
+    else {
+   jQuery.facebox.settings.inited = true;
+  }
 
     $(document).trigger('init.facebox');
     makeCompatible();
@@ -197,7 +207,7 @@
     if (self.pageYOffset) {
       yScroll = self.pageYOffset;
       xScroll = self.pageXOffset;
-    } else if (document.documentElement && document.documentElement.scrollTop) {	 // Explorer 6 Strict
+    } else if (document.documentElement && document.documentElement.scrollTop) {  // Explorer 6 Strict
       yScroll = document.documentElement.scrollTop;
       xScroll = document.documentElement.scrollLeft;
     } else if (document.body) {// all other Explorers
@@ -210,7 +220,7 @@
   // Adapted from getPageSize() by quirksmode.com
   function getPageHeight() {
     var windowHeight
-    if (self.innerHeight) {	// all except Explorer
+    if (self.innerHeight) { // all except Explorer
       windowHeight = self.innerHeight;
     } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
       windowHeight = document.documentElement.clientHeight;
@@ -282,7 +292,9 @@
   }
 
   function hideOverlay() {
-    if (skipOverlay()) return
+    if (skipOverlay()) {
+   return;
+  }
 
     $('#facebox_overlay').fadeOut(200, function(){
       $("#facebox_overlay").removeClass("facebox_overlayBG");
@@ -299,15 +311,15 @@
 
   $(document).bind('close.facebox', function() {
     if (jQuery.facebox.jqxhr) {
-      jQuery.facebox.jqxhr.abort()
-      jQuery.facebox.jqxhr = null
+      jQuery.facebox.jqxhr.abort();
+      jQuery.facebox.jqxhr = null;
     }
-    $(document).unbind('keydown.facebox')
+    $(document).unbind('keydown.facebox');
     $('#facebox').fadeOut(function() {
       $('#facebox .content').removeClass().addClass('content');
       $('#facebox .loading').remove();
       $(document).trigger('afterClose.facebox');
-    })
+    });
     hideOverlay();
   })
 

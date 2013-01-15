@@ -24,7 +24,7 @@
         var opts = jQuery.extend({}, jQuery.fn.horizontalNav.defaults, options);
 
         return this.each(function () {
-						
+            
             // Save our object
             var $this = jQuery(this);
 
@@ -53,7 +53,7 @@
                 return false;
             }
 
-						// Call funcion on browser resize
+            // Call funcion on browser resize
             function resizeTrigger(callback, delay) {
                 // Delay before function is called
                 delay = delay || 100;
@@ -125,18 +125,18 @@
                     resizeTrigger( _construct, o.responsiveDelay );
                 }
         /* minify down to select box on small screens */
-        if ( typeof options !== "undefined" && options) {
-         if ( typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
-         var prepre = options["prependTo"];
-         jQuery(ul).mobileMenu({
-          prependTo: prepre
-         });
-         } else {
-          jQuery(ul).mobileMenu();
-         }
-        } else {
-         jQuery(ul).mobileMenu();
-        }
+        
+              if ( typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
+               var prepre = options["prependTo"];
+               jQuery(ul).mobileMenu({
+               prependTo: prepre
+               });
+              } else {
+               jQuery(ul).mobileMenu();
+              }
+              if(jQuery(document).width() <= 480){
+                jQuery(".horizontalNav-processed").hide();
+              }
             }
 
             if (jQuery('.clearHorizontalNav').length ) {
