@@ -123,6 +123,11 @@
 	<div class="row" id="homerow">
 		<h2 class="el_arco_iris">huement user interface</h2>
 		<p class="topic light">HUI aims to make your design process two things, <strong>Simple</strong> and <strong>Stylish</strong>. It does this by breaking things into a modular architecture.</p>
+		<div class="limit">
+		<h4 class="L" style="margin-right:20px;"><a href="test/">launch hui testing suite</a></h4>
+		<h4 class="L" style="margin-right:20px;"><a href="http://hui.huement.com/">hui website</a></h4>
+		<h4 class="L" style="margin-right:20px;"><a href="https://github.com/johnny13/hui/">hui github</a></h4><br/>
+		</div>
 	</div>
 		<div class="push" style="height:150px"></div>
 	<div class="row" id="action">
@@ -663,11 +668,13 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	 <li><a href="#navigate">flex</a></li>
 	</ul>
 	
-	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="libs/jquery/jquery.js"><\/script>')</script>
-	
-	<script src="dist/hui-min.js" type="text/javascript"></script>
+	<!-- Developer Setup. Ready Your Code for jQuery 2.0+ -->
+	<script type="text/javascript" src="libs/jquery/jquery-1.9.0b1.js"></script>
+	<script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
+	<!-- Stable Production CDN Hosted Setup.
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	 -->
+	<script src="dist/hui.js" type="text/javascript"></script>
 	<script type="text/javascript">   
 		var counter = 0;     
 		var colorArr = ["#C20000","#37C200","#004EC2","#8400C2","#F56200"];
@@ -677,7 +684,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 		function checkboxes(){
 			console.debug("this");
-			jQuery('.on_off :checkbox').iphoneStyle();
+			//jQuery('.on_off :checkbox').iphoneStyle();
 			
 		}
 
@@ -710,33 +717,16 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			jQuery(".el_arco_iris").animate({color: colorArr[0]},3000);
 		}
 		
+		var demo1 = 0;
+		var demo2 = 0;
+		var demo3 = 0;
 		jQuery(document).ready(function() {	
 			/* Sample Animations */
 			setInterval("randomColors()",5555);
 			randomColors();
 			
-			jQuery(".testb").toggle(function(){
-				parentAccordion.pr(0,0);
-				return false;
-			}, function(){
-				parentAccordion.pr(-1,0);
-				return false;
-			});
-			jQuery(".tests").toggle(function(){
-				parentAccordion.pr(0,1);
-				return false;
-			}, function(){
-				parentAccordion.pr(-1,1);
-				return false;
-			});
-			jQuery(".testm").toggle(function(){
-				parentAccordion.pr(0,2);
-				return false;
-			}, function(){
-				parentAccordion.pr(-1,2);
-				return false;
-			});
-			jQuery('.on_off').iphoneStyle();
+			
+			//jQuery('.on_off').iphoneStyle();
 			jQuery(".tipTip").tipTip();
 			jQuery(".tipTipR").tipTip({
 				defaultPosition:"right"
@@ -744,35 +734,44 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 		
 		
 			//Kinema Demo
-			jQuery(".rdx").toggle(function(){
+			jQuery(".rdx").click(function(){
 				//Rotate
-				jQuery('.box_x').transition({ 
+				if(demo1 === 0){
+					jQuery('.box_x').transition({ 
 					x: "100px",
 				    duration: 1000,
 				    easing: 'ease'
-				});
-			}, function(){
-				jQuery('.box_x').transition({ 
-					x: 0,
-				    duration: 1000,
-				    easing: 'ease'
-				});
+			     	}); 
+			       demo1 = 1;
+				} else {
+					jQuery('.box_x').transition({ 
+						x: 0,
+					    duration: 1000,
+					    easing: 'ease'
+					});
+					demo1 = 0;
+				}
 			});
-			jQuery(".rdy").toggle(function(){
+			
+			jQuery(".rdy").click(function(){
 				//Rotate
-				jQuery('.box_y').transition({ 
-					y: "100px",
-				    duration: 1000,
-				    easing: 'linear'
-				});
-			}, function(){
-				jQuery('.box_y').transition({ 
-					y: 0,
-				    duration: 1000,
-				    easing: 'linear'
-				});
+				if(demo2 === 0){
+					jQuery('.box_y').transition({ 
+						y: "100px",
+					    duration: 1000,
+					    easing: 'linear'
+					});
+			       demo2 = 1;
+				} else {
+					jQuery('.box_y').transition({ 
+						y: 0,
+					    duration: 1000,
+					    easing: 'linear'
+					});
+					demo2 = 0;
+				}
 			});
-		
+			
 			//Fluid Horizontal Navbar
 			
 			jQuery('.fhead').horizontalNav({

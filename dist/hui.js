@@ -1,4 +1,4 @@
-/*! huement user interface - v1.13.0 - 2013-01-15
+/*! huement user interface - v1.13.0 - 2013-01-16
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
@@ -10,14 +10,16 @@
       var items = jQuery(this).children();
       return (items.length) ? jQuery(this).html(jQuery.shuffle(items)) : this;
     });
-  };
+  }
  
   jQuery.shuffle = function(arr) {
-    for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i, 0), x = arr[--i], arr[i] = arr[j], arr[j] = x){
-   return arr;
+    for(
+      var j, x, i = arr.length; i;
+      j = parseInt(Math.random() * i),
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
   }
-    
-  };
 })(jQuery);
 
 /**!
@@ -1194,6 +1196,82 @@ function Hammer(element, options, undefined)
         };
     });
 }(jQuery));
+/**
+ * History.js jQuery Adapter
+ * @author Benjamin Arthur Lupton <contact@balupton.com>
+ * @copyright 2010-2011 Benjamin Arthur Lupton <contact@balupton.com>
+ * @license New BSD License <http://creativecommons.org/licenses/BSD/>
+ */
+
+// Closure
+(function(window,undefined){
+	"use strict";
+
+	// Localise Globals
+	var
+		History = window.History = window.History||{},
+		jQuery = window.jQuery;
+
+	// Check Existence
+	if ( typeof History.Adapter !== 'undefined' ) {
+		throw new Error('History.js Adapter has already been loaded...');
+	}
+
+	// Add the Adapter
+	History.Adapter = {
+		/**
+		 * History.Adapter.bind(el,event,callback)
+		 * @param {Element|string} el
+		 * @param {string} event - custom and standard events
+		 * @param {function} callback
+		 * @return {void}
+		 */
+		bind: function(el,event,callback){
+			jQuery(el).bind(event,callback);
+		},
+
+		/**
+		 * History.Adapter.trigger(el,event)
+		 * @param {Element|string} el
+		 * @param {string} event - custom and standard events
+		 * @param {Object=} extra - a object of extra event data (optional)
+		 * @return {void}
+		 */
+		trigger: function(el,event,extra){
+			jQuery(el).trigger(event,extra);
+		},
+
+		/**
+		 * History.Adapter.extractEventData(key,event,extra)
+		 * @param {string} key - key for the event data to extract
+		 * @param {string} event - custom and standard events
+		 * @param {Object=} extra - a object of extra event data (optional)
+		 * @return {mixed}
+		 */
+		extractEventData: function(key,event,extra){
+			// jQuery Native then jQuery Custom
+			var result = (event && event.originalEvent && event.originalEvent[key]) || (extra && extra[key]) || undefined;
+
+			// Return
+			return result;
+		},
+
+		/**
+		 * History.Adapter.onDomLoad(callback)
+		 * @param {function} callback
+		 * @return {void}
+		 */
+		onDomLoad: function(callback) {
+			jQuery(callback);
+		}
+	};
+
+	// Try and Initialise History
+	if ( typeof History.init !== 'undefined' ) {
+		History.init();
+	}
+
+})(window);
 /************************************************ [S02] Notefy */
 /* notefy v0.01
 * HUI User friendly notifications and alerts 
@@ -1232,30 +1310,30 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
   jQuery.huiNotify(msg, {
   header: headerMsg,
   icon_theme: icon,
-  //afterOpen:function() {$('.notefyIcon').addClass(icon);},
+  //afterOpen:function() {jQuery('.notefyIcon').addClass(icon);},
   sticky: false
   });
  } else {
   jQuery.huiNotify(msg, {
   header: headerMsg,
   icon_theme: icon,
-  //afterOpen:function() {$('.notefyIcon').addClass(icon);},
+  //afterOpen:function() {jQuery('.notefyIcon').addClass(icon);},
   sticky: true
   });
  }
 
 }
 
-(function($) {
+(function(jQuery) {
 
  /** jGrowl Wrapper - Establish a base jGrowl Container for compatibility with older releases. **/
  jQuery.huiNotify = function( m , o ) {
   // To maintain compatibility with older version that only supported one instance we'll create the base container.
-  if ( $('#jGrowl').size() === 0 ) 
-   $('<div id="jGrowl"></div>').addClass( (o && o.position) ? o.position : jQuery.huiNotify.defaults.position ).appendTo('body');
+  if ( jQuery('#jGrowl').size() === 0 ) 
+   jQuery('<div id="jGrowl"></div>').addClass( (o && o.position) ? o.position : jQuery.huiNotify.defaults.position ).appendTo('body');
 
   // Create a notification on the container.
-  $('#jGrowl').huiNotify(m,o);
+  jQuery('#jGrowl').huiNotify(m,o);
  };
 
 
@@ -1268,16 +1346,16 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
     var self = this;
 
     /** Create a jGrowl Instance on the Container if it does not exist **/
-    if ( $(this).data('jGrowl.instance') === undefined ) {
-     $(this).data('jGrowl.instance', jQuery.extend( new jQuery.fn.huiNotify(), { notifications: [], element: null, interval: null } ));
-     $(this).data('jGrowl.instance').startup( this );
+    if ( jQuery(this).data('jGrowl.instance') === undefined ) {
+     jQuery(this).data('jGrowl.instance', jQuery.extend( new jQuery.fn.huiNotify(), { notifications: [], element: null, interval: null } ));
+     jQuery(this).data('jGrowl.instance').startup( this );
     }
 
     /** Optionally call jGrowl instance methods, or just raise a normal notification **/
-    if ( jQuery.isFunction($(this).data('jGrowl.instance')[m]) ) {
-     $(this).data('jGrowl.instance')[m].apply( $(this).data('jGrowl.instance') , jQuery.makeArray(args).slice(1) );
+    if ( jQuery.isFunction(jQuery(this).data('jGrowl.instance')[m]) ) {
+     jQuery(this).data('jGrowl.instance')[m].apply( jQuery(this).data('jGrowl.instance') , jQuery.makeArray(args).slice(1) );
     } else {
-     $(this).data('jGrowl.instance').create( m , o );
+     jQuery(this).data('jGrowl.instance').create( m , o );
     }
    });
   };
@@ -1347,54 +1425,54 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
    var message = notification.message;
    var o = notification.options;
 
-   var notification = $(
+   var notification = jQuery(
     '<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
     ((o.group !== undefined && o.group !== '') ? ' ' + o.group : '') + '"><div class="hui-icon-'+ o.icon_theme +'"></div>' +
     '<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
     '<div class="jGrowl-header">' + o.header + '</div>' +
     '<div class="jGrowl-message">' + message + '</div></div>'
    ).data("jGrowl", o).addClass(o.theme).children('div.jGrowl-close').bind("click.huiNotify", function() {
-    $(this).parent().trigger('jGrowl.close');
+    jQuery(this).parent().trigger('jGrowl.close');
    }).parent();
 
 
    /** Notification Actions **/
-   $(notification).bind("mouseover.huiNotify", function() {
-    $('div.jGrowl-notification', self.element).data("jGrowl.pause", true);
+   jQuery(notification).bind("mouseover.huiNotify", function() {
+    jQuery('div.jGrowl-notification', self.element).data("jGrowl.pause", true);
    }).bind("mouseout.huiNotify", function() {
-    $('div.jGrowl-notification', self.element).data("jGrowl.pause", false);
+    jQuery('div.jGrowl-notification', self.element).data("jGrowl.pause", false);
    }).bind('jGrowl.beforeOpen', function() {
     if ( o.beforeOpen.apply( notification , [notification,message,o,self.element] ) !== false ) {
-     $(this).trigger('jGrowl.open');
+     jQuery(this).trigger('jGrowl.open');
     }
    }).bind('jGrowl.open', function() {
     if ( o.open.apply( notification , [notification,message,o,self.element] ) !== false ) {
      if ( o.glue === 'after' ) {
-      $('div.jGrowl-notification:last', self.element).after(notification);
+      jQuery('div.jGrowl-notification:last', self.element).after(notification);
      } else {
-      $('div.jGrowl-notification:first', self.element).before(notification);
+      jQuery('div.jGrowl-notification:first', self.element).before(notification);
      }
 
-     $(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
+     jQuery(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
       // Fixes some anti-aliasing issues with IE filters.
-      if (jQuery.browser.msie && (parseInt($(this).css('opacity'), 10) === 1 || parseInt($(this).css('opacity'), 10) === 0))
+      if (jQuery(document).width() <= 800 && (parseInt(jQuery(this).css('opacity'), 10) === 1 || parseInt(jQuery(this).css('opacity'), 10) === 0))
        this.style.removeAttribute('filter');
 
-      $(this).data("jGrowl").created = new Date();
+      jQuery(this).data("jGrowl").created = new Date();
 
-      $(this).trigger('jGrowl.afterOpen');
+      jQuery(this).trigger('jGrowl.afterOpen');
      });
     }
    }).bind('jGrowl.afterOpen', function() {
     o.afterOpen.apply( notification , [notification,message,o,self.element] );
    }).bind('jGrowl.beforeClose', function() {
     if ( o.beforeClose.apply( notification , [notification,message,o,self.element] ) !== false )
-     $(this).trigger('jGrowl.close');
+     jQuery(this).trigger('jGrowl.close');
    }).bind('jGrowl.close', function() {
     // Pause the notification, lest during the course of animation another close event gets called.
-    $(this).data('jGrowl.pause', true);
-    $(this).animate(o.animateClose, o.closeDuration, o.easing, function() {
-     $(this).remove();
+    jQuery(this).data('jGrowl.pause', true);
+    jQuery(this).animate(o.animateClose, o.closeDuration, o.easing, function() {
+     jQuery(this).remove();
      var close = o.close.apply( notification , [notification,message,o,self.element] );
 
      if ( jQuery.isFunction(close) )
@@ -1403,18 +1481,18 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
    }).trigger('jGrowl.beforeOpen');
 
    /** Optional Corners Plugin **/
-   if ( o.corners !== '' && jQuery.fn.corner !== undefined ) $(notification).corner( o.corners );
+   if ( o.corners !== '' && jQuery.fn.corner !== undefined ) jQuery(notification).corner( o.corners );
 
    /** Add a Global Closer if more than one notification exists **/
-   if ( $('div.jGrowl-notification:parent', self.element).size() > 1 && 
-     $('div.jGrowl-closer', self.element).size() === 0 && this.defaults.closer !== false ) {
-    $(this.defaults.closerTemplate).addClass('jGrowl-closer ui-state-highlight ui-corner-all').addClass(this.defaults.theme)
+   if ( jQuery('div.jGrowl-notification:parent', self.element).size() > 1 && 
+     jQuery('div.jGrowl-closer', self.element).size() === 0 && this.defaults.closer !== false ) {
+    jQuery(this.defaults.closerTemplate).addClass('jGrowl-closer ui-state-highlight ui-corner-all').addClass(this.defaults.theme)
      .appendTo(self.element).animate(this.defaults.animateOpen, this.defaults.speed, this.defaults.easing)
      .bind("click.huiNotify", function() {
-      $(this).siblings().trigger("jGrowl.beforeClose");
+      jQuery(this).siblings().trigger("jGrowl.beforeClose");
 
       if ( jQuery.isFunction( self.defaults.closer ) ) {
-       self.defaults.closer.apply( $(this).parent()[0] , [$(this).parent()[0]] );
+       self.defaults.closer.apply( jQuery(this).parent()[0] , [jQuery(this).parent()[0]] );
       }
      });
    };
@@ -1422,49 +1500,49 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
 
   /** Update the jGrowl Container, removing old jGrowl notifications **/
   update:  function() {
-   $(this.element).find('div.jGrowl-notification:parent').each( function() {
-    if ( $(this).data("jGrowl") !== undefined && $(this).data("jGrowl").created !== undefined && 
-      ($(this).data("jGrowl").created.getTime() + parseInt($(this).data("jGrowl").life, 0))  < (new Date()).getTime() && 
-      $(this).data("jGrowl").sticky !== true && 
-      ($(this).data("jGrowl.pause") === undefined || $(this).data("jGrowl.pause") !== true) ) {
+   jQuery(this.element).find('div.jGrowl-notification:parent').each( function() {
+    if ( jQuery(this).data("jGrowl") !== undefined && jQuery(this).data("jGrowl").created !== undefined && 
+      (jQuery(this).data("jGrowl").created.getTime() + parseInt(jQuery(this).data("jGrowl").life, 0))  < (new Date()).getTime() && 
+      jQuery(this).data("jGrowl").sticky !== true && 
+      (jQuery(this).data("jGrowl.pause") === undefined || jQuery(this).data("jGrowl.pause") !== true) ) {
 
      // Pause the notification, lest during the course of animation another close event gets called.
-     $(this).trigger('jGrowl.beforeClose');
+     jQuery(this).trigger('jGrowl.beforeClose');
     }
    });
 
    if ( this.notifications.length > 0 && 
-     (this.defaults.pool === 0 || $(this.element).find('div.jGrowl-notification:parent').size() < this.defaults.pool) )
+     (this.defaults.pool === 0 || jQuery(this.element).find('div.jGrowl-notification:parent').size() < this.defaults.pool) )
     this.render( this.notifications.shift() );
 
-   if ( $(this.element).find('div.jGrowl-notification:parent').size() < 2 ) {
-    $(this.element).find('div.jGrowl-closer').animate(this.defaults.animateClose, this.defaults.speed, this.defaults.easing, function() {
-     $(this).remove();
+   if ( jQuery(this.element).find('div.jGrowl-notification:parent').size() < 2 ) {
+    jQuery(this.element).find('div.jGrowl-closer').animate(this.defaults.animateClose, this.defaults.speed, this.defaults.easing, function() {
+     jQuery(this).remove();
     });
    }
   },
 
   /** Setup the jGrowl Notification Container **/
   startup: function(e) {
-   this.element = $(e).addClass('jGrowl').append('<div class="jGrowl-notification"></div>');
+   this.element = jQuery(e).addClass('jGrowl').append('<div class="jGrowl-notification"></div>');
    this.interval = setInterval( function() { 
-    $(e).data('jGrowl.instance').update(); 
+    jQuery(e).data('jGrowl.instance').update(); 
    }, parseInt(this.defaults.check, 0));
 
-   if (jQuery.browser.msie && parseInt(jQuery.browser.version, 0) < 7 && !window["XMLHttpRequest"]) {
-    $(this.element).addClass('ie6');
+   if (jQuery(document).width() <= 800) {
+    jQuery(this.element).addClass('smallscreen');
    }
   },
 
   /** Shutdown jGrowl, removing it and clearing the interval **/
   shutdown:   function() {
-   $(this.element).removeClass('jGrowl').find('div.jGrowl-notification').remove();
+   jQuery(this.element).removeClass('jGrowl').find('div.jGrowl-notification').remove();
    clearInterval( this.interval );
   },
 
   close:  function() {
-   $(this.element).find('div.jGrowl-notification').each(function(){
-    $(this).trigger('jGrowl.beforeClose');
+   jQuery(this.element).find('div.jGrowl-notification').each(function(){
+    jQuery(this).trigger('jGrowl.beforeClose');
    });
   }
  });
@@ -1662,6 +1740,8 @@ jQuery.fn.selectOptions = function(value) {
  return this;
 };
 
+
+/* iOS Style Checkbox */
 (function() {
   var iOSCheckbox;
   var __slice = Array.prototype.slice;
@@ -1699,7 +1779,8 @@ jQuery.fn.selectOptions = function(value) {
       return this.handle = jQuery("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
     };
     iOSCheckbox.prototype.disableTextSelection = function() {
-      if (jQuery.browser.msie) {
+      //if (jQuery.browser.msie) {
+			if(jQuery(document).width() <= 800){
         return jQuery([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
       }
     };
@@ -1837,7 +1918,7 @@ jQuery.fn.selectOptions = function(value) {
         width: containerWidth - this.containerRadius
       });
       offset = this.containerRadius + 1;
-      if (jQuery.browser.msie && jQuery.browser.version < 7) {
+      if (jQuery(document).width() <= 800) {
         offset -= 3;
       }
       this.rightSide = containerWidth - this._getDimension(this.handle, "width") - offset;
@@ -1946,7 +2027,6 @@ jQuery.fn.selectOptions = function(value) {
     return this.iphoneStyle(opts);
   };
 }).call(this);
-
 /************************************************ [S04] Facebox */
 /*
  * Facebox (for jQuery)
@@ -4540,7 +4620,7 @@ try {
             // find and set the appropriate widths for list items
             function _construct() {
 
-                if ( (o.tableDisplay !== true) || (jQuery.browser.msie && parseInt(jQuery.browser.version, 10) <= 7) ) {
+                if ( (o.tableDisplay !== true) || (!$.support.leadingWhitespace) ) {
 
                     // IE7 doesn't support the "display: table" method
                     // so we need to do it the hard way.
@@ -4570,9 +4650,7 @@ try {
                     var li_last_width = trueInnerWidth(li_last) + ( (full_width - ul_width_extra) - trueInnerWidth(ul) );
                     // I hate to do this but for some reason Firefox (v13.0) and IE are always
                     // one pixel off when rendering. So this is a quick fix for that.
-                    if (jQuery.browser.mozilla || jQuery.browser.msie) {
-                        li_last_width = li_last_width - 1;
-                    }
+                    li_last_width = li_last_width - 1;
                     // Add the leftovers to the last navigation item
                     li_last.css({ 'width' : li_last_width + 'px' });
 
@@ -4590,7 +4668,7 @@ try {
             if ( o.responsive === true ) {
                 // Only need to do this for IE7 and below
                 // or if we set tableDisplay to false
-                if ( (o.tableDisplay !== true) || (jQuery.browser.msie && parseInt(jQuery.browser.version, 10) <= 7) ) {
+                if ( (o.tableDisplay !== true) || (!$.support.leadingWhitespace) ) {
                     resizeTrigger( _construct, o.responsiveDelay );
                 }
         /* minify down to select box on small screens */

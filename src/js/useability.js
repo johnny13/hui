@@ -187,6 +187,8 @@ jQuery.fn.selectOptions = function(value) {
  return this;
 };
 
+
+/* iOS Style Checkbox */
 (function() {
   var iOSCheckbox;
   var __slice = Array.prototype.slice;
@@ -224,7 +226,8 @@ jQuery.fn.selectOptions = function(value) {
       return this.handle = jQuery("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
     };
     iOSCheckbox.prototype.disableTextSelection = function() {
-      if (jQuery.browser.msie) {
+      //if (jQuery.browser.msie) {
+			if(jQuery(document).width() <= 800){
         return jQuery([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
       }
     };
@@ -362,7 +365,7 @@ jQuery.fn.selectOptions = function(value) {
         width: containerWidth - this.containerRadius
       });
       offset = this.containerRadius + 1;
-      if (jQuery.browser.msie && jQuery.browser.version < 7) {
+      if (jQuery(document).width() <= 800) {
         offset -= 3;
       }
       this.rightSide = containerWidth - this._getDimension(this.handle, "width") - offset;

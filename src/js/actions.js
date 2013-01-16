@@ -7,14 +7,16 @@
       var items = jQuery(this).children();
       return (items.length) ? jQuery(this).html(jQuery.shuffle(items)) : this;
     });
-  };
+  }
  
   jQuery.shuffle = function(arr) {
-    for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i, 0), x = arr[--i], arr[i] = arr[j], arr[j] = x){
-   return arr;
+    for(
+      var j, x, i = arr.length; i;
+      j = parseInt(Math.random() * i),
+      x = arr[--i], arr[i] = arr[j], arr[j] = x
+    );
+    return arr;
   }
-    
-  };
 })(jQuery);
 
 /**!

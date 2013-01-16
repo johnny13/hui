@@ -30,7 +30,7 @@
     ok( lhui !== "", "HUI Version: "+lhui+" Hello World Passed! " );
   });
 
-  QUnit.test( "HUI Array Shuffle() Test", function( assert ) {
+  QUnit.test( "Shuffle() Array Test", function( assert ) {
 
     function square() {
       jQuery.shuffle(colorArrRandom);
@@ -54,7 +54,7 @@
   
   var abc=1;
   var hateIt =0;
-  QUnit.test( "HUI Animation Tests", function( assert ) {
+  QUnit.test( "CSS3 Animations", function( assert ) {
     jQuery(".hateIt").click(function(){
       hateIt = 13;
       jQuery(this).hide();
@@ -96,7 +96,7 @@
     ok(sresult >= "13", "Kinema Engine Working. CSS Transitions Supported." );
   });
 
-  QUnit.test( "HUI Alert Widgets Test", function( assert ) {
+  QUnit.test( "Core Widgets Test", function( assert ) {
 
      function nsquare() {
      if(jQuery.isFunction(notefy) === true){
@@ -116,4 +116,76 @@
     ok( sresult === cresult, "Passed! facebox() and notefy() working 100%" );
   });
 
+	QUnit.test( "Gesture Support Test", function( assert ) {
+
+     function nsquare() {
+      if(jQuery.isFunction(Hammer) === true){
+       var jQuerysw = jQuery('#swipeme'),
+       jQueryoutput = jQuery('#output');
+    
+       jQuerysw.on('hold tap swipe doubletap transformstart transform transformend dragstart drag dragend swipe release', function (event) {
+         event.preventDefault();
+         jQueryoutput.prepend("Type: " + event.type + ", Fingers: " + event.touches.length + ", Direction: " + event.direction + "<br/>");
+       });
+        return 5;
+      } else {
+       return 55;
+      }
+    }
+    
+    var sresult = nsquare();
+    var cresult = 6;
+    ok( sresult <= cresult, "Gesture Support Active" );
+  });
+
 }(jQuery));
+
+
+var cdnv = "";
+ var huivn = "1.13.0";
+
+function callbackGirl(){
+ var htmlitem = jQuery(".speakEasy li.active").text();
+ notefy("Clicked!",htmlitem);
+}
+
+function shuffledemo(){
+ var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
+ jQuery.shuffle(colorArray);
+ var ippo = 0;
+ jQuery(".democolors").html(" ");
+ jQuery(colorArray).each(function (index) {
+     var name = colorArray[index];
+  jQuery(".democolors").append("<li>"+name+"</li>");
+  ippo++;
+ });
+
+ jQuery(".democolors li").each(function (index) {
+     var name = jQuery(this).text();
+  jQuery(this).animate({backgroundColor: name});
+ });
+}
+
+function huiv(){
+ var jqv = jQuery().jquery;
+ jQuery(".jqvb").html(jqv);
+ jQuery(".hvb").html(huivn);
+ return true;
+};
+
+jQuery(document).ready(function() {
+ huiv();
+ jQuery(".n1t").click(function(){
+ notefy('simple header','notefy message');
+ return false;
+ });
+ jQuery(".n2t").click(function(){
+ notefy('simple header','notefy message','star',true);
+ return false;
+ });
+ jQuery(".shuffleDemo").click(function(){
+ shuffledemo();
+ return false;
+ });   
+jQuery('.touchNo').bind('dragstart', function(event) { event.preventDefault(); });
+});

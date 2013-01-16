@@ -18,64 +18,22 @@
  <link rel="stylesheet" href="../dist/hui-base.css" media="screen">
  <link rel="stylesheet" href="../src/themes/dark/dev-theme.css" media="screen">
  <link rel="stylesheet" href="hui-test.css" media="screen">
- <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
- <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="../libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+ <!-- Available jQuery Builds -->
+ <!--
+ <script type="text/javascript" src="../libs/jquery/jquery-1.8.3.min.js"></script>
+ 
+ <script type="text/javascript" src="../libs/jquery/jquery-1.9.0b1.js"></script>
+ <script type="text/javascript" src="../libs/jquery/jquery-migrate-1.0.0b1.js"></script>
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  -->
+ <script type="text/javascript" src="../libs/jquery/jquery-1.9.0b1.js"></script>
+ <script type="text/javascript" src="../libs/jquery/jquery-migrate-1.0.0b1.js"></script>
  <script>jQuery.noConflict()</script>
  <!-- Load local other libs. -->
  <script src="../dist/hui.js"></script>
  <script src="../libs/qunit/qunit.js"></script>
  <script src="hui_test.js"></script>
- <script type="text/javascript">
- var cdnv = "";
-
-function callbackGirl(){
- var htmlitem = jQuery(".speakEasy li.active").text();
- notefy("Clicked!",htmlitem);
-}
-
-function shuffledemo(){
- var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
- jQuery.shuffle(colorArray);
- var ippo = 0;
- jQuery(".democolors").html(" ");
- jQuery(colorArray).each(function (index) {
-     var name = colorArray[index];
-  jQuery(".democolors").append("<li>"+name+"</li>");
-  ippo++;
- });
-
- jQuery(".democolors li").each(function (index) {
-     var name = jQuery(this).text();
-  jQuery(this).animate({backgroundColor: name});
- });
-}
-
-function huiv(outputLoc){
- if(outputLoc!==undefined){
-
-
- }
- return true;
-};
-
-
-jQuery(document).ready(function() {
-
- jQuery(".n1t").click(function(){
- notefy('simple header','notefy message');
- return false;
- });
- jQuery(".n2t").click(function(){
- notefy('simple header','notefy message','star',true);
- return false;
- });
- jQuery(".shuffleDemo").click(function(){
- shuffledemo();
- return false;
- });   
-});
- </script>
 </head>
 <body>
  <div class="container">
@@ -106,6 +64,7 @@ jQuery(document).ready(function() {
      <h2 class="qunit-header" style="margin:0;">HUI Manual Tests</h2>
      <h2 id="qunit-banner" class="qunit-pass"></h2>
      <ul id="version" class="cdn-tests hui_demo_list">
+  <li class="hui_demo"><h4 style="color:#000000; padding:0 0 0 10px;margin:0;">jQuery <span style="font-size:.81em">Ver:</span> <span class="jqvb"></span> | HUI <span style="font-size:.81em">Ver:</span> <span class="hvb"></span></h4></li>
   <li class="hui_demo">
     <ul class="democolors" style="padding:10px;"> 
      <li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
@@ -120,7 +79,22 @@ jQuery(document).ready(function() {
    <button onclick="jQuery.facebox({ ajax: '../dist/hui-base.css' });return false;"><span class='label'>FaceBox Remote</span></button>
    <br/>
   </li>
+	<li class="hui_demo">
+		<div class="row">
+		   <div class="sixcol">
+		   	<div id="swipeme">
+		        <img src="http://hui.huement.com/css/drag_icon.png" class="touchNo" style="margin:10px 30px 10px 30px;">
+		    </div>
+		   </div>
+		   <div class="sixcol last">
+<pre id="output" style="max-height:500px;margin: 10px auto 10px auto;width:90%">
+</pre>		   	
+		   </div>
+		</div>
+			
+		
 
+	</li>
      </ul>
     </div>
    <div class="onecol last">
