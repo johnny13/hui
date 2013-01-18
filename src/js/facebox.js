@@ -33,7 +33,7 @@
  *
  *  The above will open a facebox with "some html" as the content.
  *
- *    jQuery.facebox(function($) {
+ *    jQuery.facebox(function(jQuery) {
  *      jQuery.get('blah.html', function(data) { jQuery.facebox(data) })
  *    })
  *
@@ -63,10 +63,10 @@
  *
  *  Simply bind a function to any of these hooks:
  *
- *   $(document).bind('reveal.facebox', function() { ...stuff to do after the facebox and contents are revealed... })
+ *   jQuery(document).bind('reveal.facebox', function() { ...stuff to do after the facebox and contents are revealed... })
  *
  */
-;(function($) {
+;(function(jQuery) {
   jQuery.facebox = function(data, klass) {
     jQuery.facebox.loading(data.settings || []);
 
@@ -80,12 +80,12 @@
    fillFaceboxFromHref(data.div, klass);
   }
     else if (jQuery.isFunction(data)) {
-   data.call($);
+   data.call(jQuery);
   }
     else {
    jQuery.facebox.reveal(data, klass);
   }
-  }
+  };
 
   /*
    * Public, jQuery.facebox methods
@@ -103,65 +103,69 @@
 
     loading: function() {
       init();
-      if ($('#facebox .loading').length === 1) {
+      if (jQuery('#facebox .loading').length === 1) {
     return true;
    }
    
       showOverlay();
 
-      $('#facebox .content').empty().
+      jQuery('#facebox .content').empty().
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'"/></div>');
 
-      $('#facebox').show().css({
+      jQuery('#facebox').show().css({
         top: getPageScroll()[1] + (getPageHeight() / 10),
-        left: $(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2)
+        left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
       });
 
-      $(document).bind('keydown.facebox', function(e) {
-        if (e.keyCode === 27) jQuery.facebox.close()
-        return true;
+      jQuery(document).bind('keydown.facebox', function(e) {
+        if (e.keyCode === 27) {
+				jQuery.facebox.close();
+				}
+				return true;
       });
-      $(document).trigger('loading.facebox');
+      jQuery(document).trigger('loading.facebox');
     },
 
     reveal: function(data, klass) {
-      $(document).trigger('beforeReveal.facebox');
-      if (klass) $('#facebox .content').addClass(klass);
-      $('#facebox .content').empty().append(data);
-      $('#facebox .popup').children().fadeIn('normal');
-      $('#facebox').css('left', $(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2));
-      $(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+      jQuery(document).trigger('beforeReveal.facebox');
+      if (klass){
+				jQuery('#facebox .content').addClass(klass);
+			}
+      jQuery('#facebox .content').empty().append(data);
+      jQuery('#facebox .popup').children().fadeIn('normal');
+      jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
+      jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
     },
 
     close: function() {
-      $(document).trigger('close.facebox');
+      jQuery(document).trigger('close.facebox');
       return false;
     }
-  })
+  });
 
   /*
    * Public, jQuery.fn methods
    */
 
   jQuery.fn.facebox = function(settings) {
-    if ($(this).length === 0) return
+    if (this.length === 0) return;
 
-    init(settings)
+    init(settings);
 
     function clickHandler() {
       jQuery.facebox.loading(true);
 
       // support for rel="facebox.inline_popup" syntax, to add a class
       // also supports deprecated "facebox[.inline_popup]" syntax
-      var klass = this.rel.match(/facebox\[?\.(\w+)\]?/)
-      if (klass) klass = klass[1]
+      var klass = this.rel.match(/facebox\[?\.(\w+)\]?/);
+      if (klass) klass = klass[1];
 
       fillFaceboxFromHref(this.href, klass);
       return false;
     }
 
-    return this.bind('click.facebox', clickHandler)
-  }
+    return this.bind('click.facebox', clickHandler);
+  };
 
   /*
    * Private methods
@@ -176,34 +180,31 @@
    jQuery.facebox.settings.inited = true;
   }
 
-    $(document).trigger('init.facebox');
+    jQuery(document).trigger('init.facebox');
     makeCompatible();
 
     var imageTypes = jQuery.facebox.settings.imageTypes.join('|');
-    jQuery.facebox.settings.imageTypesRegexp = new RegExp('\\.(' + imageTypes + ')(\\?.*)?$', 'i');
+    jQuery.facebox.settings.imageTypesRegexp = new RegExp('\\.(' + imageTypes + ')(\\?.*)?jQuery', 'i');
 
     if (settings) jQuery.extend(jQuery.facebox.settings, settings);
-    $('body').append(jQuery.facebox.settings.faceboxHtml);
+    jQuery('body').append(jQuery.facebox.settings.faceboxHtml);
 
     var preload = [ new Image(), new Image() ];
     preload[0].src = jQuery.facebox.settings.closeImage;
     preload[1].src = jQuery.facebox.settings.loadingImage;
 
-    $('#facebox').find('.b:first, .bl').each(function() {
-      preload.push(new Image())
-      preload.slice(-1).src = $(this).css('background-image').replace(/url\((.+)\)/, '$1')
+    jQuery('#facebox').find('.b:first, .bl').each(function() {
+      preload.push(new Image());
+      preload.slice(-1).src = this.css('background-image').replace(/url\((.+)\)/, 'jQuery1');
     });
 
-    $('#facebox .close')
-      .click(jQuery.facebox.close)
-      .append('<img src="'
-              + jQuery.facebox.settings.closeImage
-              + '" class="close_image" title="close">');
+    jQuery('#facebox .close').click(jQuery.facebox.close).append('<img src="'+ jQuery.facebox.settings.closeImage+ '" class="close_image" title="close">');
   }
 
   // getPageScroll() by quirksmode.com
   function getPageScroll() {
     var xScroll, yScroll;
+		var self = this;
     if (self.pageYOffset) {
       yScroll = self.pageYOffset;
       xScroll = self.pageXOffset;
@@ -219,7 +220,8 @@
 
   // Adapted from getPageSize() by quirksmode.com
   function getPageHeight() {
-    var windowHeight
+    var windowHeight;
+		var self = this;
     if (self.innerHeight) { // all except Explorer
       windowHeight = self.innerHeight;
     } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
@@ -232,12 +234,12 @@
 
   // Backwards compatibility
   function makeCompatible() {
-    var $s = jQuery.facebox.settings;
+    var jQuerys = jQuery.facebox.settings;
 
-    $s.loadingImage = $s.loading_image || $s.loadingImage;
-    $s.closeImage = $s.close_image || $s.closeImage;
-    $s.imageTypes = $s.image_types || $s.imageTypes;
-    $s.faceboxHtml = $s.facebox_html || $s.faceboxHtml;
+    jQuerys.loadingImage = jQuerys.loading_image || jQuerys.loadingImage;
+    jQuerys.closeImage = jQuerys.close_image || jQuerys.closeImage;
+    jQuerys.imageTypes = jQuerys.image_types || jQuerys.imageTypes;
+    jQuerys.faceboxHtml = jQuerys.facebox_html || jQuerys.faceboxHtml;
   }
 
   // Figures out what you want to display and displays it
@@ -250,8 +252,8 @@
     if (href.match(/#/)) {
       var url    = window.location.href.split('#')[0];
       var target = href.replace(url,'');
-      if (target === '#') return
-      jQuery.facebox.reveal($(target).html(), klass);
+      if (target === '#') return;
+      jQuery.facebox.reveal(jQuery(target).html(), klass);
 
     // image
     } else if (href.match(jQuery.facebox.settings.imageTypesRegexp)) {
@@ -265,29 +267,29 @@
   function fillFaceboxFromImage(href, klass) {
     var image = new Image();
     image.onload = function() {
-      jQuery.facebox.reveal('<div class="image"><img src="' + image.src + '" /></div>', klass)
+      jQuery.facebox.reveal('<div class="image"><img src="' + image.src + '" /></div>', klass);
     };
     image.src = href;
   }
 
   function fillFaceboxFromAjax(href, klass) {
-    jQuery.facebox.jqxhr = jQuery.get(href, function(data) { jQuery.facebox.reveal(data, klass) })
+    jQuery.facebox.jqxhr = jQuery.get(href, function(data) { jQuery.facebox.reveal(data, klass); });
   }
 
   function skipOverlay() {
-    return jQuery.facebox.settings.overlay === false || jQuery.facebox.settings.opacity === null
+    return jQuery.facebox.settings.overlay === false || jQuery.facebox.settings.opacity === null;
   }
 
   function showOverlay() {
-    if (skipOverlay()) return
+    if (skipOverlay()) return;
 
-    if ($('#facebox_overlay').length === 0)
-      $("body").append('<div id="facebox_overlay" class="facebox_hide"></div>')
+    if (jQuery('#facebox_overlay').length === 0)
+      jQuery("body").append('<div id="facebox_overlay" class="facebox_hide"></div>');
 
-    $('#facebox_overlay').hide().addClass("facebox_overlayBG")
+    jQuery('#facebox_overlay').hide().addClass("facebox_overlayBG")
       .css('opacity', jQuery.facebox.settings.opacity)
-      .click(function() { $(document).trigger('close.facebox') })
-      .fadeIn(200)
+      .click(function() { jQuery(document).trigger('close.facebox'); })
+      .fadeIn(200);
     return false;
   }
 
@@ -296,11 +298,11 @@
    return;
   }
 
-    $('#facebox_overlay').fadeOut(200, function(){
-      $("#facebox_overlay").removeClass("facebox_overlayBG");
-      $("#facebox_overlay").addClass("facebox_hide");
-      $("#facebox_overlay").remove();
-    })
+    jQuery('#facebox_overlay').fadeOut(200, function(){
+      jQuery("#facebox_overlay").removeClass("facebox_overlayBG");
+      jQuery("#facebox_overlay").addClass("facebox_hide");
+      jQuery("#facebox_overlay").remove();
+    });
 
     return false;
   }
@@ -309,18 +311,18 @@
    * Bindings
    */
 
-  $(document).bind('close.facebox', function() {
+  jQuery(document).bind('close.facebox', function() {
     if (jQuery.facebox.jqxhr) {
       jQuery.facebox.jqxhr.abort();
       jQuery.facebox.jqxhr = null;
     }
-    $(document).unbind('keydown.facebox');
-    $('#facebox').fadeOut(function() {
-      $('#facebox .content').removeClass().addClass('content');
-      $('#facebox .loading').remove();
-      $(document).trigger('afterClose.facebox');
+    jQuery(document).unbind('keydown.facebox');
+    jQuery('#facebox').fadeOut(function() {
+      jQuery('#facebox .content').removeClass().addClass('content');
+      jQuery('#facebox .loading').remove();
+      jQuery(document).trigger('afterClose.facebox');
     });
     hideOverlay();
-  })
+  });
 
 })(jQuery);

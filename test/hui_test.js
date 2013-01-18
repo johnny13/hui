@@ -171,7 +171,7 @@ function huiv(){
  jQuery(".jqvb").html(jqv);
  jQuery(".hvb").html(huivn);
  return true;
-};
+}
 
 jQuery(document).ready(function() {
  huiv();

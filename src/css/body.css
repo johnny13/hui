@@ -98,21 +98,17 @@ hr {
 	height:25px;
 	clear:both;
 }
-/* [S02 Part B] Grid System Adapated From *******************************************************************************/
-/* ==================================================================================================================== */
-/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
-/* ==================================================================================================================== */
+
+/* [S02 Part B] Grid System *********************************************************************************************/
+/* ! Adapted from The 1140px Grid V2 by Andy Taylor : http://cssgrid.net ************************************************/
+
 .row {
 width: 100%;
-/* 
-optionally set minimum limits for your rows.
-
-min-width: 755px; 
-max-width: 1140px;
-*/
 margin: 0 auto;
 overflow: hidden;
 }
+/* optional class to set limits for your rows. */
+.limit { width:98%; max-width:1140px; }
 
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
 margin-right: 3.8%;
@@ -182,12 +178,12 @@ margin-right: 0px;
 	line-height: 1.5em;
 	}
 	
-	}
+}
 
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 770px) {
 
 	body {
 	font-size: 16px;
@@ -206,10 +202,12 @@ margin-right: 0px;
 	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
 	width: auto;
 	float: none;
+	max-width:100%;
 	margin-left: 0px;
 	margin-right: 0px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 	}
-
+	
+	.limit { max-width:100%; }
 }

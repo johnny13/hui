@@ -7,15 +7,15 @@
  * inspired from: designmodo.com/jquery-accordion-menu/
  *
 */
-(function($) {
+(function(jQuery) {
  
  jQuery.fn.accordionNav = function(options) {
   var atarget = this.selector;
   var atargethref = atarget + ' > li > a';
   var atargetsub = atarget + ' li > .sub-menu';
   
-  var accordion_head = $(atargethref),
-  accordion_body = $(atargetsub);
+  var accordion_head = jQuery(atargethref),
+  accordion_body = jQuery(atargetsub);
 
   // Open the first tab on load
   accordion_head.first().addClass('active').next().slideDown('normal');
@@ -28,11 +28,11 @@
 
    // Show and hide the tabs on click
 
-   if ($(this).attr('class') !== 'active'){
+   if (jQuery(this).attr('class') !== 'active'){
      accordion_body.slideUp('normal');
-     $(this).next().stop(true,true).slideToggle('normal');
+     jQuery(this).next().stop(true,true).slideToggle('normal');
      accordion_head.removeClass('active');
-     $(this).addClass('active');
+     jQuery(this).addClass('active');
    }
   });
   return this.each(function() {
@@ -50,27 +50,27 @@
  *
  *
 */
-(function($) {
+(function(jQuery) {
  jQuery.fn.flapperGirl = function(options, callbackGirl) {
    //var atarget = this.selector;
    var title_bar = options["title"];
    var flapper = options["loader"];
    var speakStage = options["stage"];
    
-     $(title_bar+" "+"li.basic:first").first().addClass("active");
+     jQuery(title_bar+" "+"li.basic:first").first().addClass("active");
      
      //<li id='category_example' class="title_bar"
-     $(title_bar).click(function(){
-       var theid=$(this).attr("id");
-       $(this).toggleClass("docked");
-       $("."+theid).slideToggle();
+     jQuery(title_bar).click(function(){
+       var theid=jQuery(this).attr("id");
+       jQuery(this).toggleClass("docked");
+       jQuery("."+theid).slideToggle();
      });
      
      //<li class="basic category_example"><a href="#" class="pageloader">Download</a></li>
-     //$(".sideBar ul li").removeClass("active");
-     $(flapper).click(function(){
-       $(speakStage+" ul li").removeClass("active");
-       $(this).parent().addClass("active");
+     //jQuery(".sideBar ul li").removeClass("active");
+     jQuery(flapper).click(function(){
+       jQuery(speakStage+" ul li").removeClass("active");
+       jQuery(this).parent().addClass("active");
 
        if (typeof callbackGirl === 'function') { // make sure the callback is a function
             callbackGirl();

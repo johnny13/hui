@@ -7,7 +7,7 @@
       var items = jQuery(this).children();
       return (items.length) ? jQuery(this).html(jQuery.shuffle(items)) : this;
     });
-  }
+  };
  
   jQuery.shuffle = function(arr) {
     for(

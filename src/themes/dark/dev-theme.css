@@ -1501,7 +1501,7 @@ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Colo
 /****************************** flapper girl nav menu ***********************************/
 .flapperStage {
 min-width: 230px;
-width:100%;
+width:98%;
 margin: 10px 0px 50px 0px;
 padding: 5px;
 border: 1px solid black;
