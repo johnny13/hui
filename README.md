@@ -85,7 +85,7 @@ v1.10.0	[jan-01-2013]	Released under GPL v3 & MIT
     
 v1.13.0	[jan-14-2013]	Added GruntJS, YUI Compressor & QUint Test Suite    
 
-v1.13.2	[jan-14-2013]	Facebox & Notify mobile support added.
+v1.13.2	[jan-18-2013]	Facebox & Notify mobile support added.
 
 ## De jure
 #### copyright (c) 2013 [huement.com](http://huement.com)    
