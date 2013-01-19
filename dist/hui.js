@@ -1,4 +1,4 @@
-/*! huement user interface - v1.13.2 - 2013-01-18
+/*! huement user interface - v1.13.2 - 2013-01-19
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
@@ -1482,7 +1482,6 @@ var icon = "";
             if(ev.direction === 'left') {
 							notification.trigger('jGrowl.close');
 							notification.remove();
-							console.debug("close It.");
             }
         }
     };
@@ -2172,7 +2171,7 @@ jQuery.fn.selectOptions = function(value) {
 						top: getPageScroll()[1] + (getPageHeight() / 10)
 						//, left: 0
 					});
-					console.debug("mobile");
+					//console.debug("mobile");
 				}
 
       jQuery(document).bind('keydown.facebox', function(e) {
@@ -2198,7 +2197,7 @@ jQuery.fn.selectOptions = function(value) {
 			}else{
 				jQuery('#facebox').css('left', 0);
 				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
-				console.debug("vision");
+				///console.debug("vision");
 				jQuery('#facebox').width(jQuery(window).width()-10);
 				jQuery('#facebox .popup').width(jQuery(window).width()-5);
 			}
