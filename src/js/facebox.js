@@ -122,7 +122,7 @@
 						top: getPageScroll()[1] + (getPageHeight() / 10)
 						//, left: 0
 					});
-					console.debug("mobile");
+					//console.debug("mobile");
 				}
 
       jQuery(document).bind('keydown.facebox', function(e) {
@@ -148,7 +148,7 @@
 			}else{
 				jQuery('#facebox').css('left', 0);
 				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
-				console.debug("vision");
+				///console.debug("vision");
 				jQuery('#facebox').width(jQuery(window).width()-10);
 				jQuery('#facebox .popup').width(jQuery(window).width()-5);
 			}

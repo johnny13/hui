@@ -208,7 +208,6 @@ var icon = "";
             if(ev.direction === 'left') {
 							notification.trigger('jGrowl.close');
 							notification.remove();
-							console.debug("close It.");
             }
         }
     };
