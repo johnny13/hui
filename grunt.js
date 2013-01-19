@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     },
     concat: {
       js: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js'],
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/jquery.history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js'],
         dest: 'dist/<%= pkg.name %>.js'
       },
       css: {
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
     },
     csslint: {
      base_theme: {
-      src: "themes/*.css",
+      src: "src/themes/**/*.css",
       rules: {
         "import": false,
         "overqualified-elements": 2
