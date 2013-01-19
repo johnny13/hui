@@ -79,11 +79,13 @@ HUI has plenty of ways to increase your user INteractions. With Support for CSS 
 Reach OUT to all the platforms. Use Tools to display not only results, but page elements, both on load and dynamically. Extend data with Functions like an HTML5 History plugin, jQuery Cookies, and Flexible Navigation menus. 
     
 
-## Changelog
+## Major Changelog
    
-v1.10	[jan-01-2013]	Released under GPL v3 & MIT    
+v1.10.0	[jan-01-2013]	Released under GPL v3 & MIT    
     
-v1.13	[jan-14-2013]	Added GruntJS, YUI Compressor & QUint Test Suite    
+v1.13.0	[jan-14-2013]	Added GruntJS, YUI Compressor & QUint Test Suite    
+
+v1.13.2	[jan-14-2013]	Facebox & Notify mobile support added.
 
 ## De jure
 #### copyright (c) 2013 [huement.com](http://huement.com)    

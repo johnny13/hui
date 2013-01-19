@@ -27,10 +27,11 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
 
  //default options are top-right and not sticky.
  //with hui-icon-notefy as the class.
+var icon = "";
  if(user_icon !== false){
-  var icon = user_icon;
+  icon = user_icon;
  } else {
-  var icon = 'notefy';
+  icon = 'notefy';
  }
  if(sticky !== true){
   jQuery.huiNotify(msg, {
@@ -84,7 +85,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
      jQuery(this).data('jGrowl.instance').create( m , o );
     }
    });
-  };
+  }
  };
 
  jQuery.extend( jQuery.fn.huiNotify.prototype , {
@@ -182,8 +183,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
      jQuery(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
       // Fixes some anti-aliasing issues with IE filters.
       if (jQuery(document).width() <= 800 && (parseInt(jQuery(this).css('opacity'), 10) === 1 || parseInt(jQuery(this).css('opacity'), 10) === 0))
-       this.style.removeAttribute('filter');
-
+       //$(this).style.removeAttribute('filter');
       jQuery(this).data("jGrowl").created = new Date();
 
       jQuery(this).trigger('jGrowl.afterOpen');
@@ -191,6 +191,27 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
     }
    }).bind('jGrowl.afterOpen', function() {
     o.afterOpen.apply( notification , [notification,message,o,self.element] );
+		//swipe it closed
+		var obj = notification;
+		var hammer = new Hammer(obj.get(0));
+
+		hammer.ondrag = function(ev) {
+        var left = 0;
+        // determine which direction we need to show the preview
+    		if(ev.direction === 'left') {
+    			left = ev.distance;
+    		}
+    };
+		hammer.ondragend = function(ev) {
+        // if we moved the slide 100px then navigate
+        if(Math.abs(ev.distance) > 100) {
+            if(ev.direction === 'left') {
+							notification.trigger('jGrowl.close');
+							notification.remove();
+							console.debug("close It.");
+            }
+        }
+    };
    }).bind('jGrowl.beforeClose', function() {
     if ( o.beforeClose.apply( notification , [notification,message,o,self.element] ) !== false )
      jQuery(this).trigger('jGrowl.close');
@@ -221,7 +242,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
        self.defaults.closer.apply( jQuery(this).parent()[0] , [jQuery(this).parent()[0]] );
       }
      });
-   };
+   }
   },
 
   /** Update the jGrowl Container, removing old jGrowl notifications **/

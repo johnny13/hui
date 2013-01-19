@@ -112,10 +112,18 @@
       jQuery('#facebox .content').empty().
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'"/></div>');
 
-      jQuery('#facebox').show().css({
-        top: getPageScroll()[1] + (getPageHeight() / 10),
-        left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
-      });
+				if(getPageHeight() >= 767){
+					jQuery('#facebox').show().css({
+						top: getPageScroll()[1] + (getPageHeight() / 10),
+						left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
+					});
+				} else {
+					jQuery('#facebox').show().css({
+						top: getPageScroll()[1] + (getPageHeight() / 10)
+						//, left: 0
+					});
+					console.debug("mobile");
+				}
 
       jQuery(document).bind('keydown.facebox', function(e) {
         if (e.keyCode === 27) {
@@ -133,8 +141,18 @@
 			}
       jQuery('#facebox .content').empty().append(data);
       jQuery('#facebox .popup').children().fadeIn('normal');
-      jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
-      jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+
+			if(jQuery(window).width() >= 767){
+				jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
+				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+			}else{
+				jQuery('#facebox').css('left', 0);
+				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+				console.debug("vision");
+				jQuery('#facebox').width(jQuery(window).width()-10);
+				jQuery('#facebox .popup').width(jQuery(window).width()-5);
+			}
+			
     },
 
     close: function() {

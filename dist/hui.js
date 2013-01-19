@@ -1301,10 +1301,11 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
 
  //default options are top-right and not sticky.
  //with hui-icon-notefy as the class.
+var icon = "";
  if(user_icon !== false){
-  var icon = user_icon;
+  icon = user_icon;
  } else {
-  var icon = 'notefy';
+  icon = 'notefy';
  }
  if(sticky !== true){
   jQuery.huiNotify(msg, {
@@ -1358,7 +1359,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
      jQuery(this).data('jGrowl.instance').create( m , o );
     }
    });
-  };
+  }
  };
 
  jQuery.extend( jQuery.fn.huiNotify.prototype , {
@@ -1456,8 +1457,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
      jQuery(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
       // Fixes some anti-aliasing issues with IE filters.
       if (jQuery(document).width() <= 800 && (parseInt(jQuery(this).css('opacity'), 10) === 1 || parseInt(jQuery(this).css('opacity'), 10) === 0))
-       this.style.removeAttribute('filter');
-
+       //$(this).style.removeAttribute('filter');
       jQuery(this).data("jGrowl").created = new Date();
 
       jQuery(this).trigger('jGrowl.afterOpen');
@@ -1465,6 +1465,27 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
     }
    }).bind('jGrowl.afterOpen', function() {
     o.afterOpen.apply( notification , [notification,message,o,self.element] );
+		//swipe it closed
+		var obj = notification;
+		var hammer = new Hammer(obj.get(0));
+
+		hammer.ondrag = function(ev) {
+        var left = 0;
+        // determine which direction we need to show the preview
+    		if(ev.direction === 'left') {
+    			left = ev.distance;
+    		}
+    };
+		hammer.ondragend = function(ev) {
+        // if we moved the slide 100px then navigate
+        if(Math.abs(ev.distance) > 100) {
+            if(ev.direction === 'left') {
+							notification.trigger('jGrowl.close');
+							notification.remove();
+							console.debug("close It.");
+            }
+        }
+    };
    }).bind('jGrowl.beforeClose', function() {
     if ( o.beforeClose.apply( notification , [notification,message,o,self.element] ) !== false )
      jQuery(this).trigger('jGrowl.close');
@@ -1495,7 +1516,7 @@ function notefy(headerMsg, msg, user_icon, sticky, user_position){
        self.defaults.closer.apply( jQuery(this).parent()[0] , [jQuery(this).parent()[0]] );
       }
      });
-   };
+   }
   },
 
   /** Update the jGrowl Container, removing old jGrowl notifications **/
@@ -2141,10 +2162,18 @@ jQuery.fn.selectOptions = function(value) {
       jQuery('#facebox .content').empty().
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'"/></div>');
 
-      jQuery('#facebox').show().css({
-        top: getPageScroll()[1] + (getPageHeight() / 10),
-        left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
-      });
+				if(getPageHeight() >= 767){
+					jQuery('#facebox').show().css({
+						top: getPageScroll()[1] + (getPageHeight() / 10),
+						left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
+					});
+				} else {
+					jQuery('#facebox').show().css({
+						top: getPageScroll()[1] + (getPageHeight() / 10)
+						//, left: 0
+					});
+					console.debug("mobile");
+				}
 
       jQuery(document).bind('keydown.facebox', function(e) {
         if (e.keyCode === 27) {
@@ -2162,8 +2191,18 @@ jQuery.fn.selectOptions = function(value) {
 			}
       jQuery('#facebox .content').empty().append(data);
       jQuery('#facebox .popup').children().fadeIn('normal');
-      jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
-      jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+
+			if(jQuery(window).width() >= 767){
+				jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
+				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+			}else{
+				jQuery('#facebox').css('left', 0);
+				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
+				console.debug("vision");
+				jQuery('#facebox').width(jQuery(window).width()-10);
+				jQuery('#facebox .popup').width(jQuery(window).width()-5);
+			}
+			
     },
 
     close: function() {
