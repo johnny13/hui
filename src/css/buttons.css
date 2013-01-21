@@ -92,7 +92,7 @@ button.middle,
 button.right, 
 .button.right {
 	margin: 5px 5px 5px 0;
-	
+	float:left !important;
 	border-left-color: #E4E4E4;
 	
 	border-top-left-radius: 0;
