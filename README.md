@@ -17,7 +17,7 @@ Items like Typography, Colors, Modal Windows, and the likes.
 
 #### Area 3| Plugin Library    
 
-All the required code to make everything sing.
+Submodule setups for available addons. Easy to manage and update! Use what you need when you need it.    
 
 ## Install hui    
 
