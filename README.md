@@ -1,29 +1,27 @@
-HUI - Classy like a Lady
+hui - Classy like a Lady
 ======
 
-HUI [Huement User Interface] can adapt to viewport sizes, and has multiple fallbacks for various end user systems. It also supports a standard touch interface from the get go, and can be easily integrated into any project, online or offline, anywhere supporting javascript and css.
+hui [Huement User Interface] can adapt to viewport sizes, and has multiple fallbacks for various end user systems. It also supports a standard touch interface from the get go, and can be easily integrated into any project, online or offline. Basically a great option for any project supporting javascript and css.    
 
-## Why HUI?
-HUI aims to make your design process two things, Simple & Stylish.  
+## Why hui?
+hui aims to make your design process two things, Simple & Stylish.  
 It does this by breaking things into a smaller pieces.
 
-A Neat Modular Structure. separate script, design and basic UI/UX elements.
+#### Area 1| Internals  Controls   
 
-#### Area 1| CSS Internals    
+Items like Browser Resets, Media Queries, HTML5 Fallbacks & Shiv's, and oldIE Fixers.    
 
-Items like Browser Resets. HTML5 Shiv's, and Internet Explorer 8 Compatibility.    
-
-#### Area 2| CSS Theme and Widgets    
+#### Area 2| CSS Theme and  JS Widgets    
 
 Items like Typography, Colors, Modal Windows, and the likes.    
 
-#### Area 3| Javascript Library    
+#### Area 3| Plugin Library    
 
 All the required code to make everything sing.
 
-## Install HUI    
+## Install hui    
 
-HUI is HTTPS:// and CDN ready to get it on out of the box. Style sheet wise, the Minimal 25kb-ish CSS_Base is required (hui-min-latest.css).    
+hui is HTTPS:// and CDN ready to get it on out of the box. Style sheet wise, the Minimal 25kb-ish CSS_Base is required (hui-min-latest.css).    
 For a totally custom build, load a full theme. Along with the basic CSS style elements, tap into all default widgets and displays.    
 Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/)    
 
@@ -44,16 +42,16 @@ Preferably load all Javascript before closing &lt;/body&gt; tag. However you can
     
 ## Get Started    
 
-Once you have HUI installed, visit the Tests folder in a web browser to confirm everything is working correctly.    
+Once you have hui installed, visit the Tests folder in a web browser to confirm everything is working correctly.    
 After that, start building from scratch, or use one of our boilerplates.    
 You should also consider setting up GruntJS so you can build your own custom version on the fly and allow for your codebase to grow and adapt.    
     
-HUI Main Page: [hui.huement.com](http://hui.huement.com).    
+hui Main Page: [hui.huement.com](http://hui.huement.com).    
 More Info on Our Blog: [huement.com/blog/](http://huement.com/blog/).
 
 ## Build, Hack & Customize. Fall in Love.
 
-HUI Uses GruntJS, QUnit Tests, and PhantomJS to ensure quality code is maintained. It also allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.    
+hui Uses GruntJS, QUnit Tests, and PhantomJS to ensure quality code is maintained. It also allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.    
     
  * Grunt.JS : [http://gruntjs.com/](http://gruntjs.com/)
  * YUI Grunt Module : [https://github.com/mathiasbynens/grunt-yui-compressor](https://github.com/mathiasbynens/grunt-yui-compressor)
@@ -62,7 +60,7 @@ HUI Uses GruntJS, QUnit Tests, and PhantomJS to ensure quality code is maintaine
 
 ## Smart and Stylish
 
-HUI has extensive documentation, a theme generator, and more helpful tools available at [hui.huement.com/docs/](http://hui.huement.com/docs/)    
+hui has extensive documentation, a theme generator, and more helpful tools available at [hui.huement.com/docs/](http://hui.huement.com/docs/)    
 In addition, there is a comprehensive demo included in the download. As well as a number of example boilerplates on the website for download and inspiration.
 
 
@@ -70,10 +68,10 @@ In addition, there is a comprehensive demo included in the download. As well as 
 
 #### Turn ON    
 Hey Kids, Lets get it ON. Always practice Safe Sex, and Use a Strict NO Conflict environment.    
-HUI's JS wont interfere with other JS Libraries, and frees up the ole $.() for anything you might need it for.
+hui's JS wont interfere with other JS Libraries, and frees up the ole $.() for anything you might need it for.
     
 #### Tune IN     
-HUI has plenty of ways to increase your user INteractions. With Support for CSS transitions, Mobile Gestures, Keyboard Navigation, and upgraded Form Inputs.
+hui has plenty of ways to increase your user INteractions. With Support for CSS transitions, Mobile Gestures, Keyboard Navigation, and upgraded Form Inputs.
     
 #### Drop OUT
 Reach OUT to all the platforms. Use Tools to display not only results, but page elements, both on load and dynamically. Extend data with Functions like an HTML5 History plugin, jQuery Cookies, and Flexible Navigation menus. 
@@ -93,7 +91,7 @@ Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) & [
     
 Author: Derek Scott [@huement.com](https://twitter.com/huement).    
 
-![HUI - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)    
+![hui - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)    
     
 
 ### Acknowledgements
