@@ -20,12 +20,14 @@ Items like Typography, Colors, Modal Windows, and the likes.
 Submodule setups for available addons. Easy to manage and update! Use what you need when you need it.    
 
 ## Download hui
-1. required main library
+1. required main library    
+
     
     git clone https://github.com/johnny13/hui.git    
     
 
-2. (optional but recommeneded) git Plugin Manager
+2. (optional but recommeneded) git Plugin Manager    
+
     
     cd hui;    
     git clone https://github.com/johnny13/hui-plugins.git    
