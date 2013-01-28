@@ -17,32 +17,32 @@ Items like Typography, Colors, Modal Windows, and the likes.
 
 #### Area 3| Plugin Library    
 
-Submodule setups for available addons. Easy to manage and update! Use what you need when you need it.    
+Submodule setups for available add-ons. Easy to manage and update! Use what you need when you need it.    
 
 ## Download hui
-1. required main library    
+Step 1. required main library    
     
     git clone https://github.com/johnny13/hui.git    
     
 
-2. (optional but recommeneded) hui Plugin Manager    
+Step 2. (optional but recommended) hui Plugin Manager    
     
     cd hui    
     git clone https://github.com/johnny13/hui-plugins.git    
     cd hui-plugins    
     
 
-A. activate entire plugin system.    
+Step 2A. activate entire plugin system.    
     
     git submodule init    
     
 
-B. OR activate single plugin (eg. slideshow plugin)    
+Step 2B. OR activate single plugin (eg. slideshow plugin)    
     
     git submodule init Thimbleberry
     
 
-Important to UPDATE Any Plugins you want to use.    
+Note: Its Important to immediately UPDATE Any Plugins you want to use.    
     
     cd ./hui-plugins/<plugin name>
     git pull origin master
@@ -114,13 +114,13 @@ Hey Kids, Lets get it ON. Always practice Safe Sex, and Use a Strict NO Conflict
 hui's JS wont interfere with other JS Libraries, and frees up the ole $.() for anything you might need it for.
     
 #### Tune IN     
-hui has plenty of ways to increase your user INteractions. With Support for CSS transitions, Mobile Gestures, Keyboard Navigation, and upgraded Form Inputs.
+hui has plenty of ways to increase your user Interactions. With Support for CSS transitions, Mobile Gestures, Keyboard Navigation, and upgraded Form Inputs.
     
 #### Drop OUT
 Reach OUT to all the platforms. Use Tools to display not only results, but page elements, both on load and dynamically. Extend data with Functions like an HTML5 History plugin, jQuery Cookies, and Flexible Navigation menus. 
     
 
-## Major Changelog
+## Major Change log
    
 v1.10.0	[jan-01-2013]	Released under GPL v3 & MIT    
     
