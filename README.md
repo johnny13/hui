@@ -20,7 +20,7 @@ Items like Typography, Colors, Modal Windows, and the likes.
 Submodule setups for available add-ons. Easy to manage and update! Use what you need when you need it.    
 
 ## Download hui
-Step 1. required main library    
+Step 1. required main library [typically do this in your projects web-root directory]    
     
     git clone https://github.com/johnny13/hui.git    
     
