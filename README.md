@@ -19,9 +19,51 @@ Items like Typography, Colors, Modal Windows, and the likes.
 
 Submodule setups for available addons. Easy to manage and update! Use what you need when you need it.    
 
-## Install hui    
+## Download hui
+1. required main library
+    
+    git clone https://github.com/johnny13/hui.git    
+    
 
-hui is HTTPS:// and CDN ready to get it on out of the box. Style sheet wise, the Minimal 25kb-ish CSS_Base is required (hui-min-latest.css).    
+2. (optional but recommeneded) git Plugin Manager
+    
+    cd hui;    
+    git clone https://github.com/johnny13/hui-plugins.git    
+    cd hui-plugins;    
+    
+
+A. activate entire plugin system.    
+    
+    git submodule init    
+    
+
+B. activate single plugin (eg. slideshow plugin)    
+    
+    git submodule init Thimbleberry
+    
+
+Important to UPDATE Any Plugins you want to use.    
+    
+    cd ./hui-plugins/<plugin name>
+    git pull origin master
+    
+More information about downloads, installs, cdn versions, plugin updates, builds and developer packages can be found at [hui.huement.com/start](http://hui.huement.com/start/).    
+
+## Install hui    
+Install requires you load each of the three interface elements, css, js and html.    
+
+How you do this is mostly up to you, depending on what your needs are.    
+
+the Minimal 25kb CSS Base file is required [hui-base-min.css](https://raw.github.com/johnny13/hui/master/dist/hui-base-min.css). You can either directly include that in your header, or have it loaded with a theme. Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/).    
+    
+    <link href="hui/src/themes/dark/dev-theme.css" type="text/css" rel="stylesheet"/>    
+    
+Themes are not minifed as you will probably want to change or tweak a few things.    
+GruntJS is included and can easily help you minify or concat any css files when you are ready for production.    
+
+## Alternative Install    
+
+hui can be included via HTTP(S):// CDNs.the Minimal 25kb-ish CSS_Base is required (hui-min-latest.css).    
 For a totally custom build, load a full theme. Along with the basic CSS style elements, tap into all default widgets and displays.    
 Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/)    
 
