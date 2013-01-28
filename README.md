@@ -21,17 +21,15 @@ Submodule setups for available addons. Easy to manage and update! Use what you n
 
 ## Download hui
 1. required main library    
-
     
     git clone https://github.com/johnny13/hui.git    
     
 
-2. (optional but recommeneded) git Plugin Manager    
-
+2. (optional but recommeneded) hui Plugin Manager    
     
-    cd hui;    
+    cd hui    
     git clone https://github.com/johnny13/hui-plugins.git    
-    cd hui-plugins;    
+    cd hui-plugins    
     
 
 A. activate entire plugin system.    
@@ -39,7 +37,7 @@ A. activate entire plugin system.
     git submodule init    
     
 
-B. activate single plugin (eg. slideshow plugin)    
+B. OR activate single plugin (eg. slideshow plugin)    
     
     git submodule init Thimbleberry
     
@@ -49,6 +47,7 @@ Important to UPDATE Any Plugins you want to use.
     cd ./hui-plugins/<plugin name>
     git pull origin master
     
+
 More information about downloads, installs, cdn versions, plugin updates, builds and developer packages can be found at [hui.huement.com/start](http://hui.huement.com/start/).    
 
 ## Install hui    
