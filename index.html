@@ -66,10 +66,14 @@
 		.fhead {
 			position:fixed;
 			top:0;
+			left:0;
 			background-color:#222;
-			padding:5px 0 5px 0;
+			padding:5px 0 3px 0;
+			display:block;
+			z-index:999;
 			text-align:center;
 			border-bottom:1px solid #000;
+			height:20px;
 		}
 		
 		/* horizontalNav Select Box */
@@ -81,14 +85,13 @@
 		}
 		.fhead a {color:#e7e7e7;}
 		.fhead a:hover {color:#000;}
-		.mtb {width:60%;}
-		
+		.mtb { width:370px;display:block;position:relative;margin:0 auto;}
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
 				font-size:2em;
 				line-height:1em;
 			}
-			.mtb {width:100%;}
+			.mtb a span.label {font-size:0.8em;}
 			.row {max-width:100%;}
 			.tophat {padding-top:30px;}
 			.whoCares {display:none !important;}
@@ -103,7 +106,7 @@
 	<div class="row tophat" id="homerow">
 		<h2 class="el_arco_iris">huement user interface</h2>
 		<p class="greyb">HUI aims to make your design process two things, <strong>Simple</strong> and <strong>Stylish</strong>. It does this by breaking things into a modular architecture.</p>
-		<div class="C mtb">
+		<div class="mtb">
 		<a class="button left" href="test/"><span class="icon icon43"></span><span class="label">tests</label></a>
 		<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108"></span><span class="label">home</label></a>
 		<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span><span class="label">github</label></a>
@@ -1031,12 +1034,12 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			if(jQuery(document).width() <= 460){
 				jQuery(".fhead").hide();
 			}
+			setTimeout("randomColors()",5013);
 		}
 		
 		jQuery(document).ready(function() {	
 			/* Sample Animations */
-			setInterval("randomColors()",5555);
-			setTimeout("randomColors()",1313);
+			
 			randomColors();
 			
 			jQuery(".tipTip").tipTip();
