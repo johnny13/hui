@@ -18,8 +18,8 @@
 	
 	<!-- Old Internet Explorer -->
 	<!--[if lt IE 9]>
-	<link rel="stylesheet" href="dist/ie-min.css" type="text/css" media="screen" />
-	<script src="dist/html5shiv.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/ie-min.css" type="text/css" media="screen" />
+	<script src="http://huementui.s3.amazonaws.com/cdn/html5shiv.js" type="text/javascript"></script>
 	<![endif]-->
 	
 	<!-- Demo Styles -->
@@ -27,6 +27,9 @@
 		/* main size controller. */
 		.row {max-width:98%;}
 		
+		.greyb label {
+			color:#fff;
+		}
 		.tophat {padding-top:50px;border-top:3px solid #e6e6e6;}
 		
 		.el_arco_iris {
@@ -531,7 +534,59 @@ jQuery('.long_tiny :checkbox').iphoneStyle({
   uncheckedLabel: 'Tiny' 
 });
 </pre>
-<h2>Select Box JS</h2>
+		</div>
+		<div class="sixcol last">
+			<h3 class="p5">iOS Style Checkboxes</h3>
+			<p class="greyb">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
+			<br/>
+			
+			<p class="greyb">
+				<table>
+				    <tr class="disabled">
+				      <th><label for="disabled">Disabled</label></th>
+				      <td>
+				        <input type="checkbox" id="disabled" disabled="disabled" />
+				      </td>
+				    </tr>
+				    <tr class="on_off">
+				      <th><label for="on_off">Default</label></th>
+				      <td>
+				        <input type="checkbox" id="on_off" />
+				      </td>
+				    </tr>
+				    <tr class="on_off">
+				      <th><label for="on_off_on">Default On</label></th>
+				      <td>
+				        <input type="checkbox" checked="checked" id="on_off_on"/>
+				      </td>
+				    </tr>
+				    <tr class="ios">
+				      <th><label for="css_sized_container">CSS Sized Container and Handle</label></th>
+				      <td>
+				        <input id='iosToggle' type='checkbox' checked="checked" style='width:100px;'/></p><br/>
+				      </td>
+				    </tr>
+				    <tr class="long_tiny">
+				      <th><label class="left" for="long_tiny">Long and short labels</label></th>
+				      <td>
+				        <input type="checkbox" id="long_tiny" />
+				      </td>
+				    </tr>
+				    <tr class="onchange">
+				      <th>Event tracking</th>
+				      <td>
+				        <input type="checkbox" id="onchange" />
+				        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
+				      </td>
+				    </tr>
+				  </table>
+			</p>
+		</div>
+	
+	</div>
+	<div class="row">
+		<div class="sixcol">
+		<h2>Select Box JS</h2>
 <pre class="jsCode">
 /* Add single value (will be selected) */
 jQuery("#myselect").addOption("Value", "Text");
@@ -550,16 +605,6 @@ jQuery("#myselect").sortOptions([bool]);
 </pre>
 		</div>
 		<div class="sixcol last">
-			<h3 class="p5">iOS Style Checkboxes</h3>
-			<p class="greyb">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
-			<br/>
-			
-			<p class="greyb">
-				<input type="checkbox" id="on_off" class="on_off" /><br/>
-				<label for="on_off_on">Default On</label>
-				<input type="checkbox" checked="checked" class="on_off" id="on_off_on"/>
-			</p>
-		
 			<h3 class="p5">Select box manipulation Plugins</h3>
 			<p class="greyb">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
 			Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
@@ -571,6 +616,53 @@ jQuery("#myselect").sortOptions([bool]);
 				<select id="myselect">
 					<option>default</option>
 				</select>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="sixcol">
+<pre class="jsCode">
+//1. SIMPLE EXAMPLE
+var settings = {
+ showArrows: true
+};
+
+var pane = jQuery('.scroll-pane');
+pane.jScrollPane(settings);
+
+
+
+//2. ADVANCED Auto Refresh Example
+var settings = {
+ showArrows: true,
+ autoReinitialise: true
+};
+
+var pane = $('.scroll-pane')
+ pane.jScrollPane(settings);
+ var contentPane = pane.data('jsp').getContentPane();
+
+var i = 1;
+// Every second add some new content...
+setInterval(
+ function(){
+  contentPane.append(
+  $('&lt;p /&gt;').text('This is paragraph number ' + i++)
+  );
+ }, 1000 );
+	
+</pre>
+		</div>
+		<div class="sixcol last">
+			<h2>Universal Scroll Pane</h2>
+			<p class="p5">Much of this plugin has been adapted from jScrollPane. A full list of all the jScrollPane examples can be found here: <a href="http://jscrollpane.kelvinluck.com/index.html#examples">jscrollpane.kelvinluck.com</a>.</p>
+			<p class="p5">hui has added in mouse wheel and touch support onto the initial plugin, and all the same commands are available, you simply have an easier time detecting scroll events.</p>
+			<div class="scroll-pane" style="max-width:777px;width:95%;height:300px;">
+				<h4>jQuery Scoll Pane</h4>
+				<p class="p5" style="width:100%">Works with Mouse and Touch Input. Easy refresh and content commands allow you to detect orientation and screen resizes.</p>
+				<p class="p5" style="width:100%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
+				<br/>
+				<p class="p5" style="width:100%">Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget orci a orci congue vestibulum. Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam sagittis nisi dui.</p>
 			</div>
 		</div>
 	</div>
@@ -586,7 +678,7 @@ jQuery("#myselect").sortOptions([bool]);
 <h2>facebox js</h2>
 <pre class="jsCode">
 /* doc ready activate all */
-jQuery(document).ready(function($) {
+jQuery(document).ready(function(jQuery) {
  jQuery('a[rel*=facebox]').facebox();
 })
 
@@ -978,134 +1070,22 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	 <li><a href="#navigate">flex</a></li>
 	</ul>
 	
-	<!-- Developer Setup. Ready Your Code for jQuery 2.0+ 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript" src="libs/jquery/jquery-1.9.0b1.js"></script>
-	<script src="http://code.jquery.com/jquery-2.0.0b1.js"></script>
+	<!-- Example jQuery Setups  
+	1. latest v1 - <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+	2. v1.9b (local file) - <script src="libs/jquery/jquery-1.9.0b1.js" type="text/javascript"></script>
+	3. v2.0b (2.0 preview) - <script src="http://code.jquery.com/jquery-2.0.0b1.js" type="text/javascript"></script>
+	4. v1.8 (latest stable) - <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
 	
+	[optional] Ready Your Code for jQuery 2.0+
 	<script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
 	-->
-	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	
-	
-	<!-- Stable Production CDN Hosted Setup.
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	 -->
+	<!-- minified hui library -->
 	<script src="dist/hui.js" type="text/javascript"></script>
-	<script type="text/javascript">   
-		var counter = 0;     
-		var demo1 = 0;
-		var demo2 = 0;
-		var demo3 = 0;
-		var colorArr = ["#C20000","#37C200","#004EC2","#8400C2","#F56200"];
-		function checkboxes(){
-			jQuery('.on_off :checkbox').iphoneStyle();
-		}
-
-		function shuffledemo(){
-			var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
-			jQuery.shuffle(colorArray);
-			var ippo = 0;
-			jQuery(".democolors").html(" ");
-			jQuery(colorArray).each(function (index) {
-			    var name = colorArray[index];
-				jQuery(".democolors").append("<li>"+name+"</li>");
-				ippo++;
-			});
-			
-			jQuery(".democolors li").each(function (index) {
-			    var name = jQuery(this).text();
-				jQuery(this).animate({backgroundColor: name});
-			});
-		}
-		
-		function callbackGirl(){
-			var htmlitem = jQuery(".speakEasy li.active").text();
-			notefy("Clicked!",htmlitem);
-		}
-		
-		function randomColors(){
-			var shuffleArr = jQuery.shuffle(colorArr);
-			//console.debug(shuffleArr);
-			jQuery("#el_arco_iris").animate({backgroundColor: colorArr[0]},5000);
-			jQuery(".el_arco_iris, h3").animate({color: colorArr[0]},3000);
-			
-			if(jQuery(document).width() <= 460){
-				jQuery(".fhead").hide();
-			}
-			setTimeout("randomColors()",5013);
-		}
-		
-		jQuery(document).ready(function() {	
-			/* Sample Animations */
-			
-			randomColors();
-			
-			jQuery(".tipTip").tipTip();
-			
-			jQuery('.on_off').iphoneStyle();
-			jQuery(".tipTip").tipTip();
-			jQuery(".tipTipR").tipTip({
-				defaultPosition:"right"
-		 	});
-
-			//Kinema Demo
-			jQuery(".rdx").click(function(){
-				//Rotate
-				if(demo1 === 0){
-					jQuery('.box_x').transition({ 
-					x: "100px",
-				    duration: 1000,
-				    easing: 'ease'
-			     	}); 
-			       demo1 = 1;
-				} else {
-					jQuery('.box_x').transition({ 
-						x: 0,
-					    duration: 1000,
-					    easing: 'ease'
-					});
-					demo1 = 0;
-				}
-			});
-			
-			jQuery(".rdy").click(function(){
-				//Rotate
-				if(demo2 === 0){
-					jQuery('.box_y').transition({ 
-						y: "100px",
-					    duration: 1000,
-					    easing: 'linear'
-					});
-			       demo2 = 1;
-				} else {
-					jQuery('.box_y').transition({ 
-						y: 0,
-					    duration: 1000,
-					    easing: 'linear'
-					});
-					demo2 = 0;
-				}
-			});
-			
-			//Fluid Horizontal Navbar
-			jQuery('.fhead').horizontalNav({
-			    prependTo : 'body'
-			});
-
-			//Reactive Navigation Menu
-			var navobj = {"pull":".navpuller"};
-			jQuery("nav#flex1 ul").reactiveNav(navobj);
 	
-			//Accordion Nav Menu
-			jQuery(".accordion").accordionNav();
-			
-			//Flapper Girl Menu
-			var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
-			jQuery("<div></div>").flapperGirl(ladyParts, callbackGirl);
-		});	
-	</script>
-
+	<!-- Example Functions for the Demo -->
+	<script src="index_demo.js?ver=2" type="text/javascript"></script>
+	
 </body>
 </html>

@@ -1,4 +1,4 @@
-/************************************************ [SMQ] 1140 Media Queries 
+/************************************************ [SMQ] 
 * 
 * mediaQuery.js - modernish media queries (NO UA SNIFFING!)
 *

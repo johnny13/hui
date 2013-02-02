@@ -4,13 +4,14 @@ node_modules/**/*
 
 .DS_Store
 
+node_modules/grunt-yui-compressor/node_modules/*
+
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/async/package.json
 
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/colors/package.json
 
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/connect/node_modules/bytes/package.json
 
-node_modules/grunt-yui-compressor/node_modules/*
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/async/package.json
 
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/async/package.json
@@ -22,5 +23,3 @@ node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/connect/node_m
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/connect/node_modules/bytes/package.json
 
 node_modules/grunt-yui-compressor/node_modules/grunt/node_modules/connect/node_modules/bytes/package.json
-
-*.json

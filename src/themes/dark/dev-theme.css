@@ -1,42 +1,39 @@
 @charset "UTF-8";
 /* 
-* hui | huement user interface
-*
-* Copyright (c) 2012 huement
-* 
-* Dual licensed under the MIT or GPL Version 3 licenses.
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.opensource.org/licenses/GPL-3.0
+* hui theme
 *
 * Author: Derek Scott @huement
 *
-* Skin Version: HUI dark
-* Date: 12/31st/2012
+* Skin Version: hui dark
+* Date: FEB/1/2013
 *
 *
 */
 
-/* -------   HUI BROWSER STANDARIZATION & Basic Setup  ------- */
+/* -------   hui BROWSER STANDARIZATION & Basic Setup  ------- */
 
 /* 
 * BASE CSS
 * http://hui.huement.com/docs/#base
-* 
-* Development (work w/ theme OR with base and theme.):
 *
-*   @import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
+* !!!!!!! REQUIRED !!!!!!!
+*
+* Development (not the fastest, easier for development):
+*
+*   CDN: @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css");
 *   
-*   @import url("../css_base/hui-1.06.css");
+*   LOCAL: @import url("dist/hui-base.css");
 
-* Production: 
-*  Paste contents of "css_base/hui-min-latest.css" Here.
-*  or <link href="css_base/hui-min-latest.css" type="text/css" rel="stylesheet"/>
+* Production (minfy and go live): 
 *
-* DEFAULT: Easy Development
-* @import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
+*  Paste contents of "dist/hui-base-min.css" here.
+*  
+*  or add <link href="dist/hui-base-min.css" type="text/css" rel="stylesheet"/> to <head>
+*   NOTE: if you do this the BASE FILE must come BEFORE the THEME.
+*
 */
 
-/* @import url("http://dev.huement.com/github/hui/css_base/hui-1-10.css"); */
+/* @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css"); */
 
 /* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
@@ -202,28 +199,91 @@ form {
  box-shadow: 2px 2px 5px rgba(0,0,0,.10);
 }
 
-table {
+/*--- .style Table ---*/
+table.style {
  border: 1px solid #e6e6e6;
-}
-table {
  border-collapse: collapse;
+ clear: both;
+ width: 100%;
+ border-spacing: 0;
+ background: #fafafa;
+ margin: 12px 0;
+ font-size: 13px; 
+line-height: 18px;
+ margin: 0 0 20px 0;
+ border-left: 1px solid #e0e0e0;
 }
-table th {
+
+table.style th {
  padding: .5em  1em;
  color: black;
  background: #e6e6e6;
  font-weight: normal;
 }
-table th, table td {
+table.style th, table.style td {
  border-bottom: 1px solid rgba(0,0,0,.05);
 }
 
-td {
+.style td {
  text-align: left;
  white-space: nowrap;
  padding: 6px 8px;
  background: #e6e6e6;
  width: 35%;
+}
+
+.style td, .style th {
+ padding: .25em 1em;
+ border: 1px solid #e6e6e6;
+ vertical-align: middle;
+ text-align: left;
+ font-weight: normal;
+ color: #666;
+ font-size: 0.85em;
+}
+.style tr:nth-child(even) {
+ background: #fff;
+}
+.style thead th, .style tfoot td {
+ background: #f3f3f3;
+ color: #333;
+ text-align: left;
+ font-size: 1em;
+ font-weight: bold;
+ padding: .5em .75em;
+}
+
+
+table.style tr {
+ 
+}
+table.style tr th, table.style tr td {
+ padding: 10px 14px;
+ text-align: left;
+}
+table.style tr th {
+ background-color: #303030;
+ color: #fff;
+ border-right: 1px solid rgba(255,255,255, 0.15);
+ /* Text Shadow */
+ text-shadow: 0 -1px 1px rgba(0,0,0, 0.25);
+ /* Gradient */
+ background-image: linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+ background-image: -o-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+ background-image: -moz-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+ background-image: -webkit-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+ background-image: -ms-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
+ background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0, rgb(48,48,48)),
+  color-stop(1, rgb(95,95,95))
+ );
+}
+table.style tr td {
+ border-right: 1px solid #e0e0e0;
+ border-bottom: 1px solid #e0e0e0;
 }
 
 code {
@@ -1071,77 +1131,6 @@ blockquote:after {
  content: '\201D';
 }
 
-/*--- Tables ---*/
-table {
- clear: both;
- width: 100%;
- border-collapse: collapse;
- border-spacing: 0;
- border: 1px solid #e6e6e6;
- background: #fafafa;
- margin: 12px 0;
-}
-td, th {
- padding: .25em 1em;
- border: 1px solid #e6e6e6;
- vertical-align: middle;
- text-align: left;
- font-weight: normal;
- color: #666;
- font-size: 0.85em;
-}
-tr:nth-child(even) {
- background: #fff;
-}
-thead th, tfoot td {
- background: #f3f3f3;
- color: #333;
- text-align: left;
- font-size: 1em;
- font-weight: bold;
- padding: .5em .75em;
-}
-
-.table-wrap {
- padding: 0 6% 2%;
-}
-table {
- font-size: 13px; line-height: 18px;
- margin: 0 0 20px 0;
- border-left: 1px solid #e0e0e0;
-}
-table tr {
- 
-}
-table tr th, table tr td {
- padding: 10px 14px;
- text-align: left;
-}
-table tr th {
- background-color: #303030;
- color: #fff;
- border-right: 1px solid rgba(255,255,255, 0.15);
- /* Text Shadow */
- text-shadow: 0 -1px 1px rgba(0,0,0, 0.25);
- /* Gradient */
- background-image: linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
- background-image: -o-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
- background-image: -moz-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
- background-image: -webkit-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
- background-image: -ms-linear-gradient(bottom, rgb(48,48,48) 0%, rgb(95,95,95) 100%);
- background-image: -webkit-gradient(
-  linear,
-  left bottom,
-  left top,
-  color-stop(0, rgb(48,48,48)),
-  color-stop(1, rgb(95,95,95))
- );
-}
-table tr td {
- border-right: 1px solid #e0e0e0;
- border-bottom: 1px solid #e0e0e0;
-}
-
 /* Odds Events */
 table tr:nth-child(even) td {
  background: #f6f6f6;
@@ -1426,6 +1415,7 @@ label.iOSCheckLabelOff {
  color: #FFF;
  padding: .5em 1em;
  margin: 0;
+ background-color:#1b1b1b;
  border: 1px solid #e5e5e5;
  text-decoration: none;
  -moz-border-radius: 4px;

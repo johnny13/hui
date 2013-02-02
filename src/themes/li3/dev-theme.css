@@ -1,42 +1,39 @@
 @charset "UTF-8";
 /* 
-* hui | huement user interface
-*
-* Copyright (c) 2012 huement
-* 
-* Dual licensed under the MIT or GPL Version 3 licenses.
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.opensource.org/licenses/GPL-3.0
+* hui theme
 *
 * Author: Derek Scott @huement
 *
-* Skin Version: HUI dark
-* Date: 12/31st/2012
+* Skin Version: hui light
+* Date: FEB/1/2013
 *
 *
 */
 
-/* -------   HUI BROWSER STANDARIZATION & Basic Setup  ------- */
+/* -------   hui BROWSER STANDARIZATION & Basic Setup  ------- */
 
 /* 
 * BASE CSS
 * http://hui.huement.com/docs/#base
-* 
-* Development (work w/ theme OR with base and theme.):
 *
-*   @import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
+* !!!!!!! REQUIRED !!!!!!!
+*
+* Development (not the fastest, easier for development):
+*
+*   CDN: @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css");
 *   
-*   @import url("../css_base/hui-1.06.css");
+*   LOCAL: @import url("dist/hui-base.css");
 
-* Production: 
-*  Paste contents of "css_base/hui-min-latest.css" Here.
-*  or <link href="css_base/hui-min-latest.css" type="text/css" rel="stylesheet"/>
+* Production (minfy and go live): 
 *
-* DEFAULT: Easy Development
-* @import url("https://huementui.s3.amazonaws.com/hui-min-latest.css");
+*  Paste contents of "dist/hui-base-min.css" here.
+*  
+*  or add <link href="dist/hui-base-min.css" type="text/css" rel="stylesheet"/> to <head>
+*   NOTE: if you do this the BASE FILE must come BEFORE the THEME.
+*
 */
 
-/* @import url("http://dev.huement.com/github/hui/css_base/hui-1-10.css"); */
+/* @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css"); */
 
 /* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
