@@ -131,20 +131,13 @@ a.blackText:hover {color: #666666;}
 .whiteb {background-color: #FFFFFF;} .blackb {background-color: #000000;}
 /* lithium style */
 .greyb, .grayb {
- color: #333;
  background: #f6f6f6;
- overflow: auto;
- font-size: 1.2em;
- line-height: 1.5em;
- text-align: left;
- margin: 5px auto 10px auto;
- padding:.71em .31em .71em .31em;
- width: 94%; 
- position:relative;
- display:block;
 }
-.greyb a { color:#ccc; }
-.greyb a:hover, .container p a:hover{ color:#fff; }
+.greyb, .grayb p {
+ color: #333;
+}
+.greyb a { color:#999; }
+.greyb a:hover, .container p a:hover{ color:#00B7FF; }
 
 li.S, li.style {
  display: block;
@@ -251,36 +244,30 @@ pre {
  -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
  box-shadow: 2px 2px 12px rgba(0,0,0,.15);
 }
-
-button,
-.button {
- height:100% !important;
- display: block;
- font-weight: bold;
- font-size: 1.05em;
- background-color:#f5f5f5;
- border-color: #e5e5e5;
- color: #999;
- padding: .5em .61em;
- margin: 10px;
- background-color: white;
- text-decoration: none;
- -moz-border-radius: 4px;
- -webkit-border-radius: 4px;
- border-radius: 4px;
- -moz-box-shadow: 0 0 6px rgba(0,0,0,.1);
- -webkit-box-shadow: 0 0 6px rgba(0,0,0,.1);
- box-shadow: 0 0 6px rgba(0,0,0,.1);
+button, .button {
+ background:#f7f7f7;
+ border-color:#999;
 }
+button .label, .button .label { color:#666}
+button:hover, 
+.button:hover {
+ background: #E7E7E7;
+ border-color: #666;
+}
+button:hover .label, 
+.button:hover .label {
+	color:#000;
+}
+
 .huicon, .ddm span.icon, 
 button span.icon, 
 .button span.icon {
- background-image: url("http://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/li3-sprite-gray.png");
+ background-image: url("http://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
 }
 .ddm:hover span.icon, 
 button:hover span.icon, 
 .button:hover span.icon {
- background-image: url("http://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/li3-sprite-hue.png");
+ background-image: url("http://huementui.s3.amazonaws.com/images/hui-sprite-li3.png");
 }
 
 @media only screen and (max-width : 777px) {
@@ -735,7 +722,7 @@ min-width: 32px !important;
 width: 32px !important; 
 min-height: 32px !important; 
 height:32px !important;
-background-image: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/hui-icon-notefy.png') !important;
+background-image: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/hui-icon-notefy.png') !important;
 float:left;  
 margin:10px 8px 0 -6px;
 }
@@ -1109,17 +1096,40 @@ blockquote:after {
  content: '\201D';
 }
 
-/*--- Tables ---*/
-table {
+/*--- .style Table ---*/
+table.style {
+ border: 1px solid #e6e6e6;
+ border-collapse: collapse;
  clear: both;
  width: 100%;
- border-collapse: collapse;
  border-spacing: 0;
- border: 1px solid #e6e6e6;
  background: #fafafa;
  margin: 12px 0;
+ font-size: 13px; 
+line-height: 18px;
+ margin: 0 0 20px 0;
+ border-left: 1px solid #e0e0e0;
 }
-td, th {
+
+table.style th {
+ padding: .5em  1em;
+ color: black;
+ background: #e6e6e6;
+ font-weight: normal;
+}
+table.style th, table.style td {
+ border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.style td {
+ text-align: left;
+ white-space: nowrap;
+ padding: 6px 8px;
+ background: #e6e6e6;
+ width: 35%;
+}
+
+.style td, .style th {
  padding: .25em 1em;
  border: 1px solid #e6e6e6;
  vertical-align: middle;
@@ -1128,10 +1138,10 @@ td, th {
  color: #666;
  font-size: 0.85em;
 }
-tr:nth-child(even) {
+.style tr:nth-child(even) {
  background: #fff;
 }
-thead th, tfoot td {
+.style thead th, .style tfoot td {
  background: #f3f3f3;
  color: #333;
  text-align: left;
@@ -1140,22 +1150,15 @@ thead th, tfoot td {
  padding: .5em .75em;
 }
 
-.table-wrap {
- padding: 0 6% 2%;
-}
-table {
- font-size: 13px; line-height: 18px;
- margin: 0 0 20px 0;
- border-left: 1px solid #e0e0e0;
-}
-table tr {
+
+table.style tr {
  
 }
-table tr th, table tr td {
+table.style tr th, table.style tr td {
  padding: 10px 14px;
  text-align: left;
 }
-table tr th {
+table.style tr th {
  background-color: #303030;
  color: #fff;
  border-right: 1px solid rgba(255,255,255, 0.15);
@@ -1175,14 +1178,9 @@ table tr th {
   color-stop(1, rgb(95,95,95))
  );
 }
-table tr td {
+table.style tr td {
  border-right: 1px solid #e0e0e0;
  border-bottom: 1px solid #e0e0e0;
-}
-
-/* Odds Events */
-table tr:nth-child(even) td {
- background: #f6f6f6;
 }
 
 .iPhoneCheckContainer {
@@ -1221,7 +1219,7 @@ table tr:nth-child(even) td {
 
 label.iPhoneCheckLabelOn {
   color: white;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/on.png') no-repeat;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/on.png') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
@@ -1229,7 +1227,7 @@ label.iPhoneCheckLabelOn {
  padding-left: 8px; }
 label.iPhoneCheckLabelOff {
   color: #8b8b8b;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/off.png') no-repeat right 0;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/off.png') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
   right: 0;
@@ -1246,19 +1244,19 @@ label.iPhoneCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/slider_left.png') no-repeat;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_left.png') no-repeat;
   padding-left: 3px; }
 
 .iPhoneCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/slider_right.png') no-repeat right 0; }
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_right.png') no-repeat right 0; }
 
 .iPhoneCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/iphone-style-checkboxes/slider_center.png'); }
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_center.png'); }
 
 .iOSCheckContainer {
   position: relative;
@@ -1296,7 +1294,7 @@ label.iPhoneCheckLabelOff {
 
 label.iOSCheckLabelOn {
   color: white;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/ios-style-checkboxes/on.png') no-repeat;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/on.png') no-repeat;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
   left: 0;
   padding-top: 5px; }
@@ -1304,7 +1302,7 @@ label.iOSCheckLabelOn span {
  padding-left: 8px; }
 label.iOSCheckLabelOff {
   color: #8b8b8b;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/ios-style-checkboxes/off.png') no-repeat right 0;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/off.png') no-repeat right 0;
   text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
   text-align: right;
   right: 0; }
@@ -1319,19 +1317,19 @@ label.iOSCheckLabelOff {
   top: 0;
   left: 0;
   width: 0;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/ios-style-checkboxes/slider_left.png') no-repeat;
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_left.png') no-repeat;
   padding-left: 3px; }
 
 .iOSCheckHandleRight {
   height: 100%;
   width: 100%;
   padding-right: 3px;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/ios-style-checkboxes/slider_right.png') no-repeat right 0; }
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_right.png') no-repeat right 0; }
 
 .iOSCheckHandleCenter {
   height: 100%;
   width: 100%;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/dark/imgs/ios-style-checkboxes/slider_center.png'); }
+  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_center.png'); }
 
 /************************************************ [S04] FaceBox Modal [subtle theme] */
 #facebox {
@@ -2113,40 +2111,40 @@ nav.flex a.navpuller {
 */
 .horizontalNav-processed {
     border: 1px solid #3d3d3d;
-	font-weight: bold;
-	background: #2E2E2E;
-	background: -webkit-gradient( linear, left bottom, left top, color-stop(1, #2E2E2E), color-stop(0, #131313) );
-	background: -moz-linear-gradient( center top, #2E2E2E, #131313 );
-	-webkit-box-shadow: 0 1px 0 #030303 inset;
-	-moz-box-shadow: 0 1px 0 #030303 inset;
-	border-bottom: 1px solid #646464;
-	border-left:none;
-	border-right:none;
+ font-weight: bold;
+ background: #2E2E2E;
+ background: -webkit-gradient( linear, left bottom, left top, color-stop(1, #2E2E2E), color-stop(0, #131313) );
+ background: -moz-linear-gradient( center top, #2E2E2E, #131313 );
+ -webkit-box-shadow: 0 1px 0 #030303 inset;
+ -moz-box-shadow: 0 1px 0 #030303 inset;
+ border-bottom: 1px solid #646464;
+ border-left:none;
+ border-right:none;
     float: left;
 }
 .horizontalNav-processed li {
     float: left;
     border-left: 1px solid #000;
-	font-size:1.1em;
-	line-height:1.6em;
+ font-size:1.1em;
+ line-height:1.6em;
 }
 .horizontalNav-processed li .icon {
-	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-white.png");
-	display: inline-block;
-	margin: 3px 3px 3px 0;
-	float: left;
-	line-height: 17px;
-	height: 17.5px;
-	width: 18px;
-	max-width: 18px;
-	max-height:17.5px;
-	overflow: hidden;
-	text-indent: -9999px !important;
-	background-repeat: no-repeat;
-	-webkit-transition: background-image .20s linear;
-	-moz-transition: background-image .20s linear;
-	-o-transition: background-image .20s linear;
-	transition: background-image .20s linear;
+ background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-white.png");
+ display: inline-block;
+ margin: 3px 3px 3px 0;
+ float: left;
+ line-height: 17px;
+ height: 17.5px;
+ width: 18px;
+ max-width: 18px;
+ max-height:17.5px;
+ overflow: hidden;
+ text-indent: -9999px !important;
+ background-repeat: no-repeat;
+ -webkit-transition: background-image .20s linear;
+ -moz-transition: background-image .20s linear;
+ -o-transition: background-image .20s linear;
+ transition: background-image .20s linear;
 }
 .horizontalNav-processed li:first-child {
     border-left: 0 none;
@@ -2166,23 +2164,23 @@ nav.flex a.navpuller {
 }
 .horizontalNav-processed li a:hover, .horizontal-nav ul li a:visited:hover {
     background: rgb(194,194,194);
-	background: -webkit-gradient( linear, left bottom, left top, color-stop(1, rgb(194,194,194)), color-stop(0, rgb(133,133,133)) );
-	background: -moz-linear-gradient( center top, rgb(194,194,194), rgb(133,133,133) );
-	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
-	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
-	color:#f7f7f7;
+ background: -webkit-gradient( linear, left bottom, left top, color-stop(1, rgb(194,194,194)), color-stop(0, rgb(133,133,133)) );
+ background: -moz-linear-gradient( center top, rgb(194,194,194), rgb(133,133,133) );
+ -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+ -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+ color:#f7f7f7;
 }
 
 @media screen and (max-width: 799px) {
-	.horizontalNav-processed li a {
-		font-size:0.8em !important;
-		display: inline;
-		white-space: nowrap;
-		float:left;
-	}
+ .horizontalNav-processed li a {
+  font-size:0.8em !important;
+  display: inline;
+  white-space: nowrap;
+  float:left;
+ }
 }
 @media screen and (max-width: 480px) {
-	.fhead {
-		display:none !important;
-	}
+ .fhead {
+  display:none !important;
+ }
 }

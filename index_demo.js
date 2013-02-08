@@ -59,11 +59,38 @@ function randomColors(){
  setTimeout("randomColors()",5013);
 }
 
+function brightnessToggle(newStyle){
+ if(newStyle=="dark"){
+  var darkStylecss = "src/themes/dark/dev-theme.css";
+  //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
+  //jQuery(darkFinal).appendTo("head");
+  $("#theme_sheet").attr("href", darkStylecss);
+  jQuery(".brightToggleTxt").text("dark");
+  jQuery("p, h1, h2, h3, h4").css("color","#f7f7f7");
+ }
+ if(newStyle=="light"){
+  var darkStylecss = "src/themes/li3/dev-theme.css";
+  //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
+  //jQuery(darkFinal).appendTo("head");
+  $("#theme_sheet").attr("href", darkStylecss);
+  jQuery(".brightToggleTxt").text("li3");
+  jQuery("p, h1, h2, h3, h4").css("color","#1b1b1b");
+ }
+}
+
 jQuery(document).ready(function() { 
  /* Sample Animations */
- jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#000");
+ jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
  randomColors();
  
+ jQuery(".brightToggle").on("click",function(){
+  if(jQuery(".brightToggleTxt").text()=="dark"){
+   brightnessToggle("light");
+  }else{
+   brightnessToggle("dark");
+  }
+  return false;
+ });
  //ToolTips
  jQuery(".tipTip").tipTip();
  jQuery(".tipTip").tipTip();

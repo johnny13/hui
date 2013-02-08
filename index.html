@@ -12,9 +12,9 @@
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 	
-	<!-- HUI CSS the Longway -->
-	<link href="dist/hui-base.css" type="text/css" rel="stylesheet"/>
-	<link href="src/themes/dark/dev-theme.css" type="text/css" rel="stylesheet"/>
+	<!--hui like this for theme switching. -->
+	<style type="text/css">@import url("dist/hui-base.css");</style>
+	<link id="theme_sheet" href="src/themes/li3/dev-theme.css" type="text/css" rel="stylesheet"/>
 	
 	<!-- Old Internet Explorer -->
 	<!--[if lt IE 9]>
@@ -26,7 +26,7 @@
 	<style type="text/css">
 		/* main size controller. */
 		.row {max-width:98%;}
-		
+		.blackb {border:2px solid #555;}
 		.greyb label {
 			color:#fff;
 		}
@@ -91,6 +91,18 @@
 		.iosTable td {
 			padding:10px 0 10px 10px;
 		}
+		
+		.greyb, .grayb {
+		 overflow: auto;
+		 font-size: 1.2em;
+		 line-height: 1.5em;
+		 text-align: left;
+		 margin: 5px auto 10px auto;
+		 padding:.71em .31em .71em .31em;
+		 width: 94%; 
+		 position:relative;
+		 display:block;
+		}
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -115,7 +127,7 @@
 		<a class="button left" href="test/"><span class="icon icon43"></span><span class="label">tests</label></a>
 		<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108"></span><span class="label">home</label></a>
 		<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span><span class="label">github</label></a>
-		<a class="button right" href="https://github.com/johnny13/li3-hui/"><span class="icon icon120"></span><span class="label">li3-hui</label></a>
+		<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24"></span><span class="label brightToggleTxt">li3</label></a>
 			<br/>
 		</div>
 		<div class="push"></div>

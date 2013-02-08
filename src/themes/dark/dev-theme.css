@@ -61,8 +61,8 @@ body {
 	color:#e7e7e7;
 }
 /* Theme Fonts */
-h1 { font-size: 2.4em;color: #444444;font-weight:bold;padding-left:5px; }
-h1:first-letter { font-size: 2em;color: #333;font-weight:bold;; }
+h1 { font-size: 2.4em;color: #DDD;font-weight:bold;padding-left:5px; }
+h1:first-letter { font-size: 2em;color: #e7e7e7;font-weight:bold;; }
 h2, h5 { font-size: 2.05em; margin-bottom: .5em; color: #666;display: block;font-weight:bold; }
 h3, h6 { font-weight: normal; margin: 1.5em 0 1em;font-weight:bold; }
 h4 { font-size: 1.4em; }
@@ -71,7 +71,7 @@ h6 { font-size: 1em; }
 p { margin-bottom: 1em; } 
 strong { font-weight: bold; }
 em { font-style: italic; }
-a { text-decoration: none; color: #333; padding: .45em 0.75em 0 0.75em; }
+a { text-decoration: none; color: #e7e7e7; padding: .45em 0.75em 0 0.75em; }
 nav a { padding :0; font-weight:bold; }
 a, h1 a, h2 a { text-decoration: none; }
 
@@ -132,19 +132,11 @@ a.blackText:hover {color: #666666;}
 .yellowb {background-color: #FF0;} .greenb {background-color: #0C0;} 
 .blueb {background-color: #06F;} .purpleb {background-color: #5C00FA;} 
 .whiteb {background-color: #FFFFFF;} .blackb {background-color: #000000;}
-/* lithium style */
 .greyb, .grayb {
- color: #ECECEC;
- background: #4E4E4E;
- overflow: auto;
- font-size: 1.2em;
- line-height: 1.5em;
- text-align: left;
- margin: 5px auto 10px auto;
- padding:.71em .31em .71em .31em;
- width: 94%; 
- position:relative;
- display:block;
+background-color:transparent;
+}
+.greyb, .grayb p {
+ color: #e7e7e7;
 }
 .greyb a { color:#ccc; }
 .greyb a:hover, .container p a:hover{ color:#fff; }
@@ -301,11 +293,11 @@ code {
 pre {
  font-size: 12px;
  color: white;
- background: #141414;
+ background: #3f3f3f;
  border: none;
  padding: 1em !important;
  overflow: auto;
-
+ border:3px solid #666;
 }
 
 @media only screen and (max-width : 777px) {
