@@ -51,8 +51,7 @@ function callbackGirl(){
 function randomColors(){
  var shuffleArr = jQuery.shuffle(colorArr);
  //console.debug(shuffleArr);
- jQuery("#el_arco_iris").animate({backgroundColor: colorArr[0]},5000);
- jQuery(".el_arco_iris, h3").animate({color: colorArr[0]},3000);
+ jQuery(".el_arco_iris, h3, #el_arco_iris li a").animate({color: colorArr[0]},4979);
  
  if(jQuery(document).width() <= 460){
   jQuery(".fhead").hide();
@@ -62,25 +61,18 @@ function randomColors(){
 
 jQuery(document).ready(function() { 
  /* Sample Animations */
- 
+ jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#000");
  randomColors();
  
+ //ToolTips
  jQuery(".tipTip").tipTip();
- 
- var settings = {
- showArrows: true
- };
-
- var pane = jQuery('.scroll-pane');
- pane.jScrollPane(settings);
-
- //iOS Inspired Checkboxes
- checkboxes();
- 
  jQuery(".tipTip").tipTip();
  jQuery(".tipTipR").tipTip({
   defaultPosition:"right"
   });
+
+ //iOS Inspired Checkboxes
+ checkboxes();
 
  //Kinema Demo
  jQuery(".rdx").click(function(){
