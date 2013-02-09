@@ -703,7 +703,8 @@ button span.icon,
 }
 .ddm:hover span.icon, 
 button:hover span.icon, 
-.button:hover span.icon {
+.button:hover span.icon,
+.button.on span.icon, button.on span.icon {
 	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-hue.png");
 }
 
