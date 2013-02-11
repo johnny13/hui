@@ -1,4 +1,4 @@
-/*! huement user interface - v1.13.2 - 2013-02-10
+/*! huement user interface - v1.13.2 - 2013-02-11
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
