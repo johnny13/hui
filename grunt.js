@@ -16,11 +16,11 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/jquery.history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.js'
       },
       css: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/character.css', 'src/css/datadisplay.css', 'src/css/buttons.css'],
-        dest: 'dist/<%= pkg.name %>-base.css'
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/character.css', 'src/css/display.css', 'src/css/buttons.css'],
+        dest: 'dist/<%= pkg.name %>-base-<%= pkg.version %>.css'
       }
     },
     min: {
@@ -31,8 +31,8 @@ module.exports = function(grunt) {
     },
     'cssmin': {
 			'dist': {
-				'src': 'dist/hui-base.css',
-				'dest': 'dist/hui-base-min.css'
+				'src': 'dist/<%= pkg.name %>-base-<%= pkg.version %>.css',
+				'dest': 'dist/<%= pkg.name %>-base-min.css'
 			}
 		},
     qunit: {
@@ -40,15 +40,6 @@ module.exports = function(grunt) {
     },
     lint: {
       files: ['grunt.js', 'src/js/actions.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js']
-    },
-    csslint: {
-     base_theme: {
-      src: "src/themes/**/*.css",
-      rules: {
-        "import": false,
-        "overqualified-elements": 2
-      }
-     }
     },
     watch: {
       files: '<config:lint.files>',

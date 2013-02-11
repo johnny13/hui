@@ -1,0 +1,408 @@
+/* Tegan and Sara */
+.end { height:1px; margin-bottom:-1px;clear:both; border:none;color:transparent;background-color:transparent; }
+
+.Tegan {
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	padding:0;
+	width:100%;
+	display:block;
+	margin:0;
+	position:relative;
+	clear:both;
+	padding:0px;
+	overflow: hidden;
+	list-style: none;
+}
+.Tegan li {
+	clear:both;display:block;
+	margin:0;
+	padding:3px 2px 0px 0px;
+	border-bottom:1px solid #CFCFCF;
+	min-height:50px;
+}
+.Tegan li:nth-child(odd) { 
+	background:#e7e7e7;
+	background-color:#e7e7e7;
+}
+.Tegan li:nth-child(even) { 
+	background:#F0F0F0;
+	background-color:#F0F0F0; 
+}
+.Tegan.dark,.Tegan.Sara.dark {
+	border:none;padding:0;
+	background:transparent;
+	border-radius:none;
+}
+.Tegan.dark li {
+	background:#111;
+	border-bottom:1px inset #333;
+	filter:none;
+}
+
+.Tegan.Sara li {
+	padding: 0;
+	min-height:70px;
+}
+.Tegan li .name {
+	margin: 0px 0 0 0px;
+	width: auto;
+	color: #000;
+	font-weight: bold;
+	font-size: 1.1em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+	width:97%;
+}
+.Tegan.dark li .name {
+	color: #f0f0f0;
+}
+.Tegan.Sara li .name {
+	margin: 5px 0 0 5px;
+	width: auto;
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 1.2em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+	width: 73%;
+}
+
+.Tegan li .name:after {
+	clear:both;
+}
+.Tegan li .comment {
+	margin:3px 0 3px 0px;
+	font-size: 1em;
+	line-height:1em;
+	float: left;
+	color: #111;
+	width:auto;
+	max-width:95%;
+}
+.Tegan.dark li .comment {
+	color: #e7e7e7;
+}
+li .comment.limit {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.Tegan li .arrow {
+	position:absolute;
+	margin-top:25px;
+	right:10px;
+	line-height: 18px;
+	height: 18px;
+	width: 18px;
+	max-width: 18px;
+	clear:none;
+	display:inline;
+	z-index:222;
+	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
+}
+.Tegan.dark li .arrow {
+	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
+}
+.Tegan.Sara li:hover .arrow, .Tegan li:hover .arrow {
+	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png");
+}
+.Tegan.dark li:hover .arrow {
+	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-white.png");
+}
+.Tegan li a {
+	clear:both;
+	display:block;
+	position:relative;
+	float:none;
+	height:100%;
+	min-height:100%;
+}
+.Tegan.Sara li a {
+	clear:none;
+	display:inline;
+	position:relative;
+	float:left;
+	height:auto;
+	min-height:auto ;
+	padding:0px 0 0px 1px;
+	margin:0;
+}
+.Tegan.Sara li .arrow {
+	right:7px;
+}
+.Tegan.Sara li img {
+	max-width:70px;
+	max-height:70px;
+	width:70px;
+	height:70px;
+	
+	float: left;
+	border: none;
+	box-shadow: none;
+	border-right: 1px solid #999;
+}
+.Tegan.Sara li:first-child img {
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.Tegan.Sara li .comment {
+	margin:3px 0 3px 0px;
+	font-size: 1em;
+	line-height:1em;
+	float: left;
+	width:auto;
+	max-width:75%;
+}
+
+
+
+.Tegan li:first-child,.Tegan li:first-child:hover {
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.Tegan li:last-child, .Tegan li:last-child:hover {
+	border-bottom:none;
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.Tegan li:hover, .Tegan li:active, .Tegan li.active  {
+	background: #C2C2C2; /* Old browsers */
+	
+}
+.Tegan.dark li:first-child { 
+	border-bottom:1px inset #666;
+	padding-top:1px;
+}
+.Tegan.dark li:last-child {
+	border-bottom:none;
+}
+.Tegan.dark li:hover { 
+	background:#2d2d2d;
+	border-bottom:1px inset #666;
+	filter:none;
+}
+
+/* Taylor */
+.Taylor {
+	width:100%;
+	margin-left:0px;
+	list-style:none;
+	height:auto;
+	height:100%;
+}
+
+.Taylor li {
+	width:100%;
+	list-style:none;
+	min-height:100px;
+	height:auto;
+	padding:10px 0 0px 0;
+	overflow: hidden;
+	margin: 0;
+	*zoom: 1;
+}
+
+.Taylor li:first-child {
+	border-top: 3px solid #999;
+}
+.Taylor li:last-child {
+	border-bottom: 3px solid #999;
+}
+.Taylor.dark li:first-child {
+	border-top: 3px solid #333;
+}
+.Taylor.dark li:last-child {
+	border-bottom: 3px solid #333;
+}
+.Taylor li:last-child .Tbox {
+	margin-bottom:10px;
+}
+.Taylor li .nail {
+    float: left;
+    border-radius: 5px;
+    overflow: hidden;
+	width:50px;
+	height:50px;
+	border:1px solid #CFCFCF;
+	margin-top:18px;
+	margin-left:5px;
+}
+.Taylor.dark li .nail {
+	border:1px solid #666;
+}
+.Taylor .Tbox {
+	float:right;
+	width:77%;
+	padding: 2px 2px 5px 5px;
+	border: 1px solid #BDBDBD;
+	border-radius: 5px;
+	background: #f7f7f7;
+	margin-right:3px;
+	margin-top:0px;
+}
+.Taylor.dark .Tbox {
+	border: 1px solid #666;
+	background: #111111;
+}
+/* Decoration */
+
+.Taylor li, .Tbox { position: relative }
+
+.Taylor li:before, .Tbox:before, .Tbox .text:before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -12px;
+}
+
+.Taylor li:before {
+    width: 4px;
+    left: 18%;
+    bottom: 0px;
+	margin-top:-20px;
+	background: #999;
+    background: rgba(0,0,0,0.4);
+}
+.Taylor.dark li:before { background: #333;background: rgba(0,0,0,0.7); }
+.Tbox:before {
+    width: 9px;
+    height: 9px;
+    border: 3px solid #ddd;
+    border-radius: 100px;
+    margin: 16px 0 0 -10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.2);
+    background: #999;
+}
+.Tbox:hover:before { background: #DA0000; border-color: #666;}
+.dark .Tbox:before { background: #333; border: 3px solid #666; }
+.dark .Tbox:hover:before { background: #DA0000; border-color: #999;}
+
+.Tbox .text:before {
+    top: 18px;
+    left: 78px;
+    width: 9px;
+    height: 9px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.Tbox .name, .Tbox .comment {
+	margin:0;padding:0;
+	padding:6px;
+}
+.dark .Tbox .name, .dark .Tbox .comment {
+	color:#f7f7f7;
+}
+.Tbox .name {
+	font-weight:bold;
+}
+/* breakup with Taylor */
+
+@media only screen and (max-width : 798px) {
+
+	.Tegan {
+		width:100%;
+		padding:0px;
+		border:none;
+	}
+	.Tegan.inset {
+		width:96%;
+		display:block;
+		max-width:96%;
+		margin:0 auto;
+		position:relative;
+	}
+	.Tegan {
+		background:transparent;
+		background-color:transparent;
+	}
+	.Tegan li {
+		background:#F3F3F3;
+		background-color:#F3F3F3;
+	}
+	.Tegan li a {
+		clear:both;
+		display:block;
+		position:relative;
+		float:none;
+		height:100%;
+		min-height:100%;
+	}
+	.Tegan li:hover, .Tegan li:active {
+		background:#CCCCCC;
+		background-color:#CCCCCC;
+	}
+	
+	.Tegan.Sara.dark {
+		background:transparent;
+		background-color:transparent;
+	}
+	.Tegan.dark li,.Tegan.Sara.dark li {
+		background:#111;
+		background-color:#111;
+	}
+	.Tegan.Sara li a {
+		clear:both;
+		display:block;
+		position:relative;
+		float:none;
+		height:100%;
+		min-height:100%;
+	}
+	.Tegan.Sara.dark li:nth-child(odd) { 
+		background:#2d2d2d;
+		background-color:#2d2d2d;
+	}
+	.Tegan.Sara.dark li:nth-child(even) { 
+		background:#111;
+		background-color:#111; 
+	}
+	.Tegan.Sara.dark li:hover, .Tegan.Sara li:active {
+		background:#666;
+		background-color:#666;
+	}
+
+	.Tegan.Sara li {
+		min-height:60px;
+	}
+	
+	.Tegan li .name { 
+		font-size:1.2em;
+	}
+	.Tegan li .comment { font-size:1em; }
+}
+
+@media only screen and (max-width : 550px) {
+	.Tegan {
+		margin-left:-5px;
+	}
+	.Tegan li {
+		padding:3px 0px 0 0px;
+	}
+	.Tegan li .name { width:98%;font-size:1em;}
+	.Tegan li .comment { width:98%;font-size:0.9em; }
+}
