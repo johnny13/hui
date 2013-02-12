@@ -589,6 +589,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', end
 background: linear-gradient(top, #45484d 0%,#000000 100%); /* W3C */
 }
 
+div.jGrowl div.jGrowl-closer {
+ background-color:   #000;
+ color:  #FFF;
+ opacity:  .85;
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+ filter:  progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+ -moz-border-radius:  3px;
+ -webkit-border-radius: 3px;
+}
+
 /* mobile theme */
 @media screen and (max-width: 767px) {
  
