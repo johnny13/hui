@@ -128,6 +128,8 @@ v1.13.0	[jan-14-2013]	Added GruntJS, YUI Compressor & QUint Test Suite
 
 v1.13.2	[jan-18-2013]	Facebox & Notify mobile support added.
 
+v1.13.5	[feb-12-2013]	Majorish Update! List styles added. Notefy revamp. CSS Cleanup.
+
 ## De jure
 #### copyright (c) 2013 [huement.com](http://huement.com)    
 Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) & [GPL v3](http://opensource.org/licenses/gpl-3.0.html) licenses.    

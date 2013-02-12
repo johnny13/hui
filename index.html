@@ -19,7 +19,6 @@
 	<!-- Old Internet Explorer -->
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/ie-min.css" type="text/css" media="screen" />
-	<script src="http://huementui.s3.amazonaws.com/cdn/html5shiv.js" type="text/javascript"></script>
 	<![endif]-->
 	
 	<!-- Demo Styles -->
@@ -103,6 +102,16 @@
 		 position:relative;
 		 display:block;
 		}
+		
+		#notefyIconList li {
+			float:left;
+			width:auto;
+			min-width:120px;
+			padding:4px;
+			min-height:100px;
+		}
+		.iconlabel { font-size:0.91em;line-height:1em;}
+		
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -116,6 +125,7 @@
 	</style>
 	
 	<!-- javascript loaded in the body -->
+	<script type="text/javascript" src="libs/modernizr/modernizr-min.js"></script>
 </head>
 <body>
 	
@@ -502,34 +512,108 @@ preload([
 </div>
 	
 <!-- end buttons -->	
-		<div class="push" style="height:150px"></div>
+<div class="push" style="height:150px"></div>
 	<div class="row tophat" id="note">
 		<div class="sixcol whoCares">
 <h2>JS</h2>
-<pre class="jsCode">
-	
-notefy("Regular Message!","Auto Hide");
+<pre class="jsCode">	
 
-//Sticky Message 
-//Options are 
-//(topmsg, btmmsg, iconclass, sticky[bool])
+notefy( "Header Title" , "The message you want displayed." );
 
-notefy("Sticky Message!","Click To Hide",null,true);
+//javascript shortcut (all options)
+
+notefy(
+ 'title message',
+ 'full lengthy message about stuff', 
+ 'huicon',
+ 'sticky',
+ 'position'
+);
 
 </pre>
-			
+<br/>
+<h4>Test Output Log:</h4>
+<pre id="logs" style="background-color:#000;color:#FFF;padding:10px;max-width:730px">
+</pre>
+<br/>
+<div class="push"></div>
+<div id="test1" class="top-left"></div>
+<div id="test2" class="bottom-left"></div>
 		</div>
 		<div class="sixcol last">
-			<h2>02. Notefy</h2>
-			<button onclick="notefy('simple header','notefy message');return false;"><span class='label'>notefy test</span></button>
-			<button onclick="notefy('sticky test','stuck message',false,true);return false;"><span class='label'>sticky notefy test</span></button><br/>
-			<p class="greyb">A stylish unobtrusive notification system based on libnotify [Linux] or Growl [Mac OSX] depending on how you're living. The original code for Notefy is a fork from <a href="http://stanlemon.net/pages/jgrowl" target="_BLANK">jGrowl</a>.</p>
-			<p class="greyb">
-			Some major changes from the standard jGrowl code is <strong>Swipe Right to Left for Closing</strong>, the addition for <strong>icon indicators</strong>, and a <strong>simplified</strong> method for <strong>activation</strong>.<br/>the notefy() function has four parameters:<br/>"title" , "message" , <span style="font-style:italic">[optional icon class]</span>, <span style="font-style:italic">[boolean sticky]</span></p>
+			<h2>02. notefy</h2>
+			<p class="p5">
+				A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
+				Features support for mobile and tablet screen sizes, as well as touch interfaces.
+			</p>
+			<p class="p5">
+				<em>Tested in: FF 3+, Opera 9, IE7, IE8, Safari 4+</em>
+			</p>
+			<p class="p5">
+				A fork of <a href="http://stanlemon.net/pages/jgrowl">stanlemon.net's jgrowl</a>.
+			</p>
+			<h4 style="margin-top:20px;">Javascript Shortcut Command</h4>
+			<p class="L">notefy( </p><input type="text" class="L notefytm" style='clear:none;display:inline;width:100px;' value="demo title"/><p class="L">, </p><input type="text" class="L notefyfm" style='clear:none;display:inline;width:100px;' value="this is a demo message"/><p class="L">, <em>huicon</em>, <em>sticky</em>, <em>timeout</em>);</p><br/>
+			<button class="action red notefytest box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">single test</span></button>
+			<br/>
+			<button class="action red notefytestfull box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">full range of tests</span></button>
+			<br/>
+			<p>Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
 			
 		</div>
 	</div>
-		<div class="push" style="height:150px"></div>
+	<div class="row limit">
+		<div class="twelvecol last">
+		<h3>default notefy icons</h3>
+		<p>Easy to Add your Own. 32 x 32 px</p>
+		<p>You could use a sprite for this. However if you are using this many classes your sprite will be +70kb, where each icon is only 2-3kb when loaded separately.</p>
+		<ul id="notefyIconList">
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png" title="alert or caution" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png" title="ape" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-box.png" title="box" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-address.png" title="address" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png" title="chat" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-date.png" title="date" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-up.png" title="up" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-down.png" title="down" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png" title="earth" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png" title="gear" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-help.png" title="help" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-info.png" title="info" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png" title="heart" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png" title="jack" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png" title="jackolantern" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png" title="maps" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png" title="mumford" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png" title="notefy" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png" title="ok" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-player.png" title="player" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png" title="plus" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png" title="rss" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-search.png" title="search" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-star.png" title="star" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png" title="spade" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png" title="facebook" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png" title="twitter" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png" title="weather" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-x.png" title="x" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+		</ul>
+		</div>
+	</div>
+	<div class="row limit">
+		<div class="twelvecol last">
+		<h2>notefy using HTML5 notifications</h2>
+		<h3><a href="http://www.w3.org/TR/notifications/">w3.org/TR/notifications/</a></h3>
+		
+		<p>If you decide you want to use HTML5 Notifications instead of the Notefy command, you can easily do that.</p>
+		<p>However! To send custom notifications, you must first get the user to grant you permission, and obviously they must be using a supported browser. Here is a great resource to see if HTML5 Notifications are supported in the browsers you care about: <a href="http://caniuse.com/notifications">caniuse.com/notifications</a>.</p>
+		</div>
+		<img src="http://huementui.s3.amazonaws.com/notefy/html5_part1.png" style="padding:10px 0 10px 0"/><br/>
+		<img src="http://huementui.s3.amazonaws.com/notefy/html5_part2.png" style="padding:10px 0 10px 0"/><br/>
+		<p class="padding:10px;margin:5px;">For more HTML5 Notifications information and a working example, please see the full <strong>notefy demo</strong> available here: <a href="http://hui.huement.com/notefy">hui.huement.com/notefy</a></p>
+	</div>
+	
+		<div class="push" style="height:50px"></div>
 	<div class="row tophat" id="formuse">
 		<h2>03. Forms & Usability</h2>
 		<p class="greyb">Increase the Usability of standard Form elements with a number of helpful commands.</p>
@@ -1402,13 +1486,13 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	[optional] Ready Your Code for jQuery 2.0+
 	<script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
 	-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	
 	<!-- minified hui library -->
-	<script src="dist/hui-min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="dist/hui-min.js"></script>
 	
 	<!-- Example Functions for the Demo -->
-	<script src="test/index_demo.js" type="text/javascript"></script>
+	<script type="text/javascript" src="test/index_demo.js"></script>
 	
 </body>
 </html>

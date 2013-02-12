@@ -78,6 +78,114 @@ function brightnessToggle(newStyle){
  }
 }
 
+//Notefy Demo Function
+var iconarray = ["heart","star","gear","maps","mumford","jackolantern","jack","x","plus","twitter"];
+
+function runfulltests(){
+ /* jGrowl Full Tests */
+ // This value can be true, false or a function to be used as a callback when the closer is clciked
+ jQuery.jGrowl.defaults.closer = function() {
+  console.log("Closing everything!", this);
+ };
+ 
+ // A callback for logging notifications.
+ jQuery.jGrowl.defaults.log = function(e,m,o) {
+  $('#logs').append("<div><strong>#" + $(e).attr('id') + "</strong> <em>" + (new Date()).getTime() + "</em>: " + m + " (" + o.theme + ")</div>")
+ }    
+ jQuery.shuffle(iconarray);
+ jQuery.jGrowl("Hello world!");
+ jQuery.jGrowl("This notification will live a little longer.", { life: 1000 });
+ jQuery.jGrowl("Sticky notification with a header", { header: 'A Header', sticky: true });
+ jQuery.jGrowl("Custom theme, and a whole bunch of callbacks...", { 
+  icon_theme:  iconarray[1],
+  speed:  'slow',
+  beforeOpen: function(e,m,o) {
+   console.log("I am going to be opened!", this);
+  },
+  open: function(e,m,o) {
+   console.log("I have been opened!", this);
+  },
+  beforeClose: function(e,m,o) {
+   console.log("I am going to be closed!", this);
+  },
+  close: function(e,m,o) {
+   console.log("I have been closed!", this);
+  }
+ });
+ 
+ jQuery.jGrowl("Custom animation test...", { 
+  icon_theme:  iconarray[2],
+  speed: 'slow',
+  animateOpen: { 
+   height: "show"
+  },
+  animateClose: { 
+   height: "hide"
+  }
+ });
+ 
+ jQuery.jGrowl("Mobile Ready!", { 
+  sticky: true,
+  header: 'iPhone',
+  icon_theme: "ape",
+ });
+ 
+
+ jQuery.jGrowl("This message will not open because we have a callback that returns false.", {
+  beforeOpen: function() {
+   console.log("Going to open a notification, but not really...");
+  },
+  open: function() {
+   return false;
+  }
+ });
+ 
+ jQuery.jGrowl("This message will not close because we have a callback that returns false.", {
+  icon_theme:  "alert",
+  beforeClose: function() {
+   return false;
+  }
+ });
+ 
+ jQuery.jGrowl.defaults.closerTemplate = '<div>hide all notifications</div>';
+ 
+ $('#test1').jGrowl("Testing a custom container (this one is sticky, and will also be prepended).", {
+  icon_theme:  iconarray[3],
+  closer: false,
+  sticky: true, 
+  glue: 'before',
+  speed: 2000,
+  animateOpen: { 
+   height: "show",
+   width: "show"
+  },
+  animateClose: { 
+   height: "hide",
+   width: "show"
+  }
+ });
+
+ $('#test1').jGrowl("Another custom container test.", { 
+  glue: 'before',
+  speed: 2000,
+  animateOpen: { 
+   height: "show",
+   width: "show"
+  },
+  animateClose: { 
+   height: "hide",
+   width: "show"
+  }
+ });
+ 
+ $('#test2').jGrowl("earth bottom left", { 
+  header:      "party on",
+  icon_theme:  "earth",
+  location: "bottom-left",
+  closer: false
+ });
+}
+
 jQuery(document).ready(function() { 
  /* Sample Animations */
  jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
@@ -155,4 +263,24 @@ jQuery(document).ready(function() {
  //Flapper Girl Menu
  var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
  jQuery("<div></div>").flapperGirl(ladyParts, callbackGirl);
+
+ //Notefy Demo
+ jQuery(".notefytest").click(function(){
+  var varone = $(".notefytm").val();
+  var vartwo = $(".notefyfm").val();
+  jQuery.shuffle(iconarray);
+  notefy(varone, vartwo, iconarray[0], true);
+  return false;
+ });
+
+ jQuery(".notefytestfull").click(function(){
+  runfulltests();
+  return false;
+ });
+
+ jQuery("#notefyIconList li").each(function(){
+  var name = $(this).find('img').attr("title");
+  jQuery(this).append("<p class='iconlabel'><em>"+name+"</em></p>")
+ });
+
 }); 

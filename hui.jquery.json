@@ -2,7 +2,7 @@
   "name": "hui",
   "title": "huement user interface",
   "description": "Whisky",
-  "version": "1.13.2",
+  "version": "1.13.5",
   "homepage": "https://github.com/johnny13/hui",
   "author": {
     "name": "Derek Scott",
@@ -31,9 +31,6 @@
   },
   "devDependencies": {
     "grunt-css": "~0.5.3",
-    "grunt-contrib-mincss": "~0.3.2",
-    "grunt-contrib-concat": "~0.1.1",
-    "grunt-contrib-jshint": "~0.1.0",
     "grunt-yui-compressor": "~0.1.0"
   },
   "engines": {

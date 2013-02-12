@@ -1,0 +1,343 @@
+
+div.jGrowl {
+ z-index:    9999;
+ color:     #fff;
+ font-size:    12px;
+}
+
+/** Special smallscreen Style Positioning **/
+div.smallscreen {
+ position: absolute;
+}
+
+div.smallscreen.top-right {
+ right:  auto;
+ bottom: auto;
+ left:  expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  top:  expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.smallscreen.top-left {
+ left:  expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+ top:  expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.smallscreen.bottom-right {
+ left:  expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+ top:  expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.smallscreen.bottom-left {
+ left:  expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+ top:  expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}
+
+div.smallscreen.center {
+ left:  expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+ top:  expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+ width:  100%;
+}
+
+/** Normal Style Positions **/
+div.jGrowl {
+ position:   fixed;
+}
+
+body > div.jGrowl {
+ position:   fixed;
+}
+
+div.jGrowl.top-left {
+ left:     0px;
+ top:     0px;
+}
+
+div.jGrowl.top-right {
+ right:     0px;
+ top:     0px;
+}
+
+div.jGrowl.bottom-left {
+ left:     0px;
+ bottom:    0px;
+}
+
+div.jGrowl.bottom-right {
+ right:     0px;
+ bottom:    0px;
+}
+
+div.jGrowl.center {
+ top:     0px;
+ width:     50%;
+ left:     25%;
+}
+
+/** Cross Browser Styling **/
+div.center div.jGrowl-notification, div.center div.jGrowl-closer {
+ margin-left:   auto;
+ margin-right:   auto;
+}
+
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
+ background-color:   #000;
+ opacity:     .85;
+ -ms-filter:    "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+ filter:     progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+ zoom:      1;
+ width:      235px;
+ padding:     10px;
+ margin-top:    5px;
+ margin-bottom:    5px;
+ font-family:    Tahoma, Arial, Helvetica, sans-serif;
+ font-size:     1em;
+ text-align:    left;
+ display:     none;
+ -moz-border-radius:  5px;
+ -webkit-border-radius: 5px;
+}
+
+div.jGrowl div.jGrowl-notification {
+color:   #FFFFFF;
+font-weight: normal;
+zoom:   1;
+min-width:  290px;
+min-height:  60px;
+height:auto;
+padding:  3px 0 5px 8px;
+margin-top: 5px;
+margin-bottom: 5px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size:  1.3em;
+line-height:   1.4em;
+text-align: left;
+display:  none;
+-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+border: 1px solid #3d3d3d;
+background: #111111; /* Old browsers */
+}
+
+div.jGrowl div.jGrowl-notification,
+div.jGrowl div.jGrowl-closer {
+ margin:  10px;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-header {
+ font-weight:  bold;
+ font-size: 1.1em;
+ line-height: 1em;
+ font-weight: bold;
+ padding-top: 0;
+ margin: 0px 0 1px 0;
+}
+
+div.jGrowl div.jGrowl-notification div.jGrowl-close {
+ z-index:    99;
+ float:      right;
+ font-weight:    bold;
+ font-size:     1.2em;
+ padding-right:   4px;
+ cursor:     pointer;
+}
+
+div.jGrowl div.jGrowl-closer {
+ background-color:   #000;
+ color:  #FFF;
+ border:  none !important;
+ opacity:  .85;
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; 
+ filter:  progid:DXImageTransform.Microsoft.Alpha(Opacity=85); 
+ zoom:   1;
+ width:  300px;
+ padding:  5px 2px 5px 2px;
+ margin-top: 5px;
+ margin-bottom: 5px;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-size:  1.2em;
+ text-align: center;
+ display:  none;
+ -moz-border-radius:  3px;
+ -webkit-border-radius: 3px;
+}
+div.jGrowl div.jGrowl-closer:hover {
+ cursor:     pointer;
+}
+/* Icon */
+.jGhuicon { 
+ min-width: 32px !important;
+ width: 32px !important; 
+ min-height: 32px !important; 
+ height:32px !important;
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png');
+ float:left;  
+ margin:10px 5px 0 -5px;
+}
+
+.jGrowl-icon-notefy { 
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png') !important;
+}
+.jGrowl-icon-address {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-address.png') !important;
+}
+.jGrowl-icon-alert {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png') !important;
+}
+.jGrowl-icon-ape {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png') !important;
+}
+.jGrowl-icon-box {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-box.png') !important;
+}
+.jGrowl-icon-caution {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-caution.png') !important;
+}
+.jGrowl-icon-chat {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png') !important;
+}
+.jGrowl-icon-date {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-date.png') !important;
+}
+.jGrowl-icon-down {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-down.png') !important;
+}
+.jGrowl-icon-earth {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png') !important;
+}
+.jGrowl-icon-facebook {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png') !important;
+}
+.jGrowl-icon-gear {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png') !important;
+}
+.jGrowl-icon-heart {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png') !important;
+}
+.jGrowl-icon-help {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-help.png') !important;
+}
+.jGrowl-icon-info {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-info.png') !important;
+}
+.jGrowl-icon-jack {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png') !important;
+}
+.jGrowl-icon-jackolantern {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png') !important;
+}
+.jGrowl-icon-maps {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png') !important;
+}
+.jGrowl-icon-mumford {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png') !important;
+}
+.jGrowl-icon-ok {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png') !important;
+}
+.jGrowl-icon-player {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-player.png') !important;
+}
+.jGrowl-icon-plus {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png') !important;
+}
+.jGrowl-icon-rss {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png') !important;
+}
+.jGrowl-icon-search {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-search.png') !important;
+}
+.jGrowl-icon-spade {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png') !important;
+}
+.jGrowl-icon-star {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-star.png') !important;
+}
+.jGrowl-icon-twitter {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png') !important;
+}
+.jGrowl-icon-up {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-up.png') !important;
+}
+.jGrowl-icon-weather {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png') !important;
+}
+.jGrowl-icon-x {  
+ background-image: url('http://huementui.s3.amazonaws.com/notefy/hui-icon-x.png') !important;
+}
+
+/* mobile theme */
+@media screen and (max-width: 767px) {
+ 
+ div.jGrowl.top-left{position:fixed;left:5%;top:50px;width:95%;}
+ div.jGrowl.top-right {width:93%;left:2%;top:60px}div.jGrowl.bottom-left{left:0;bottom:0}
+ div.jGrowl.bottom-right{right:0;bottom:0}
+ div.jGrowl.center{top:0;width:50%;left:25%}
+ div.center div.jGrowl-notification,div.center div.jGrowl-closer{margin-left:auto;margin-right:auto}
+
+ div.jGrowl div.jGrowl-closer{
+  background-color:#000;
+  color:#FFF;
+  border:none!important;
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  font-family:Tahoma,Arial,Helvetica,sans-serif;
+  font-size:1.2em;
+  text-align:left;
+ }
+ div.jGrowl div.jGrowl-notification{min-height:40px}
+
+ div.jGrowl div.jGrowl-notification div.jGrowl-header{
+  font-size:1.2em;line-height:1.1em;
+  padding-top:0;margin-top:0;margin-bottom:5px;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+ }
+
+ div.jGrowl div.jGrowl-notification div.jGrowl-close{
+  z-index:99;
+  position: relative;
+  float:right;
+  top:85%;
+  right:5%;
+  padding:5px 50px 15px 50px;
+  font-weight:bold;
+  font-size:1em;
+  width:20px;
+  height:10px;
+  background:#929292;
+  border:1px solid #e7e7e7;
+  border-bottom:none;
+ }
+
+ div.jGrowl div.jGrowl-closer{padding-top:4px;padding-bottom:4px;cursor:pointer;font-size:.9em;font-weight:bold;text-align:center;text-shadow:none;}
+
+ div.jGrowl div.jGrowl-notification {
+ border:1px solid #424441;
+ -moz-border-radius:4px;
+ -webkit-border-radius:4px;
+ border-radius:4px;
+ overflow:hidden;
+ padding:10px 0px 10px 10px;
+ margin-top:3px;
+ margin-bottom:5px;
+ zoom:1;
+ background:#45484d;
+ width:100%;
+ height:113px;
+ color:#fff;
+ font-family:"Helvetica Neue","Helvetica";
+ font-size:1.3em;
+ font-weight:bold;
+ text-align:left;
+ }
+
+ div.jGrowl div.jGrowl-message{padding:0 5px 5px 5px;}
+}
+
+/** Hide jGrowl when printing **/
+@media print {
+ div.jGrowl {
+  display:    none;
+ }
+}
