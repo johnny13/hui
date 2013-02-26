@@ -8,19 +8,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- Mobile Related Stuff -->
 	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
-	<title>HUI Demo</title>
+	<title>White Blank Page</title>
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 	
-	<!--hui like this easy development, or for quick theme switching. -->
-	<style type="text/css">@import url("dist/hui-base-min.css");</style>
+	<!-- @import is slower than <link> but it can be helpful 
+	     when developing, or Easy Theme Switching by breaking 
+	     the main framework and theme elements into respective files.-->
+	<style type="text/css">@import url("dist/hui-base-1.13.5.css?ver=541");</style>
 	<link id="theme_sheet" href="src/themes/li3/dev-theme.css" type="text/css" rel="stylesheet"/>
+	<!-- Production: <link href="dist/theme-li3.css" type="text/css" rel="stylesheet"/> -->
 	
-	<!-- Old Internet Explorer -->
-	<!--[if lt IE 9]>
-	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/ie-min.css" type="text/css" media="screen" />
+	<!-- Old Internet Explorer huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="dist/ie-min.css" type="text/css" media="screen" />
 	<![endif]-->
-	
+
 	<!-- Demo Styles -->
 	<style type="text/css">
 		/* main size controller. */
@@ -74,6 +77,7 @@
 			text-align:center;
 			min-height:20px;
 			font-size:1em;
+			overflow:hidden;
 		}
 		
 		/* horizontalNav Select Box */
@@ -112,6 +116,23 @@
 		}
 		.iconlabel { font-size:0.91em;line-height:1em;}
 		
+		/* log element for demo purposes */
+
+		.log {
+			display: none;
+			background-color: #EDEDED;
+			border: 1px solid #B4B4B4;
+			height: 300px;
+			width: 524px;
+			overflow: auto;
+			margin-left: 0;
+			list-style: none;
+			padding: 10px;
+			li {
+				margin-top: 0;
+				margin-bottom: 5px;
+			}
+		}
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -124,31 +145,46 @@
 		}
 	</style>
 	
-	<!-- javascript loaded in the body -->
-	<script type="text/javascript" src="libs/modernizr/modernizr-min.js"></script>
+	<!-- jquery & remainder of javascript loaded in the body -->
+	<script src="libs/modernizr/modernizr-min.js"></script>
+	<!-- If you dont use modernizr, you should include the html5shiv here for backwards compliance. modernizr includes it already. -->
+	<!-- <script src="https://huementui.s3.amazonaws.com/cdn/html5shiv.js" type="text/javascript"></script> -->
 </head>
 <body>
-	
-<div class="container">
-	<div class="row tophat" id="homerow">
-		<h2 class="el_arco_iris" style="margin-top:20px;">huement user interface</h2>
-		
-		<div class="mtb">
-		<a class="button left" href="test/"><span class="icon icon43"></span><span class="label">tests</label></a>
-		<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108"></span><span class="label">home</label></a>
-		<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span><span class="label">github</label></a>
-		<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24"></span><span class="label brightToggleTxt">li3</label></a>
-			<br/>
-		</div>
-
+	<!-- main demo nav menu -->
+	<div id="hbbh" class="none">
+	<ul id="el_arco_iris" class="fhead">
+	 <li class="active"><a href="#action">act</a></li>
+	 <li><a href="#note">notefy</a></li>
+	 <li><a href="#useful">useful</a></li>
+	 <li><a href="#faceboxes">faceBox</a></li>
+	 <li><a href="#tooltip">tips</a></li>
+	 <li><a href="#animate">move</a></li>
+	 <li><a href="#accordion">dance</a></li>
+	 <li><a href="#navigate">flex</a></li>
+	</ul>
 	</div>
-		<div class="push" style="height:15px"></div>
-	<div class="row " id="action">
-		<h2>01. Action Functions</h2>
-		<p class="greyb">Nothing is perfect, and code is rarely complete. With those two things in mind, this section of the javascript will serve as a placeholder for additional snippets and commands that are helpful, but not complex enough to warrant a full plugin.</p>
-		<p class="greyb">Currently the functions here are:</p>
-		<div class="sixcol whoCares">
-			<h2>shuffle</h2>
+	
+	<div class="container">
+		<div class="push"></div>
+		<div class="row limit" id="homerow">
+			<div class="twelvecol last">
+					<h2 class="el_arco_iris" style="margin-top:20px;">huement user interface</h2>
+					<div class="mtb">
+					<a class="button left" href="test/"><span class="icon icon43"></span><span class="label">tests</label></a>
+					<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108"></span><span class="label">home</label></a>
+					<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span><span class="label">github</label></a>
+					<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24"></span><span class="label brightToggleTxt">li3</label></a>
+					<br/>
+					</div>
+			</div>
+		</div>
+		
+		<div class="push" style="height:60px;"></div>
+		
+		<div class="row limit category action_category">
+			<div class="fourcol smallHide">
+<h2>shuffle</h2>
 <pre class="jsCode">
 /* shake things up */
 var colorArray = [1,2,3];
@@ -175,36 +211,42 @@ preload([
  'img/blahblahblah.jpg'
 ]);
 </pre>
-<p class="light fnote">Based on some great <a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow</a> work this is a simple bit of javascript that allows individual image preloading. Perfect if you have a few large images, like background wallpapers.</p>
-		</div>
-		<div class="sixcol last">
-			<div class="p10 m10">
-					<h3>shuffle & color animate demo</h3>
-					<p class="p5 light">Shuffling through a JS array <br/><strong>"var colorArray = ["#C20000", ... "#F56200"];"</strong>,<br/> and animating the background color with the result.</p>
-						<span class="p5"><button onclick="shuffledemo();return false;">shuffle & animate test</button></span>
-						<br/>
-						<ul class="democolors"> 
-							<li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
-						</ul>
-				<br/>
 			</div>
-			<div class="push"></div>
+			<div class="eightcol last">
+				<h2>1A. Action</h2>
+				<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
+				
+				<h3>shuffle</h3>
+				<p class="fnote"></p>
+				
+				<h3>animate colors</h3>
+				<p class="fnote"></p>
+				
+				<h3>History</h3>
+				<p class="fnote"></p>
+				
+				<h3>preload image(s)</h3>
+				<p class="fnote"><a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow</a></p>
+				
+				<div class="push" style="height:60px;"></div>
+				<h4>Action Demo</h4>
+				<p class="p5 light">Shuffling through a JS array <br/><strong>"var colorArray = ["#C20000", ... "#F56200"];"</strong>,<br/> and animating the background color with the result.</p><br/>
+				<p>
+					<button onclick="shuffledemo();return false;"><span class="label blue">do work</span></button>
+				</p><br/>
+				<ul class="democolors"> 
+					<li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-
-
-<!-- buttons -->	
-<div class="container">
-	<div class="row">
-		<div class="twelvecol last">
-			<h1 class="hzero">Framework Buttons</h1>
-			<p class='p5'>Standard Web Ready Controls. Theme-able Buttons, Icons and Dropdowns make adding UI elements a class away.</p>
-			<p class='p5'>Here are a couple examples. A full list of Icon classes and more examples can be found in the Documentation area.</p>
-			<p class='p5'>
-				Support For the Button Element and A HREFs comes standard. The examples below show the required HTML markup. For the javascript details please visit the documentation section.
-			</p>
-			<div style="padding:10px;">
-				<h2 style="margin-top:0px;">Text Buttons & Icon Buttons</h2>
+		
+		<div class="row limit category action_category">
+			<div class="twelvecol last">
+				<h2>1B. Interact</h2>
+				<p>main ui framework elements</p>
+				
+				<h3>Text Buttons & Icon Buttons</h3>
+				<p class="fnote">
 					<button><span class="label">Button</span></button>
 
 					<button class="on"><span class="label">Active</span></button>
@@ -217,67 +259,55 @@ preload([
 					<a href="#" class="button middle" title="Photos"><span class="icon icon148"></span></a>
 					<a href="#" class="button middle" title="Music"><span class="icon icon134"></span></a>
 					<a href="#" class="button right" title="Save"><span class="icon icon67"></span></a>
-<br/><pre class="htmlCode" id="pre0" style="margin:10px auto 20px auto;">
-&lt;button&gt;&lt;span class="label"&gt;Button&lt;/span&gt;&lt;/button&gt;
-
-&lt;button class="button on"&gt;&lt;span class="label"&gt;Active&lt;/span&gt;&lt;/button&gt;
-
-&lt;button class="button left"&gt;&lt;span class="label"&gt;Left&lt;/span&gt;&lt;/button&gt;
-&lt;button class="button middle"&gt;&lt;span class="label"&gt;Middle&lt;/span&gt;&lt;/button&gt;
-&lt;button class="button right"&gt;&lt;span class="label"&gt;Right&lt;/span&gt;&lt;/button&gt;
-
-&lt;a href="#" class="button left" title="Home"&gt;&lt;span class="icon icon108"&gt;&lt;/span&gt;&lt;/a&gt;
-&lt;a href="#" class="button middle" title="Photos"&gt;&lt;span class="icon icon148"&gt;&lt;/span&gt;&lt;/a&gt;
-&lt;a href="#" class="button middle" title="Music"&gt;&lt;span class="icon icon134"&gt;&lt;/span&gt;&lt;/a&gt;
-&lt;a href="#" class="button right" title="Save"&gt;&lt;span class="icon icon67"&gt;&lt;/span&gt;&lt;/a&gt;
-</pre>
-				<br/><h2>Action Buttons</h2>
-					<button class="action blue"><span class="label">Save</span></button>
-					<button class="action red"><span class="label">Upload</span></button>
-					<button class="action green"><span class="label">Comment</span></button>
-					<button class="action"><span class="label">Cancel</span></button>
-<br/><pre class="htmlCode" id="pre1" style="margin:10px auto 20px auto;">
+					<br/>
+				</p>	
+				
+<pre class="htmlCode smallHide">
 &lt;button class="action blue"&gt;&lt;span class="label"&gt;Save&lt;/span&gt;&lt;/button&gt;
 &lt;button class="action red"&gt;&lt;span class="label"&gt;Upload&lt;/span&gt;&lt;/button&gt;
 &lt;button class="action green"&gt;&lt;span class="label"&gt;Comment&lt;/span&gt;&lt;/button&gt;
 &lt;button class="action"&gt;&lt;span class="label"&gt;Cancel&lt;/span&gt;&lt;/button&gt;
 </pre>
-				<br/><h2>Icon Buttons with Label</h2>
+				<h3>Icon Buttons with Label</h3>
+				<p class="fnote">
 					<a href="#" class="button left"><span class="icon icon108"></span><span class="label">Normal</span></a>
 					<a href="#" class="button middle"><span class="icon icon125"></span><span class="label red">Red</span></a>
 					<a href="#" class="button middle"><span class="icon icon191"></span><span class="label blue">Blue</span></a>
 					<a href="#" class="button middle"><span class="icon icon151"></span><span class="label green">Green</span></a>
 					<a href="#" class="button right"><span class="icon icon177"></span><span class="label yellow">Yellow</span></a>
-<br/><pre class="htmlCode" id="pre2" style="margin:10px auto 20px auto;">
+					<br/>
+				</p>
+				
+<pre class="htmlCode smallHide">
 &lt;a href="#" class="button left"&gt;&lt;span class="icon icon108"&gt;&lt;/span&gt;&lt;span class="label"&gt;Normal&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button middle"&gt;&lt;span class="icon icon125"&gt;&lt;/span&gt;&lt;span class="label red"&gt;Red&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button middle"&gt;&lt;span class="icon icon191"&gt;&lt;/span&gt;&lt;span class="label blue"&gt;Blue&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button middle"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;span class="label green"&gt;Green&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon177"&gt;&lt;/span&gt;&lt;span class="label yellow"&gt;Yellow&lt;/span&gt;&lt;/a&gt;
 </pre>
-					<br/><h2>Dropdown Menu Buttons</h2>
-					<div class="dropdown">
-					 <a href="#" class="button"><span class="label">File</span><span class="toggle"></span></a>
-					 <div class="dropdown-slider">
-					   <a href="#" class="ddm"><span class="label">New</span></a>
-					   <a href="#" class="ddm"><span class="label">Save</span></a>
-					 </div> <!-- /.dropdown-slider -->
-					</div> <!-- /.dropdown -->
+				<h3>Dropdown Menu Buttons</h3>
+				<div class="dropdown">
+				 <a href="#" class="button"><span class="label">File</span><span class="toggle"></span></a>
+				 <div class="dropdown-slider">
+				   <a href="#" class="ddm"><span class="label">New</span></a>
+				   <a href="#" class="ddm"><span class="label">Save</span></a>
+				 </div> <!-- /.dropdown-slider -->
+				</div> <!-- /.dropdown -->
 
-					<a href="#" class="button left"><span class="icon icon108"></span></a>
-					<div class="dropdown middle">
-					 <a href="#" class="button middle"><span class="icon icon68"></span><span class="toggle"></span></a>
-					 <div class="dropdown-slider">
-					   <a href="#" class="ddm"><span class="icon icon3"></span><span class="label">Add</span></a>
-					   <a href="#" class="ddm"><span class="icon icon145"></span><span class="label">Edit</span></a>
-					   <a href="#" class="ddm"><span class="icon icon186"></span><span class="label">Trash</span></a>
-					 </div> <!-- /.dropdown-slider -->
-					</div> <!-- /.dropdown -->
-					<a href="#" class="button right"><span class="icon icon151"></span></a>
-					<div class="push"></div>
-					<p class='p5'>Dropdowns can occur inline with other icon or text buttons. They can also occur by themselves. To close the Dropdown click the toggle or anywhere else on the screen.</p>
-
-<br/><pre class="htmlCode" id="pre3" style="margin:10px auto 20px auto;">
+				<a href="#" class="button left"><span class="icon icon108"></span></a>
+				<div class="dropdown middle">
+				 <a href="#" class="button middle"><span class="icon icon68"></span><span class="toggle"></span></a>
+				 <div class="dropdown-slider">
+				   <a href="#" class="ddm"><span class="icon icon3"></span><span class="label">Add</span></a>
+				   <a href="#" class="ddm"><span class="icon icon145"></span><span class="label">Edit</span></a>
+				   <a href="#" class="ddm"><span class="icon icon186"></span><span class="label">Trash</span></a>
+				 </div> <!-- /.dropdown-slider -->
+				</div> <!-- /.dropdown -->
+				<a href="#" class="button right"><span class="icon icon151"></span></a>
+				<div class="push"></div>
+				<p class='p5'>Dropdowns can occur inline with other icon or text buttons. They can also occur by themselves. To close the Dropdown click the toggle or anywhere else on the screen.</p>
+				<br/>
+<pre class="htmlCode smallHide">
 &lt;div class="dropdown"&gt;
  &lt;a href="#" class="button"&gt;&lt;span class="label"&gt;File&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
  &lt;div class="dropdown-slider"&gt;
@@ -297,225 +327,219 @@ preload([
 &lt;/div&gt; 
 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;/a&gt;
 </pre>
-			
-			<br/><h2>All Available Icon Classes</h2>
-			<ul class="labelMe"> 
-			  <li><a href="#" class="button tipTip" title=".icon1 - Abacus"><span class="icon icon1"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon2 - Access Point"><span class="icon icon2"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon3 - Add"><span class="icon icon3"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon4 - Administrator"><span class="icon icon4"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon5 - Alarm"><span class="icon icon5"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon6 - Arrow Bidirectional"><span class="icon icon6"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon7 - Arrow Down"><span class="icon icon7"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon8 - Arrow Left"><span class="icon icon8"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon9 - Arrow Right"><span class="icon icon9"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon10 - Arrow Up"><span class="icon icon10"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon11 - Attachment"><span class="icon icon11"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon12 - Audio Knob"><span class="icon icon12"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon13 - Barcode"><span class="icon icon13"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon14 - Battery Empty"><span class="icon icon14"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon15 - Battery Full"><span class="icon icon15"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon16 - Battery Half"><span class="icon icon16"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon17 - Bell"><span class="icon icon17"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon18 - Bill"><span class="icon icon18"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon19 - Binoculars"><span class="icon icon19"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon20 - Bold"><span class="icon icon20"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon21 - Book"><span class="icon icon21"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon22 - Bookmark"><span class="icon icon22"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon23 - Briefcase"><span class="icon icon23"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon24 - Brightness"><span class="icon icon24"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon25 - Broken Link"><span class="icon icon25"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon26 - Brush"><span class="icon icon26"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon27 - Burn Blu-ray"><span class="icon icon27"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon28 - Burn Blu-ray"><span class="icon icon28"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon29 - Burn DVD"><span class="icon icon29"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon30 - Burn DVD"><span class="icon icon30"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon31 - Cabinet"><span class="icon icon31"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon32 - Calculator"><span class="icon icon32"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon33 - Calendar"><span class="icon icon33"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon34 - Camera"><span class="icon icon34"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon35 - Cancel"><span class="icon icon35"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon36 - Card Clubs"><span class="icon icon36"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon37 - Card Diamonds"><span class="icon icon37"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon38 - Card Hearts"><span class="icon icon38"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon39 - Card Spades"><span class="icon icon39"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon40 - Certificate"><span class="icon icon40"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon41 - Certificate"><span class="icon icon41"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon42 - Chat Exclamation"><span class="icon icon42"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon43 - Checkmark"><span class="icon icon43"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon44 - Checkmark"><span class="icon icon44"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon45 - Clip"><span class="icon icon45"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon46 - Clipboard"><span class="icon icon46"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon47 - Clock"><span class="icon icon47"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon48 - Close"><span class="icon icon48"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon49 - Cloud"><span class="icon icon49"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon50 - Cloud"><span class="icon icon50"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon51 - Coin"><span class="icon icon51"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon52 - Compress"><span class="icon icon52"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon53 - Connect"><span class="icon icon53"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon54 - Contrast"><span class="icon icon54"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon55 - Copy"><span class="icon icon55"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon56 - Cross"><span class="icon icon56"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon57 - Cutter"><span class="icon icon57"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon58 - Delete"><span class="icon icon58"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon59 - Dial"><span class="icon icon59"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon60 - Diary"><span class="icon icon60"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon61 - Dimensions"><span class="icon icon61"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon62 - Directional Down"><span class="icon icon62"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon63 - Directional Left"><span class="icon icon63"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon64 - Directional Right"><span class="icon icon64"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon65 - Directional Up"><span class="icon icon65"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon66 - Disconnect"><span class="icon icon66"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon67 - Diskette"><span class="icon icon67"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon68 - Document"><span class="icon icon68"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon69 - Door"><span class="icon icon69"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon70 - Download"><span class="icon icon70"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon71 - Dropper"><span class="icon icon71"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon72 - Earphones"><span class="icon icon72"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon73 - Effects"><span class="icon icon73"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon74 - Eject"><span class="icon icon74"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon75 - Emoticon Angry"><span class="icon icon75"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon76 - Emoticon Confused"><span class="icon icon76"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon77 - Emoticon Grin"><span class="icon icon77"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon78 - Emoticon In Love"><span class="icon icon78"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon79 - Emoticon Sad"><span class="icon icon79"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon80 - Emoticon Sleeping"><span class="icon icon80"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon81 - Emoticon Smile"><span class="icon icon81"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon82 - Encrypt"><span class="icon icon82"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon83 - Eraser"><span class="icon icon83"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon84 - Eye"><span class="icon icon84"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon85 - Eye Closed"><span class="icon icon85"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon86 - Fast Forward"><span class="icon icon86"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon87 - File"><span class="icon icon87"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon88 - Fill"><span class="icon icon88"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon89 - Fingerprint"><span class="icon icon89"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon90 - Firewall"><span class="icon icon90"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon91 - First"><span class="icon icon91"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon92 - Folder"><span class="icon icon92"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon93 - Font"><span class="icon icon93"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon94 - Font Size"><span class="icon icon94"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon95 - Game Control"><span class="icon icon95"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon96 - Gear"><span class="icon icon96"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon97 - Group"><span class="icon icon97"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon98 - Hammer"><span class="icon icon98"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon99 - Hand Point"><span class="icon icon99"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon100 - Hand Thumbsdown"><span class="icon icon100"></span></a></li>
+				<h4>Interact Demo</h4>
+				<p class="p5 light">All Available Icon Classes</p><br/>
+				<ul class="labelMe"> 
+				  <li><a href="#" class="button tipTip" title=".icon1 - Abacus"><span class="icon icon1"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon2 - Access Point"><span class="icon icon2"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon3 - Add"><span class="icon icon3"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon4 - Administrator"><span class="icon icon4"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon5 - Alarm"><span class="icon icon5"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon6 - Arrow Bidirectional"><span class="icon icon6"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon7 - Arrow Down"><span class="icon icon7"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon8 - Arrow Left"><span class="icon icon8"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon9 - Arrow Right"><span class="icon icon9"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon10 - Arrow Up"><span class="icon icon10"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon11 - Attachment"><span class="icon icon11"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon12 - Audio Knob"><span class="icon icon12"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon13 - Barcode"><span class="icon icon13"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon14 - Battery Empty"><span class="icon icon14"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon15 - Battery Full"><span class="icon icon15"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon16 - Battery Half"><span class="icon icon16"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon17 - Bell"><span class="icon icon17"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon18 - Bill"><span class="icon icon18"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon19 - Binoculars"><span class="icon icon19"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon20 - Bold"><span class="icon icon20"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon21 - Book"><span class="icon icon21"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon22 - Bookmark"><span class="icon icon22"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon23 - Briefcase"><span class="icon icon23"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon24 - Brightness"><span class="icon icon24"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon25 - Broken Link"><span class="icon icon25"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon26 - Brush"><span class="icon icon26"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon27 - Burn Blu-ray"><span class="icon icon27"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon28 - Burn Blu-ray"><span class="icon icon28"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon29 - Burn DVD"><span class="icon icon29"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon30 - Burn DVD"><span class="icon icon30"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon31 - Cabinet"><span class="icon icon31"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon32 - Calculator"><span class="icon icon32"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon33 - Calendar"><span class="icon icon33"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon34 - Camera"><span class="icon icon34"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon35 - Cancel"><span class="icon icon35"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon36 - Card Clubs"><span class="icon icon36"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon37 - Card Diamonds"><span class="icon icon37"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon38 - Card Hearts"><span class="icon icon38"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon39 - Card Spades"><span class="icon icon39"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon40 - Certificate"><span class="icon icon40"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon41 - Certificate"><span class="icon icon41"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon42 - Chat Exclamation"><span class="icon icon42"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon43 - Checkmark"><span class="icon icon43"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon44 - Checkmark"><span class="icon icon44"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon45 - Clip"><span class="icon icon45"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon46 - Clipboard"><span class="icon icon46"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon47 - Clock"><span class="icon icon47"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon48 - Close"><span class="icon icon48"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon49 - Cloud"><span class="icon icon49"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon50 - Cloud"><span class="icon icon50"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon51 - Coin"><span class="icon icon51"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon52 - Compress"><span class="icon icon52"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon53 - Connect"><span class="icon icon53"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon54 - Contrast"><span class="icon icon54"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon55 - Copy"><span class="icon icon55"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon56 - Cross"><span class="icon icon56"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon57 - Cutter"><span class="icon icon57"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon58 - Delete"><span class="icon icon58"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon59 - Dial"><span class="icon icon59"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon60 - Diary"><span class="icon icon60"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon61 - Dimensions"><span class="icon icon61"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon62 - Directional Down"><span class="icon icon62"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon63 - Directional Left"><span class="icon icon63"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon64 - Directional Right"><span class="icon icon64"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon65 - Directional Up"><span class="icon icon65"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon66 - Disconnect"><span class="icon icon66"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon67 - Diskette"><span class="icon icon67"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon68 - Document"><span class="icon icon68"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon69 - Door"><span class="icon icon69"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon70 - Download"><span class="icon icon70"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon71 - Dropper"><span class="icon icon71"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon72 - Earphones"><span class="icon icon72"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon73 - Effects"><span class="icon icon73"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon74 - Eject"><span class="icon icon74"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon75 - Emoticon Angry"><span class="icon icon75"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon76 - Emoticon Confused"><span class="icon icon76"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon77 - Emoticon Grin"><span class="icon icon77"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon78 - Emoticon In Love"><span class="icon icon78"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon79 - Emoticon Sad"><span class="icon icon79"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon80 - Emoticon Sleeping"><span class="icon icon80"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon81 - Emoticon Smile"><span class="icon icon81"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon82 - Encrypt"><span class="icon icon82"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon83 - Eraser"><span class="icon icon83"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon84 - Eye"><span class="icon icon84"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon85 - Eye Closed"><span class="icon icon85"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon86 - Fast Forward"><span class="icon icon86"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon87 - File"><span class="icon icon87"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon88 - Fill"><span class="icon icon88"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon89 - Fingerprint"><span class="icon icon89"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon90 - Firewall"><span class="icon icon90"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon91 - First"><span class="icon icon91"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon92 - Folder"><span class="icon icon92"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon93 - Font"><span class="icon icon93"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon94 - Font Size"><span class="icon icon94"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon95 - Game Control"><span class="icon icon95"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon96 - Gear"><span class="icon icon96"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon97 - Group"><span class="icon icon97"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon98 - Hammer"><span class="icon icon98"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon99 - Hand Point"><span class="icon icon99"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon100 - Hand Thumbsdown"><span class="icon icon100"></span></a></li>
 
-			  <li><a href="#" class="button tipTip" title=".icon101 - Hand Thumbsup"><span class="icon icon101"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon102 - Hard Disk"><span class="icon icon102"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon103 - Headset"><span class="icon icon103"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon104 - Heart"><span class="icon icon104"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon105 - Help"><span class="icon icon105"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon106 - Help"><span class="icon icon106"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon107 - History"><span class="icon icon107"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon108 - Home"><span class="icon icon108"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon109 - Hourglass"><span class="icon icon109"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon110 - Hourglass"><span class="icon icon110"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon111 - ID"><span class="icon icon111"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon112 - Info"><span class="icon icon112"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon113 - Info"><span class="icon icon113"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon114 - Italic"><span class="icon icon114"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon115 - Item"><span class="icon icon115"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon116 - Key"><span class="icon icon116"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon117 - Last"><span class="icon icon117"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon118 - Lightbulb"><span class="icon icon118"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon119 - Link"><span class="icon icon119"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon120 - List"><span class="icon icon120"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon121 - Location"><span class="icon icon121"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon122 - Lock"><span class="icon icon122"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon123 - Lock Open"><span class="icon icon123"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon124 - Login"><span class="icon icon124"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon125 - Mail"><span class="icon icon125"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon126 - Mail Open"><span class="icon icon126"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon127 - Messenger"><span class="icon icon127"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon128 - Microphone"><span class="icon icon128"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon129 - Microphone"><span class="icon icon129"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon130 - Money Bag"><span class="icon icon130"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon131 - Monitor"><span class="icon icon131"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon132 - Moon"><span class="icon icon132"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon133 - Music"><span class="icon icon133"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon134 - Music Folder"><span class="icon icon134"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon135 - Music Library"><span class="icon icon135"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon136 - Next"><span class="icon icon136"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon137 - Notepad"><span class="icon icon137"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon138 - Paragraph Align Left"><span class="icon icon138"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon139 - Paragraph Align Right"><span class="icon icon139"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon140 - Paragraph Justify"><span class="icon icon140"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon141 - Password"><span class="icon icon141"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon142 - Paste"><span class="icon icon142"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon143 - Pause"><span class="icon icon143"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon144 - Pen"><span class="icon icon144"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon145 - Pencil"><span class="icon icon145"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon146 - Phone"><span class="icon icon146"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon147 - Photo Album"><span class="icon icon147"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon148 - Pictures Folder"><span class="icon icon148"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon149 - Play"><span class="icon icon149"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon150 - Point"><span class="icon icon150"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon151 - Power"><span class="icon icon151"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon152 - Previous"><span class="icon icon152"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon153 - Print"><span class="icon icon153"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon154 - Pyramid"><span class="icon icon154"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon155 - Random"><span class="icon icon155"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon156 - Record"><span class="icon icon156"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon157 - Redo"><span class="icon icon157"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon158 - Reload"><span class="icon icon158"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon159 - Repeat"><span class="icon icon159"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon160 - Resize"><span class="icon icon160"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon161 - Rewind"><span class="icon icon161"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon162 - Rotate"><span class="icon icon162"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon163 - Round"><span class="icon icon163"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon164 - Ruler Square"><span class="icon icon164"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon165 - Satellite"><span class="icon icon165"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon166 - Scissors"><span class="icon icon166"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon167 - Screwdriver"><span class="icon icon167"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon168 - Security"><span class="icon icon168"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon169 - Shopping Basket"><span class="icon icon169"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon170 - Software"><span class="icon icon170"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon171 - Spam"><span class="icon icon171"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon172 - Speaker"><span class="icon icon172"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon173 - Speaker"><span class="icon icon173"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon174 - Sphere"><span class="icon icon174"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon175 - Spreadsheet"><span class="icon icon175"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon176 - Square"><span class="icon icon176"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon177 - Star"><span class="icon icon177"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon178 - Stats Bars"><span class="icon icon178"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon179 - Stats Lines"><span class="icon icon179"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon180 - Stats Pie"><span class="icon icon180"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon181 - Stop"><span class="icon icon181"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon182 - Strike Through"><span class="icon icon182"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon183 - Sun"><span class="icon icon183"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon184 - Target"><span class="icon icon184"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon185 - Thunder"><span class="icon icon185"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon186 - Trash Can"><span class="icon icon186"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon187 - Underlined"><span class="icon icon187"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon188 - Undo"><span class="icon icon188"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon189 - Upload"><span class="icon icon189"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon190 - USB"><span class="icon icon190"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon191 - User"><span class="icon icon191"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon192 - User Woman"><span class="icon icon192"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon193 - Volume Control"><span class="icon icon193"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon194 - Web Cam"><span class="icon icon194"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon195 - Window"><span class="icon icon195"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon196 - Wizard"><span class="icon icon196"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon197 - World"><span class="icon icon197"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon198 - Zoom"><span class="icon icon198"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon199 - Zoom In"><span class="icon icon199"></span></a></li>
-			  <li><a href="#" class="button tipTip" title=".icon200 - Zoom Out"><span class="icon icon200"></span></a></li>
-			</ul> <!-- /.buttons -->
-			<br/>
-			<div class="push"></div>
-			
-			<p class='p5'>Thats the end of this sample. There is still whole slew of icons to checkout and many more examples. <br/>For available themes, icons and all the gritty details, visit the documentation area. <br/>Also, you can checkout the sexy call to action buttons, which provide attention grabbing options for very important UI elements.</p>
+				  <li><a href="#" class="button tipTip" title=".icon101 - Hand Thumbsup"><span class="icon icon101"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon102 - Hard Disk"><span class="icon icon102"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon103 - Headset"><span class="icon icon103"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon104 - Heart"><span class="icon icon104"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon105 - Help"><span class="icon icon105"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon106 - Help"><span class="icon icon106"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon107 - History"><span class="icon icon107"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon108 - Home"><span class="icon icon108"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon109 - Hourglass"><span class="icon icon109"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon110 - Hourglass"><span class="icon icon110"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon111 - ID"><span class="icon icon111"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon112 - Info"><span class="icon icon112"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon113 - Info"><span class="icon icon113"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon114 - Italic"><span class="icon icon114"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon115 - Item"><span class="icon icon115"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon116 - Key"><span class="icon icon116"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon117 - Last"><span class="icon icon117"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon118 - Lightbulb"><span class="icon icon118"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon119 - Link"><span class="icon icon119"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon120 - List"><span class="icon icon120"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon121 - Location"><span class="icon icon121"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon122 - Lock"><span class="icon icon122"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon123 - Lock Open"><span class="icon icon123"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon124 - Login"><span class="icon icon124"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon125 - Mail"><span class="icon icon125"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon126 - Mail Open"><span class="icon icon126"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon127 - Messenger"><span class="icon icon127"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon128 - Microphone"><span class="icon icon128"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon129 - Microphone"><span class="icon icon129"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon130 - Money Bag"><span class="icon icon130"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon131 - Monitor"><span class="icon icon131"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon132 - Moon"><span class="icon icon132"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon133 - Music"><span class="icon icon133"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon134 - Music Folder"><span class="icon icon134"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon135 - Music Library"><span class="icon icon135"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon136 - Next"><span class="icon icon136"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon137 - Notepad"><span class="icon icon137"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon138 - Paragraph Align Left"><span class="icon icon138"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon139 - Paragraph Align Right"><span class="icon icon139"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon140 - Paragraph Justify"><span class="icon icon140"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon141 - Password"><span class="icon icon141"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon142 - Paste"><span class="icon icon142"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon143 - Pause"><span class="icon icon143"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon144 - Pen"><span class="icon icon144"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon145 - Pencil"><span class="icon icon145"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon146 - Phone"><span class="icon icon146"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon147 - Photo Album"><span class="icon icon147"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon148 - Pictures Folder"><span class="icon icon148"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon149 - Play"><span class="icon icon149"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon150 - Point"><span class="icon icon150"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon151 - Power"><span class="icon icon151"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon152 - Previous"><span class="icon icon152"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon153 - Print"><span class="icon icon153"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon154 - Pyramid"><span class="icon icon154"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon155 - Random"><span class="icon icon155"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon156 - Record"><span class="icon icon156"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon157 - Redo"><span class="icon icon157"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon158 - Reload"><span class="icon icon158"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon159 - Repeat"><span class="icon icon159"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon160 - Resize"><span class="icon icon160"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon161 - Rewind"><span class="icon icon161"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon162 - Rotate"><span class="icon icon162"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon163 - Round"><span class="icon icon163"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon164 - Ruler Square"><span class="icon icon164"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon165 - Satellite"><span class="icon icon165"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon166 - Scissors"><span class="icon icon166"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon167 - Screwdriver"><span class="icon icon167"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon168 - Security"><span class="icon icon168"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon169 - Shopping Basket"><span class="icon icon169"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon170 - Software"><span class="icon icon170"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon171 - Spam"><span class="icon icon171"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon172 - Speaker"><span class="icon icon172"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon173 - Speaker"><span class="icon icon173"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon174 - Sphere"><span class="icon icon174"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon175 - Spreadsheet"><span class="icon icon175"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon176 - Square"><span class="icon icon176"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon177 - Star"><span class="icon icon177"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon178 - Stats Bars"><span class="icon icon178"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon179 - Stats Lines"><span class="icon icon179"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon180 - Stats Pie"><span class="icon icon180"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon181 - Stop"><span class="icon icon181"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon182 - Strike Through"><span class="icon icon182"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon183 - Sun"><span class="icon icon183"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon184 - Target"><span class="icon icon184"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon185 - Thunder"><span class="icon icon185"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon186 - Trash Can"><span class="icon icon186"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon187 - Underlined"><span class="icon icon187"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon188 - Undo"><span class="icon icon188"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon189 - Upload"><span class="icon icon189"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon190 - USB"><span class="icon icon190"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon191 - User"><span class="icon icon191"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon192 - User Woman"><span class="icon icon192"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon193 - Volume Control"><span class="icon icon193"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon194 - Web Cam"><span class="icon icon194"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon195 - Window"><span class="icon icon195"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon196 - Wizard"><span class="icon icon196"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon197 - World"><span class="icon icon197"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon198 - Zoom"><span class="icon icon198"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon199 - Zoom In"><span class="icon icon199"></span></a></li>
+				  <li><a href="#" class="button tipTip" title=".icon200 - Zoom Out"><span class="icon icon200"></span></a></li>
+				</ul> <!-- /.buttons -->
+				<br/>
+				<div class="push"></div>
 			</div>
 		</div>
-	</div>
-</div>
-	
-<!-- end buttons -->	
-<div class="push" style="height:150px"></div>
-	<div class="row tophat" id="note">
-		<div class="sixcol whoCares">
-<h2>JS</h2>
+		
+		<div class="row limit category note_category">
+			<div class="fourcol smallHide">
+<h2>notefy command</h2>
 <pre class="jsCode">	
 
 notefy( "Header Title" , "The message you want displayed." );
@@ -531,94 +555,81 @@ notefy(
 );
 
 </pre>
-<br/>
-<h4>Test Output Log:</h4>
+<br/><div class="push"></div>
 <pre id="logs" style="background-color:#000;color:#FFF;padding:10px;max-width:730px">
 </pre>
-<br/>
-<div class="push"></div>
 <div id="test1" class="top-left"></div>
 <div id="test2" class="bottom-left"></div>
+			</div>
+			<div class="eightcol last">
+				<h2>2. Notefy</h2>
+				<p>A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
+				Features support for mobile and tablet screen sizes, as well as touch interfaces. Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
+				<p class="p5">
+					<em>Tested in: FF 3+, Opera 9, IE7, IE8, Safari 4+</em>. Parts of this a derived from a fork of <a href="http://stanlemon.net/pages/jgrowl">stanlemon.net's jgrowl</a>.
+				</p>
+				
+				<h3>notefy()</h3>
+				<p class="fnote"><p class="L">notefy( </p><input type="text" class="L notefytm" style='clear:none;display:inline;width:100px;' value="demo title"/><p class="L">, </p><input type="text" class="L notefyfm" style='clear:none;display:inline;width:100px;' value="this is a demo message"/><p class="L">, <em>huicon</em>, <em>sticky</em>, <em>timeout</em>);</p><br/>
+				<button class="action red notefytest box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">single test</span></button>
+				<br/>
+				<button class="action red notefytestfull box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">full range of tests</span></button>
+				<br/></p>
+				
+				<h3>Icons</h3>
+				<p class="fnote">You could use a sprite for this. However if you are using this many classes your sprite will be +70kb, where each icon is only 2-3kb when loaded separately, and its Easy to Add your Own. 32 x 32 px icons.</p>
+				<div style="padding:10px;width:90%;" class="C">
+					<ul id="notefyIconList">
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png" title="alert or caution" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png" title="ape" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-box.png" title="box" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-address.png" title="address" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png" title="chat" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-date.png" title="date" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-up.png" title="up" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-down.png" title="down" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png" title="earth" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png" title="gear" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-help.png" title="help" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-info.png" title="info" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png" title="heart" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png" title="jack" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png" title="jackolantern" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png" title="maps" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png" title="mumford" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png" title="notefy" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png" title="ok" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-player.png" title="player" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png" title="plus" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png" title="rss" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-search.png" title="search" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-star.png" title="star" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png" title="spade" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png" title="facebook" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png" title="twitter" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png" title="weather" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-x.png" title="x" class="L" style="padding:0 1px 0 0;margin:0"/></li>
+					</ul>	
+					<br/>
+				</div>
+				<br/>
+				<h3>$.jGrowl()</h3>
+				<p class="fnote"></p>
+				<br/>
+				<h3>HTML5 Notifications</h3>
+				<p class="fnote"><a href="http://www.w3.org/TR/notifications/">w3.org/TR/notifications/</a>
+					<br/>If you decide you want to use HTML5 Notifications instead of the Notefy command, you can easily do that.<br/>
+					However, To send custom notifications, you must first get the user to grant you permission, and obviously they must be using a supported browser. Here is a great resource to see if HTML5 Notifications are supported in the browsers you care about: <a href="http://caniuse.com/notifications">caniuse.com/notifications</a>.<br/>
+					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part1.png" style="padding:10px 0 10px 0"/><br/>
+					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part2.png" style="padding:10px 0 10px 0"/><br/>
+					<p class="padding:10px;margin:5px;">For more HTML5 Notifications information and a working example, please see the full <strong>notefy demo</strong> available here: <a href="http://hui.huement.com/notefy">hui.huement.com/notefy</a>
+				</p>
+			</div>
 		</div>
-		<div class="sixcol last">
-			<h2>02. notefy</h2>
-			<p class="p5">
-				A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
-				Features support for mobile and tablet screen sizes, as well as touch interfaces.
-			</p>
-			<p class="p5">
-				<em>Tested in: FF 3+, Opera 9, IE7, IE8, Safari 4+</em>
-			</p>
-			<p class="p5">
-				A fork of <a href="http://stanlemon.net/pages/jgrowl">stanlemon.net's jgrowl</a>.
-			</p>
-			<h4 style="margin-top:20px;">Javascript Shortcut Command</h4>
-			<p class="L">notefy( </p><input type="text" class="L notefytm" style='clear:none;display:inline;width:100px;' value="demo title"/><p class="L">, </p><input type="text" class="L notefyfm" style='clear:none;display:inline;width:100px;' value="this is a demo message"/><p class="L">, <em>huicon</em>, <em>sticky</em>, <em>timeout</em>);</p><br/>
-			<button class="action red notefytest box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">single test</span></button>
-			<br/>
-			<button class="action red notefytestfull box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">full range of tests</span></button>
-			<br/>
-			<p>Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
-			
-		</div>
-	</div>
-	<div class="row limit">
-		<div class="twelvecol last">
-		<h3>default notefy icons</h3>
-		<p>Easy to Add your Own. 32 x 32 px</p>
-		<p>You could use a sprite for this. However if you are using this many classes your sprite will be +70kb, where each icon is only 2-3kb when loaded separately.</p>
-		<ul id="notefyIconList">
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png" title="alert or caution" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png" title="ape" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-box.png" title="box" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-address.png" title="address" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png" title="chat" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-date.png" title="date" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-up.png" title="up" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-down.png" title="down" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png" title="earth" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png" title="gear" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-help.png" title="help" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-info.png" title="info" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png" title="heart" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png" title="jack" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png" title="jackolantern" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png" title="maps" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png" title="mumford" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png" title="notefy" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png" title="ok" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-player.png" title="player" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png" title="plus" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png" title="rss" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-search.png" title="search" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-star.png" title="star" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png" title="spade" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png" title="facebook" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png" title="twitter" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png" title="weather" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-x.png" title="x" class="L" style="padding:0 1px 0 0;margin:0"/></li>
-		</ul>
-		</div>
-	</div>
-	<div class="row limit">
-		<div class="twelvecol last">
-		<h2>notefy using HTML5 notifications</h2>
-		<h3><a href="http://www.w3.org/TR/notifications/">w3.org/TR/notifications/</a></h3>
 		
-		<p>If you decide you want to use HTML5 Notifications instead of the Notefy command, you can easily do that.</p>
-		<p>However! To send custom notifications, you must first get the user to grant you permission, and obviously they must be using a supported browser. Here is a great resource to see if HTML5 Notifications are supported in the browsers you care about: <a href="http://caniuse.com/notifications">caniuse.com/notifications</a>.</p>
-		</div>
-		<img src="http://huementui.s3.amazonaws.com/notefy/html5_part1.png" style="padding:10px 0 10px 0"/><br/>
-		<img src="http://huementui.s3.amazonaws.com/notefy/html5_part2.png" style="padding:10px 0 10px 0"/><br/>
-		<p class="padding:10px;margin:5px;">For more HTML5 Notifications information and a working example, please see the full <strong>notefy demo</strong> available here: <a href="http://hui.huement.com/notefy">hui.huement.com/notefy</a></p>
-	</div>
-	
-		<div class="push" style="height:50px"></div>
-	<div class="row tophat" id="formuse">
-		<h2>03. Forms & Usability</h2>
-		<p class="greyb">Increase the Usability of standard Form elements with a number of helpful commands.</p>
-		<div class="sixcol whoCares">
-<h2>checkbox JS</h2>
+		<div class="row limit category useful_category">
+			<div class="fourcol smallHide">
+<h2>Checkbox JS</h2>
 <pre class="jsCode">
 jQuery('.on_off :checkbox').iphoneStyle();
 
@@ -632,59 +643,8 @@ jQuery('.long_tiny :checkbox').iphoneStyle({
   uncheckedLabel: 'Tiny' 
 });
 </pre>
-		</div>
-		<div class="sixcol last">
-			<h3 class="p5">iOS Style Checkboxes</h3>
-			<p class="greyb">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
-			<br/>
-			
-			<div class="whiteb iosTableBox">
-				<table class="iosTable">
-				    <tr class="disabled">
-				      <th><label for="disabled">Disabled</label></th>
-				      <td>
-				        <input type="checkbox" id="disabled" disabled="disabled" />
-				      </td>
-				    </tr>
-				    <tr class="on_off">
-				      <th><label for="on_off">Default</label></th>
-				      <td>
-				        <input type="checkbox" id="on_off" />
-				      </td>
-				    </tr>
-				    <tr class="on_off">
-				      <th><label for="on_off_on">Default On</label></th>
-				      <td>
-				        <input type="checkbox" checked="checked" id="on_off_on"/>
-				      </td>
-				    </tr>
-				    <tr class="ios">
-				      <th><label for="css_sized_container">CSS Sized Container and Handle</label></th>
-				      <td>
-				        <input id='iosToggle' type='checkbox' checked="checked" style='width:100px;'/></p><br/>
-				      </td>
-				    </tr>
-				    <tr class="long_tiny">
-				      <th><label class="left" for="long_tiny">Long and short labels</label></th>
-				      <td>
-				        <input type="checkbox" id="long_tiny" />
-				      </td>
-				    </tr>
-				    <tr class="onchange">
-				      <th>Event tracking</th>
-				      <td>
-				        <input type="checkbox" id="onchange" />
-				        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
-				      </td>
-				    </tr>
-				  </table>
-			</div>
-		</div>
-	
-	</div>
-	<div class="row">
-		<div class="sixcol">
-		<h2>Select Box JS</h2>
+<br/>
+<h2>Select Box JS</h2>
 <pre class="jsCode">
 /* Add single value (will be selected) */
 jQuery("#myselect").addOption("Value", "Text");
@@ -701,39 +661,89 @@ jQuery("#myselect").removeOption(0);
 */
 jQuery("#myselect").sortOptions([bool]);
 </pre>
-		</div>
-		<div class="sixcol last">
-			<h3 class="p5">Select box manipulation Plugins</h3>
-			<p class="greyb">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
-			Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
-			
-			<button onclick='jQuery("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
-			<button onclick='jQuery("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
-			<div class="push" style="height:5px"></div>
-			<div class="p10 m10">
-				<select id="myselect">
-					<option>default</option>
-				</select>
+			</div>
+			<div class="eightcol last">
+				<h2>3A. Usability</h2>
+				<p>Form and Data Elements</p>
+
+				<h3>checkbox JS</h3>
+				<p class="fnote">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
+				<br/>
+					<div class="whiteb iosTableBox">
+						<table class="iosTable">
+						    <tr class="disabled">
+						      <th><label for="disabled">Disabled</label></th>
+						      <td>
+						        <input type="checkbox" id="disabled" disabled="disabled" />
+						      </td>
+						    </tr>
+						    <tr class="on_off">
+						      <th><label for="on_off">Default</label></th>
+						      <td>
+						        <input type="checkbox" id="on_off" />
+						      </td>
+						    </tr>
+						    <tr class="on_off">
+						      <th><label for="on_off_on">Default On</label></th>
+						      <td>
+						        <input type="checkbox" checked="checked" id="on_off_on"/>
+						      </td>
+						    </tr>
+						    <tr class="ios">
+						      <th><label for="css_sized_container">CSS Sized Container and Handle</label></th>
+						      <td>
+						        <input id='iosToggle' type='checkbox' checked="checked" style='width:100px;'/></p><br/>
+						      </td>
+						    </tr>
+						    <tr class="long_tiny">
+						      <th><label class="left" for="long_tiny">Long and short labels</label></th>
+						      <td>
+						        <input type="checkbox" id="long_tiny" />
+						      </td>
+						    </tr>
+						    <tr class="onchange">
+						      <th>Event tracking</th>
+						      <td>
+						        <input type="checkbox" id="onchange" />
+						        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
+						      </td>
+						    </tr>
+						  </table>
+						<div class="push"></div>
+						
+					</div>
+				<br/>
+				<h3>Select drop-down manipulation</h3>
+				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
+					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
+
+					<button onclick='jQuery("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
+					<button onclick='jQuery("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
+					<div class="push" style="height:5px"></div>
+					<div class="p10 m10">
+						<select id="myselect" style="min-width:250px;font-size:1.3em;line-height:1.5em;">
+							<option>default</option>
+						</select>
+					</div>
+				
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="sixcol">
-			
+		
+		<div class="row limit category useful_category">
+			<div class="push" style="height:50px;"></div>
+			<div class="twelvecol last">
+				<h2>3B. Lists</h2>
+				<p>Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
+			</div>
 		</div>
-		<div class="sixcol last">
-			
-		</div>
-</div>
-
-<div class="container">
-
-	<div class="row limit">
-		<h2>List Styles. Light or Dark. Fluid sizes.</h2>
-		<div class="sixcol">
-			<h3><em>class="</em> <strong>Tegan</strong> <em>"</em></h3>
-			<p>&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List. With no additional options.</p>
-			<div>
+		
+		<div class="row limit category useful_category">
+			<div class="push" style="height:50px;"></div>
+			<div class="sixcol">
+				<h3>Tegan</h3>
+				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan'</code> . Add A Single Class. No Options.</p>
+				<br/>
+				
 				<ul class="Tegan">
 					<li>
 						<span class="arrow icon9"></span>
@@ -784,13 +794,14 @@ jQuery("#myselect").sortOptions([bool]);
 						<hr class="end"/>
 					</li>
 				</ul>
+				
 			</div>
-		</div>
-		<div class="sixcol last">
-			<h3><em>class="</em> <strong>Tegan dark inset</strong> <em>"</em></h3>
-			<p><strong>inset</strong> class is activated below 800px</p>
-			<p>Additional Comment Class: <em>class="</em> <strong>comment limit</strong> <em>"</em></p>
-			<div>
+			<div class="sixcol last">
+				<h3>Tegan dark inset</h3>
+				<p><strong>inset</strong> class is activated below 800px</p>
+				<p>&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan dark inset'</code> <br/>optionally limit Li comments: <code>class="comment limit"</code></p>
+				<br/>
+				
 				<ul class="Tegan dark inset">
 					<li>
 						<span class="arrow icon10"></span>
@@ -841,17 +852,18 @@ jQuery("#myselect").sortOptions([bool]);
 						<hr class="end"/>
 					</li>
 				</ul>
+				
 			</div>
 		</div>
-	</div>
-
-	<div class="row limit">
-		<h3>Adding the "<strong>Sara</strong>" class to your lists adds support for Images.</h3>
-		<div class="sixcol">
-			<h3><em>class="</em> <strong>Tegan Sara</strong> <em>"</em></h3>
-			<p>Additional Comment Class: <em>class="</em> <strong>comment limit</strong> <em>"</em></p>
-			<div>
-				<ul class="Tegan Sara inset">
+		
+		<div class="row limit category useful_category">
+			<div class="push" style="height:50px;"></div>
+			<div class="sixcol">
+				<h3>Tegan Sara</h3>
+				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan Sara'</code> . Add support for Thumbnail previews.<br/>optionally limit Li comments: <code>class="comment limit"</code></p>
+				<br/>
+				
+				<ul class="Tegan Sara">
 					<li>
 						<span class="arrow icon200"></span>
 						<a href="#">
@@ -862,14 +874,15 @@ jQuery("#myselect").sortOptions([bool]);
 						<hr class="end"/>
 					</li>
 					<li>
-						<span class="arrow icon199"></span>
+						<span class="arrow icon200"></span>
 						<a href="#">
-						<img alt="test" src="https://ndmaps.s3.amazonaws.com/stream/ndRig.png" />
-						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment limit"><p>Cras laoreet luctus vehicula.</p></span>
+						<img alt="test" src="https://ndmaps.s3.amazonaws.com/radar_Williston.png" />
+							<span class="name">Skagen 17-20-1H</span>
+							<span class="comment limit"><p>Duis bibendum nulla sed quam interdum at luctus libero varius.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
+					
 					<li>
 						<span class="arrow icon198"></span>
 						<a href="#">
@@ -907,12 +920,14 @@ jQuery("#myselect").sortOptions([bool]);
 						<hr class="end"/>
 					</li>
 				</ul>
+				
 			</div>
-		</div>
-		<div class="sixcol last">
-			<h3><em>class="</em> <strong>Tegan Sara dark inset</strong> <em>"</em></h3>
-			<p><strong>inset</strong> class is activated below 800px</p>
-			<div>
+			<div class="sixcol last">
+				<h3>Tegan Sara dark inset</h3>
+				<p><strong>inset</strong> class is activated below 800px</p>
+				<p>&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan Sara dark inset'</code></p>
+				<br/>
+				
 				<ul class="Tegan Sara dark inset">
 					<li>
 						<span class="arrow icon109"></span>
@@ -928,7 +943,7 @@ jQuery("#myselect").sortOptions([bool]);
 						<a href="#">
 						<img alt="test" src="https://ndmaps.s3.amazonaws.com/stream/ndRig.png" />
 						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment"><p>Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p></span>
+						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
@@ -937,7 +952,7 @@ jQuery("#myselect").sortOptions([bool]);
 						<a href="#">
 						<img alt="test" src="https://ndrigs.s3.amazonaws.com/imgs/water-droplet-icon.jpg" />
 						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
+						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
@@ -946,7 +961,7 @@ jQuery("#myselect").sortOptions([bool]);
 						<a href="#">
 						<img alt="test" src="https://ndmaps.s3.amazonaws.com/stream/ndRig.png" />
 						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
+						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
@@ -955,7 +970,7 @@ jQuery("#myselect").sortOptions([bool]);
 						<a href="#">
 						<img alt="test" src="https://ndmaps.s3.amazonaws.com/radar_Williston.png" />
 						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment"><p>Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p></span>
+						<span class="comment"><p>Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
@@ -964,24 +979,21 @@ jQuery("#myselect").sortOptions([bool]);
 						<a href="#">
 						<img alt="test" src="https://ndrigs.s3.amazonaws.com/imgs/water-droplet-icon.jpg" />
 						<span class="name">Skagen 17-20-1H</span>
-						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
+						<span class="comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
 						</a>
 						<hr class="end"/>
 					</li>
 				</ul>
+			
 			</div>
 		</div>
-	</div>
-	
-	<div class="push"></div>
-	<div class="push"></div>
-	
-	<div class="row limit">
-		<h2>List Style Two. Timeline Style.</h2>
-		<div class="sixcol">
-			<h3><em>class="</em> <strong>Taylor</strong> <em>"</em></h3>
-			<p>Fluid Single Column Timeline</p>
-			<div>
+		
+		<div class="row limit category useful_category">
+			<div class="push" style="height:50px;"></div>
+			<div class="sixcol">
+				<h3>Taylor</h3>
+				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Taylor'</code> . Fluid Single Column Timeline</p>
+
 				<ul class="Taylor">
 					<li>
 						<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
@@ -1022,477 +1034,160 @@ jQuery("#myselect").sortOptions([bool]);
 
 				</ul>
 			</div>
-		</div>
-		<div class="sixcol last">
-			<h3><em>class="</em> <strong>Taylor dark</strong> <em>"</em></h3>
-			<p>Fluid Single Column Darkest Timeline</p>
-			<ul class="Taylor dark">
-				<li>
-					<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
-					<div class="Tbox">
-					
-							<span class="name">Neque porro quisquam</span>
-							<p class="comment">Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p>
-				
-					</div>
-				</li>
-				<li>
-					<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
-					<div class="Tbox">
-				
-							<span class="name">Consectetur, adipisci velit...</span>
-							<p class="comment">Nullam venenatis posuere enim, et tincidunt lacus fringilla eu. Donec nec lacus vel augue tincidunt pharetra vitae in lorem. Ut aliquam eros sit amet est facilisis scelerisque. Integer tristique dignissim enim, vitae cursus turpis commodo at. Aenean et metus libero, vel rhoncus dolor. Sed non odio a dui</p>
-					
-					</div>
-				</li>
-				<li>
-					<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
-					<div class="Tbox">
-				
-							<span class="name">Ut aliquam eros sit amet est</span>
-							<p class="comment">Nullam non mi non risus imperdiet pulvinar.</p>
-					
-					</div>
-				</li>
-				<li>
-					<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
-					<div class="Tbox">
-					
-							<span class="name">Duis posuere</span>
-							<p class="comment">Nullam venenatis posuere enim, et tincidunt lacus fringilla eu. Donec nec lacus vel augue tincidunt pharetra vitae in lorem. Ut aliquam eros sit amet est facilisis scelerisque. Integer tristique dignissim enim, vitae cursus turpis commodo at. Aenean et metus libero, vel rhoncus dolor.</p>
-				
-					</div>
-				</li>
+			<div class="sixcol last">
+				<h3>Taylor dark</h3>
+				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Taylor dark'</code>.</p>
+				<ul class="Taylor dark">
+					<li>
+						<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
+						<div class="Tbox">
 
-			</ul>
-		</div>
-	</div>
-	<div class="push"></div>
+								<span class="name">Neque porro quisquam</span>
+								<p class="comment">Cras laoreet luctus vehicula. Duis bibendum nulla sed quam interdum at luctus libero varius. Nam euismod nisi id nulla dapibus auctor. Nullam non mi non risus imperdiet pulvinar.</p>
 
-</div>
-<div class="push" style="height:150px"></div>
-<div class="container">	
-	<div class="row tophat" id="faceboxes">
-		<div class="sixcol whoCares">
-	<h2>button html</h2>
-<pre class="htmlCode">
-/* html markup for a button */
-&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;
-</pre>
-<h2>facebox js</h2>
-<pre class="jsCode">
-/* doc ready activate all */
-jQuery(document).ready(function(jQuery) {
- jQuery('a[rel*=facebox]').facebox();
-})
+						</div>
+					</li>
+					<li>
+						<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
+						<div class="Tbox">
 
-/* Arbitrary Text */
-jQuery.facebox('something cool');
-jQuery.facebox('something cool', 'cstyle');
+								<span class="name">Consectetur, adipisci velit...</span>
+								<p class="comment">Nullam venenatis posuere enim, et tincidunt lacus fringilla eu. Donec nec lacus vel augue tincidunt pharetra vitae in lorem. Ut aliquam eros sit amet est facilisis scelerisque. Integer tristique dignissim enim, vitae cursus turpis commodo at. Aenean et metus libero, vel rhoncus dolor. Sed non odio a dui</p>
 
-/* Remote files */
-jQuery.facebox({ ajax: 'remote.html' });
-jQuery.facebox({ ajax: 'remote.html' }, 'cstyle');
+						</div>
+					</li>
+					<li>
+						<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
+						<div class="Tbox">
 
-/* Image */
-jQuery.facebox({ image: 'img/s.jpg' });
-jQuery.facebox({ image: 'img/s.jpg' }, 'cstyle');
+								<span class="name">Ut aliquam eros sit amet est</span>
+								<p class="comment">Nullam non mi non risus imperdiet pulvinar.</p>
 
-/* A Page Element */
-jQuery.facebox({ div: '#box' });
-jQuery.facebox({ div: '#box' }, 'cstyle');
-</pre>
-		</div>
-		<div class="sixcol last">
-			<h2>04. FaceBox</h2>
-			<button onclick="jQuery.facebox('<h2 class=\'tC\' style=\'margin-top:0;\'>sample demo</h2><p>something cool</p><p>something cool</p><p>something cool</p>');return false;"><span class='label'>FaceBox Test</span></button>
-			<button onclick="jQuery.facebox({ ajax: 'dist/hui-base.css' });return false;"><span class='label'>FaceBox Remote Test</span></button>
-			<br/>
-			<p class="greyb">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.
-			<br/>It's simple to use and easy on the eyes. For its inclusion in HUI a number of images were changed to css elements. While also altering its size to support a liquid layout.<br/>The window supports static content, remote images, even ajax in external html.<br/>Facebox can be called in functions individually, or more simply, you can include a one liner in your doc ready. Simply put, It's easier to give your Faceboxy links a rel="facebox" and hit them all onLoad.</p>
-		</div>
-	</div>
-		<div class="push" style="height:150px"></div>
-	<div class="row tophat " id="tooltip">
-		<div class="sixcol whoCares">
-<h2>tipTip JS</h2>
-<pre class="jsCode">
-/* doc ready activate all */
-jQuery(function(){
-	
- jQuery(".tipTip").tipTip();
+						</div>
+					</li>
+					<li>
+						<img class="nail" src="http://ndmaps.s3.amazonaws.com/stream/ndRig.png">
+						<div class="Tbox">
 
- jQuery(".tipTipR").tipTip({
-  defaultPosition:"right"
- });
+								<span class="name">Duis posuere</span>
+								<p class="comment">Nullam venenatis posuere enim, et tincidunt lacus fringilla eu. Donec nec lacus vel augue tincidunt pharetra vitae in lorem. Ut aliquam eros sit amet est facilisis scelerisque. Integer tristique dignissim enim, vitae cursus turpis commodo at. Aenean et metus libero, vel rhoncus dolor.</p>
 
-});
-</pre>
-		</div>
-		<div class="sixcol last">
-			<h2>05. Tooltips</h2>
-			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
-			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
-			
-			<p class="greyb" style="margin-top:30px">Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
-		</div>
-	</div>
-		<div class="push" style="height:150px"></div>
-	<div class="row tophat" id="animate">
-		<h2>06. Animations</h2>
-		<p class="greyb">Kinema CSS Transformation Engine has many options. for a full demo Go here: <a href="http://dev.huement.com/kinema/">http://dev.huement.com/kinema/</a></p>
-		<div class="fourcol whoCares">
-			<ul>
-				<li class="style"> Parameters</li>
-			    <li class="style"> x (px)</li>
-			    <li class="style"> y (px)</li>
-				
-			</ul>
-			<div><p style="font-size:1.3em;padding:5px;margin-top:30px;line-height:1.5em"> NOTE: This only works on browsers that support CSS Transformations. So, no IE7 & 8.</p></div>
-		</div>
-		<div class="eightcol last">
-			<h2>Movement</h2>
-			<h3>X Y Grid Coordinates</h3>
-			<div class="p10">
-				<button class="white rdx">toggle</button>
-					<div class="push"></div>
-					<div class="blackb box_x" style="height:100px;width:100px;"></div>
-				<br/>
-			</div>
-<pre>
-jQuery('.box_x').transition({ <b>x: '30px'</b> });
-</pre>
-			<div class="p10">
-				<button class="white rdy">toggle</button>
-					<div class="push"></div>
-					<div class="blackb box_y" style="height:100px;width:100px;"></div>
-			</div>
-<pre>
-jQuery('.box_y').transition({ <b>y: '100px'</b> });
-</pre>
-			
-		</div>
-	</div>
-		<div class="push" style="height:150px"></div>
-		
-		<div class="push" style="height:150px"></div>
-	<div class="row tophat" id="accordion">
-		<div class="twelvecol last">
-			<h2>07. Accordion Menus</h2>
-			<p class="greyb">Here are some of the Available Configurations for the Accordion Menus.</p>
-			
-			<p class="greyb">
-			For more advanced usage, see the complete HW Accordion page here:<br/>
-			<a href="#todo">http://dev.huement.com/hui/templates/Accordion.html</a></p>
-		</div>
-	</div>
-		<div class="push"></div>
-	<div class="row tophat" id="accordion_two">
-		<div class="sixcol whoCares">
-			<h2>HTML</h2>
-			<pre>
-&lt;ul class="accordion"&gt;
+						</div>
+					</li>
 
- &lt;li id="one" class="files"&gt;
-
-   &lt;a href="#one"&gt;My Files&lt;span&gt;10&lt;/span&gt;&lt;/a&gt;
-
-	&lt;ul class="sub-menu"&gt;
-
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;/ul&gt;
-
- &lt;/li&gt;
- ...
- ...
-&lt;/ul&gt;
-</pre>
-			<h2>JS</h2>
-			<pre>
-jQuery(".accordion").accordionNav();
-			</pre>
-		</div>
-		<div class="sixcol last">
-			<h3>Accordion Navigate</h3>
-			<div class="p10 m10">
-				<p class="greyb">Uses Hardware Accelerated Animations. CSS3 Fallback. No jQuery required.</p>
-				<p class="greyb">Use External Button Triggers or Click the Header to toggle content.</p>
-				<br/>
-			</div>
-			<div class="push"></div>
-			<ul class="accordion">
-
-			    <li id="one" class="files">
-
-			        <a href="#one"><div class="huicon icon68"></div>My Files<span>10</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="two" class="mail">
-
-			        <a href="#two"><div class="huicon icon125"></div>Mail<span>20</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>2</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="three" class="cloud">
-
-			        <a href="#three"><div class="huicon icon72"></div>Songs<span>30</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>3</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="four" class="sign">
-
-			        <a href="#four"><div class="huicon icon108"></div>Sign Out</a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu</a></li>
-
-			        </ul>
-
-			    </li>
-
-			</ul>
-		</div>
-	</div>
-		<div class="push" style="height:70px"></div>
-	<div class="row tophat">
-		<div class="sixcol whoCares">
-			<h2>HTML</h2>
-			<pre>
-&lt;div class="flapperStage"&gt;
- &lt;div class="speakEasy"&gt;
-  &lt;ul&gt;
-
-    &lt;li class="title_bar" id='bsbs'&gt;Basic Setup&lt;/li&gt;
-
-	&lt;li class="basic bsbs"&gt;
-	  &lt;a href="#" class="pageloader"&gt;Download&lt;/a&gt;
-	&lt;/li&gt;
-		
-	&lt;li class="basic bsbs"&gt;
-	  &lt;a href="#" class="pageloader"&gt;Second&lt;/a&gt;
-	&lt;/li&gt;
-		
-	...
-	
-  &lt;/ul&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-			</pre>
-			<h2>JS</h2>
-			<pre>
-// 1. silly onclick callback function
-
-function callbackGirl(){
- var iname = jQuery(".speakEasy li.active").text();
- notefy("clicked!", iname);
-}
-
-//2. Setup Object
-
-var ladyParts = {
- "title":".title_bar",
- "loader":".pageloader",
- "stage":".speakEasy"
-};
-
-//3. Activate Flapper Girl Menu
-
-jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
-
-</pre>
-		</div>
-		<div class="sixcol last">
-			<h3>Flapper Girl</h3>
-			<div style="padding:5px">
-				<p class="greyb">Drop Down Tree Style Text Menus. <strong>Adapts to almost any un ordered list!</strong></p>
-				<p class="greyb">Support for OnClick External Callbacks.</p>
-				<br/>
-				
-				<div class="flapperStage">
-					<div class="speakEasy">
-						<ul>
-							<li class="title_bar" id='absbs'>Prohibition And Curls</li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 1</a></li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 2</a></li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 3</a></li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 4</a></li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 5</a></li>
-							<li class="basic absbs"><a href="#" class="pageloader">Song 6</a></li>							
-							<li class="title_bar docked" id="bsbs">Basic Setup</li>
-							<li class="basic bsbs active" style="display: none;"><a href="#" class="pageloader">Download</a></li>
-							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Install</a></li>
-							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Tutorials</a></li>
-							<li class="title_bar docked" id="cscs">Mating</li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Lithium PHP</a></li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Wordpress</a></li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
-							
-							
-							<li class="title_bar" id='dcscs'>Dance Number</li>
-							<li class="basic dcscs"><a href="#" class="pageloader">Chorus</a></li>
-							<li class="basic dcscs"><a href="#" class="pageloader">Refrain</a></li>
-							<li class="basic dcscs"><a href="#" class="pageloader">Showstopper</a></li>
-						</ul>
-					</div>
-				</div>
-				
-			</div>
-
-		</div>
-	</div>
-	
-		<div class="push" style="height:170px"></div>
-	<div class="row tophat" id="navigate">
-		<div class="twelvecol last">
-			<h2>08. Flexible Navigation</h2>
-			<h3>HorizontalNav</h3>
-			<p class="greyb" style="margin-bottom:30px;">Based on <a href="http://sebnitu.github.com/HorizontalNav/">sebnitu.github.com/HorizontalNav</a> and <a href="https://github.com/mattkersley/Responsive-Menu">mattkersley/Responsive-Menu</a>.<br/>A horizontal navigation to fit the full width of it's container. There are no requirements to how you style the navigation and adding padding, margins or borders to any of the elements won’t break the effect.<br/> Added benefit that it Turns any &lt;ol&gt; or &lt;ul&gt; into a &lt;select&gt; for mobiles and low browser sizes.</p>
-			<div id="mobilenav"></div>
-            <h4>This Page Uses HorizontalNav for its menu. Resize to see in action.</h4>
-			<img src="http://huement.s3.amazonaws.com/imgs/flexmenu.png" width="100%" height="100%" style="max-width:458px;max-height:264px;" class="tC C"/>
-			<div class="push" style="height:15px"></div>
-<div class="whoCares">
-<h2>html</h2>
-<pre>
-&lt;ul&gt;
- &lt;li&gt;&lt;a href="#"&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Work&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
-<div class="push" style="height:15px"></div>
-<h2>js</h2>
-<pre>
-jQuery('.full-width').horizontalNav({
-  prependTo : '#mobilenav'
-});
-</pre>
-</div>
-			<div class="push" style="height:55px"></div>
-			<h3>Reactive Navigation</h3>
-			<p class="greyb" style="margin-bottom:30px;">
-				As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later!
-				<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
-			<div class="push"></div>
-			<nav id="flex1" class="flex clearfix">
-				<ul class="clearfix">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">How-to</a></li>
-					<li><a href="#">Icons</a></li>
-					<li><a href="#">Design</a></li>
-					<li><a href="#">Web 2.0</a></li>
-					<li><a href="#">Tools</a></li>	
 				</ul>
-				<a href="#" class="navpuller">Menu</a>
-			</nav>
-			<div class="push"></div>
-			<br/>
-			<p class="greyb">IMG examples. Resize this window to see Reactive Navigation in action.</p>
-			<img src="http://huement.s3.amazonaws.com/imgs/menu1.png" style="width:40%" class="p5 m10 greyb L"/>
-			<img src="http://huement.s3.amazonaws.com/imgs/menu2.png" style="width:40%;max-width:250px;height:100%;max-height:50px" class="p5 m10 greyb R"/>
-			<br/>
-			<div class="push"></div>
-			<h2>js</h2>
-<pre class="jsCode">
-//Reactive Navigation Menu
-var navobj = {"pull":"#pull"};
-jQuery("nav#flex1 ul").reactiveNav(navobj);
-</pre>
-<div class="push"></div>
-<h2>html</h2>
-<pre class="htmlCode">	
-&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
-...
-...	
-&lt;nav class="clearfix"&gt;
-&lt;ul class="clearfix"&gt;
- &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;How-to&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Icons&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Design&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Web 2.0&lt;/a&gt;&lt;/li&gt;
- &lt;li&gt;&lt;a href="#"&gt;Tools&lt;/a&gt;&lt;/li&gt;	
-&lt;/ul&gt;
-&lt;a href="#" id="pull"&gt;Menu&lt;/a&gt;
-&lt;/nav&gt;
-</pre>
-		</div>
-	</div>
-	
-	<div class="push" style="height:150px"></div>
-	
-	
-	<div class="row tophat">
-		<div class="twelvecol last">
-			<div class="p10">
-				
-			</div>
-			<div class="p10">
-				
 			</div>
 		</div>
+		
+		<div class="row limit category useful_category">
+			<br/>
+			<div class="push" style="height:150px;"></div>
+			<div class="fourcol smallHide">
+<h2>Pagination HTML</h2>
+<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
+    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
+    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+<h2>Pagination JS</h2>
+<pre class="jsCode">$('.pagination').jqPagination({
+    paged: function(page) {
+        // do something with the page variable
+    }
+});</pre>
+
+<div class="clearfix"></div>
+<p><a href="#" class="show-log">Show / hide event log:</a></p>
+<ul class="log"></ul>
+
+			</div>
+			<div class="eightcol last">
+				<h2>3C. Pagination</h2>
+				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				<ul>
+					<li>Design agnostic</li>
+					<li>Customizable</li>
+					<li>Degrades beautifully</li>
+					<li>Super simple to integrate with your app / site</li>
+				</ul>
+				<br/>
+				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
+				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
+				<div class="push"></div>
+				<h4>Pagination Demo</h4>
+				<p>It's oversized too, so you can try it when you're drunk!</p>
+				<div class="gigantic paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				<h2 id="installation">Installation</h2>
+				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
+
+				<h2 id="customisation">Customization</h2>
+				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
+				<h3>Options</h3>
+				<p><strong>current_page</strong> - option, default: 1
+				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
+				<p><strong>max_page</strong> - option, default: null
+				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
+				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
+				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
+				<h3>Callbacks</h3>
+				<p><strong>paged</strong> - callback, params: page
+				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
+				<h3>Methods</h3>
+				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
+				<p>The option method allows to get / set (when supplied with a value) the following values</p>
+				<ul>
+					<li>current_page</li>
+					<li>max_page</li>
+				</ul>
+				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
+				<h2 id="feedback">Feedback and Support</h2>
+				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
+			</div>
+		</div>
+		<!--
+		<div class="row limit category _category">
+			<div class="fourcol smallHide"></div>
+			<div class="eightcol last">
+			<h2>1A. Action</h2>
+			<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
+			
+			<h3>shuffle</h3>
+			<p class="fnote"></p>
+			</div>
+		</div>
+		<div class="row limit category _category">
+			<div class="twelvecol last"></div>
+		</div>
+		-->
+		<div class="push" style="height:50px;"></div>
 	</div>
-</div>
 	
-	<!-- main demo nav menu -->
-	<ul id="el_arco_iris" class="fhead none">
-	 <li><a href="#action">act</a></li>
-	 <li><a href="#note">notefy</a></li>
-	 <li><a href="#formuse">useful</a></li>
-	 <li><a href="#faceboxes">faceBox</a></li>
-	 <li><a href="#tooltip">tips</a></li>
-	 <li><a href="#animate">move</a></li>
-	 <li><a href="#accordion">dance</a></li>
-	 <li><a href="#navigate">flex</a></li>
-	</ul>
-	
-	<!-- Example jQuery Setups  
-	1. latest v1 - <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-	2. v1.9b (local file) - <script src="libs/jquery/jquery-1.9.0b1.js" type="text/javascript"></script>
-	3. v2.0b (2.0 preview) - <script src="http://code.jquery.com/jquery-2.0.0b1.js" type="text/javascript"></script>
-	4. v1.8 (latest stable) - <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-	
-	[optional] Ready Your Code for jQuery 2.0+
-	<script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
-	-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	
-	<!-- minified hui library -->
-	<script type="text/javascript" src="dist/hui-min.js"></script>
-	
-	<!-- Example Functions for the Demo -->
-	<script type="text/javascript" src="test/index_demo.js"></script>
-	
+<!-- Available jQuery Setups  
+1. latest v1 (dev cdn) - <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+2. v1.9b (dev local) - <script src="libs/jquery/jquery-1.9.0b1.js" type="text/javascript"></script>
+3. v2.0b (dev preview) - <script src="http://code.jquery.com/jquery-2.0.0b1.js" type="text/javascript"></script>
+4. v1.8.3 (cdn stable) - <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
+[optional] Ready Your Code for jQuery 2.0+
+<script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
+-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<!-- minified hui library -->
+<script type="text/javascript" src="dist/hui-min.js"></script>
+
+<!-- Example Functions for the Demo -->
+<script type="text/javascript" src="test/index_demo.js"></script>
+
 </body>
 </html>

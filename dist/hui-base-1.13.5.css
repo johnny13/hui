@@ -1,4 +1,4 @@
-/*! huement user interface - v1.13.5 - 2013-02-12
+/*! huement user interface - v1.13.5 - 2013-02-26
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
@@ -379,7 +379,7 @@ p {
 	color: #f0f0f0;
 }
 .Tegan.Sara li .name {
-	margin: 5px 0 0 5px;
+	margin: 5px 0 0 0px;
 	width: auto;
 	font-weight: bold;
 	font-size: 1.1em;
@@ -388,20 +388,20 @@ p {
 	overflow: hidden;
 	white-space: nowrap;
 	float: left;
-	width: 73%;
+	text-indent:5p;
+	width: 70%;
 }
 
-.Tegan li .name:after {
-	clear:both;
-}
 .Tegan li .comment {
 	margin:3px 0 3px 0px;
 	font-size: 1em;
 	line-height:1em;
 	float: left;
 	color: #111;
+	min-width:75%;
 	width:auto;
-	max-width:95%;
+	max-width:90%;
+	text-indent:5px;
 }
 .Tegan.dark li .comment {
 	color: #e7e7e7;
@@ -410,6 +410,7 @@ li .comment.limit {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	text-indent:3px;
 }
 .Tegan li .arrow {
 	position:absolute;
@@ -431,7 +432,7 @@ li .comment.limit {
 	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png");
 }
 .Tegan.dark li:hover .arrow {
-	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-white.png");
+	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
 }
 .Tegan li a {
 	clear:both;
@@ -481,8 +482,6 @@ li .comment.limit {
 	width:auto;
 	max-width:75%;
 }
-
-
 
 .Tegan li:first-child,.Tegan li:first-child:hover {
 	-webkit-border-top-left-radius: 3px;
@@ -640,6 +639,128 @@ li .comment.limit {
 }
 /* breakup with Taylor */
 
+
+/* paginate */
+.paginatebox {
+	clear:both;
+	display:block;
+	position:relative;
+	margin:10px auto 10px auto;
+	padding:0;
+	width:80%;
+	max-width:500px;
+}
+
+.paginatebox a {
+	display: block;
+	float: left;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(0,50,75);
+	color: #555555;
+	text-align: center;
+	text-decoration: none;
+	font-family: Times, 'Times New Roman', Georgia, Palatino; /* ATTN: need a better font stack */
+	font-weight: bold;
+	font-size: 16px;
+	outline: none;
+	vertical-align: middle;
+
+	background: #F3F3F3; /* Old browsers */
+	background: -moz-linear-gradient(top,  #F3F3F3 0%, #D3D3D3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3F3F3), color-stop(100%,#D3D3D3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* IE10+ */
+	background: linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F3F3F3', endColorstr='#D3D3D3',GradientType=0 ); /* IE6-9 */
+
+}
+
+.paginatebox a:hover, .paginatebox a:focus, .paginatebox a:active {
+
+	background: #CECECE; /* Old browsers */
+	background: -moz-linear-gradient(top,  #E4E4E4 0%, #CECECE 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E4E4E4), color-stop(100%,#CECECE)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #E4E4E4 0%,#CECECE 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #E4E4E4 0%,#CECECE 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #E4E4E4 0%,#CECECE 100%); /* IE10+ */
+	background: linear-gradient(top,  #E4E4E4 0%,#CECECE 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E4E4E4', endColorstr='#CECECE',GradientType=0 ); /* IE6-9 */
+
+}
+
+.paginatebox a.disabled, .paginatebox a.disabled:hover, .paginatebox a.disabled:focus, .paginatebox a.disabled:active {
+
+	background: #F3F3F3; /* Old browsers */
+	background: -moz-linear-gradient(top,  #F3F3F3 0%, #D3D3D3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3F3F3), color-stop(100%,#D3D3D3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* IE10+ */
+	background: linear-gradient(top,  #F3F3F3 0%,#D3D3D3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F3F3F3', endColorstr='#D3D3D3',GradientType=0 ); /* IE6-9 */
+
+	color: #A8A8A8;
+	
+}
+
+.paginatebox a:first-child {
+	border-radius: 2px 0 0 2px;
+	-moz-border-radius: 2px 0 0 2px;
+	-webkit-border-radius: 2px 0 0 2px;
+}
+
+.paginatebox a:last-child {
+	border-radius: 0 2px 2px 0;
+	-moz-border-radius: 0 2px 2px 0;
+	-webkit-border-radius: 0 2px 2px 0;
+}
+
+.paginatebox a {
+	border-right: 1px solid #CDCDCD; 
+	border-left: 1px solid #CDCDCD;   
+}
+
+.paginatebox a:first-child {
+	border: none;
+}
+
+.paginatebox a:last-child {
+	border: none;
+}
+
+.paginatebox input {
+	border: none;
+	float: left;
+	text-align: center;
+	height: 20px;
+	outline: none;
+	vertical-align: middle;
+	width: 40%;
+	padding: 0;
+	margin: 0;
+}
+
+/* gigantic class for demo purposes */
+
+.gigantic.paginatebox {
+	margin: 20px 0;
+}
+
+.gigantic.paginatebox a {
+	height: 30px;
+	width: 30px;
+	font-size: 1.5em;
+	line-height: .5em;
+}
+
+.gigantic.paginatebox input {
+	width: 45%;
+	height: 40px;
+	font-size: 1.5em;
+}
+
 @media only screen and (max-width : 798px) {
 
 	.Tegan {
@@ -705,7 +826,7 @@ li .comment.limit {
 	}
 
 	.Tegan.Sara li {
-		min-height:60px;
+		min-height:70px;
 	}
 	
 	.Tegan li .name { 

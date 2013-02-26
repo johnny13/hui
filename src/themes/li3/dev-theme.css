@@ -20,7 +20,7 @@
 *
 * Development (not the fastest, easier for development):
 *
-*   CDN: @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css");
+*   CDN: @import url("https://huementui.s3.amazonaws.com/cdn/hui-base.css");
 *   
 *   LOCAL: @import url("dist/hui-base.css");
 
@@ -33,7 +33,7 @@
 *
 */
 
-/* @import url("http://huementui.s3.amazonaws.com/cdn/hui-base.css"); */
+/* @import url("https://huementui.s3.amazonaws.com/cdn/hui-base.css"); */
 
 /* --------------- Basic UI And Optional Widget Themes -------------------- */
 /* 
@@ -57,7 +57,9 @@ body {
  font-size: 1em;
  line-height: 1.5em;
  color: #0d0d0d;
- background-color: #fff;
+ background-color: #ffffff;
+ background-image: url("https://huement.s3.amazonaws.com/imgs/grid-masked.png");
+ background-repeat:repeat-x;
 }
 
 h1 { font-size: 2.6em;color: #0d0d0d;font-weight:bold;margin: .25em 0 .5em 23%; }
@@ -193,53 +195,6 @@ form {
  box-shadow: 2px 2px 5px rgba(0,0,0,.10);
 }
 
-table {
- border: 1px solid #e6e6e6;
-}
-table {
- border-collapse: collapse;
-}
-table th {
- padding: .5em  1em;
- color: black;
- background: #e6e6e6;
- font-weight: normal;
-}
-table th, table td {
- border-bottom: 1px solid rgba(0,0,0,.05);
-}
-
-td {
- text-align: left;
- white-space: nowrap;
- padding: 6px 8px;
- background: #e6e6e6;
- width: 35%;
-}
-
-code {
- display: block;
- background: #f4f4f4;
- color: #666;
- border: 1px solid white;
- padding: 1em !important; /* remove if base important is removed, too */
- overflow: auto;
- font-size: .9em;
- -moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
- -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
- box-shadow: 2px 2px 12px rgba(0,0,0,.15);
-}
-pre {
- font-size: 12px;
- color: white;
- background: #141414;
- border: 3px solid #E6E6E6;
- padding: 1em !important;
- overflow: auto;
- -moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
- -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
- box-shadow: 2px 2px 12px rgba(0,0,0,.15);
-}
 button, .button {
  background:#f7f7f7;
  border-color:#999;
@@ -252,18 +207,18 @@ button:hover,
 }
 button:hover .label, 
 .button:hover .label {
-	color:#000;
+ color:#000;
 }
 
 .huicon, .ddm span.icon, 
 button span.icon, 
 .button span.icon {
- background-image: url("http://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
+ background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
 }
 .ddm:hover span.icon, 
 button:hover span.icon, 
 .button:hover span.icon {
- background-image: url("http://huementui.s3.amazonaws.com/images/hui-sprite-li3.png");
+ background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-li3.png");
 }
 
 @media only screen and (max-width : 777px) {
@@ -631,114 +586,7 @@ div.jGrowl div.jGrowl-closer {
 
 }
 /************************************************ [S03] Styled Forms, Tables, Dynamic Data */
-.pagination {
-  height: 36px;
-  margin: 18px 0;
-}
-.pagination ul {
-  display: inline-block;
-  *display: inline;
-  /* IE7 inline-block hack */
 
-  *zoom: 1;
-  margin-left: 0;
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-.pagination li {
-  display: inline;
-}
-.pagination a {
- background-color: #D4D4D4;
-  float: left;
-  padding: 0 14px;
-  line-height: 34px;
-  text-decoration: none;
-  border: 1px solid #C2C2C2;
-  border-left-width: 0;
- color:#3B3B3B !important;
-}
-.pagination a:hover,
-.pagination .active a {
-  background-color: #f5f5f5;
-}
-.pagination .active a {
-  color: #999999;
-  cursor: default;
-}
-.pagination .disabled span,
-.pagination .disabled a,
-.pagination .disabled a:hover {
-  color: #C2C2C2 !important;
-  background-color: #3B3B3B;
-  cursor: default;
-}
-.pagination li:first-child a {
-  border-left-width: 1px;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
-}
-.pagination li:last-child a {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
-}
-.pagination-centered {
-  text-align: center;
-}
-.pagination-right {
-  text-align: right;
-}
-.pagination {
-  margin-left: 0;
-  margin-bottom: 18px;
-  list-style: none;
-  text-align: center;
-  *zoom: 1;
-}
-.pagination:before,
-.pagination:after {
-  display: table;
-  content: "";
-}
-.pagination:after {
-  clear: both;
-}
-.pagination li {
-  display: inline;
-
-}
-.pagination a {
-  display: inline-block;
-  padding: 5px 14px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-}
-.pagination a:hover {
-  text-decoration: none;
-  background-color: #f5f5f5;
-}
-.pagination .next a {
-  float: right;
-}
-.pagination .previous a {
-  float: left;
-}
-.pagination .disabled a,
-.pagination .disabled a:hover {
-  color: #999999;
-  background-color: #fff;
-  cursor: default;
-}
 /**
  * Data Results
  */
@@ -752,16 +600,62 @@ div.jGrowl div.jGrowl-closer {
 .success a {color:#264409;}
 .info a {color:#205791;}
 
-/*--- Code ---*/
-code {
- display: block;
+
+table {
+ border: 1px solid #e6e6e6;
+}
+table {
+ border-collapse: collapse;
+}
+table th {
+ padding: .5em  1em;
+ color: black;
+ background: #e6e6e6;
+ font-weight: normal;
+}
+table th, table td {
+ border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+td {
+ text-align: left;
+ white-space: nowrap;
+ padding: 6px 8px;
+ background: #e6e6e6;
+ width: 35%;
+}
+
+pre {
+ font-size: 12px;
  color: white;
  background: #141414;
- border: 1px solid white;
- padding: 1em !important; /* remove if base important is removed, too */
+ border: 3px solid #E6E6E6;
+ padding: 1em !important;
+ overflow: auto;
+ -moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
+ -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
+ box-shadow: 2px 2px 12px rgba(0,0,0,.15);
+}
+
+code {
+ font-family: Monaco, Courier, monospace !important;
+ font-weight: normal;
+ white-space: pre;
+ width:auto;
+ clear:none;
+ display:inline;
+ position:relative;
+ float:none;
+ border: none;
+ padding: 5px 10px 5px 10px;
  overflow: auto;
  font-size: .9em;
+ color: white;
+ background: #f4f4f4;
+ color: #666;
+ border: 1px solid white;
 }
+
 a code {
  background: transparent;
  border: 0;
@@ -769,19 +663,14 @@ a code {
 a:hover code {
  color: inherit;
 }
-code, .fixed {
+.fixed {
  font-family: Monaco, Courier, monospace !important;
  font-weight: normal;
  font-size: 0.85em;
  white-space: pre;
  color:#2d2d2d;
 }
-code {
- margin:10px 0 10px 0;
- padding: .2em .25em !important;
- border: 1px solid #F0F0F0;
- background: #FAFAFA;
-}
+
 
 /*--- Forms ---*/
 form {
@@ -1803,26 +1692,22 @@ nav.flex a.navpuller {
    }
  /* horizontalNav Select Box */
  select.mnav {
- display: block;
  position:fixed;
+ display: block;
  float:none;
  clear:both;
+ overflow: hidden;
  margin: 6px auto 0px auto;
- width: 100%;  
+ width: 98%;  
  max-width:550px;
  max-height:2.2em;
  -moz-appearance: none;
  -webkit-appearance: none;
  appearance: none;
  background: #fff url("https://huementui.s3.amazonaws.com/cdn/imgs/bg-select.png") no-repeat right;
- border: 1px solid #000;
+ border: 1px solid #2d2d2d;
  font-size: 1.1em;
- line-height:1.3em;
- overflow: hidden;
  padding: 0.5em 1em 0.5em 0.75em;
- clear: both;
- display:block;
- float:none;
  height:100%;
  z-index:999;
  line-height: 1.1em;
@@ -1848,7 +1733,7 @@ nav.flex a.navpuller {
  }
  nav.flex a.navpuller:after {
   content:"";
-  background:url("https://huementui.s3.amazonaws.com/themes/black/images/navicon-light.png") no-repeat;
+  background:url("https://huementui.s3.amazonaws.com/images/navicon-grey.png") no-repeat;
   width: 5%;
   height: 5%;
   min-height:30px;
@@ -1875,17 +1760,14 @@ nav.flex a.navpuller {
 * Base styles for horizontal navigation
 */
 .horizontalNav-processed {
-    border: 1px solid #3d3d3d;
  font-weight: bold;
- background: #2E2E2E;
- background: -webkit-gradient( linear, left bottom, left top, color-stop(1, #2E2E2E), color-stop(0, #131313) );
- background: -moz-linear-gradient( center top, #2E2E2E, #131313 );
+ background: #505050;
+ background: -webkit-gradient( linear, left bottom, left top, color-stop(1, #505050), color-stop(0, #2E2E2E) );
+ background: -moz-linear-gradient( center top, #505050, #2E2E2E );
  -webkit-box-shadow: 0 1px 0 #030303 inset;
  -moz-box-shadow: 0 1px 0 #030303 inset;
  border-bottom: 1px solid #646464;
- border-left:none;
- border-right:none;
-    float: left;
+ float: left;
 }
 .horizontalNav-processed li {
     float: left;
@@ -1906,10 +1788,6 @@ nav.flex a.navpuller {
  overflow: hidden;
  text-indent: -9999px !important;
  background-repeat: no-repeat;
- -webkit-transition: background-image .20s linear;
- -moz-transition: background-image .20s linear;
- -o-transition: background-image .20s linear;
- transition: background-image .20s linear;
 }
 .horizontalNav-processed li:first-child {
     border-left: 0 none;
@@ -1919,8 +1797,8 @@ nav.flex a.navpuller {
  font-size:1em;
     display: block;
     padding: 3px 3px 3px 6px;
-    color: #e7e7e7;
-    border-top: 1px solid rgba(255,255,255, 0.25);
+    color: #f7f7f7;
+    border-top:none;
     border-left: 1px solid rgba(255,255,255, 0.25);
 }
 
@@ -1928,12 +1806,14 @@ nav.flex a.navpuller {
     border-left: 0 none;
 }
 .horizontalNav-processed li a:hover, .horizontal-nav ul li a:visited:hover {
-    background: rgb(194,194,194);
- background: -webkit-gradient( linear, left bottom, left top, color-stop(1, rgb(194,194,194)), color-stop(0, rgb(133,133,133)) );
- background: -moz-linear-gradient( center top, rgb(194,194,194), rgb(133,133,133) );
- -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
- -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
- color:#f7f7f7;
+ background: #3d3d3d;
+ background: -webkit-gradient( linear, left bottom, left top, color-stop(1, #3d3d3d), color-stop(0, #111111) );
+ background: -moz-linear-gradient( center top, #3d3d3d, #111111 );
+ color:#ffffff;
+}
+.horizontalNav-processed li.active {
+	background:#131313;
+	background-color:#131313;
 }
 
 @media screen and (max-width: 799px) {

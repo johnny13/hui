@@ -1,1 +1,4 @@
 .onecol{width:4.7%}.twocol{width:13.2%}.threecol{width:22.05%}.fourcol{width:30.6%}.fivecol{width:39%}.sixcol{width:48%}.sevencol{width:56.75%}.eightcol{width:61.6%}.ninecol{width:74.05%}.tencol{width:82%}.elevencol{width:91.35%}.gradient { filter: none; }input[type="checkbox"]{width: 94px;height: 27px;background: none !important;border: 0;float: right;margin: 8px 4px 0 0}
+.Tegan li .comment {min-width:250px!important;width:75%!important;max-width:900px!important;}
+.Tegan.dark li .comment {min-width:250px!important;width:75%!important;max-width:900px!important;}
+li .comment.limit {min-width:250px!important;width:78%!important;max-width:900px!important;}

@@ -1,4 +1,14 @@
 /************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ jQuery.fn.hui = function(options) {
+  	if(options["-v"]==true){
+		return "1.13.6";
+	}
+ }
+
+})(jQuery);
+
 /* shuffle things */
 /* example| jQuery.shuffle(colorArray); */
 (function(jQuery){

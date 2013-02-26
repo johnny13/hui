@@ -5,7 +5,7 @@ var counter = 0;
 var demo1 = 0;
 var demo2 = 0;
 var demo3 = 0;
-var colorArr = ["#C20000","#37C200","#004EC2","#8400C2","#F56200"];
+var colorArr = ["#F10000","#57DB23","#49C5FF","#C14DF7","#FF993A"];
 function checkboxes(){
  jQuery('.on_off :checkbox').iphoneStyle();
  jQuery('.disabled :checkbox').iphoneStyle();
@@ -51,7 +51,7 @@ function callbackGirl(){
 function randomColors(){
  var shuffleArr = jQuery.shuffle(colorArr);
  //console.debug(shuffleArr);
- jQuery(".el_arco_iris, h3, #el_arco_iris li a").animate({color: colorArr[0]},4979);
+ jQuery(".el_arco_iris, h3, #el_arco_iris li.active a").animate({color: colorArr[0]},4979);
  
  if(jQuery(document).width() <= 460){
   jQuery(".fhead").hide();
@@ -188,7 +188,7 @@ function runfulltests(){
 
 jQuery(document).ready(function() { 
  /* Sample Animations */
- jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
+ //jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
  randomColors();
  
  jQuery(".brightToggle").on("click",function(){
@@ -199,6 +199,21 @@ jQuery(document).ready(function() {
   }
   return false;
  });
+
+	// Toggle the dropdown menu's
+ jQuery(".dropdown .button, .dropdown button").click(function () {
+	if (!$(this).find('span.toggle').hasClass('active')) {
+		$('.dropdown-slider').slideUp();
+		$('span.toggle').removeClass('active');
+	}
+
+ // open selected dropown
+	$(this).parent().find('.dropdown-slider').slideToggle('fast');
+	$(this).find('span.toggle').toggleClass('active');
+	
+	return false;
+ });
+	
  //ToolTips
  jQuery(".tipTip").tipTip();
  jQuery(".tipTip").tipTip();
@@ -252,6 +267,20 @@ jQuery(document).ready(function() {
  jQuery('.fhead').horizontalNav({
      prependTo : 'body'
  });
+ jQuery(".row.category").addClass("none");
+ jQuery(".action_category").removeClass("none");
+ jQuery('.fhead li a').on("click",function(){
+  jQuery(".row.category").addClass("none");
+  var thehref = $(this).attr("href");
+  var substr = thehref.split('#');
+  var thetarget = "."+substr[1]+"_category";
+  jQuery(thetarget).removeClass("none");
+  jQuery(".fhead li").removeClass("active");
+  jQuery(this).parent().addClass("active");
+  jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+  jQuery("#el_arco_iris li a").css("color","#f7f7f7");
+  return false;
+ });
 
  //Reactive Navigation Menu
  var navobj = {"pull":".navpuller"};
@@ -283,4 +312,12 @@ jQuery(document).ready(function() {
   jQuery(this).append("<p class='iconlabel'><em>"+name+"</em></p>")
  });
 
+ jQuery('.paginatebox').jqPagination({
+   paged: function(page) {
+   // do something with the page variable
+	notefy("paginate demo","page: "+page);
+  }
+ });
+
+ jQuery("#hbbh").removeClass("none");
 }); 
