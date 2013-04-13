@@ -186,295 +186,6 @@ jQuery.fn.selectOptions = function(value) {
  );
  return this;
 };
-
-
-/* iOS Style Checkbox */
-(function() {
-  var iOSCheckbox;
-  var __slice = Array.prototype.slice;
-  iOSCheckbox = (function() {
-    function iOSCheckbox(elem, options) {
-      var key, opts, value;
-      this.elem = jQuery(elem);
-      opts = jQuery.extend({}, iOSCheckbox.defaults, options);
-      for (key in opts) {
-        value = opts[key];
-        this[key] = value;
-      }
-      this.elem.data(this.dataName, this);
-      this.wrapCheckboxWithDivs();
-      this.attachEvents();
-      this.disableTextSelection();
-      if (this.resizeHandle) {
-        this.optionallyResize('handle');
-      }
-      if (this.resizeContainer) {
-        this.optionallyResize('container');
-      }
-      this.initialPosition();
-    }
-    iOSCheckbox.prototype.isDisabled = function() {
-      return this.elem.is(':disabled');
-    };
-    iOSCheckbox.prototype.wrapCheckboxWithDivs = function() {
-      this.elem.wrap("<div class='" + this.containerClass + "' />");
-      this.container = this.elem.parent();
-      this.offLabel = jQuery("<label class='" + this.labelOffClass + "'>\n  <span>" + this.uncheckedLabel + "</span>\n</label>").appendTo(this.container);
-      this.offSpan = this.offLabel.children('span');
-      this.onLabel = jQuery("<label class='" + this.labelOnClass + "'>\n  <span>" + this.checkedLabel + "</span>\n</label>").appendTo(this.container);
-      this.onSpan = this.onLabel.children('span');
-      return this.handle = jQuery("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
-    };
-    iOSCheckbox.prototype.disableTextSelection = function() {
-      //if (jQuery.browser.msie) {
-			if(jQuery(document).width() <= 800){
-        return jQuery([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
-      }
-    };
-    iOSCheckbox.prototype._getDimension = function(elem, dimension) {
-      if (jQuery.fn.actual != null) {
-        return elem.actual(dimension);
-      } else {
-        return elem[dimension]();
-      }
-    };
-    iOSCheckbox.prototype.optionallyResize = function(mode) {
-      var newWidth, offLabelWidth, onLabelWidth;
-      onLabelWidth = this._getDimension(this.onLabel, "width");
-      offLabelWidth = this._getDimension(this.offLabel, "width");
-      if (mode === "container") {
-        newWidth = onLabelWidth > offLabelWidth ? onLabelWidth : offLabelWidth;
-        newWidth += this._getDimension(this.handle, "width") + this.handleMargin;
-        return this.container.css({
-          width: newWidth
-        });
-      } else {
-        newWidth = onLabelWidth > offLabelWidth ? onLabelWidth : offLabelWidth;
-        return this.handle.css({
-          width: newWidth
-        });
-      }
-    };
-    iOSCheckbox.prototype.onMouseDown = function(event) {
-      var x;
-      event.preventDefault();
-      if (this.isDisabled()) {
-        return;
-      }
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      iOSCheckbox.currentlyClicking = this.handle;
-      iOSCheckbox.dragStartPosition = x;
-      return iOSCheckbox.handleLeftOffset = parseInt(this.handle.css('left'), 10) || 0;
-    };
-    iOSCheckbox.prototype.onDragMove = function(event, x) {
-      var newWidth, p;
-      if (iOSCheckbox.currentlyClicking !== this.handle) {
-        return;
-      }
-      p = (x + iOSCheckbox.handleLeftOffset - iOSCheckbox.dragStartPosition) / this.rightSide;
-      if (p < 0) {
-        p = 0;
-      }
-      if (p > 1) {
-        p = 1;
-      }
-      newWidth = p * this.rightSide;
-      this.handle.css({
-        left: newWidth
-      });
-      this.onLabel.css({
-        width: newWidth + this.handleRadius
-      });
-      this.offSpan.css({
-        marginRight: -newWidth
-      });
-      return this.onSpan.css({
-        marginLeft: -(1 - p) * this.rightSide
-      });
-    };
-    iOSCheckbox.prototype.onDragEnd = function(event, x) {
-      var p;
-      if (iOSCheckbox.currentlyClicking !== this.handle) {
-        return;
-      }
-      if (this.isDisabled()) {
-        return;
-      }
-      if (iOSCheckbox.dragging) {
-        p = (x - iOSCheckbox.dragStartPosition) / this.rightSide;
-        this.elem.prop('checked', p >= 0.5);
-      } else {
-        this.elem.prop('checked', !this.elem.prop('checked'));
-      }
-      iOSCheckbox.currentlyClicking = null;
-      iOSCheckbox.dragging = null;
-      return this.didChange();
-    };
-    iOSCheckbox.prototype.refresh = function() {
-      return this.didChange();
-    };
-    iOSCheckbox.prototype.didChange = function() {
-      var new_left;
-      if (typeof this.onChange === "function") {
-        this.onChange(this.elem, this.elem.prop('checked'));
-      }
-      if (this.isDisabled()) {
-        this.container.addClass(this.disabledClass);
-        return false;
-      } else {
-        this.container.removeClass(this.disabledClass);
-      }
-      new_left = this.elem.prop('checked') ? this.rightSide : 0;
-      this.handle.animate({
-        left: new_left
-      }, this.duration);
-      this.onLabel.animate({
-        width: new_left + this.handleRadius
-      }, this.duration);
-      this.offSpan.animate({
-        marginRight: -new_left
-      }, this.duration);
-      return this.onSpan.animate({
-        marginLeft: new_left - this.rightSide
-      }, this.duration);
-    };
-    iOSCheckbox.prototype.attachEvents = function() {
-      var localMouseMove, localMouseUp, self;
-      self = this;
-      localMouseMove = function(event) {
-        return self.onGlobalMove.apply(self, arguments);
-      };
-      localMouseUp = function(event) {
-        self.onGlobalUp.apply(self, arguments);
-        jQuery(document).unbind('mousemove touchmove', localMouseMove);
-        return jQuery(document).unbind('mouseup touchend', localMouseUp);
-      };
-      this.elem.change(function() {
-        return self.refresh();
-      });
-      return this.container.bind('mousedown touchstart', function(event) {
-        self.onMouseDown.apply(self, arguments);
-        jQuery(document).bind('mousemove touchmove', localMouseMove);
-        return jQuery(document).bind('mouseup touchend', localMouseUp);
-      });
-    };
-    iOSCheckbox.prototype.initialPosition = function() {
-      var containerWidth, offset;
-      containerWidth = this._getDimension(this.container, "width");
-      this.offLabel.css({
-        width: containerWidth - this.containerRadius
-      });
-      offset = this.containerRadius + 1;
-      if (jQuery(document).width() <= 800) {
-        offset -= 3;
-      }
-      this.rightSide = containerWidth - this._getDimension(this.handle, "width") - offset;
-      if (this.elem.is(':checked')) {
-        this.handle.css({
-          left: this.rightSide
-        });
-        this.onLabel.css({
-          width: this.rightSide + this.handleRadius
-        });
-        this.offSpan.css({
-          marginRight: -this.rightSide
-        });
-      } else {
-        this.onLabel.css({
-          width: 0
-        });
-        this.onSpan.css({
-          marginLeft: -this.rightSide
-        });
-      }
-      if (this.isDisabled()) {
-        return this.container.addClass(this.disabledClass);
-      }
-    };
-    iOSCheckbox.prototype.onGlobalMove = function(event) {
-      var x;
-      if (!(!this.isDisabled() && iOSCheckbox.currentlyClicking)) {
-        return;
-      }
-      event.preventDefault();
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      if (!iOSCheckbox.dragging && (Math.abs(iOSCheckbox.dragStartPosition - x) > this.dragThreshold)) {
-        iOSCheckbox.dragging = true;
-      }
-      return this.onDragMove(event, x);
-    };
-    iOSCheckbox.prototype.onGlobalUp = function(event) {
-      var x;
-      if (!iOSCheckbox.currentlyClicking) {
-        return;
-      }
-      event.preventDefault();
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      this.onDragEnd(event, x);
-      return false;
-    };
-    iOSCheckbox.defaults = {
-      duration: 200,
-      checkedLabel: 'ON',
-      uncheckedLabel: 'OFF',
-      resizeHandle: true,
-      resizeContainer: true,
-      disabledClass: 'iPhoneCheckDisabled',
-      containerClass: 'iPhoneCheckContainer',
-      labelOnClass: 'iPhoneCheckLabelOn',
-      labelOffClass: 'iPhoneCheckLabelOff',
-      handleClass: 'iPhoneCheckHandle',
-      handleCenterClass: 'iPhoneCheckHandleCenter',
-      handleRightClass: 'iPhoneCheckHandleRight',
-      dragThreshold: 5,
-      handleMargin: 15,
-      handleRadius: 4,
-      containerRadius: 5,
-      dataName: "iphoneStyle",
-      onChange: function() {}
-    };
-    return iOSCheckbox;
-  })();
-  jQuery.iphoneStyle = this.iOSCheckbox = iOSCheckbox;
-  jQuery.fn.iphoneStyle = function() {
-    var args, checkbox, dataName, existingControl, method, params, _i, _len, _ref, _ref2, _ref3, _ref4;
-    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    dataName = (_ref = (_ref2 = args[0]) != null ? _ref2.dataName : void 0) != null ? _ref : iOSCheckbox.defaults.dataName;
-    _ref3 = this.filter(':checkbox');
-    for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-      checkbox = _ref3[_i];
-      existingControl = jQuery(checkbox).data(dataName);
-      if (existingControl != null) {
-        method = args[0], params = 2 <= args.length ? __slice.call(args, 1) : [];
-        if ((_ref4 = existingControl[method]) != null) {
-          _ref4.apply(existingControl, params);
-        }
-      } else {
-        new iOSCheckbox(checkbox, args[0]);
-      }
-    }
-    return this;
-  };
-  jQuery.fn.iOSCheckbox = function(options) {
-    var opts;
-    if (options == null) {
-      options = {};
-    }
-    opts = jQuery.extend({}, options, {
-      resizeHandle: false,
-      disabledClass: 'iOSCheckDisabled',
-      containerClass: 'iOSCheckContainer',
-      labelOnClass: 'iOSCheckLabelOn',
-      labelOffClass: 'iOSCheckLabelOff',
-      handleClass: 'iOSCheckHandle',
-      handleCenterClass: 'iOSCheckHandleCenter',
-      handleRightClass: 'iOSCheckHandleRight',
-      dataName: 'iOSCheckbox'
-    });
-    return this.iphoneStyle(opts);
-  };
-}).call(this);
-
 /*!
  * jqPagination, a jQuery pagination plugin (obviously)
  *
@@ -877,3 +588,203 @@ if (!console) {
 	console.error	= func;
 
 }
+
+/************************************************ [S05] TipTip */
+
+ /*
+ * TipTip
+ * Copyright 2010 Drew Wilson
+ * www.drewwilson.com
+ * code.drewwilson.com/entry/tiptip-jquery-plugin
+ *
+ * Version 1.3   -   Updated: Mar. 23, 2010
+ *
+ * This Plug-In will create a custom tooltip to replace the default
+ * browser tooltip. It is extremely lightweight and very smart in
+ * that it detects the edges of the browser window and will make sure
+ * the tooltip stays within the current window size. As a result the
+ * tooltip will adjust itself to be displayed above, below, to the left 
+ * or to the right depending on what is necessary to stay within the
+ * browser window. It is completely customizable as well via CSS.
+ *
+ * This TipTip jQuery plug-in is dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+
+(function($){
+ jQuery.fn.tipTip = function(options) {
+  var defaults = { 
+   activation: "hover",
+   keepAlive: false,
+   maxWidth: "200px",
+   edgeOffset: 3,
+   defaultPosition: "bottom",
+   delay: 400,
+   fadeIn: 200,
+   fadeOut: 200,
+   attribute: "title",
+   content: false, // HTML or String to fill TipTIp with
+     enter: function(){},
+     exit: function(){}
+    };
+   var opts = jQuery.extend(defaults, options);
+   
+   var tiptip_holder = "";
+   var tiptip_content = "";
+   var tiptip_arrow = "";
+
+   // Setup tip tip elements and render them to the DOM
+   if(jQuery("#tiptip_holder").length <= 0){
+   tiptip_holder = jQuery('<div id="tiptip_holder" style="max-width:'+ opts.maxWidth +';"></div>');
+   tiptip_content = jQuery('<div id="tiptip_content"></div>');
+   tiptip_arrow = jQuery('<div id="tiptip_arrow"></div>');
+   jQuery("body").append(tiptip_holder.html(tiptip_content).prepend(tiptip_arrow.html('<div id="tiptip_arrow_inner"></div>')));
+  } else {
+   tiptip_holder = jQuery("#tiptip_holder");
+   tiptip_content = jQuery("#tiptip_content");
+   tiptip_arrow = jQuery("#tiptip_arrow");
+  }
+  
+  return this.each(function(){
+   var org_elem = jQuery(this);
+   var org_title = "";
+   if(opts.content){
+    org_title = opts.content;
+   } else {
+    org_title = org_elem.attr(opts.attribute);
+   }
+   if(org_title !== ""){
+    if(!opts.content){
+     org_elem.removeAttr(opts.attribute); //remove original Attribute
+    }
+    var timeout = false;
+    
+    if(opts.activation === "hover"){
+     org_elem.hover(function(){
+      active_tiptip();
+     }, function(){
+      if(!opts.keepAlive){
+       deactive_tiptip();
+      }
+     });
+     if(opts.keepAlive){
+      tiptip_holder.hover(function(){}, function(){
+       deactive_tiptip();
+      });
+     }
+    } else if(opts.activation === "focus"){
+     org_elem.focus(function(){
+      active_tiptip();
+     }).blur(function(){
+      deactive_tiptip();
+     });
+    } else if(opts.activation === "click"){
+     org_elem.click(function(){
+      active_tiptip();
+      return false;
+     }).hover(function(){},function(){
+      if(!opts.keepAlive){
+       deactive_tiptip();
+      }
+     });
+     if(opts.keepAlive){
+      tiptip_holder.hover(function(){}, function(){
+       deactive_tiptip();
+      });
+     }
+    }
+   
+    function active_tiptip(){
+     opts.enter.call(this);
+     tiptip_content.html(org_title);
+     tiptip_holder.hide().removeAttr("class").css("margin","0");
+     tiptip_arrow.removeAttr("style");
+     //parseInt(string, radix)
+     var radix = 0;
+     var top = parseInt(org_elem.offset()['top'],radix);
+     var left = parseInt(org_elem.offset()['left'],radix);
+     var org_width = parseInt(org_elem.outerWidth(),radix);
+     var org_height = parseInt(org_elem.outerHeight(),radix);
+     var tip_w = tiptip_holder.outerWidth();
+     var tip_h = tiptip_holder.outerHeight();
+     var w_compare = Math.round((org_width - tip_w) / 2);
+     var h_compare = Math.round((org_height - tip_h) / 2);
+     var marg_left = Math.round(left + w_compare);
+     var marg_top = Math.round(top + org_height + opts.edgeOffset);
+     var t_class = "";
+     var arrow_top = "";
+     var arrow_left = Math.round(tip_w - 12) / 2;
+
+                    if(opts.defaultPosition === "bottom"){
+                     t_class = "_bottom";
+                    } else if(opts.defaultPosition === "top"){ 
+                     t_class = "_top";
+                    } else if(opts.defaultPosition === "left"){
+                     t_class = "_left";
+                    } else if(opts.defaultPosition === "right"){
+                     t_class = "_right";
+                    }
+     
+     var right_compare = (w_compare + left) < parseInt(jQuery(window).scrollLeft(),radix);
+     var left_compare = (tip_w + left) > parseInt(jQuery(window).width(),radix);
+     
+     if((right_compare && w_compare < 0) || (t_class === "_right" && !left_compare) || (t_class === "_left" && left < (tip_w + opts.edgeOffset + 5))){
+      t_class = "_right";
+      arrow_top = Math.round(tip_h - 13) / 2;
+      arrow_left = -12;
+      marg_left = Math.round(left + org_width + opts.edgeOffset);
+      marg_top = Math.round(top + h_compare);
+     } else if((left_compare && w_compare < 0) || (t_class === "_left" && !right_compare)){
+      t_class = "_left";
+      arrow_top = Math.round(tip_h - 13) / 2;
+      arrow_left =  Math.round(tip_w);
+      marg_left = Math.round(left - (tip_w + opts.edgeOffset + 5));
+      marg_top = Math.round(top + h_compare);
+     }
+
+     var top_compare = (top + org_height + opts.edgeOffset + tip_h + 8) > parseInt(jQuery(window).height() + jQuery(window).scrollTop(),radix);
+     var bottom_compare = ((top + org_height) - (opts.edgeOffset + tip_h + 8)) < 0;
+     
+     if(top_compare || (t_class === "_bottom" && top_compare) || (t_class === "_top" && !bottom_compare)){
+      if(t_class === "_top" || t_class === "_bottom"){
+       t_class = "_top";
+      } else {
+       t_class = t_class+"_top";
+      }
+      arrow_top = tip_h;
+      marg_top = Math.round(top - (tip_h + 5 + opts.edgeOffset));
+     } else if(bottom_compare | (t_class === "_top" && bottom_compare) || (t_class === "_bottom" && !top_compare)){
+      if(t_class === "_top" || t_class === "_bottom"){
+       t_class = "_bottom";
+      } else {
+       t_class = t_class+"_bottom";
+      }
+      arrow_top = -12;      
+      marg_top = Math.round(top + org_height + opts.edgeOffset);
+     }
+    
+     if(t_class === "_right_top" || t_class === "_left_top"){
+      marg_top = marg_top + 5;
+     } else if(t_class === "_right_bottom" || t_class === "_left_bottom"){  
+      marg_top = marg_top - 5;
+     }
+     if(t_class === "_left_top" || t_class === "_left_bottom"){ 
+      marg_left = marg_left + 5;
+     }
+     tiptip_arrow.css({"margin-left": arrow_left+"px", "margin-top": arrow_top+"px"});
+     tiptip_holder.css({"margin-left": marg_left+"px", "margin-top": marg_top+"px"}).attr("class","tip"+t_class);
+     
+     if (timeout){ clearTimeout(timeout); }
+     timeout = setTimeout(function(){ tiptip_holder.stop(true,true).fadeIn(opts.fadeIn); }, opts.delay); 
+    }
+    
+    function deactive_tiptip(){
+     opts.exit.call(this);
+     if (timeout){ clearTimeout(timeout); }
+     tiptip_holder.fadeOut(opts.fadeOut);
+    }
+   }    
+  });
+ };
+})(jQuery);

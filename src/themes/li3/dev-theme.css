@@ -41,11 +41,11 @@
 * 
 * [S01] Basic Theme Colors (typograghy action buttons links etc)
 * [S02] Notefy glass theme
-* [S03] Forms, Tables, Alerts (iOS style checkboxes, Paginate)
+* [S03] Pre Code Tables
 * [S04] FaceBox
 * [S05] TipTip black theme
-* [S06] Extra CSS3 Effects (animations, img hover, sub styles, thumbnails)
-* [S07] HW Accordion Theme
+* [S06] Extra CSS3 Effects (cards, extra styles)
+* [S07] Accordions
 * [S08] Navigation & List Views
 *
 *
@@ -58,24 +58,23 @@ body {
  line-height: 1.5em;
  color: #0d0d0d;
  background-color: #ffffff;
- background-image: url("https://huement.s3.amazonaws.com/imgs/grid-masked.png");
- background-repeat:repeat-x;
 }
 
 h1 { font-size: 2.6em;color: #0d0d0d;font-weight:bold;margin: .25em 0 .5em 23%; }
-h2, h5 { font-size: 2.05em; margin-bottom: .5em; color: #bbb;display: block;font-weight:bold; }
-h3, h6 { font-weight: normal; margin: 1.5em 0 1em; }
+h2, h5 { font-size: 2.05em; margin-bottom: .5em; color: #4E4E4E;display: block;font-weight:bolder; }
+h3, h6 { font-weight: bold; margin: 1.5em 0 1em; }
 h4 { font-size: 1.4em; }
 h5 { font-size: 1.2em; }
 h6 { font-size: 1em; }
 p { margin-bottom: 1em; } 
 strong { font-weight: bold; }
 em { font-style: italic; }
-a { text-decoration: none; color: #333; padding: .45em 0.75em 0 0.75em; }
-a, h1 a, h2 a { text-decoration: none; }
+h1 a, h2 a { text-decoration: none; }
 
 a img { border: none; box-shadow: none; border-radius:none; }
-
+a {
+	color:#1CB1EC;font-weight:bold;
+}
 .tC {
  text-align:center;
  padding:1px;
@@ -91,12 +90,37 @@ a img { border: none; box-shadow: none; border-radius:none; }
  text-align:left;
 }
 
+.page-header {
+padding: 5px 0 9px 10px;
+margin: 20px 0 30px;
+border-bottom: 1px solid #B1B1B1;
+	-moz-box-shadow: 0px 1px 2px #EBEBEB;
+	-webkit-box-shadow: 0px 1px 2px #EBEBEB;
+	box-shadow: 0px 1px 2px #EBEBEB;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#EBEBEB')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#EBEBEB');
+}
+
 p {
  border:none;
  font-family:Verdana, Geneva, sans-serif;
  font-size:15px;
  padding:5x 0 0 5px;
  line-height:18px;
+}
+/* footnote */
+.fnote {
+	color: #666 !important;
+	padding:5px !important;
+	margin:0 !important;
+	background: transparent !important;
+	background-color: transparent !important;
+	text-align: left !important;
+	width: 95%;
+	font-size: .98em;
+	line-height: 1.5em;
 }
 
 .color {text-decoration: none;}
@@ -134,21 +158,21 @@ a.blackText:hover {color: #666666;}
 .greyb, .grayb p {
  color: #333;
 }
-.greyb a { color:#999; }
+.greyb a { color:#25A1F3; }
 .greyb a:hover, .container p a:hover{ color:#00B7FF; }
 
-li.S, li.style {
- display: block;
- margin: 0 0 1px .5em;
- padding: 0.25em 0 0 0.75em;
- border: 1px solid rgba(0,0,0,0.05);
- border-width: 0 0 0 1px;
- }
-li.S:nth-child(2n), li.style:nth-child(2n) {background: #f6f6f6}
-li.style > ul {
- margin-top: .25em 0em;
- padding-top: 1px;
+/* Tegan Sara Taylor Lists */
+.Tegan.style {
+	border:1px solid #969696;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
+
+.Tegan.style li:nth-child(1n), .Tegan.Sara.style li:nth-child(1n)  { background: #f7f7f7;background-color: #f7f7f7; }
+
+.Tegan.style li:nth-child(2n),.Tegan.Sara.style li:nth-child(2n) {background: #e7e7e7;background-color: #e7e7e7;}
+
 .horizontalNav-processed li a {
  padding:0;
 }
@@ -587,69 +611,16 @@ div.jGrowl div.jGrowl-closer {
 }
 /************************************************ [S03] Styled Forms, Tables, Dynamic Data */
 
-/**
- * Data Results
- */
-.error, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
-.error {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
-.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
-.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
-.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
-.error a {color:#8a1f11;}
-.notice a {color:#514721;}
-.success a {color:#264409;}
-.info a {color:#205791;}
-
-
-table {
- border: 1px solid #e6e6e6;
-}
-table {
- border-collapse: collapse;
-}
-table th {
- padding: .5em  1em;
- color: black;
- background: #e6e6e6;
- font-weight: normal;
-}
-table th, table td {
- border-bottom: 1px solid rgba(0,0,0,.05);
-}
-
-td {
- text-align: left;
- white-space: nowrap;
- padding: 6px 8px;
- background: #e6e6e6;
- width: 35%;
-}
-
 pre {
- font-size: 12px;
  color: white;
  background: #141414;
  border: 3px solid #E6E6E6;
- padding: 1em !important;
- overflow: auto;
  -moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
  -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
  box-shadow: 2px 2px 12px rgba(0,0,0,.15);
 }
 
 code {
- font-family: Monaco, Courier, monospace !important;
- font-weight: normal;
- white-space: pre;
- width:auto;
- clear:none;
- display:inline;
- position:relative;
- float:none;
- border: none;
- padding: 5px 10px 5px 10px;
- overflow: auto;
- font-size: .9em;
  color: white;
  background: #f4f4f4;
  color: #666;
@@ -702,13 +673,6 @@ select {
  display: block;
  margin: .5em 0 1em 0;
 }
-div.checkbox {
- clear: both;
- padding: 1em 0;
-}
-.checkbox label {
- display: inline;
-}
 
 /*--- Misc ---*/
 sup, sub {
@@ -750,7 +714,88 @@ blockquote:after {
  content: '\201D';
 }
 
-/*--- .style Table ---*/
+/*--- Table ---*/
+table.theme tr th, table.theme th {
+	background-color:#B1B1B1;
+	color:#333333;
+	text-shadow:-1px -1px 1px #ccc;
+}
+table.theme th {
+	background-color: #BEBEBE;
+}
+table.theme th:hover {
+	background-color:#A7A7A7;
+	background:#A7A7A7;
+	color:#080808;
+}
+
+table.theme th {
+	text-align: left;
+	padding: 0px 0 0 5px;
+	font-weight:bold;
+	line-height:2em;
+	background-color: #BEBEBE;
+	text-shadow:none;
+	color:#111111;
+}
+
+table.theme th:hover {
+	background-color:#A7A7A7;
+	background:#A7A7A7;
+	color:#C20000;
+}
+
+table.theme tbody td {
+	color: #3f3f3f;
+	padding: 2px;
+}
+table.theme .even, table.theme tr:nth-child(even) {
+	background-color: #E4E4E4;
+	background: #E4E4E4;
+}
+table.theme .odd, table.theme tr:nth-child(odd) {
+	background-color: #F1F1F1;
+	background: #F1F1F1;
+	color:#2d2d2d;
+}
+
+table .sorting-box {
+	/* default affected */
+	background-color: #BEBEBE;
+}
+table .sorting-asc {
+	background-color: #0F8000!important;
+	background: #0F8000!important;
+	color:#f7f7f7!important;
+}
+table .sorting-desc {
+	background-color: #C20000!important;
+	background: #C20000!important;
+	color:#f7f7f7!important;
+}
+table.style {
+ border: 1px solid #e6e6e6;
+}
+
+table.style th {
+ padding: .5em  1em;
+ color: black;
+ background: #e6e6e6;
+ font-weight: normal;
+}
+
+table.style th, table.style td {
+ border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.style td {
+ padding: 6px 8px;
+ background: #e6e6e6;
+ width: 35%;
+ text-align: left;
+ white-space: nowrap;
+}
+
 table.style {
  border: 1px solid #e6e6e6;
  border-collapse: collapse;
@@ -803,11 +848,6 @@ table.style th, table.style td {
  font-weight: bold;
  padding: .5em .75em;
 }
-
-
-table.style tr {
- 
-}
 table.style tr th, table.style tr td {
  padding: 10px 14px;
  text-align: left;
@@ -837,266 +877,38 @@ table.style tr td {
  border-bottom: 1px solid #e0e0e0;
 }
 
-.iPhoneCheckContainer {
-  position: relative;
-  height: 27px;
-  cursor: pointer;
-  overflow: hidden; }
-  .iPhoneCheckContainer input {
- position: absolute;
- top: 5px;
- left: 30px;
- filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
- opacity: 0; }
-  .iPhoneCheckContainer label {
- white-space: nowrap;
- font-size: 17px;
- line-height: 17px;
- font-weight: bold;
- font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
- cursor: pointer;
- display: block;
- height: 27px;
- position: absolute;
- width: auto;
- top: 0;
- padding-top: 5px;
- overflow: hidden; }
-  .iPhoneCheckContainer, .iPhoneCheckContainer label {
- user-select: none;
- -moz-user-select: none;
- -khtml-user-select: none; }
-
-.iPhoneCheckDisabled {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5; }
-
-label.iPhoneCheckLabelOn {
-  color: white;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/on.png') no-repeat;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
-  left: 0;
-  padding-top: 5px; }
-  label.iPhoneCheckLabelOn span {
- padding-left: 8px; }
-label.iPhoneCheckLabelOff {
-  color: #8b8b8b;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/off.png') no-repeat right 0;
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
-  text-align: right;
-  right: 0;
- min-width:100px;
- }
-  label.iPhoneCheckLabelOff span {
- padding-right: 8px; }
-
-.iPhoneCheckHandle {
-  display: block;
-  height: 27px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_left.png') no-repeat;
-  padding-left: 3px; }
-
-.iPhoneCheckHandleRight {
-  height: 100%;
-  width: 100%;
-  padding-right: 3px;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_right.png') no-repeat right 0; }
-
-.iPhoneCheckHandleCenter {
-  height: 100%;
-  width: 100%;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/iphone-style-checkboxes/slider_center.png'); }
-
-.iOSCheckContainer {
-  position: relative;
-  height: 27px;
-  cursor: pointer;
-  overflow: hidden; }
-  .iOSCheckContainer input {
- position: absolute;
- top: 5px;
- left: 30px;
- filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
- opacity: 0; }
-  .iOSCheckContainer label {
- white-space: nowrap;
- font-size: 17px;
- line-height: 17px;
- font-weight: bold;
- font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
- cursor: pointer;
- display: block;
- height: 27px;
- position: absolute;
- width: auto;
- top: 0;
- padding-top: 5px;
- overflow: hidden; }
-  .iOSCheckContainer, .iOSCheckContainer label {
- user-select: none;
- -moz-user-select: none;
- -khtml-user-select: none; }
-
-.iOSCheckDisabled {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5; }
-
-label.iOSCheckLabelOn {
-  color: white;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/on.png') no-repeat;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
-  left: 0;
-  padding-top: 5px; }
-label.iOSCheckLabelOn span {
- padding-left: 8px; }
-label.iOSCheckLabelOff {
-  color: #8b8b8b;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/off.png') no-repeat right 0;
-  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
-  text-align: right;
-  right: 0; }
-  label.iOSCheckLabelOff span {
- padding-right: 8px; }
-
-.iOSCheckHandle {
-  display: block;
-  height: 27px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_left.png') no-repeat;
-  padding-left: 3px; }
-
-.iOSCheckHandleRight {
-  height: 100%;
-  width: 100%;
-  padding-right: 3px;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_right.png') no-repeat right 0; }
-
-.iOSCheckHandleCenter {
-  height: 100%;
-  width: 100%;
-  background: url('https://huementui.s3.amazonaws.com/cdn/1/skin/li3/imgs/ios-style-checkboxes/slider_center.png'); }
-
 /************************************************ [S04] FaceBox Modal [subtle theme] */
-#facebox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  text-align: left;
+
+#facebox h1, #facebox h2 {
+	text-shadow:-1px -1px 1px #e0e0e0;
+	font-weight:bold;
+	color:#1b1b1b;
 }
 
 #facebox .popup {
-  position:relative;
- color: #333;
-  background:#f5f5f5;
-  border: 3px #141414 solid ;
-  overflow: auto;
-  -moz-box-shadow: 2px 2px 12px rgba(0,0,0,.15);
-  -webkit-box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
-  box-shadow: 2px 2px 12px rgba(0,0,0,.15);
-  font-size: 1.2em;
-  line-height: 1.5em;
-  text-align: left;
-  margin: 5px auto 10px auto;
-
-
-  position:relative;
-  display:block;
  
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  border-radius:5px;
+  color: #1b1b1b;
+  background:#f7f7f7;
+  border: 2px #555555 solid ;
+ 
+  -moz-box-shadow: 2px 2px 8px rgba(0,0,0,.15);
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 8px rgba(0,0,0,.15);
 
- width:100%;
- padding:0;
- min-width:820px;
- max-width: 1080px;
 } 
-@media screen and (max-width: 767px) {
- #facebox .popup {
-  min-width:100% !important;
-  max-width: 100% !important;
-  width:100% !important;
- }
-}
+
 #facebox .content {
- margin:0;
-  display:table;
-  width:100%;
- -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  border-radius:3px;
-  padding: 10px 10px 10px 10px;
-  background: #f3f3f3;
+  background: #f7f7f7;
 }
 #facebox .content p {
  color: #0d0d0d;
- line-height: 1.5em;
 }
 #facebox .content a {
- color: #333;
- padding: .45em 0.75em 0 0.75em;
-}
-#facebox .content > p:first-child{
-  margin-top:0;
-}
-
-#facebox .content > p:last-child{
-  margin-bottom:0;
-}
-
-#facebox .close{
-  position:absolute;
-  top:5px;
-  right:5px;
-  padding:0 5px 3px 5px;
-  background:#f3f3f3;
-}
-
-#facebox .close img{
-  opacity:0.6;
-}
-
-#facebox .close:hover img{
-  opacity:1.0;
-}
-
-#facebox .loading {
-  text-align: center;
-}
-
-#facebox .image {
-  text-align: center;
-}
-
-#facebox img {
-  border: 0;
-  /*margin: 0;*/
-}
-
-#facebox_overlay {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  height:100%;
-  width:100%;
-}
-
-.facebox_hide {
-  z-index:-100;
+ color: #0098DF;
 }
 
 .facebox_overlayBG {
-  background-color: #000;
+  background-color: #000000;
   z-index: 99;
 }
 /************************************************ [S05] TipTip black theme */
@@ -1113,17 +925,14 @@ label.iOSCheckLabelOff {
 
 #tiptip_content {
  font-size: 14px;
- color: #FFF;
+ color: #F7F7F7;
  padding: .5em 1em;
  margin: 0;
- border: 1px solid #e5e5e5;
+ background-color:#141414;
+ border: 1px solid #e6e6e6;
  text-decoration: none;
- -moz-border-radius: 4px;
- -webkit-border-radius: 4px;
- border-radius: 4px;
- -moz-box-shadow: 0 0 6px rgba(0,0,0,.1);
- -webkit-box-shadow: 0 0 6px rgba(0,0,0,.1);
- box-shadow: 0 0 6px rgba(0,0,0,.1);
+ -moz-border-radius: 2px;
+ border-radius: 2px;
 }
 
 #tiptip_arrow, #tiptip_arrow_inner {
@@ -1227,51 +1036,25 @@ font-family: futura, 'gill sans', verdana, helvetica, arial;}
    -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
 }
 
-.snowWhite {
- background: #eee;
- background-image: linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+.card {
+background: #F6F6F6;
+background-color: #F6F6F6;
+border: 1px solid #E6E6E6;
+width: 95%;
+margin: 5px auto 5px auto;
+display: block;
+position: relative;
+padding-left: 10px;
+padding-right: 10px;
 }
-
-.evilWitch {
- background: #000000; /* Old browsers */
- /* IE9 SVG, needs conditional override of 'filter' to 'none' */
- background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDIxMWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
- background: -moz-linear-gradient(top,  #000000 0%, #1d211f 100%); /* FF3.6+ */
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#1d211f)); /* Chrome,Safari4+ */
- background: -webkit-linear-gradient(top,  #000000 0%,#1d211f 100%); /* Chrome10+,Safari5.1+ */
- background: -o-linear-gradient(top,  #000000 0%,#1d211f 100%); /* Opera 11.10+ */
- background: -ms-linear-gradient(top,  #000000 0%,#1d211f 100%); /* IE10+ */
- background: linear-gradient(to bottom,  #000000 0%,#1d211f 100%); /* W3C */
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1d211f',GradientType=0 ); /* IE6-8 */
- 
- 
- box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.7);
+.card p {
+	padding:5px;line-height:1.6em;font-size:1.2em;color:#666666;
 }
-
-.lookSharp {
- border: 1px inset #B6B6B6; font-weight: normal; 
- background: rgb(138, 138, 138);
- background: -webkit-gradient(
- linear,
- left bottom,
- left top,
- color-stop(1, rgb(138, 138, 138)),
- color-stop(0, rgb(199, 199, 199))
- );
- background: -moz-linear-gradient(
-  center top,
-  rgb(138, 138, 138),
-  rgb(199, 199, 199)
- );
- -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
- -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
- -moz-border-radius: 5px;
- border-radius: 5px;
+.card a {
+	color:#06e0ff;
+}
+.card a:hover, .card a:active, .card a:visited {
+	color:#eb2aee!important;
 }
 
 /* Text Effects */
@@ -1285,16 +1068,6 @@ font-family: futura, 'gill sans', verdana, helvetica, arial;}
  text-shadow: -1px 1px 1px #999;
  font-weight:bold;
  text-align:left;
-}
-
-.anaglyphic {
- text-align: center;
- font-family:Avantgarde, sans-serif !important;
- text-transform: uppercase;
- font-size:100px;
- color: rgba(26, 255, 0, 0.6) !important;
- text-shadow: 6px 6px 0 rgba(255, 0, 0, 0.6);
- font-weight: bold;
 }
 
 .textShadow {
@@ -1316,7 +1089,7 @@ box-shadow: 2px 2px 4px #111;
 filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
 }
 
-.round {padding:5px;-moz-border-radius: 5px;border-radius: 5px;}
+.round { -moz-border-radius: 3px; border-radius: 3px; }
 
 .shadowRound{
 padding:5px;-moz-border-radius: 5px;border-radius: 5px;
@@ -1328,48 +1101,8 @@ box-shadow: 2px 2px 4px #111;
 /* For IE 5.5 - 7 */
 filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111');
 }
-/********************************************************************************************** [S07] HW Accordian */
-/*
-* experimental accordion 
-* change #acc to match your main container. 
-* add more enteries if you want multiple per page or multiple styles per site.
-*/
-#options {width:100%; margin:0px;padding:0; text-align:right; color:#9ac1c9}
-#options a {text-decoration:none; color:#9ac1c9}
-#options a:hover {color:#033}
 
-#acc {width:100%; list-style:none; color:#033; margin:0 auto 20px}
-#acc h3 {
- width:95%; border:1px solid #6D6D6D;font-size:1.2em; padding:5px 3px 5px 5px; font-weight:bold; 
- -webkit-border-radius: 3px;
- -moz-border-radius: 3px;
- border-radius: 3px;
- margin:2px 0 5px 2%; 
- cursor:pointer; 
- color:#2B2B2B;
- background: #eee;
- background-image: linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
- }
-#acc h3:hover {
- background: #999;
- border-color:#CCC;
- text-shadow:-1px -1px 1px #FFF;
- background-image: linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
- background-image: -o-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
- background-image: -moz-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
- background-image: -webkit-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
- background-image: -ms-linear-gradient(bottom, rgb(200,200,200) 0%, rgb(225,225,225) 100%);
- box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.7);
- }
-#acc .acc-section {overflow:hidden;}
-#acc .acc-content {width:100%; padding:0px;}
-
-/****************************** flapper girl nav menu ***********************************/
+/****************************** [S07] Accordion flapper girl nav menu ***********************************/
 .flapperStage {
 min-width: 230px;
 width:98%;
@@ -1607,6 +1340,9 @@ color:#333333;
 .clearfix {
  *zoom: 1;
 }
+.superFix {
+	position:fixed!important;
+}
 
 nav.flex {
  height: 40px;
@@ -1664,7 +1400,6 @@ nav.flex a.active-start {
 nav.flex a.navpuller {
  display: none;
 }
-
 
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 600px) {
@@ -1825,7 +1560,7 @@ nav.flex a.navpuller {
  }
 }
 @media screen and (max-width: 480px) {
- .fhead {
+ .horizontalNav-processed, .smallHide {
   display:none !important;
  }
 }

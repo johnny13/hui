@@ -34,19 +34,15 @@ DROPDOWN MENU
 button, 
 .button {
 	text-decoration: none;
-	text-shadow: 0 1px 0 #fff;
-	
 	font: bold 1em Helvetica, Arial, sans-serif;
 	color: #444;
 	line-height: 1.1em;
-	height: 18px;
-	
+	min-height: 18px;
 	display: inline-block;
 	float: left;
-	
+	cursor: pointer;
 	margin: 5px;
-	padding: 5px 6px 4px 6px;
-	
+	padding: 5px 6px 5px 6px;
 	background: #D6D6D6;
 	border: solid 1px #797979;
 	
@@ -61,10 +57,6 @@ button,
 	-moz-transition: border-color .20s;
 	-o-transition: border-color .20s;
 	transition: border-color .20s;
-}
-button {
-	height: 29px !important;
-	cursor: pointer;
 }
 
 button.left, 
@@ -156,9 +148,15 @@ button.action,
 	-o-transition: border .20s;
 	transition: border .20s;
 }
+
 button.action span.label, .button.action span.label {
 	color:#F3F3F3;
 	text-shadow:-1px -1px 1px #000;	
+}
+.button.action span.fa-icon,
+button.action span.fa-icon {
+	color: #FFF !important;
+	text-shadow: -1px -1px 1px #000!important;
 }
 button.action:hover, 
 .button.action:hover {
@@ -357,7 +355,7 @@ button.red:active .label,
 }
 
 /*------------------------------------*\
-	$BUTTON ICON
+ BUTTON ICON
 \*------------------------------------*/
 .huicon, .ddm span.icon, 
 button span.icon, 
@@ -390,10 +388,21 @@ button:hover span.icon,
 	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-hue.png");
 }
 
+button span.label-2x, .button span.label-2x {
+	font-size: 2.0em!important;
+	line-height:1.1em!important;
+	overflow:visible!important;
+}
 
+
+button span.label-3x, .button span.label-3x {
+	font-size: 2.3em!important;
+	line-height:1.3em!important;
+	overflow:visible!important;
+}
 
 /*------------------------------------*\
-	$ICONS
+	Sprite Icons
 \*------------------------------------*/
 
 /* Sprite Row 1 */
@@ -720,6 +729,14 @@ div.dropdown-slider .ddm:active {
 }
 div.dropdown-slider .ddm:last-child {
 	border-bottom: none;
+}
+.full_buttton {
+	width: 100%;
+	float: none;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	text-align: center !important;
 }
 /* end buttons */
 

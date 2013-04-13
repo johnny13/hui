@@ -1,4 +1,4 @@
-/*! huement user interface - v1.13.5 - 2013-02-26
+/*! huement user interface - v1.13.6 - 2013-04-13
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
@@ -1206,6 +1206,222 @@ function Hammer(element, options, undefined)
         };
     });
 }(jQuery));
+/* 
+* customized and minified version of History.js
+*
+* https://github.com/browserstate/history.js
+* 
+* this makes setting ?get=value URLs with jquery a snap!
+* 
+*/
+
+/* 
+https://raw.github.com/browserstate/history.js/master/README.md
+
+Welcome to History.js (v1.7.1 - October 4 2011)
+==================
+
+This project is the successor of [jQuery History](http://balupton.com/projects/jquery-history), it aims to:
+
+- Follow the [HTML5 History API](https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history) as much as possible
+- Provide a cross-compatible experience for all HTML5 Browsers (they all implement the HTML5 History API a little bit differently causing different behaviours and sometimes bugs - History.js fixes this ensuring the experience is as expected / the same / great throughout the HTML5 browsers)
+- Provide a backwards-compatible experience for all HTML4 Browsers using a hash-fallback (including continued support for the HTML5 History API's `data`, `title`, `pushState` and `replaceState`) with the option to [remove HTML4 support if it is not right for your application](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+- Provide a forwards-compatible experience for HTML4 States to HTML5 States (so if a hash-fallbacked url is accessed by a HTML5 browser it is naturally transformed into its non-hashed url equivalent)
+- Provide support for as many javascript frameworks as possible via adapters; especially [jQuery](http://jquery.com/), [MooTools](http://mootools.net/), [Prototype](http://www.prototypejs.org/) and [Zepto](http://zeptojs.com/)
+
+## Usage
+
+### Instant
+
+To ajaxify your entire website with the HTML5 History API, History.js and jQuery the [Ajaxify Script](https://github.com/browserstate/ajaxify) is all you need. It's that easy.
+
+
+### Working with History.js directly
+
+``` javascript
+(function(window,undefined){
+
+	// Prepare
+	var History = window.History; // Note: We are using a capital H instead of a lower h
+	if ( !History.enabled ) {
+		 // History.js is disabled for this browser.
+		 // This is because we can optionally choose to support HTML4 browsers or not.
+		return false;
+	}
+
+	// Bind to StateChange Event
+	History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+		var State = History.getState(); // Note: We are using History.getState() instead of event.state
+		History.log(State.data, State.title, State.url);
+	});
+
+	// Change our States
+	History.pushState({state:1}, "State 1", "?state=1"); // logs {state:1}, "State 1", "?state=1"
+	History.pushState({state:2}, "State 2", "?state=2"); // logs {state:2}, "State 2", "?state=2"
+	History.replaceState({state:3}, "State 3", "?state=3"); // logs {state:3}, "State 3", "?state=3"
+	History.pushState(null, null, "?state=4"); // logs {}, '', "?state=4"
+	History.back(); // logs {state:3}, "State 3", "?state=3"
+	History.back(); // logs {state:1}, "State 1", "?state=1"
+	History.back(); // logs {}, "Home Page", "?"
+	History.go(2); // logs {state:3}, "State 3", "?state=3"
+
+})(window);
+```
+
+
+### How would the above operations look in a HTML5 Browser?
+
+1. www.mysite.com
+1. www.mysite.com/?state=1
+1. www.mysite.com/?state=2
+1. www.mysite.com/?state=3
+1. www.mysite.com/?state=4
+1. www.mysite.com/?state=3
+1. www.mysite.com/?state=1
+1. www.mysite.com
+1. www.mysite.com/?state=3
+
+> Note: These urls also work in HTML4 browsers and Search Engines. So no need for the hashbang (`#!`) fragment-identifier that google ["recommends"](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling).
+
+### How would they look in a HTML4 Browser?
+
+1. www.mysite.com
+1. www.mysite.com/#?state=1&_suid=1
+1. www.mysite.com/#?state=2&_suid=2
+1. www.mysite.com/#?state=3&_suid=3
+1. www.mysite.com/#?state=4
+1. www.mysite.com/#?state=3&_suid=3
+1. www.mysite.com/#?state=1&_suid=1
+1. www.mysite.com
+1. www.mysite.com/#?state=3&_suid=3
+
+> Note 1: These urls also work in HTML5 browsers - we use `replaceState` to transform these HTML4 states into their HTML5 equivalents so the user won't even notice :-)
+>
+> Note 2: These urls will be automatically url-encoded in IE6 to prevent certain browser-specific bugs.
+>
+> Note 3: Support for HTML4 browsers (this hash fallback) is optional [- why supporting HTML4 browsers could be either good or bad based on my app's use cases](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+
+### What's the deal with the SUIDs used in the HTML4 States?
+
+- SUIDs (State Unique Identifiers) are used when we utilise a `title` and/or `data` in our state. Adding a SUID allows us to associate particular states with data and titles while keeping the urls as simple as possible (don't worry it's all tested, working and a lot smarter than I'm making it out to be).
+- If you aren't utilising `title` or `data` then we don't even include a SUID (as there is no need for it) - as seen by State 4 above :-)
+- We also shrink the urls to make sure that the smallest url will be used. For instance we will adjust `http://www.mysite.com/#http://www.mysite.com/projects/History.js` to become `http://www.mysite.com/#/projects/History.js` automatically. (again tested, working, and smarter).
+- It works with domains, subdomains, subdirectories, whatever - doesn't matter where you put it. It's smart.
+- Safari 5 will also have a SUID appended to the URL, it is entirely transparent but just a visible side-effect. It is required to fix a bug with Safari 5.
+
+### Is there a working demo?
+
+- Sure is, give it a download and navigate to the demo directory in your browser :-)
+- If you are after something a bit more adventurous than a end-user demo, open up the tests directory in your browser and editor - it'll rock your world and show all the vast use cases that History.js supports.
+
+
+## Download & Installation
+
+- Download History.js and upload it to your webserver. Download links: [tar.gz](https://github.com/browserstate/history.js/tarball/master) or [zip](https://github.com/browserstate/history.js/zipball/master)
+
+- Include History.js
+
+	- For [jQuery](http://jquery.com/) v1.3+
+
+		``` html
+		<script src="http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+		```
+
+	- For [Mootools](http://mootools.net/) v1.3+
+
+		``` html
+		<script src="http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/mootools.history.js"></script>
+		```
+
+	- For [Right.js](http://rightjs.org/) v2.2+
+
+		``` html
+		<script src="http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/right.history.js"></script>
+		```
+
+	- For [Zepto](http://zeptojs.com/) v0.5+
+
+		``` html
+		<script src="http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/zepto.history.js"></script>
+		```
+
+	- For everything else
+
+		``` html
+		<script src="http://www.yourwebsite.com/history.js/scripts/bundled/html4+html5/native.history.js"></script>
+		```
+
+> Note: If you want to only support HTML5 Browsers and not HTML4 Browsers (so no hash fallback support) then just change the `/html4+html5/` part in the urls to just `/html5/`. [Why supporting HTML4 browsers could be either good or bad based on my app's use cases](https://github.com/browserstate/history.js/wiki/Intelligent-State-Handling)
+
+
+## Get Updates
+
+- For Commit RSS/Atom Updates:
+	- You can subscribe via the [GitHub Commit Atom Feed](http://feeds.feedburner.com/historyjs)
+- For GitHub News Feed Updates:
+	- You can click the "watch" button up the top right of History.js's [GitHub Project Page](https://github.com/browserstate/history.js)
+
+
+## Get Support
+
+- History.js is maintained by people like you. If you find a bug, report it to the [GitHub Issue Tracker](https://github.com/browserstate/history.js/issues). If you've fixed a bug submit a [Pull Request](https://github.com/browserstate/history.js/pulls) and add your fork to the [Network Wiki Page](https://github.com/browserstate/history.js/wiki/Network).
+
+- If you would like paid support and trainings, or have job offers, then refer to the [Network Wiki Page](https://github.com/browserstate/history.js/wiki/Network). If you are qualified with History.js, then be sure to add your details to that page too.
+
+- If your company uses History.js on your projects, and would like to see it grow and prosper (better documentation, bugfixes, upgrades, maintenance, etc.) and would love to become a corporate sponsor then do email sponsor@bevry.me
+
+- If you would like free support for History.js, then [post your question](http://stackoverflow.com/questions/ask) on [Stackoverflow](http://stackoverflow.com/about) and be sure to use the `history.js` tag when asking your question.
+
+- If you've created a website that uses History.js, or know of one. Then be sure to add it to the [Showcase Wiki Page](https://github.com/browserstate/history.js/wiki/Showcase).
+
+- If you'd love to +1 or like this project, then be sure to tweet about it and click the "watch" button up the top of its [Project Page](https://github.com/browserstate/history.js).
+
+- For anything else, refer to the [History.js GitHub Wiki Site](https://github.com/browserstate/history.js/wiki).
+
+Thanks! every bit of help really does make a difference!
+
+
+## Browsers: Tested and Working In
+
+### HTML5 Browsers
+
+- Firefox 4+
+- Chrome 8+
+- Opera 11.5
+- Safari 5.0+
+- Safari iOS 4.3+
+
+### HTML4 Browsers
+
+- IE 6, 7, 8, 9
+- Firefox 3
+- Opera 10, 11.0
+- Safari 4
+- Safari iOS 4.2, 4.1, 4.0, 3.2
+
+
+## Exposed API
+
+### Functions
+
+- `History.pushState(data,title,url)` <br/> Pushes a new state to the browser; `data` can be null or an object, `title` can be null or a string, `url` must be a string
+- `History.replaceState(data,title,url)` <br/> Replaces the existing state with a new state to the browser; `data` can be null or an object, `title` can be null or a string, `url` must be a string
+- `History.getState()` <br/> Gets the current state of the browser, returns an object with `data`, `title` and `url`
+- `History.getHash()` <br/> Gets the current hash of the browser
+- `History.Adapter.bind(element,event,callback)` <br/> A framework independent event binder, you may either use this or your framework's native event binder.
+- `History.Adapter.trigger(element,event)` <br/> A framework independent event trigger, you may either use this or your framework's native event trigger.
+- `History.Adapter.onDomLoad(callback)` <br/> A framework independent onDomLoad binder, you may either use this or your framework's native onDomLoad binder.
+- `History.back()` <br/> Go back once through the history (same as hitting the browser's back button)
+- `History.forward()` <br/> Go forward once through the history (same as hitting the browser's forward button)
+- `History.go(X)` <br/> If X is negative go back through history X times, if X is positive go forwards through history X times
+- `History.log(...)` <br/> Logs messages to the console, the log element, and fallbacks to alert if neither of those two exist
+- `History.debug(...)` <br/> Same as `History.log` but only runs if `History.debug.enable === true`
+
+### Events
+
+- `window.onstatechange` <br/> Fired when the state of the page changes (does not include hash changes)
+- `window.onanchorchange` <br/> Fired when the anchor of the page changes (does not include state hashes)
+*/
 window.JSON||(window.JSON={}),function(){function f(a){return a<10?"0"+a:a}function quote(a){return escapable.lastIndex=0,escapable.test(a)?'"'+a.replace(escapable,function(a){var b=meta[a];return typeof b=="string"?b:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function str(a,b){var c,d,e,f,g=gap,h,i=b[a];i&&typeof i=="object"&&typeof i.toJSON=="function"&&(i=i.toJSON(a)),typeof rep=="function"&&(i=rep.call(b,a,i));switch(typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";gap+=indent,h=[];if(Object.prototype.toString.apply(i)==="[object Array]"){f=i.length;for(c=0;c<f;c+=1)h[c]=str(c,i)||"null";return e=h.length===0?"[]":gap?"[\n"+gap+h.join(",\n"+gap)+"\n"+g+"]":"["+h.join(",")+"]",gap=g,e}if(rep&&typeof rep=="object"){f=rep.length;for(c=0;c<f;c+=1)d=rep[c],typeof d=="string"&&(e=str(d,i),e&&h.push(quote(d)+(gap?": ":":")+e))}else for(d in i)Object.hasOwnProperty.call(i,d)&&(e=str(d,i),e&&h.push(quote(d)+(gap?": ":":")+e));return e=h.length===0?"{}":gap?"{\n"+gap+h.join(",\n"+gap)+"\n"+g+"}":"{"+h.join(",")+"}",gap=g,e}}"use strict",typeof Date.prototype.toJSON!="function"&&(Date.prototype.toJSON=function(a){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(a){return this.valueOf()});var JSON=window.JSON,cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;typeof JSON.stringify!="function"&&(JSON.stringify=function(a,b,c){var d;gap="",indent="";if(typeof c=="number")for(d=0;d<c;d+=1)indent+=" ";else typeof c=="string"&&(indent=c);rep=b;if(!b||typeof b=="function"||typeof b=="object"&&typeof b.length=="number")return str("",{"":a});throw new Error("JSON.stringify")}),typeof JSON.parse!="function"&&(JSON.parse=function(text,reviver){function walk(a,b){var c,d,e=a[b];if(e&&typeof e=="object")for(c in e)Object.hasOwnProperty.call(e,c)&&(d=walk(e,c),d!==undefined?e[c]=d:delete e[c]);return reviver.call(a,b,e)}var j;text=String(text),cx.lastIndex=0,cx.test(text)&&(text=text.replace(cx,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)}));if(/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return j=eval("("+text+")"),typeof reviver=="function"?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}(),function(a,b){"use strict";var c=a.History=a.History||{},d=a.jQuery;if(typeof c.Adapter!="undefined")throw new Error("History.js Adapter has already been loaded...");c.Adapter={bind:function(a,b,c){d(a).bind(b,c)},trigger:function(a,b,c){d(a).trigger(b,c)},extractEventData:function(a,c,d){var e=c&&c.originalEvent&&c.originalEvent[a]||d&&d[a]||b;return e},onDomLoad:function(a){d(a)}},typeof c.init!="undefined"&&c.init()}(window),function(a,b){"use strict";var c=a.document,d=a.setTimeout||d,e=a.clearTimeout||e,f=a.setInterval||f,g=a.History=a.History||{};if(typeof g.initHtml4!="undefined")throw new Error("History.js HTML4 Support has already been loaded...");g.initHtml4=function(){if(typeof g.initHtml4.initialized!="undefined")return!1;g.initHtml4.initialized=!0,g.enabled=!0,g.savedHashes=[],g.isLastHash=function(a){var b=g.getHashByIndex(),c;return c=a===b,c},g.saveHash=function(a){return g.isLastHash(a)?!1:(g.savedHashes.push(a),!0)},g.getHashByIndex=function(a){var b=null;return typeof a=="undefined"?b=g.savedHashes[g.savedHashes.length-1]:a<0?b=g.savedHashes[g.savedHashes.length+a]:b=g.savedHashes[a],b},g.discardedHashes={},g.discardedStates={},g.discardState=function(a,b,c){var d=g.getHashByState(a),e;return e={discardedState:a,backState:c,forwardState:b},g.discardedStates[d]=e,!0},g.discardHash=function(a,b,c){var d={discardedHash:a,backState:c,forwardState:b};return g.discardedHashes[a]=d,!0},g.discardedState=function(a){var b=g.getHashByState(a),c;return c=g.discardedStates[b]||!1,c},g.discardedHash=function(a){var b=g.discardedHashes[a]||!1;return b},g.recycleState=function(a){var b=g.getHashByState(a);return g.discardedState(a)&&delete g.discardedStates[b],!0},g.emulated.hashChange&&(g.hashChangeInit=function(){g.checkerFunction=null;var b="",d,e,h,i;return g.isInternetExplorer()?(d="historyjs-iframe",e=c.createElement("iframe"),e.setAttribute("id",d),e.style.display="none",c.body.appendChild(e),e.contentWindow.document.open(),e.contentWindow.document.close(),h="",i=!1,g.checkerFunction=function(){if(i)return!1;i=!0;var c=g.getHash()||"",d=g.unescapeHash(e.contentWindow.document.location.hash)||"";return c!==b?(b=c,d!==c&&(h=d=c,e.contentWindow.document.open(),e.contentWindow.document.close(),e.contentWindow.document.location.hash=g.escapeHash(c)),g.Adapter.trigger(a,"hashchange")):d!==h&&(h=d,g.setHash(d,!1)),i=!1,!0}):g.checkerFunction=function(){var c=g.getHash();return c!==b&&(b=c,g.Adapter.trigger(a,"hashchange")),!0},g.intervalList.push(f(g.checkerFunction,g.options.hashChangeInterval)),!0},g.Adapter.onDomLoad(g.hashChangeInit)),g.emulated.pushState&&(g.onHashChange=function(b){var d=b&&b.newURL||c.location.href,e=g.getHashByUrl(d),f=null,h=null,i=null,j;return g.isLastHash(e)?(g.busy(!1),!1):(g.doubleCheckComplete(),g.saveHash(e),e&&g.isTraditionalAnchor(e)?(g.Adapter.trigger(a,"anchorchange"),g.busy(!1),!1):(f=g.extractState(g.getFullUrl(e||c.location.href,!1),!0),g.isLastSavedState(f)?(g.busy(!1),!1):(h=g.getHashByState(f),j=g.discardedState(f),j?(g.getHashByIndex(-2)===g.getHashByState(j.forwardState)?g.back(!1):g.forward(!1),!1):(g.pushState(f.data,f.title,f.url,!1),!0))))},g.Adapter.bind(a,"hashchange",g.onHashChange),g.pushState=function(b,d,e,f){if(g.getHashByUrl(e))throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");if(f!==!1&&g.busy())return g.pushQueue({scope:g,callback:g.pushState,args:arguments,queue:f}),!1;g.busy(!0);var h=g.createStateObject(b,d,e),i=g.getHashByState(h),j=g.getState(!1),k=g.getHashByState(j),l=g.getHash();return g.storeState(h),g.expectedStateId=h.id,g.recycleState(h),g.setTitle(h),i===k?(g.busy(!1),!1):i!==l&&i!==g.getShortUrl(c.location.href)?(g.setHash(i,!1),!1):(g.saveState(h),g.Adapter.trigger(a,"statechange"),g.busy(!1),!0)},g.replaceState=function(a,b,c,d){if(g.getHashByUrl(c))throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");if(d!==!1&&g.busy())return g.pushQueue({scope:g,callback:g.replaceState,args:arguments,queue:d}),!1;g.busy(!0);var e=g.createStateObject(a,b,c),f=g.getState(!1),h=g.getStateByIndex(-2);return g.discardState(f,e,h),g.pushState(e.data,e.title,e.url,!1),!0}),g.emulated.pushState&&g.getHash()&&!g.emulated.hashChange&&g.Adapter.onDomLoad(function(){g.Adapter.trigger(a,"hashchange")})},typeof g.init!="undefined"&&g.init()}(window),function(a,b){"use strict";var c=a.console||b,d=a.document,e=a.navigator,f=a.sessionStorage||!1,g=a.setTimeout,h=a.clearTimeout,i=a.setInterval,j=a.clearInterval,k=a.JSON,l=a.alert,m=a.History=a.History||{},n=a.history;k.stringify=k.stringify||k.encode,k.parse=k.parse||k.decode;if(typeof m.init!="undefined")throw new Error("History.js Core has already been loaded...");m.init=function(){return typeof m.Adapter=="undefined"?!1:(typeof m.initCore!="undefined"&&m.initCore(),typeof m.initHtml4!="undefined"&&m.initHtml4(),!0)},m.initCore=function(){if(typeof m.initCore.initialized!="undefined")return!1;m.initCore.initialized=!0,m.options=m.options||{},m.options.hashChangeInterval=m.options.hashChangeInterval||100,m.options.safariPollInterval=m.options.safariPollInterval||500,m.options.doubleCheckInterval=m.options.doubleCheckInterval||500,m.options.storeInterval=m.options.storeInterval||1e3,m.options.busyDelay=m.options.busyDelay||250,m.options.debug=m.options.debug||!1,m.options.initialTitle=m.options.initialTitle||d.title,m.intervalList=[],m.clearAllIntervals=function(){var a,b=m.intervalList;if(typeof b!="undefined"&&b!==null){for(a=0;a<b.length;a++)j(b[a]);m.intervalList=null}},m.debug=function(){(m.options.debug||!1)&&m.log.apply(m,arguments)},m.log=function(){var a=typeof c!="undefined"&&typeof c.log!="undefined"&&typeof c.log.apply!="undefined",b=d.getElementById("log"),e,f,g,h,i;a?(h=Array.prototype.slice.call(arguments),e=h.shift(),typeof c.debug!="undefined"?c.debug.apply(c,[e,h]):c.log.apply(c,[e,h])):e="\n"+arguments[0]+"\n";for(f=1,g=arguments.length;f<g;++f){i=arguments[f];if(typeof i=="object"&&typeof k!="undefined")try{i=k.stringify(i)}catch(j){}e+="\n"+i+"\n"}return b?(b.value+=e+"\n-----\n",b.scrollTop=b.scrollHeight-b.clientHeight):a||l(e),!0},m.getInternetExplorerMajorVersion=function(){var a=m.getInternetExplorerMajorVersion.cached=typeof m.getInternetExplorerMajorVersion.cached!="undefined"?m.getInternetExplorerMajorVersion.cached:function(){var a=3,b=d.createElement("div"),c=b.getElementsByTagName("i");while((b.innerHTML="<!--[if gt IE "+ ++a+"]><i></i><![endif]-->")&&c[0]);return a>4?a:!1}();return a},m.isInternetExplorer=function(){var a=m.isInternetExplorer.cached=typeof m.isInternetExplorer.cached!="undefined"?m.isInternetExplorer.cached:Boolean(m.getInternetExplorerMajorVersion());return a},m.emulated={pushState:!Boolean(a.history&&a.history.pushState&&a.history.replaceState&&!/ Mobile\/([1-7][a-z]|(8([abcde]|f(1[0-8]))))/i.test(e.userAgent)&&!/AppleWebKit\/5([0-2]|3[0-2])/i.test(e.userAgent)),hashChange:Boolean(!("onhashchange"in a||"onhashchange"in d)||m.isInternetExplorer()&&m.getInternetExplorerMajorVersion()<8)},m.enabled=!m.emulated.pushState,m.bugs={setHash:Boolean(!m.emulated.pushState&&e.vendor==="Apple Computer, Inc."&&/AppleWebKit\/5([0-2]|3[0-3])/.test(e.userAgent)),safariPoll:Boolean(!m.emulated.pushState&&e.vendor==="Apple Computer, Inc."&&/AppleWebKit\/5([0-2]|3[0-3])/.test(e.userAgent)),ieDoubleCheck:Boolean(m.isInternetExplorer()&&m.getInternetExplorerMajorVersion()<8),hashEscape:Boolean(m.isInternetExplorer()&&m.getInternetExplorerMajorVersion()<7)},m.isEmptyObject=function(a){for(var b in a)return!1;return!0},m.cloneObject=function(a){var b,c;return a?(b=k.stringify(a),c=k.parse(b)):c={},c},m.getRootUrl=function(){var a=d.location.protocol+"//"+(d.location.hostname||d.location.host);if(d.location.port||!1)a+=":"+d.location.port;return a+="/",a},m.getBaseHref=function(){var a=d.getElementsByTagName("base"),b=null,c="";return a.length===1&&(b=a[0],c=b.href.replace(/[^\/]+$/,"")),c=c.replace(/\/+$/,""),c&&(c+="/"),c},m.getBaseUrl=function(){var a=m.getBaseHref()||m.getBasePageUrl()||m.getRootUrl();return a},m.getPageUrl=function(){var a=m.getState(!1,!1),b=(a||{}).url||d.location.href,c;return c=b.replace(/\/+$/,"").replace(/[^\/]+$/,function(a,b,c){return/\./.test(a)?a:a+"/"}),c},m.getBasePageUrl=function(){var a=d.location.href.replace(/[#\?].*/,"").replace(/[^\/]+$/,function(a,b,c){return/[^\/]$/.test(a)?"":a}).replace(/\/+$/,"")+"/";return a},m.getFullUrl=function(a,b){var c=a,d=a.substring(0,1);return b=typeof b=="undefined"?!0:b,/[a-z]+\:\/\//.test(a)||(d==="/"?c=m.getRootUrl()+a.replace(/^\/+/,""):d==="#"?c=m.getPageUrl().replace(/#.*/,"")+a:d==="?"?c=m.getPageUrl().replace(/[\?#].*/,"")+a:b?c=m.getBaseUrl()+a.replace(/^(\.\/)+/,""):c=m.getBasePageUrl()+a.replace(/^(\.\/)+/,"")),c.replace(/\#$/,"")},m.getShortUrl=function(a){var b=a,c=m.getBaseUrl(),d=m.getRootUrl();return m.emulated.pushState&&(b=b.replace(c,"")),b=b.replace(d,"/"),m.isTraditionalAnchor(b)&&(b="./"+b),b=b.replace(/^(\.\/)+/g,"./").replace(/\#$/,""),b},m.store={},m.idToState=m.idToState||{},m.stateToId=m.stateToId||{},m.urlToId=m.urlToId||{},m.storedStates=m.storedStates||[],m.savedStates=m.savedStates||[],m.normalizeStore=function(){m.store.idToState=m.store.idToState||{},m.store.urlToId=m.store.urlToId||{},m.store.stateToId=m.store.stateToId||{}},m.getState=function(a,b){typeof a=="undefined"&&(a=!0),typeof b=="undefined"&&(b=!0);var c=m.getLastSavedState();return!c&&b&&(c=m.createStateObject()),a&&(c=m.cloneObject(c),c.url=c.cleanUrl||c.url),c},m.getIdByState=function(a){var b=m.extractId(a.url),c;if(!b){c=m.getStateString(a);if(typeof m.stateToId[c]!="undefined")b=m.stateToId[c];else if(typeof m.store.stateToId[c]!="undefined")b=m.store.stateToId[c];else{for(;;){b=(new Date).getTime()+String(Math.random()).replace(/\D/g,"");if(typeof m.idToState[b]=="undefined"&&typeof m.store.idToState[b]=="undefined")break}m.stateToId[c]=b,m.idToState[b]=a}}return b},m.normalizeState=function(a){var b,c;if(!a||typeof a!="object")a={};if(typeof a.normalized!="undefined")return a;if(!a.data||typeof a.data!="object")a.data={};b={},b.normalized=!0,b.title=a.title||"",b.url=m.getFullUrl(m.unescapeString(a.url||d.location.href)),b.hash=m.getShortUrl(b.url),b.data=m.cloneObject(a.data),b.id=m.getIdByState(b),b.cleanUrl=b.url.replace(/\??\&_suid.*/,""),b.url=b.cleanUrl,c=!m.isEmptyObject(b.data);if(b.title||c)b.hash=m.getShortUrl(b.url).replace(/\??\&_suid.*/,""),/\?/.test(b.hash)||(b.hash+="?"),b.hash+="&_suid="+b.id;return b.hashedUrl=m.getFullUrl(b.hash),(m.emulated.pushState||m.bugs.safariPoll)&&m.hasUrlDuplicate(b)&&(b.url=b.hashedUrl),b},m.createStateObject=function(a,b,c){var d={data:a,title:b,url:c};return d=m.normalizeState(d),d},m.getStateById=function(a){a=String(a);var c=m.idToState[a]||m.store.idToState[a]||b;return c},m.getStateString=function(a){var b,c,d;return b=m.normalizeState(a),c={data:b.data,title:a.title,url:a.url},d=k.stringify(c),d},m.getStateId=function(a){var b,c;return b=m.normalizeState(a),c=b.id,c},m.getHashByState=function(a){var b,c;return b=m.normalizeState(a),c=b.hash,c},m.extractId=function(a){var b,c,d;return c=/(.*)\&_suid=([0-9]+)$/.exec(a),d=c?c[1]||a:a,b=c?String(c[2]||""):"",b||!1},m.isTraditionalAnchor=function(a){var b=!/[\/\?\.]/.test(a);return b},m.extractState=function(a,b){var c=null,d,e;return b=b||!1,d=m.extractId(a),d&&(c=m.getStateById(d)),c||(e=m.getFullUrl(a),d=m.getIdByUrl(e)||!1,d&&(c=m.getStateById(d)),!c&&b&&!m.isTraditionalAnchor(a)&&(c=m.createStateObject(null,null,e))),c},m.getIdByUrl=function(a){var c=m.urlToId[a]||m.store.urlToId[a]||b;return c},m.getLastSavedState=function(){return m.savedStates[m.savedStates.length-1]||b},m.getLastStoredState=function(){return m.storedStates[m.storedStates.length-1]||b},m.hasUrlDuplicate=function(a){var b=!1,c;return c=m.extractState(a.url),b=c&&c.id!==a.id,b},m.storeState=function(a){return m.urlToId[a.url]=a.id,m.storedStates.push(m.cloneObject(a)),a},m.isLastSavedState=function(a){var b=!1,c,d,e;return m.savedStates.length&&(c=a.id,d=m.getLastSavedState(),e=d.id,b=c===e),b},m.saveState=function(a){return m.isLastSavedState(a)?!1:(m.savedStates.push(m.cloneObject(a)),!0)},m.getStateByIndex=function(a){var b=null;return typeof a=="undefined"?b=m.savedStates[m.savedStates.length-1]:a<0?b=m.savedStates[m.savedStates.length+a]:b=m.savedStates[a],b},m.getHash=function(){var a=m.unescapeHash(d.location.hash);return a},m.unescapeString=function(b){var c=b,d;for(;;){d=a.unescape(c);if(d===c)break;c=d}return c},m.unescapeHash=function(a){var b=m.normalizeHash(a);return b=m.unescapeString(b),b},m.normalizeHash=function(a){var b=a.replace(/[^#]*#/,"").replace(/#.*/,"");return b},m.setHash=function(a,b){var c,e,f;return b!==!1&&m.busy()?(m.pushQueue({scope:m,callback:m.setHash,args:arguments,queue:b}),!1):(c=m.escapeHash(a),m.busy(!0),e=m.extractState(a,!0),e&&!m.emulated.pushState?m.pushState(e.data,e.title,e.url,!1):d.location.hash!==c&&(m.bugs.setHash?(f=m.getPageUrl(),m.pushState(null,null,f+"#"+c,!1)):d.location.hash=c),m)},m.escapeHash=function(b){var c=m.normalizeHash(b);return c=a.escape(c),m.bugs.hashEscape||(c=c.replace(/\%21/g,"!").replace(/\%26/g,"&").replace(/\%3D/g,"=").replace(/\%3F/g,"?")),c},m.getHashByUrl=function(a){var b=String(a).replace(/([^#]*)#?([^#]*)#?(.*)/,"$2");return b=m.unescapeHash(b),b},m.setTitle=function(a){var b=a.title,c;b||(c=m.getStateByIndex(0),c&&c.url===a.url&&(b=c.title||m.options.initialTitle));try{d.getElementsByTagName("title")[0].innerHTML=b.replace("<","&lt;").replace(">","&gt;").replace(" & "," &amp; ")}catch(e){}return d.title=b,m},m.queues=[],m.busy=function(a){typeof a!="undefined"?m.busy.flag=a:typeof m.busy.flag=="undefined"&&(m.busy.flag=!1);if(!m.busy.flag){h(m.busy.timeout);var b=function(){var a,c,d;if(m.busy.flag)return;for(a=m.queues.length-1;a>=0;--a){c=m.queues[a];if(c.length===0)continue;d=c.shift(),m.fireQueueItem(d),m.busy.timeout=g(b,m.options.busyDelay)}};m.busy.timeout=g(b,m.options.busyDelay)}return m.busy.flag},m.busy.flag=!1,m.fireQueueItem=function(a){return a.callback.apply(a.scope||m,a.args||[])},m.pushQueue=function(a){return m.queues[a.queue||0]=m.queues[a.queue||0]||[],m.queues[a.queue||0].push(a),m},m.queue=function(a,b){return typeof a=="function"&&(a={callback:a}),typeof b!="undefined"&&(a.queue=b),m.busy()?m.pushQueue(a):m.fireQueueItem(a),m},m.clearQueue=function(){return m.busy.flag=!1,m.queues=[],m},m.stateChanged=!1,m.doubleChecker=!1,m.doubleCheckComplete=function(){return m.stateChanged=!0,m.doubleCheckClear(),m},m.doubleCheckClear=function(){return m.doubleChecker&&(h(m.doubleChecker),m.doubleChecker=!1),m},m.doubleCheck=function(a){return m.stateChanged=!1,m.doubleCheckClear(),m.bugs.ieDoubleCheck&&(m.doubleChecker=g(function(){return m.doubleCheckClear(),m.stateChanged||a(),!0},m.options.doubleCheckInterval)),m},m.safariStatePoll=function(){var b=m.extractState(d.location.href),c;if(!m.isLastSavedState(b))c=b;else return;return c||(c=m.createStateObject()),m.Adapter.trigger(a,"popstate"),m},m.back=function(a){return a!==!1&&m.busy()?(m.pushQueue({scope:m,callback:m.back,args:arguments,queue:a}),!1):(m.busy(!0),m.doubleCheck(function(){m.back(!1)}),n.go(-1),!0)},m.forward=function(a){return a!==!1&&m.busy()?(m.pushQueue({scope:m,callback:m.forward,args:arguments,queue:a}),!1):(m.busy(!0),m.doubleCheck(function(){m.forward(!1)}),n.go(1),!0)},m.go=function(a,b){var c;if(a>0)for(c=1;c<=a;++c)m.forward(b);else{if(!(a<0))throw new Error("History.go: History.go requires a positive or negative integer passed.");for(c=-1;c>=a;--c)m.back(b)}return m};if(m.emulated.pushState){var o=function(){};m.pushState=m.pushState||o,m.replaceState=m.replaceState||o}else m.onPopState=function(b,c){var e=!1,f=!1,g,h;return m.doubleCheckComplete(),g=m.getHash(),g?(h=m.extractState(g||d.location.href,!0),h?m.replaceState(h.data,h.title,h.url,!1):(m.Adapter.trigger(a,"anchorchange"),m.busy(!1)),m.expectedStateId=!1,!1):(e=m.Adapter.extractEventData("state",b,c)||!1,e?f=m.getStateById(e):m.expectedStateId?f=m.getStateById(m.expectedStateId):f=m.extractState(d.location.href),f||(f=m.createStateObject(null,null,d.location.href)),m.expectedStateId=!1,m.isLastSavedState(f)?(m.busy(!1),!1):(m.storeState(f),m.saveState(f),m.setTitle(f),m.Adapter.trigger(a,"statechange"),m.busy(!1),!0))},m.Adapter.bind(a,"popstate",m.onPopState),m.pushState=function(b,c,d,e){if(m.getHashByUrl(d)&&m.emulated.pushState)throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");if(e!==!1&&m.busy())return m.pushQueue({scope:m,callback:m.pushState,args:arguments,queue:e}),!1;m.busy(!0);var f=m.createStateObject(b,c,d);return m.isLastSavedState(f)?m.busy(!1):(m.storeState(f),m.expectedStateId=f.id,n.pushState(f.id,f.title,f.url),m.Adapter.trigger(a,"popstate")),!0},m.replaceState=function(b,c,d,e){if(m.getHashByUrl(d)&&m.emulated.pushState)throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");if(e!==!1&&m.busy())return m.pushQueue({scope:m,callback:m.replaceState,args:arguments,queue:e}),!1;m.busy(!0);var f=m.createStateObject(b,c,d);return m.isLastSavedState(f)?m.busy(!1):(m.storeState(f),m.expectedStateId=f.id,n.replaceState(f.id,f.title,f.url),m.Adapter.trigger(a,"popstate")),!0};if(f){try{m.store=k.parse(f.getItem("History.store"))||{}}catch(p){m.store={}}m.normalizeStore()}else m.store={},m.normalizeStore();m.Adapter.bind(a,"beforeunload",m.clearAllIntervals),m.Adapter.bind(a,"unload",m.clearAllIntervals),m.saveState(m.storeState(m.extractState(d.location.href,!0))),f&&(m.onUnload=function(){var a,b;try{a=k.parse(f.getItem("History.store"))||{}}catch(c){a={}}a.idToState=a.idToState||{},a.urlToId=a.urlToId||{},a.stateToId=a.stateToId||{};for(b in m.idToState){if(!m.idToState.hasOwnProperty(b))continue;a.idToState[b]=m.idToState[b]}for(b in m.urlToId){if(!m.urlToId.hasOwnProperty(b))continue;a.urlToId[b]=m.urlToId[b]}for(b in m.stateToId){if(!m.stateToId.hasOwnProperty(b))continue;a.stateToId[b]=m.stateToId[b]}m.store=a,m.normalizeStore(),f.setItem("History.store",k.stringify(a))},m.intervalList.push(i(m.onUnload,m.options.storeInterval)),m.Adapter.bind(a,"beforeunload",m.onUnload),m.Adapter.bind(a,"unload",m.onUnload));if(!m.emulated.pushState){m.bugs.safariPoll&&m.intervalList.push(i(m.safariStatePoll,m.options.safariPollInterval));if(e.vendor==="Apple Computer, Inc."||(e.appCodeName||"")==="Mozilla")m.Adapter.bind(a,"hashchange",function(){m.Adapter.trigger(a,"popstate")}),m.getHash()&&m.Adapter.onDomLoad(function(){m.Adapter.trigger(a,"hashchange")})}},m.init()}(window)
 /************************************************ [S02] Notefy */
 /* notefy ver 0.2.0
@@ -1932,295 +2148,6 @@ jQuery.fn.selectOptions = function(value) {
  );
  return this;
 };
-
-
-/* iOS Style Checkbox */
-(function() {
-  var iOSCheckbox;
-  var __slice = Array.prototype.slice;
-  iOSCheckbox = (function() {
-    function iOSCheckbox(elem, options) {
-      var key, opts, value;
-      this.elem = jQuery(elem);
-      opts = jQuery.extend({}, iOSCheckbox.defaults, options);
-      for (key in opts) {
-        value = opts[key];
-        this[key] = value;
-      }
-      this.elem.data(this.dataName, this);
-      this.wrapCheckboxWithDivs();
-      this.attachEvents();
-      this.disableTextSelection();
-      if (this.resizeHandle) {
-        this.optionallyResize('handle');
-      }
-      if (this.resizeContainer) {
-        this.optionallyResize('container');
-      }
-      this.initialPosition();
-    }
-    iOSCheckbox.prototype.isDisabled = function() {
-      return this.elem.is(':disabled');
-    };
-    iOSCheckbox.prototype.wrapCheckboxWithDivs = function() {
-      this.elem.wrap("<div class='" + this.containerClass + "' />");
-      this.container = this.elem.parent();
-      this.offLabel = jQuery("<label class='" + this.labelOffClass + "'>\n  <span>" + this.uncheckedLabel + "</span>\n</label>").appendTo(this.container);
-      this.offSpan = this.offLabel.children('span');
-      this.onLabel = jQuery("<label class='" + this.labelOnClass + "'>\n  <span>" + this.checkedLabel + "</span>\n</label>").appendTo(this.container);
-      this.onSpan = this.onLabel.children('span');
-      return this.handle = jQuery("<div class='" + this.handleClass + "'>\n  <div class='" + this.handleRightClass + "'>\n    <div class='" + this.handleCenterClass + "' />\n  </div>\n</div>").appendTo(this.container);
-    };
-    iOSCheckbox.prototype.disableTextSelection = function() {
-      //if (jQuery.browser.msie) {
-			if(jQuery(document).width() <= 800){
-        return jQuery([this.handle, this.offLabel, this.onLabel, this.container]).attr("unselectable", "on");
-      }
-    };
-    iOSCheckbox.prototype._getDimension = function(elem, dimension) {
-      if (jQuery.fn.actual != null) {
-        return elem.actual(dimension);
-      } else {
-        return elem[dimension]();
-      }
-    };
-    iOSCheckbox.prototype.optionallyResize = function(mode) {
-      var newWidth, offLabelWidth, onLabelWidth;
-      onLabelWidth = this._getDimension(this.onLabel, "width");
-      offLabelWidth = this._getDimension(this.offLabel, "width");
-      if (mode === "container") {
-        newWidth = onLabelWidth > offLabelWidth ? onLabelWidth : offLabelWidth;
-        newWidth += this._getDimension(this.handle, "width") + this.handleMargin;
-        return this.container.css({
-          width: newWidth
-        });
-      } else {
-        newWidth = onLabelWidth > offLabelWidth ? onLabelWidth : offLabelWidth;
-        return this.handle.css({
-          width: newWidth
-        });
-      }
-    };
-    iOSCheckbox.prototype.onMouseDown = function(event) {
-      var x;
-      event.preventDefault();
-      if (this.isDisabled()) {
-        return;
-      }
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      iOSCheckbox.currentlyClicking = this.handle;
-      iOSCheckbox.dragStartPosition = x;
-      return iOSCheckbox.handleLeftOffset = parseInt(this.handle.css('left'), 10) || 0;
-    };
-    iOSCheckbox.prototype.onDragMove = function(event, x) {
-      var newWidth, p;
-      if (iOSCheckbox.currentlyClicking !== this.handle) {
-        return;
-      }
-      p = (x + iOSCheckbox.handleLeftOffset - iOSCheckbox.dragStartPosition) / this.rightSide;
-      if (p < 0) {
-        p = 0;
-      }
-      if (p > 1) {
-        p = 1;
-      }
-      newWidth = p * this.rightSide;
-      this.handle.css({
-        left: newWidth
-      });
-      this.onLabel.css({
-        width: newWidth + this.handleRadius
-      });
-      this.offSpan.css({
-        marginRight: -newWidth
-      });
-      return this.onSpan.css({
-        marginLeft: -(1 - p) * this.rightSide
-      });
-    };
-    iOSCheckbox.prototype.onDragEnd = function(event, x) {
-      var p;
-      if (iOSCheckbox.currentlyClicking !== this.handle) {
-        return;
-      }
-      if (this.isDisabled()) {
-        return;
-      }
-      if (iOSCheckbox.dragging) {
-        p = (x - iOSCheckbox.dragStartPosition) / this.rightSide;
-        this.elem.prop('checked', p >= 0.5);
-      } else {
-        this.elem.prop('checked', !this.elem.prop('checked'));
-      }
-      iOSCheckbox.currentlyClicking = null;
-      iOSCheckbox.dragging = null;
-      return this.didChange();
-    };
-    iOSCheckbox.prototype.refresh = function() {
-      return this.didChange();
-    };
-    iOSCheckbox.prototype.didChange = function() {
-      var new_left;
-      if (typeof this.onChange === "function") {
-        this.onChange(this.elem, this.elem.prop('checked'));
-      }
-      if (this.isDisabled()) {
-        this.container.addClass(this.disabledClass);
-        return false;
-      } else {
-        this.container.removeClass(this.disabledClass);
-      }
-      new_left = this.elem.prop('checked') ? this.rightSide : 0;
-      this.handle.animate({
-        left: new_left
-      }, this.duration);
-      this.onLabel.animate({
-        width: new_left + this.handleRadius
-      }, this.duration);
-      this.offSpan.animate({
-        marginRight: -new_left
-      }, this.duration);
-      return this.onSpan.animate({
-        marginLeft: new_left - this.rightSide
-      }, this.duration);
-    };
-    iOSCheckbox.prototype.attachEvents = function() {
-      var localMouseMove, localMouseUp, self;
-      self = this;
-      localMouseMove = function(event) {
-        return self.onGlobalMove.apply(self, arguments);
-      };
-      localMouseUp = function(event) {
-        self.onGlobalUp.apply(self, arguments);
-        jQuery(document).unbind('mousemove touchmove', localMouseMove);
-        return jQuery(document).unbind('mouseup touchend', localMouseUp);
-      };
-      this.elem.change(function() {
-        return self.refresh();
-      });
-      return this.container.bind('mousedown touchstart', function(event) {
-        self.onMouseDown.apply(self, arguments);
-        jQuery(document).bind('mousemove touchmove', localMouseMove);
-        return jQuery(document).bind('mouseup touchend', localMouseUp);
-      });
-    };
-    iOSCheckbox.prototype.initialPosition = function() {
-      var containerWidth, offset;
-      containerWidth = this._getDimension(this.container, "width");
-      this.offLabel.css({
-        width: containerWidth - this.containerRadius
-      });
-      offset = this.containerRadius + 1;
-      if (jQuery(document).width() <= 800) {
-        offset -= 3;
-      }
-      this.rightSide = containerWidth - this._getDimension(this.handle, "width") - offset;
-      if (this.elem.is(':checked')) {
-        this.handle.css({
-          left: this.rightSide
-        });
-        this.onLabel.css({
-          width: this.rightSide + this.handleRadius
-        });
-        this.offSpan.css({
-          marginRight: -this.rightSide
-        });
-      } else {
-        this.onLabel.css({
-          width: 0
-        });
-        this.onSpan.css({
-          marginLeft: -this.rightSide
-        });
-      }
-      if (this.isDisabled()) {
-        return this.container.addClass(this.disabledClass);
-      }
-    };
-    iOSCheckbox.prototype.onGlobalMove = function(event) {
-      var x;
-      if (!(!this.isDisabled() && iOSCheckbox.currentlyClicking)) {
-        return;
-      }
-      event.preventDefault();
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      if (!iOSCheckbox.dragging && (Math.abs(iOSCheckbox.dragStartPosition - x) > this.dragThreshold)) {
-        iOSCheckbox.dragging = true;
-      }
-      return this.onDragMove(event, x);
-    };
-    iOSCheckbox.prototype.onGlobalUp = function(event) {
-      var x;
-      if (!iOSCheckbox.currentlyClicking) {
-        return;
-      }
-      event.preventDefault();
-      x = event.pageX || event.originalEvent.changedTouches[0].pageX;
-      this.onDragEnd(event, x);
-      return false;
-    };
-    iOSCheckbox.defaults = {
-      duration: 200,
-      checkedLabel: 'ON',
-      uncheckedLabel: 'OFF',
-      resizeHandle: true,
-      resizeContainer: true,
-      disabledClass: 'iPhoneCheckDisabled',
-      containerClass: 'iPhoneCheckContainer',
-      labelOnClass: 'iPhoneCheckLabelOn',
-      labelOffClass: 'iPhoneCheckLabelOff',
-      handleClass: 'iPhoneCheckHandle',
-      handleCenterClass: 'iPhoneCheckHandleCenter',
-      handleRightClass: 'iPhoneCheckHandleRight',
-      dragThreshold: 5,
-      handleMargin: 15,
-      handleRadius: 4,
-      containerRadius: 5,
-      dataName: "iphoneStyle",
-      onChange: function() {}
-    };
-    return iOSCheckbox;
-  })();
-  jQuery.iphoneStyle = this.iOSCheckbox = iOSCheckbox;
-  jQuery.fn.iphoneStyle = function() {
-    var args, checkbox, dataName, existingControl, method, params, _i, _len, _ref, _ref2, _ref3, _ref4;
-    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    dataName = (_ref = (_ref2 = args[0]) != null ? _ref2.dataName : void 0) != null ? _ref : iOSCheckbox.defaults.dataName;
-    _ref3 = this.filter(':checkbox');
-    for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-      checkbox = _ref3[_i];
-      existingControl = jQuery(checkbox).data(dataName);
-      if (existingControl != null) {
-        method = args[0], params = 2 <= args.length ? __slice.call(args, 1) : [];
-        if ((_ref4 = existingControl[method]) != null) {
-          _ref4.apply(existingControl, params);
-        }
-      } else {
-        new iOSCheckbox(checkbox, args[0]);
-      }
-    }
-    return this;
-  };
-  jQuery.fn.iOSCheckbox = function(options) {
-    var opts;
-    if (options == null) {
-      options = {};
-    }
-    opts = jQuery.extend({}, options, {
-      resizeHandle: false,
-      disabledClass: 'iOSCheckDisabled',
-      containerClass: 'iOSCheckContainer',
-      labelOnClass: 'iOSCheckLabelOn',
-      labelOffClass: 'iOSCheckLabelOff',
-      handleClass: 'iOSCheckHandle',
-      handleCenterClass: 'iOSCheckHandleCenter',
-      handleRightClass: 'iOSCheckHandleRight',
-      dataName: 'iOSCheckbox'
-    });
-    return this.iphoneStyle(opts);
-  };
-}).call(this);
-
 /*!
  * jqPagination, a jQuery pagination plugin (obviously)
  *
@@ -2624,6 +2551,206 @@ if (!console) {
 
 }
 
+/************************************************ [S05] TipTip */
+
+ /*
+ * TipTip
+ * Copyright 2010 Drew Wilson
+ * www.drewwilson.com
+ * code.drewwilson.com/entry/tiptip-jquery-plugin
+ *
+ * Version 1.3   -   Updated: Mar. 23, 2010
+ *
+ * This Plug-In will create a custom tooltip to replace the default
+ * browser tooltip. It is extremely lightweight and very smart in
+ * that it detects the edges of the browser window and will make sure
+ * the tooltip stays within the current window size. As a result the
+ * tooltip will adjust itself to be displayed above, below, to the left 
+ * or to the right depending on what is necessary to stay within the
+ * browser window. It is completely customizable as well via CSS.
+ *
+ * This TipTip jQuery plug-in is dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+
+(function($){
+ jQuery.fn.tipTip = function(options) {
+  var defaults = { 
+   activation: "hover",
+   keepAlive: false,
+   maxWidth: "200px",
+   edgeOffset: 3,
+   defaultPosition: "bottom",
+   delay: 400,
+   fadeIn: 200,
+   fadeOut: 200,
+   attribute: "title",
+   content: false, // HTML or String to fill TipTIp with
+     enter: function(){},
+     exit: function(){}
+    };
+   var opts = jQuery.extend(defaults, options);
+   
+   var tiptip_holder = "";
+   var tiptip_content = "";
+   var tiptip_arrow = "";
+
+   // Setup tip tip elements and render them to the DOM
+   if(jQuery("#tiptip_holder").length <= 0){
+   tiptip_holder = jQuery('<div id="tiptip_holder" style="max-width:'+ opts.maxWidth +';"></div>');
+   tiptip_content = jQuery('<div id="tiptip_content"></div>');
+   tiptip_arrow = jQuery('<div id="tiptip_arrow"></div>');
+   jQuery("body").append(tiptip_holder.html(tiptip_content).prepend(tiptip_arrow.html('<div id="tiptip_arrow_inner"></div>')));
+  } else {
+   tiptip_holder = jQuery("#tiptip_holder");
+   tiptip_content = jQuery("#tiptip_content");
+   tiptip_arrow = jQuery("#tiptip_arrow");
+  }
+  
+  return this.each(function(){
+   var org_elem = jQuery(this);
+   var org_title = "";
+   if(opts.content){
+    org_title = opts.content;
+   } else {
+    org_title = org_elem.attr(opts.attribute);
+   }
+   if(org_title !== ""){
+    if(!opts.content){
+     org_elem.removeAttr(opts.attribute); //remove original Attribute
+    }
+    var timeout = false;
+    
+    if(opts.activation === "hover"){
+     org_elem.hover(function(){
+      active_tiptip();
+     }, function(){
+      if(!opts.keepAlive){
+       deactive_tiptip();
+      }
+     });
+     if(opts.keepAlive){
+      tiptip_holder.hover(function(){}, function(){
+       deactive_tiptip();
+      });
+     }
+    } else if(opts.activation === "focus"){
+     org_elem.focus(function(){
+      active_tiptip();
+     }).blur(function(){
+      deactive_tiptip();
+     });
+    } else if(opts.activation === "click"){
+     org_elem.click(function(){
+      active_tiptip();
+      return false;
+     }).hover(function(){},function(){
+      if(!opts.keepAlive){
+       deactive_tiptip();
+      }
+     });
+     if(opts.keepAlive){
+      tiptip_holder.hover(function(){}, function(){
+       deactive_tiptip();
+      });
+     }
+    }
+   
+    function active_tiptip(){
+     opts.enter.call(this);
+     tiptip_content.html(org_title);
+     tiptip_holder.hide().removeAttr("class").css("margin","0");
+     tiptip_arrow.removeAttr("style");
+     //parseInt(string, radix)
+     var radix = 0;
+     var top = parseInt(org_elem.offset()['top'],radix);
+     var left = parseInt(org_elem.offset()['left'],radix);
+     var org_width = parseInt(org_elem.outerWidth(),radix);
+     var org_height = parseInt(org_elem.outerHeight(),radix);
+     var tip_w = tiptip_holder.outerWidth();
+     var tip_h = tiptip_holder.outerHeight();
+     var w_compare = Math.round((org_width - tip_w) / 2);
+     var h_compare = Math.round((org_height - tip_h) / 2);
+     var marg_left = Math.round(left + w_compare);
+     var marg_top = Math.round(top + org_height + opts.edgeOffset);
+     var t_class = "";
+     var arrow_top = "";
+     var arrow_left = Math.round(tip_w - 12) / 2;
+
+                    if(opts.defaultPosition === "bottom"){
+                     t_class = "_bottom";
+                    } else if(opts.defaultPosition === "top"){ 
+                     t_class = "_top";
+                    } else if(opts.defaultPosition === "left"){
+                     t_class = "_left";
+                    } else if(opts.defaultPosition === "right"){
+                     t_class = "_right";
+                    }
+     
+     var right_compare = (w_compare + left) < parseInt(jQuery(window).scrollLeft(),radix);
+     var left_compare = (tip_w + left) > parseInt(jQuery(window).width(),radix);
+     
+     if((right_compare && w_compare < 0) || (t_class === "_right" && !left_compare) || (t_class === "_left" && left < (tip_w + opts.edgeOffset + 5))){
+      t_class = "_right";
+      arrow_top = Math.round(tip_h - 13) / 2;
+      arrow_left = -12;
+      marg_left = Math.round(left + org_width + opts.edgeOffset);
+      marg_top = Math.round(top + h_compare);
+     } else if((left_compare && w_compare < 0) || (t_class === "_left" && !right_compare)){
+      t_class = "_left";
+      arrow_top = Math.round(tip_h - 13) / 2;
+      arrow_left =  Math.round(tip_w);
+      marg_left = Math.round(left - (tip_w + opts.edgeOffset + 5));
+      marg_top = Math.round(top + h_compare);
+     }
+
+     var top_compare = (top + org_height + opts.edgeOffset + tip_h + 8) > parseInt(jQuery(window).height() + jQuery(window).scrollTop(),radix);
+     var bottom_compare = ((top + org_height) - (opts.edgeOffset + tip_h + 8)) < 0;
+     
+     if(top_compare || (t_class === "_bottom" && top_compare) || (t_class === "_top" && !bottom_compare)){
+      if(t_class === "_top" || t_class === "_bottom"){
+       t_class = "_top";
+      } else {
+       t_class = t_class+"_top";
+      }
+      arrow_top = tip_h;
+      marg_top = Math.round(top - (tip_h + 5 + opts.edgeOffset));
+     } else if(bottom_compare | (t_class === "_top" && bottom_compare) || (t_class === "_bottom" && !top_compare)){
+      if(t_class === "_top" || t_class === "_bottom"){
+       t_class = "_bottom";
+      } else {
+       t_class = t_class+"_bottom";
+      }
+      arrow_top = -12;      
+      marg_top = Math.round(top + org_height + opts.edgeOffset);
+     }
+    
+     if(t_class === "_right_top" || t_class === "_left_top"){
+      marg_top = marg_top + 5;
+     } else if(t_class === "_right_bottom" || t_class === "_left_bottom"){  
+      marg_top = marg_top - 5;
+     }
+     if(t_class === "_left_top" || t_class === "_left_bottom"){ 
+      marg_left = marg_left + 5;
+     }
+     tiptip_arrow.css({"margin-left": arrow_left+"px", "margin-top": arrow_top+"px"});
+     tiptip_holder.css({"margin-left": marg_left+"px", "margin-top": marg_top+"px"}).attr("class","tip"+t_class);
+     
+     if (timeout){ clearTimeout(timeout); }
+     timeout = setTimeout(function(){ tiptip_holder.stop(true,true).fadeIn(opts.fadeIn); }, opts.delay); 
+    }
+    
+    function deactive_tiptip(){
+     opts.exit.call(this);
+     if (timeout){ clearTimeout(timeout); }
+     tiptip_holder.fadeOut(opts.fadeOut);
+    }
+   }    
+  });
+ };
+})(jQuery);
+
 /************************************************ [S04] Facebox */
 /*
  * Facebox (for jQuery)
@@ -2970,873 +3097,7 @@ if (!console) {
   });
 
 })(jQuery);
-/************************************************ [S05] TipTip */
-
- /*
- * TipTip
- * Copyright 2010 Drew Wilson
- * www.drewwilson.com
- * code.drewwilson.com/entry/tiptip-jquery-plugin
- *
- * Version 1.3   -   Updated: Mar. 23, 2010
- *
- * This Plug-In will create a custom tooltip to replace the default
- * browser tooltip. It is extremely lightweight and very smart in
- * that it detects the edges of the browser window and will make sure
- * the tooltip stays within the current window size. As a result the
- * tooltip will adjust itself to be displayed above, below, to the left 
- * or to the right depending on what is necessary to stay within the
- * browser window. It is completely customizable as well via CSS.
- *
- * This TipTip jQuery plug-in is dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
- */
-
-(function($){
- jQuery.fn.tipTip = function(options) {
-  var defaults = { 
-   activation: "hover",
-   keepAlive: false,
-   maxWidth: "200px",
-   edgeOffset: 3,
-   defaultPosition: "bottom",
-   delay: 400,
-   fadeIn: 200,
-   fadeOut: 200,
-   attribute: "title",
-   content: false, // HTML or String to fill TipTIp with
-     enter: function(){},
-     exit: function(){}
-    };
-   var opts = jQuery.extend(defaults, options);
-   
-   var tiptip_holder = "";
-   var tiptip_content = "";
-   var tiptip_arrow = "";
-
-   // Setup tip tip elements and render them to the DOM
-   if(jQuery("#tiptip_holder").length <= 0){
-   tiptip_holder = jQuery('<div id="tiptip_holder" style="max-width:'+ opts.maxWidth +';"></div>');
-   tiptip_content = jQuery('<div id="tiptip_content"></div>');
-   tiptip_arrow = jQuery('<div id="tiptip_arrow"></div>');
-   jQuery("body").append(tiptip_holder.html(tiptip_content).prepend(tiptip_arrow.html('<div id="tiptip_arrow_inner"></div>')));
-  } else {
-   tiptip_holder = jQuery("#tiptip_holder");
-   tiptip_content = jQuery("#tiptip_content");
-   tiptip_arrow = jQuery("#tiptip_arrow");
-  }
-  
-  return this.each(function(){
-   var org_elem = jQuery(this);
-   var org_title = "";
-   if(opts.content){
-    org_title = opts.content;
-   } else {
-    org_title = org_elem.attr(opts.attribute);
-   }
-   if(org_title !== ""){
-    if(!opts.content){
-     org_elem.removeAttr(opts.attribute); //remove original Attribute
-    }
-    var timeout = false;
-    
-    if(opts.activation === "hover"){
-     org_elem.hover(function(){
-      active_tiptip();
-     }, function(){
-      if(!opts.keepAlive){
-       deactive_tiptip();
-      }
-     });
-     if(opts.keepAlive){
-      tiptip_holder.hover(function(){}, function(){
-       deactive_tiptip();
-      });
-     }
-    } else if(opts.activation === "focus"){
-     org_elem.focus(function(){
-      active_tiptip();
-     }).blur(function(){
-      deactive_tiptip();
-     });
-    } else if(opts.activation === "click"){
-     org_elem.click(function(){
-      active_tiptip();
-      return false;
-     }).hover(function(){},function(){
-      if(!opts.keepAlive){
-       deactive_tiptip();
-      }
-     });
-     if(opts.keepAlive){
-      tiptip_holder.hover(function(){}, function(){
-       deactive_tiptip();
-      });
-     }
-    }
-   
-    function active_tiptip(){
-     opts.enter.call(this);
-     tiptip_content.html(org_title);
-     tiptip_holder.hide().removeAttr("class").css("margin","0");
-     tiptip_arrow.removeAttr("style");
-     //parseInt(string, radix)
-     var radix = 0;
-     var top = parseInt(org_elem.offset()['top'],radix);
-     var left = parseInt(org_elem.offset()['left'],radix);
-     var org_width = parseInt(org_elem.outerWidth(),radix);
-     var org_height = parseInt(org_elem.outerHeight(),radix);
-     var tip_w = tiptip_holder.outerWidth();
-     var tip_h = tiptip_holder.outerHeight();
-     var w_compare = Math.round((org_width - tip_w) / 2);
-     var h_compare = Math.round((org_height - tip_h) / 2);
-     var marg_left = Math.round(left + w_compare);
-     var marg_top = Math.round(top + org_height + opts.edgeOffset);
-     var t_class = "";
-     var arrow_top = "";
-     var arrow_left = Math.round(tip_w - 12) / 2;
-
-                    if(opts.defaultPosition === "bottom"){
-                     t_class = "_bottom";
-                    } else if(opts.defaultPosition === "top"){ 
-                     t_class = "_top";
-                    } else if(opts.defaultPosition === "left"){
-                     t_class = "_left";
-                    } else if(opts.defaultPosition === "right"){
-                     t_class = "_right";
-                    }
-     
-     var right_compare = (w_compare + left) < parseInt(jQuery(window).scrollLeft(),radix);
-     var left_compare = (tip_w + left) > parseInt(jQuery(window).width(),radix);
-     
-     if((right_compare && w_compare < 0) || (t_class === "_right" && !left_compare) || (t_class === "_left" && left < (tip_w + opts.edgeOffset + 5))){
-      t_class = "_right";
-      arrow_top = Math.round(tip_h - 13) / 2;
-      arrow_left = -12;
-      marg_left = Math.round(left + org_width + opts.edgeOffset);
-      marg_top = Math.round(top + h_compare);
-     } else if((left_compare && w_compare < 0) || (t_class === "_left" && !right_compare)){
-      t_class = "_left";
-      arrow_top = Math.round(tip_h - 13) / 2;
-      arrow_left =  Math.round(tip_w);
-      marg_left = Math.round(left - (tip_w + opts.edgeOffset + 5));
-      marg_top = Math.round(top + h_compare);
-     }
-
-     var top_compare = (top + org_height + opts.edgeOffset + tip_h + 8) > parseInt(jQuery(window).height() + jQuery(window).scrollTop(),radix);
-     var bottom_compare = ((top + org_height) - (opts.edgeOffset + tip_h + 8)) < 0;
-     
-     if(top_compare || (t_class === "_bottom" && top_compare) || (t_class === "_top" && !bottom_compare)){
-      if(t_class === "_top" || t_class === "_bottom"){
-       t_class = "_top";
-      } else {
-       t_class = t_class+"_top";
-      }
-      arrow_top = tip_h;
-      marg_top = Math.round(top - (tip_h + 5 + opts.edgeOffset));
-     } else if(bottom_compare | (t_class === "_top" && bottom_compare) || (t_class === "_bottom" && !top_compare)){
-      if(t_class === "_top" || t_class === "_bottom"){
-       t_class = "_bottom";
-      } else {
-       t_class = t_class+"_bottom";
-      }
-      arrow_top = -12;      
-      marg_top = Math.round(top + org_height + opts.edgeOffset);
-     }
-    
-     if(t_class === "_right_top" || t_class === "_left_top"){
-      marg_top = marg_top + 5;
-     } else if(t_class === "_right_bottom" || t_class === "_left_bottom"){  
-      marg_top = marg_top - 5;
-     }
-     if(t_class === "_left_top" || t_class === "_left_bottom"){ 
-      marg_left = marg_left + 5;
-     }
-     tiptip_arrow.css({"margin-left": arrow_left+"px", "margin-top": arrow_top+"px"});
-     tiptip_holder.css({"margin-left": marg_left+"px", "margin-top": marg_top+"px"}).attr("class","tip"+t_class);
-     
-     if (timeout){ clearTimeout(timeout); }
-     timeout = setTimeout(function(){ tiptip_holder.stop(true,true).fadeIn(opts.fadeIn); }, opts.delay); 
-    }
-    
-    function deactive_tiptip(){
-     opts.exit.call(this);
-     if (timeout){ clearTimeout(timeout); }
-     tiptip_holder.fadeOut(opts.fadeOut);
-    }
-   }    
-  });
- };
-})(jQuery);
 /************************************************ [S06] Animations */
-/*
- * Kinema - transition and transformation css
- *
- * hui.huement.com/kinema
- * https://github.com/johnny13/kinema
- *
- * forked from
- * http://github.com/rstacruz/jquery.transit
-*/
-
-(function($) {
-  "use strict";
-
-  jQuery.transit = {
-    version: "0.1.3",
-
-    // Map of jQuery.css() keys to values for 'transitionProperty'.
-    // See https://developer.mozilla.org/en/CSS/CSS_transitions#Properties_that_can_be_animated
-    propertyMap: {
-      marginLeft    : 'margin',
-      marginRight   : 'margin',
-      marginBottom  : 'margin',
-      marginTop     : 'margin',
-      paddingLeft   : 'padding',
-      paddingRight  : 'padding',
-      paddingBottom : 'padding',
-      paddingTop    : 'padding'
-    },
-
-    // Will simply transition "instantly" if false
-    enabled: true,
-
-    // Set this to false if you don't want to use the transition end property.
-    useTransitionEnd: false
-  };
-
-  var div = document.createElement('div');
-  var support = {};
-
-  // Helper function to get the proper vendor property name.
-  // (`transition` => `WebkitTransition`)
-  function getVendorPropertyName(prop) {
-    var prefixes = ['Moz', 'Webkit', 'O', 'ms'];
-    var prop_ = prop.charAt(0).toUpperCase() + prop.substr(1);
-
-    if (prop in div.style) { return prop; }
-
-    for (var i=0; i<prefixes.length; ++i) {
-      var vendorProp = prefixes[i] + prop_;
-      if (vendorProp in div.style) { return vendorProp; }
-    }
-  }
-
-  // Helper function to check if transform3D is supported.
-  // Should return true for Webkits and Firefox 10+.
-  function checkTransform3dSupport() {
-    div.style[support.transform] = '';
-    div.style[support.transform] = 'rotateY(90deg)';
-    return div.style[support.transform] !== '';
-  }
-
-  var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-
-  // Check for the browser's transitions support.
-  // You can access this in jQuery's `jQuery.support.transition`.
-  // As per [jQuery's cssHooks documentation](http://api.jquery.com/jQuery.cssHooks/),
-  // we set jQuery.support.transition to a string of the actual property name used.
-  support.transition      = getVendorPropertyName('transition');
-  support.transitionDelay = getVendorPropertyName('transitionDelay');
-  support.transform       = getVendorPropertyName('transform');
-  support.transformOrigin = getVendorPropertyName('transformOrigin');
-  support.transform3d     = checkTransform3dSupport();
-
-  jQuery.extend(jQuery.support, support);
-
-  var eventNames = {
-    'MozTransition':    'transitionend',
-    'OTransition':      'oTransitionEnd',
-    'WebkitTransition': 'webkitTransitionEnd',
-    'msTransition':     'MSTransitionEnd'
-  };
-
-  // Detect the 'transitionend' event needed.
-  var transitionEnd = support.transitionEnd = eventNames[support.transition] || null;
-
-  // Avoid memory leak in IE.
-  div = null;
-
-  // ## jQuery.cssEase
-  // List of easing aliases that you can use with `jQuery.fn.transition`.
-  jQuery.cssEase = {
-    '_default': 'ease',
-    'in':       'ease-in',
-    'out':      'ease-out',
-    'in-out':   'ease-in-out',
-    'snap':     'cubic-bezier(0,1,.5,1)'
-  };
-
-  // ## 'transform' CSS hook
-  // Allows you to use the `transform` property in CSS.
-  //
-  //     $("#hello").css({ transform: "rotate(90deg)" });
-  //
-  //     $("#hello").css('transform');
-  //     //=> { rotate: '90deg' }
-  //
-  jQuery.cssHooks["transit:transform"] = {
-    // The getter returns a `Transform` object.
-    get: function(elem) {
-      return $(elem).data('transform');
-    },
-
-    // The setter accepts a `Transform` object or a string.
-    set: function(elem, v) {
-      var value = v;
-
-      if (!(value instanceof Transform)) {
-        value = new Transform(value);
-      }
-
-      // We've seen the 3D version of Scale() not work in Chrome when the
-      // element being scaled extends outside of the viewport.  Thus, we're
-      // forcing Chrome to not use the 3d transforms as well.  Not sure if
-      // translate is affectede, but not risking it.  Detection code from
-      // http://davidwalsh.name/detecting-google-chrome-javascript
-      if (support.transform === 'WebkitTransform' && !isChrome) {
-        elem.style[support.transform] = value.toString(true);
-      } else {
-        elem.style[support.transform] = value.toString();
-      }
-
-      $(elem).data('transform', value);
-    }
-  };
-
-  // jQuery 1.8 unprefixes for us automatically.
-  if(jQuery.fn.jquery < "1.8.0") {
-    // ## 'transformOrigin' CSS hook
-    // Allows the use for `transformOrigin` to define where scaling and rotation
-    // is pivoted.
-    //
-    //     $("#hello").css({ transformOrigin: '0 0' });
-    //
-    jQuery.cssHooks.transformOrigin = {
-      get: function(elem) {
-        return elem.style[support.transformOrigin];
-      },
-      set: function(elem, value) {
-        elem.style[support.transformOrigin] = value;
-      }
-    };
-
-    // ## 'transition' CSS hook
-    // Allows you to use the `transition` property in CSS.
-    //
-    //     $("#hello").css({ transition: 'all 0 ease 0' });
-    //
-    jQuery.cssHooks.transition = {
-      get: function(elem) {
-        return elem.style[support.transition];
-      },
-      set: function(elem, value) {
-        elem.style[support.transition] = value;
-      }
-    };
-  }
-
-  // ## Other CSS hooks
-  // Allows you to rotate, scale and translate.
-  registerCssHook('scale');
-  registerCssHook('translate');
-  registerCssHook('rotate');
-  registerCssHook('rotateX');
-  registerCssHook('rotateY');
-  registerCssHook('rotate3d');
-  registerCssHook('perspective');
-  registerCssHook('skewX');
-  registerCssHook('skewY');
-  registerCssHook('x', true);
-  registerCssHook('y', true);
-
-  // ## Transform class
-  // This is the main class of a transformation property that powers
-  // `jQuery.fn.css({ transform: '...' })`.
-  //
-  // This is, in essence, a dictionary object with key/values as `-transform`
-  // properties.
-  //
-  //     var t = new Transform("rotate(90) scale(4)");
-  //
-  //     t.rotate             //=> "90deg"
-  //     t.scale              //=> "4,4"
-  //
-  // Setters are accounted for.
-  //
-  //     t.set('rotate', 4)
-  //     t.rotate             //=> "4deg"
-  //
-  // Convert it to a CSS string using the `toString()` and `toString(true)` (for WebKit)
-  // functions.
-  //
-  //     t.toString()         //=> "rotate(90deg) scale(4,4)"
-  //     t.toString(true)     //=> "rotate(90deg) scale3d(4,4,0)" (WebKit version)
-  //
-  function Transform(str) {
-    if (typeof str === 'string') { this.parse(str); }
-    return this;
-  }
-
-  Transform.prototype = {
-    // ### setFromString()
-    // Sets a property from a string.
-    //
-    //     t.setFromString('scale', '2,4');
-    //     // Same as set('scale', '2', '4');
-    //
-    setFromString: function(prop, val) {
-      var args =
-        (typeof val === 'string')  ? val.split(',') :
-        (val.constructor === Array) ? val :
-        [ val ];
-
-      args.unshift(prop);
-
-      Transform.prototype.set.apply(this, args);
-    },
-
-    // ### set()
-    // Sets a property.
-    //
-    //     t.set('scale', 2, 4);
-    //
-    set: function(prop) {
-      var args = Array.prototype.slice.apply(arguments, [1]);
-      if (this.setter[prop]) {
-        this.setter[prop].apply(this, args);
-      } else {
-        this[prop] = args.join(',');
-      }
-    },
-
-    get: function(prop) {
-      if (this.getter[prop]) {
-        return this.getter[prop].apply(this);
-      } else {
-        return this[prop] || 0;
-      }
-    },
-
-    setter: {
-      // ### rotate
-      //
-      //     .css({ rotate: 30 })
-      //     .css({ rotate: "30" })
-      //     .css({ rotate: "30deg" })
-      //     .css({ rotate: "30deg" })
-      //
-      rotate: function(theta) {
-        this.rotate = unit(theta, 'deg');
-      },
-
-      rotateX: function(theta) {
-        this.rotateX = unit(theta, 'deg');
-      },
-
-      rotateY: function(theta) {
-        this.rotateY = unit(theta, 'deg');
-      },
-
-      // ### scale
-      //
-      //     .css({ scale: 9 })      //=> "scale(9,9)"
-      //     .css({ scale: '3,2' })  //=> "scale(3,2)"
-      //
-      scale: function(x, y) {
-        if (y === undefined) { y = x; }
-        this.scale = x + "," + y;
-      },
-
-      // ### skewX + skewY
-      skewX: function(x) {
-        this.skewX = unit(x, 'deg');
-      },
-
-      skewY: function(y) {
-        this.skewY = unit(y, 'deg');
-      },
-
-      // ### perspectvie
-      perspective: function(dist) {
-        this.perspective = unit(dist, 'px');
-      },
-
-      // ### x / y
-      // Translations. Notice how this keeps the other value.
-      //
-      //     .css({ x: 4 })       //=> "translate(4px, 0)"
-      //     .css({ y: 10 })      //=> "translate(4px, 10px)"
-      //
-      x: function(x) {
-        this.set('translate', x, null);
-      },
-
-      y: function(y) {
-        this.set('translate', null, y);
-      },
-
-      // ### translate
-      // Notice how this keeps the other value.
-      //
-      //     .css({ translate: '2, 5' })    //=> "translate(2px, 5px)"
-      //
-      translate: function(x, y) {
-        if (this._translateX === undefined) { this._translateX = 0; }
-        if (this._translateY === undefined) { this._translateY = 0; }
-
-        if (x !== null) { this._translateX = unit(x, 'px'); }
-        if (y !== null) { this._translateY = unit(y, 'px'); }
-
-        this.translate = this._translateX + "," + this._translateY;
-      }
-    },
-
-    getter: {
-      x: function() {
-        return this._translateX || 0;
-      },
-
-      y: function() {
-        return this._translateY || 0;
-      },
-
-      scale: function() {
-        var s = (this.scale || "1,1").split(',');
-        if (s[0]) { s[0] = parseFloat(s[0]); }
-        if (s[1]) { s[1] = parseFloat(s[1]); }
-
-        // "2.5,2.5" => 2.5
-        // "2.5,1" => [2.5,1]
-        return (s[0] === s[1]) ? s[0] : s;
-      },
-
-      rotate3d: function() {
-        var s = (this.rotate3d || "0,0,0,0deg").split(',');
-        for (var i=0; i<=3; ++i) {
-          if (s[i]) { s[i] = parseFloat(s[i]); }
-        }
-        if (s[3]) { s[3] = unit(s[3], 'deg'); }
-
-        return s;
-      }
-    },
-
-    // ### parse()
-    // Parses from a string. Called on constructor.
-    parse: function(str) {
-      var self = this;
-      str.replace(/([a-zA-Z0-9]+)\((.*?)\)/g, function(x, prop, val) {
-        self.setFromString(prop, val);
-      });
-    },
-
-    // ### toString()
-    // Converts to a `transition` CSS property string. If `use3d` is given,
-    // it converts to a `-webkit-transition` CSS property string instead.
-    toString: function(use3d) {
-      var re = [];
-
-      for (var i in this) {
-        if (this.hasOwnProperty(i)) {
-          // Don't use 3D transformations if the browser can't support it.
-          if ((!support.transform3d) && (
-            (i === 'rotateX') ||
-            (i === 'rotateY') ||
-            (i === 'perspective') ||
-            (i === 'transformOrigin'))) { continue; }
-
-          if (i[0] !== '_') {
-            if (use3d && (i === 'scale')) {
-              re.push(i + "3d(" + this[i] + ",1)");
-            } else if (use3d && (i === 'translate')) {
-              re.push(i + "3d(" + this[i] + ",0)");
-            } else {
-              re.push(i + "(" + this[i] + ")");
-            }
-          }
-        }
-      }
-
-      return re.join(" ");
-    }
-  };
-
-  function callOrQueue(self, queue, fn) {
-    if (queue === true) {
-      self.queue(fn);
-    } else if (queue) {
-      self.queue(queue, fn);
-    } else {
-      fn();
-    }
-  }
-
-  // ### getProperties(dict)
-  // Returns properties (for `transition-property`) for dictionary `props`. The
-  // value of `props` is what you would expect in `jQuery.css(...)`.
-  function getProperties(props) {
-    var re = [];
-
-    for(var key in props) {
-      if(props.hasOwnProperty(key)) {
-        key = jQuery.camelCase(key); // Convert "text-align" => "textAlign"
-        key = jQuery.transit.propertyMap[key] || key;
-        key = uncamel(key); // Convert back to dasherized
-      }
-      if (jQuery.inArray(key, re) === -1) { re.push(key); }
-    }
-
-    return re;
-  }
-
-  // ### getTransition()
-  // Returns the transition string to be used for the `transition` CSS property.
-  //
-  // Example:
-  //
-  //     getTransition({ opacity: 1, rotate: 30 }, 500, 'ease');
-  //     //=> 'opacity 500ms ease, -webkit-transform 500ms ease'
-  //
-  function getTransition(properties, duration, easing, delay) {
-    // Get the CSS properties needed.
-    var props = getProperties(properties);
-
-    // Account for aliases (`in` => `ease-in`).
-    if (jQuery.cssEase[easing]) { easing = jQuery.cssEase[easing]; }
-
-    // Build the duration/easing/delay attributes for it.
-    var attribs = '' + toMS(duration) + ' ' + easing;
-    if (parseInt(delay, 10) > 0) { attribs += ' ' + toMS(delay); }
-
-    // For more properties, add them this way:
-    // "margin 200ms ease, padding 200ms ease, ..."
-    var transitions = [];
-    for(var i = 0; i < props.length; i++) {
-      var name = props[i];
-      transitions.push(name + ' ' + attribs);
-    }
-
-    return transitions.join(', ');
-  }
-
-  // ## jQuery.fn.transition
-  // Works like jQuery.fn.animate(), but uses CSS transitions.
-  //
-  //     $("...").transition({ opacity: 0.1, scale: 0.3 });
-  //
-  //     // Specific duration
-  //     $("...").transition({ opacity: 0.1, scale: 0.3 }, 500);
-  //
-  //     // With duration and easing
-  //     $("...").transition({ opacity: 0.1, scale: 0.3 }, 500, 'in');
-  //
-  //     // With callback
-  //     $("...").transition({ opacity: 0.1, scale: 0.3 }, function() { ... });
-  //
-  //     // With everything
-  //     $("...").transition({ opacity: 0.1, scale: 0.3 }, 500, 'in', function() { ... });
-  //
-  //     // Alternate syntax
-  //     $("...").transition({
-  //       opacity: 0.1,
-  //       duration: 200,
-  //       delay: 40,
-  //       easing: 'in',
-  //       complete: function() { /* ... */ }
-  //      });
-  //
-  jQuery.fn.transition = jQuery.fn.transit = function(properties, duration, easing, callback) {
-    var self  = this;
-    var delay = 0;
-    var queue = true;
-
-    // Account for `.transition(properties, callback)`.
-    if (typeof duration === 'function') {
-      callback = duration;
-      duration = undefined;
-    }
-
-    // Account for `.transition(properties, duration, callback)`.
-    if (typeof easing === 'function') {
-      callback = easing;
-      easing = undefined;
-    }
-
-    // Alternate syntax.
-    if (typeof properties.easing !== 'undefined') {
-      easing = properties.easing;
-      delete properties.easing;
-    }
-
-    if (typeof properties.duration !== 'undefined') {
-      duration = properties.duration;
-      delete properties.duration;
-    }
-
-    if (typeof properties.complete !== 'undefined') {
-      callback = properties.complete;
-      delete properties.complete;
-    }
-
-    if (typeof properties.queue !== 'undefined') {
-      queue = properties.queue;
-      delete properties.queue;
-    }
-
-    if (typeof properties.delay !== 'undefined') {
-      delay = properties.delay;
-      delete properties.delay;
-    }
-
-    // Set defaults. (`400` duration, `ease` easing)
-    if (typeof duration === 'undefined') { duration = jQuery.fx.speeds._default; }
-    if (typeof easing === 'undefined')   { easing = jQuery.cssEase._default; }
-
-    duration = toMS(duration);
-
-    // Build the `transition` property.
-    var transitionValue = getTransition(properties, duration, easing, delay);
-
-    // Compute delay until callback.
-    // If this becomes 0, don't bother setting the transition property.
-    var work = jQuery.transit.enabled && support.transition;
-    var i = work ? (parseInt(duration, 10) + parseInt(delay, 10)) : 0;
-
-    // If there's nothing to do...
-    if (i === 0) {
-      var fn = function(next) {
-        self.css(properties);
-        if (callback) { callback.apply(self); }
-        if (next) { next(); }
-      };
-
-      callOrQueue(self, queue, fn);
-      return self;
-    }
-
-    // Save the old transitions of each element so we can restore it later.
-    var oldTransitions = {};
-
-    var run = function(nextCall) {
-      var bound = false;
-
-      // Prepare the callback.
-      var cb = function() {
-        if (bound) { self.unbind(transitionEnd, cb); }
-
-        if (i > 0) {
-          for(var e = 0; e < self.length; e++) {
-            var elem = self[e];
-            elem.style[support.transition] = (oldTransitions[elem] || null);
-          }
-        }
-
-        if (typeof callback === 'function') { callback.apply(self); }
-        if (typeof nextCall === 'function') { nextCall(); }
-      };
-
-      if ((i > 0) && (transitionEnd) && (jQuery.transit.useTransitionEnd)) {
-        // Use the 'transitionend' event if it's available.
-        bound = true;
-        self.bind(transitionEnd, cb);
-      } else {
-        // Fallback to timers if the 'transitionend' event isn't supported.
-        window.setTimeout(cb, i);
-      }
-
-      // Apply transitions.
-      for(var e = 0; e < self.length; e++) {
-        var elem = self[e];
-        if (i > 0) {
-          elem.style[support.transition] = transitionValue;
-        }
-        $(elem).css(properties);
-      }
-    }
-
-    // Defer running. This allows the browser to paint any pending CSS it hasn't
-    // painted yet before doing the transitions.
-    var deferredRun = function(next) {
-      var i = 0;
-
-      // Durations that are too slow will get transitions mixed up.
-      // (Tested on Mac/FF 7.0.1)
-      if ((support.transition === 'MozTransition') && (i < 25)) { i = 25; }
-
-      window.setTimeout(function() { run(next); }, i);
-    };
-
-    // Use jQuery's fx queue.
-    callOrQueue(self, queue, deferredRun);
-
-    // Chainability.
-    return this;
-  };
-
-  function registerCssHook(prop, isPixels) {
-    // For certain properties, the 'px' should not be implied.
-    if (!isPixels) { jQuery.cssNumber[prop] = true; }
-
-    jQuery.transit.propertyMap[prop] = support.transform;
-
-    jQuery.cssHooks[prop] = {
-      get: function(elem) {
-        var t = $(elem).css('transit:transform') || new Transform();
-        return t.get(prop);
-      },
-
-      set: function(elem, value) {
-        var $elem = $(elem)
-        var t = $elem.css('transit:transform') || new Transform();
-        t.setFromString(prop, value);
-        $elem.css("transit:transform", t)
-      }
-    };
-  }
-
-  // ### uncamel(str)
-  // Converts a camelcase string to a dasherized string.
-  // (`marginLeft` => `margin-left`)
-  function uncamel(str) {
-    return str.replace(/([A-Z])/g, function(letter) { return '-' + letter.toLowerCase(); });
-  }
-
-  // ### unit(number, unit)
-  // Ensures that number `number` has a unit. If no unit is found, assume the
-  // default is `unit`.
-  //
-  //     unit(2, 'px')          //=> "2px"
-  //     unit("30deg", 'rad')   //=> "30deg"
-  //
-  function unit(i, units) {
-    if ((typeof i === "string") && (!i.match(/^[\-0-9\.]+$/))) {
-      return i;
-    } else {
-      return "" + i + units;
-    }
-  }
-
-  // ### toMS(duration)
-  // Converts given `duration` to a millisecond string.
-  //
-  //     toMS('fast')   //=> '400ms'
-  //     toMS(10)       //=> '10ms'
-  //
-  function toMS(duration) {
-    var i = duration;
-
-    // Allow for string durations like 'fast'.
-    if (jQuery.fx.speeds[i]) { i = jQuery.fx.speeds[i]; }
-
-    return unit(i, 'ms');
-  }
-
-  // Export some functions for testable-ness.
-  jQuery.transit.getTransitionValue = getTransition;
-})(jQuery);
-
 /*
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
@@ -4946,4 +4207,156 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     });
  };
  
+})(jQuery);
+// Stupid jQuery table plugin.
+
+// Call on a table
+// sortFns: Sort functions for your datatypes.
+(function($){
+
+  $.fn.stupidtable = function(sortFns){
+    return this.each(function () {
+      var $table = $(this);
+      sortFns = sortFns || {};
+
+      // ==================================================== //
+      //                  Utility functions                   //
+      // ==================================================== //
+
+      // Merge sort functions with some default sort functions.
+      sortFns = $.extend({}, {
+        "int":function(a,b){ return parseInt(a, 10) - parseInt(b,10); },
+        "float":function(a,b){ return parseFloat(a) - parseFloat(b); },
+        "string":function(a,b){ if (a<b) return -1; if (a>b) return +1; return 0;}
+      }, sortFns);
+
+      // Array comparison. See http://stackoverflow.com/a/8618383
+      var arrays_equal = function(a,b) { return !!a && !!b && !(a<b || b<a);};
+
+      // Return the resulting indexes of a sort so we can apply
+      // this result elsewhere. This returns an array of index numbers.
+      // return[0] = x means "arr's 0th element is now at x"
+      var sort_map =  function(arr, sort_function, reverse_column){
+        var map = [];
+        var index = 0;
+        if (reverse_column) {
+            for (var i = arr.length-1; i >= 0; i--) {
+                      map.push(i);
+            }
+        }
+        else{
+            var sorted = arr.slice(0).sort(sort_function);
+            for(var i=0; i<arr.length; i++){
+              index = $.inArray(arr[i], sorted);
+
+              // If this index is already in the map, look for the next index.
+              // This handles the case of duplicate entries.
+              while($.inArray(index, map) != -1){
+                index++;
+              }
+              map.push(index);
+            }
+        }
+        return map;
+      };
+
+      // Apply a sort map to the array.
+      var apply_sort_map = function(arr, map){
+        var clone = arr.slice(0),
+            newIndex = 0;
+        for(var i=0; i<map.length; i++){
+          newIndex = map[i];
+          clone[newIndex] = arr[i];
+        }
+        return clone;
+      };
+
+      // ==================================================== //
+      //                  Begin execution!                    //
+      // ==================================================== //
+
+      //Add a Default Header Class To all affected TH elements.
+      var heads = $table.find('th');
+      $.each(heads,function(index,value){
+		$(value).addClass("sorting-box");
+      });
+      
+      // Do sorting when THs are clicked
+      $table.on("click", "th", function(){
+        var trs = $table.children("tbody").children("tr");
+        var $this = $(this);
+        var th_index = 0;
+        var dir = $.fn.stupidtable.dir;
+
+        $table.find('th').slice(0, $this.index()).each(function () {
+          var cols = $(this).attr('colspan') || 1;
+          th_index += parseInt(cols,10);
+        });
+
+        // Determine (and/or reverse) sorting direction, default `asc`
+        var sort_dir = $this.data("sort-dir") === dir.ASC ? dir.DESC : dir.ASC;
+
+        // Choose appropriate sorting function. If we're sorting descending, check
+        // for a `data-sort-desc` attribute.
+        if ( sort_dir == dir.DESC )
+          var type = $this.data("sort-desc") || $this.data("sort") || null;
+        else
+          var type = $this.data("sort") || null;
+
+        // Uncomment out return and remove type setting to prevent sorting if no type defined
+		// Default is if no data-sort attr is given to the th, assume string.
+        if (type === null) {
+		  type = "string";
+          //return;
+        }
+
+        // Trigger `beforetablesort` event that calling scripts can hook into;
+        // pass parameters for sorted column index and sorting direction
+        $table.trigger("beforetablesort", {column: th_index, direction: sort_dir});
+        // More reliable method of forcing a redraw
+        $table.css("display");
+
+        // Run sorting asynchronously on a timout to force browser redraw after
+        // `beforetablesort` callback. Also avoids locking up the browser too much.
+        setTimeout(function() {
+          // Gather the elements for this column
+          var column = [];
+          var sortMethod = sortFns[type];
+
+          // Push either the value of the `data-order-by` attribute if specified
+          // or just the text() value in this column to column[] for comparison.
+          trs.each(function(index,tr){
+            var $e = $(tr).children().eq(th_index);
+            var sort_val = $e.data("sort-value");
+            var order_by = typeof(sort_val) !== "undefined" ? sort_val : $e.text();
+            column.push(order_by);
+          });
+
+          // Create the sort map. This column having a sort-dir implies it was
+          // the last column sorted. As long as no data-sort-desc is specified, 
+          // we're free to just reverse the column.
+          var reverse_column = !!$this.data("sort-dir") && !$this.data("sort-desc");
+          var theMap = sort_map(column, sortMethod, reverse_column);
+
+          // Reset siblings
+          $table.find("th").data("sort-dir", null).removeClass("sorting-desc sorting-asc");
+          $this.data("sort-dir", sort_dir).addClass("sorting-"+sort_dir);
+
+          // Replace the content of tbody with the sortedTRs. Strangely (and
+          // conveniently!) enough, .append accomplishes this for us.
+          var sortedTRs = $(apply_sort_map(trs, theMap));
+          $table.children("tbody").append(sortedTRs);
+
+          // Trigger `aftertablesort` event. Similar to `beforetablesort`
+          $table.trigger("aftertablesort", {column: th_index, direction: sort_dir});
+          // More reliable method of forcing a redraw
+          $table.css("display");
+        }, 10);
+      });
+    });
+  };
+
+  // Enum containing sorting directions
+  $.fn.stupidtable.dir = { ASC: "asc", DESC: "desc" };
+
 })(jQuery);

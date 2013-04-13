@@ -1,30 +1,13 @@
 //This Script has
 //Example Functions for the index.html hui demo
-
+var HistoryDiz;
 var counter = 0;     
 var demo1 = 0;
 var demo2 = 0;
 var demo3 = 0;
-var colorArr = ["#F10000","#57DB23","#49C5FF","#C14DF7","#FF993A"];
-function checkboxes(){
- jQuery('.on_off :checkbox').iphoneStyle();
- jQuery('.disabled :checkbox').iphoneStyle();
- 
- jQuery('.ios :checkbox').iphoneStyle();
- 
- jQuery('.long_tiny :checkbox').iphoneStyle({ checkedLabel: 'Very Long Text', uncheckedLabel: 'Tiny' });
 
- var onchange_checkbox = (jQuery('.onchange :checkbox')).iphoneStyle({
-  onChange: function(elem, value) { 
-   jQuery('span#status').html(value.toString());
-  }
- });
-
- setInterval(function() {
- onchange_checkbox.prop('checked', !onchange_checkbox.is(':checked')).iphoneStyle("refresh");
- return
- }, 2500);
-}
+var colorArrLight = ["#F10000","#57DB23","#49C5FF","#C14DF7","#DD6B00"];
+var colorArr = ["#C51111","#44B915","#109CDD","#8F00D1","#E65614"];
 
 function shuffledemo(){
  var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
@@ -48,33 +31,37 @@ function callbackGirl(){
  notefy("Clicked!",htmlitem);
 }
 
-function randomColors(){
+function randomColors(single){
  var shuffleArr = jQuery.shuffle(colorArr);
  //console.debug(shuffleArr);
- jQuery(".el_arco_iris, h3, #el_arco_iris li.active a").animate({color: colorArr[0]},4979);
+ jQuery(".el_arco_iris, #el_arco_iris li.active a").animate({color: colorArr[0]},4979);
  
  if(jQuery(document).width() <= 460){
-  jQuery(".fhead").hide();
+  jQuery(".navList").hide();
  }
- setTimeout("randomColors()",5013);
+ if(single==null){
+	setTimeout("randomColors()",5013);
+ }
+ 
 }
 
 function brightnessToggle(newStyle){
  if(newStyle=="dark"){
+ 
   var darkStylecss = "src/themes/dark/dev-theme.css";
   //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
   //jQuery(darkFinal).appendTo("head");
   $("#theme_sheet").attr("href", darkStylecss);
-  jQuery(".brightToggleTxt").text("dark");
-  jQuery("p, h1, h2, h3, h4").css("color","#f7f7f7");
+  jQuery(".brightToggleTxt").toggleClass("dark");
+  //jQuery("p, h1, h2, h3, h4").css("color","#f7f7f7");
  }
  if(newStyle=="light"){
   var darkStylecss = "src/themes/li3/dev-theme.css";
   //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
   //jQuery(darkFinal).appendTo("head");
   $("#theme_sheet").attr("href", darkStylecss);
-  jQuery(".brightToggleTxt").text("li3");
-  jQuery("p, h1, h2, h3, h4").css("color","#1b1b1b");
+  jQuery(".brightToggleTxt").toggleClass("dark");
+  //jQuery("p, h1, h2, h3, h4").css("color","#1b1b1b");
  }
 }
 
@@ -186,99 +173,97 @@ function runfulltests(){
  });
 }
 
+function PanelSwap(ShowTarget){
+	jQuery(".row.category").addClass("none");
+	jQuery(ShowTarget).removeClass("none");
+}
+
 jQuery(document).ready(function() { 
  /* Sample Animations */
  //jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
  randomColors();
- 
+
+ jQuery(".reload").on("click",function(){
+	PanelSwap(".home_category");
+	jQuery(".navList li").removeClass("active");
+	if(!History.enabled){
+		//No History Mode Available.
+		window.location = newURL+"?history="+newURL;
+		return false;
+	} else{
+		var pageval = "?history="+"home";
+		History.pushState(null, null,pageval);
+	}
+	return false;
+ }); 
+
  jQuery(".brightToggle").on("click",function(){
-  if(jQuery(".brightToggleTxt").text()=="dark"){
-   brightnessToggle("light");
-  }else{
-   brightnessToggle("dark");
-  }
-  return false;
+	if(jQuery(".brightToggleTxt").hasClass("dark")==true){
+		brightnessToggle("light");
+	}else{
+		brightnessToggle("dark");
+	}
+	return false;
  });
 
-	// Toggle the dropdown menu's
+ // Toggle the dropdown menu's
  jQuery(".dropdown .button, .dropdown button").click(function () {
 	if (!$(this).find('span.toggle').hasClass('active')) {
 		$('.dropdown-slider').slideUp();
 		$('span.toggle').removeClass('active');
 	}
 
- // open selected dropown
+	// open selected dropown
 	$(this).parent().find('.dropdown-slider').slideToggle('fast');
 	$(this).find('span.toggle').toggleClass('active');
 	
 	return false;
  });
 	
+ //Facebox
+ $('a[rel*=facebox]').facebox();
+ $(".fbdemobtn").on("click",function(){
+	var theText = $("#fbdemo").val();
+	if(theText.length>=3){
+		var demoHTML = "<h2 style='margin:10px 0 0 0;padding:0;' class='tC'>facebox demo</h2><div class='push'></div><p class='p10'>"+theText+"</p><div class='push'></div>";
+		jQuery.facebox(demoHTML);
+	}
+	return false;
+ });
  //ToolTips
- jQuery(".tipTip").tipTip();
  jQuery(".tipTip").tipTip();
  jQuery(".tipTipR").tipTip({
   defaultPosition:"right"
-  });
+ });
 
- //iOS Inspired Checkboxes
- checkboxes();
+ //jQuery(".row.category").addClass("none");
+ //jQuery(".action_category").removeClass("none");
+ jQuery(".home_category").removeClass("none");
 
- //Kinema Demo
- jQuery(".rdx").click(function(){
-  //Rotate
-  if(demo1 === 0){
-   jQuery('.box_x').transition({ 
-   x: "100px",
-      duration: 1000,
-      easing: 'ease'
-       }); 
-        demo1 = 1;
-  } else {
-   jQuery('.box_x').transition({ 
-    x: 0,
-       duration: 1000,
-       easing: 'ease'
-   });
-   demo1 = 0;
-  }
- });
- 
- jQuery(".rdy").click(function(){
-  //Rotate
-  if(demo2 === 0){
-   jQuery('.box_y').transition({ 
-    y: "100px",
-       duration: 1000,
-       easing: 'linear'
-   });
-        demo2 = 1;
-  } else {
-   jQuery('.box_y').transition({ 
-    y: 0,
-       duration: 1000,
-       easing: 'linear'
-   });
-   demo2 = 0;
-  }
- });
- 
- //Fluid Horizontal Navbar
- jQuery('.fhead').horizontalNav({
-     prependTo : 'body'
- });
- jQuery(".row.category").addClass("none");
- jQuery(".action_category").removeClass("none");
- jQuery('.fhead li a').on("click",function(){
-  jQuery(".row.category").addClass("none");
+ jQuery('.navList li a').on("click",function(){
+  
   var thehref = $(this).attr("href");
   var substr = thehref.split('#');
   var thetarget = "."+substr[1]+"_category";
-  jQuery(thetarget).removeClass("none");
-  jQuery(".fhead li").removeClass("active");
+  PanelSwap(thetarget);
+  jQuery(".navList li").removeClass("active");
   jQuery(this).parent().addClass("active");
+
   jQuery("html, body").animate({ scrollTop: 0 }, "slow");
-  jQuery("#el_arco_iris li a").css("color","#f7f7f7");
+  var newURL = encodeURIComponent(jQuery(this).attr("title"));
+
+  var pageval = "?history="+newURL;
+	if(!History.enabled){
+		//No History Mode Available.
+		window.location = newURL+"?history="+newURL;
+		return false;
+	} else{
+		History.pushState(null, null, pageval);
+	}
+  
+
+  jQuery(this).css("color","#f7f7f7");
+  randomColors("true");
   return false;
  });
 
@@ -319,5 +304,64 @@ jQuery(document).ready(function() {
   }
  });
 
+ //Scroll Panel
+ //$('.scroll-pane').jScrollPane();
+
  jQuery("#hbbh").removeClass("none");
+
+	$("table").stupidtable();
+	
+	/* fixed Fluid Horizontal Navbar header */
+	/* 
+	* nav menu used in the demo. build navbar from basic ul li list.
+	* toggles a top:0 left:0 fixed class in your css.
+	*/
+	jQuery('.navList').horizontalNav({
+	     prependTo : '#navbar'
+	});
+	var thetest = jQuery(window).width();
+	if (thetest >= 777) {
+		var top = jQuery('#el_arco_iris').offset().top;
+		jQuery(window).scroll(function (event) {
+			var y = jQuery(this).scrollTop();
+			if (y >= top) { 
+				jQuery('#el_arco_iris').addClass('superFix'); 
+			} else { 
+				jQuery('#el_arco_iris').removeClass('superFix'); 
+			}
+		});
+	}
+	
+	/* intial page loader */
+ 	if(History.enabled){
+		var theHash = History.getState().hash;
+		var substr = theHash.split('=');
+		if(substr[1]!=""||substr[1]!=" "){
+			HistoryDiz = "."+substr[1]+"_category";
+			jQuery('a[href$="'+substr[1]+'"]').parent("li").addClass("active");
+			setTimeout("PanelSwap(HistoryDiz)",500);
+		} else {
+			setTimeout("PanelSwap('.home_category')",500);
+		}
+	}
 }); 
+
+/* History.js Setup */
+(function(window,undefined){
+
+    // Prepare
+    var History = window.History; // Note: We are using a capital H instead of a lower h
+    if ( !History.enabled ) {
+		notefy("History.js","is disabled for this browser");
+         // History.js is disabled for this browser.
+         // This is because we can optionally choose to support HTML4 browsers or not.
+        return false;
+    }
+
+    // Bind to StateChange Event
+    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        History.log(State.data, State.title, State.url);
+    });
+		
+})(window);

@@ -54,47 +54,6 @@
   
   var abc=1;
   var hateIt =0;
-  QUnit.test( "CSS3 Animations", function( assert ) {
-    jQuery(".hateIt").click(function(){
-      hateIt = 13;
-      jQuery(this).hide();
-      return false;
-    });
-
-    function asquare() {
-      var atw = jQuery("#animmeBox").width()-50;
-      if(abc===0 && hateIt ===0){
-        jQuery("#animme").transition({ 
-          x: 0,
-            duration: 5000,
-            easing: 'snap'
-        }, function() {
-          abc=1;
-          jQuery.shuffle(colorArrRandom);
-          jQuery("#animme").css("background-color", colorArrRandom[1]);
-          asquare();
-        });
-      } else {
-        if(hateIt ===0){
-          jQuery("#animme").transition({ 
-            x: atw+"px",
-            duration: 8000,
-            easing: 'linear'
-          }, function() {
-            abc=0;
-            jQuery.shuffle(colorArrRandom);
-            jQuery("#animme").css("background-color", colorArrRandom[0]);
-            asquare();
-          });
-        }
-      }
-      return 13;
-    }
-    
-    var sresult = asquare();
-    //var sresult ="13";
-    ok(sresult >= "13", "Kinema Engine Working. CSS Transitions Supported." );
-  });
 
   QUnit.test( "Core Widgets Test", function( assert ) {
 

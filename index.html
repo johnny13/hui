@@ -15,11 +15,11 @@
 	<!-- @import is slower than <link> but it can be helpful 
 	     when developing, or Easy Theme Switching by breaking 
 	     the main framework and theme elements into respective files.-->
-	<style type="text/css">@import url("dist/hui-base-1.13.5.css?ver=541");</style>
+	<style type="text/css">@import url("dist/hui-base-1.13.6.css?ver=541");</style>
 	<link id="theme_sheet" href="src/themes/li3/dev-theme.css" type="text/css" rel="stylesheet"/>
-	<!-- Production: <link href="dist/theme-li3.css" type="text/css" rel="stylesheet"/> -->
+	<!-- Production Merged & Minified Theme: <link href="dist/theme-li3.css" type="text/css" rel="stylesheet"/> -->
 	
-	<!-- Old Internet Explorer huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
 	<link rel="stylesheet" href="dist/ie-min.css" type="text/css" media="screen" />
 	<![endif]-->
@@ -27,6 +27,12 @@
 	<!-- Demo Styles -->
 	<style type="text/css">
 		/* main size controller. */
+		
+		#mainContent {
+			background-image: url("https://huementui.s3.amazonaws.com/images/gridMasked.png?ver=2.1");
+		 	background-repeat:repeat-x;
+		}
+		
 		.row {max-width:98%;}
 		.blackb {border:2px solid #555;}
 		.greyb label {
@@ -55,31 +61,26 @@
 			color:#e7e7e7;
 			background:#666;
 		}
-		.fnote {
-			color: #666 !important;
-			padding:5px !important;
-			margin:0 !important;
-			background: transparent !important;
-			background-color: transparent !important;
-			text-align: left !important;
-			width: 95%;
-			font-size: .98em;
-			line-height: 1.1em;
-		}
 		
+		code {
+			margin-top:3px;
+			margin-bottom:3px;
+		}
 		/* horizontalNav menu */
-		.fhead {
-			position:fixed;
-			top:0;
-			left:0;
+		.navList {
+			position:relative;
 			display:block;
-			z-index:999;
 			text-align:center;
 			min-height:20px;
 			font-size:1em;
 			overflow:hidden;
 		}
-		
+		.navList.superFix{
+			top:0;
+			left:0;
+			position:fixed;
+			z-index:999;
+		}
 		/* horizontalNav Select Box */
 		.mnav {
 			position:fixed;
@@ -87,8 +88,8 @@
 			background-color:#e7e7e7;
 			width:100%;
 		}
-		.fhead a {color:#e7e7e7;}
-		.fhead a:hover {color:#000;}
+		.navList a {color:#e7e7e7;}
+		.navList a:hover {color:#000;}
 		.mtb { width:380px;display:block;position:relative;margin:0 auto;}
 		.iosTableBox { padding: 10px;color:#000; }
 		.iosTable td {
@@ -114,7 +115,19 @@
 			padding:4px;
 			min-height:100px;
 		}
-		.iconlabel { font-size:0.91em;line-height:1em;}
+		
+		/* Styles specific to this particular page */
+		.scroll-pane
+		{
+			width: 100%;
+			height: 200px;
+			overflow: auto;
+		}
+		.horizontal-only
+		{
+			height: auto;
+			max-height: 200px;
+		}
 		
 		/* log element for demo purposes */
 
@@ -149,38 +162,62 @@
 	<script src="libs/modernizr/modernizr-min.js"></script>
 	<!-- If you dont use modernizr, you should include the html5shiv here for backwards compliance. modernizr includes it already. -->
 	<!-- <script src="https://huementui.s3.amazonaws.com/cdn/html5shiv.js" type="text/javascript"></script> -->
+	
+	<!-- Demo Image Placeholders http://imsky.github.io/holder/ -->
+	<script src="libs/holder/holder.js"></script>
 </head>
 <body>
-	<!-- main demo nav menu -->
-	<div id="hbbh" class="none">
-	<ul id="el_arco_iris" class="fhead">
-	 <li class="active"><a href="#action">act</a></li>
-	 <li><a href="#note">notefy</a></li>
-	 <li><a href="#useful">useful</a></li>
-	 <li><a href="#faceboxes">faceBox</a></li>
-	 <li><a href="#tooltip">tips</a></li>
-	 <li><a href="#animate">move</a></li>
-	 <li><a href="#accordion">dance</a></li>
-	 <li><a href="#navigate">flex</a></li>
-	</ul>
-	</div>
-	
-	<div class="container">
-		<div class="push"></div>
-		<div class="row limit" id="homerow">
-			<div class="twelvecol last">
-					<h2 class="el_arco_iris" style="margin-top:20px;">huement user interface</h2>
-					<div class="mtb">
-					<a class="button left" href="test/"><span class="icon icon43"></span><span class="label">tests</label></a>
-					<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108"></span><span class="label">home</label></a>
-					<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span><span class="label">github</label></a>
-					<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24"></span><span class="label brightToggleTxt">li3</label></a>
-					<br/>
-					</div>
+	<div id="homerow">
+		<div class="twelvecol last" style="border-bottom:1px solid #666666;background-color:#2b2b2b;height:auto;min-height:20px;">
+			
+			<a href="#" class="reload"><h2 class="el_arco_iris L" style="margin:0px 5px -2px 5px;line-height:1em;padding:3px 0 0 0;">hui</h2></a>
+			
+			<div class="R" style="width:auto;margin:10px 10px 0 0;">
+				<a class="button left" href="test/"><span class="icon icon43"></span><span class="label smallHide">tests</label></a>
+				<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108 smallHide"></span><span class="label">main</label></a>
+				<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97 smallHide"></span><span class="label">github</label></a>
+				<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24 smallHide"></span><span class="label brightToggleTxt">mode</label></a>
 			</div>
+			<div class="push" style="height:0px;"></div>
 		</div>
-		
+		<div class="push" style="height:0px;"></div>
+		<!-- main demo nav menu -->
+		<div id="navbar"></div>
+		<div id="hbbh" class="none">
+		<ul id="el_arco_iris" class="navList">
+		 <li><a href="#action" title="action">act</a></li>
+		 <li><a href="#note" title="note">notefy</a></li>
+		 <li><a href="#useful" title="useful">useful</a></li>
+		 <li><a href="#facebox" title="facebox">faceBox</a></li>
+		 <li><a href="#datas" title="datas">data</a></li>
+		 <li><a href="#forms" title="forms">forms</a></li>
+		 <li><a href="#accordion" title="accordion">dance</a></li>
+		 <li><a href="#navigate" title="navigate">flex</a></li>
+		</ul>
+		</div>
+	</div>
+
+	<div class="container" id="mainContent">
 		<div class="push" style="height:60px;"></div>
+		<div class="row limit category home_category">
+			<div class="onecol">
+			</div>
+			<div class="tencol">
+				<img src="https://huementui.s3.amazonaws.com/images/hui_tree.png" class="C" width="100%" height="auto" style="margin-top:50px;max-width:800px;max-height:500px;" />
+				
+				<div class="push"></div>
+				<div class="card round">
+					<p>
+						Welcome to a basic demo of the core hui features.<br/>For additional widgets (like image slideshows and the lot) visit <a href="hui.huement.com">hui.huement.com</a>.<br/>
+						This is also a good starting point if you wish to create your own theme, and you can easily see how it will look on most items.
+					</p>
+				</div>
+			</div>
+			<div class="onecol last">
+			</div>	
+			
+			<div class="push" style="height:150px;"></div>
+		</div>
 		
 		<div class="row limit category action_category">
 			<div class="fourcol smallHide">
@@ -213,39 +250,37 @@ preload([
 </pre>
 			</div>
 			<div class="eightcol last">
-				<h2>1A. Action</h2>
-				<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
+				<h2 class="page-header">1a. Action</h2>
+				<p>This Sections contains additional snippets and commands that make basic development tasks a little easier. It also provides a nice space to slowly add your app wide functions and DOM manipulating tidbits later.</p>
 				
-				<h3>shuffle</h3>
-				<p class="fnote"></p>
+				<p>Currently Supported Functions:</p>
+				<ul class="Tegan">
+				<li><span class="name">shuffle</span><span class="comment">randomize js array contents</span></li>
+				<li><span class="name">animate colors</span><span class="comment">make it hot</span></li>
+				<li><span class="name">History</span><span class="comment">HTML 5 History plugin. (?page=whatever)</span></li>
+				<li><span class="name">preload image(s)</span><span class="comment"><a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow Based</a></span></li>
+				</ul>
 				
-				<h3>animate colors</h3>
-				<p class="fnote"></p>
+				<div class="push"></div>
 				
-				<h3>History</h3>
-				<p class="fnote"></p>
-				
-				<h3>preload image(s)</h3>
-				<p class="fnote"><a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow</a></p>
-				
-				<div class="push" style="height:60px;"></div>
-				<h4>Action Demo</h4>
-				<p class="p5 light">Shuffling through a JS array <br/><strong>"var colorArray = ["#C20000", ... "#F56200"];"</strong>,<br/> and animating the background color with the result.</p><br/>
+				<h3 class="page-header">Action Demo</h3>
+				<p class="p5 light">Shuffle & Color Animations in effect<br/>
 				<p>
 					<button onclick="shuffledemo();return false;"><span class="label blue">do work</span></button>
 				</p><br/>
 				<ul class="democolors"> 
 					<li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
 				</ul>
+				<div class="push" style="height:60px;"></div>
 			</div>
 		</div>
 		
 		<div class="row limit category action_category">
 			<div class="twelvecol last">
-				<h2>1B. Interact</h2>
-				<p>main ui framework elements</p>
-				
-				<h3>Text Buttons & Icon Buttons</h3>
+				<h2 class="page-header">1b. Buttons</h2>
+				<p class="fnote">the button framework contains the core user interaction elements. allowing you to offer everything from a confirmation or yes no button, to a drop down toolbar with @font-face icons.</p>
+				<div class="push"></div>
+				<h3 class="page-header">Text Buttons & Icon Buttons</h3>
 				<p class="fnote">
 					<button><span class="label">Button</span></button>
 
@@ -267,8 +302,8 @@ preload([
 &lt;button class="action red"&gt;&lt;span class="label"&gt;Upload&lt;/span&gt;&lt;/button&gt;
 &lt;button class="action green"&gt;&lt;span class="label"&gt;Comment&lt;/span&gt;&lt;/button&gt;
 &lt;button class="action"&gt;&lt;span class="label"&gt;Cancel&lt;/span&gt;&lt;/button&gt;
-</pre>
-				<h3>Icon Buttons with Label</h3>
+</pre><div class="push"></div>
+				<h3 class="page-header">Icon Buttons with Label</h3>
 				<p class="fnote">
 					<a href="#" class="button left"><span class="icon icon108"></span><span class="label">Normal</span></a>
 					<a href="#" class="button middle"><span class="icon icon125"></span><span class="label red">Red</span></a>
@@ -284,8 +319,24 @@ preload([
 &lt;a href="#" class="button middle"&gt;&lt;span class="icon icon191"&gt;&lt;/span&gt;&lt;span class="label blue"&gt;Blue&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button middle"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;span class="label green"&gt;Green&lt;/span&gt;&lt;/a&gt;
 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon177"&gt;&lt;/span&gt;&lt;span class="label yellow"&gt;Yellow&lt;/span&gt;&lt;/a&gt;
-</pre>
-				<h3>Dropdown Menu Buttons</h3>
+</pre><div class="push"></div>
+
+				<h3 class="page-header">Action Buttons</h3>
+
+				<p class="fnote">
+				  <button class="action blue"><span class="label">Save</span></button>
+				  <button class="action red"><span class="label">Upload</span></button>
+				  <button class="action green"><span class="label">Comment</span></button>
+				  <button class="action"><span class="label">Cancel</span></button>
+				</p> <!-- /.buttons --><br/>
+<pre class="htmlCode smallHide">
+&lt;button class="action blue"&gt;&lt;span class="label"&gt;Save&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action red"&gt;&lt;span class="label"&gt;Upload&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action green"&gt;&lt;span class="label"&gt;Comment&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action"&gt;&lt;span class="label"&gt;Cancel&lt;/span&gt;&lt;/button&gt;
+</pre><div class="push"></div>
+
+				<h3 class="page-header">Dropdown Menu Buttons</h3>
 				<div class="dropdown">
 				 <a href="#" class="button"><span class="label">File</span><span class="toggle"></span></a>
 				 <div class="dropdown-slider">
@@ -326,9 +377,10 @@ preload([
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;/a&gt;
-</pre>
-				<h4>Interact Demo</h4>
-				<p class="p5 light">All Available Icon Classes</p><br/>
+</pre><div class="push"></div>
+				<h3 class="page-header">Sprite Button Demo</h3>
+				<p class="fnote">All Available Icon Classes in the included PNG Sprite. Simple to use, and great for older systems or quick mockups. Times when editing an entire font file would be inconvenient.</p><br/>
+				<p class="fnote">Mouse Over any Icon to see its Class displayed via the tipTip() plugin built into hui.</p><br/>
 				<ul class="labelMe"> 
 				  <li><a href="#" class="button tipTip" title=".icon1 - Abacus"><span class="icon icon1"></span></a></li>
 				  <li><a href="#" class="button tipTip" title=".icon2 - Access Point"><span class="icon icon2"></span></a></li>
@@ -537,10 +589,867 @@ preload([
 			</div>
 		</div>
 		
+		<div class="row limit category action_category">
+			<div class="twelvecol last">
+			<div class="push" style="height:60px;"></div>
+			<h2 class="page-header">1c. Font Awesome 3</h2>
+			<p><code>@font-face</code> Icon Fonts. Perfect for Retina Displays! No more Fuzzy Buttons.</p>
+			<p>The full suite of pictographic icons, examples, and documentation can be found at: <a href="fortawesome.github.io/Font-Awesome">fortawesome.github.io/Font-Awesome</a>.</p>
+			<div class="push"></div>
+
+			</div> 
+		</div>	
+	
+		<div class="row limit category action_category">
+			<div class="fourcol greyb">
+			 <h4><span class="icon-flag"></span> One font, 249 icons</h4>
+			 In a single collection, Font Awesome is a pictographic language of web-related actions.
+			</div>
+			<div class="fourcol greyb">
+			 <h4><span class="icon-pencil"></span> CSS control</h4>
+			 Easily style icon color, size, shadow, and anything that's possible with CSS.
+			</div>
+			<div class="fourcol greyb last">
+			 <h4><span class="icon-fullscreen"></span> Infinite scalability</h4>
+			 Scalable vector graphics means every icon looks awesome at any size.
+			</div>
+		</div>
+			
+		<div class="row limit category action_category">
+		 <div class="fourcol greyb">
+		   <h4><span class="icon-beer"></span> Free, as in Beer</h4>
+		   Font Awesome is completely free for commercial use. Check out the <a href="#license">license</a>.
+		 </div>
+		 <div class="fourcol greyb">
+		   <h4><span class="icon-ok"></span> IE7 Support</h4>
+		   Font Awesome supports IE7. If you need it, you have my condolences.
+		 </div>
+		 <div class="fourcol last greyb">
+		   <h4><span class="icon-eye-open"></span> Perfect on Retina Displays</h4>
+		   Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
+		 </div>
+		</div>
+
+		<div class="row limit category action_category">
+		 <div class="fourcol greyb">
+		   <h4><span class="icon-thumbs-up"></span> Font Awesome</h4>
+		   Forked and adapted from <a href="fortawesome.github.io/Font-Awesome" target="_blank">Font-Awesome 3</a>.
+		 </div>
+		 <div class="fourcol greyb">
+		   <h4><span class="icon-tint"></span> Designer Friendly</h4>
+		   Install FontAwesome.otf and <a href="design.html" target="_blank">visit the copy & paste page</a>. Happy designing.
+		 </div>
+		 <div class="fourcol last greyb">
+		   <h4><span class="icon-search"></span> Screen reader compatible</h4>
+		   Font Awesome won't trip up screen readers, unlike other icon fonts.
+		 </div>
+		<br/>
+		</div>
+	
+		<div class="row limit category action_category">
+			<div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+				<h3 class="page-header">Font-Face Links</h3>
+				<p class="fnote">basic demo showing icons added to &lt;a href&gt;'s using <code>&lt;span class="icon-magic"&gt;&lt;/span&gt;</code></p>
+				<div class="push"></div>
+			</div>
+		</div>
+		
+		<div class="row limit category action_category lead">
+		    <div class="twocol">
+		      <a href="#" class="redText"><span class="icon-magic"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="redText"><span class="icon-magic icon-large"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="redText"><span class="icon-caret-down"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="redText">Link Here <span class="icon-double-angle-right"></span></a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="redText">Link Here <span class="icon-double-angle-right icon-large"></span></a>
+		    </div>
+		    <div class="twocol last">
+		      <a href="#" class="redText">Link Here <span class="icon-caret-down"></span></a>
+		    </div><br/>
+		</div>
+
+		<div class="row limit category action_category">
+		    <div class="twocol">
+		      <a href="#" class="orangeText"><span class="icon-magic"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="orangeText"><span class="icon-magic icon-large"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="orangeText"><span class="icon-caret-down"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="orangeText">Link Here <span class="icon-double-angle-right"></span></a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="orangeText">Link Here <span class="icon-double-angle-right icon-large"></span></a>
+		    </div>
+		    <div class="twocol last">
+		      <a href="#" class="orangeText">Link Here <span class="icon-caret-down"></span></a>
+		    </div>
+		</div>
+		
+		<div class="row limit category action_category gigantic">
+			<div class="push" style="height:20px;"></div>
+		    <div class="twocol">
+		      <a href="#" class="p10"><span class="icon-magic"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="p10"><span class="icon-magic icon-large"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="p10"><span class="icon-caret-down"></span> Link Here</a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="p10">Link Here <span class="icon-double-angle-right"></span></a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="p10">Link Here <span class="icon-double-angle-right icon-large"></span></a>
+		    </div>
+		    <div class="twocol last">
+		      <a href="#" class="p10">Link Here <span class="icon-caret-down"></span></a>
+		    </div>
+		</div>
+		
+		<div class="row limit category action_category">
+			<div class="twelvecol last"><br/>
+<pre class="htmlCode">&lt;a href="#"&gt; &lt;span class="icon-magic"&gt;&lt;/span&gt; Link Here&lt;/a&gt;
+&lt;a href="#"&gt; &lt;span class="icon-magic icon-large"&gt;&lt;/span&gt; Link Here&lt;/a&gt;
+</pre><br/>
+			
+<h3 class="page-header">Font-Face Buttons</h3>	
+			</div>
+		</div>
+		
+		<div class="row limit category action_category">
+			<div class="push"></div>
+			<div class="twelvecol last">
+				<p class="fnote"><code>&lt;button&gt;</code> and <code>.button</code> elements can also use <code>@font-face</code> icons.</p>
+			</div>
+			<div class="twocol">
+		      <a href="#" class="button tipTip" title="icon-magic"><span class="fa-icon icon-magic"></span></a>
+		    </div>
+		    <div class="twocol">
+		      <a href="#" class="button tipTip" title="icon-magic icon-large"><span class="fa-icon icon-magic icon-large"></span></a>
+		    </div>
+		    <div class="twocol">
+		      <button><span class="fa-icon icon-magic"></span><span class="label">Button</span></button>
+		    </div>
+		    <div class="twocol">
+		      <button><span class="fa-icon icon-magic icon-large"></span><span class="label">Button</span></button>
+		    </div>
+		    <div class="twocol">
+		      <button class="action"><span class="label">Button</span><span class="fa-icon icon-magic"></span></button>
+		    </div>
+		    <div class="twocol last">
+		      <button class="action red"><span class="label">Button</span><span class="fa-icon icon-magic"></span></button>
+		    </div>
+		</div>
+		
+		<div class="row limit category action_category">
+			<div class="push"></div>
+			<div class="twelvecol last">
+				<p class="fnote"><code>@font-face</code> icons can scale to any size. this examples shows off the <code>.icon-2x</code> version.</p>
+			</div>
+			<div class="threecol">
+		      <a href="#" class="button tipTip" title="icon-magic"><span class="fa-icon icon-magic icon-2x"></span></a>
+		    </div>
+		    <div class="threecol">
+		      <button><span class="fa-icon icon-magic icon-2x"></span><span class="label label-2x">Button</span></button>
+		    </div>
+		    <div class="threecol">
+		      <button class="action"><span class="label label-2x">Button</span><span class="fa-icon icon-magic icon-2x"></span></button>
+		    </div>
+		    <div class="threecol last">
+		      
+			  <button class="action red"><span class="label label-2x">Button</span><span class="fa-icon icon-magic icon-2x"></span></button>
+		    </div>
+		    
+		</div>
+		
+		<div class="row limit category action_category">
+			<div class="push"></div>
+			<div class="twelvecol last">
+				<p class="fnote"><code>@font-face</code> icons can scale to any size. this examples shows off the <code>.icon-3x</code> version.</p>
+			</div>
+			<div class="threecol">
+		      <a href="#" class="button tipTip" title="icon-magic"><span class="fa-icon icon-magic icon-3x"></span></a>
+		    </div>
+		    <div class="threecol">
+		      <button><span class="fa-icon icon-magic icon-3x"></span><span class="label label-3x">Button</span></button>
+		    </div>
+		    <div class="threecol">
+		      <button class="action"><span class="label label-3x">Button</span><span class="fa-icon icon-magic icon-3x"></span></button>
+		    </div>
+		    <div class="threecol last">
+		      
+			  <button class="action red"><span class="label label-3x">Button</span><span class="fa-icon icon-magic icon-3x"></span></button>
+		    </div>
+		
+			 <!-- Application Icon Lists-->
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Web Application Icons</h3>
+			  </div>
+
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-adjust"></i> icon-adjust</li>
+			      <li><i class="icon-asterisk"></i> icon-asterisk</li>
+			      <li><i class="icon-ban-circle"></i> icon-ban-circle</li>
+			      <li><i class="icon-bar-chart"></i> icon-bar-chart</li>
+			      <li><i class="icon-barcode"></i> icon-barcode</li>
+			      <li><i class="icon-beaker"></i> icon-beaker</li>
+			      <li><i class="icon-beer"></i> icon-beer</li>
+			      <li><i class="icon-bell"></i> icon-bell</li>
+			      <li><i class="icon-bell-alt"></i> icon-bell-alt</li>
+			      <li><i class="icon-bolt"></i> icon-bolt</li>
+			      <li><i class="icon-book"></i> icon-book</li>
+			      <li><i class="icon-bookmark"></i> icon-bookmark</li>
+			      <li><i class="icon-bookmark-empty"></i> icon-bookmark-empty</li>
+			      <li><i class="icon-briefcase"></i> icon-briefcase</li>
+			      <li><i class="icon-bullhorn"></i> icon-bullhorn</li>
+			      <li><i class="icon-calendar"></i> icon-calendar</li>
+			      <li><i class="icon-camera"></i> icon-camera</li>
+			      <li><i class="icon-camera-retro"></i> icon-camera-retro</li>
+			      <li><i class="icon-certificate"></i> icon-certificate</li>
+			      <li><i class="icon-check"></i> icon-check</li>
+			      <li><i class="icon-check-empty"></i> icon-check-empty</li>
+			      <li><i class="icon-circle"></i> icon-circle</li>
+			      <li><i class="icon-circle-blank"></i> icon-circle-blank</li>
+			      <li><i class="icon-cloud"></i> icon-cloud</li>
+			      <li><i class="icon-cloud-download"></i> icon-cloud-download</li>
+			      <li><i class="icon-cloud-upload"></i> icon-cloud-upload</li>
+			      <li><i class="icon-coffee"></i> icon-coffee</li>
+			      <li><i class="icon-cog"></i> icon-cog</li>
+			      <li><i class="icon-cogs"></i> icon-cogs</li>
+			      <li><i class="icon-comment"></i> icon-comment</li>
+			      <li><i class="icon-comment-alt"></i> icon-comment-alt</li>
+			      <li><i class="icon-comments"></i> icon-comments</li>
+			      <li><i class="icon-comments-alt"></i> icon-comments-alt</li>
+			      <li><i class="icon-credit-card"></i> icon-credit-card</li>
+			      <li><i class="icon-dashboard"></i> icon-dashboard</li>
+			      <li><i class="icon-desktop"></i> icon-desktop</li>
+			      <li><i class="icon-download"></i> icon-download</li>
+			      <li><i class="icon-download-alt"></i> icon-download-alt</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-edit"></i> icon-edit</li>
+			      <li><i class="icon-envelope"></i> icon-envelope</li>
+			      <li><i class="icon-envelope-alt"></i> icon-envelope-alt</li>
+			      <li><i class="icon-exchange"></i> icon-exchange</li>
+			      <li><i class="icon-exclamation-sign"></i> icon-exclamation-sign</li>
+			      <li><i class="icon-external-link"></i> icon-external-link</li>
+			      <li><i class="icon-eye-close"></i> icon-eye-close</li>
+			      <li><i class="icon-eye-open"></i> icon-eye-open</li>
+			      <li><i class="icon-facetime-video"></i> icon-facetime-video</li>
+			      <li><i class="icon-fighter-jet"></i> icon-fighter-jet</li>
+			      <li><i class="icon-film"></i> icon-film</li>
+			      <li><i class="icon-filter"></i> icon-filter</li>
+			      <li><i class="icon-fire"></i> icon-fire</li>
+			      <li><i class="icon-flag"></i> icon-flag</li>
+			      <li><i class="icon-folder-close"></i> icon-folder-close</li>
+			      <li><i class="icon-folder-open"></i> icon-folder-open</li>
+			      <li><i class="icon-folder-close-alt"></i> icon-folder-close-alt</li>
+			      <li><i class="icon-folder-open-alt"></i> icon-folder-open-alt</li>
+			      <li><i class="icon-food"></i> icon-food</li>
+			      <li><i class="icon-gift"></i> icon-gift</li>
+			      <li><i class="icon-glass"></i> icon-glass</li>
+			      <li><i class="icon-globe"></i> icon-globe</li>
+			      <li><i class="icon-group"></i> icon-group</li>
+			      <li><i class="icon-hdd"></i> icon-hdd</li>
+			      <li><i class="icon-headphones"></i> icon-headphones</li>
+			      <li><i class="icon-heart"></i> icon-heart</li>
+			      <li><i class="icon-heart-empty"></i> icon-heart-empty</li>
+			      <li><i class="icon-home"></i> icon-home</li>
+			      <li><i class="icon-inbox"></i> icon-inbox</li>
+			      <li><i class="icon-info-sign"></i> icon-info-sign</li>
+			      <li><i class="icon-key"></i> icon-key</li>
+			      <li><i class="icon-leaf"></i> icon-leaf</li>
+			      <li><i class="icon-laptop"></i> icon-laptop</li>
+			      <li><i class="icon-legal"></i> icon-legal</li>
+			      <li><i class="icon-lemon"></i> icon-lemon</li>
+			      <li><i class="icon-lightbulb"></i> icon-lightbulb</li>
+			      <li><i class="icon-lock"></i> icon-lock</li>
+			      <li><i class="icon-unlock"></i> icon-unlock</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-magic"></i> icon-magic</li>
+			      <li><i class="icon-magnet"></i> icon-magnet</li>
+			      <li><i class="icon-map-marker"></i> icon-map-marker</li>
+			      <li><i class="icon-minus"></i> icon-minus</li>
+			      <li><i class="icon-minus-sign"></i> icon-minus-sign</li>
+			      <li><i class="icon-mobile-phone"></i> icon-mobile-phone</li>
+			      <li><i class="icon-money"></i> icon-money</li>
+			      <li><i class="icon-move"></i> icon-move</li>
+			      <li><i class="icon-music"></i> icon-music</li>
+			      <li><i class="icon-off"></i> icon-off</li>
+			      <li><i class="icon-ok"></i> icon-ok</li>
+			      <li><i class="icon-ok-circle"></i> icon-ok-circle</li>
+			      <li><i class="icon-ok-sign"></i> icon-ok-sign</li>
+			      <li><i class="icon-pencil"></i> icon-pencil</li>
+			      <li><i class="icon-picture"></i> icon-picture</li>
+			      <li><i class="icon-plane"></i> icon-plane</li>
+			      <li><i class="icon-plus"></i> icon-plus</li>
+			      <li><i class="icon-plus-sign"></i> icon-plus-sign</li>
+			      <li><i class="icon-print"></i> icon-print</li>
+			      <li><i class="icon-pushpin"></i> icon-pushpin</li>
+			      <li><i class="icon-qrcode"></i> icon-qrcode</li>
+			      <li><i class="icon-question-sign"></i> icon-question-sign</li>
+			      <li><i class="icon-quote-left"></i> icon-quote-left</li>
+			      <li><i class="icon-quote-right"></i> icon-quote-right</li>
+			      <li><i class="icon-random"></i> icon-random</li>
+			      <li><i class="icon-refresh"></i> icon-refresh</li>
+			      <li><i class="icon-remove"></i> icon-remove</li>
+			      <li><i class="icon-remove-circle"></i> icon-remove-circle</li>
+			      <li><i class="icon-remove-sign"></i> icon-remove-sign</li>
+			      <li><i class="icon-reorder"></i> icon-reorder</li>
+			      <li><i class="icon-reply"></i> icon-reply</li>
+			      <li><i class="icon-resize-horizontal"></i> icon-resize-horizontal</li>
+			      <li><i class="icon-resize-vertical"></i> icon-resize-vertical</li>
+			      <li><i class="icon-retweet"></i> icon-retweet</li>
+			      <li><i class="icon-road"></i> icon-road</li>
+			      <li><i class="icon-rss"></i> icon-rss</li>
+			      <li><i class="icon-screenshot"></i> icon-screenshot</li>
+			      <li><i class="icon-search"></i> icon-search</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-share"></i> icon-share</li>
+			      <li><i class="icon-share-alt"></i> icon-share-alt</li>
+			      <li><i class="icon-shopping-cart"></i> icon-shopping-cart</li>
+			      <li><i class="icon-signal"></i> icon-signal</li>
+			      <li><i class="icon-signin"></i> icon-signin</li>
+			      <li><i class="icon-signout"></i> icon-signout</li>
+			      <li><i class="icon-sitemap"></i> icon-sitemap</li>
+			      <li><i class="icon-sort"></i> icon-sort</li>
+			      <li><i class="icon-sort-down"></i> icon-sort-down</li>
+			      <li><i class="icon-sort-up"></i> icon-sort-up</li>
+			      <li><i class="icon-spinner"></i> icon-spinner</li>
+			      <li><i class="icon-star"></i> icon-star</li>
+			      <li><i class="icon-star-empty"></i> icon-star-empty</li>
+			      <li><i class="icon-star-half"></i> icon-star-half</li>
+			      <li><i class="icon-tablet"></i> icon-tablet</li>
+			      <li><i class="icon-tag"></i> icon-tag</li>
+			      <li><i class="icon-tags"></i> icon-tags</li>
+			      <li><i class="icon-tasks"></i> icon-tasks</li>
+			      <li><i class="icon-thumbs-down"></i> icon-thumbs-down</li>
+			      <li><i class="icon-thumbs-up"></i> icon-thumbs-up</li>
+			      <li><i class="icon-time"></i> icon-time</li>
+			      <li><i class="icon-tint"></i> icon-tint</li>
+			      <li><i class="icon-trash"></i> icon-trash</li>
+			      <li><i class="icon-trophy"></i> icon-trophy</li>
+			      <li><i class="icon-truck"></i> icon-truck</li>
+			      <li><i class="icon-umbrella"></i> icon-umbrella</li>
+			      <li><i class="icon-upload"></i> icon-upload</li>
+			      <li><i class="icon-upload-alt"></i> icon-upload-alt</li>
+			      <li><i class="icon-user"></i> icon-user</li>
+			      <li><i class="icon-user-md"></i> icon-user-md</li>
+			      <li><i class="icon-volume-off"></i> icon-volume-off</li>
+			      <li><i class="icon-volume-down"></i> icon-volume-down</li>
+			      <li><i class="icon-volume-up"></i> icon-volume-up</li>
+			      <li><i class="icon-warning-sign"></i> icon-warning-sign</li>
+			      <li><i class="icon-wrench"></i> icon-wrench</li>
+			      <li><i class="icon-zoom-in"></i> icon-zoom-in</li>
+			      <li><i class="icon-zoom-out"></i> icon-zoom-out</li>
+			    </ul>
+			  </div>
+		
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Text Editor Icons</h3>
+			  </div>
+			
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-file"></i> icon-file</li>
+			      <li><i class="icon-file-alt"></i> icon-file-alt</li>
+			      <li><i class="icon-cut"></i> icon-cut</li>
+			      <li><i class="icon-copy"></i> icon-copy</li>
+			      <li><i class="icon-paste"></i> icon-paste</li>
+			      <li><i class="icon-save"></i> icon-save</li>
+			      <li><i class="icon-undo"></i> icon-undo</li>
+			      <li><i class="icon-repeat"></i> icon-repeat</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-text-height"></i> icon-text-height</li>
+			      <li><i class="icon-text-width"></i> icon-text-width</li>
+			      <li><i class="icon-align-left"></i> icon-align-left</li>
+			      <li><i class="icon-align-center"></i> icon-align-center</li>
+			      <li><i class="icon-align-right"></i> icon-align-right</li>
+			      <li><i class="icon-align-justify"></i> icon-align-justify</li>
+			      <li><i class="icon-indent-left"></i> icon-indent-left</li>
+			      <li><i class="icon-indent-right"></i> icon-indent-right</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-font"></i> icon-font</li>
+			      <li><i class="icon-bold"></i> icon-bold</li>
+			      <li><i class="icon-italic"></i> icon-italic</li>
+			      <li><i class="icon-strikethrough"></i> icon-strikethrough</li>
+			      <li><i class="icon-underline"></i> icon-underline</li>
+			      <li><i class="icon-link"></i> icon-link</li>
+			      <li><i class="icon-paper-clip"></i> icon-paper-clip</li>
+			      <li><i class="icon-columns"></i> icon-columns</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-table"></i> icon-table</li>
+			      <li><i class="icon-th-large"></i> icon-th-large</li>
+			      <li><i class="icon-th"></i> icon-th</li>
+			      <li><i class="icon-th-list"></i> icon-th-list</li>
+			      <li><i class="icon-list"></i> icon-list</li>
+			      <li><i class="icon-list-ol"></i> icon-list-ol</li>
+			      <li><i class="icon-list-ul"></i> icon-list-ul</li>
+			      <li><i class="icon-list-alt"></i> icon-list-alt</li>
+			    </ul>
+			  </div>
+			
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Directional Icons</h3>
+			  </div>
+			
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-angle-left"></i> icon-angle-left</li>
+			      <li><i class="icon-angle-right"></i> icon-angle-right</li>
+			      <li><i class="icon-angle-up"></i> icon-angle-up</li>
+			      <li><i class="icon-angle-down"></i> icon-angle-down</li>
+			      <li><i class="icon-arrow-down"></i> icon-arrow-down</li>
+			      <li><i class="icon-arrow-left"></i> icon-arrow-left</li>
+			      <li><i class="icon-arrow-right"></i> icon-arrow-right</li>
+			      <li><i class="icon-arrow-up"></i> icon-arrow-up</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-caret-down"></i> icon-caret-down</li>
+			      <li><i class="icon-caret-left"></i> icon-caret-left</li>
+			      <li><i class="icon-caret-right"></i> icon-caret-right</li>
+			      <li><i class="icon-caret-up"></i> icon-caret-up</li>
+			      <li><i class="icon-chevron-down"></i> icon-chevron-down</li>
+			      <li><i class="icon-chevron-left"></i> icon-chevron-left</li>
+			      <li><i class="icon-chevron-right"></i> icon-chevron-right</li>
+			      <li><i class="icon-chevron-up"></i> icon-chevron-up</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-circle-arrow-down"></i> icon-circle-arrow-down</li>
+			      <li><i class="icon-circle-arrow-left"></i> icon-circle-arrow-left</li>
+			      <li><i class="icon-circle-arrow-right"></i> icon-circle-arrow-right</li>
+			      <li><i class="icon-circle-arrow-up"></i> icon-circle-arrow-up</li>
+			      <li><i class="icon-double-angle-left"></i> icon-double-angle-left</li>
+			      <li><i class="icon-double-angle-right"></i> icon-double-angle-right</li>
+			      <li><i class="icon-double-angle-up"></i> icon-double-angle-up</li>
+			      <li><i class="icon-double-angle-down"></i> icon-double-angle-down</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-hand-down"></i> icon-hand-down</li>
+			      <li><i class="icon-hand-left"></i> icon-hand-left</li>
+			      <li><i class="icon-hand-right"></i> icon-hand-right</li>
+			      <li><i class="icon-hand-up"></i> icon-hand-up</li>
+			      <li><i class="icon-circle"></i> icon-circle</li>
+			      <li><i class="icon-circle-blank"></i> icon-circle-blank</li>
+			    </ul>
+			  </div>
+
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Video Player Icons</h3>
+			  </div>
+			
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-play-circle"></i> icon-play-circle</li>
+			      <li><i class="icon-play"></i> icon-play</li>
+			      <li><i class="icon-pause"></i> icon-pause</li>
+			      <li><i class="icon-stop"></i> icon-stop</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-step-backward"></i> icon-step-backward</li>
+			      <li><i class="icon-fast-backward"></i> icon-fast-backward</li>
+			      <li><i class="icon-backward"></i> icon-backward</li>
+			      <li><i class="icon-forward"></i> icon-forward</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-fast-forward"></i> icon-fast-forward</li>
+			      <li><i class="icon-step-forward"></i> icon-step-forward</li>
+			      <li><i class="icon-eject"></i> icon-eject</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-fullscreen"></i> icon-fullscreen</li>
+			      <li><i class="icon-resize-full"></i> icon-resize-full</li>
+			      <li><i class="icon-resize-small"></i> icon-resize-small</li>
+			    </ul>
+			  </div>
+
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Social Icons</h3>
+			  </div>
+			
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-phone"></i> icon-phone</li>
+			      <li><i class="icon-phone-sign"></i> icon-phone-sign</li>
+			      <li><i class="icon-facebook"></i> icon-facebook</li>
+			      <li><i class="icon-facebook-sign"></i> icon-facebook-sign</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-twitter"></i> icon-twitter</li>
+			      <li><i class="icon-twitter-sign"></i> icon-twitter-sign</li>
+			      <li><i class="icon-github"></i> icon-github</li>
+			      <li><i class="icon-github-alt"></i> icon-github-alt</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-github-sign"></i> icon-github-sign</li>
+			      <li><i class="icon-linkedin"></i> icon-linkedin</li>
+			      <li><i class="icon-linkedin-sign"></i> icon-linkedin-sign</li>
+			      <li><i class="icon-pinterest"></i> icon-pinterest</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-pinterest-sign"></i> icon-pinterest-sign</li>
+			      <li><i class="icon-google-plus"></i> icon-google-plus</li>
+			      <li><i class="icon-google-plus-sign"></i> icon-google-plus-sign</li>
+			      <li><i class="icon-sign-blank"></i> icon-sign-blank</li>
+			    </ul>
+			  </div>
+
+			  <div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+			    <h3 class="page-header">Medical Icons <small>Want to change healthcare? Work with me at <a href="#kyruus">Kyruus</a>.</small></h3>
+			  </div>
+			
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-ambulance"></i> icon-ambulance</li>
+			      <li><i class="icon-beaker"></i> icon-beaker</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-h-sign"></i> icon-h-sign</li>
+			      <li><i class="icon-hospital"></i> icon-hospital</li>
+			    </ul>
+			  </div>
+			  <div class="threecol">
+			    <ul class="the-icons">
+			      <li><i class="icon-medkit"></i> icon-medkit</li>
+			      <li><i class="icon-plus-sign-alt"></i> icon-plus-sign-alt</li>
+			    </ul>
+			  </div>
+			  <div class="threecol last">
+			    <ul class="the-icons">
+			      <li><i class="icon-stethoscope"></i> icon-stethoscope</li>
+			      <li><i class="icon-user-md"></i> icon-user-md</li>
+			    </ul>
+			  </div>
+			<!-- Application Icon Lists-->
+			
+		    <div class="twelvecol last">
+			<div class="push" style="height:100px;"></div>
+				<h3 class="page-header">Font Mockup Version</h3>
+				<p class="fnote">These are the SAME Icons as above, only this layout will allow you to copy and paste any of these icons to use them in your mockups & designs.</p>
+			</div>
+			
+			<div class="fourcol greyb" style="margin-top:0;margin-bottom:0;">
+			 <ul class="unstyled">
+			   <li><span class="icon-">&#xf000;</span> icon-glass <span class="muted">(&amp;#xf000;)</span></li>
+			   <li><span class="icon-">&#xf001;</span> icon-music <span class="muted">(&amp;#xf001;)</span></li>
+			   <li><span class="icon-">&#xf002;</span> icon-search <span class="muted">(&amp;#xf002;)</span></li>
+			   <li><span class="icon-">&#xf003;</span> icon-envelope <span class="muted">(&amp;#xf003;)</span></li>
+			   <li><span class="icon-">&#xf004;</span> icon-heart <span class="muted">(&amp;#xf004;)</span></li>
+			   <li><span class="icon-">&#xf005;</span> icon-star <span class="muted">(&amp;#xf005;)</span></li>
+			   <li><span class="icon-">&#xf006;</span> icon-star-empty <span class="muted">(&amp;#xf006;)</span></li>
+			   <li><span class="icon-">&#xf007;</span> icon-user <span class="muted">(&amp;#xf007;)</span></li>
+			   <li><span class="icon-">&#xf008;</span> icon-film <span class="muted">(&amp;#xf008;)</span></li>
+			   <li><span class="icon-">&#xf009;</span> icon-th-large <span class="muted">(&amp;#xf009;)</span></li>
+			   <li><span class="icon-">&#xf00a;</span> icon-th <span class="muted">(&amp;#xf00a;)</span></li>
+			   <li><span class="icon-">&#xf00b;</span> icon-th-list <span class="muted">(&amp;#xf00b;)</span></li>
+			   <li><span class="icon-">&#xf00c;</span> icon-ok <span class="muted">(&amp;#xf00c;)</span></li>
+			   <li><span class="icon-">&#xf00d;</span> icon-remove <span class="muted">(&amp;#xf00d;)</span></li>
+			   <li><span class="icon-">&#xf00e;</span> icon-zoom-in <span class="muted">(&amp;#xf00e;)</span></li>
+			   <li><span class="icon-">&#xf010;</span> icon-zoom-out <span class="muted">(&amp;#xf010;)</span></li>
+			   <li><span class="icon-">&#xf011;</span> icon-off <span class="muted">(&amp;#xf011;)</span></li>
+			   <li><span class="icon-">&#xf012;</span> icon-signal <span class="muted">(&amp;#xf012;)</span></li>
+			   <li><span class="icon-">&#xf013;</span> icon-cog <span class="muted">(&amp;#xf013;)</span></li>
+			   <li><span class="icon-">&#xf014;</span> icon-trash <span class="muted">(&amp;#xf014;)</span></li>
+			   <li><span class="icon-">&#xf015;</span> icon-home <span class="muted">(&amp;#xf015;)</span></li>
+			   <li><span class="icon-">&#xf016;</span> icon-file <span class="muted">(&amp;#xf016;)</span></li>
+			   <li><span class="icon-">&#xf017;</span> icon-time <span class="muted">(&amp;#xf017;)</span></li>
+			   <li><span class="icon-">&#xf018;</span> icon-road <span class="muted">(&amp;#xf018;)</span></li>
+			   <li><span class="icon-">&#xf019;</span> icon-download-alt <span class="muted">(&amp;#xf019;)</span></li>
+			   <li><span class="icon-">&#xf01a;</span> icon-download <span class="muted">(&amp;#xf01a;)</span></li>
+			   <li><span class="icon-">&#xf01b;</span> icon-upload <span class="muted">(&amp;#xf01b;)</span></li>
+			   <li><span class="icon-">&#xf01c;</span> icon-inbox <span class="muted">(&amp;#xf01c;)</span></li>
+			   <li><span class="icon-">&#xf01d;</span> icon-play-circle <span class="muted">(&amp;#xf01d;)</span></li>
+			   <li><span class="icon-">&#xf01e;</span> icon-repeat <span class="muted">(&amp;#xf01e;)</span></li>
+			   <li><span class="icon-">&#xf021;</span> icon-refresh <span class="muted">(&amp;#xf021;)</span></li>
+			   <li><span class="icon-">&#xf022;</span> icon-list-alt <span class="muted">(&amp;#xf022;)</span></li>
+			   <li><span class="icon-">&#xf023;</span> icon-lock <span class="muted">(&amp;#xf023;)</span></li>
+			   <li><span class="icon-">&#xf024;</span> icon-flag <span class="muted">(&amp;#xf024;)</span></li>
+			   <li><span class="icon-">&#xf025;</span> icon-headphones <span class="muted">(&amp;#xf025;)</span></li>
+			   <li><span class="icon-">&#xf026;</span> icon-volume-off <span class="muted">(&amp;#xf026;)</span></li>
+			   <li><span class="icon-">&#xf027;</span> icon-volume-down <span class="muted">(&amp;#xf027;)</span></li>
+			   <li><span class="icon-">&#xf028;</span> icon-volume-up <span class="muted">(&amp;#xf028;)</span></li>
+			   <li><span class="icon-">&#xf029;</span> icon-qrcode <span class="muted">(&amp;#xf029;)</span></li>
+			   <li><span class="icon-">&#xf02a;</span> icon-barcode <span class="muted">(&amp;#xf02a;)</span></li>
+			   <li><span class="icon-">&#xf02b;</span> icon-tag <span class="muted">(&amp;#xf02b;)</span></li>
+			   <li><span class="icon-">&#xf02c;</span> icon-tags <span class="muted">(&amp;#xf02c;)</span></li>
+			   <li><span class="icon-">&#xf02d;</span> icon-book <span class="muted">(&amp;#xf02d;)</span></li>
+			   <li><span class="icon-">&#xf02e;</span> icon-bookmark <span class="muted">(&amp;#xf02e;)</span></li>
+			   <li><span class="icon-">&#xf02f;</span> icon-print <span class="muted">(&amp;#xf02f;)</span></li>
+			   <li><span class="icon-">&#xf030;</span> icon-camera <span class="muted">(&amp;#xf030;)</span></li>
+			   <li><span class="icon-">&#xf031;</span> icon-font <span class="muted">(&amp;#xf031;)</span></li>
+			   <li><span class="icon-">&#xf032;</span> icon-bold <span class="muted">(&amp;#xf032;)</span></li>
+			   <li><span class="icon-">&#xf033;</span> icon-italic <span class="muted">(&amp;#xf033;)</span></li>
+			   <li><span class="icon-">&#xf034;</span> icon-text-height <span class="muted">(&amp;#xf034;)</span></li>
+			   <li><span class="icon-">&#xf035;</span> icon-text-width <span class="muted">(&amp;#xf035;)</span></li>
+			   <li><span class="icon-">&#xf036;</span> icon-align-left <span class="muted">(&amp;#xf036;)</span></li>
+			   <li><span class="icon-">&#xf037;</span> icon-align-center <span class="muted">(&amp;#xf037;)</span></li>
+			   <li><span class="icon-">&#xf038;</span> icon-align-right <span class="muted">(&amp;#xf038;)</span></li>
+			   <li><span class="icon-">&#xf039;</span> icon-align-justify <span class="muted">(&amp;#xf039;)</span></li>
+			   <li><span class="icon-">&#xf03a;</span> icon-list <span class="muted">(&amp;#xf03a;)</span></li>
+			   <li><span class="icon-">&#xf03b;</span> icon-indent-left <span class="muted">(&amp;#xf03b;)</span></li>
+			   <li><span class="icon-">&#xf03c;</span> icon-indent-right <span class="muted">(&amp;#xf03c;)</span></li>
+			   <li><span class="icon-">&#xf03d;</span> icon-facetime-video <span class="muted">(&amp;#xf03d;)</span></li>
+			   <li><span class="icon-">&#xf03e;</span> icon-picture <span class="muted">(&amp;#xf03e;)</span></li>
+			   <li><span class="icon-">&#xf040;</span> icon-pencil <span class="muted">(&amp;#xf040;)</span></li>
+			   <li><span class="icon-">&#xf041;</span> icon-map-marker <span class="muted">(&amp;#xf041;)</span></li>
+			   <li><span class="icon-">&#xf042;</span> icon-adjust <span class="muted">(&amp;#xf042;)</span></li>
+			   <li><span class="icon-">&#xf043;</span> icon-tint <span class="muted">(&amp;#xf043;)</span></li>
+			   <li><span class="icon-">&#xf044;</span> icon-edit <span class="muted">(&amp;#xf044;)</span></li>
+			   <li><span class="icon-">&#xf045;</span> icon-share <span class="muted">(&amp;#xf045;)</span></li>
+			   <li><span class="icon-">&#xf046;</span> icon-check <span class="muted">(&amp;#xf046;)</span></li>
+			   <li><span class="icon-">&#xf047;</span> icon-move <span class="muted">(&amp;#xf047;)</span></li>
+			   <li><span class="icon-">&#xf048;</span> icon-step-backward <span class="muted">(&amp;#xf048;)</span></li>
+			   <li><span class="icon-">&#xf049;</span> icon-fast-backward <span class="muted">(&amp;#xf049;)</span></li>
+			   <li><span class="icon-">&#xf04a;</span> icon-backward <span class="muted">(&amp;#xf04a;)</span></li>
+			   <li><span class="icon-">&#xf04b;</span> icon-play <span class="muted">(&amp;#xf04b;)</span></li>
+			   <li><span class="icon-">&#xf04c;</span> icon-pause <span class="muted">(&amp;#xf04c;)</span></li>
+			   <li><span class="icon-">&#xf04d;</span> icon-stop <span class="muted">(&amp;#xf04d;)</span></li>
+			   <li><span class="icon-">&#xf04e;</span> icon-forward <span class="muted">(&amp;#xf04e;)</span></li>
+			   <li><span class="icon-">&#xf050;</span> icon-fast-forward <span class="muted">(&amp;#xf050;)</span></li>
+			   <li><span class="icon-">&#xf051;</span> icon-step-forward <span class="muted">(&amp;#xf051;)</span></li>
+			   <li><span class="icon-">&#xf052;</span> icon-eject <span class="muted">(&amp;#xf052;)</span></li>
+			   <li><span class="icon-">&#xf053;</span> icon-chevron-left <span class="muted">(&amp;#xf053;)</span></li>
+			   <li><span class="icon-">&#xf054;</span> icon-chevron-right <span class="muted">(&amp;#xf054;)</span></li>
+			   <li><span class="icon-">&#xf055;</span> icon-plus-sign <span class="muted">(&amp;#xf055;)</span></li>
+			   <li><span class="icon-">&#xf056;</span> icon-minus-sign <span class="muted">(&amp;#xf056;)</span></li>
+			 </ul>
+			</div>
+			<div class="fourcol greyb" style="margin-top:0;margin-bottom:0;">
+			 <ul class="unstyled">
+			   <li><span class="icon-">&#xf057;</span> icon-remove-sign <span class="muted">(&amp;#xf057;)</span></li>
+			   <li><span class="icon-">&#xf058;</span> icon-ok-sign <span class="muted">(&amp;#xf058;)</span></li>
+			   <li><span class="icon-">&#xf059;</span> icon-question-sign <span class="muted">(&amp;#xf059;)</span></li>
+			   <li><span class="icon-">&#xf05a;</span> icon-info-sign <span class="muted">(&amp;#xf05a;)</span></li>
+			   <li><span class="icon-">&#xf05b;</span> icon-screenshot <span class="muted">(&amp;#xf05b;)</span></li>
+			   <li><span class="icon-">&#xf05c;</span> icon-remove-circle <span class="muted">(&amp;#xf05c;)</span></li>
+			   <li><span class="icon-">&#xf05d;</span> icon-ok-circle <span class="muted">(&amp;#xf05d;)</span></li>
+			   <li><span class="icon-">&#xf05e;</span> icon-ban-circle <span class="muted">(&amp;#xf05e;)</span></li>
+			   <li><span class="icon-">&#xf060;</span> icon-arrow-left <span class="muted">(&amp;#xf060;)</span></li>
+			   <li><span class="icon-">&#xf061;</span> icon-arrow-right <span class="muted">(&amp;#xf061;)</span></li>
+			   <li><span class="icon-">&#xf062;</span> icon-arrow-up <span class="muted">(&amp;#xf062;)</span></li>
+			   <li><span class="icon-">&#xf063;</span> icon-arrow-down <span class="muted">(&amp;#xf063;)</span></li>
+			   <li><span class="icon-">&#xf064;</span> icon-share-alt <span class="muted">(&amp;#xf064;)</span></li>
+			   <li><span class="icon-">&#xf065;</span> icon-resize-full <span class="muted">(&amp;#xf065;)</span></li>
+			   <li><span class="icon-">&#xf066;</span> icon-resize-small <span class="muted">(&amp;#xf066;)</span></li>
+			   <li><span class="icon-">&#xf067;</span> icon-plus <span class="muted">(&amp;#xf067;)</span></li>
+			   <li><span class="icon-">&#xf068;</span> icon-minus <span class="muted">(&amp;#xf068;)</span></li>
+			   <li><span class="icon-">&#xf069;</span> icon-asterisk <span class="muted">(&amp;#xf069;)</span></li>
+			   <li><span class="icon-">&#xf06a;</span> icon-exclamation-sign <span class="muted">(&amp;#xf06a;)</span></li>
+			   <li><span class="icon-">&#xf06b;</span> icon-gift <span class="muted">(&amp;#xf06b;)</span></li>
+			   <li><span class="icon-">&#xf06c;</span> icon-leaf <span class="muted">(&amp;#xf06c;)</span></li>
+			   <li><span class="icon-">&#xf06d;</span> icon-fire <span class="muted">(&amp;#xf06d;)</span></li>
+			   <li><span class="icon-">&#xf06e;</span> icon-eye-open <span class="muted">(&amp;#xf06e;)</span></li>
+			   <li><span class="icon-">&#xf070;</span> icon-eye-close <span class="muted">(&amp;#xf070;)</span></li>
+			   <li><span class="icon-">&#xf071;</span> icon-warning-sign <span class="muted">(&amp;#xf071;)</span></li>
+			   <li><span class="icon-">&#xf072;</span> icon-plane <span class="muted">(&amp;#xf072;)</span></li>
+			   <li><span class="icon-">&#xf073;</span> icon-calendar <span class="muted">(&amp;#xf073;)</span></li>
+			   <li><span class="icon-">&#xf074;</span> icon-random <span class="muted">(&amp;#xf074;)</span></li>
+			   <li><span class="icon-">&#xf075;</span> icon-comment <span class="muted">(&amp;#xf075;)</span></li>
+			   <li><span class="icon-">&#xf076;</span> icon-magnet <span class="muted">(&amp;#xf076;)</span></li>
+			   <li><span class="icon-">&#xf077;</span> icon-chevron-up <span class="muted">(&amp;#xf077;)</span></li>
+			   <li><span class="icon-">&#xf078;</span> icon-chevron-down <span class="muted">(&amp;#xf078;)</span></li>
+			   <li><span class="icon-">&#xf079;</span> icon-retweet <span class="muted">(&amp;#xf079;)</span></li>
+			   <li><span class="icon-">&#xf07a;</span> icon-shopping-cart <span class="muted">(&amp;#xf07a;)</span></li>
+			   <li><span class="icon-">&#xf07b;</span> icon-folder-close <span class="muted">(&amp;#xf07b;)</span></li>
+			   <li><span class="icon-">&#xf07c;</span> icon-folder-open <span class="muted">(&amp;#xf07c;)</span></li>
+			   <li><span class="icon-">&#xf07d;</span> icon-resize-vertical <span class="muted">(&amp;#xf07d;)</span></li>
+			   <li><span class="icon-">&#xf07e;</span> icon-resize-horizontal <span class="muted">(&amp;#xf07e;)</span></li>
+			   <li><span class="icon-">&#xf080;</span> icon-bar-chart <span class="muted">(&amp;#xf080;)</span></li>
+			   <li><span class="icon-">&#xf081;</span> icon-twitter-sign <span class="muted">(&amp;#xf081;)</span></li>
+			   <li><span class="icon-">&#xf082;</span> icon-facebook-sign <span class="muted">(&amp;#xf082;)</span></li>
+			   <li><span class="icon-">&#xf083;</span> icon-camera-retro <span class="muted">(&amp;#xf083;)</span></li>
+			   <li><span class="icon-">&#xf084;</span> icon-key <span class="muted">(&amp;#xf084;)</span></li>
+			   <li><span class="icon-">&#xf085;</span> icon-cogs <span class="muted">(&amp;#xf085;)</span></li>
+			   <li><span class="icon-">&#xf086;</span> icon-comments <span class="muted">(&amp;#xf086;)</span></li>
+			   <li><span class="icon-">&#xf087;</span> icon-thumbs-up <span class="muted">(&amp;#xf087;)</span></li>
+			   <li><span class="icon-">&#xf088;</span> icon-thumbs-down <span class="muted">(&amp;#xf088;)</span></li>
+			   <li><span class="icon-">&#xf089;</span> icon-star-half <span class="muted">(&amp;#xf089;)</span></li>
+			   <li><span class="icon-">&#xf08a;</span> icon-heart-empty <span class="muted">(&amp;#xf08a;)</span></li>
+			   <li><span class="icon-">&#xf08b;</span> icon-signout <span class="muted">(&amp;#xf08b;)</span></li>
+			   <li><span class="icon-">&#xf08c;</span> icon-linkedin-sign <span class="muted">(&amp;#xf08c;)</span></li>
+			   <li><span class="icon-">&#xf08d;</span> icon-pushpin <span class="muted">(&amp;#xf08d;)</span></li>
+			   <li><span class="icon-">&#xf08e;</span> icon-external-link <span class="muted">(&amp;#xf08e;)</span></li>
+			   <li><span class="icon-">&#xf090;</span> icon-signin <span class="muted">(&amp;#xf090;)</span></li>
+			   <li><span class="icon-">&#xf091;</span> icon-trophy <span class="muted">(&amp;#xf091;)</span></li>
+			   <li><span class="icon-">&#xf092;</span> icon-github-sign <span class="muted">(&amp;#xf092;)</span></li>
+			   <li><span class="icon-">&#xf093;</span> icon-upload-alt <span class="muted">(&amp;#xf093;)</span></li>
+			   <li><span class="icon-">&#xf094;</span> icon-lemon <span class="muted">(&amp;#xf094;)</span></li>
+			   <li><span class="icon-">&#xf095;</span> icon-phone <span class="muted">(&amp;#xf095;)</span></li>
+			   <li><span class="icon-">&#xf096;</span> icon-check-empty <span class="muted">(&amp;#xf096;)</span></li>
+			   <li><span class="icon-">&#xf097;</span> icon-bookmark-empty <span class="muted">(&amp;#xf097;)</span></li>
+			   <li><span class="icon-">&#xf098;</span> icon-phone-sign <span class="muted">(&amp;#xf098;)</span></li>
+			   <li><span class="icon-">&#xf099;</span> icon-twitter <span class="muted">(&amp;#xf099;)</span></li>
+			   <li><span class="icon-">&#xf09a;</span> icon-facebook <span class="muted">(&amp;#xf09a;)</span></li>
+			   <li><span class="icon-">&#xf09b;</span> icon-github <span class="muted">(&amp;#xf09b;)</span></li>
+			   <li><span class="icon-">&#xf09c;</span> icon-unlock <span class="muted">(&amp;#xf09c;)</span></li>
+			   <li><span class="icon-">&#xf09d;</span> icon-credit-card <span class="muted">(&amp;#xf09d;)</span></li>
+			   <li><span class="icon-">&#xf09e;</span> icon-rss <span class="muted">(&amp;#xf09e;)</span></li>
+			   <li><span class="icon-">&#xf0a0;</span> icon-hdd <span class="muted">(&amp;#xf0a0;)</span></li>
+			   <li><span class="icon-">&#xf0a1;</span> icon-bullhorn <span class="muted">(&amp;#xf0a1;)</span></li>
+			   <li><span class="icon-">&#xf0a2;</span> icon-bell <span class="muted">(&amp;#xf0a2;)</span></li>
+			   <li><span class="icon-">&#xf0a3;</span> icon-certificate <span class="muted">(&amp;#xf0a3;)</span></li>
+			   <li><span class="icon-">&#xf0a4;</span> icon-hand-right <span class="muted">(&amp;#xf0a4;)</span></li>
+			   <li><span class="icon-">&#xf0a5;</span> icon-hand-left <span class="muted">(&amp;#xf0a5;)</span></li>
+			   <li><span class="icon-">&#xf0a6;</span> icon-hand-up <span class="muted">(&amp;#xf0a6;)</span></li>
+			   <li><span class="icon-">&#xf0a7;</span> icon-hand-down <span class="muted">(&amp;#xf0a7;)</span></li>
+			   <li><span class="icon-">&#xf0a8;</span> icon-circle-arrow-left <span class="muted">(&amp;#xf0a8;)</span></li>
+			   <li><span class="icon-">&#xf0a9;</span> icon-circle-arrow-right <span class="muted">(&amp;#xf0a9;)</span></li>
+			   <li><span class="icon-">&#xf0aa;</span> icon-circle-arrow-up <span class="muted">(&amp;#xf0aa;)</span></li>
+			   <li><span class="icon-">&#xf0ab;</span> icon-circle-arrow-down <span class="muted">(&amp;#xf0ab;)</span></li>
+			   <li><span class="icon-">&#xf0ac;</span> icon-globe <span class="muted">(&amp;#xf0ac;)</span></li>
+			   <li><span class="icon-">&#xf0ad;</span> icon-wrench <span class="muted">(&amp;#xf0ad;)</span></li>
+			 </ul>
+			</div>
+			<div class="fourcol greyb last" style="margin-top:0;margin-bottom:0;">
+			 <ul class="unstyled">
+			   <li><span class="icon-">&#xf0ae;</span> icon-tasks <span class="muted">(&amp;#xf0ae;)</span></li>
+			   <li><span class="icon-">&#xf0b0;</span> icon-filter <span class="muted">(&amp;#xf0b0;)</span></li>
+			   <li><span class="icon-">&#xf0b1;</span> icon-briefcase <span class="muted">(&amp;#xf0b1;)</span></li>
+			   <li><span class="icon-">&#xf0b2;</span> icon-fullscreen <span class="muted">(&amp;#xf0b2;)</span></li>
+			   <li><span class="icon-">&#xf0c0;</span> icon-group <span class="muted">(&amp;#xf0c0;)</span></li>
+			   <li><span class="icon-">&#xf0c1;</span> icon-link <span class="muted">(&amp;#xf0c1;)</span></li>
+			   <li><span class="icon-">&#xf0c2;</span> icon-cloud <span class="muted">(&amp;#xf0c2;)</span></li>
+			   <li><span class="icon-">&#xf0c3;</span> icon-beaker <span class="muted">(&amp;#xf0c3;)</span></li>
+			   <li><span class="icon-">&#xf0c4;</span> icon-cut <span class="muted">(&amp;#xf0c4;)</span></li>
+			   <li><span class="icon-">&#xf0c5;</span> icon-copy <span class="muted">(&amp;#xf0c5;)</span></li>
+			   <li><span class="icon-">&#xf0c6;</span> icon-paper-clip <span class="muted">(&amp;#xf0c6;)</span></li>
+			   <li><span class="icon-">&#xf0c7;</span> icon-save <span class="muted">(&amp;#xf0c7;)</span></li>
+			   <li><span class="icon-">&#xf0c8;</span> icon-sign-blank <span class="muted">(&amp;#xf0c8;)</span></li>
+			   <li><span class="icon-">&#xf0c9;</span> icon-reorder <span class="muted">(&amp;#xf0c9;)</span></li>
+			   <li><span class="icon-">&#xf0ca;</span> icon-list-ul <span class="muted">(&amp;#xf0ca;)</span></li>
+			   <li><span class="icon-">&#xf0cb;</span> icon-list-ol <span class="muted">(&amp;#xf0cb;)</span></li>
+			   <li><span class="icon-">&#xf0cc;</span> icon-strikethrough <span class="muted">(&amp;#xf0cc;)</span></li>
+			   <li><span class="icon-">&#xf0cd;</span> icon-underline <span class="muted">(&amp;#xf0cd;)</span></li>
+			   <li><span class="icon-">&#xf0ce;</span> icon-table <span class="muted">(&amp;#xf0ce;)</span></li>
+			   <li><span class="icon-">&#xf0d0;</span> icon-magic <span class="muted">(&amp;#xf0d0;)</span></li>
+			   <li><span class="icon-">&#xf0d1;</span> icon-truck <span class="muted">(&amp;#xf0d1;)</span></li>
+			   <li><span class="icon-">&#xf0d2;</span> icon-pinterest <span class="muted">(&amp;#xf0d2;)</span></li>
+			   <li><span class="icon-">&#xf0d3;</span> icon-pinterest-sign <span class="muted">(&amp;#xf0d3;)</span></li>
+			   <li><span class="icon-">&#xf0d4;</span> icon-google-plus-sign <span class="muted">(&amp;#xf0d4;)</span></li>
+			   <li><span class="icon-">&#xf0d5;</span> icon-google-plus <span class="muted">(&amp;#xf0d5;)</span></li>
+			   <li><span class="icon-">&#xf0d6;</span> icon-money <span class="muted">(&amp;#xf0d6;)</span></li>
+			   <li><span class="icon-">&#xf0d7;</span> icon-caret-down <span class="muted">(&amp;#xf0d7;)</span></li>
+			   <li><span class="icon-">&#xf0d8;</span> icon-caret-up <span class="muted">(&amp;#xf0d8;)</span></li>
+			   <li><span class="icon-">&#xf0d9;</span> icon-caret-left <span class="muted">(&amp;#xf0d9;)</span></li>
+			   <li><span class="icon-">&#xf0da;</span> icon-caret-right <span class="muted">(&amp;#xf0da;)</span></li>
+			   <li><span class="icon-">&#xf0db;</span> icon-columns <span class="muted">(&amp;#xf0db;)</span></li>
+			   <li><span class="icon-">&#xf0dc;</span> icon-sort <span class="muted">(&amp;#xf0dc;)</span></li>
+			   <li><span class="icon-">&#xf0dd;</span> icon-sort-down <span class="muted">(&amp;#xf0dd;)</span></li>
+			   <li><span class="icon-">&#xf0de;</span> icon-sort-up <span class="muted">(&amp;#xf0de;)</span></li>
+			   <li><span class="icon-">&#xf0e0;</span> icon-envelope-alt <span class="muted">(&amp;#xf0e0;)</span></li>
+			   <li><span class="icon-">&#xf0e1;</span> icon-linkedin <span class="muted">(&amp;#xf0e1;)</span></li>
+			   <li><span class="icon-">&#xf0e2;</span> icon-undo <span class="muted">(&amp;#xf0e2;)</span></li>
+			   <li><span class="icon-">&#xf0e3;</span> icon-legal <span class="muted">(&amp;#xf0e3;)</span></li>
+			   <li><span class="icon-">&#xf0e4;</span> icon-dashboard <span class="muted">(&amp;#xf0e4;)</span></li>
+			   <li><span class="icon-">&#xf0e5;</span> icon-comment-alt <span class="muted">(&amp;#xf0e5;)</span></li>
+			   <li><span class="icon-">&#xf0e6;</span> icon-comments-alt <span class="muted">(&amp;#xf0e6;)</span></li>
+			   <li><span class="icon-">&#xf0e7;</span> icon-bolt <span class="muted">(&amp;#xf0e7;)</span></li>
+			   <li><span class="icon-">&#xf0e8;</span> icon-sitemap <span class="muted">(&amp;#xf0e8;)</span></li>
+			   <li><span class="icon-">&#xf0e9;</span> icon-umbrella <span class="muted">(&amp;#xf0e9;)</span></li>
+			   <li><span class="icon-">&#xf0ea;</span> icon-paste <span class="muted">(&amp;#xf0ea;)</span></li>
+			   <li><span class="icon-">&#xf0eb;</span> icon-lightbulb <span class="muted">(&amp;#xf0eb;)</span></li>
+			   <li><span class="icon-">&#xf0ec;</span> icon-exchange <span class="muted">(&amp;#xf0ec;)</span></li>
+			   <li><span class="icon-">&#xf0ed;</span> icon-cloud-download <span class="muted">(&amp;#xf0ed;)</span></li>
+			   <li><span class="icon-">&#xf0ee;</span> icon-cloud-upload <span class="muted">(&amp;#xf0ee;)</span></li>
+			   <li><span class="icon-">&#xf0f0;</span> icon-user-md <span class="muted">(&amp;#xf0f0;)</span></li>
+			   <li><span class="icon-">&#xf0f1;</span> icon-stethoscope <span class="muted">(&amp;#xf0f1;)</span></li>
+			   <li><span class="icon-">&#xf0f2;</span> icon-suitcase <span class="muted">(&amp;#xf0f2;)</span></li>
+			   <li><span class="icon-">&#xf0f3;</span> icon-bell-alt <span class="muted">(&amp;#xf0f3;)</span></li>
+			   <li><span class="icon-">&#xf0f4;</span> icon-coffee <span class="muted">(&amp;#xf0f4;)</span></li>
+			   <li><span class="icon-">&#xf0f5;</span> icon-food <span class="muted">(&amp;#xf0f5;)</span></li>
+			   <li><span class="icon-">&#xf0f6;</span> icon-file-alt <span class="muted">(&amp;#xf0f6;)</span></li>
+			   <li><span class="icon-">&#xf0f7;</span> icon-building <span class="muted">(&amp;#xf0f7;)</span></li>
+			   <li><span class="icon-">&#xf0f8;</span> icon-hospital <span class="muted">(&amp;#xf0f8;)</span></li>
+			   <li><span class="icon-">&#xf0f9;</span> icon-ambulance <span class="muted">(&amp;#xf0f9;)</span></li>
+			   <li><span class="icon-">&#xf0fa;</span> icon-medkit <span class="muted">(&amp;#xf0fa;)</span></li>
+			   <li><span class="icon-">&#xf0fb;</span> icon-fighter-jet <span class="muted">(&amp;#xf0fb;)</span></li>
+			   <li><span class="icon-">&#xf0fc;</span> icon-beer <span class="muted">(&amp;#xf0fc;)</span></li>
+			   <li><span class="icon-">&#xf0fd;</span> icon-h-sign <span class="muted">(&amp;#xf0fd;)</span></li>
+			   <li><span class="icon-">&#xf0fe;</span> icon-plus-sign-alt <span class="muted">(&amp;#xf0fe;)</span></li>
+			   <li><span class="icon-">&#xf100;</span> icon-double-angle-left <span class="muted">(&amp;#xf100;)</span></li>
+			   <li><span class="icon-">&#xf101;</span> icon-double-angle-right <span class="muted">(&amp;#xf101;)</span></li>
+			   <li><span class="icon-">&#xf102;</span> icon-double-angle-up <span class="muted">(&amp;#xf102;)</span></li>
+			   <li><span class="icon-">&#xf103;</span> icon-double-angle-down <span class="muted">(&amp;#xf103;)</span></li>
+			   <li><span class="icon-">&#xf104;</span> icon-angle-left <span class="muted">(&amp;#xf104;)</span></li>
+			   <li><span class="icon-">&#xf105;</span> icon-angle-right <span class="muted">(&amp;#xf105;)</span></li>
+			   <li><span class="icon-">&#xf106;</span> icon-angle-up <span class="muted">(&amp;#xf106;)</span></li>
+			   <li><span class="icon-">&#xf107;</span> icon-angle-down <span class="muted">(&amp;#xf107;)</span></li>
+			   <li><span class="icon-">&#xf108;</span> icon-desktop <span class="muted">(&amp;#xf108;)</span></li>
+			   <li><span class="icon-">&#xf109;</span> icon-laptop <span class="muted">(&amp;#xf109;)</span></li>
+			   <li><span class="icon-">&#xf10a;</span> icon-tablet <span class="muted">(&amp;#xf10a;)</span></li>
+			   <li><span class="icon-">&#xf10b;</span> icon-mobile-phone <span class="muted">(&amp;#xf10b;)</span></li>
+			   <li><span class="icon-">&#xf10c;</span> icon-circle-blank <span class="muted">(&amp;#xf10c;)</span></li>
+			   <li><span class="icon-">&#xf10d;</span> icon-quote-left <span class="muted">(&amp;#xf10d;)</span></li>
+			   <li><span class="icon-">&#xf10e;</span> icon-quote-right <span class="muted">(&amp;#xf10e;)</span></li>
+			   <li><span class="icon-">&#xf110;</span> icon-spinner <span class="muted">(&amp;#xf110;)</span></li>
+			   <li><span class="icon-">&#xf111;</span> icon-circle <span class="muted">(&amp;#xf111;)</span></li>
+			   <li><span class="icon-">&#xf112;</span> icon-reply <span class="muted">(&amp;#xf112;)</span></li>
+			 </ul>
+			</div>
+
+		</div>
+		
 		<div class="row limit category note_category">
 			<div class="fourcol smallHide">
-<h2>notefy command</h2>
 <pre class="jsCode">	
+//notefy command shortcut
 
 notefy( "Header Title" , "The message you want displayed." );
 
@@ -557,28 +1466,41 @@ notefy(
 </pre>
 <br/><div class="push"></div>
 <pre id="logs" style="background-color:#000;color:#FFF;padding:10px;max-width:730px">
+  //notefy test log
 </pre>
 <div id="test1" class="top-left"></div>
 <div id="test2" class="bottom-left"></div>
 			</div>
 			<div class="eightcol last">
-				<h2>2. Notefy</h2>
+				<h2 class="page-header">2. Notefy</h2>
 				<p>A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
 				Features support for mobile and tablet screen sizes, as well as touch interfaces. Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
-				<p class="p5">
+				<p class="fnote">
 					<em>Tested in: FF 3+, Opera 9, IE7, IE8, Safari 4+</em>. Parts of this a derived from a fork of <a href="http://stanlemon.net/pages/jgrowl">stanlemon.net's jgrowl</a>.
 				</p>
 				
-				<h3>notefy()</h3>
+				<h3 class="page-header">notefy()</h3>
 				<p class="fnote"><p class="L">notefy( </p><input type="text" class="L notefytm" style='clear:none;display:inline;width:100px;' value="demo title"/><p class="L">, </p><input type="text" class="L notefyfm" style='clear:none;display:inline;width:100px;' value="this is a demo message"/><p class="L">, <em>huicon</em>, <em>sticky</em>, <em>timeout</em>);</p><br/>
 				<button class="action red notefytest box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">single test</span></button>
 				<br/>
 				<button class="action red notefytestfull box23"><span class="label" style="text-align:center !important;display:block;width:90%;padding-left:0;padding-right:0;">full range of tests</span></button>
 				<br/></p>
-				
-				<h3>Icons</h3>
+
+				<p class="fnote">Notefy uses a quick shortcut to call a modified version of the normal $.jGrowl() plugin. Any code using $.jGrowl will still work 100%, and its completely backwards compatible. you can even continue to just use the $.jGrowl command if you prefer.</p>
+				<br/>
+				<h3 class="page-header">HTML5 Notifications</h3>
+				<p class="fnote"><a href="http://www.w3.org/TR/notifications/">w3.org/TR/notifications/</a>
+					<br/>If you decide you want to use HTML5 Notifications instead of the Notefy command, you can easily do that.<br/>
+					However, To send custom notifications, you must first get the user to grant you permission, and obviously they must be using a supported browser. Here is a great resource to see if HTML5 Notifications are supported in the browsers you care about: <a href="http://caniuse.com/notifications">caniuse.com/notifications</a>.<br/>
+					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part1.png" style="padding:10px 0 10px 0"/><br/>
+					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part2.png" style="padding:10px 0 10px 0"/><br/>
+					<p class="padding:10px;margin:5px;">For more HTML5 Notifications information and a working example, please see the full <strong>notefy demo</strong> available here: <a href="http://hui.huement.com/notefy">hui.huement.com/notefy</a>
+				</p>
+			</div>
+			<div class="twelvecol last">
+				<h3 class="page-header">Icons</h3>
 				<p class="fnote">You could use a sprite for this. However if you are using this many classes your sprite will be +70kb, where each icon is only 2-3kb when loaded separately, and its Easy to Add your Own. 32 x 32 px icons.</p>
-				<div style="padding:10px;width:90%;" class="C">
+				<div class="greyb C">
 					<ul id="notefyIconList">
 					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png" title="alert or caution" class="L" style="padding:0 1px 0 0;margin:0"/></li>
 					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png" title="ape" class="L" style="padding:0 1px 0 0;margin:0"/></li>
@@ -613,107 +1535,20 @@ notefy(
 					<br/>
 				</div>
 				<br/>
-				<h3>$.jGrowl()</h3>
-				<p class="fnote"></p>
-				<br/>
-				<h3>HTML5 Notifications</h3>
-				<p class="fnote"><a href="http://www.w3.org/TR/notifications/">w3.org/TR/notifications/</a>
-					<br/>If you decide you want to use HTML5 Notifications instead of the Notefy command, you can easily do that.<br/>
-					However, To send custom notifications, you must first get the user to grant you permission, and obviously they must be using a supported browser. Here is a great resource to see if HTML5 Notifications are supported in the browsers you care about: <a href="http://caniuse.com/notifications">caniuse.com/notifications</a>.<br/>
-					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part1.png" style="padding:10px 0 10px 0"/><br/>
-					<img src="http://huementui.s3.amazonaws.com/notefy/html5_part2.png" style="padding:10px 0 10px 0"/><br/>
-					<p class="padding:10px;margin:5px;">For more HTML5 Notifications information and a working example, please see the full <strong>notefy demo</strong> available here: <a href="http://hui.huement.com/notefy">hui.huement.com/notefy</a>
-				</p>
 			</div>
 		</div>
 		
 		<div class="row limit category useful_category">
 			<div class="fourcol smallHide">
-<h2>Checkbox JS</h2>
 <pre class="jsCode">
-jQuery('.on_off :checkbox').iphoneStyle();
-
-jQuery('.css_sized_container :checkbox').iphoneStyle({
-  resizeContainer: false, 
-  resizeHandle: false 
-});
-
-jQuery('.long_tiny :checkbox').iphoneStyle({ 
-  checkedLabel: 'Very Long Text', 
-  uncheckedLabel: 'Tiny' 
-});
-</pre>
-<br/>
-<h2>Select Box JS</h2>
-<pre class="jsCode">
-/* Add single value (will be selected) */
-jQuery("#myselect").addOption("Value", "Text");
-
-/* Add multiple values, but don't select */
-jQuery("#myselect").addOption({"foo":"bar","bar":"baz"}, false);
-
-/* removing by value or by index */
-jQuery("#myselect").removeOption("Value");
-jQuery("#myselect").removeOption(0);
-
-/* Sort options 
-* (ascending or descending) 
-*/
-jQuery("#myselect").sortOptions([bool]);
+//
 </pre>
 			</div>
 			<div class="eightcol last">
-				<h2>3A. Usability</h2>
+				<h2 class="page-header">3a. Usability</h2>
 				<p>Form and Data Elements</p>
 
-				<h3>checkbox JS</h3>
-				<p class="fnote">Turn Checkboxes into ajax ready toggles. Callbacks, state changes and few more functions all become available.</p>
-				<br/>
-					<div class="whiteb iosTableBox">
-						<table class="iosTable">
-						    <tr class="disabled">
-						      <th><label for="disabled">Disabled</label></th>
-						      <td>
-						        <input type="checkbox" id="disabled" disabled="disabled" />
-						      </td>
-						    </tr>
-						    <tr class="on_off">
-						      <th><label for="on_off">Default</label></th>
-						      <td>
-						        <input type="checkbox" id="on_off" />
-						      </td>
-						    </tr>
-						    <tr class="on_off">
-						      <th><label for="on_off_on">Default On</label></th>
-						      <td>
-						        <input type="checkbox" checked="checked" id="on_off_on"/>
-						      </td>
-						    </tr>
-						    <tr class="ios">
-						      <th><label for="css_sized_container">CSS Sized Container and Handle</label></th>
-						      <td>
-						        <input id='iosToggle' type='checkbox' checked="checked" style='width:100px;'/></p><br/>
-						      </td>
-						    </tr>
-						    <tr class="long_tiny">
-						      <th><label class="left" for="long_tiny">Long and short labels</label></th>
-						      <td>
-						        <input type="checkbox" id="long_tiny" />
-						      </td>
-						    </tr>
-						    <tr class="onchange">
-						      <th>Event tracking</th>
-						      <td>
-						        <input type="checkbox" id="onchange" />
-						        <p>Checkbox status is <strong><span id="status">...</span></strong>.</p>
-						      </td>
-						    </tr>
-						  </table>
-						<div class="push"></div>
-						
-					</div>
-				<br/>
-				<h3>Select drop-down manipulation</h3>
+				<h3 class="page-header">Select drop-down manipulation</h3>
 				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
 					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
 
@@ -730,18 +1565,156 @@ jQuery("#myselect").sortOptions([bool]);
 		</div>
 		
 		<div class="row limit category useful_category">
-			<div class="push" style="height:50px;"></div>
-			<div class="twelvecol last">
-				<h2>3B. Lists</h2>
-				<p>Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
+
+			<div class="fourcol smallHide">
+<pre>
+/* doc ready activate all */
+jQuery(function(){
+
+ jQuery(".tipTip").tipTip();
+
+ jQuery(".tipTipR").tipTip({
+  defaultPosition:"right"
+ });
+
+});
+</pre>
+			</div>
+
+			<div class="eightcol last">
+			<h3 class="page-header">3b. TipTip Tooltips</h3>
+			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
+			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
+
+			<p class="greyb" style="margin-top:30px">Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
+			</div>
+		</div>
+		
+		<div class="row limit category useful_category">
+			<br/>
+			<div class="push" style="height:150px;"></div>
+			<div class="fourcol smallHide">
+
+<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
+    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
+    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
+&lt;/div&gt;</pre>
+<br/>
+<div class="push"></div>
+<pre class="jsCode">$('.pagination').jqPagination({
+    paged: function(page) {
+        // do something with the page variable
+    }
+});</pre>
+
+<div class="push"></div>
+<p><a href="#" class="show-log">Show / hide event log:</a></p>
+<ul class="log"></ul>
+
+			</div>
+			<div class="eightcol last">
+				<h3 class="page-header">3c. Pagination</h3>
+				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				<ul>
+					<li>Design agnostic</li>
+					<li>Customizable</li>
+					<li>Degrades beautifully</li>
+					<li>Super simple to integrate with your app / site</li>
+				</ul>
+				<br/>
+				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
+				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
+				<div class="push"></div>
+				<h4>Pagination Demo</h4>
+				<p>It's oversized too, so you can try it when you're drunk!</p>
+				<div class="gigantic paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				<h2 id="installation">Installation</h2>
+				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
+
+				<h2 id="customisation">Customization</h2>
+				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
+				<h3>Options</h3>
+				<p><strong>current_page</strong> - option, default: 1
+				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
+				<p><strong>max_page</strong> - option, default: null
+				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
+				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
+				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
+				<h3>Callbacks</h3>
+				<p><strong>paged</strong> - callback, params: page
+				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
+				<h3>Methods</h3>
+				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
+				<p>The option method allows to get / set (when supplied with a value) the following values</p>
+				<ul>
+					<li>current_page</li>
+					<li>max_page</li>
+				</ul>
+				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
+				<h2 id="feedback">Feedback and Support</h2>
+				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
 			</div>
 		</div>
 		
 		<div class="row limit category useful_category">
 			<div class="push" style="height:50px;"></div>
+			<div class="twelvecol last">
+			<h3 class="page-header">3d. Context Classes</h3>
+			<p>Additional Classes that easily convey additional information, and feedback options like confirmations and warnings.</p>
+			<div class="push"></div>
+			<h3>success</h3>
+				<div class="success">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>error</h3>
+				<div class="error">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>warning</h3>
+				<div class="warning">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>info</h3>
+				<div class="info">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			</div>
+		</div>
+		<!-- lists -->
+		<div class="row limit category datas_category">
+
+			<div class="twelvecol last">
+				<h2 class="page-header">5a. Lists</h2>
+				<p class="fnote">Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
+			</div>
+		</div>
+		
+		<div class="row limit category datas_category">
 			<div class="sixcol">
 				<h3>Tegan</h3>
-				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan'</code> . Add A Single Class. No Options.</p>
+				<p class="fnote">Starting with a standard &lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List and adding <code>class = 'Tegan'</code> .</p>
 				<br/>
 				
 				<ul class="Tegan">
@@ -797,12 +1770,12 @@ jQuery("#myselect").sortOptions([bool]);
 				
 			</div>
 			<div class="sixcol last">
-				<h3>Tegan dark inset</h3>
-				<p><strong>inset</strong> class is activated below 800px</p>
-				<p>&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan dark inset'</code> <br/>optionally limit Li comments: <code>class="comment limit"</code></p>
+				<h3>Tegan style limit</h3>
+				<p class="fnote">An additional <code>.style</code> class is added to the UL. the <code>.inset</code> class is activated below 800px.</p>
+				<p class="fnote">optionally limit LI by adding to comments: <code>class="comment limit"</code></p>
 				<br/>
 				
-				<ul class="Tegan dark inset">
+				<ul class="Tegan style">
 					<li>
 						<span class="arrow icon10"></span>
 						<a href="#">
@@ -856,11 +1829,11 @@ jQuery("#myselect").sortOptions([bool]);
 			</div>
 		</div>
 		
-		<div class="row limit category useful_category">
+		<div class="row limit category datas_category">
 			<div class="push" style="height:50px;"></div>
 			<div class="sixcol">
-				<h3>Tegan Sara</h3>
-				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan Sara'</code> . Add support for Thumbnail previews.<br/>optionally limit Li comments: <code>class="comment limit"</code></p>
+				<h3>Tegan Sara limit</h3>
+				<p class="fnote">Using a two class setup, <code>class = 'Tegan Sara'</code> adds support for Thumbnails.<br/>optionally you can force [ ... ] ellipsis by adding the <code>.limit</code> class to the LI items.</p>
 				<br/>
 				
 				<ul class="Tegan Sara">
@@ -924,8 +1897,7 @@ jQuery("#myselect").sortOptions([bool]);
 			</div>
 			<div class="sixcol last">
 				<h3>Tegan Sara dark inset</h3>
-				<p><strong>inset</strong> class is activated below 800px</p>
-				<p>&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Tegan Sara dark inset'</code></p>
+				<p class="fnote">The dark version of the thumbnail theme. The Dark version can also be used on the Tegan List w / o thumbnails.</p>
 				<br/>
 				
 				<ul class="Tegan Sara dark inset">
@@ -988,7 +1960,7 @@ jQuery("#myselect").sortOptions([bool]);
 			</div>
 		</div>
 		
-		<div class="row limit category useful_category">
+		<div class="row limit category datas_category">
 			<div class="push" style="height:50px;"></div>
 			<div class="sixcol">
 				<h3>Taylor</h3>
@@ -1079,83 +2051,1438 @@ jQuery("#myselect").sortOptions([bool]);
 			</div>
 		</div>
 		
-		<div class="row limit category useful_category">
+		<!-- table -->
+		<div class="row limit category datas_category">
+
+			<div class="twelvecol last">
+				<div class="push" style="height:50px;"></div>
+				<h3 class="page-header">5b. Tables</h3>
+				<p class="fnote">The majority of the Table stylings are basic CSS techniques. However a small Table plugin <code>stupidtable()</code> is built into hui. <code>stupidtable()</code> Allows you to easily add some basic sorting functionality to any table.</p>
+<pre>//Include this snippet in your Doc Ready, or anytime you want to sort a table.
+$("table").stupidtable();
+</pre>
+				<div class="push"></div>
+				<p class="fnote">This Table has the Optional <code>.theme</code> class applied to it.</p>
+				
+				<table class="theme" cellspacing="10px">
+					<thead>
+					<tr>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Name</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Operator</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Status</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">County</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Others</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Name</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Duece</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Thrice</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Fourth</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<br/>
+				<p class="fnote">This Table has the Option <code>.style</code> class applied to it.</p>
+				<table cellspacing="5px" class="style">
+					<thead>
+					<tr>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Name</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Operator</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Status</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">County</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Others</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Name</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Duece</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Thrice</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Fourth</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<br/>
+				<p class="fnote">This is just a plain ole table. (the headers have still been javascripted to support sorting)</p>
+				
+				<table cellspacing="5px">
+					<thead>
+					<tr>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Name</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Operator</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Status</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">County</th>
+						<th class='type-string tipTip' data-sort="string" title="click to sort">Others</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Name</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+							<td>Data One</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Duece</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+							<td>Data Two</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Thrice</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+							<td>Data Three</td>
+						</tr>
+						<tr>
+							<td class='tipTip' title='Example Stuff'>Item Fourth</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+							<td>Data Four</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<br/>
+				<div class="push" style="height:50px;"></div>
+				<h2>5c. Images</h2>
+				<p class="fnote">
+					Add classes to an &lt;img&gt; element to easily style images in any project. However <code>.img-rounded</code> and <code>.img-circle</code> do not work in IE7-8 due to lack of <code>border-radius</code> support.
+				</p>
+				<div class="push" style="height:20px;"></div>
+				<section id="images">
+		          <p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>
+		          <div class="bs-docs-example bs-docs-example-images">
+		            <img data-src="libs/holder/holder.js/180x180/social" class="img-rounded m10">
+		            <img data-src="libs/holder/holder.js/180x180/industrial" class="img-circle m10">
+		            <img data-src="libs/holder/holder.js/180x180" class="img-polaroid m10">
+		          </div>
+<pre class="prettyprint linenums">
+&lt;img src="..." class="img-rounded"&gt;
+&lt;img src="..." class="img-circle"&gt;
+&lt;img src="..." class="img-polaroid"&gt;
+</pre>
+		          <p><span class="label label-info">Heads up!</span> <code>.img-rounded</code> and <code>.img-circle</code> do not work in IE7-8 due to lack of <code>border-radius</code> support.</p>
+
+
+		        </section>
+			</div>
+		</div>
+		
+		<div class="row limit category forms_category">
+			<div class="twelvecol last">
+			<h2 class="page-header">6. Forms</h2>
+			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>.</p>
+<div>
+	<!-- Forms
+    ================================================== -->
+    <section id="forms">
+      <h3>Default styles</h3>
+      <p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
+      <form class="bs-docs-example">
+        <fieldset>
+          <legend>Legend</legend>
+          <label>Label name</label>
+          <input type="text" placeholder="Type something…">
+          <span class="help-block">Example block-level help text here.</span>
+          <label class="checkbox">
+            <input type="checkbox"> Check me out
+          </label>
+          <button type="submit" class="btn">Submit</button>
+        </fieldset>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form&gt;
+&lt;fieldset&gt;
+&lt;legend&gt;Legend&lt;/legend&gt;
+&lt;label&gt;Label name&lt;/label&gt;
+&lt;input type="text" placeholder="Type something…"&gt;
+&lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
+&lt;label class="checkbox"&gt;
+  &lt;input type="checkbox"&gt; Check me out
+&lt;/label&gt;
+&lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+
+
+      <hr class="bs-docs-separator">
+
+
+      <h2>Optional layouts</h2>
+      <p>Included are three optional form layouts for common use cases.</p>
+
+      <h3>Search form</h3>
+      <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
+      <form class="bs-docs-example form-search">
+        <input type="text" class="input-medium search-query">
+        <button type="submit" class="btn">Search</button>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form class="form-search"&gt;
+&lt;input type="text" class="input-medium search-query"&gt;
+&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+      <h3>Inline form</h3>
+      <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
+      <form class="bs-docs-example form-inline">
+        <input type="text" class="input-small" placeholder="Email">
+        <input type="password" class="input-small" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox"> Remember me
+        </label>
+        <button type="submit" class="btn">Sign in</button>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form class="form-inline"&gt;
+&lt;input type="text" class="input-small" placeholder="Email"&gt;
+&lt;input type="password" class="input-small" placeholder="Password"&gt;
+&lt;label class="checkbox"&gt;
+&lt;input type="checkbox"&gt; Remember me
+&lt;/label&gt;
+&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+      <h3>Horizontal form</h3>
+      <p>Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:</p>
+      <ul>
+        <li>Add <code>.form-horizontal</code> to the form</li>
+        <li>Wrap labels and controls in <code>.control-group</code></li>
+        <li>Add <code>.control-label</code> to the label</li>
+        <li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
+      </ul>
+      <form class="bs-docs-example form-horizontal">
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">Email</label>
+          <div class="controls">
+            <input type="text" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="inputPassword">Password</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <label class="checkbox">
+              <input type="checkbox"> Remember me
+            </label>
+            <button type="submit" class="btn">Sign in</button>
+          </div>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form class="form-horizontal"&gt;
+&lt;div class="control-group"&gt;
+&lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
+&lt;div class="controls"&gt;
+  &lt;input type="text" id="inputEmail" placeholder="Email"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="control-group"&gt;
+&lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
+&lt;div class="controls"&gt;
+  &lt;input type="password" id="inputPassword" placeholder="Password"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="control-group"&gt;
+&lt;div class="controls"&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox"&gt; Remember me
+  &lt;/label&gt;
+  &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+
+      <hr class="bs-docs-separator">
+
+
+      <h2>Supported form controls</h2>
+      <p>Examples of standard form controls supported in an example form layout.</p>
+
+      <h3>Inputs</h3>
+      <p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
+      <p>Requires the use of a specified <code>type</code> at all times.</p>
+      <form class="bs-docs-example form-inline">
+        <input type="text" placeholder="Text input">
+      </form>
+<pre class="prettyprint linenums">
+&lt;input type="text" placeholder="Text input"&gt;
+</pre>
+
+      <h3>Textarea</h3>
+      <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
+      <form class="bs-docs-example form-inline">
+        <textarea rows="3"></textarea>
+      </form>
+<pre class="prettyprint linenums">
+&lt;textarea rows="3"&gt;&lt;/textarea&gt;
+</pre>
+
+      <h3>Checkboxes and radios</h3>
+      <p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
+      <h4>Default (stacked)</h4>
+      <form class="bs-docs-example">
+        <label class="checkbox">
+          <input type="checkbox" value="">
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+        <br>
+        <label class="radio">
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          Option one is this and that&mdash;be sure to include why it's great
+        </label>
+        <label class="radio">
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          Option two can be something else and selecting it will deselect option one
+        </label>
+      </form>
+<pre class="prettyprint linenums">
+&lt;label class="checkbox"&gt;
+&lt;input type="checkbox" value=""&gt;
+Option one is this and that&mdash;be sure to include why it's great
+&lt;/label&gt;
+
+&lt;label class="radio"&gt;
+&lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
+Option one is this and that&mdash;be sure to include why it's great
+&lt;/label&gt;
+&lt;label class="radio"&gt;
+&lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
+Option two can be something else and selecting it will deselect option one
+&lt;/label&gt;
+</pre>
+
+      <h4>Inline checkboxes</h4>
+      <p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
+      <form class="bs-docs-example">
+        <label class="checkbox inline">
+          <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+        </label>
+        <label class="checkbox inline">
+          <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+        </label>
+        <label class="checkbox inline">
+          <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+        </label>
+      </form>
+<pre class="prettyprint linenums">
+&lt;label class="checkbox inline"&gt;
+&lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
+&lt;/label&gt;
+&lt;label class="checkbox inline"&gt;
+&lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
+&lt;/label&gt;
+&lt;label class="checkbox inline"&gt;
+&lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
+&lt;/label&gt;
+</pre>
+
+      <h3>Selects</h3>
+      <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
+      <form class="bs-docs-example">
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <br>
+        <select multiple="multiple">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </form>
+<pre class="prettyprint linenums">
+&lt;select&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select multiple="multiple"&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+
+      <hr class="bs-docs-separator">
+
+
+      <h2>Extending form controls</h2>
+      <p>Adding other useful form components on top of existing browser controls.</p>
+
+      <h3>Prepended and appended inputs</h3>
+      <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p>
+
+      <h4>Default options</h4>
+      <p>Wrap an <code>.add-on</code> and an <code>input</code> with one of two classes to prepend or append text to an input.</p>
+      <form class="bs-docs-example">
+        <div class="input-prepend">
+          <span class="add-on">@</span>
+          <input class="span2" id="prependedInput" type="text" placeholder="Username">
+        </div>
+        <br>
+        <div class="input-append">
+          <input class="span2" id="appendedInput" type="text">
+          <span class="add-on">.00</span>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-prepend"&gt;
+&lt;span class="add-on"&gt;@&lt;/span&gt;
+&lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
+&lt;/div&gt;
+&lt;div class="input-append"&gt;
+&lt;input class="span2" id="appendedInput" type="text"&gt;
+&lt;span class="add-on"&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+
+      <h4>Combined</h4>
+      <p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>
+      <form class="bs-docs-example form-inline">
+        <div class="input-prepend input-append">
+          <span class="add-on">$</span>
+          <input class="span2" id="appendedPrependedInput" type="text">
+          <span class="add-on">.00</span>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-prepend input-append"&gt;
+&lt;span class="add-on"&gt;$&lt;/span&gt;
+&lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
+&lt;span class="add-on"&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+
+      <h4>Buttons instead of text</h4>
+      <p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) to an input.</p>
+      <form class="bs-docs-example">
+        <div class="input-append">
+          <input class="span2" id="appendedInputButton" type="text">
+          <button class="btn" type="button">Go!</button>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-append"&gt;
+&lt;input class="span2" id="appendedInputButton" type="text"&gt;
+&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+      <form class="bs-docs-example">
+        <div class="input-append">
+          <input class="span2" id="appendedInputButtons" type="text">
+          <button class="btn" type="button">Search</button>
+          <button class="btn" type="button">Options</button>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-append"&gt;
+&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
+&lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
+&lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+      <h4>Button dropdowns</h4>
+      <p></p>
+      <form class="bs-docs-example">
+        <div class="input-append">
+          <input class="span2" id="appendedDropdownButton" type="text">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+        </div><!-- /input-append -->
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-append"&gt;
+&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
+&lt;div class="btn-group"&gt;
+&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+  Action
+  &lt;span class="caret"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;ul class="dropdown-menu"&gt;
+  ...
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+      <form class="bs-docs-example">
+        <div class="input-prepend">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+          <input class="span2" id="prependedDropdownButton" type="text">
+        </div><!-- /input-prepend -->
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-prepend"&gt;
+&lt;div class="btn-group"&gt;
+&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+  Action
+  &lt;span class="caret"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;ul class="dropdown-menu"&gt;
+  ...
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
+&lt;/div&gt;
+</pre>
+
+      <form class="bs-docs-example">
+        <div class="input-prepend input-append">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+          <input class="span2" id="appendedPrependedDropdownButton" type="text">
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+        </div><!-- /input-prepend input-append -->
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="input-prepend input-append"&gt;
+&lt;div class="btn-group"&gt;
+&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+  Action
+  &lt;span class="caret"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;ul class="dropdown-menu"&gt;
+  ...
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
+&lt;div class="btn-group"&gt;
+&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+  Action
+  &lt;span class="caret"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;ul class="dropdown-menu"&gt;
+  ...
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+      <h4>Segmented dropdown groups</h4>
+      <form class="bs-docs-example">
+        <div class="input-prepend">
+          <div class="btn-group">
+            <button class="btn" tabindex="-1">Action</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+          <input type="text">
+        </div>
+        <div class="input-append">
+          <input type="text">
+          <div class="btn-group">
+            <button class="btn" tabindex="-1">Action</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form&gt;
+&lt;div class="input-prepend"&gt;
+&lt;div class="btn-group"&gt;...&lt;/div&gt;
+&lt;input type="text"&gt;
+&lt;/div&gt;
+&lt;div class="input-append"&gt;
+&lt;input type="text"&gt;
+&lt;div class="btn-group"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+      <h4>Search form</h4>
+      <form class="bs-docs-example form-search">
+        <div class="input-append">
+          <input type="text" class="span2 search-query">
+          <button type="submit" class="btn">Search</button>
+        </div>
+        <div class="input-prepend">
+          <button type="submit" class="btn">Search</button>
+          <input type="text" class="span2 search-query">
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;form class="form-search"&gt;
+&lt;div class="input-append"&gt;
+&lt;input type="text" class="span2 search-query"&gt;
+&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="input-prepend"&gt;
+&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+&lt;input type="text" class="span2 search-query"&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+</pre>
+
+      <h3>Control sizing</h3>
+      <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.span*</code> classes.</p>
+
+      <h4>Block level inputs</h4>
+      <p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a block level element.</p>
+      <form class="bs-docs-example" style="padding-bottom: 15px;">
+        <div class="controls">
+          <input class="input-block-level" type="text" placeholder=".input-block-level">
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;
+</pre>
+
+      <h4>Relative sizing</h4>
+      <form class="bs-docs-example" style="padding-bottom: 15px;">
+        <div class="controls docs-input-sizes">
+          <input class="input-mini" type="text" placeholder=".input-mini">
+          <input class="input-small" type="text" placeholder=".input-small">
+          <input class="input-medium" type="text" placeholder=".input-medium">
+          <input class="input-large" type="text" placeholder=".input-large">
+          <input class="input-xlarge" type="text" placeholder=".input-xlarge">
+          <input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
+&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
+&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
+&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
+&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
+&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;
+</pre>
+      <p>
+        <span class="label label-info">Heads up!</span> In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example, <code>.input-large</code> will increase the padding and font-size of an input.
+      </p>
+
+      <h4>Grid sizing</h4>
+      <p>Use <code>.span1</code> to <code>.twelvecol last</code> for inputs that match the same sizes of the grid columns.</p>
+      <form class="bs-docs-example" style="padding-bottom: 15px;">
+        <div class="controls docs-input-sizes">
+          <input class="span1" type="text" placeholder=".span1">
+          <input class="span2" type="text" placeholder=".span2">
+          <input class="span3" type="text" placeholder=".span3">
+          <select class="span1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <select class="span2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          <select class="span3">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="span1" type="text" placeholder=".span1"&gt;
+&lt;input class="span2" type="text" placeholder=".span2"&gt;
+&lt;input class="span3" type="text" placeholder=".span3"&gt;
+&lt;select class="span1"&gt;
+...
+&lt;/select&gt;
+&lt;select class="span2"&gt;
+...
+&lt;/select&gt;
+&lt;select class="span3"&gt;
+...
+&lt;/select&gt;
+</pre>
+
+      <p>For multiple grid inputs per line, <strong>use the <code>.controls-row</code> modifier class for proper spacing</strong>. It floats the inputs to collapse white-space, sets the proper margins, and clears the float.</p>
+      <form class="bs-docs-example" style="padding-bottom: 15px;">
+        <div class="controls">
+          <input class="span5" type="text" placeholder=".span5">
+        </div>
+        <div class="controls controls-row">
+          <input class="fourcol" type="text" placeholder=".fourcol">
+          <input class="span1" type="text" placeholder=".span1">
+        </div>
+        <div class="controls controls-row">
+          <input class="span3" type="text" placeholder=".span3">
+          <input class="span2" type="text" placeholder=".span2">
+        </div>
+        <div class="controls controls-row">
+          <input class="span2" type="text" placeholder=".span2">
+          <input class="span3" type="text" placeholder=".span3">
+        </div>
+        <div class="controls controls-row">
+          <input class="span1" type="text" placeholder=".span1">
+          <input class="fourcol" type="text" placeholder=".fourcol">
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="controls"&gt;
+&lt;input class="span5" type="text" placeholder=".span5"&gt;
+&lt;/div&gt;
+&lt;div class="controls controls-row"&gt;
+&lt;input class="fourcol" type="text" placeholder=".fourcol"&gt;
+&lt;input class="span1" type="text" placeholder=".span1"&gt;
+&lt;/div&gt;
+...
+</pre>
+
+      <h3>Uneditable inputs</h3>
+      <p>Present data in a form that's not editable without using actual form markup.</p>
+      <form class="bs-docs-example">
+        <span class="input-xlarge uneditable-input">Some value here</span>
+      </form>
+<pre class="prettyprint linenums">
+&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;
+</pre>
+
+      <h3>Form actions</h3>
+      <p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the buttons will automatically indent to line up with the form controls.</p>
+      <form class="bs-docs-example">
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn">Cancel</button>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="form-actions"&gt;
+&lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+&lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+      <h3>Help text</h3>
+      <p>Inline and block level support for help text that appears around form controls.</p>
+      <h4>Inline help</h4>
+      <form class="bs-docs-example form-inline">
+        <input type="text"> <span class="help-inline">Inline help text</span>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;
+</pre>
+
+      <h4>Block help</h4>
+      <form class="bs-docs-example form-inline">
+        <input type="text">
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;
+</pre>
+
+
+      <hr class="bs-docs-separator">
+
+
+      <h2>Form control states</h2>
+      <p>Provide feedback to users or visitors with basic feedback states on form controls and labels.</p>
+
+      <h3>Input focus</h3>
+      <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
+      <form class="bs-docs-example form-inline">
+        <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused...">
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;
+</pre>
+
+      <h3>Invalid inputs</h3>
+      <p>Style inputs via default browser functionality with <code>:invalid</code>. Specify a <code>type</code>, add the <code>required</code> attribute if the field is not optional, and (if applicable) specify a <code>pattern</code>.</p>
+      <p>This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo selectors.</p>
+      <form class="bs-docs-example form-inline">
+        <input class="span3" type="email" placeholder="test@example.com" required>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="span3" type="email" required&gt;
+</pre>
+
+      <h3>Disabled inputs</h3>
+      <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
+      <form class="bs-docs-example form-inline">
+        <input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
+      </form>
+<pre class="prettyprint linenums">
+&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;
+</pre>
+
+      <h3>Validation states</h3>
+      <p>Validation styles for error, warning, info, and success messages. To use, add the appropriate class to the surrounding <code>.control-group</code>.</p>
+
+      <form class="bs-docs-example form-horizontal">
+        <div class="control-group warning">
+          <label class="control-label" for="inputWarning">Input with warning</label>
+          <div class="controls">
+            <input type="text" id="inputWarning">
+            <span class="help-inline">Something may have gone wrong</span>
+          </div>
+        </div>
+        <div class="control-group error">
+          <label class="control-label" for="inputError">Input with error</label>
+          <div class="controls">
+            <input type="text" id="inputError">
+            <span class="help-inline">Please correct the error</span>
+          </div>
+        </div>
+        <div class="control-group info">
+          <label class="control-label" for="inputInfo">Input with info</label>
+          <div class="controls">
+            <input type="text" id="inputInfo">
+            <span class="help-inline">Username is taken</span>
+          </div>
+        </div>
+        <div class="control-group success">
+          <label class="control-label" for="inputSuccess">Input with success</label>
+          <div class="controls">
+            <input type="text" id="inputSuccess">
+            <span class="help-inline">Woohoo!</span>
+          </div>
+        </div>
+      </form>
+<pre class="prettyprint linenums">
+&lt;div class="control-group warning"&gt;
+&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+&lt;div class="controls"&gt;
+&lt;input type="text" id="inputWarning"&gt;
+&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="control-group error"&gt;
+&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+&lt;div class="controls"&gt;
+&lt;input type="text" id="inputError"&gt;
+&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="control-group info"&gt;
+&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+&lt;div class="controls"&gt;
+&lt;input type="text" id="inputInfo"&gt;
+&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="control-group success"&gt;
+&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+&lt;div class="controls"&gt;
+&lt;input type="text" id="inputSuccess"&gt;
+&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+    </section>
+
+
+</div>
+			
+			<div class="push"></div>
+			</div>
+		</div>
+		
+		<div class="row limit category forms_category">
+			<div class="push"></div>
+			<div class="twelvecol last">
+		        <h3 class="page-header">Form controls</h3>
+		    </div>
+			<form class="container">
+			<div class="sixcol last">
+				
+			        <div class="fourcol">
+
+			          <label>Select</label>
+			          <select>
+			            <option>Select</option>
+			            <option>Option 2</option>
+			            <option>Option 3</option>
+			          </select>
+
+			          <hr>
+
+			          <label>textarea</label>
+			          <textarea>Textarea</textarea>
+
+			          <hr>
+
+			          <label>text</label>
+			          <input type="text" value="Text input">
+
+			          <hr>
+
+			          <label>password</label>
+			          <input type="password" value="Password input">
+
+			          <hr>
+
+			          <label>checkbox</label>
+			          <input type="checkbox" value="">
+
+			          <hr>
+
+			          <label>radio</label>
+			          <input type="radio" value="">
+
+			          <hr>
+
+			          <label>button</label>
+			          <input type="button" value="Button">
+
+			          <hr>
+
+			          <label>submit</label>
+			          <input type="submit" value="Submit">
+
+			          <hr>
+
+			          <label>reset</label>
+			          <input type="reset" value="Reset">
+						
+					  <hr>
+					  
+					  <label>file</label>
+			          <input type="file" value="">
+
+			          
+			        </div><!-- /fourcol -->
+			        
+				
+			</div>
+			<div class="sixcol last">
+				<div class="fourcol">
+
+		          
+
+		          <label>hidden</label>
+		          <input type="hidden" value="hidden">
+
+		          <hr>
+
+		          <label>image</label>
+		          <input type="image" value="">
+
+		          <hr>
+
+		          <label>datetime</label>
+		          <input type="datetime" value="">
+
+		          <hr>
+
+		          <label>datetime-local</label>
+		          <input type="datetime-local" value="">
+
+		          <hr>
+
+		          <label>date</label>
+		          <input type="date" value="">
+
+		          <hr>
+
+		          <label>month</label>
+		          <input type="month" value="">
+
+		          <hr>
+
+		          <label>time</label>
+		          <input type="time" value="">
+
+		          <hr>
+
+		          <label>week</label>
+		          <input type="week" value="">
+
+		        </div><!-- /fourcol -->
+		        <div class="fourcol">
+
+		          <label>number</label>
+		          <input type="number" value="">
+
+		          <hr>
+
+		          <label>range</label>
+		          <input type="range" value="">
+
+		          <hr>
+
+		          <label>email</label>
+		          <input type="email" value="">
+
+		          <hr>
+
+		          <label>url</label>
+		          <input type="url" value="">
+
+		          <hr>
+
+		          <label>search</label>
+		          <input type="search" value="">
+
+		          <hr>
+
+		          <label>tel</label>
+		          <input type="tel" value="">
+
+		          <hr>
+
+		          <label>color</label>
+		          <input type="color" value="">
+
+		        </div><!-- /fourcol -->
+		      </div><!-- /row -->
+			   
+				
+			</div>
+			</form> <!-- /container -->
+		</div>
+		
+		<div class="row limit category facebox_category">
+			
+			<div class="twelvecol last">
+			<h2 class="page-header">4. FaceBox</h2>
+			
+			<button class="blue fbdemobtn box13 L"><span class='label'>FaceBox Test</span></button><input type="text" id="fbdemo" value="This Is some text that will appear in the Modal Window." class="L box23">
+			<div class="push" style="height:10px;"></div>
+			<p class="fnote">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.</p>
+			<p class="fnote">HUI uses a maintained Fork of Facebox ver 1.3 <a href="http://github.com/defunkt/facebox">http://github.com/defunkt/facebox</a>.</p>
+			<div class="push"></div>
+			<p class="fnote">the <strong>Easiest</strong> way to use this plugin is done by adding one line of javascript and an additional <code>rel="facebox"</code> to any <strong>A HREF</strong> element. The HREF is used to match the div. like so <code>href="#div_id"</code>.</p>
+<pre>//FaceBox One Liner. Add to Doc Ready
+$('a[rel*=facebox]').facebox();
+</pre>
+			<div class="push"></div>
+			<h4>Images</h4>
+			<code>&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' })</code><br/>
+			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;">launch demo</button>
 			<br/>
-			<div class="push" style="height:150px;"></div>
+			
+			<h4>Divs</h4>
+			<code>&lt;a href="#info" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ div: '#info' })</code><br/>
+			<button onclick="jQuery.facebox({ div: '#info' });return false;">launch demo</button>
+			<div class="none" id="info">
+				<p>This is an inline Div that has been loaded into this facebox.<br/>Yup. thats about it.</p>
+			</div>
+			<br/>
+			
+			<h4>Ajax</h4>
+			<code>&lt;a href="remote.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ ajax: 'remote.html' })</code><br/>
+			<button onclick="jQuery.facebox({ ajax: 'src/css/body.css' });return false;">launch demo</button><br/>
+			<p class="fnote">In this example we loaded a css from the src folder of this project, but any remote file can be loaded, so long as you comply with security settings and all that stuff.
+			<br/>			
+
+			<div class="push"></div>
+			</div>
+			
+			
+			<div class="twelvecol last">
+			<div class="push"></div>
+			<h4>Facebox Commands</h4>
+			<p>Any of the three ways to load content, as well as loading a string of text, can be controlled as described below. You can also provide an additional string to customize the appearance of facebox.</p>
+<pre>String 
+jQuery.facebox('something cool');
+jQuery.facebox('something cool', 'my-groovy-style');
+
+Image File
+jQuery.facebox({ image: 'images/stairs.jpg' });
+jQuery.facebox({ image: 'images/stairs.jpg' }, 'my-groovy-style');
+
+Div Page Element
+jQuery.facebox({ div: '#box' });
+jQuery.facebox({ div: '#box' }, 'my-groovy-style');
+
+Ajax Remote files
+jQuery.facebox({ ajax: 'remote.html' });
+jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
+</pre>
+			<div class="push"></div>
+			<p style="line-height:1.6em">Once you have opened a facebox you can easily close it with the following command: <code>$.facebox.close();</code></p>
+			</div>
+		</div>
+		
+		<div class="row limit category accordion_category">
+		
 			<div class="fourcol smallHide">
-<h2>Pagination HTML</h2>
-<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
-    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
-    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
-    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
-&lt;/div&gt;</pre>
+<pre>
+jQuery(".accordion").accordionNav();	
+	
+&lt;ul class="accordion"&gt;
 
-<h2>Pagination JS</h2>
-<pre class="jsCode">$('.pagination').jqPagination({
-    paged: function(page) {
-        // do something with the page variable
-    }
-});</pre>
+ &lt;li id="one" class="files"&gt;
 
-<div class="clearfix"></div>
-<p><a href="#" class="show-log">Show / hide event log:</a></p>
-<ul class="log"></ul>
+   &lt;a href="#one"&gt;My Files&lt;span&gt;10&lt;/span&gt;&lt;/a&gt;
 
+	&lt;ul class="sub-menu"&gt;
+
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+	 &lt;/ul&gt;
+
+ &lt;/li&gt;
+ ...
+ ...
+&lt;/ul&gt;
+</pre>
+			</div>
+			
+			<div class="eightcol last">
+			<h2 class="page-header">7. Accordion</h2>
+			<p>hui has a number of accordion style menus at your disposal. The first accordion has the functionality needed for a full fledged secondary or navigation panel. The second accordion variation is great for making quick and simple collapsing navigation menus out of list links.</p>
+			
+			<div class="push"></div>
+			<h3 class="page-header">Accordion Panel</h3>
+			<p class="greyb">Uses Hardware Accelerated Animations. CSS3 Fallback. No jQuery required.</p>
+			<p class="greyb">Use External Button Triggers or Click the Header to toggle content.</p>
+			<br/>
+			
+			<ul class="accordion">
+
+			    <li id="one" class="files">
+
+			        <a href="#one"><div class="huicon icon68"></div>My Files<span>10</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="two" class="mail">
+
+			        <a href="#two"><div class="huicon icon125"></div>Mail<span>20</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>2</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="three" class="cloud">
+
+			        <a href="#three"><div class="huicon icon72"></div>Songs<span>30</span></a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu<span>3</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
+			        </ul>
+
+			    </li>
+
+			    <li id="four" class="sign">
+
+			        <a href="#four"><div class="huicon icon108"></div>Sign Out</a>
+
+			        <ul class="sub-menu">
+
+			            <li><a href="#"><em>01</em>Sub Menu</a></li>
+
+			        </ul>
+
+			    </li>
+
+			</ul>
+			<div class="push" style="height:100px;"></div>
+			</div>
+		</div>
+		
+		<div class="row limit category accordion_category">
+			<div class="fourcol smallHide">
+<pre>
+var ladyParts = {
+"title":".title_bar",
+"loader":".pageloader",
+"stage":".speakEasy"
+};
+
+//3. Activate Flapper Girl Menu
+
+jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);	
+
+&lt;div class="flapperStage"&gt;
+&lt;div class="speakEasy"&gt;
+&lt;ul&gt;
+
+&lt;li class="title_bar" id='bsbs'&gt;Basic Setup&lt;/li&gt;
+
+&lt;li class="basic bsbs"&gt;
+&lt;a href="#" class="pageloader"&gt;Download&lt;/a&gt;
+&lt;/li&gt;
+
+&lt;li class="basic bsbs"&gt;
+&lt;a href="#" class="pageloader"&gt;Second&lt;/a&gt;
+&lt;/li&gt;
+
+...
+
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 			</div>
 			<div class="eightcol last">
-				<h2>3C. Pagination</h2>
-				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
-				<ul>
-					<li>Design agnostic</li>
-					<li>Customizable</li>
-					<li>Degrades beautifully</li>
-					<li>Super simple to integrate with your app / site</li>
-				</ul>
-				<br/>
-				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
-				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
-				<div class="push"></div>
-				<h4>Pagination Demo</h4>
-				<p>It's oversized too, so you can try it when you're drunk!</p>
-				<div class="gigantic paginatebox">
-				    <a href="#" class="first" data-action="first">&laquo;</a>
-				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-				    <input type="text" readonly="readonly" />
-				    <a href="#" class="next" data-action="next">&rsaquo;</a>
-				    <a href="#" class="last" data-action="last">&raquo;</a>
-				</div>
-				<br/>
-				<h2 id="installation">Installation</h2>
-				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
+			<h3 class="page-header">Flapper Girl</h3>
 
-				<h2 id="customisation">Customization</h2>
-				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
-				<h3>Options</h3>
-				<p><strong>current_page</strong> - option, default: 1
-				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
-				<p><strong>max_page</strong> - option, default: null
-				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
-				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
-				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
-				<h3>Callbacks</h3>
-				<p><strong>paged</strong> - callback, params: page
-				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
-				<h3>Methods</h3>
-				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
-				<p>The option method allows to get / set (when supplied with a value) the following values</p>
-				<ul>
-					<li>current_page</li>
-					<li>max_page</li>
+				
+				<div class="flapperStage">
+					<div class="speakEasy">
+						<ul>
+							<li class="title_bar" id='absbs'>Prohibition And Curls</li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 1</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 2</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 3</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 4</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 5</a></li>
+							<li class="basic absbs"><a href="#" class="pageloader">Song 6</a></li>							
+							<li class="title_bar docked" id="bsbs">Basic Setup</li>
+							<li class="basic bsbs active" style="display: none;"><a href="#" class="pageloader">Download</a></li>
+							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Install</a></li>
+							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="title_bar docked" id="cscs">Mating</li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+							
+							
+							<li class="title_bar" id='dcscs'>Dance Number</li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Chorus</a></li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Refrain</a></li>
+							<li class="basic dcscs"><a href="#" class="pageloader">Showstopper</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<div class="row limit category navigate_category">
+		
+			<div class="fourcol smallHide">
+<pre>
+jQuery('.full-width').horizontalNav({
+  prependTo : '#mobilenav'
+});
+	
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Work&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+			</div>
+			<div class="eightcol last">
+			<h2 class="page-header">8. Flexible Navigation</h2>
+			<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
+			
+			<h3>HorizontalNav</h3>
+			<p class="fnote">Based on <a href="http://sebnitu.github.com/HorizontalNav/">sebnitu.github.com/HorizontalNav</a> and <a href="https://github.com/mattkersley/Responsive-Menu">mattkersley/Responsive-Menu</a>.<br/>A horizontal navigation to fit the full width of it's container. There are no requirements to how you style the navigation and adding padding, margins or borders to any of the elements won’t break the effect.<br/> Added benefit that it Turns any &lt;ol&gt; or &lt;ul&gt; into a &lt;select&gt; for mobiles and low browser sizes.</p>
+			<br/>
+			<div id="mobilenav"></div>
+            <h4>This Page Uses HorizontalNav for its menu. Resize to see in action.</h4>
+			<img src="http://huement.s3.amazonaws.com/imgs/flexmenu.png" width="100%" height="100%" style="max-width:458px;max-height:264px;" class="tC C"/>
+			<div class="push"></div>
+			
+			
+			</div>
+		</div>
+		
+		<div class="row limit category navigate_category">
+		
+			<div class="fourcol smallHide">
+<pre>
+var navobj = {"pull":"#pull"};
+jQuery("nav#flex1 ul").reactiveNav(navobj);
+	
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+...
+...	
+&lt;nav class="clearfix"&gt;
+&lt;ul class="clearfix"&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;How-to&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Icons&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Design&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Web 2.0&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#"&gt;Tools&lt;/a&gt;&lt;/li&gt;	
+&lt;/ul&gt;
+&lt;a href="#" id="pull"&gt;Menu&lt;/a&gt;
+&lt;/nav&gt;
+</pre>
+			</div>
+			<div class="eightcol last">
+			<div class="push"></div>
+			<h3>Reactive Navigation</h3>
+			<p class="fnote">As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later!
+			<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
+			<br/>
+			<div class="push"></div>
+			<nav id="flex1" class="flex clearfix">
+				<ul class="clearfix">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">How-to</a></li>
+					<li><a href="#">Icons</a></li>
+					<li><a href="#">Design</a></li>
+					<li><a href="#">Web 2.0</a></li>
+					<li><a href="#">Tools</a></li>	
 				</ul>
-				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
-				<h2 id="feedback">Feedback and Support</h2>
-				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
+				<a href="#" class="navpuller">Menu</a>
+			</nav>
+			<div class="push"></div>
+			<br/>
+			<p class="greyb">IMG examples. Resize this window to see Reactive Navigation in action.</p>
+			<img src="http://huement.s3.amazonaws.com/imgs/menu1.png" style="width:40%" class="p5 m10 greyb L"/>
+			<img src="http://huement.s3.amazonaws.com/imgs/menu2.png" style="width:40%;max-width:250px;height:100%;max-height:50px" class="p5 m10 greyb R"/>
+			<br/>
+			<div class="push"></div>
 			</div>
 		</div>
 		<!--
-		<div class="row limit category _category">
+		Blank Layout Templates
+		<div class="row limit category $BLANK_category">
+		
 			<div class="fourcol smallHide"></div>
 			<div class="eightcol last">
 			<h2>1A. Action</h2>
@@ -1163,6 +3490,7 @@ jQuery("#myselect").sortOptions([bool]);
 			
 			<h3>shuffle</h3>
 			<p class="fnote"></p>
+			<div class="push"></div>
 			</div>
 		</div>
 		<div class="row limit category _category">
@@ -1180,14 +3508,19 @@ jQuery("#myselect").sortOptions([bool]);
 
 [optional] Ready Your Code for jQuery 2.0+
 <script type="text/javascript" src="libs/jquery/jquery-migrate-1.0.0b1.js"></script>
--->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+-->
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+
 
 <!-- minified hui library -->
 <script type="text/javascript" src="dist/hui-min.js"></script>
 
 <!-- Example Functions for the Demo -->
-<script type="text/javascript" src="test/index_demo.js"></script>
+<script type="text/javascript" src="index_demo.js?ver=1.7"></script>
 
 </body>
 </html>

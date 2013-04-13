@@ -1,5 +1,82 @@
+.thumbnail > img {
+  display: block;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.img-rounded {
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.img-circle {
+  -webkit-border-radius: 500px;
+     -moz-border-radius: 500px;
+          border-radius: 500px;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  color: #555555;
+}
+
+.media,
+.media-body {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+
+.media,
+.media .media {
+  margin-top: 15px;
+}
+
+.media:first-child {
+  margin-top: 0;
+}
+
+.media-object {
+  display: block;
+}
+
+.media-heading {
+  margin: 0 0 5px;
+}
+
+.media > .pull-left {
+  margin-right: 10px;
+}
+
+.media > .pull-right {
+  margin-left: 10px;
+}
+
+.media-list {
+  margin-left: 0;
+  list-style: none;
+}
+
 /* Tegan and Sara */
 .end { height:1px; margin-bottom:-1px;clear:both; border:none;color:transparent;background-color:transparent; }
+
+table {
+	width:100%;
+}
+tr {
+	width:100%;
+}
 
 .Tegan {
 	border-radius: 0px;
@@ -15,38 +92,38 @@
 	overflow: hidden;
 	list-style: none;
 }
+
 .Tegan li {
 	clear:both;display:block;
 	margin:0;
 	padding:3px 2px 0px 0px;
 	border-bottom:1px solid #CFCFCF;
 	min-height:50px;
+	background:#EEEEEE;
+	background-color:#EEEEEE;
 }
-.Tegan li:nth-child(odd) { 
-	background:#e7e7e7;
-	background-color:#e7e7e7;
-}
-.Tegan li:nth-child(even) { 
-	background:#F0F0F0;
-	background-color:#F0F0F0; 
-}
-.Tegan.dark,.Tegan.Sara.dark {
+
+.Tegan.dark, .Tegan.Sara.dark {
 	border:none;padding:0;
 	background:transparent;
 	border-radius:none;
 }
 .Tegan.dark li {
 	background:#111;
-	border-bottom:1px inset #333;
+	border-bottom:1px solid #333;
 	filter:none;
 }
 
+.Tegan.dark.style {
+	border:1px solid #666;
+}
+	
 .Tegan.Sara li {
 	padding: 0;
 	min-height:70px;
 }
 .Tegan li .name {
-	margin: 0px 0 0 0px;
+	margin: 0px 0 0 5px;
 	width: auto;
 	color: #000;
 	font-weight: bold;
@@ -61,7 +138,7 @@
 	color: #f0f0f0;
 }
 .Tegan.Sara li .name {
-	margin: 5px 0 0 0px;
+	margin: 5px 0 0 5px;
 	width: auto;
 	font-weight: bold;
 	font-size: 1.1em;
@@ -75,7 +152,7 @@
 }
 
 .Tegan li .comment {
-	margin:3px 0 3px 0px;
+	margin:3px 0 3px 5px;
 	font-size: 1em;
 	line-height:1em;
 	float: left;
@@ -83,7 +160,6 @@
 	min-width:75%;
 	width:auto;
 	max-width:90%;
-	text-indent:5px;
 }
 .Tegan.dark li .comment {
 	color: #e7e7e7;
@@ -92,7 +168,7 @@ li .comment.limit {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-	text-indent:3px;
+	margin-left:3px;
 }
 .Tegan li .arrow {
 	position:absolute;
@@ -116,7 +192,7 @@ li .comment.limit {
 .Tegan.dark li:hover .arrow {
 	background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
 }
-.Tegan li a {
+.Tegan li a:nth-child(1) {
 	clear:both;
 	display:block;
 	position:relative;
@@ -124,7 +200,7 @@ li .comment.limit {
 	height:100%;
 	min-height:100%;
 }
-.Tegan.Sara li a {
+.Tegan.Sara li a:nth-child(1) {
 	clear:none;
 	display:inline;
 	position:relative;
@@ -137,7 +213,7 @@ li .comment.limit {
 .Tegan.Sara li .arrow {
 	right:7px;
 }
-.Tegan.Sara li img {
+.Tegan.Sara li img:nth-child(1) {
 	max-width:70px;
 	max-height:70px;
 	width:70px;
@@ -148,7 +224,7 @@ li .comment.limit {
 	box-shadow: none;
 	border-right: 1px solid #999;
 }
-.Tegan.Sara li:first-child img {
+.Tegan.Sara li:first-child img:nth-child(1) {
 	-webkit-border-top-left-radius: 3px;
 	-webkit-border-top-right-radius: 3px;
 	-moz-border-radius-topleft: 3px;
@@ -322,15 +398,12 @@ li .comment.limit {
 /* breakup with Taylor */
 
 
-/* paginate */
 .paginatebox {
-	clear:both;
-	display:block;
-	position:relative;
-	margin:10px auto 10px auto;
-	padding:0;
-	width:80%;
-	max-width:500px;
+	float: left;
+	border: 1px solid #CDCDCD;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
 }
 
 .paginatebox a {
@@ -338,6 +411,7 @@ li .comment.limit {
 	float: left;
 	height: 20px;
 	width: 20px;
+	padding:0;
 	background-color: rgb(0,50,75);
 	color: #555555;
 	text-align: center;
@@ -419,28 +493,28 @@ li .comment.limit {
 	height: 20px;
 	outline: none;
 	vertical-align: middle;
-	width: 40%;
+	width: 120px;
 	padding: 0;
 	margin: 0;
 }
 
-/* gigantic class for demo purposes */
+/* gigantic theme */
 
 .gigantic.paginatebox {
-	margin: 20px 0;
+	margin: 30px 0;
 }
 
 .gigantic.paginatebox a {
-	height: 30px;
-	width: 30px;
-	font-size: 1.5em;
-	line-height: .5em;
+	height: 60px;
+	width: 60px;
+	font-size: 50px;
+	line-height: 50px;
 }
 
 .gigantic.paginatebox input {
-	width: 45%;
-	height: 40px;
-	font-size: 1.5em;
+	width: 300px;
+	height: 60px;
+	font-size: 30px;
 }
 
 @media only screen and (max-width : 798px) {

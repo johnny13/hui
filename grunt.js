@@ -15,11 +15,11 @@ module.exports = function(grunt) {
     },
     concat: {
       js: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/jquery.history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js'],
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js'],
         dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.js'
       },
       css: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/character.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/widgets.css'],
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/forms.css', 'src/css/display.css', 'src/css/character.css', 'src/css/buttons.css', 'src/css/widgets.css'],
         dest: 'dist/<%= pkg.name %>-base-<%= pkg.version %>.css'
       }
     },
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
     lint: {
-      files: ['grunt.js', 'src/js/actions.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js']
+      files: ['grunt.js', 'src/js/actions.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js']
     },
     watch: {
       files: '<config:lint.files>',
