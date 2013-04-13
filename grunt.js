@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.js'
       },
       css: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/forms.css', 'src/css/display.css', 'src/css/character.css', 'src/css/buttons.css', 'src/css/widgets.css'],
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/css/standardization.css>', 'src/css/body.css', 'src/css/forms.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/character.css',  'src/css/widgets.css'],
         dest: 'dist/<%= pkg.name %>-base-<%= pkg.version %>.css'
       }
     },
