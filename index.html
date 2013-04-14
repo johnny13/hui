@@ -15,7 +15,7 @@
 	<!-- @import is slower than <link> but it can be helpful 
 	     when developing, or Easy Theme Switching by breaking 
 	     the main framework and theme elements into respective files.-->
-	<style type="text/css">@import url("dist/hui-base-1.13.6.css?ver=541");</style>
+	<style type="text/css">@import url("dist/hui-base-min.css?ver=1.15");</style>
 	<link id="theme_sheet" href="src/themes/li3/dev-theme.css" type="text/css" rel="stylesheet"/>
 	<!-- Production Merged & Minified Theme: <link href="dist/theme-li3.css" type="text/css" rel="stylesheet"/> -->
 	
@@ -28,7 +28,7 @@
 	<style type="text/css">
 		/* main size controller. */
 		
-		#mainContent {
+		#content {
 			background-image: url("https://huementui.s3.amazonaws.com/images/gridMasked.png?ver=2.1");
 		 	background-repeat:repeat-x;
 		}
@@ -61,7 +61,13 @@
 			color:#e7e7e7;
 			background:#666;
 		}
-		
+		#notefyIconList {
+			padding:10px;
+			width:90%;
+			display:block;
+			margin:13px auto 0 auto;
+			position:relative;
+		}
 		code {
 			margin-top:3px;
 			margin-bottom:3px;
@@ -100,12 +106,7 @@
 		 overflow: auto;
 		 font-size: 1.2em;
 		 line-height: 1.5em;
-		 text-align: left;
-		 margin: 5px auto 10px auto;
-		 padding:.71em .31em .71em .31em;
-		 width: 94%; 
-		 position:relative;
-		 display:block;
+		 
 		}
 		
 		#notefyIconList li {
@@ -197,8 +198,8 @@
 		</div>
 	</div>
 
-	<div class="container" id="mainContent">
-		<div class="push" style="height:60px;"></div>
+	<div class="container" id="content">
+		<div class="push"></div>
 		<div class="row limit category home_category">
 			<div class="onecol">
 			</div>
@@ -596,50 +597,51 @@ preload([
 			<p><code>@font-face</code> Icon Fonts. Perfect for Retina Displays! No more Fuzzy Buttons.</p>
 			<p>The full suite of pictographic icons, examples, and documentation can be found at: <a href="fortawesome.github.io/Font-Awesome">fortawesome.github.io/Font-Awesome</a>.</p>
 			<div class="push"></div>
-
+			<p class="fnote">Fun Fact: The grey <code>.boxMost</code> HTML Markup featured below uses the Fraction Boxes instead the Grid. Allowing it to keep its Checkerboard layout to smaller screen sizes, while the main site is still able to adapt into neat rows.</p>
 			</div> 
 		</div>	
 	
-		<div class="row limit category action_category">
-			<div class="fourcol greyb">
+		<!-- this uses the Fraction Boxes on top of the Grid -->
+		<div class="C greyb category action_category boxMost">
+		 <div class="box13 L">
 			 <h4><span class="icon-flag"></span> One font, 249 icons</h4>
 			 In a single collection, Font Awesome is a pictographic language of web-related actions.
 			</div>
-			<div class="fourcol greyb">
-			 <h4><span class="icon-pencil"></span> CSS control</h4>
-			 Easily style icon color, size, shadow, and anything that's possible with CSS.
-			</div>
-			<div class="fourcol greyb last">
+		 <div class="box13 R">
 			 <h4><span class="icon-fullscreen"></span> Infinite scalability</h4>
 			 Scalable vector graphics means every icon looks awesome at any size.
 			</div>
+		 <div class="box13 C">
+			 <h4><span class="icon-pencil"></span> CSS control</h4>
+			 Easily style icon color, size, shadow, and anything that's possible with CSS.
+			</div>
 		</div>
 			
-		<div class="row limit category action_category">
-		 <div class="fourcol greyb">
+		<div class="C greyb category action_category boxMost">
+		 <div class="box13 L">
 		   <h4><span class="icon-beer"></span> Free, as in Beer</h4>
 		   Font Awesome is completely free for commercial use. Check out the <a href="#license">license</a>.
 		 </div>
-		 <div class="fourcol greyb">
+		 <div class="box13 R">
 		   <h4><span class="icon-ok"></span> IE7 Support</h4>
 		   Font Awesome supports IE7. If you need it, you have my condolences.
 		 </div>
-		 <div class="fourcol last greyb">
+		 <div class="box13 C">
 		   <h4><span class="icon-eye-open"></span> Perfect on Retina Displays</h4>
 		   Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
 		 </div>
 		</div>
 
-		<div class="row limit category action_category">
-		 <div class="fourcol greyb">
+		<div class="C greyb category action_category boxMost">
+		 <div class="box13 L">
 		   <h4><span class="icon-thumbs-up"></span> Font Awesome</h4>
 		   Forked and adapted from <a href="fortawesome.github.io/Font-Awesome" target="_blank">Font-Awesome 3</a>.
 		 </div>
-		 <div class="fourcol greyb">
+		 <div class="box13 R">
 		   <h4><span class="icon-tint"></span> Designer Friendly</h4>
 		   Install FontAwesome.otf and <a href="design.html" target="_blank">visit the copy & paste page</a>. Happy designing.
 		 </div>
-		 <div class="fourcol last greyb">
+		 <div class="box13 C">
 		   <h4><span class="icon-search"></span> Screen reader compatible</h4>
 		   Font Awesome won't trip up screen readers, unlike other icon fonts.
 		 </div>
@@ -1448,13 +1450,12 @@ preload([
 		
 		<div class="row limit category note_category">
 			<div class="fourcol smallHide">
+				<h2>notefy command</h2>
 <pre class="jsCode">	
-//notefy command shortcut
 
 notefy( "Header Title" , "The message you want displayed." );
 
 //javascript shortcut (all options)
-
 notefy(
  'title message',
  'full lengthy message about stuff', 
@@ -1540,9 +1541,7 @@ notefy(
 		
 		<div class="row limit category useful_category">
 			<div class="fourcol smallHide">
-<pre class="jsCode">
-//
-</pre>
+
 			</div>
 			<div class="eightcol last">
 				<h2 class="page-header">3a. Usability</h2>
@@ -3231,6 +3230,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 		<div class="row limit category accordion_category">
 		
 			<div class="fourcol smallHide">
+<h2>Control Panel Example</h2>
 <pre>
 jQuery(".accordion").accordionNav();	
 	
@@ -3328,17 +3328,20 @@ jQuery(".accordion").accordionNav();
 		
 		<div class="row limit category accordion_category">
 			<div class="fourcol smallHide">
-<pre>
+<h2>Flapper Girl Example</h2>
+<pre class="jsCode">
+//JS
 var ladyParts = {
 "title":".title_bar",
 "loader":".pageloader",
 "stage":".speakEasy"
 };
 
-//3. Activate Flapper Girl Menu
-
 jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);	
-
+</pre>
+<div class="push"></div>
+<pre class="htmlCode">
+//HTML
 &lt;div class="flapperStage"&gt;
 &lt;div class="speakEasy"&gt;
 &lt;ul&gt;
@@ -3362,8 +3365,7 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			</div>
 			<div class="eightcol last">
 			<h3 class="page-header">Flapper Girl</h3>
-
-				
+			<p class="fnote">Click the Headers to Toggle that category's visibility, or click a name to see a notefy example.</p>
 				<div class="flapperStage">
 					<div class="speakEasy">
 						<ul>
@@ -3396,9 +3398,60 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			
 		</div>
 		
+		<div class="row limit category accordion_category">
+			<div class="twelvecol last">
+				<div class="push" style="height:100px;"></div>
+				<div id="PageSlide_content" class="boxMost">
+			        <h3 class="page-header">PageSlide Basic Demo</h3>
+			        <p>Below are a couple examples of how the plugin works:</p>
+			        <ul>
+			            <li style="margin-top:30px;">
+			                <p class="fnote">In this Slide to the RIGHT Example, There will be content from a Secondary HTML Page loaded into the Slide Panel on this page.</p>
+							<p><a href="test/secondary.html" class="pageslide_first button action blue full_button"><span class="label">Slide to the right</span></a></p>
+<div class="push" style="height:10px;"></div>                
+<pre>
+&lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
+&lt;script&gt;
+    $(&quot;a.first&quot;).pageslide();
+&lt;/script&gt;
+</pre>
+			            </li>
+			            <li style="margin-top:30px;">
+			                <p class="fnote">In this Slide to the Left Example, we will display hidden content from a <code>DIV id="modal_name"</code> on this page, into the resulting modal pane.</p>
+							<p><a href="#PageSlide_modal" class="pageslide_second button action blue full_button"><span class="label">Slide to the left</span></a></p>
+<div class="push" style="height:10px;"></div>
+<pre>
+&lt;a href=&quot;#PageSlide_modal&quot; class=&quot;second&quot;&gt;Link text&lt;/a&gt;
+&lt;div id=&quot;PageSlide_modal&quot; style=&quot;display:none&quot;&gt;
+    &lt;h2&gt;Modal&lt;/h2&gt;
+    &lt;a href=&quot;javascript:$.pageslide.close()&quot;&gt;Close&lt;/a&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    $(&quot;.second&quot;).pageslide({ direction: &quot;left&quot;, modal: true });
+&lt;/script&gt;
+</pre>
+			            </li>
+			            <li style="margin-top:30px;">
+							<p class="fnote">Another Example. Showing the loading of a Remote HTML Page.</p>
+			                <p><a href="javascript:$.pageslide({ direction: 'left', href: 'test/secondary.html' })" class="button action red full_button"><span class="label">Open the page Programmatically</span></a></p>
+                <pre>
+&lt;a href=&quot;javascript:$.pageslide({ direction: &#39;left&#39;, href=&#39;_secondary.html&#39; })&quot;&gt;Link text&lt;/a&gt;
+                </pre>
+			            </li>
+			        </ul>
+			        <div id="PageSlide_modal">
+			            <h3 class="whiteText">Modal</h3>
+			            <p class="fnote whiteText p10">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
+			            <p class="p10"><a href="javascript:$.pageslide.close()" class="button action red full_button"><span class="label">Close</span></a></p>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		
 		<div class="row limit category navigate_category">
 		
 			<div class="fourcol smallHide">
+<h2>horizontal navbar</h2>
 <pre>
 jQuery('.full-width').horizontalNav({
   prependTo : '#mobilenav'

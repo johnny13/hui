@@ -148,6 +148,14 @@ button.action,
 	-o-transition: border .20s;
 	transition: border .20s;
 }
+.full_button {
+width: 95%;
+float: none;
+display: block;
+position: relative;
+margin: 0 auto;
+text-align: center !important;
+}
 
 button.action span.label, .button.action span.label {
 	color:#F3F3F3;

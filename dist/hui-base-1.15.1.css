@@ -1,4 +1,4 @@
-/*! huement user interface - v1.15.0 - 2013-04-14
+/*! huement user interface - v1.15.1 - 2013-04-14
 * https://github.com/johnny13/hui
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPL3 */
 
@@ -2233,6 +2233,14 @@ button.action,
 	-moz-transition: border .20s;
 	-o-transition: border .20s;
 	transition: border .20s;
+}
+.full_button {
+width: 95%;
+float: none;
+display: block;
+position: relative;
+margin: 0 auto;
+text-align: center !important;
 }
 
 button.action span.label, .button.action span.label {

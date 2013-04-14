@@ -18,7 +18,12 @@
 	background-repeat:repeat;
 }
 
-/* .box and .boxFix habe no defined width. style inline */
+/*
+*
+* The Box System is similiar to the Fluid Grid. It is a little easier to use,
+* and is great when you need to divide up a larger area into fractions.
+*
+*/
 .box {
 	display: block;padding:5px;
 	min-height: 100%;height:100%;
@@ -28,15 +33,11 @@
 .boxFix { display: block;margin: 0px auto; }
 
 /* for the rest, think FRACTIONS 2/3 1/3 etc */
-.boxHalf {min-width:250px;width:49%;}
-.boxThird {width:32%;min-width:165px;}
-.boxTwoThird {width:65%;min-width:335px;}
-.boxFourth {width:23.5%;min-width:125px;}
-
-.box12 {min-width:250px;width:49%;}
-.box13 {width:32%;min-width:165px;}
-.box23 {width:65%;min-width:335px;}
-.box14 {width:23.5%;min-width:125px;}
+.boxHalf, .box12 {min-width:250px;width:49.4%;max-width:49.4%;}
+.boxThird, .box13 {width:32%;min-width:165px;max-width:32%;}
+.boxTwoThird, .box23 {width:65%;min-width:335px;}
+.boxFourth, .box14, .box4 {width:23.5%;min-width:125px;}
+.boxMost, .boxM {width:95%;min-width:500px;max-width:95%;display:block;padding: 5px 10px 5px 10px;}
 
 /* SetUp Columns (Divide Boxes in Further or in Half) */
 .column, .columnL, .columnR { 
@@ -47,9 +48,19 @@
 	vertical-align: top; 
 }
 
-.column {display: block;height:100%;}
+.column {display: block;height:100%;width:96%;margin:0 auto;padding: 5px 10px 5px 10px;position:relative;}
 .columnL {float:left;width:49%;padding: 0 5px 5px 0;}
 .columnR {float:right;width:49%;padding: 0 0 5px 5px;}
+
+@media (min-width: 799px) {
+	.column, .boxMost {display: block;height:100%;width:98%;margin:0 auto;padding: 5px;position:relative;min-width:300px;max-width:98%;}
+	.columnL, .columnR {float:none;width:98%;padding: 5px;margin:0 auto;position:relative;}
+}
+@media (max-width: 599px) {
+	.boxHalf, .box12, .boxThird, .box13, .boxTwoThird, .box23, .boxFourth, .box14, .box4, .boxMost, .boxM {
+		float:none;width:98%;padding: 5px;margin:0 auto;position:relative;max-width:98%;min-width:300px;
+	}
+}
 
 /* Standard Floats */
 /* Easy Float / Quick Alignment */

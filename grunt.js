@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     },
     concat: {
       js: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js'],
+        src: ['<banner:meta.banner>', '<file_strip_banner:src/js/actions.js>', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js','src/js/pageslide.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js'],
         dest: 'dist/<%= pkg.name %>.<%= pkg.version %>.js'
       },
       css: {

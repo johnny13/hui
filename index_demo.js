@@ -1,6 +1,6 @@
 //This Script has
 //Example Functions for the index.html hui demo
-var HistoryDiz;
+var HistoryDiz,nextName,titleName;
 var counter = 0;     
 var demo1 = 0;
 var demo2 = 0;
@@ -173,9 +173,38 @@ function runfulltests(){
  });
 }
 
-function PanelSwap(ShowTarget){
-	jQuery(".row.category").addClass("none");
-	jQuery(ShowTarget).removeClass("none");
+/* controls page animations. newTitle is optional*/
+function PanelSwap(ShowTarget,newTitle){
+	var FixedTarget = ShowTarget.replace(".", "");
+	var subTarget = FixedTarget.split('_');
+	$("div.category").each(function(){
+		if($(this).is(":visible")==true&& $(this).hasClass(FixedTarget) != true){
+			//$(this).fadeOut();
+			$(this).stop(true).animate({ 'height': 'toggle'}, { queue: false, duration: 888, easing:"easeOutCubic" },function(){
+				if($(this).hasClass("none")==false){
+					$(this).addClass("none");
+				}
+			});
+		}
+	});
+	if($(ShowTarget).is(":visible")!=true){
+		jQuery(ShowTarget).removeClass("none");
+		//$(ShowTarget).slideDown();
+		$(ShowTarget).stop(true).animate({ 'height': 'show'}, { queue: false, duration: 999, easing:"easeInCubic" });
+	}
+	if(newTitle!=undefined||newTitle.length>=3){
+		titleName = 'hui'+' '+newTitle;
+	} else {
+		titleName = 'hui'+' '+subTarget[0];
+	}
+	setTimeout("windowRename()",567.8);
+}
+function windowRename(){
+	if(titleName.length<=3){
+		$(document).attr('title', "White Blank Page");
+	} else {
+		$(document).attr('title', titleName);
+	}
 }
 
 jQuery(document).ready(function() { 
@@ -184,7 +213,7 @@ jQuery(document).ready(function() {
  randomColors();
 
  jQuery(".reload").on("click",function(){
-	PanelSwap(".home_category");
+	PanelSwap(".home_category","home page");
 	jQuery(".navList li").removeClass("active");
 	if(!History.enabled){
 		//No History Mode Available.
@@ -236,31 +265,27 @@ jQuery(document).ready(function() {
   defaultPosition:"right"
  });
 
- //jQuery(".row.category").addClass("none");
- //jQuery(".action_category").removeClass("none");
- jQuery(".home_category").removeClass("none");
-
  jQuery('.navList li a').on("click",function(){
   
   var thehref = $(this).attr("href");
   var substr = thehref.split('#');
   var thetarget = "."+substr[1]+"_category";
-  PanelSwap(thetarget);
+  PanelSwap(thetarget,substr[1]);
+
   jQuery(".navList li").removeClass("active");
   jQuery(this).parent().addClass("active");
 
   jQuery("html, body").animate({ scrollTop: 0 }, "slow");
   var newURL = encodeURIComponent(jQuery(this).attr("title"));
 
-  var pageval = "?history="+newURL;
+	/* History or Regular Click 
+	(support for PHP $_GET in this example) if Not */
 	if(!History.enabled){
 		//No History Mode Available.
-		window.location = newURL+"?history="+newURL;
-		return false;
 	} else{
+		var pageval = "?history="+newURL;
 		History.pushState(null, null, pageval);
 	}
-  
 
   jQuery(this).css("color","#f7f7f7");
   randomColors("true");
@@ -277,6 +302,12 @@ jQuery(document).ready(function() {
  //Flapper Girl Menu
  var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
  jQuery("<div></div>").flapperGirl(ladyParts, callbackGirl);
+
+ // Default pageslide, moves to the right
+ $(".pageslide_first").pageslide();
+ //Slide to the left, and make it model 
+ //(you'll have to call $.pageslide.close() to close) 
+ $(".pageslide_second").pageslide({ direction: "left", modal: true });
 
  //Notefy Demo
  jQuery(".notefytest").click(function(){
@@ -333,15 +364,21 @@ jQuery(document).ready(function() {
 	}
 	
 	/* intial page loader */
- 	if(History.enabled){
+	if(History.enabled){
 		var theHash = History.getState().hash;
 		var substr = theHash.split('=');
 		if(substr[1]!=""||substr[1]!=" "){
+			//console.debug(substr[1]);
 			HistoryDiz = "."+substr[1]+"_category";
-			jQuery('a[href$="'+substr[1]+'"]').parent("li").addClass("active");
-			setTimeout("PanelSwap(HistoryDiz)",500);
+			if(substr[1]==undefined){
+				setTimeout("PanelSwap('.home_category','home page')",500);
+			}else{
+				jQuery('a[href$="'+substr[1]+'"]').parent("li").addClass("active");
+				nextName = substr[1];
+				setTimeout("PanelSwap(HistoryDiz,nextName)",500);
+			}
 		} else {
-			setTimeout("PanelSwap('.home_category')",500);
+			setTimeout("PanelSwap('.home_category','home page')",500);
 		}
 	}
 }); 
