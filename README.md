@@ -53,7 +53,7 @@ More information about downloads, installs, cdn versions, plugin updates, builds
 ## Install hui    
 Install is typical of most jQuery projects. It's recommended that you include the [Modernizr](http://modernizr.com/) library and a CSS theme file in your header, while jQuery and the hui library are loaded before the closing Body tag, but that is not required. If you dont use modernizr, you should include the [html5shiv](https://huementui.s3.amazonaws.com/cdn/html5shiv.js) here for backwards compatibility with older browsers. modernizr includes it already.
 
-Included in the dist folder are two themes, hui-dark.css or hui-light.css. They are a combination of their respective Themes and the hui-x.xx.x.css file. Including one of them in your header is all you need to do. If you would like to build your own theme, checkout the theme building section of this readme or go here: [hui.huement.com/themes/](http://hui.huement.com/themes/).
+Included in the dist folder are two themes, hui-dark.css or hui-light.css. They are a combination of their respective Themes and the hui-x.xx.x.css file. Including one of them in your header is all you need to do. If you would like to build your own theme, checkout [theme building](https://github.com/johnny13/hui#theme-building) go here: [hui.huement.com/themes/](http://hui.huement.com/themes/).
     
 
 ```html
@@ -69,7 +69,9 @@ Included in the dist folder are two themes, hui-dark.css or hui-light.css. They 
 ```
 
 ## Theme Building    
-If you want to customize hui for your site, the easiest way to to swap out the hui-dark.css or hui-light.css theme for the hui-x.xx.x.css unminifed base css file. This will give you a base core. Now copy the dark or light dev-theme.css file, and add your new file AFTER the unminifed hui.css. Now customize to your hearts content!
+If you want to really customize the look and feel of hui for your site, the easiest way to do this, is simply swap out the hui-dark.css or hui-light.css minified theme for the hui-x.xx.x.css unminifed base css file. 
+
+This will give you a base core. Next copy the dark or light dev-theme.css file. Now link your new file AFTER the unminifed hui.css on your page header. Finally you can now customize your new theme, or make changes to the core should you need to.
 
     
 Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/)    
