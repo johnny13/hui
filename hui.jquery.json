@@ -1,7 +1,7 @@
 {
   "name": "hui",
   "title": "huement user interface",
-  "description": "Flexibale UI Framework",
+  "description": "Whisky Girl",
   "version": "1.15.2",
   "homepage": "http://hui.huement.com",
   "author": {
@@ -20,8 +20,8 @@
       "url": "https://github.com/johnny13/hui/blob/master/LICENSE-MIT"
     },
 	{
-      "type": "GNU",
-      "url": "https://github.com/johnny13/hui/blob/master/LICENSE-GNUv3"
+      "type": "GPLv3",
+      "url": "http://opensource.org/licenses/gpl-3.0.html"
     }
   ],
   "dependencies": {

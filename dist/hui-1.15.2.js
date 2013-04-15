@@ -1,6 +1,6 @@
 /*! huement user interface - v1.15.2 - 2013-04-14
 * http://hui.huement.com
-* Copyright (c) 2013 Derek Scott; Licensed MIT, GNU */
+* Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 (function(jQuery) {
  
  jQuery.fn.hui = function(options) {
