@@ -15,17 +15,19 @@ Items like Browser Resets, Media Queries, HTML5 Fallbacks & Shiv's, and oldIE Fi
 
 Improve standard site elements, such as Typography, Icons and Images, Animations and Grid Layouts.   
 
-#### Area 3| Plugin Library    
+#### Dynamic Plugins    
 
 Git Submodules made adding on functionality easy. Clone plugins and load them on a page by page basis.    
 
 ## Download hui
-Step 1. required main library [typically do this in your projects web-root directory]    
+Clone this repository into your projects web-root directory.    
     
-    git clone https://github.com/johnny13/hui.git    
+    git clone https://github.com/johnny13/hui.git /your/webroot    
     
 
-Step 2. (optional but recommended) hui Plugin Manager    
+## Download plugins
+### Optionally Setup the Plugins (optional but recommended)
+Step 1. clone plugin repo into hui repo.   
     
     cd hui    
     git clone https://github.com/johnny13/hui-plugins.git    
@@ -50,7 +52,7 @@ Note: Its Important to immediately UPDATE Any Plugins you want to use.
 
 More information about downloads, installs, cdn versions, plugin updates, builds and developer packages can be found at [hui.huement.com/start](http://hui.huement.com/start/).    
 
-## Install hui    
+## Using hui    
 Install is typical of most jQuery projects. It's recommended that you include the [Modernizr](http://modernizr.com/) library and a CSS theme file in your header, while jQuery and the hui library are loaded before the closing Body tag, but that is not required. If you dont use modernizr, you should include the [html5shiv](https://huementui.s3.amazonaws.com/cdn/html5shiv.js) here for backwards compatibility with older browsers. modernizr includes it already.
 
 Included in the dist folder are two themes, hui-dark.css or hui-light.css. They are a combination of their respective Themes and the hui-x.xx.x.css file. Including one of them in your header is all you need to do. If you would like to build your own theme, checkout [theme building](https://github.com/johnny13/hui#theme-building) go here: [hui.huement.com/themes/](http://hui.huement.com/themes/).
