@@ -186,7 +186,7 @@ jQuery.fn.selectOptions = function(value) {
  );
  return this;
 };
-/*!
+/*
  * jqPagination, a jQuery pagination plugin (obviously)
  *
  * Copyright (C) 2011 Ben Everard

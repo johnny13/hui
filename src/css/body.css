@@ -71,15 +71,17 @@
 
 /* Easy Margins and Paddings */
 /* Remember: Top Left Bottom Right */
+.m0 {margin: 0px;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:0px;}
 .m5 {margin:0 5px 0 5px;}
 .m10 {margin:10px 10px 10px 10px}
 .m15 {margin:0 7.5px 0 7.5px}
+.p0 {padding: 0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;}
 .p5 {padding: 5px}
 .p10 {padding:10px 10px 10px 10px}
 .p15 {padding:0 7.5px 0 7.5px}
-.zero {margin:0;padding:0}
+.zero {margin: 0px;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:0px;padding: 0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;}
 
-hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:1px;margin:0 0 1.45em;border:none;}
+
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .clearfix             { zoom: 1; } /* IE6 */
@@ -89,18 +91,25 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 *:first-child+html .container { zoom: 1; } /* IE7 */.clear {clear:both;}
 .clear {clear:both;}
 *:first-child+html #iconautente{ text-indent:0; line-height:0; font-size:0; overflow:hidden}/*ie7 hack */
+
 /* Clears (needed for sticky footer and helpful when using floats) */
 br {min-height:10px;height:10px;}
 .alpha:after,.alphaSticky:after, .column:after, br,  br:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
 hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margin-bottom:20px;}
 hr {
-	clear:both;width:90%;
+	background:#ddd;
+	clear:both;
+	float:none;
+	height:1px;
+	width:90%;
 	border: none;
 	height: 0;
-	color:#000; border-color:#FFF;
+	color:#000; 
+	border-color:#FFF;
 	border-bottom: 1px solid #e6e6e6;
-	margin:0 auto;
-	margin-bottom:20px;
+	margin:0 auto 1.45em auto;
+	display:block;
+	position:relative;
 }
 .push {
 	display:block;

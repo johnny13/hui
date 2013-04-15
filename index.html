@@ -12,12 +12,12 @@
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 	
-	<!-- @import is slower than <link> but it can be helpful 
-	     when developing, or Easy Theme Switching by breaking 
-	     the main framework and theme elements into respective files.-->
-	<style type="text/css">@import url("dist/hui-base-min.css?ver=1.15");</style>
-	<link id="theme_sheet" href="src/themes/li3/dev-theme.css" type="text/css" rel="stylesheet"/>
-	<!-- Production Merged & Minified Theme: <link href="dist/theme-li3.css" type="text/css" rel="stylesheet"/> -->
+	<!-- For THEME BUILDING. Something Like this Would be easier to use. (check ver 1.15.2 matches file in dist folder)
+	<style type="text/css">@import url("dist/hui-1.15.2.css");</style>
+	<link id="theme_sheet" href="src/themes/YourTheme/Filename.css" type="text/css" rel="stylesheet"/>
+	-->
+
+	<link id="theme_sheet" href="dist/hui-light.css" type="text/css" rel="stylesheet"/>
 	
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
@@ -3573,7 +3573,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 <script type="text/javascript" src="dist/hui-min.js"></script>
 
 <!-- Example Functions for the Demo -->
-<script type="text/javascript" src="index_demo.js?ver=1.7"></script>
+<script type="text/javascript" src="demos/index_demo.js"></script>
 
 </body>
 </html>

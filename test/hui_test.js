@@ -1,11 +1,12 @@
 (function($) {
-
   /*
-    ========= A Handy Little QUnit Reference =========
-    http://docs.jquery.com/QUnit
+    ======== A Handy Little QUnit Reference ========
+    http://api.qunitjs.com/
 
     Test methods:
-      expect(numAssertions)
+      module(name, {[setup][ ,teardown]})
+      test(name, callback)
+      expect(numberOfAssertions)
       stop(increment)
       start(decrement)
     Test assertions:
@@ -16,135 +17,29 @@
       notDeepEqual(actual, expected, [message])
       strictEqual(actual, expected, [message])
       notStrictEqual(actual, expected, [message])
-      raises(block, [expected], [message])
+      throws(block, [expected], [message])
   */
-  
-  var colorArr = ["#C20000","#C20000","#C20000"];
-  var colorArrRandom = ["#C20000","#37C200","#004EC2","#8400C2","#F56200"];
-  var lhui = "0.0.0";
 
-   test( "HUI Hello World Test", function() {
-    if(jQuery.isFunction(jQuery.fn.flapperGirl) === true){
-       lhui = "1.13.0";
+  module('jQuery#awesome', {
+    // This will run before each test in this module.
+    setup: function() {
+      this.elems = $('#qunit-fixture').children();
     }
-    ok( lhui !== "", "HUI Version: "+lhui+" Hello World Passed! " );
   });
 
-  QUnit.test( "Shuffle() Array Test", function( assert ) {
-
-    function square() {
-      jQuery.shuffle(colorArrRandom);
-      return colorArr[0];
-    }
-    function circle() {
-      jQuery.shuffle(colorArrRandom);
-      return colorArr[2];
-    }
-    function triangle(){
-      jQuery.shuffle(colorArrRandom);
-      jQuery("#animme").css("background-color",colorArrRandom[0]);
-      return colorArrRandom[2];
-    }
-    var sresult = square();
-    var cresult = circle();
-    var cran = triangle();
-    
-    ok( sresult === cresult, "Passed! Random Color| "+cran );
-  });
-  
-  var abc=1;
-  var hateIt =0;
-
-  QUnit.test( "Core Widgets Test", function( assert ) {
-
-     function nsquare() {
-     if(jQuery.isFunction(notefy) === true){
-       return 5;
-     }
-     }
-    function ncircle() {
-      if(jQuery.isFunction(jQuery.facebox) === true){
-        return 5;
-      }
-     }
-    
-    var sresult = nsquare();
-    var cresult = ncircle();
-
-    
-    ok( sresult === cresult, "Passed! facebox() and notefy() working 100%" );
+  test( "a basic test example", function() {
+      var value = "hello";
+      equal( value, "hello", "We expect value to be hello" );
   });
 
-	QUnit.test( "Gesture Support Test", function( assert ) {
-
-     function nsquare() {
-      if(jQuery.isFunction(Hammer) === true){
-       var jQuerysw = jQuery('#swipeme'),
-       jQueryoutput = jQuery('#output');
-    
-       jQuerysw.on('hold tap swipe doubletap transformstart transform transformend dragstart drag dragend swipe release', function (event) {
-         event.preventDefault();
-         jQueryoutput.prepend("Type: " + event.type + ", Fingers: " + event.touches.length + ", Direction: " + event.direction + "<br/>");
-       });
-        return 5;
-      } else {
-       return 55;
-      }
-    }
-    
-    var sresult = nsquare();
-    var cresult = 6;
-    ok( sresult <= cresult, "Gesture Support Active" );
-  });
+ // test("prettydate basics", function() {
+ //   var now = "2008/01/28 22:25:00";
+   // equal(prettyDate(now, "2008/01/28 22:24:30"), "just now");
+   // equal(prettyDate(now, "2008/01/28 22:23:30"), "1 minute ago");
+   // equal(prettyDate(now, "2008/01/28 21:23:30"), "1 hour ago");
+   // equal(prettyDate(now, "2008/01/27 22:23:30"), "Yesterday");
+   // equal(prettyDate(now, "2008/01/26 22:23:30"), "2 days ago");
+   // equal(prettyDate(now, "2007/01/26 22:23:30"), undefined);
+ // });
 
 }(jQuery));
-
-
-var cdnv = "";
- var huivn = "1.13.0";
-
-function callbackGirl(){
- var htmlitem = jQuery(".speakEasy li.active").text();
- notefy("Clicked!",htmlitem);
-}
-
-function shuffledemo(){
- var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
- jQuery.shuffle(colorArray);
- var ippo = 0;
- jQuery(".democolors").html(" ");
- jQuery(colorArray).each(function (index) {
-     var name = colorArray[index];
-  jQuery(".democolors").append("<li>"+name+"</li>");
-  ippo++;
- });
-
- jQuery(".democolors li").each(function (index) {
-     var name = jQuery(this).text();
-  jQuery(this).animate({backgroundColor: name});
- });
-}
-
-function huiv(){
- var jqv = jQuery().jquery;
- jQuery(".jqvb").html(jqv);
- jQuery(".hvb").html(huivn);
- return true;
-}
-
-jQuery(document).ready(function() {
- huiv();
- jQuery(".n1t").click(function(){
- notefy('simple header','notefy message');
- return false;
- });
- jQuery(".n2t").click(function(){
- notefy('simple header','notefy message','star',true);
- return false;
- });
- jQuery(".shuffleDemo").click(function(){
- shuffledemo();
- return false;
- });   
-jQuery('.touchNo').bind('dragstart', function(event) { event.preventDefault(); });
-});

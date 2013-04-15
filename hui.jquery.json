@@ -1,9 +1,9 @@
 {
   "name": "hui",
   "title": "huement user interface",
-  "description": "Whisky Girl",
-  "version": "1.15.1",
-  "homepage": "https://github.com/johnny13/hui",
+  "description": "Flexibale UI Framework",
+  "version": "1.15.2",
+  "homepage": "http://hui.huement.com",
   "author": {
     "name": "Derek Scott",
     "email": "derek@huement.com",
@@ -11,30 +11,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/johnny13/hui.git"
+    "url": "https://github.com/johnny13/hui.git"
   },
-  "bugs": {
-    "url": "https://github.com/johnny13/hui/issues"
-  },
+  "bugs": "https://github.com/johnny13/hui/issues",
   "licenses": [
     {
       "type": "MIT",
       "url": "https://github.com/johnny13/hui/blob/master/LICENSE-MIT"
     },
-    {
-      "type": "GPL3",
-      "url": "https://github.com/johnny13/hui/blob/master/LICENSE-GPL3"
+	{
+      "type": "GNU",
+      "url": "https://github.com/johnny13/hui/blob/master/LICENSE-GNUv3"
     }
   ],
   "dependencies": {
     "jquery": "1.8"
-  },
-  "devDependencies": {
-    "grunt-css": "~0.5.3",
-    "grunt-yui-compressor": "~0.1.0"
-  },
-  "engines": {
-    "node": ">= 0.6.0"
   },
   "keywords": []
 }
