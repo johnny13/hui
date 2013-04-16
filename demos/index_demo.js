@@ -34,10 +34,16 @@ function callbackGirl(){
 function randomColors(single){
  var shuffleArr = jQuery.shuffle(colorArr);
  //console.debug(shuffleArr);
- jQuery(".el_arco_iris, #el_arco_iris li.active a").animate({color: colorArr[0]},4979);
+ jQuery("#el_arco_iris li a").each(function(index,item){
+	if(jQuery(item).parent("li").hasClass("active")==false){
+		jQuery(item).stop(true).animate({color: "#FFFFFF"},500);
+	}
+ });
+
+ jQuery(".el_arco_iris, #el_arco_iris li.active a").stop(true).animate({color: colorArr[0]},4979);
  
  if(jQuery(document).width() <= 460){
-  jQuery(".navList").hide();
+  //jQuery(".navList").hide();
  }
  if(single==null){
 	setTimeout("randomColors()",5013);
@@ -211,6 +217,7 @@ jQuery(document).ready(function() {
  /* Sample Animations */
  //jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
  randomColors();
+ jQuery("#el_arco_iris li.active a").animate({color: colorArr[0]},100);
 
  jQuery(".reload").on("click",function(){
 	PanelSwap(".home_category","home page");
@@ -389,7 +396,7 @@ jQuery(document).ready(function() {
     // Prepare
     var History = window.History; // Note: We are using a capital H instead of a lower h
     if ( !History.enabled ) {
-		notefy("History.js","is disabled for this browser");
+		notefy("History.js","is disabled for this browser","caution");
          // History.js is disabled for this browser.
          // This is because we can optionally choose to support HTML4 browsers or not.
         return false;

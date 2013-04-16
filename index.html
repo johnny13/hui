@@ -27,7 +27,12 @@
 	<!-- Demo Styles -->
 	<style type="text/css">
 		/* main size controller. */
-		
+		.lead {
+		  margin-bottom: 20px;
+		  font-size: 21px;
+		  font-weight: 200;
+		  line-height: 30px;
+		}
 		#content {
 			background-image: url("https://huementui.s3.amazonaws.com/images/gridMasked.png?ver=2.1");
 		 	background-repeat:repeat-x;
@@ -187,13 +192,13 @@
 		<div id="hbbh" class="none">
 		<ul id="el_arco_iris" class="navList">
 		 <li><a href="#action" title="action">act</a></li>
-		 <li><a href="#note" title="note">notefy</a></li>
+		 <li><a href="#type" title="type">type</a></li>
 		 <li><a href="#useful" title="useful">useful</a></li>
-		 <li><a href="#facebox" title="facebox">faceBox</a></li>
 		 <li><a href="#datas" title="datas">data</a></li>
-		 <li><a href="#forms" title="forms">forms</a></li>
+		 <li><a href="#forms" title="forms">form</a></li>
+		 <li><a href="#widgets" title="widgets">widget</a></li>
 		 <li><a href="#accordion" title="accordion">dance</a></li>
-		 <li><a href="#navigate" title="navigate">flex</a></li>
+		 <li><a href="#navigate" title="navigate">nav</a></li>
 		</ul>
 		</div>
 	</div>
@@ -219,7 +224,7 @@
 			
 			<div class="push" style="height:150px;"></div>
 		</div>
-		
+		<!-- ACT -->
 		<div class="row limit category action_category">
 			<div class="fourcol smallHide">
 <h2>shuffle</h2>
@@ -251,7 +256,7 @@ preload([
 </pre>
 			</div>
 			<div class="eightcol last">
-				<h2 class="page-header">1a. Action</h2>
+				<h2 class="page-header">Action Functions</h2>
 				<p>This Sections contains additional snippets and commands that make basic development tasks a little easier. It also provides a nice space to slowly add your app wide functions and DOM manipulating tidbits later.</p>
 				
 				<p>Currently Supported Functions:</p>
@@ -278,7 +283,7 @@ preload([
 		
 		<div class="row limit category action_category">
 			<div class="twelvecol last">
-				<h2 class="page-header">1b. Buttons</h2>
+				<h2 class="page-header">Button Framework</h2>
 				<p class="fnote">the button framework contains the core user interaction elements. allowing you to offer everything from a confirmation or yes no button, to a drop down toolbar with @font-face icons.</p>
 				<div class="push"></div>
 				<h3 class="page-header">Text Buttons & Icon Buttons</h3>
@@ -593,7 +598,7 @@ preload([
 		<div class="row limit category action_category">
 			<div class="twelvecol last">
 			<div class="push" style="height:60px;"></div>
-			<h2 class="page-header">1c. Font Awesome 3</h2>
+			<h2 class="page-header">Font Awesome Icon Fonts</h2>
 			<p><code>@font-face</code> Icon Fonts. Perfect for Retina Displays! No more Fuzzy Buttons.</p>
 			<p>The full suite of pictographic icons, examples, and documentation can be found at: <a href="fortawesome.github.io/Font-Awesome">fortawesome.github.io/Font-Awesome</a>.</p>
 			<div class="push"></div>
@@ -602,52 +607,53 @@ preload([
 		</div>	
 	
 		<!-- this uses the Fraction Boxes on top of the Grid -->
-		<div class="C greyb category action_category boxMost">
+		<div class="C greyb category action_category row limit">
+		<div class="boxMost">
 		 <div class="box13 L">
 			 <h4><span class="icon-flag"></span> One font, 249 icons</h4>
-			 In a single collection, Font Awesome is a pictographic language of web-related actions.
+			 <p>In a single collection, Font Awesome is a pictographic language of web-related actions.</p>
 			</div>
 		 <div class="box13 R">
 			 <h4><span class="icon-fullscreen"></span> Infinite scalability</h4>
-			 Scalable vector graphics means every icon looks awesome at any size.
+			 <p>Scalable vector graphics means every icon looks awesome at any size.</p>
 			</div>
 		 <div class="box13 C">
 			 <h4><span class="icon-pencil"></span> CSS control</h4>
-			 Easily style icon color, size, shadow, and anything that's possible with CSS.
+			 <p>Easily style icon color, size, shadow, and anything that's possible with CSS.
 			</div>
 		</div>
-			
-		<div class="C greyb category action_category boxMost">
+			<br/>
+		<div class="C greyb category action_category">
 		 <div class="box13 L">
 		   <h4><span class="icon-beer"></span> Free, as in Beer</h4>
-		   Font Awesome is completely free for commercial use. Check out the <a href="#license">license</a>.
+		   <p>Font Awesome is completely free for commercial use. Check out the <a href="#license">license</a>.</p>
 		 </div>
 		 <div class="box13 R">
 		   <h4><span class="icon-ok"></span> IE7 Support</h4>
-		   Font Awesome supports IE7. If you need it, you have my condolences.
+		   <p>Font Awesome supports IE7. If you need it, you have my condolences.
 		 </div>
 		 <div class="box13 C">
 		   <h4><span class="icon-eye-open"></span> Perfect on Retina Displays</h4>
-		   Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.
+		   <p>Font Awesome icons are vectors, which mean they're gorgeous on high-resolution displays.</p>
 		 </div>
 		</div>
-
-		<div class="C greyb category action_category boxMost">
+			<br/>
+		<div class="C greyb category action_category">
 		 <div class="box13 L">
 		   <h4><span class="icon-thumbs-up"></span> Font Awesome</h4>
-		   Forked and adapted from <a href="fortawesome.github.io/Font-Awesome" target="_blank">Font-Awesome 3</a>.
+		   <p>Forked and adapted from <a href="fortawesome.github.io/Font-Awesome" target="_blank">Font-Awesome 3</a>.</p>
 		 </div>
 		 <div class="box13 R">
 		   <h4><span class="icon-tint"></span> Designer Friendly</h4>
-		   Install FontAwesome.otf and <a href="design.html" target="_blank">visit the copy & paste page</a>. Happy designing.
+		   <p>Install FontAwesome.otf and <a href="design.html" target="_blank">visit the copy & paste page</a>. Happy designing.</p>
 		 </div>
 		 <div class="box13 C">
 		   <h4><span class="icon-search"></span> Screen reader compatible</h4>
-		   Font Awesome won't trip up screen readers, unlike other icon fonts.
+		   <p>Font Awesome won't trip up screen readers, unlike other icon fonts.</p>
 		 </div>
 		<br/>
 		</div>
-	
+		</div>
 		<div class="row limit category action_category">
 			<div class="twelvecol last">
 				<div class="push" style="height:50px;"></div>
@@ -1448,7 +1454,157 @@ preload([
 
 		</div>
 		
-		<div class="row limit category note_category">
+		<div class="row limit category type_category">
+		
+			<div class="twelvecol last">
+				<h2 class="page-header">Typography</h2>
+				
+				<div class="boxMost card">
+					<h1>H1. Heading 1</h1>
+	                <h2>H2. Heading 2</h2>
+	                <h3>H3. Heading 3</h3>
+	                <h4>H4. Heading 4</h4>
+	                <h5>H5. Heading 5</h5>
+	                <h6>H6. Heading 6</h6>
+					<div class="push" style="height:15px;"></div>
+					<p>This Container was created using <code>class="card boxMost"</code></p>
+					<div class="push" style="height:15px;"></div>
+				</div>
+				<div class="boxMost">
+					<div class="push"></div>
+					<p class="fnote">All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
+						<div class="push"></div>
+					<h3 class="page-header">body-text and default paragraph</h3>
+					<p>
+	                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+	                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+	                    a galley of type and scrambled it to make a type specimen book. It has survived not only
+	                    five centuries, but also the leap into electronic typesetting, remaining essentially
+	                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+	                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+	                    PageMaker including versions of Lorem Ipsum.
+	                </p>
+					<h3>long-text</h3>
+					<small>Use this class to display large amounts of text, such as the contents of books or magazines.</small>
+					<p class="long-text">
+	                    Regular  Pellentesque laoreet molestie lacus sit amet tempor. Quisque eget felis augue, non egestas
+	                    dui. Curabitur id nulla tortor, nec tincidunt libero. Donec placerat diam sed massa commodo
+	                    quis auctor mauris consectetur. In luctus pharetra rhoncus. Etiam tristique arcu eget neque
+	                    dignissim suscipit. In hac habitasse platea dictumst.
+	                </p>
+					<h3>paragraph with .indent class</h3>
+					<p class="indent">
+	                    Aenean porttitor, purus eget egestas
+	                    pellentesque, sapien mi feugiat massa, quis malesuada ante nisl ac orci. Curabitur at lacus
+	                    mauris. Sed tincidunt scelerisque tortor, id convallis enim auctor a. Mauris pharetra,
+	                    lectus nec rutrum venenatis, neque nunc elementum libero, at feugiat justo ipsum at orci.
+	                </p>
+
+	                <p class="indent">
+	                    Sed iaculis quam a nisl porttitor et cursus mauris porttitor. Vestibulum gravida posuere
+	                    lacus id tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+	                    posuere cubilia Curae; Vestibulum blandit, nibh ac molestie viverra, libero orci venenatis
+	                    felis, ornare facilisis magna leo at ligula.
+	                </p>
+	
+					<h3>Abbreviations</h3>
+					
+					<p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr></p>
+	                <p><abbr title="HyperText Markup Language" class="initialism">html</abbr> is the best thing since sliced bread.</p>
+					
+					<h3>Address</h3>
+					
+					<address>
+	                    <strong>Company, Inc.</strong><br>
+	                    795 Folsom Ave, Suite 600<br>
+	                    San Francisco, CA 94107<br>
+	                    <abbr title="Phone">P:</abbr> (123) 456-7890
+	                </address>
+
+	                <address>
+	                    <strong>Full Name</strong><br>
+	                    <a href="mailto:#">first.last@gmail.com</a>
+	                </address>
+					
+					<h3>Blockquotes</h3>
+					
+					<blockquote>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+	                </blockquote>
+
+					<blockquote>
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+	                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+	                </blockquote>
+
+					<blockquote class="place-right">
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+	                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+	                </blockquote>
+					
+					<div class="push"></div>
+<pre class="htmlCode">
+ &lt;p&gt;...&lt/p&gt;
+ &lt;div class="body-text"&gt;...&lt;/div&gt;
+
+ &lt;p class="long-text"&gt;...&lt/p&gt;
+
+ &lt;p class="indent"&gt;...&lt/p&gt;
+
+ &lt;abbr title="Title of abbreviation"&gt;...&lt/abbr&gt;
+
+ &lt;address&gt;
+     ...
+ &lt/address&gt;
+
+ &lt;blockquote&gt;
+  ...
+  &lt;small&gt;...&lt/small&gt;
+ &lt/blockquote&gt;
+</pre>
+
+				<h2 class="page-header">Labels</h2>
+                <table class="style">
+                    <thead>
+                    <tr>
+                        <th>Label type</th>
+                        <th>Label definition</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td width="120"><span class="label">Default</span></td>
+                        <td><code>&lt;span class="label"&gt;Default&lt;/span&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label success">Success</span></td>
+                        <td><code>&lt;span class="label success"&gt;Success&lt;/span&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label warning">Warning</span></td>
+                        <td><code>&lt;span class="label warning"&gt;Warning&lt;/span&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label error">Important</span></td>
+                        <td><code>&lt;span class="label error"&gt;Error&lt;/span&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label info">Info</span></td>
+                        <td><code>&lt;span class="label info"&gt;Info&lt;/span&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label inverse">Inverse</span></td>
+                        <td><code>&lt;span class="label inverse"&gt;Inverse&lt;/span&gt;</code></td>
+                    </tr>
+                    </tbody>
+                </table>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- WIDGETS -->
+		<div class="row limit category widgets_category">
 			<div class="fourcol smallHide">
 				<h2>notefy command</h2>
 <pre class="jsCode">	
@@ -1473,7 +1629,7 @@ notefy(
 <div id="test2" class="bottom-left"></div>
 			</div>
 			<div class="eightcol last">
-				<h2 class="page-header">2. Notefy</h2>
+				<h2 class="page-header">Notefy</h2>
 				<p>A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
 				Features support for mobile and tablet screen sizes, as well as touch interfaces. Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
 				<p class="fnote">
@@ -1539,6 +1695,632 @@ notefy(
 			</div>
 		</div>
 		
+		<div class="row limit category widgets_category">
+			
+			<div class="twelvecol last">
+			<h2 class="page-header">FaceBox</h2>
+			
+			<button class="blue fbdemobtn box13 L"><span class='label'>FaceBox Test</span></button><input type="text" id="fbdemo" value="This Is some text that will appear in the Modal Window." class="L box23">
+			<div class="push" style="height:10px;"></div>
+			<p class="fnote">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.</p>
+			<p class="fnote">HUI uses a maintained Fork of Facebox ver 1.3 <a href="http://github.com/defunkt/facebox">http://github.com/defunkt/facebox</a>.</p>
+			<div class="push"></div>
+			<p class="fnote">the <strong>Easiest</strong> way to use this plugin is done by adding one line of javascript and an additional <code>rel="facebox"</code> to any <strong>A HREF</strong> element. The HREF is used to match the div. like so <code>href="#div_id"</code>.</p>
+<pre>//FaceBox One Liner. Add to Doc Ready
+$('a[rel*=facebox]').facebox();
+</pre>
+			<div class="push"></div>
+			<h4>Images</h4>
+			<code>&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' })</code><br/>
+			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;">launch demo</button>
+			<br/>
+			
+			<h4>Divs</h4>
+			<code>&lt;a href="#info" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ div: '#info' })</code><br/>
+			<button onclick="jQuery.facebox({ div: '#info' });return false;">launch demo</button>
+			<div class="none" id="info">
+				<p>This is an inline Div that has been loaded into this facebox.<br/>Yup. thats about it.</p>
+			</div>
+			<br/>
+			
+			<h4>Ajax</h4>
+			<code>&lt;a href="remote.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ ajax: 'remote.html' })</code><br/>
+			<button onclick="jQuery.facebox({ ajax: 'src/css/body.css' });return false;">launch demo</button><br/>
+			<p class="fnote">In this example we loaded a css from the src folder of this project, but any remote file can be loaded, so long as you comply with security settings and all that stuff.
+			<br/>			
+
+			<div class="push"></div>
+			</div>
+			
+			
+			<div class="twelvecol last">
+			<div class="push"></div>
+			<h4>Facebox Commands</h4>
+			<p>Any of the three ways to load content, as well as loading a string of text, can be controlled as described below. You can also provide an additional string to customize the appearance of facebox.</p>
+<pre>String 
+jQuery.facebox('something cool');
+jQuery.facebox('something cool', 'my-groovy-style');
+
+Image File
+jQuery.facebox({ image: 'images/stairs.jpg' });
+jQuery.facebox({ image: 'images/stairs.jpg' }, 'my-groovy-style');
+
+Div Page Element
+jQuery.facebox({ div: '#box' });
+jQuery.facebox({ div: '#box' }, 'my-groovy-style');
+
+Ajax Remote files
+jQuery.facebox({ ajax: 'remote.html' });
+jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
+</pre>
+			<div class="push"></div>
+			<p style="line-height:1.6em">Once you have opened a facebox you can easily close it with the following command: <code>$.facebox.close();</code></p>
+			</div>
+		</div>
+		
+		<div class="row limit category widgets_category">
+			
+			<div class="twelvecol last">
+			<h2 class="page-header">Tarot Cards</h2>
+			
+			<p class="fnote">Forked from <a href="https://github.com/olton/Metro-UI-CSS">github.com/olton/Metro-UI-CSS</a>'s Live tarotCards. These Cards can can communicate new, real-time information to your user. Cards can show a combination of text and images, and a badge to show status.</p>
+			
+			<h3>Tarot Basics</h3>
+			<p>The default tarotCard size is 150x150 pixels. tarotCard size may be increased with add the next subclasses for tarotCard object: <code>.double(-vertical)</code>, <code>.triple(-vertical)</code>, <code>.quadro(-vertical)</code>. Cards can optionally be Selected, or change background color for tarotCard with classes <code>.bg-color-*</code>.</p>
+			<div class="boxMost" style="width:70%;margin:20px 0 20px 18%;min-width:330px;">
+                <div class="tarotCard"></div>
+                <div class="tarotCard double"></div>
+                <div class="tarotCard selected"></div>
+                <div class="tarotCard bg-color-orange"></div>
+            </div>
+			<br/>
+
+<pre class="htmlCode">
+    &lt;div class="tarotCard"&gt;&lt;/div&gt;
+    &lt;div class="tarotCard double"&gt;&lt;/div&gt;
+    &lt;div class="tarotCard selected"&gt;&lt;/div&gt;
+    &lt;div class="tarotCard bg-color-orange"&gt;&lt;/div&gt;
+</pre>
+
+			<h3>Tarot Content</h3>
+			<p class="fnote">Content can be placed in sub container with class <code>.Tarot-content</code>. Class .Tarot-content has padding 10px from top, bottom and 15px from left, right.</p>
+			<div class="boxMost C" style="width:70%">
+                <div class="tarotCard double bg-color-green">
+                    <div class="tarotCard-content">
+                        <h2>mattberg@live.com</h2>
+                        <h5>Re: Wedding Annoucement!</h5>
+                        <p>
+                            Congratulations! I'm really excited to celebrate with you all. Thanks for...
+                        </p>
+                    </div>
+                    <div class="suit">
+                        <div class="badge">12</div>
+                        <img class="icon" src="demos/images/Mail128.png"/>
+                    </div>
+                </div>
+                <div class="tarotCard bg-color-red icon">
+                    <b class="check"></b>
+                    <div class="tarotCard-content">
+                        <img src="demos/images/Market128.png"/>
+                    </div>
+                    <div class="suit">
+                        <span class="name">Store</span>
+                        <span class="badge">6</span>
+                    </div>
+                </div>
+                <div class="tarotCard double bg-color-blueDark">
+                    <div class="tarotCard-content">
+                        <img src="demos/images/michael.jpg" class="place-right"/>
+                        <h4 style="margin-bottom: 5px;">michael_angiulo</h4>
+                        <p>
+                            I just saw Thor last night. It was awesome! I think you'd love it.
+                        <h5>RT @julie_green</h5>
+                        </p>
+                    </div>
+                    <div class="suit">
+                        <span class="name">Tweet@rama</span>
+                    </div>
+                </div>
+            </div>
+			<br/>
+<pre class="htmlCode">
+ &lt;div class="tarotCard"&gt;
+     &lt;div class="tarotCard-content"&gt;
+         <small>...content here...</small>
+     &lt;/div&gt;
+ &lt;/div&gt;
+</pre><br/>
+			<br/>
+			</div>
+		</div>
+		
+		<div class="row limit category widgets_category">
+			<div class="twelvecol last">
+			<h3>TarotCard content built-in subclasses</h3>
+			<p class="fnote">TarotCard content can be organized with built-in subclasses: <code>.icon</code>, <code>.image</code>, <code>.image-set</code>, <code>.image-slider</code>.</p>
+				<div class="clearfix">
+					<h5 style="width:auto;clear:none;float:left;">Subclass .icon</h5><h5 style="width:auto;clear:none;float:left;">Subclass .image</h5><h5 style="width:auto;clear:none;float:left;">Subclass .image-set</h5>
+                </div>
+
+				<div class="boxMost">
+				<div class="grid">
+		            <div class="row ">
+		                <div class="span2">
+
+		                    <div class="tarotCard icon">
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/armor.png" />
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="span4">
+
+		                    <div class="tarotCard double image">
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/5.jpg" alt="" />
+		                        </div>
+		                    </div>
+		                </div>
+
+		                <div class="span4">
+
+		                    <div class="tarotCard double image-set">
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/1.jpg" alt="">
+		                        </div>
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/2.jpg" alt="">
+		                        </div>
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/3.jpg" alt="">
+		                        </div>
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/4.jpg" alt="">
+		                        </div>
+		                        <div class="tarotCard-content">
+		                            <img src="demos/images/5.jpg" alt="">
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+				</div>
+				<br/>
+<pre class="htmlCode">
+    &lt;div class="tarotCard icon(image)"&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    ------------
+    &lt;div class="tarotCard image-set"&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    ------------
+    &lt;div class="tarotCard image-slider" data-role="image-slider"&gt;
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+        ...
+        &lt;div class="tarotCard-content"&gt;
+            &lt;img /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+			</div>
+		</div>
+		
+		<div class="row limit category widgets_category">
+			<div class="twelvecol last">
+				<br/><div class="push"></div>
+			<h3>tarotCard Slider</h3>
+			<p class="fnote">To activate, simply add the attribute <code>data-role="Tarot"</code> to any tarotCard object. They will Animate AUTOMATICALLY!<br/>
+            To set specific parameters such as <code>direction</code>, <code>duration</code>, <code>easing</code> and <code>period</code> you must add param <code>data-param-direction(duration, period)</code> to the tarotCard.</p>
+				
+				<div class="boxMost">
+					
+					<div class="tarotCard double image-slider" data-role="Tarot">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/1.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/2.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/3.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image-slider" data-role="Tarot" data-param-direction="left" data-param-period="3000">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/1.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/2.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/3.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image-slider" data-role="Tarot" data-param-direction="down" data-param-period="1000" data-param-easing="easeInOutElastic">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/1.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/2.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/3.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image-slider" data-role="Tarot" data-param-direction="right" data-param-period="6000" data-param-duration="1000">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/1.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/2.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/3.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double bg-color-green" data-role="Tarot" data-param-period="3000" data-param-easing="easeOutBounce">
+                        <div class="tarotCard-content">
+                            <h2>mattberg@live.com</h2>
+                            <h5>Re: Wedding Annoucement!</h5>
+                            <p>
+                                Congratulations! I'm really excited to celebrate with you all. Thanks for...
+                            </p>
+                        </div>
+                        <div class="tarotCard-content">
+                            <h2>tina@live.com</h2>
+                            <h5>Re: Wedding Annoucement!</h5>
+                            <p>
+                                Huh! Waw!!! I'm really excited to celebrate with you all. Thanks for...
+                            </p>
+                        </div>
+                        <div class="suit">
+                            <div class="badge">12</div>
+                            <img class="icon" src="demos/images/Mail128.png"/>
+                        </div>
+                    </div>
+					
+				</div>
+			
+				<br/><div class="push"></div>
+				<h3>tarotCard status</h3>
+                <p>tarotCard Suit's can be placed in sub container with class <code>.suit</code> or <code>.tarotCard-status</code>. tarotCard status background color can be changed, example with built-in classes <code>.bg-color-* </code></p>
+<pre class="htmlCode">
+&lt;div class="tarotCard"&gt;
+&lt;div class="suit"&gt;
+<small>...status content here...</small>
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                <h3>Tile status &gt; badge</h3>
+                <p>
+                    A badge can display either a number from 1-99 or a status glyph. badge is positioned in tile status container on the bottom right corner.
+                    Metro UI CSS support main Windows 8 badges: <span class="fg-color-blue">activity, alert, available, away, busy, newMessage, paused, playing, unavailable, error and attention</span> as built-in. Default badge background color is blue but may be changed, example with built-in classes <code>.bg-color-*</code>.
+                </p>
+<pre class="htmlCode">
+&lt;div class="tarotCard"&gt;
+&lt;div class="suit"&gt;
+&lt;div class="badge activity"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<br/>
+				<div class="clearfix">
+                    <div class="tarotCard">
+                        <div class="tarotCard-status">
+                            <div class="badge bg-color-blue">99</div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="tarotCard-status">
+                            <div class="badge activity"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge alert"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge available"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge away"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge busy"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge newMessage"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge paused"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge playing"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge unavailable"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge error"></div>
+                        </div>
+                    </div>
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge attention"></div>
+                        </div>
+                    </div>
+                </div>
+
+				<br/>
+				<div class="push"></div>
+				<h3 class="page-header">Tile status &gt; Branding info</h3>
+				<p>
+                    A branding info can display brand name or a brand glyph. Branding info  is positioned in tile status container on the bottom left corner.
+                </p>
+<pre class="htmlCode">
+  &lt;div class="tarotCard"&gt;
+      &lt;div class="suit"&gt;
+          &lt;div class="name"&gt;Name&lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="tarotCard"&gt;
+      &lt;div class="suit"&gt;
+          &lt;div class="icon"&gt; &lt;img /&gt; &lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+				<div class="clearfix">
+                    <div class="tarotCard">
+                        <div class="suit">
+                            <div class="badge">10</div>
+                            <div class="name">Mail</div>
+                        </div>
+                    </div>
+                    <div class="tarotCard double bg-color-green">
+                        <div class="suit">
+                            <div class="badge">12</div>
+                            <img class="icon" src="demos/images/Mail128.png"/>
+                        </div>
+                    </div>
+                    <div class="tarotCard double bg-color-pink">
+                        <div class="suit">
+                            <div class="name">Photos</div>
+                        </div>
+                    </div>
+                </div>
+				<br/>
+				<div class="push"></div>
+				
+				
+				<div class="tarotCards clearfix">
+                    <h3>Examples of tiles made with Metro UI CSS</h3>
+                    <div class="tarotCard image">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/myface.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="tarotCard icon">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/Mail128.png"/>
+                        </div>
+                        <div class="suit">
+                            <div class="badge">10</div>
+                            <div class="name">Mail</div>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard bg-color-orangeDark icon selected">
+                        <b class="check"></b>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/Video128.png" alt="" />
+                        </div>
+                        <div class="suit">
+                            <span class="name">Video</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="" />
+                        </div>
+                        <div class="suit">
+                            <span class="name">Pictures</span>
+                            <div class="badge bg-color-orange">5</div>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double-vertical bg-color-yellow icon">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/Calendar128.png" />
+                        </div>
+                        <div class="suit">
+                            <span class="name">Calendar</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard bg-color-green icon selected">
+                        <b class="check"></b>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/Market128.png"/>
+                        </div>
+                        <div class="suit">
+                            <span class="name">Store</span>
+                            <span class="badge">6</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard bg-color-red icon selected">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/Music128.png" alt="" />
+                        </div>
+                        <div class="suit">
+                            <span class="name">Music</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double bg-color-blueDark">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/michael.jpg" class="place-left"/>
+                            <h3 style="margin-bottom: 5px;">michael_angiulo</h3>
+                            <p>
+                                I just saw Thor last night. It was awesome! I think you'd love it.
+                                <h5>RT @julie_green</h5>
+                            </p>
+                        </div>
+                        <div class="suit">
+                            <span class="name">Tweet@rama</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard bg-color-darken icon">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/YouTube128.png" alt="" />
+                        </div>
+                        <div class="suit">
+                            <span class="name">YouTube</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard icon">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/excel2013icon.png"/>
+                        </div>
+                        <div class="suit">
+                            <span class="name">Excel 2013</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double bg-color-green">
+                        <div class="tarotCard-content">
+                            <h2>mattberg@live.com</h2>
+                            <h5>Re: Wedding Annoucement!</h5>
+                            <p>
+                                Congratulations! I'm really excited to celebrate with you all. Thanks for...
+                            </p>
+                        </div>
+                        <div class="suit">
+                            <div class="badge">12</div>
+                            <img class="icon" src="demos/images/Mail128.png"/>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="" />
+                        </div>
+                        <div class="suit bg-color-orange">
+                            <img class="icon" src="demos/images/Rss128.png"/>
+                            <p class="text">This is a desert eagle. He is very hungry and angry bird.</p>
+                            <div class="badge">10</div>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard double image-set">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/1.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/2.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/3.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/4.jpg" alt="">
+                        </div>
+                        <div class="tarotCard-content">
+                            <img src="demos/images/5.jpg" alt="">
+                        </div>
+                        <div class="suit">
+                            <span class="name">Photos</span>
+                        </div>
+                    </div>
+
+                    <div class="tarotCard bg-color-blue icon">
+                        <div class="tarotCard-content">
+                            <img src="demos/images/InternetExplorer128.png"/>
+                        </div>
+                        <div class="suit">
+                            <span class="name">Internet Explorer</span>
+                        </div>
+                    </div>
+
+                </div>
+				
+				
+				
+			</div>
+		</div>
+		
+		<!-- USEFUL -->
 		<div class="row limit category useful_category">
 			<div class="fourcol smallHide">
 
@@ -1701,6 +2483,7 @@ jQuery(function(){
 			<div class="push"></div>
 			</div>
 		</div>
+		<!-- DATAS -->
 		<!-- lists -->
 		<div class="row limit category datas_category">
 
@@ -2208,7 +2991,7 @@ $("table").stupidtable();
 		            <img data-src="libs/holder/holder.js/180x180/industrial" class="img-circle m10">
 		            <img data-src="libs/holder/holder.js/180x180" class="img-polaroid m10">
 		          </div>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;img src="..." class="img-rounded"&gt;
 &lt;img src="..." class="img-circle"&gt;
 &lt;img src="..." class="img-polaroid"&gt;
@@ -2219,16 +3002,16 @@ $("table").stupidtable();
 		        </section>
 			</div>
 		</div>
-		
+		<!-- FORMS -->
 		<div class="row limit category forms_category">
 			<div class="twelvecol last">
-			<h2 class="page-header">6. Forms</h2>
-			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>.</p>
+			<h2 class="page-header">Forms</h2>
+			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>, and anything that was working with them should still work with hui.</p><div class="push"></div>
 <div>
 	<!-- Forms
     ================================================== -->
     <section id="forms">
-      <h3>Default styles</h3>
+      <h3 class="page-header">Default styles</h3>
       <p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
       <form class="bs-docs-example">
         <fieldset>
@@ -2242,7 +3025,7 @@ $("table").stupidtable();
           <button type="submit" class="btn">Submit</button>
         </fieldset>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form&gt;
 &lt;fieldset&gt;
 &lt;legend&gt;Legend&lt;/legend&gt;
@@ -2261,23 +3044,23 @@ $("table").stupidtable();
       <hr class="bs-docs-separator">
 
 
-      <h2>Optional layouts</h2>
+      <h2 class="page-header">Optional layouts</h2>
       <p>Included are three optional form layouts for common use cases.</p>
 
-      <h3>Search form</h3>
+      <h3 class="page-header">Search form</h3>
       <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
       <form class="bs-docs-example form-search">
         <input type="text" class="input-medium search-query">
         <button type="submit" class="btn">Search</button>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form class="form-search"&gt;
 &lt;input type="text" class="input-medium search-query"&gt;
 &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
 &lt;/form&gt;
 </pre>
 
-      <h3>Inline form</h3>
+      <h3 class="page-header">Inline form</h3>
       <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
       <form class="bs-docs-example form-inline">
         <input type="text" class="input-small" placeholder="Email">
@@ -2287,7 +3070,7 @@ $("table").stupidtable();
         </label>
         <button type="submit" class="btn">Sign in</button>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form class="form-inline"&gt;
 &lt;input type="text" class="input-small" placeholder="Email"&gt;
 &lt;input type="password" class="input-small" placeholder="Password"&gt;
@@ -2298,7 +3081,7 @@ $("table").stupidtable();
 &lt;/form&gt;
 </pre>
 
-      <h3>Horizontal form</h3>
+      <h3 class="page-header">Horizontal form</h3>
       <p>Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:</p>
       <ul>
         <li>Add <code>.form-horizontal</code> to the form</li>
@@ -2328,7 +3111,7 @@ $("table").stupidtable();
           </div>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form class="form-horizontal"&gt;
 &lt;div class="control-group"&gt;
 &lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
@@ -2354,32 +3137,32 @@ $("table").stupidtable();
 </pre>
 
 
-      <hr class="bs-docs-separator">
+      <div class="push"></div>
 
 
-      <h2>Supported form controls</h2>
+      <h2 class="page-header">Supported form controls</h2>
       <p>Examples of standard form controls supported in an example form layout.</p>
 
-      <h3>Inputs</h3>
+      <h3 class="page-header">Inputs</h3>
       <p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
       <p>Requires the use of a specified <code>type</code> at all times.</p>
       <form class="bs-docs-example form-inline">
         <input type="text" placeholder="Text input">
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input type="text" placeholder="Text input"&gt;
 </pre>
 
-      <h3>Textarea</h3>
+      <h3 class="page-header">Textarea</h3>
       <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
       <form class="bs-docs-example form-inline">
         <textarea rows="3"></textarea>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;textarea rows="3"&gt;&lt;/textarea&gt;
 </pre>
 
-      <h3>Checkboxes and radios</h3>
+      <h3 class="page-header">Checkboxes and radios</h3>
       <p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
       <h4>Default (stacked)</h4>
       <form class="bs-docs-example">
@@ -2397,7 +3180,7 @@ $("table").stupidtable();
           Option two can be something else and selecting it will deselect option one
         </label>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;label class="checkbox"&gt;
 &lt;input type="checkbox" value=""&gt;
 Option one is this and that&mdash;be sure to include why it's great
@@ -2413,7 +3196,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/label&gt;
 </pre>
 
-      <h4>Inline checkboxes</h4>
+      <h3 class="page-header">Inline checkboxes</h3>
       <p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
       <form class="bs-docs-example">
         <label class="checkbox inline">
@@ -2426,7 +3209,7 @@ Option two can be something else and selecting it will deselect option one
           <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
         </label>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;label class="checkbox inline"&gt;
 &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
 &lt;/label&gt;
@@ -2438,7 +3221,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/label&gt;
 </pre>
 
-      <h3>Selects</h3>
+      <h3 class="page-header">Selects</h3>
       <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
       <form class="bs-docs-example">
         <select>
@@ -2457,7 +3240,7 @@ Option two can be something else and selecting it will deselect option one
           <option>5</option>
         </select>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;select&gt;
 &lt;option&gt;1&lt;/option&gt;
 &lt;option&gt;2&lt;/option&gt;
@@ -2476,16 +3259,15 @@ Option two can be something else and selecting it will deselect option one
 </pre>
 
 
-      <hr class="bs-docs-separator">
+      <div class="push"></div>
 
 
-      <h2>Extending form controls</h2>
+      <h2 class="page-header">Extending form controls</h2>
       <p>Adding other useful form components on top of existing browser controls.</p>
-
+	<div class="push"></div>
       <h3>Prepended and appended inputs</h3>
-      <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p>
-
-      <h4>Default options</h4>
+      <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p><div class="push"></div>
+      <h3>Default options</h3>
       <p>Wrap an <code>.add-on</code> and an <code>input</code> with one of two classes to prepend or append text to an input.</p>
       <form class="bs-docs-example">
         <div class="input-prepend">
@@ -2498,7 +3280,7 @@ Option two can be something else and selecting it will deselect option one
           <span class="add-on">.00</span>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-prepend"&gt;
 &lt;span class="add-on"&gt;@&lt;/span&gt;
 &lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
@@ -2509,7 +3291,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h4>Combined</h4>
+      <h3>Combined</h3>
       <p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>
       <form class="bs-docs-example form-inline">
         <div class="input-prepend input-append">
@@ -2518,7 +3300,7 @@ Option two can be something else and selecting it will deselect option one
           <span class="add-on">.00</span>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-prepend input-append"&gt;
 &lt;span class="add-on"&gt;$&lt;/span&gt;
 &lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
@@ -2526,7 +3308,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h4>Buttons instead of text</h4>
+      <h3>Buttons instead of text</h3>
       <p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) to an input.</p>
       <form class="bs-docs-example">
         <div class="input-append">
@@ -2534,7 +3316,7 @@ Option two can be something else and selecting it will deselect option one
           <button class="btn" type="button">Go!</button>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-append"&gt;
 &lt;input class="span2" id="appendedInputButton" type="text"&gt;
 &lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
@@ -2547,7 +3329,7 @@ Option two can be something else and selecting it will deselect option one
           <button class="btn" type="button">Options</button>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-append"&gt;
 &lt;input class="span2" id="appendedInputButtons" type="text"&gt;
 &lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
@@ -2555,7 +3337,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h4>Button dropdowns</h4>
+      <h3>Button dropdowns</h3>
       <p></p>
       <form class="bs-docs-example">
         <div class="input-append">
@@ -2572,7 +3354,7 @@ Option two can be something else and selecting it will deselect option one
           </div><!-- /btn-group -->
         </div><!-- /input-append -->
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-append"&gt;
 &lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
 &lt;div class="btn-group"&gt;
@@ -2602,7 +3384,7 @@ Option two can be something else and selecting it will deselect option one
           <input class="span2" id="prependedDropdownButton" type="text">
         </div><!-- /input-prepend -->
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-prepend"&gt;
 &lt;div class="btn-group"&gt;
 &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
@@ -2642,7 +3424,7 @@ Option two can be something else and selecting it will deselect option one
           </div><!-- /btn-group -->
         </div><!-- /input-prepend input-append -->
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="input-prepend input-append"&gt;
 &lt;div class="btn-group"&gt;
 &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
@@ -2666,7 +3448,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h4>Segmented dropdown groups</h4>
+      <h3>Segmented dropdown groups</h3>
       <form class="bs-docs-example">
         <div class="input-prepend">
           <div class="btn-group">
@@ -2701,7 +3483,7 @@ Option two can be something else and selecting it will deselect option one
           </div>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form&gt;
 &lt;div class="input-prepend"&gt;
 &lt;div class="btn-group"&gt;...&lt;/div&gt;
@@ -2714,7 +3496,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/form&gt;
 </pre>
 
-      <h4>Search form</h4>
+      <h3>Search form</h3>
       <form class="bs-docs-example form-search">
         <div class="input-append">
           <input type="text" class="span2 search-query">
@@ -2725,7 +3507,7 @@ Option two can be something else and selecting it will deselect option one
           <input type="text" class="span2 search-query">
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;form class="form-search"&gt;
 &lt;div class="input-append"&gt;
 &lt;input type="text" class="span2 search-query"&gt;
@@ -2738,21 +3520,21 @@ Option two can be something else and selecting it will deselect option one
 &lt;/form&gt;
 </pre>
 
-      <h3>Control sizing</h3>
+      <h3 class="page-header">Control sizing</h3>
       <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.span*</code> classes.</p>
 
-      <h4>Block level inputs</h4>
+      <h3>Block level inputs</h3>
       <p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a block level element.</p>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
         <div class="controls">
           <input class="input-block-level" type="text" placeholder=".input-block-level">
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;
 </pre>
 
-      <h4>Relative sizing</h4>
+      <h3>Relative sizing</h3>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
         <div class="controls docs-input-sizes">
           <input class="input-mini" type="text" placeholder=".input-mini">
@@ -2763,7 +3545,7 @@ Option two can be something else and selecting it will deselect option one
           <input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
 &lt;input class="input-small" type="text" placeholder=".input-small"&gt;
 &lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
@@ -2775,7 +3557,7 @@ Option two can be something else and selecting it will deselect option one
         <span class="label label-info">Heads up!</span> In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example, <code>.input-large</code> will increase the padding and font-size of an input.
       </p>
 
-      <h4>Grid sizing</h4>
+      <h3 class="page-header">Grid sizing</h3>
       <p>Use <code>.span1</code> to <code>.twelvecol last</code> for inputs that match the same sizes of the grid columns.</p>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
         <div class="controls docs-input-sizes">
@@ -2805,7 +3587,7 @@ Option two can be something else and selecting it will deselect option one
           </select>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="span1" type="text" placeholder=".span1"&gt;
 &lt;input class="span2" type="text" placeholder=".span2"&gt;
 &lt;input class="span3" type="text" placeholder=".span3"&gt;
@@ -2842,7 +3624,7 @@ Option two can be something else and selecting it will deselect option one
           <input class="fourcol" type="text" placeholder=".fourcol">
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="controls"&gt;
 &lt;input class="span5" type="text" placeholder=".span5"&gt;
 &lt;/div&gt;
@@ -2853,16 +3635,16 @@ Option two can be something else and selecting it will deselect option one
 ...
 </pre>
 
-      <h3>Uneditable inputs</h3>
+      <h3 class="page-header">Uneditable inputs</h3>
       <p>Present data in a form that's not editable without using actual form markup.</p>
       <form class="bs-docs-example">
         <span class="input-xlarge uneditable-input">Some value here</span>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;
 </pre>
 
-      <h3>Form actions</h3>
+      <h3 class="page-header">Form actions</h3>
       <p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the buttons will automatically indent to line up with the form controls.</p>
       <form class="bs-docs-example">
         <div class="form-actions">
@@ -2870,29 +3652,29 @@ Option two can be something else and selecting it will deselect option one
           <button type="button" class="btn">Cancel</button>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="form-actions"&gt;
 &lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
 &lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;
 &lt;/div&gt;
 </pre>
 
-      <h3>Help text</h3>
+      <h3 class="page-header">Help text</h3>
       <p>Inline and block level support for help text that appears around form controls.</p>
       <h4>Inline help</h4>
       <form class="bs-docs-example form-inline">
         <input type="text"> <span class="help-inline">Inline help text</span>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;
 </pre>
 
-      <h4>Block help</h4>
+      <h3 class="page-header">Block help</h3>
       <form class="bs-docs-example form-inline">
         <input type="text">
         <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;
 </pre>
 
@@ -2900,38 +3682,38 @@ Option two can be something else and selecting it will deselect option one
       <hr class="bs-docs-separator">
 
 
-      <h2>Form control states</h2>
+      <h2 class="page-header">Form control states</h2>
       <p>Provide feedback to users or visitors with basic feedback states on form controls and labels.</p>
 
-      <h3>Input focus</h3>
+      <h3 class="page-header">Input focus</h3>
       <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
       <form class="bs-docs-example form-inline">
         <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused...">
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;
 </pre>
 
-      <h3>Invalid inputs</h3>
+      <h3 class="page-header">Invalid inputs</h3>
       <p>Style inputs via default browser functionality with <code>:invalid</code>. Specify a <code>type</code>, add the <code>required</code> attribute if the field is not optional, and (if applicable) specify a <code>pattern</code>.</p>
       <p>This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo selectors.</p>
       <form class="bs-docs-example form-inline">
         <input class="span3" type="email" placeholder="test@example.com" required>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="span3" type="email" required&gt;
 </pre>
 
-      <h3>Disabled inputs</h3>
+      <h3 class="page-header">Disabled inputs</h3>
       <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
       <form class="bs-docs-example form-inline">
         <input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;
 </pre>
 
-      <h3>Validation states</h3>
+      <h3 class="page-header">Validation states</h3>
       <p>Validation styles for error, warning, info, and success messages. To use, add the appropriate class to the surrounding <code>.control-group</code>.</p>
 
       <form class="bs-docs-example form-horizontal">
@@ -2964,7 +3746,7 @@ Option two can be something else and selecting it will deselect option one
           </div>
         </div>
       </form>
-<pre class="prettyprint linenums">
+<pre class="htmlCode">
 &lt;div class="control-group warning"&gt;
 &lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
 &lt;div class="controls"&gt;
@@ -3014,146 +3796,131 @@ Option two can be something else and selecting it will deselect option one
 		    </div>
 			<form class="container">
 			<div class="sixcol last">
-				
-			        <div class="fourcol">
+				<label>Select</label>
+				 <select>
+				   <option>Select</option>
+				   <option>Option 2</option>
+				   <option>Option 3</option>
+				 </select>
 
-			          <label>Select</label>
-			          <select>
-			            <option>Select</option>
-			            <option>Option 2</option>
-			            <option>Option 3</option>
-			          </select>
+				 <hr>
 
-			          <hr>
+				 <label>textarea</label>
+				 <textarea>Textarea</textarea>
 
-			          <label>textarea</label>
-			          <textarea>Textarea</textarea>
+				 <hr>
 
-			          <hr>
+				 <label>text</label>
+				 <input type="text" value="Text input">
 
-			          <label>text</label>
-			          <input type="text" value="Text input">
+				 <hr>
 
-			          <hr>
+				 <label>password</label>
+				 <input type="password" value="Password input">
 
-			          <label>password</label>
-			          <input type="password" value="Password input">
+				 <hr>
 
-			          <hr>
+				 <label>checkbox</label>
+				 <input type="checkbox" value="">
 
-			          <label>checkbox</label>
-			          <input type="checkbox" value="">
+				 <hr>
 
-			          <hr>
+				 <label>radio</label>
+				 <input type="radio" value="">
 
-			          <label>radio</label>
-			          <input type="radio" value="">
+				 <hr>
 
-			          <hr>
+				 <label>button</label>
+				 <input type="button" value="Button">
 
-			          <label>button</label>
-			          <input type="button" value="Button">
+				 <hr>
 
-			          <hr>
+				 <label>submit</label>
+				 <input type="submit" value="Submit">
 
-			          <label>submit</label>
-			          <input type="submit" value="Submit">
+				 <hr>
 
-			          <hr>
+				 <label>reset</label>
+				 <input type="reset" value="Reset">
 
-			          <label>reset</label>
-			          <input type="reset" value="Reset">
-						
-					  <hr>
-					  
-					  <label>file</label>
-			          <input type="file" value="">
+				<hr>
 
-			          
-			        </div><!-- /fourcol -->
-			        
-				
+				<label>file</label>
+				 <input type="file" value="">
 			</div>
 			<div class="sixcol last">
-				<div class="fourcol">
+					<label>hidden</label>
+					 <input type="hidden" value="hidden">
 
-		          
+					 <hr>
 
-		          <label>hidden</label>
-		          <input type="hidden" value="hidden">
+					 <label>image</label>
+					 <input type="image" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>image</label>
-		          <input type="image" value="">
+					 <label>datetime</label>
+					 <input type="datetime" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>datetime</label>
-		          <input type="datetime" value="">
+					 <label>datetime-local</label>
+					 <input type="datetime-local" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>datetime-local</label>
-		          <input type="datetime-local" value="">
+					 <label>date</label>
+					 <input type="date" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>date</label>
-		          <input type="date" value="">
+					 <label>month</label>
+					 <input type="month" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>month</label>
-		          <input type="month" value="">
+					 <label>time</label>
+					 <input type="time" value="">
 
-		          <hr>
+					 <hr>
 
-		          <label>time</label>
-		          <input type="time" value="">
+					 <label>week</label>
+					 <input type="week" value="">
 
-		          <hr>
+					 <label>number</label>
+					 <input type="number" value="">
 
-		          <label>week</label>
-		          <input type="week" value="">
+					 <hr>
 
-		        </div><!-- /fourcol -->
-		        <div class="fourcol">
+					 <label>range</label>
+					 <input type="range" value="">
 
-		          <label>number</label>
-		          <input type="number" value="">
+					 <hr>
 
-		          <hr>
+					 <label>email</label>
+					 <input type="email" value="">
 
-		          <label>range</label>
-		          <input type="range" value="">
+					 <hr>
 
-		          <hr>
+					 <label>url</label>
+					 <input type="url" value="">
 
-		          <label>email</label>
-		          <input type="email" value="">
+					 <hr>
 
-		          <hr>
+					 <label>search</label>
+					 <input type="search" value="">
 
-		          <label>url</label>
-		          <input type="url" value="">
+					 <hr>
 
-		          <hr>
+					 <label>tel</label>
+					 <input type="tel" value="">
 
-		          <label>search</label>
-		          <input type="search" value="">
+					 <hr>
 
-		          <hr>
+					 <label>color</label>
+					 <input type="color" value="">
 
-		          <label>tel</label>
-		          <input type="tel" value="">
 
-		          <hr>
-
-		          <label>color</label>
-		          <input type="color" value="">
-
-		        </div><!-- /fourcol -->
 		      </div><!-- /row -->
 			   
 				
@@ -3161,72 +3928,7 @@ Option two can be something else and selecting it will deselect option one
 			</form> <!-- /container -->
 		</div>
 		
-		<div class="row limit category facebox_category">
-			
-			<div class="twelvecol last">
-			<h2 class="page-header">4. FaceBox</h2>
-			
-			<button class="blue fbdemobtn box13 L"><span class='label'>FaceBox Test</span></button><input type="text" id="fbdemo" value="This Is some text that will appear in the Modal Window." class="L box23">
-			<div class="push" style="height:10px;"></div>
-			<p class="fnote">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.</p>
-			<p class="fnote">HUI uses a maintained Fork of Facebox ver 1.3 <a href="http://github.com/defunkt/facebox">http://github.com/defunkt/facebox</a>.</p>
-			<div class="push"></div>
-			<p class="fnote">the <strong>Easiest</strong> way to use this plugin is done by adding one line of javascript and an additional <code>rel="facebox"</code> to any <strong>A HREF</strong> element. The HREF is used to match the div. like so <code>href="#div_id"</code>.</p>
-<pre>//FaceBox One Liner. Add to Doc Ready
-$('a[rel*=facebox]').facebox();
-</pre>
-			<div class="push"></div>
-			<h4>Images</h4>
-			<code>&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
-			<code>jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' })</code><br/>
-			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;">launch demo</button>
-			<br/>
-			
-			<h4>Divs</h4>
-			<code>&lt;a href="#info" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
-			<code>jQuery.facebox({ div: '#info' })</code><br/>
-			<button onclick="jQuery.facebox({ div: '#info' });return false;">launch demo</button>
-			<div class="none" id="info">
-				<p>This is an inline Div that has been loaded into this facebox.<br/>Yup. thats about it.</p>
-			</div>
-			<br/>
-			
-			<h4>Ajax</h4>
-			<code>&lt;a href="remote.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
-			<code>jQuery.facebox({ ajax: 'remote.html' })</code><br/>
-			<button onclick="jQuery.facebox({ ajax: 'src/css/body.css' });return false;">launch demo</button><br/>
-			<p class="fnote">In this example we loaded a css from the src folder of this project, but any remote file can be loaded, so long as you comply with security settings and all that stuff.
-			<br/>			
-
-			<div class="push"></div>
-			</div>
-			
-			
-			<div class="twelvecol last">
-			<div class="push"></div>
-			<h4>Facebox Commands</h4>
-			<p>Any of the three ways to load content, as well as loading a string of text, can be controlled as described below. You can also provide an additional string to customize the appearance of facebox.</p>
-<pre>String 
-jQuery.facebox('something cool');
-jQuery.facebox('something cool', 'my-groovy-style');
-
-Image File
-jQuery.facebox({ image: 'images/stairs.jpg' });
-jQuery.facebox({ image: 'images/stairs.jpg' }, 'my-groovy-style');
-
-Div Page Element
-jQuery.facebox({ div: '#box' });
-jQuery.facebox({ div: '#box' }, 'my-groovy-style');
-
-Ajax Remote files
-jQuery.facebox({ ajax: 'remote.html' });
-jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
-</pre>
-			<div class="push"></div>
-			<p style="line-height:1.6em">Once you have opened a facebox you can easily close it with the following command: <code>$.facebox.close();</code></p>
-			</div>
-		</div>
-		
+		<!-- DANCE -->
 		<div class="row limit category accordion_category">
 		
 			<div class="fourcol smallHide">
@@ -3261,8 +3963,7 @@ jQuery(".accordion").accordionNav();
 			
 			<div class="push"></div>
 			<h3 class="page-header">Accordion Panel</h3>
-			<p class="greyb">Uses Hardware Accelerated Animations. CSS3 Fallback. No jQuery required.</p>
-			<p class="greyb">Use External Button Triggers or Click the Header to toggle content.</p>
+			<p class="greyb">This is a perfect secondary app panel.</p>
 			<br/>
 			
 			<ul class="accordion">
@@ -3447,7 +4148,7 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			    </div>
 			</div>
 		</div>
-		
+		<!--NAV -->
 		<div class="row limit category navigate_category">
 		
 			<div class="fourcol smallHide">
@@ -3570,7 +4271,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 
 <!-- minified hui library -->
-<script type="text/javascript" src="dist/hui-min.js"></script>
+<script type="text/javascript" src="dist/hui-min.js?ver=1.15.2"></script>
 
 <!-- Example Functions for the Demo -->
 <script type="text/javascript" src="demos/index_demo.js"></script>

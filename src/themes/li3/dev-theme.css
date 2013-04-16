@@ -60,18 +60,7 @@ body {
  background-color: #ffffff;
 }
 
-h1 { font-size: 2.6em;color: #0d0d0d;font-weight:bold;margin: .25em 0 .5em 23%; }
-h2, h5 { font-size: 2.05em; margin-bottom: .5em; color: #4E4E4E;display: block;font-weight:bolder; }
-h3, h6 { font-weight: bold; margin: 1.5em 0 1em; }
-h4 { font-size: 1.4em; }
-h5 { font-size: 1.2em; }
-h6 { font-size: 1em; }
-p { margin-bottom: 1em; } 
-strong { font-weight: bold; }
-em { font-style: italic; }
-h1 a, h2 a { text-decoration: none; }
 
-a img { border: none; box-shadow: none; border-radius:none; }
 a {
 	color:#1CB1EC;font-weight:bold;
 }
@@ -1196,7 +1185,7 @@ color:#333333;
  display: block;
  position: relative;
  min-width: 110px;
- padding: 5px 10px 5px 10px;
+ padding: 8px 10px 5px 10px;
  
  color: #fdfdfd;
  font-size: 1.1em;
@@ -1256,7 +1245,7 @@ color:#333333;
 .accordion > li:target > a span,
 .accordion > li > a.active span {
  color: #fdfdfd;
- background: #555555;
+ background: #A50000;
 }
 
 
@@ -1347,19 +1336,14 @@ color:#333333;
 nav.flex {
  height: 40px;
  width: 100%;
- 
  text-align:center;
  font-size: 1.2em;
  font-weight:bold;
  position: relative;
-
  border-radius: 3px;
  -moz-border-radius: 3px;
  -webkit-border-radius: 3px;
-
  background: #141414;
-
- 
 }
 nav.flex ul {
  padding: 0;

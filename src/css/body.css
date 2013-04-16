@@ -33,6 +33,9 @@
 .boxFix { display: block;margin: 0px auto; }
 
 /* for the rest, think FRACTIONS 2/3 1/3 etc */
+.boxHalf, .box12, .boxThird, .box13, .boxTwoThird, .box23, .boxFourth, .box14, .box4, .boxMost, .boxM {
+	float:left;
+}
 .boxHalf, .box12 {min-width:250px;width:49.4%;max-width:49.4%;}
 .boxThird, .box13 {width:32%;min-width:165px;max-width:32%;}
 .boxTwoThird, .box23 {width:65%;min-width:335px;}
@@ -120,13 +123,21 @@ hr {
 }
 
 /* [S02 Part B] Grid System *********************************************************************************************/
-/* ! Adapted from The 1140px Grid V2 by Andy Taylor : http://cssgrid.net ************************************************/
 
 .row {
 width: 100%;
 margin: 0 auto;
 overflow: hidden;
 }
+.row::before, .row::after {
+content: "";
+display: table;
+}
+
+.row::after {
+clear: both;
+}
+
 /* optional class to set limits for your rows. */
 .limit { width:98%; max-width:1140px; }
 
@@ -136,57 +147,306 @@ float: left;
 min-height: 1px;
 }
 
-.row .onecol {
+.onecol {
 width: 4.85%;
 }
 
-.row .twocol {
+.twocol {
 width: 13.45%;
 }
 
-.row .threecol {
+.threecol {
 width: 22.05%;
 }
 
-.row .fourcol {
+.fourcol {
 width: 30.75%;
 }
 
-.row .fivecol {
+.fivecol {
 width: 39.45%;
 }
 
-.row .sixcol {
+.sixcol {
 width: 48%;
 }
 
-.row .sevencol {
+.sevencol {
 width: 56.75%;
 }
 
-.row .eightcol {
+.eightcol {
 width: 65.4%;
 }
 
-.row .ninecol {
+.ninecol {
 width: 74.05%;
 }
 
-.row .tencol {
+.tencol {
 width: 82.7%;
 }
 
-.row .elevencol {
+.elevencol {
 width: 91.35%;
 }
 
-.row .twelvecol {
-width: 100%;
+.twelvecol {
+width:100%;
 float: left;
 }
-
+.row.limit .twelvecol {
+width:98.5%;margin-left:1%;
+}
 .last {
 margin-right: 0px;
+}
+
+.fg-color-blue {
+  color: #2d89ef !important;
+}
+.fg-color-blueLight {
+  color: #eff4ff !important;
+}
+.fg-color-blueDark {
+  color: #2b5797 !important;
+}
+.fg-color-green {
+  color: #00a300 !important;
+}
+.fg-color-greenLight {
+  color: #99b433 !important;
+}
+.fg-color-greenDark {
+  color: #1e7145 !important;
+}
+.fg-color-red {
+  color: #b91d47 !important;
+}
+.fg-color-yellow {
+  color: #ffc40d !important;
+}
+.fg-color-orange {
+  color: #e3a21a !important;
+}
+.fg-color-orangeDark {
+  color: #da532c !important;
+}
+.fg-color-pink {
+  color: #9f00a7 !important;
+}
+.fg-color-pinkDark {
+  color: #7e3878 !important;
+}
+.fg-color-purple {
+  color: #603cba !important;
+}
+.fg-color-darken {
+  color: #1d1d1d !important;
+}
+.fg-color-lighten {
+  color: #d5e7ec !important;
+}
+.fg-color-white {
+  color: #ffffff !important;
+}
+.fg-color-grayDark {
+  color: #525252 !important;
+}
+.fg-color-magenta {
+  color: #ff0097 !important;
+}
+.fg-color-teal {
+  color: #00aba9 !important;
+}
+.fg-color-redLight {
+  color: #ee1111 !important;
+}
+.bg-color-blue {
+  background-color: #2d89ef !important;
+}
+.bg-color-blueLight {
+  background-color: #eff4ff !important;
+}
+.bg-color-blueDark {
+  background-color: #2b5797 !important;
+}
+.bg-color-green {
+  background-color: #00a300 !important;
+}
+.bg-color-greenLight {
+  background-color: #99b433 !important;
+}
+.bg-color-greenDark {
+  background-color: #1e7145 !important;
+}
+.bg-color-red {
+  background-color: #b91d47 !important;
+}
+.bg-color-yellow {
+  background-color: #ffc40d !important;
+}
+.bg-color-orange {
+  background-color: #e3a21a !important;
+}
+.bg-color-orangeDark {
+  background-color: #da532c !important;
+}
+.bg-color-pink {
+  background-color: #9f00a7 !important;
+}
+.bg-color-pinkDark {
+  background-color: #7e3878 !important;
+}
+.bg-color-purple {
+  background-color: #603cba !important;
+}
+.bg-color-darken {
+  background-color: #1d1d1d !important;
+}
+.bg-color-lighten {
+  background-color: #d5e7ec !important;
+}
+.bg-color-white {
+  background-color: #ffffff !important;
+}
+.bg-color-grayDark {
+  background-color: #525252 !important;
+}
+.bg-color-magenta {
+  background-color: #ff0097 !important;
+}
+.bg-color-teal {
+  background-color: #00aba9 !important;
+}
+.bg-color-redLight {
+  background-color: #ee1111 !important;
+}
+[class*=border-color] {
+  border: 2px solid;
+}
+.border-color-blue {
+  border-color: #2d89ef !important;
+}
+.border-color-blueLight {
+  border-color: #eff4ff !important;
+}
+.border-color-blueDark {
+  border-color: #2b5797 !important;
+}
+.border-color-green {
+  border-color: #00a300 !important;
+}
+.border-color-greenLight {
+  border-color: #99b433 !important;
+}
+.border-color-greenDark {
+  border-color: #1e7145 !important;
+}
+.border-color-red {
+  border-color: #b91d47 !important;
+}
+.border-color-yellow {
+  border-color: #ffc40d !important;
+}
+.border-color-orange {
+  border-color: #e3a21a !important;
+}
+.border-color-orangeDark {
+  border-color: #da532c !important;
+}
+.border-color-pink {
+  border-color: #9f00a7 !important;
+}
+.border-color-pinkDark {
+  border-color: #7e3878 !important;
+}
+.border-color-purple {
+  border-color: #603cba !important;
+}
+.border-color-darken {
+  border-color: #1d1d1d !important;
+}
+.border-color-lighten {
+  border-color: #d5e7ec !important;
+}
+.border-color-white {
+  border-color: #ffffff !important;
+}
+.border-color-grayDark {
+  border-color: #525252 !important;
+}
+.border-color-magenta {
+  border-color: #ff0097 !important;
+}
+.border-color-teal {
+  border-color: #00aba9 !important;
+}
+.border-color-redLight {
+  border-color: #ee1111 !important;
+}
+*:hover[class=outline-color] {
+  outline: 3px solid;
+}
+.outline-color-blue {
+  outline-color: #2d89ef !important;
+}
+.outline-color-blueLight {
+  outline-color: #eff4ff !important;
+}
+.outline-color-blueDark {
+  outline-color: #2b5797 !important;
+}
+.outline-color-green {
+  outline-color: #00a300 !important;
+}
+.outline-color-greenLight {
+  outline-color: #99b433 !important;
+}
+.outline-color-greenDark {
+  outline-color: #1e7145 !important;
+}
+.outline-color-red {
+  outline-color: #b91d47 !important;
+}
+.outline-color-yellow {
+  outline-color: #ffc40d !important;
+}
+.outline-color-orange {
+  outline-color: #e3a21a !important;
+}
+.outline-color-orangeDark {
+  outline-color: #da532c !important;
+}
+.outline-color-pink {
+  outline-color: #9f00a7 !important;
+}
+.outline-color-pinkDark {
+  outline-color: #7e3878 !important;
+}
+.outline-color-purple {
+  outline-color: #603cba !important;
+}
+.outline-color-darken {
+  outline-color: #1d1d1d !important;
+}
+.outline-color-lighten {
+  outline-color: #d5e7ec !important;
+}
+.outline-color-white {
+  outline-color: #ffffff !important;
+}
+.outline-color-grayDark {
+  outline-color: #525252 !important;
+}
+.outline-color-magenta {
+  outline-color: #ff0097 !important;
+}
+.outline-color-teal {
+  outline-color: #00aba9 !important;
+}
+.outline-color-redLight {
+  outline-color: #ee1111 !important;
 }
 
 /* Smaller screens */
@@ -213,21 +473,22 @@ margin-right: 0px;
 	.row, body, .container {
 	width: 100%;
 	min-width: 0;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-left: 0px;
-	padding-right: 0px;
+	margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 	}
 	
 	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
 	width: auto;
 	float: none;
 	max-width:100%;
-	margin-left: 0px;
-	margin-right: 0px;
+	margin-left: 0;
+    margin-right: 0;
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 	}
 	
 	.limit { max-width:100%; }
+	
 }

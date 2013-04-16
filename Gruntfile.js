@@ -24,11 +24,11 @@ module.exports = function(grunt) {
         footer: '\n'+'/*! <%= pkg.homepage %> */'+'\n',
       },
       dist: {
-        src: ['src/js/actions.js', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js','src/js/pageslide.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js'],
+        src: ['src/js/actions.js', 'src/js/history.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/animate.js', 'src/js/mediaQuery.js','src/js/pageslide.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js', 'src/js/tarot.js'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
-        src: ['src/css/standardization.css', 'src/css/body.css', 'src/css/forms.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/character.css',  'src/css/widgets.css'],
+        src: ['src/css/standardization.css', 'src/css/body.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/character.css', 'src/css/forms.css', 'src/css/widgets.css'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
       },
     },
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/js/actions.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js']
+        src: ['src/js/actions.js', 'src/js/notefy.js', 'src/js/useability.js', 'src/js/facebox.js', 'src/js/tipTip.js', 'src/js/mediaQuery.js', 'src/js/accordion.js', 'src/js/navigation.js', 'src/js/table.js','src/js/pageslide.js', 'src/js/tarot.js']
       },
       test: {
         options: {

@@ -168,8 +168,6 @@ button.action span.fa-icon {
 }
 button.action:hover, 
 .button.action:hover {
-	border: 1px solid #5F5F5F !important;
-
 	background: #868686;
 	background: -webkit-linear-gradient(top, #868686, #5F5F5F);
 	background: -moz-linear-gradient(top, #868686, #5F5F5F);

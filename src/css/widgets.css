@@ -1,3 +1,28 @@
+/* Widget Stylings */
+
+#pageslide {
+    /* These styles MUST be included. Do not change. */
+    display: none;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999999;
+    
+    /* Specify the width of your pageslide here */
+    width: 260px;
+    padding: 20px;
+    
+    /* These styles are optional, and describe how the pageslide will look */
+    background-color: #333;
+    color: #FFF;
+    -webkit-box-shadow: inset 0 0 5px 5px #222;
+    -moz-shadow: inset 0 0 5px 5px #222;
+    box-shadow: inset 0 0 5px 5px #222;
+}
+
+
+/* Section 01 jGrowl */
 
 div.jGrowl {
  z-index:    9999;
@@ -334,7 +359,7 @@ div.jGrowl div.jGrowl-closer:hover {
  }
 }
 
-/* FaceBox Defaults */
+/* Section 02 FaceBox */
 #facebox {
   position: absolute;
   top: 0;
@@ -437,4 +462,580 @@ div.jGrowl div.jGrowl-closer:hover {
 
 .facebox_overlayBG {
   z-index: 99;
+}
+
+/* Section 03 Tarot Cards */
+.tarotDeck .oh,
+.tarotDeck .ot,
+.tarotDeck .tt {
+  float: left;
+  margin: 0 2% 2% 0;
+  width: 48%;
+}
+.tarotDeck .ot {
+  width: 31%;
+}
+.tarotDeck .tt {
+  width: 65%;
+}
+.tarotDeck .cl {
+  clear: both;
+}
+.tarotDeck .item-padding {
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+.tarotDeck .column-padding {
+  margin: 0 10px;
+}
+.tarotDeck .group-padding {
+  margin: 0 40px;
+}
+.tarotDeck .span1 {
+  width: 60px;
+}
+.tarotDeck .span2 {
+  width: 140px;
+}
+.tarotDeck .span3 {
+  width: 220px;
+}
+.tarotDeck .span4 {
+  width: 300px;
+}
+.tarotDeck .span5 {
+  width: 380px;
+}
+.tarotDeck .span6 {
+  width: 460px;
+}
+.tarotDeck .span7 {
+  width: 540px;
+}
+.tarotDeck .span8 {
+  width: 620px;
+}
+.tarotDeck .span9 {
+  width: 700px;
+}
+.tarotDeck .span10 {
+  width: 780px;
+}
+.tarotDeck .span11 {
+  width: 860px;
+}
+.tarotDeck .span12 {
+  width: 940px;
+}
+.tarotDeck .offset1 {
+  margin-left: 80px;
+}
+.tarotDeck .offset2 {
+  margin-left: 160px;
+}
+.tarotDeck .offset3 {
+  margin-left: 240px;
+}
+.tarotDeck .offset4 {
+  margin-left: 320px;
+}
+.tarotDeck .offset5 {
+  margin-left: 400px;
+}
+.tarotDeck .offset6 {
+  margin-left: 480px;
+}
+.tarotDeck .offset7 {
+  margin-left: 560px;
+}
+.tarotDeck .offset8 {
+  margin-left: 640px;
+}
+.tarotDeck .offset9 {
+  margin-left: 720px;
+}
+.tarotDeck .offset10 {
+  margin-left: 800px;
+}
+.tarotDeck .offset11 {
+  margin-left: 880px;
+}
+.tarotDeck .offset12 {
+  margin-left: 960px;
+}
+.tarotDeck [class*="span"] {
+  float: none;
+  min-height: 1px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  *zoom: 1;
+}
+.tarotDeck [class*="span"]:before,
+.tarotDeck [class*="span"]:after {
+  display: table;
+  content: "";
+}
+.tarotDeck [class*="span"]:after {
+  clear: both;
+}
+.tarotDeck [class*="span"]:last-child {
+  margin-right: 0;
+}
+.tarotDeck [class*="span"] > img {
+  max-width: 100%;
+  height: auto;
+}
+.tarotDeck .grid {
+  margin: 0 0 20px;
+  display: block;
+  height: auto;
+  width: 100%;
+  *zoom: 1;
+}
+.tarotDeck .grid.no-margin {
+  margin: 0;
+}
+.tarotDeck .grid.margin-row {
+  margin-bottom: 5px;
+}
+.tarotDeck .grid .grid {
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+}
+.tarotDeck .grid .group {
+  margin-right: 80px;
+  float: left;
+  width: auto;
+  height: auto;
+  min-height: 1px;
+}
+.tarotDeck .grid .row {
+  width: 100%;
+  *zoom: 1;
+}
+.tarotDeck .grid .row:before,
+.tarotDeck .grid .row:after {
+  display: table;
+  content: "";
+}
+.tarotDeck .grid .row:after {
+  clear: both;
+}
+.tarotDeck .grid .row [class*="span"] {
+  float: left;
+}
+.tarotDeck .grid.element-border [class*="span"] {
+  border: 1px #ccc dotted;
+}
+.tarotDeck .grid:before,
+.tarotDeck .grid:after {
+  display: table;
+  content: "";
+}
+.tarotDeck .grid:after {
+  clear: both;
+}
+.tarotDeck .grid > .row::before,
+.tarotDeck .grid > .row::after {
+  content: normal;
+}
+.tarotDeck td[class*="span"],
+.tarotDeck th[class*="span"] {
+  display: table-cell !important;
+  float: none !important;
+  padding: 0 !important;
+}
+
+.place-right {
+  float: right !important;
+  margin-left: 10px;
+}
+
+.selected {
+  border: 4px #2d89ef solid;
+}
+.selected:after {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #2d89ef;
+  border-left: 40px solid transparent;
+  position: absolute;
+  display: block;
+  right: 0;
+  content: ".";
+  top: 0;
+  z-index: 1001;
+}
+.selected:before {
+  position: absolute;
+  content: "\f005";
+  color: #fff;
+  right: 4px;
+  font-family: FontAwesome;
+  z-index: 1002;
+}
+
+.tarotCard p,
+.tarotCard div {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 11pt;
+  letter-spacing: 0.02em;
+  line-height: 14pt;
+  font-smooth: always;
+}
+.tarotCards {
+  display:block;
+  position:relative;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:5px;
+  width:85%;
+  max-width:900px;
+  min-width:320px;
+}
+.tarotCard {
+  display: block;
+  float: left;
+  background-color: #525252;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 1px #FFFFCC;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  font-family: "annie", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 11pt;
+  letter-spacing: 0.02em;
+  line-height: 14pt;
+  font-smooth: always;
+  margin: 0 10px 10px 0;
+  overflow: hidden;
+}
+.tarotCard * {
+  color: #ffffff;
+}
+.tarotCard .tarotCard-content {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-bottom: 30px;
+  vertical-align: top;
+  padding: 10px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: #000000;
+  color: #ffffff;
+  line-height: 16px;
+}
+.tarotCard .tarotCard-content:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.tarotCard .tarotCard-content:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+.tarotCard .tarotCard-content:hover {
+  color: #ffffff;
+}
+
+.tarotCard .tarotCard-content h1,
+.tarotCard .tarotCard-content h2,
+.tarotCard .tarotCard-content h3,
+.tarotCard .tarotCard-content h4,
+.tarotCard .tarotCard-content h5,
+.tarotCard .tarotCard-content h6 {
+  font-size: 14pt;
+}
+.tarotCard .tarotCard-content h1,
+.tarotCard .tarotCard-content h2,
+.tarotCard .tarotCard-content h3,
+.tarotCard .tarotCard-content h4,
+.tarotCard .tarotCard-content h5,
+.tarotCard .tarotCard-content h6,
+.tarotCard .tarotCard-content p {
+  padding: 0;
+  margin: 0;
+  line-height: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tarotCard .tarotCard-content h4,
+.tarotCard .tarotCard-content h5,
+.tarotCard .tarotCard-content h6{
+	font-weight:bold;
+}
+.tarotCard .tarotCard-content h1:hover,
+.tarotCard .tarotCard-content h2:hover,
+.tarotCard .tarotCard-content h3:hover,
+.tarotCard .tarotCard-content h4:hover,
+.tarotCard .tarotCard-content h5:hover,
+.tarotCard .tarotCard-content h6:hover,
+.tarotCard .tarotCard-content p:hover {
+  color: #ffffff;
+}
+.tarotCard .tarotCard-content p {
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: #000000;
+  color: #ffffff;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tarotCard .tarotCard-content p:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.tarotCard .tarotCard-content p:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+.tarotCard .tarotCard-content p:hover {
+  color: #ffffff;
+}
+.tarotCard.icon > .tarotCard-content {
+  padding: 0;
+}
+.tarotCard.icon > .tarotCard-content > img {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+}
+.tarotCard.icon > .tarotCard-content > i {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  font-size: 64px;
+}
+.tarotCard.image > .tarotCard-content,
+.tarotCard.image-slider > .tarotCard-content {
+  padding: 0;
+}
+.tarotCard.image > .tarotCard-content > img,
+.tarotCard.image-slider > .tarotCard-content > img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-width: 100%;
+}
+.tarotCard.image-set > .tarotCard-content {
+  margin: 0;
+  padding: 0;
+  width: 25% !important;
+  height: 50%;
+  float: left;
+  border: 1px #1e1e1e solid;
+}
+.tarotCard.image-set > .tarotCard-content > img {
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+.tarotCard.image-set .tarotCard-content:first-child {
+  width: 50% !important;
+  float: left;
+  height: 100%;
+}
+.tarotCard.double {
+  width: 310px;
+}
+.tarotCard.triple {
+  width: 470px;
+}
+.tarotCard.quadro {
+  width: 630px;
+}
+.tarotCard.double-vertical {
+  height: 310px;
+}
+.tarotCard.triple-vertical {
+  height: 470px;
+}
+.tarotCard.quadro-vertical {
+  height: 630px;
+}
+.tarotCard .suit,
+.tarotCard .tarotCard-status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 30px;
+  background-color: transparent;
+  *zoom: 1;
+}
+.tarotCard .suit:before,
+.tarotCard .tarotCard-status:before,
+.tarotCard .suit:after,
+.tarotCard .tarotCard-status:after {
+  display: table;
+  content: "";
+}
+.tarotCard .suit:after,
+.tarotCard .tarotCard-status:after {
+  clear: both;
+}
+.tarotCard .suit > .badge,
+.tarotCard .tarotCard-status > .badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  right: 5px;
+  margin-bottom: 0;
+  color: #ffffff;
+  width: 34px;
+  height: 28px;
+  text-align: center;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: 0.01em;
+  line-height: 13pt;
+  font-smooth: always;
+  padding-top: 3px;
+}
+.tarotCard .suit > .badge.activity,
+.tarotCard .tarotCard-status > .badge.activity {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVDhPvZMtTwNBEIbv2mtScaICcQJRgSgJCQIEhqSiAlEHAlFRwU/ov0AgUEgUsrIkiJIgMOAQJFSQQAIJJBWIu95Hj2eGvXIpB3W8yWTn452Z3dld25pDmqZuFEWdcrm8jr6JK7Bt+wb9Ft85+vsXswBxHHdIfmFNi4TYG7InXAp6ss52kCTJIc6e6KzSVbrdYzrYDaSFXZU4uEQ8x3FW1ZpMJge5Tn3IdQ3kID5iw4zHTqIsUEP3TWCA7WhgDjRZg/eUFRCR3Fl3KYJjyfALIUU46jHcsSlQl8FdmQJnhrcQJFbJ6QZB0LDDMNyS4XBFo1Kp9Gw4/wi247GLHmvNuBaC47Y5gtzIQB1mBmMGdDSdTpfV+QdM8vfcsqkap6ClgQIQa+a4bXViPGRO5ILjuBqYAwk7yIfhXcNz9CljDFkkST6P4JGjnHA7d+gBxAY3tIve1Khljbi1beKvakHQp0uhfTrMjvOL9H3fX9FE8OM7yxAhdem4QWHZkSufSoTYaaVSkY9kYFmfXgyTciI3uacAAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.alert,
+.tarotCard .tarotCard-status > .badge.alert {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFeSURBVDhPpZMtT8RAEIbb7YoTJ04gkQgQuBNIEpB4LD8AwQ9AkCCQhGAvQSAuKHCIE0gEP+DEISAhQYK4pE0/eWa65a7lSvh4k8nsvDv77sxs67UhSZLNNE0LZ3uO/gLj/J+hAkVRWI1+geqMCuR5fkKZoyiKViX+DuQu094wy7KhEmEYrkAk0qt4Nk5R77GszQCuE8fxIXxY8ZJjgiBY8n3/UcTwlsQDNifGmF29AcBtITyGOyan47gXXFfW2g/q+yi+VeptJhVgR1KRHp4HZI+bzknQlhYcvpQZuHRF8xmnCDyLL8MZEI9o4YkW3h1VB+o73DJp3to08l7xsw9Lng5i1EiSSV/Pcbdwzfk8MLcNqjIyye1STnHD5joln7lYcGWtXaP8gYsFfeJyHvR9waExt3wKsV74L3Brn/geu3OUDqiL1T7nNoEK8mLi9RUoZYqlsv4pqtf459/oeR8seozS7mDHCwAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.available,
+.tarotCard .tarotCard-status > .badge.available {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKvSURBVHjahJA/bJR1HMY/31977x33r2LuClc1LYM9TSAUr5gqtkVJjAkSFxYHE3VgaWRw0cUwOagxMZLApoXFBIwuHVSoQYkVMBXUpqSkMW9jaS25plh7/3rv+3scTIwixs/8PHn+2Bk/SVtN2mqxacYOKw13KfNiXtlneihmDONXqs0VVs/VXP1UqJvnc8qBeZoWYWf9JHXVqWkj2EX55G76X86R4W40aDHNzMdzLBwJLLEWm6fTI+o0knvZ+dkgO/cDfGczTNpl5gjxePrpY0SPMKwKT1A5nCe7Y4ofDgQEv/Ghn2AqunZabUmR9Fb8gQoaUVIVFTSiokaV0qDu0T694Y+rGbWktnQ5+nHiuP+IjrFjR4cqevj9wBK8beO87t6jiyzbKJAiIEWSreQxjAm7QGyeAwzRzb39i/7WFbdV2bGs0nxvs7zjxtlOgRwZPP6v7R5PmhQPUOKEneFLd4UECfqs51WXU/opDL6wb/mdDfJkEfrXgUKk2UKbiM/5BoD76d7reujOANwgJH9H8p14PDnSzBGySZsSReecDIAIDxj/jxH/LcQtW7UJ0E8f69RwuP+0Ohwb1CnTS0CCW6zK3Wb9a4AnNcgWktRoYHdpYhgtWvypfRSARVv5yVXd2smGWuzTHo7qeRZZpk7zH00cRos2ITd5yT/HQY0gPKGW3u0YPvZ06HB77tO2hx5jN5HFTNk11lgHRIs2VW5Tp8kRf5g3eYUUSa5y/eKsfn7NTvlPaCjqelwDF3bx4ADAeXeJc1xijpCYmDJ9jKrCIe0H4IaF81/56VGDJTvtPwV1IFmhTO/4AOWDSQIAWmwiRIokADEx08xeXGD5hUjxQp0GnQCdOAKS1RnNP7tO7VDOMmO9bB8qUQRghVVCW7raUOPEvH45W7IidRoA/DEAmmk0pL+n6f4AAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.unavailable,
+.tarotCard .tarotCard-status > .badge.unavailable {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKASURBVHjalJK9axxXFMV/772ZzOysVqvRDgtaSSwpJYFwY3ATEpIm5KNLawgp3Ljz/5E2bu20CYQUBoMNNnaRMkUKqYiQtIgdCQ0TaVc7M29n3nspzC7GMYYcuMWFe7jnHI4YjUY453DOYYyh0+l8opT63vO8L8MwbAshqKqq0lo/c849rqrquXMOIcSbGY1GWGsxxny0urr6MI7jH5RSAFhrAZBSLvc8z3+dTqf3lFL/SCnxAIwxwdra2tP19fXPAC4vL8myjKIoAIiiiF6vR7/fJ0mS75RSH19dXX0hpbwWx8fHrKys/JwkyV1rLYeHh5yenuKc420lzjm2trbY3d3F8zzyPH8ynU6/ERcXF3fiOP7D930ODg44OjoiDMOl7AWstZRlyXA4ZH9/H2MM4/H4K+l53n3f98myjJOTE4Ig+A95kUMURZydnXF+fo5SiiiKHkjf9z9f+AaWst+HRfKL2yiKbssgCNrOOWaz2Xs/vwulFLPZjLquCcPwDcM5x//B2/dyPp9XC3/WWoQQHyQbY2i32/i+T1VVTtZ1/QogSZJlGz/02VpLkiQAlGX5l2ya5mHTNPT7fba3tynLctnAd8llWTIYDNjY2MBaS1EUP0qt9YvJZPI7wM7ODsPhEK01WmuapqFpGrTWVFXFYDBgb28PIQTX19ev67r+TYzHY7TW3W63+zKO41sAaZqSZRk3NzcAtNtter0em5ubAEwmk7/zPP9USjkWaZoyn89xziWdTudRt9v9etGFuq4B8H1/aSXP89dFUdx1zp065xBpmlLXNUIIjDG0Wq1vPc+7H4bhnVarhRCCsiwpiuJPY8xPRVH8EgQBxhistfw7ABpxTL93U9x/AAAAAElFTkSuQmCC) 50% no-repeat;
+}
+.tarotCard .suit > .badge.away,
+.tarotCard .tarotCard-status > .badge.away {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJ2SURBVHjajJI7iFVnFIW//d9zz52ZO2fG14gzJBgbp5JYKPh+NqKxsxWMRZoBCxu1sAuBKFaClj5KDUQhRXybCIqICjqNYjFDhtExN45e7/uc8y+L/yJGp3A1+2fDWv/ea23zlQvIp0gpRgfrWbZRNrhP0cAOopEyGGSvWmQz15zq59SeuC5LsAis0MJ85SLKG8jXY3pXnKb8/X6iBAB8KLhuzZtQf/gbrWc/WTGetSgnAg9qlCiv/pNk1RYAqz3A6jeg/SyoxMtReRNKNsLAhj24gWW0726H+B3+9Rmyd3fPp5KyXMpf/SqNL5KelEIdH5Ke9Ejj8+SnjyrLWkolZbX7f/jZk5h/e3WN7197j0I/NnMMN3MYoiXgBv6/g+rQmUJDR/Ajv4BP0eylnU5u/pgK/Vj9Ee6/411y8gm5a4b1Qfwt9uYUrnoTXBGLvzvoFCXbDLDaVcjfd38WX0JBRCnUroRW/M1qRzRSxgPt55+NPRc8FJJgbtaB4rBz+phRxtcj//hylr5s4YDScvDVT0KfCw7yGpRGIYohfS2H3v4NoL6tYL3BbWwOsoHawY3y1tDJpp46p8pp5U2UrEcLD0BnCtT4bBIXyJ0J/Pwf0eAu8ELtiROO5uQtazy9LMAvPoKGDoU00n/CSr4K2RTkFfyCMRj+OWg2Ht9RNv27+X/PId8cVN+62/SvWAngqtehdq17yjmURlHfZjRvdxi98fyFr/21GWfT5ivnkQehRfSOnqV35S4KpW4w7ZB/1NNNMYf6wzukk3ulbBI1iIJkBBZX1Bn/gby621wyRrx0DcXhQGzPYOnEY/nmKbVeXLTicNcn+DAArZ4503S5ZjkAAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.busy,
+.tarotCard .tarotCard-status > .badge.busy {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKNSURBVHjajJI9a1RBGIWfGeLdmPXuKkR0Q0RTmFsFUxgQNcaPRonpbAW1sAlY2IhFfoCIVSDaaVImFhYWmkTxAwJBVgttNqTYQFAjAWPi7t3svXeOxeC3hQdeZpiZ887DmTFuchIlCUoSTLOJ6erqV7F4QYXCaTo68hgDHz82WFmZsbXauKrVWYUhBjCNBsZNTaF6HdVqAT09tzlw4BJhyD8Vx1Au36dSuWyC4LPJMlpwDur1HH19jzh48DiAefUK8+QJVCrgHHR3o2PHUH8/HD16jkKhi7m5UwTBF9zdu6RzcxOJpFRSduOG1N4u5XJ+3LlTam2Vtm+XGxlR2mgokZTOzz90o6PgpqcPpRsbP83GSKWSFEXS/v2+okjq7JRA7vp1pZLSZlPJ5OQZqx07hrVtG+b1a+zNm7B7N4ShR/8u56CtDfbswYyNYZ8+hS1bMPv2XbUKw5MGMNPTsLEBhQJIfwco+SZJAo8f+7XOzj5LR0cegIUFb/715j/lnKerVKDZhFLJWlnrN9OU/1aW/Zha8+FDA4Dublhfh+8N/yVr4etXiCIIAvj0SZa1tRcAOnECtm6FWg2M+dtsDGxu8uMsYJaX31q7unpbcYyOHEFXrsDyMtTrv5NY683VKu7iRTQ4CBKqVm/h7twhnZ9/kEhK41ju2jWpWJTa2qRdu3zl81I+r2x4WNnamv8H5fKLZHQU48bHURwXdfjwM3p6egHs7CzMzPi0swyiCA0MoKEhj76wsOiePx/AmPfGTUwgQFI7UXSP3t5BcjmPvrnp37+19Wf65fJLlpbOK02XqNdpAaClBYJgVe/enWV9fciE4TB79x6iVPLGlRVMtfpGcTymxcUpUyr5nIBvAwDWIWcndiwtQAAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.newMessage,
+.tarotCard .tarotCard-status > .badge.newMessage {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC/SURBVDhP1ZE9DgIhFIQhobDYg1haWniMbSw9j0exsfMAeg9L7Sy2kPATnCFI2LgYtjJOMjx4vPkoED+X5OK934cQ+thpFOYvSqmdMMascVDOuQMcGn1GptNaL4W1dgBkMwOSw8jeBJszIKMwexFAN0A+wnQG0Lh4wv0EJIb5AO4fRX8MoDFAlZAyPJSztOSSfiYLAYeyxTcdURcIrqSUJ7iLA4UmAdQbgnqvhakqgEoQXQtTXwEtIuCa9n8pIV67VJf6AmhGmgAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.paused,
+.tarotCard .tarotCard-status > .badge.paused {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAArSURBVDhPY/j9+7fDnz9//mPBCQxQgE8NE1QN2WDUgFEDQGDUgIE3gIEBAArtNKc4HT7sAAAAAElFTkSuQmCC) 50% no-repeat;
+}
+.tarotCard .suit > .badge.playing,
+.tarotCard .tarotCard-status > .badge.playing {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPY4CBnz9/pvz+/dsFyiUaMEFpBiYmJhkgtf3v37/t////Z4GIEgZwA0CAkZGRBai5AmjIYSCtABXGC1AMQAIWf/78OQ/EEVA+ToDLAJBrBIDUcqBrZgNdwwMRxQQ4DYABoOYUoCGngYFsABVCAQQNgAINYCAf//XrVwGUDwfEGgDyEgfQkH5guGwGukoEKky8AUhA5sePH6DwAQOSDAC6YgIzM7MpJyfnHagQcQYAnfwGiD2BmguBhvyBCoMBMQbsYWFh0WVlZd0B5aMAnAYAbfzz79+/SqBmV6CtL6DCGACXAQ+ABliysbF1QPk4AYYBQI0rgH7VBWo+AxXCC+AGADV+AVKJQL9GAp0MYhMBGBgA8v5j1f90TA8AAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.error,
+.tarotCard .tarotCard-status > .badge.error {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFiSURBVDhPjVM7TsNQELRjy8ISBQeIREtBEYnQUXCINFTkCCBxgNwAJI5AaejSpaCAEqRINBTcIQ1SbD9/mHmfZP3iSIw0ytt9O7O7thMGHpqmGVZVNQnD8AwcMde27RL8rOt6nqbpjy7sA4RTpdQKv20fcbcuy/IOZrGVbIHLpz7RHr52TJCYukuMeU+6WDBjdxej4UyLubMbm0KdBDyTzHWEyY01UEVRnA4Q8IEdaZVAFEW3yD/g+IzzFc6VuTFAHAPXO7vLKQi5q+suuOD+X15yx4ToEXON1QB3B6ZkC3Qd+q8Kaxzbo0TMCTLPefPAfPS8nTeOtnk1YEfMsf11pIm+y/P8BLusmaCZrevsLE1QO3F51FzopJyCQil2pAnFoLLxI7X6z8SxkVjgeMn4H/jGQz3Ht/BrY2MC85nrsI/sjNpDKzMTSODzHPELQ9EY1H9ndFqCHxC/JEnyrgs1guAPTvwreuY0IiIAAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.attention,
+.tarotCard .tarotCard-status > .badge.attention {
+  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVDhPtZI9bsJAEIVZ7ANQ5gApEomChjoNBUUOkSJFivSUQE3JEThCCo4BkotcIVKKNEi2vP7hveVZrMFgKPJJo915szOzf51/Jc/zhbV2Jfc+kiR5QrLNsqzEMJJ8O0hcM1kWlWUZKtQOOo69ZGdpmn4ofB12QsI3k1BoRtP8F7Gell0GnT6rrpJ4HOfzUiU1ww7o9HepAGI2juNHyeegw7Ja3FRA9iW5jv9slSl0WqD2rEYjF7Hy68E7gCPNORpjpk44sg2CYAg969JTxVoywYIXmlyfAS77jRPDZ8PZN5j3KfiEYeh2yG07wQN5P4g/d9H9Hf5ZMkHM/QO5NbCzh6IoJgbVI/iNBdrALnY8An9X+w9rpLPbA/sADga+JgSiAAAAAElFTkSuQmCC) 50% no-repeat;
+}
+.tarotCard .suit > .name,
+.tarotCard .tarotCard-status > .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: #ffffff;
+}
+.tarotCard .suit > .name:hover,
+.tarotCard .tarotCard-status > .name:hover {
+  color: #ffffff;
+}
+.tarotCard .suit > .name > [class*=icon-],
+.tarotCard .tarotCard-status > .name > [class*=icon-] {
+  font-size: 24px;
+}
+.tarotCard .suit > .icon,
+.tarotCard .tarotCard-status > .icon {
+  margin: 5px 15px;
+  width: 32px;
+  height: 32px;
+}
+.tarotCard .suit > .icon > [class*=icon-],
+.tarotCard .tarotCard-status > .icon > [class*=icon-] {
+  font-size: 32px;
+}
+.tarotCard .suit > .icon > img,
+.tarotCard .tarotCard-status > .icon > img {
+  width: 100%;
+  height: 100%;
+}
+.tarotCard .suit > img ~ .text,
+.tarotCard .tarotCard-status > img ~ .text {
+  position: absolute;
+  left: 60px;
+  width: auto;
+}
+.tarotCard .suit > .text,
+.tarotCard .tarotCard-status > .text {
+  position: relative;
+  left: 8px;
+  top: 5px;
+  right: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: #000000;
+  color: #ffffff;
+  line-height: 14px;
+  width: 60%;
+  padding: 0;
+  margin: 0;
+}
+.tarotCard .suit > .text:hover,
+.tarotCard .tarotCard-status > .text:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.tarotCard .suit > .text:active,
+.tarotCard .tarotCard-status > .text:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+.tarotCard .suit > .text:hover,
+.tarotCard .tarotCard-status > .text:hover {
+  color: #ffffff;
+}
+.tarotCard:hover {
+  outline: 3px #3a3a3a solid;
+}
+.tarotCard *,
+.tarotCard *:after,
+.tarotCard *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }

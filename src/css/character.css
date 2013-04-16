@@ -1,28 +1,15 @@
 /* [S03] 3_character.css  **********************************************************/
 
 /*--- Basics ---*/
-p { margin-bottom: 1em; }
+
 strong { font-weight: bold; }
 em { font-style: italic; }
-a { text-decoration: none; color: #636363; }
-a, h1 a, h2 a { text-decoration: none; }
-a:hover { color: #0051FF; }
-a:visited:hover { color: #9900FF; }
-a img { border: none; }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight:normal;
-	color:#111;
-	line-height: 1;
-	margin: 0.5em 0 0.5em 0;
+body,
+p,
+div {
+  font-smooth: always;
 }
-
-h1{font-size: 2.6em;} 
-h2{font-size: 2em;} 
-h3{font-size: 1.7em;} 
-h4{font-size: 1.4em;}
-h1,h3,h4,strong{font-weight:bold;}
-h5 { font-size: 1.2em; }
 
 ol li{list-style:none;}
 ul li{list-style:none;}
@@ -32,14 +19,26 @@ p {
 	font-family:Verdana, Geneva, sans-serif;
 	font-size:1em;
 	padding:5px 0 0 5px;
+	margin: 0 0 10px;
 	line-height:1em;
+}
+p.long-text {
+  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif !important;
+  font-weight: 300;
+  font-size: 10pt;
+  letter-spacing: 0.02em;
+  line-height: 12pt;
+  font-smooth: always;
+}
+p.indent:first-letter {
+  padding-left: 25px;
 }
 
 .footnote {
 	font-size:0.9em;
 	font-style: italic;
 	line-height:1em;
-	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-family:"Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif !important;
 }
 
 .tC { text-align:center; }
@@ -52,6 +51,9 @@ pre {
  padding: 1em .5em 1em .5em;
  overflow: auto;
  line-height:200%;
+ clear:both;
+ display:block;
+ margin-bottom:30px;
 }
 
 code {
@@ -78,23 +80,291 @@ text-indent:3px;
 .error {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
 .notice,.warning {background:#fff6bf;color:#514721;border-color:#ffd324;}
 .success,.accept {background:#e6efc2;color:#264409;border-color:#c6d880;}
-.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.info, .information {background:#d5edf8;color:#205791;border-color:#92cae4;}
 .error a {color:#8a1f11;}
 .notice a {color:#514721;}
 .success a {color:#264409;}
 .info a {color:#205791;}
 
+/* Metro UI */
+@font-face {
+  font-family: "annie";
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/annieuseyourtelescope.eot?v=3.0.1');
+  src: url('../font/annieuseyourtelescope.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('../font/annieuseyourtelescope.woff?v=3.0.1') format('woff'),
+    url('../font/annieuseyourtelescope.ttf?v=3.0.1') format('truetype');
+}
+
+.text-rest-state {
+  color: #000000;
+}
+.text-rest2-state {
+  color: rgba(0, 0, 0, 0.6);
+}
+.text-hover-state {
+  color: rgba(0, 0, 0, 0.8);
+}
+.text-pressed-state {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+a {
+ color: #2e92cf;
+ text-decoration: none;
+}
+a.link {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 11pt;
+  font-smooth: always;
+  line-height: 13pt;
+  color: #2e92cf;
+  text-decoration: none;
+}
+
+a:hover,
+.link:hover {
+  color: rgba(45, 173, 237, 0.8);
+}
+
+a:active,
+.link:active {
+  color: rgba(45, 173, 237, 0.6);
+}
+a:visited:hover { color: #9900FF; }
+
+a img { border: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5em 0 0.5em 0;
+  padding: 0;
+}
+h1 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 3em;
+  letter-spacing: 0.00em;
+  line-height: 44pt;
+  font-smooth: always;
+  color: #000000;
+}
+h1:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h1:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h2 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 2.7em;
+  letter-spacing: 0.01em;
+  line-height: 22pt;
+  font-smooth: always;
+  color: #000000;
+}
+h2:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h2:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h3 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 2.4em;
+  letter-spacing: 0.01em;
+  line-height: 22pt;
+  font-smooth: always;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 24px;
+}
+h3:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h3:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h4 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 1.4em;
+  letter-spacing: 0.01em;
+  line-height: 13pt;
+  font-smooth: always;
+  color: #000000;
+  color: rgba(0, 0, 0, 0.6);
+}
+h4:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h4:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h4:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h4:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h5 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  letter-spacing: 0.01em;
+  line-height: 13pt;
+  color: rgba(0, 0, 0, 0.6);
+}
+h5:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h5:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+h6 {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 1.1em;
+  letter-spacing: 0.01em;
+  line-height: 13pt;
+  color: rgba(0, 0, 0, 0.6);
+}
+h6:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+h6:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .lead {
+  font-size: 120%;
+  line-height: 26px;
+}
+.tertiary-info-text,
+.tertiary-text {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: #000000;
+}
+.tertiary-info-text:hover,
+.tertiary-text:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.tertiary-info-text:active,
+.tertiary-text:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+.tertiary-info-secondary-text,
+.tertiary-secondary-text {
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 9pt;
+  font-smooth: always;
+  line-height: 11pt;
+  color: rgba(0, 0, 0, 0.6);
+}
+.tertiary-info-secondary-text:hover,
+.tertiary-secondary-text:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.tertiary-info-secondary-text:active,
+.tertiary-secondary-text:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase !important;
+}
+abbr[title] {
+  cursor: help !important;
+}
+address {
+  display: block;
   margin-bottom: 20px;
-  font-size: 21px;
-  font-weight: 200;
-  line-height: 30px;
+  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 11pt;
+  letter-spacing: 0.02em;
+  line-height: 14pt;
+  font-smooth: always;
+  line-height: 20px;
+  font-style: normal;
 }
-.gigantic {
-  font-size: 1.5em;
-  font-weight: 200;
-  line-height: 1.7em;
+blockquote {
+  margin: 0;
+  padding: 5px 20px;
+  border-left: 4px #ccc solid;
+  display: block;
+  background-color: rgba(204, 204, 204, 0.1);
 }
+blockquote p {
+  margin-bottom: 0;
+}
+blockquote small:before {
+  content: '\2014';
+  color: rgba(0, 0, 0, 0.4);
+  margin-right: 5px;
+}
+blockquote.place-right {
+  float: none !important;
+  text-align: right;
+  border: 0;
+  border-right: 4px #ccc solid;
+}
+blockquote.place-right small {
+  text-align: right;
+}
+blockquote.place-right small:before {
+  content: "";
+}
+blockquote.place-right small:after {
+  content: '\2014';
+  color: rgba(0, 0, 0, 0.4);
+  margin-left: 5px;
+}
+
+.inline-tag{
+  display: inline-block;
+  line-height: inherit;
+  font-size: .75em;
+  font-weight: bold;
+  padding: 2px 4px;
+  background-color: #d5e7ec !important;
+  color: #4d4d4d;
+  vertical-align: 3%;
+}
+.inline-tag.success{
+  background-color: #00a300 !important;
+  color: #ffffff !important;
+}
+.inline-tag.warning{
+  background-color: #e3a21a !important;
+  color: #ffffff !important;
+}
+.inline-tag.important,
+.inline-tag.error {
+  background-color: #b91d47 !important;
+  color: #ffffff !important;
+}
+.inline-tag.info{
+  background-color: #2d89ef !important;
+  color: #ffffff !important;
+}
+.inline-tag.inverse {
+  background-color: #1d1d1d !important;
+  color: #ffffff !important;
+}
+
 /**!
  *  Font Awesome 3.0.2
  *  the iconic font designed for use with Twitter Bootstrap
@@ -376,6 +646,8 @@ ul.icons li [class*=" icon-"] {
     height: .75em;
   }
 }
+
+
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */
 .icon-glass:before                { content: "\f000"; }
