@@ -1691,7 +1691,7 @@ notefy(
 					</ul>	
 					<br/>
 				</div>
-				<br/>
+				<br/><div class="push" style="height:50px;"></div>
 			</div>
 		</div>
 		
@@ -1710,13 +1710,13 @@ notefy(
 $('a[rel*=facebox]').facebox();
 </pre>
 			<div class="push"></div>
-			<h4>Images</h4>
+			<h3>Images</h3>
 			<code>&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
 			<code>jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' })</code><br/>
 			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;">launch demo</button>
 			<br/>
 			
-			<h4>Divs</h4>
+			<h3>Divs</h3>
 			<code>&lt;a href="#info" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
 			<code>jQuery.facebox({ div: '#info' })</code><br/>
 			<button onclick="jQuery.facebox({ div: '#info' });return false;">launch demo</button>
@@ -1725,21 +1725,21 @@ $('a[rel*=facebox]').facebox();
 			</div>
 			<br/>
 			
-			<h4>Ajax</h4>
+			<h3>Ajax</h3>
 			<code>&lt;a href="remote.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
 			<code>jQuery.facebox({ ajax: 'remote.html' })</code><br/>
 			<button onclick="jQuery.facebox({ ajax: 'src/css/body.css' });return false;">launch demo</button><br/>
 			<p class="fnote">In this example we loaded a css from the src folder of this project, but any remote file can be loaded, so long as you comply with security settings and all that stuff.
 			<br/>			
 
-			<div class="push"></div>
+			<div class="push" style="height:50px;"></div>
 			</div>
 			
 			
 			<div class="twelvecol last">
-			<div class="push"></div>
-			<h4>Facebox Commands</h4>
+			<h3>Facebox Commands</h3>
 			<p>Any of the three ways to load content, as well as loading a string of text, can be controlled as described below. You can also provide an additional string to customize the appearance of facebox.</p>
+			<p style="line-height:1.6em">Once you have opened a facebox you can easily close it with the following command: <code>$.facebox.close();</code></p>
 <pre>String 
 jQuery.facebox('something cool');
 jQuery.facebox('something cool', 'my-groovy-style');
@@ -1756,9 +1756,9 @@ Ajax Remote files
 jQuery.facebox({ ajax: 'remote.html' });
 jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 </pre>
-			<div class="push"></div>
-			<p style="line-height:1.6em">Once you have opened a facebox you can easily close it with the following command: <code>$.facebox.close();</code></p>
+<br/>
 			</div>
+			<div class="push" style="height:50px;"></div>
 		</div>
 		
 		<div class="row limit category widgets_category">
@@ -2341,7 +2341,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 
 			</div>
 			<div class="eightcol last">
-				<h2 class="page-header">3a. Usability</h2>
+				<h2 class="page-header">Usability</h2>
 				<p>Form and Data Elements</p>
 
 				<h3 class="page-header">Select drop-down manipulation</h3>
@@ -2412,7 +2412,7 @@ jQuery(function(){
 
 			</div>
 			<div class="eightcol last">
-				<h3 class="page-header">3c. Pagination</h3>
+				<h2 class="page-header">Pagination</h2>
 				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
 				<ul>
 					<li>Design agnostic</li>
@@ -2424,7 +2424,7 @@ jQuery(function(){
 				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
 				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
 				<div class="push"></div>
-				<h4>Pagination Demo</h4>
+				<h3>Pagination Demo</h3>
 				<p>It's oversized too, so you can try it when you're drunk!</p>
 				<div class="gigantic paginatebox">
 				    <a href="#" class="first" data-action="first">&laquo;</a>
@@ -2503,7 +2503,7 @@ jQuery(function(){
 		<div class="row limit category datas_category">
 
 			<div class="twelvecol last">
-				<h2 class="page-header">5a. Lists</h2>
+				<h2 class="page-header">Lists</h2>
 				<p class="fnote">Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
 			</div>
 		</div>
@@ -3021,6 +3021,7 @@ $("table").stupidtable();
 		<div class="row limit category forms_category">
 			<div class="twelvecol last">
 			<h2 class="page-header">Forms</h2>
+			<p class="warning">this area is under development</p>
 			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>, and anything that was working with them should still work with hui.</p><div class="push"></div>
 <div>
 	<!-- Forms
@@ -4183,14 +4184,14 @@ jQuery('.full-width').horizontalNav({
 </pre>
 			</div>
 			<div class="eightcol last">
-			<h2 class="page-header">8. Flexible Navigation</h2>
+			<h2 class="page-header">Flexible Navigation</h2>
 			<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
 			
-			<h3>HorizontalNav</h3>
+			<h3 class="page-header">HorizontalNav</h3>
 			<p class="fnote">Based on <a href="http://sebnitu.github.com/HorizontalNav/">sebnitu.github.com/HorizontalNav</a> and <a href="https://github.com/mattkersley/Responsive-Menu">mattkersley/Responsive-Menu</a>.<br/>A horizontal navigation to fit the full width of it's container. There are no requirements to how you style the navigation and adding padding, margins or borders to any of the elements won’t break the effect.<br/> Added benefit that it Turns any &lt;ol&gt; or &lt;ul&gt; into a &lt;select&gt; for mobiles and low browser sizes.</p>
 			<br/>
 			<div id="mobilenav"></div>
-            <h4>This Page Uses HorizontalNav for its menu. Resize to see in action.</h4>
+            <p class="fnote">This Page Uses HorizontalNav for its menu. Resize to see in action.</p>
 			<img src="http://huement.s3.amazonaws.com/imgs/flexmenu.png" width="100%" height="100%" style="max-width:458px;max-height:264px;" class="tC C"/>
 			<div class="push"></div>
 			
@@ -4223,7 +4224,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			</div>
 			<div class="eightcol last">
 			<div class="push"></div>
-			<h3>Reactive Navigation</h3>
+			<h3 class="page-header">Reactive Navigation</h3>
 			<p class="fnote">As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later!
 			<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
 			<br/>
