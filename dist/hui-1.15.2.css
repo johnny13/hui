@@ -258,253 +258,6 @@ width:98.5%;margin-left:1%;
 margin-right: 0px;
 }
 
-.fg-color-blue {
-  color: #2d89ef !important;
-}
-.fg-color-blueLight {
-  color: #eff4ff !important;
-}
-.fg-color-blueDark {
-  color: #2b5797 !important;
-}
-.fg-color-green {
-  color: #00a300 !important;
-}
-.fg-color-greenLight {
-  color: #99b433 !important;
-}
-.fg-color-greenDark {
-  color: #1e7145 !important;
-}
-.fg-color-red {
-  color: #b91d47 !important;
-}
-.fg-color-yellow {
-  color: #ffc40d !important;
-}
-.fg-color-orange {
-  color: #e3a21a !important;
-}
-.fg-color-orangeDark {
-  color: #da532c !important;
-}
-.fg-color-pink {
-  color: #9f00a7 !important;
-}
-.fg-color-pinkDark {
-  color: #7e3878 !important;
-}
-.fg-color-purple {
-  color: #603cba !important;
-}
-.fg-color-darken {
-  color: #1d1d1d !important;
-}
-.fg-color-lighten {
-  color: #d5e7ec !important;
-}
-.fg-color-white {
-  color: #ffffff !important;
-}
-.fg-color-grayDark {
-  color: #525252 !important;
-}
-.fg-color-magenta {
-  color: #ff0097 !important;
-}
-.fg-color-teal {
-  color: #00aba9 !important;
-}
-.fg-color-redLight {
-  color: #ee1111 !important;
-}
-.bg-color-blue {
-  background-color: #2d89ef !important;
-}
-.bg-color-blueLight {
-  background-color: #eff4ff !important;
-}
-.bg-color-blueDark {
-  background-color: #2b5797 !important;
-}
-.bg-color-green {
-  background-color: #00a300 !important;
-}
-.bg-color-greenLight {
-  background-color: #99b433 !important;
-}
-.bg-color-greenDark {
-  background-color: #1e7145 !important;
-}
-.bg-color-red {
-  background-color: #b91d47 !important;
-}
-.bg-color-yellow {
-  background-color: #ffc40d !important;
-}
-.bg-color-orange {
-  background-color: #e3a21a !important;
-}
-.bg-color-orangeDark {
-  background-color: #da532c !important;
-}
-.bg-color-pink {
-  background-color: #9f00a7 !important;
-}
-.bg-color-pinkDark {
-  background-color: #7e3878 !important;
-}
-.bg-color-purple {
-  background-color: #603cba !important;
-}
-.bg-color-darken {
-  background-color: #1d1d1d !important;
-}
-.bg-color-lighten {
-  background-color: #d5e7ec !important;
-}
-.bg-color-white {
-  background-color: #ffffff !important;
-}
-.bg-color-grayDark {
-  background-color: #525252 !important;
-}
-.bg-color-magenta {
-  background-color: #ff0097 !important;
-}
-.bg-color-teal {
-  background-color: #00aba9 !important;
-}
-.bg-color-redLight {
-  background-color: #ee1111 !important;
-}
-[class*=border-color] {
-  border: 2px solid;
-}
-.border-color-blue {
-  border-color: #2d89ef !important;
-}
-.border-color-blueLight {
-  border-color: #eff4ff !important;
-}
-.border-color-blueDark {
-  border-color: #2b5797 !important;
-}
-.border-color-green {
-  border-color: #00a300 !important;
-}
-.border-color-greenLight {
-  border-color: #99b433 !important;
-}
-.border-color-greenDark {
-  border-color: #1e7145 !important;
-}
-.border-color-red {
-  border-color: #b91d47 !important;
-}
-.border-color-yellow {
-  border-color: #ffc40d !important;
-}
-.border-color-orange {
-  border-color: #e3a21a !important;
-}
-.border-color-orangeDark {
-  border-color: #da532c !important;
-}
-.border-color-pink {
-  border-color: #9f00a7 !important;
-}
-.border-color-pinkDark {
-  border-color: #7e3878 !important;
-}
-.border-color-purple {
-  border-color: #603cba !important;
-}
-.border-color-darken {
-  border-color: #1d1d1d !important;
-}
-.border-color-lighten {
-  border-color: #d5e7ec !important;
-}
-.border-color-white {
-  border-color: #ffffff !important;
-}
-.border-color-grayDark {
-  border-color: #525252 !important;
-}
-.border-color-magenta {
-  border-color: #ff0097 !important;
-}
-.border-color-teal {
-  border-color: #00aba9 !important;
-}
-.border-color-redLight {
-  border-color: #ee1111 !important;
-}
-*:hover[class=outline-color] {
-  outline: 3px solid;
-}
-.outline-color-blue {
-  outline-color: #2d89ef !important;
-}
-.outline-color-blueLight {
-  outline-color: #eff4ff !important;
-}
-.outline-color-blueDark {
-  outline-color: #2b5797 !important;
-}
-.outline-color-green {
-  outline-color: #00a300 !important;
-}
-.outline-color-greenLight {
-  outline-color: #99b433 !important;
-}
-.outline-color-greenDark {
-  outline-color: #1e7145 !important;
-}
-.outline-color-red {
-  outline-color: #b91d47 !important;
-}
-.outline-color-yellow {
-  outline-color: #ffc40d !important;
-}
-.outline-color-orange {
-  outline-color: #e3a21a !important;
-}
-.outline-color-orangeDark {
-  outline-color: #da532c !important;
-}
-.outline-color-pink {
-  outline-color: #9f00a7 !important;
-}
-.outline-color-pinkDark {
-  outline-color: #7e3878 !important;
-}
-.outline-color-purple {
-  outline-color: #603cba !important;
-}
-.outline-color-darken {
-  outline-color: #1d1d1d !important;
-}
-.outline-color-lighten {
-  outline-color: #d5e7ec !important;
-}
-.outline-color-white {
-  outline-color: #ffffff !important;
-}
-.outline-color-grayDark {
-  outline-color: #525252 !important;
-}
-.outline-color-magenta {
-  outline-color: #ff0097 !important;
-}
-.outline-color-teal {
-  outline-color: #00aba9 !important;
-}
-.outline-color-redLight {
-  outline-color: #ee1111 !important;
-}
-
 /* Smaller screens */
 
 @media only screen and (max-width: 1023px) {
@@ -4932,6 +4685,23 @@ div.jGrowl div.jGrowl-closer:hover {
 }
 
 /* Section 03 Tarot Cards */
+.tarotDeck *, .tarotDeck *:after, .tarotDeck *:before {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+.tarotBox {
+  display:block;
+  position:relative;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:auto;
+  margin-right:auto;
+  padding:5px;
+  width:85%;
+  max-width:900px;
+  min-width:320px;
+}
 .tarotDeck .oh,
 .tarotDeck .ot,
 .tarotDeck .tt {
@@ -5117,14 +4887,19 @@ div.jGrowl div.jGrowl-closer:hover {
   float: right !important;
   margin-left: 10px;
 }
+.place-left {
+  float: left !important;
+  margin-right: 10px;
+}
+
 
 .selected {
-  border: 4px #2d89ef solid;
+  border: 4px #3A3A3A solid;
 }
 .selected:after {
   width: 0;
   height: 0;
-  border-top: 40px solid #2d89ef;
+  border-top: 40px solid #3A3A3A;
   border-left: 40px solid transparent;
   position: absolute;
   display: block;
@@ -5151,18 +4926,7 @@ div.jGrowl div.jGrowl-closer:hover {
   line-height: 14pt;
   font-smooth: always;
 }
-.tarotCards {
-  display:block;
-  position:relative;
-  margin-top:20px;
-  margin-bottom:20px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:5px;
-  width:85%;
-  max-width:900px;
-  min-width:320px;
-}
+
 .tarotCard {
   display: block;
   float: left;
@@ -5381,47 +5145,47 @@ div.jGrowl div.jGrowl-closer:hover {
 }
 .tarotCard .suit > .badge.activity,
 .tarotCard .tarotCard-status > .badge.activity {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVDhPvZMtTwNBEIbv2mtScaICcQJRgSgJCQIEhqSiAlEHAlFRwU/ov0AgUEgUsrIkiJIgMOAQJFSQQAIJJBWIu95Hj2eGvXIpB3W8yWTn452Z3dld25pDmqZuFEWdcrm8jr6JK7Bt+wb9Ft85+vsXswBxHHdIfmFNi4TYG7InXAp6ss52kCTJIc6e6KzSVbrdYzrYDaSFXZU4uEQ8x3FW1ZpMJge5Tn3IdQ3kID5iw4zHTqIsUEP3TWCA7WhgDjRZg/eUFRCR3Fl3KYJjyfALIUU46jHcsSlQl8FdmQJnhrcQJFbJ6QZB0LDDMNyS4XBFo1Kp9Gw4/wi247GLHmvNuBaC47Y5gtzIQB1mBmMGdDSdTpfV+QdM8vfcsqkap6ClgQIQa+a4bXViPGRO5ILjuBqYAwk7yIfhXcNz9CljDFkkST6P4JGjnHA7d+gBxAY3tIve1Khljbi1beKvakHQp0uhfTrMjvOL9H3fX9FE8OM7yxAhdem4QWHZkSufSoTYaaVSkY9kYFmfXgyTciI3uacAAAAASUVORK5CYII%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.alert,
-.tarotCard .tarotCard-status > .badge.alert {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFeSURBVDhPpZMtT8RAEIbb7YoTJ04gkQgQuBNIEpB4LD8AwQ9AkCCQhGAvQSAuKHCIE0gEP+DEISAhQYK4pE0/eWa65a7lSvh4k8nsvDv77sxs67UhSZLNNE0LZ3uO/gLj/J+hAkVRWI1+geqMCuR5fkKZoyiKViX+DuQu094wy7KhEmEYrkAk0qt4Nk5R77GszQCuE8fxIXxY8ZJjgiBY8n3/UcTwlsQDNifGmF29AcBtITyGOyan47gXXFfW2g/q+yi+VeptJhVgR1KRHp4HZI+bzknQlhYcvpQZuHRF8xmnCDyLL8MZEI9o4YkW3h1VB+o73DJp3to08l7xsw9Lng5i1EiSSV/Pcbdwzfk8MLcNqjIyye1STnHD5joln7lYcGWtXaP8gYsFfeJyHvR9waExt3wKsV74L3Brn/geu3OUDqiL1T7nNoEK8mLi9RUoZYqlsv4pqtf459/oeR8seozS7mDHCwAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.available,
-.tarotCard .tarotCard-status > .badge.available {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKvSURBVHjahJA/bJR1HMY/31977x33r2LuClc1LYM9TSAUr5gqtkVJjAkSFxYHE3VgaWRw0cUwOagxMZLApoXFBIwuHVSoQYkVMBXUpqSkMW9jaS25plh7/3rv+3scTIwixs/8PHn+2Bk/SVtN2mqxacYOKw13KfNiXtlneihmDONXqs0VVs/VXP1UqJvnc8qBeZoWYWf9JHXVqWkj2EX55G76X86R4W40aDHNzMdzLBwJLLEWm6fTI+o0knvZ+dkgO/cDfGczTNpl5gjxePrpY0SPMKwKT1A5nCe7Y4ofDgQEv/Ghn2AqunZabUmR9Fb8gQoaUVIVFTSiokaV0qDu0T694Y+rGbWktnQ5+nHiuP+IjrFjR4cqevj9wBK8beO87t6jiyzbKJAiIEWSreQxjAm7QGyeAwzRzb39i/7WFbdV2bGs0nxvs7zjxtlOgRwZPP6v7R5PmhQPUOKEneFLd4UECfqs51WXU/opDL6wb/mdDfJkEfrXgUKk2UKbiM/5BoD76d7reujOANwgJH9H8p14PDnSzBGySZsSReecDIAIDxj/jxH/LcQtW7UJ0E8f69RwuP+0Ohwb1CnTS0CCW6zK3Wb9a4AnNcgWktRoYHdpYhgtWvypfRSARVv5yVXd2smGWuzTHo7qeRZZpk7zH00cRos2ITd5yT/HQY0gPKGW3u0YPvZ06HB77tO2hx5jN5HFTNk11lgHRIs2VW5Tp8kRf5g3eYUUSa5y/eKsfn7NTvlPaCjqelwDF3bx4ADAeXeJc1xijpCYmDJ9jKrCIe0H4IaF81/56VGDJTvtPwV1IFmhTO/4AOWDSQIAWmwiRIokADEx08xeXGD5hUjxQp0GnQCdOAKS1RnNP7tO7VDOMmO9bB8qUQRghVVCW7raUOPEvH45W7IidRoA/DEAmmk0pL+n6f4AAAAASUVORK5CYII%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.unavailable,
-.tarotCard .tarotCard-status > .badge.unavailable {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKASURBVHjalJK9axxXFMV/772ZzOysVqvRDgtaSSwpJYFwY3ATEpIm5KNLawgp3Ljz/5E2bu20CYQUBoMNNnaRMkUKqYiQtIgdCQ0TaVc7M29n3nspzC7GMYYcuMWFe7jnHI4YjUY453DOYYyh0+l8opT63vO8L8MwbAshqKqq0lo/c849rqrquXMOIcSbGY1GWGsxxny0urr6MI7jH5RSAFhrAZBSLvc8z3+dTqf3lFL/SCnxAIwxwdra2tP19fXPAC4vL8myjKIoAIiiiF6vR7/fJ0mS75RSH19dXX0hpbwWx8fHrKys/JwkyV1rLYeHh5yenuKc420lzjm2trbY3d3F8zzyPH8ynU6/ERcXF3fiOP7D930ODg44OjoiDMOl7AWstZRlyXA4ZH9/H2MM4/H4K+l53n3f98myjJOTE4Ig+A95kUMURZydnXF+fo5SiiiKHkjf9z9f+AaWst+HRfKL2yiKbssgCNrOOWaz2Xs/vwulFLPZjLquCcPwDcM5x//B2/dyPp9XC3/WWoQQHyQbY2i32/i+T1VVTtZ1/QogSZJlGz/02VpLkiQAlGX5l2ya5mHTNPT7fba3tynLctnAd8llWTIYDNjY2MBaS1EUP0qt9YvJZPI7wM7ODsPhEK01WmuapqFpGrTWVFXFYDBgb28PIQTX19ev67r+TYzHY7TW3W63+zKO41sAaZqSZRk3NzcAtNtter0em5ubAEwmk7/zPP9USjkWaZoyn89xziWdTudRt9v9etGFuq4B8H1/aSXP89dFUdx1zp065xBpmlLXNUIIjDG0Wq1vPc+7H4bhnVarhRCCsiwpiuJPY8xPRVH8EgQBxhistfw7ABpxTL93U9x/AAAAAElFTkSuQmCC) 50% no-repeat;
-}
-.tarotCard .suit > .badge.away,
-.tarotCard .tarotCard-status > .badge.away {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJ2SURBVHjajJI7iFVnFIW//d9zz52ZO2fG14gzJBgbp5JYKPh+NqKxsxWMRZoBCxu1sAuBKFaClj5KDUQhRXybCIqICjqNYjFDhtExN45e7/uc8y+L/yJGp3A1+2fDWv/ea23zlQvIp0gpRgfrWbZRNrhP0cAOopEyGGSvWmQz15zq59SeuC5LsAis0MJ85SLKG8jXY3pXnKb8/X6iBAB8KLhuzZtQf/gbrWc/WTGetSgnAg9qlCiv/pNk1RYAqz3A6jeg/SyoxMtReRNKNsLAhj24gWW0726H+B3+9Rmyd3fPp5KyXMpf/SqNL5KelEIdH5Ke9Ejj8+SnjyrLWkolZbX7f/jZk5h/e3WN7197j0I/NnMMN3MYoiXgBv6/g+rQmUJDR/Ajv4BP0eylnU5u/pgK/Vj9Ee6/411y8gm5a4b1Qfwt9uYUrnoTXBGLvzvoFCXbDLDaVcjfd38WX0JBRCnUroRW/M1qRzRSxgPt55+NPRc8FJJgbtaB4rBz+phRxtcj//hylr5s4YDScvDVT0KfCw7yGpRGIYohfS2H3v4NoL6tYL3BbWwOsoHawY3y1tDJpp46p8pp5U2UrEcLD0BnCtT4bBIXyJ0J/Pwf0eAu8ELtiROO5uQtazy9LMAvPoKGDoU00n/CSr4K2RTkFfyCMRj+OWg2Ht9RNv27+X/PId8cVN+62/SvWAngqtehdq17yjmURlHfZjRvdxi98fyFr/21GWfT5ivnkQehRfSOnqV35S4KpW4w7ZB/1NNNMYf6wzukk3ulbBI1iIJkBBZX1Bn/gby621wyRrx0DcXhQGzPYOnEY/nmKbVeXLTicNcn+DAArZ4503S5ZjkAAAAASUVORK5CYII%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.busy,
-.tarotCard .tarotCard-status > .badge.busy {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKNSURBVHjajJI9a1RBGIWfGeLdmPXuKkR0Q0RTmFsFUxgQNcaPRonpbAW1sAlY2IhFfoCIVSDaaVImFhYWmkTxAwJBVgttNqTYQFAjAWPi7t3svXeOxeC3hQdeZpiZ887DmTFuchIlCUoSTLOJ6erqV7F4QYXCaTo68hgDHz82WFmZsbXauKrVWYUhBjCNBsZNTaF6HdVqAT09tzlw4BJhyD8Vx1Au36dSuWyC4LPJMlpwDur1HH19jzh48DiAefUK8+QJVCrgHHR3o2PHUH8/HD16jkKhi7m5UwTBF9zdu6RzcxOJpFRSduOG1N4u5XJ+3LlTam2Vtm+XGxlR2mgokZTOzz90o6PgpqcPpRsbP83GSKWSFEXS/v2+okjq7JRA7vp1pZLSZlPJ5OQZqx07hrVtG+b1a+zNm7B7N4ShR/8u56CtDfbswYyNYZ8+hS1bMPv2XbUKw5MGMNPTsLEBhQJIfwco+SZJAo8f+7XOzj5LR0cegIUFb/715j/lnKerVKDZhFLJWlnrN9OU/1aW/Zha8+FDA4Dublhfh+8N/yVr4etXiCIIAvj0SZa1tRcAOnECtm6FWg2M+dtsDGxu8uMsYJaX31q7unpbcYyOHEFXrsDyMtTrv5NY683VKu7iRTQ4CBKqVm/h7twhnZ9/kEhK41ju2jWpWJTa2qRdu3zl81I+r2x4WNnamv8H5fKLZHQU48bHURwXdfjwM3p6egHs7CzMzPi0swyiCA0MoKEhj76wsOiePx/AmPfGTUwgQFI7UXSP3t5BcjmPvrnp37+19Wf65fJLlpbOK02XqNdpAaClBYJgVe/enWV9fciE4TB79x6iVPLGlRVMtfpGcTymxcUpUyr5nIBvAwDWIWcndiwtQAAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.newMessage,
-.tarotCard .tarotCard-status > .badge.newMessage {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC/SURBVDhP1ZE9DgIhFIQhobDYg1haWniMbSw9j0exsfMAeg9L7Sy2kPATnCFI2LgYtjJOMjx4vPkoED+X5OK934cQ+thpFOYvSqmdMMascVDOuQMcGn1GptNaL4W1dgBkMwOSw8jeBJszIKMwexFAN0A+wnQG0Lh4wv0EJIb5AO4fRX8MoDFAlZAyPJSztOSSfiYLAYeyxTcdURcIrqSUJ7iLA4UmAdQbgnqvhakqgEoQXQtTXwEtIuCa9n8pIV67VJf6AmhGmgAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.paused,
-.tarotCard .tarotCard-status > .badge.paused {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAArSURBVDhPY/j9+7fDnz9//mPBCQxQgE8NE1QN2WDUgFEDQGDUgIE3gIEBAArtNKc4HT7sAAAAAElFTkSuQmCC) 50% no-repeat;
-}
-.tarotCard .suit > .badge.playing,
-.tarotCard .tarotCard-status > .badge.playing {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPY4CBnz9/pvz+/dsFyiUaMEFpBiYmJhkgtf3v37/t////Z4GIEgZwA0CAkZGRBai5AmjIYSCtABXGC1AMQAIWf/78OQ/EEVA+ToDLAJBrBIDUcqBrZgNdwwMRxQQ4DYABoOYUoCGngYFsABVCAQQNgAINYCAf//XrVwGUDwfEGgDyEgfQkH5guGwGukoEKky8AUhA5sePH6DwAQOSDAC6YgIzM7MpJyfnHagQcQYAnfwGiD2BmguBhvyBCoMBMQbsYWFh0WVlZd0B5aMAnAYAbfzz79+/SqBmV6CtL6DCGACXAQ+ABliysbF1QPk4AYYBQI0rgH7VBWo+AxXCC+AGADV+AVKJQL9GAp0MYhMBGBgA8v5j1f90TA8AAAAASUVORK5CYII%3D) 50% no-repeat;
-}
-.tarotCard .suit > .badge.error,
-.tarotCard .tarotCard-status > .badge.error {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFiSURBVDhPjVM7TsNQELRjy8ISBQeIREtBEYnQUXCINFTkCCBxgNwAJI5AaejSpaCAEqRINBTcIQ1SbD9/mHmfZP3iSIw0ytt9O7O7thMGHpqmGVZVNQnD8AwcMde27RL8rOt6nqbpjy7sA4RTpdQKv20fcbcuy/IOZrGVbIHLpz7RHr52TJCYukuMeU+6WDBjdxej4UyLubMbm0KdBDyTzHWEyY01UEVRnA4Q8IEdaZVAFEW3yD/g+IzzFc6VuTFAHAPXO7vLKQi5q+suuOD+X15yx4ToEXON1QB3B6ZkC3Qd+q8Kaxzbo0TMCTLPefPAfPS8nTeOtnk1YEfMsf11pIm+y/P8BLusmaCZrevsLE1QO3F51FzopJyCQil2pAnFoLLxI7X6z8SxkVjgeMn4H/jGQz3Ht/BrY2MC85nrsI/sjNpDKzMTSODzHPELQ9EY1H9ndFqCHxC/JEnyrgs1guAPTvwreuY0IiIAAAAASUVORK5CYII%3D) 50% no-repeat;
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVDhPvZMtTwNBEIbv2mtScaICcQJRgSgJCQIEhqSiAlEHAlFRwU/ov0AgUEgUsrIkiJIgMOAQJFSQQAIJJBWIu95Hj2eGvXIpB3W8yWTn452Z3dld25pDmqZuFEWdcrm8jr6JK7Bt+wb9Ft85+vsXswBxHHdIfmFNi4TYG7InXAp6ss52kCTJIc6e6KzSVbrdYzrYDaSFXZU4uEQ8x3FW1ZpMJge5Tn3IdQ3kID5iw4zHTqIsUEP3TWCA7WhgDjRZg/eUFRCR3Fl3KYJjyfALIUU46jHcsSlQl8FdmQJnhrcQJFbJ6QZB0LDDMNyS4XBFo1Kp9Gw4/wi247GLHmvNuBaC47Y5gtzIQB1mBmMGdDSdTpfV+QdM8vfcsqkap6ClgQIQa+a4bXViPGRO5ILjuBqYAwk7yIfhXcNz9CljDFkkST6P4JGjnHA7d+gBxAY3tIve1Khljbi1beKvakHQp0uhfTrMjvOL9H3fX9FE8OM7yxAhdem4QWHZkSufSoTYaaVSkY9kYFmfXgyTciI3uacAAAAASUVORK5CYII%3D) 50% no-repeat;
 }
 .tarotCard .suit > .badge.attention,
 .tarotCard .tarotCard-status > .badge.attention {
-  background: #2d89ef url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVDhPtZI9bsJAEIVZ7ANQ5gApEomChjoNBUUOkSJFivSUQE3JEThCCo4BkotcIVKKNEi2vP7hveVZrMFgKPJJo915szOzf51/Jc/zhbV2Jfc+kiR5QrLNsqzEMJJ8O0hcM1kWlWUZKtQOOo69ZGdpmn4ofB12QsI3k1BoRtP8F7Gell0GnT6rrpJ4HOfzUiU1ww7o9HepAGI2juNHyeegw7Ja3FRA9iW5jv9slSl0WqD2rEYjF7Hy68E7gCPNORpjpk44sg2CYAg969JTxVoywYIXmlyfAS77jRPDZ8PZN5j3KfiEYeh2yG07wQN5P4g/d9H9Hf5ZMkHM/QO5NbCzh6IoJgbVI/iNBdrALnY8An9X+w9rpLPbA/sADga+JgSiAAAAAElFTkSuQmCC) 50% no-repeat;
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFeSURBVDhPpZMtT8RAEIbb7YoTJ04gkQgQuBNIEpB4LD8AwQ9AkCCQhGAvQSAuKHCIE0gEP+DEISAhQYK4pE0/eWa65a7lSvh4k8nsvDv77sxs67UhSZLNNE0LZ3uO/gLj/J+hAkVRWI1+geqMCuR5fkKZoyiKViX+DuQu094wy7KhEmEYrkAk0qt4Nk5R77GszQCuE8fxIXxY8ZJjgiBY8n3/UcTwlsQDNifGmF29AcBtITyGOyan47gXXFfW2g/q+yi+VeptJhVgR1KRHp4HZI+bzknQlhYcvpQZuHRF8xmnCDyLL8MZEI9o4YkW3h1VB+o73DJp3to08l7xsw9Lng5i1EiSSV/Pcbdwzfk8MLcNqjIyye1STnHD5joln7lYcGWtXaP8gYsFfeJyHvR9waExt3wKsV74L3Brn/geu3OUDqiL1T7nNoEK8mLi9RUoZYqlsv4pqtf459/oeR8seozS7mDHCwAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.available,
+.tarotCard .tarotCard-status > .badge.available {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKvSURBVHjahJA/bJR1HMY/31977x33r2LuClc1LYM9TSAUr5gqtkVJjAkSFxYHE3VgaWRw0cUwOagxMZLApoXFBIwuHVSoQYkVMBXUpqSkMW9jaS25plh7/3rv+3scTIwixs/8PHn+2Bk/SVtN2mqxacYOKw13KfNiXtlneihmDONXqs0VVs/VXP1UqJvnc8qBeZoWYWf9JHXVqWkj2EX55G76X86R4W40aDHNzMdzLBwJLLEWm6fTI+o0knvZ+dkgO/cDfGczTNpl5gjxePrpY0SPMKwKT1A5nCe7Y4ofDgQEv/Ghn2AqunZabUmR9Fb8gQoaUVIVFTSiokaV0qDu0T694Y+rGbWktnQ5+nHiuP+IjrFjR4cqevj9wBK8beO87t6jiyzbKJAiIEWSreQxjAm7QGyeAwzRzb39i/7WFbdV2bGs0nxvs7zjxtlOgRwZPP6v7R5PmhQPUOKEneFLd4UECfqs51WXU/opDL6wb/mdDfJkEfrXgUKk2UKbiM/5BoD76d7reujOANwgJH9H8p14PDnSzBGySZsSReecDIAIDxj/jxH/LcQtW7UJ0E8f69RwuP+0Ohwb1CnTS0CCW6zK3Wb9a4AnNcgWktRoYHdpYhgtWvypfRSARVv5yVXd2smGWuzTHo7qeRZZpk7zH00cRos2ITd5yT/HQY0gPKGW3u0YPvZ06HB77tO2hx5jN5HFTNk11lgHRIs2VW5Tp8kRf5g3eYUUSa5y/eKsfn7NTvlPaCjqelwDF3bx4ADAeXeJc1xijpCYmDJ9jKrCIe0H4IaF81/56VGDJTvtPwV1IFmhTO/4AOWDSQIAWmwiRIokADEx08xeXGD5hUjxQp0GnQCdOAKS1RnNP7tO7VDOMmO9bB8qUQRghVVCW7raUOPEvH45W7IidRoA/DEAmmk0pL+n6f4AAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.unavailable,
+.tarotCard .tarotCard-status > .badge.unavailable {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKASURBVHjalJK9axxXFMV/772ZzOysVqvRDgtaSSwpJYFwY3ATEpIm5KNLawgp3Ljz/5E2bu20CYQUBoMNNnaRMkUKqYiQtIgdCQ0TaVc7M29n3nspzC7GMYYcuMWFe7jnHI4YjUY453DOYYyh0+l8opT63vO8L8MwbAshqKqq0lo/c849rqrquXMOIcSbGY1GWGsxxny0urr6MI7jH5RSAFhrAZBSLvc8z3+dTqf3lFL/SCnxAIwxwdra2tP19fXPAC4vL8myjKIoAIiiiF6vR7/fJ0mS75RSH19dXX0hpbwWx8fHrKys/JwkyV1rLYeHh5yenuKc420lzjm2trbY3d3F8zzyPH8ynU6/ERcXF3fiOP7D930ODg44OjoiDMOl7AWstZRlyXA4ZH9/H2MM4/H4K+l53n3f98myjJOTE4Ig+A95kUMURZydnXF+fo5SiiiKHkjf9z9f+AaWst+HRfKL2yiKbssgCNrOOWaz2Xs/vwulFLPZjLquCcPwDcM5x//B2/dyPp9XC3/WWoQQHyQbY2i32/i+T1VVTtZ1/QogSZJlGz/02VpLkiQAlGX5l2ya5mHTNPT7fba3tynLctnAd8llWTIYDNjY2MBaS1EUP0qt9YvJZPI7wM7ODsPhEK01WmuapqFpGrTWVFXFYDBgb28PIQTX19ev67r+TYzHY7TW3W63+zKO41sAaZqSZRk3NzcAtNtter0em5ubAEwmk7/zPP9USjkWaZoyn89xziWdTudRt9v9etGFuq4B8H1/aSXP89dFUdx1zp065xBpmlLXNUIIjDG0Wq1vPc+7H4bhnVarhRCCsiwpiuJPY8xPRVH8EgQBxhistfw7ABpxTL93U9x/AAAAAElFTkSuQmCC) 50% no-repeat;
+}
+.tarotCard .suit > .badge.away,
+.tarotCard .tarotCard-status > .badge.away {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJ2SURBVHjajJI7iFVnFIW//d9zz52ZO2fG14gzJBgbp5JYKPh+NqKxsxWMRZoBCxu1sAuBKFaClj5KDUQhRXybCIqICjqNYjFDhtExN45e7/uc8y+L/yJGp3A1+2fDWv/ea23zlQvIp0gpRgfrWbZRNrhP0cAOopEyGGSvWmQz15zq59SeuC5LsAis0MJ85SLKG8jXY3pXnKb8/X6iBAB8KLhuzZtQf/gbrWc/WTGetSgnAg9qlCiv/pNk1RYAqz3A6jeg/SyoxMtReRNKNsLAhj24gWW0726H+B3+9Rmyd3fPp5KyXMpf/SqNL5KelEIdH5Ke9Ejj8+SnjyrLWkolZbX7f/jZk5h/e3WN7197j0I/NnMMN3MYoiXgBv6/g+rQmUJDR/Ajv4BP0eylnU5u/pgK/Vj9Ee6/411y8gm5a4b1Qfwt9uYUrnoTXBGLvzvoFCXbDLDaVcjfd38WX0JBRCnUroRW/M1qRzRSxgPt55+NPRc8FJJgbtaB4rBz+phRxtcj//hylr5s4YDScvDVT0KfCw7yGpRGIYohfS2H3v4NoL6tYL3BbWwOsoHawY3y1tDJpp46p8pp5U2UrEcLD0BnCtT4bBIXyJ0J/Pwf0eAu8ELtiROO5uQtazy9LMAvPoKGDoU00n/CSr4K2RTkFfyCMRj+OWg2Ht9RNv27+X/PId8cVN+62/SvWAngqtehdq17yjmURlHfZjRvdxi98fyFr/21GWfT5ivnkQehRfSOnqV35S4KpW4w7ZB/1NNNMYf6wzukk3ulbBI1iIJkBBZX1Bn/gby621wyRrx0DcXhQGzPYOnEY/nmKbVeXLTicNcn+DAArZ4503S5ZjkAAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.busy,
+.tarotCard .tarotCard-status > .badge.busy {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAKNSURBVHjajJI9a1RBGIWfGeLdmPXuKkR0Q0RTmFsFUxgQNcaPRonpbAW1sAlY2IhFfoCIVSDaaVImFhYWmkTxAwJBVgttNqTYQFAjAWPi7t3svXeOxeC3hQdeZpiZ887DmTFuchIlCUoSTLOJ6erqV7F4QYXCaTo68hgDHz82WFmZsbXauKrVWYUhBjCNBsZNTaF6HdVqAT09tzlw4BJhyD8Vx1Au36dSuWyC4LPJMlpwDur1HH19jzh48DiAefUK8+QJVCrgHHR3o2PHUH8/HD16jkKhi7m5UwTBF9zdu6RzcxOJpFRSduOG1N4u5XJ+3LlTam2Vtm+XGxlR2mgokZTOzz90o6PgpqcPpRsbP83GSKWSFEXS/v2+okjq7JRA7vp1pZLSZlPJ5OQZqx07hrVtG+b1a+zNm7B7N4ShR/8u56CtDfbswYyNYZ8+hS1bMPv2XbUKw5MGMNPTsLEBhQJIfwco+SZJAo8f+7XOzj5LR0cegIUFb/715j/lnKerVKDZhFLJWlnrN9OU/1aW/Zha8+FDA4Dublhfh+8N/yVr4etXiCIIAvj0SZa1tRcAOnECtm6FWg2M+dtsDGxu8uMsYJaX31q7unpbcYyOHEFXrsDyMtTrv5NY683VKu7iRTQ4CBKqVm/h7twhnZ9/kEhK41ju2jWpWJTa2qRdu3zl81I+r2x4WNnamv8H5fKLZHQU48bHURwXdfjwM3p6egHs7CzMzPi0swyiCA0MoKEhj76wsOiePx/AmPfGTUwgQFI7UXSP3t5BcjmPvrnp37+19Wf65fJLlpbOK02XqNdpAaClBYJgVe/enWV9fciE4TB79x6iVPLGlRVMtfpGcTymxcUpUyr5nIBvAwDWIWcndiwtQAAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.newMessage,
+.tarotCard .tarotCard-status > .badge.newMessage {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC/SURBVDhP1ZE9DgIhFIQhobDYg1haWniMbSw9j0exsfMAeg9L7Sy2kPATnCFI2LgYtjJOMjx4vPkoED+X5OK934cQ+thpFOYvSqmdMMascVDOuQMcGn1GptNaL4W1dgBkMwOSw8jeBJszIKMwexFAN0A+wnQG0Lh4wv0EJIb5AO4fRX8MoDFAlZAyPJSztOSSfiYLAYeyxTcdURcIrqSUJ7iLA4UmAdQbgnqvhakqgEoQXQtTXwEtIuCa9n8pIV67VJf6AmhGmgAAAABJRU5ErkJggg%3D%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.paused,
+.tarotCard .tarotCard-status > .badge.paused {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAArSURBVDhPY/j9+7fDnz9//mPBCQxQgE8NE1QN2WDUgFEDQGDUgIE3gIEBAArtNKc4HT7sAAAAAElFTkSuQmCC) 50% no-repeat;
+}
+.tarotCard .suit > .badge.playing,
+.tarotCard .tarotCard-status > .badge.playing {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEXSURBVDhPY4CBnz9/pvz+/dsFyiUaMEFpBiYmJhkgtf3v37/t////Z4GIEgZwA0CAkZGRBai5AmjIYSCtABXGC1AMQAIWf/78OQ/EEVA+ToDLAJBrBIDUcqBrZgNdwwMRxQQ4DYABoOYUoCGngYFsABVCAQQNgAINYCAf//XrVwGUDwfEGgDyEgfQkH5guGwGukoEKky8AUhA5sePH6DwAQOSDAC6YgIzM7MpJyfnHagQcQYAnfwGiD2BmguBhvyBCoMBMQbsYWFh0WVlZd0B5aMAnAYAbfzz79+/SqBmV6CtL6DCGACXAQ+ABliysbF1QPk4AYYBQI0rgH7VBWo+AxXCC+AGADV+AVKJQL9GAp0MYhMBGBgA8v5j1f90TA8AAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.error,
+.tarotCard .tarotCard-status > .badge.error {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFiSURBVDhPjVM7TsNQELRjy8ISBQeIREtBEYnQUXCINFTkCCBxgNwAJI5AaejSpaCAEqRINBTcIQ1SbD9/mHmfZP3iSIw0ytt9O7O7thMGHpqmGVZVNQnD8AwcMde27RL8rOt6nqbpjy7sA4RTpdQKv20fcbcuy/IOZrGVbIHLpz7RHr52TJCYukuMeU+6WDBjdxej4UyLubMbm0KdBDyTzHWEyY01UEVRnA4Q8IEdaZVAFEW3yD/g+IzzFc6VuTFAHAPXO7vLKQi5q+suuOD+X15yx4ToEXON1QB3B6ZkC3Qd+q8Kaxzbo0TMCTLPefPAfPS8nTeOtnk1YEfMsf11pIm+y/P8BLusmaCZrevsLE1QO3F51FzopJyCQil2pAnFoLLxI7X6z8SxkVjgeMn4H/jGQz3Ht/BrY2MC85nrsI/sjNpDKzMTSODzHPELQ9EY1H9ndFqCHxC/JEnyrgs1guAPTvwreuY0IiIAAAAASUVORK5CYII%3D) 50% no-repeat;
+}
+.tarotCard .suit > .badge.alert,
+.tarotCard .tarotCard-status > .badge.alert {
+  background: #3A3A3A url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVDhPtZI9bsJAEIVZ7ANQ5gApEomChjoNBUUOkSJFivSUQE3JEThCCo4BkotcIVKKNEi2vP7hveVZrMFgKPJJo915szOzf51/Jc/zhbV2Jfc+kiR5QrLNsqzEMJJ8O0hcM1kWlWUZKtQOOo69ZGdpmn4ofB12QsI3k1BoRtP8F7Gell0GnT6rrpJ4HOfzUiU1ww7o9HepAGI2juNHyeegw7Ja3FRA9iW5jv9slSl0WqD2rEYjF7Hy68E7gCPNORpjpk44sg2CYAg969JTxVoywYIXmlyfAS77jRPDZ8PZN5j3KfiEYeh2yG07wQN5P4g/d9H9Hf5ZMkHM/QO5NbCzh6IoJgbVI/iNBdrALnY8An9X+w9rpLPbA/sADga+JgSiAAAAAElFTkSuQmCC) 50% no-repeat;
 }
 .tarotCard .suit > .name,
 .tarotCard .tarotCard-status > .name {
@@ -5505,5 +5269,252 @@ div.jGrowl div.jGrowl-closer:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+/* if you dont include it at the end, you will need !important declarations for all this. :( */
+.fg-color-blue {
+  color: #2d89ef;
+}
+.fg-color-blueLight {
+  color: #eff4ff;
+}
+.fg-color-blueDark {
+  color: #2b5797;
+}
+.fg-color-green {
+  color: #00a300;
+}
+.fg-color-greenLight {
+  color: #99b433;
+}
+.fg-color-greenDark {
+  color: #1e7145;
+}
+.fg-color-red {
+  color: #b91d47;
+}
+.fg-color-yellow {
+  color: #ffc40d;
+}
+.fg-color-orange {
+  color: #e3a21a;
+}
+.fg-color-orangeDark {
+  color: #da532c;
+}
+.fg-color-pink {
+  color: #9f00a7;
+}
+.fg-color-pinkDark {
+  color: #7e3878;
+}
+.fg-color-purple {
+  color: #603cba;
+}
+.fg-color-darken {
+  color: #1d1d1d;
+}
+.fg-color-lighten {
+  color: #d5e7ec;
+}
+.fg-color-white {
+  color: #ffffff;
+}
+.fg-color-grayDark {
+  color: #525252;
+}
+.fg-color-magenta {
+  color: #ff0097;
+}
+.fg-color-teal {
+  color: #00aba9;
+}
+.fg-color-redLight {
+  color: #ee1111;
+}
+.bg-color-blue {
+  background-color: #2d89ef;
+}
+.bg-color-blueLight {
+  background-color: #eff4ff;
+}
+.bg-color-blueDark {
+  background-color: #2b5797;
+}
+.bg-color-green {
+  background-color: #00a300;
+}
+.bg-color-greenLight {
+  background-color: #99b433;
+}
+.bg-color-greenDark {
+  background-color: #1e7145;
+}
+.bg-color-red {
+  background-color: #C40000;
+}
+.bg-color-yellow {
+  background-color: #ffc40d;
+}
+.bg-color-orange {
+  background-color: #e3a21a;
+}
+.bg-color-orangeDark {
+  background-color: #da532c;
+}
+.bg-color-pink {
+  background-color: #9f00a7;
+}
+.bg-color-pinkDark {
+  background-color: #7e3878;
+}
+.bg-color-purple {
+  background-color: #603cba;
+}
+.bg-color-darken {
+  background-color: #1d1d1d;
+}
+.bg-color-lighten {
+  background-color: #d5e7ec;
+}
+.bg-color-white {
+  background-color: #ffffff;
+}
+.bg-color-grayDark {
+  background-color: #525252;
+}
+.bg-color-magenta {
+  background-color: #ff0097;
+}
+.bg-color-teal {
+  background-color: #00aba9;
+}
+.bg-color-redLight {
+  background-color: #ee1111;
+}
+[class*=border-color] {
+  border: 2px solid;
+}
+.border-color-blue {
+  border-color: #2d89ef;
+}
+.border-color-blueLight {
+  border-color: #eff4ff;
+}
+.border-color-blueDark {
+  border-color: #2b5797;
+}
+.border-color-green {
+  border-color: #00a300;
+}
+.border-color-greenLight {
+  border-color: #99b433;
+}
+.border-color-greenDark {
+  border-color: #1e7145;
+}
+.border-color-red {
+  border-color: #b91d47;
+}
+.border-color-yellow {
+  border-color: #ffc40d;
+}
+.border-color-orange {
+  border-color: #e3a21a;
+}
+.border-color-orangeDark {
+  border-color: #da532c;
+}
+.border-color-pink {
+  border-color: #9f00a7;
+}
+.border-color-pinkDark {
+  border-color: #7e3878;
+}
+.border-color-purple {
+  border-color: #603cba;
+}
+.border-color-darken {
+  border-color: #1d1d1d;
+}
+.border-color-lighten {
+  border-color: #d5e7ec;
+}
+.border-color-white {
+  border-color: #ffffff;
+}
+.border-color-grayDark {
+  border-color: #525252;
+}
+.border-color-magenta {
+  border-color: #ff0097;
+}
+.border-color-teal {
+  border-color: #00aba9;
+}
+.border-color-redLight {
+  border-color: #ee1111;
+}
+*:hover[class=outline-color] {
+  outline: 3px solid;
+}
+.outline-color-blue {
+  outline-color: #2d89ef;
+}
+.outline-color-blueLight {
+  outline-color: #eff4ff;
+}
+.outline-color-blueDark {
+  outline-color: #2b5797;
+}
+.outline-color-green {
+  outline-color: #00a300;
+}
+.outline-color-greenLight {
+  outline-color: #99b433;
+}
+.outline-color-greenDark {
+  outline-color: #1e7145;
+}
+.outline-color-red {
+  outline-color: #b91d47;
+}
+.outline-color-yellow {
+  outline-color: #ffc40d;
+}
+.outline-color-orange {
+  outline-color: #e3a21a;
+}
+.outline-color-orangeDark {
+  outline-color: #da532c;
+}
+.outline-color-pink {
+  outline-color: #9f00a7;
+}
+.outline-color-pinkDark {
+  outline-color: #7e3878;
+}
+.outline-color-purple {
+  outline-color: #603cba;
+}
+.outline-color-darken {
+  outline-color: #1d1d1d;
+}
+.outline-color-lighten {
+  outline-color: #d5e7ec;
+}
+.outline-color-white {
+  outline-color: #ffffff;
+}
+.outline-color-grayDark {
+  outline-color: #525252;
+}
+.outline-color-magenta {
+  outline-color: #ff0097;
+}
+.outline-color-teal {
+  outline-color: #00aba9;
+}
+.outline-color-redLight {
+  outline-color: #ee1111;
 }
 /*! http://hui.huement.com */

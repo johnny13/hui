@@ -1766,11 +1766,11 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 			<div class="twelvecol last">
 			<h2 class="page-header">Tarot Cards</h2>
 			
-			<p class="fnote">Forked from <a href="https://github.com/olton/Metro-UI-CSS">github.com/olton/Metro-UI-CSS</a>'s Live tarotCards. These Cards can can communicate new, real-time information to your user. Cards can show a combination of text and images, and a badge to show status.</p>
+			<p class="fnote">Forked from <a href="https://github.com/olton/Metro-UI-CSS">github.com/olton/Metro-UI-CSS</a>'s Live Tiles. These Cards can can communicate new, real-time information to your user. Cards can show a combination of text and images, and a badge to show status.</p>
 			
 			<h3>Tarot Basics</h3>
 			<p>The default tarotCard size is 150x150 pixels. tarotCard size may be increased with add the next subclasses for tarotCard object: <code>.double(-vertical)</code>, <code>.triple(-vertical)</code>, <code>.quadro(-vertical)</code>. Cards can optionally be Selected, or change background color for tarotCard with classes <code>.bg-color-*</code>.</p>
-			<div class="boxMost" style="width:70%;margin:20px 0 20px 18%;min-width:330px;">
+			<div class="boxMost tarotDeck" style="width:70%;margin:20px 0 20px 18%;min-width:330px;">
                 <div class="tarotCard"></div>
                 <div class="tarotCard double"></div>
                 <div class="tarotCard selected"></div>
@@ -1779,15 +1779,17 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 			<br/>
 
 <pre class="htmlCode">
-    &lt;div class="tarotCard"&gt;&lt;/div&gt;
-    &lt;div class="tarotCard double"&gt;&lt;/div&gt;
-    &lt;div class="tarotCard selected"&gt;&lt;/div&gt;
-    &lt;div class="tarotCard bg-color-orange"&gt;&lt;/div&gt;
+  &lt;div class="tarotDeck"&gt;&lt;/div&gt;
+   &lt;div class="tarotCard"&gt;&lt;/div&gt;
+   &lt;div class="tarotCard double"&gt;&lt;/div&gt;
+   &lt;div class="tarotCard selected"&gt;&lt;/div&gt;
+   &lt;div class="tarotCard bg-color-orange"&gt;&lt;/div&gt;
+  &lt;/div&gt;
 </pre>
 
 			<h3>Tarot Content</h3>
 			<p class="fnote">Content can be placed in sub container with class <code>.Tarot-content</code>. Class .Tarot-content has padding 10px from top, bottom and 15px from left, right.</p>
-			<div class="boxMost C" style="width:70%">
+			<div class="boxMost C tarotDeck" style="width:70%">
                 <div class="tarotCard double bg-color-green">
                     <div class="tarotCard-content">
                         <h2>mattberg@live.com</h2>
@@ -1813,7 +1815,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                 </div>
                 <div class="tarotCard double bg-color-blueDark">
                     <div class="tarotCard-content">
-                        <img src="demos/images/michael.jpg" class="place-right"/>
+                        <img src="demos/images/alice.jpg" class="place-right"/>
                         <h4 style="margin-bottom: 5px;">michael_angiulo</h4>
                         <p>
                             I just saw Thor last night. It was awesome! I think you'd love it.
@@ -1841,11 +1843,11 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 			<div class="twelvecol last">
 			<h3>TarotCard content built-in subclasses</h3>
 			<p class="fnote">TarotCard content can be organized with built-in subclasses: <code>.icon</code>, <code>.image</code>, <code>.image-set</code>, <code>.image-slider</code>.</p>
-				<div class="clearfix">
-					<h5 style="width:auto;clear:none;float:left;">Subclass .icon</h5><h5 style="width:auto;clear:none;float:left;">Subclass .image</h5><h5 style="width:auto;clear:none;float:left;">Subclass .image-set</h5>
+				<div class="boxMost C tarotDeck" style="width:70%">
+					<p>Shown here are the subclass <code>.icon</code>, <code>.image</code> and <code>.image-set</code></p>
                 </div>
 
-				<div class="boxMost">
+				<div class="boxMost C tarotDeck" style="width:70%">
 				<div class="grid">
 		            <div class="row ">
 		                <div class="span2">
@@ -1934,7 +1936,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 			<p class="fnote">To activate, simply add the attribute <code>data-role="Tarot"</code> to any tarotCard object. They will Animate AUTOMATICALLY!<br/>
             To set specific parameters such as <code>direction</code>, <code>duration</code>, <code>easing</code> and <code>period</code> you must add param <code>data-param-direction(duration, period)</code> to the tarotCard.</p>
 				
-				<div class="boxMost">
+				<div class="boxMost tarotDeck">
 					
 					<div class="tarotCard double image-slider" data-role="Tarot">
                         <div class="tarotCard-content">
@@ -2033,7 +2035,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 			
 				<br/><div class="push"></div>
 				<h3>tarotCard status</h3>
-                <p>tarotCard Suit's can be placed in sub container with class <code>.suit</code> or <code>.tarotCard-status</code>. tarotCard status background color can be changed, example with built-in classes <code>.bg-color-* </code></p>
+                <p>tarotCard Suit's can be placed in sub container with class <code>.suit</code> or <code>.tarotCard-status</code>. tarotCard status background color can be changed, example with built-in classes <code>.bg-color-* </code>. Or Any Selected Card can set to automatically color shift by adding <code>data-param-shift="true"</code> to the <code>.Selected</code> card.</p>
 <pre class="htmlCode">
 &lt;div class="tarotCard"&gt;
 &lt;div class="suit"&gt;
@@ -2054,7 +2056,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 &lt;/div&gt;
 </pre>
 <br/>
-				<div class="clearfix">
+				<div class="tarotDeck tarotBox">
                     <div class="tarotCard">
                         <div class="tarotCard-status">
                             <div class="badge bg-color-blue">99</div>
@@ -2119,10 +2121,10 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 
 				<br/>
 				<div class="push"></div>
-				<h3 class="page-header">Tile status &gt; Branding info</h3>
-				<p>
-                    A branding info can display brand name or a brand glyph. Branding info  is positioned in tile status container on the bottom left corner.
-                </p>
+				<h3 class="page-header">Tarot Suits &gt; Status</h3>
+				<p class="fnote">
+                    A suit of your choice can be displayed as a name or glyph. Suit info is positioned in the bottom left corner of the tarots container.
+                </p><br/>
 <pre class="htmlCode">
   &lt;div class="tarotCard"&gt;
       &lt;div class="suit"&gt;
@@ -2135,8 +2137,8 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
           &lt;div class="icon"&gt; &lt;img /&gt; &lt;/div&gt;
       &lt;/div&gt;
   &lt;/div&gt;
-</pre>
-				<div class="clearfix">
+</pre><div class="push"></div>
+				<div class="tarotDeck clearfix">
                     <div class="tarotCard">
                         <div class="suit">
                             <div class="badge">10</div>
@@ -2156,11 +2158,12 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                     </div>
                 </div>
 				<br/>
-				<div class="push"></div>
+				<div class="push" style="height:50px;"></div>
 				
 				
-				<div class="tarotCards clearfix">
-                    <h3>Examples of tiles made with Metro UI CSS</h3>
+				<div class="tarotDeck tarotBox">
+                    <h3 class="page-header" style="max-width:800px;">Metro style UI Example</h3>
+					<p class="fnote">Shifting Colors are achieved by adding <code>data-param-shift="true"</code> to any card.</p><div class="push"></div>
                     <div class="tarotCard image">
                         <div class="tarotCard-content">
                             <img src="demos/images/myface.jpg" alt="">
@@ -2197,7 +2200,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                         </div>
                     </div>
 
-                    <div class="tarotCard double-vertical bg-color-yellow icon">
+                    <div class="tarotCard double-vertical bg-color-red icon">
                         <div class="tarotCard-content">
                             <img src="demos/images/Calendar128.png" />
                         </div>
@@ -2206,7 +2209,7 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                         </div>
                     </div>
 
-                    <div class="tarotCard bg-color-green icon selected">
+                    <div class="tarotCard bg-color-green icon selected" data-param-shift="true">
                         <b class="check"></b>
                         <div class="tarotCard-content">
                             <img src="demos/images/Market128.png"/>
@@ -2217,26 +2220,28 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                         </div>
                     </div>
 
-                    <div class="tarotCard bg-color-red icon selected">
+                    <div class="tarotCard bg-color-red icon selected" data-param-shift="true">
                         <div class="tarotCard-content">
                             <img src="demos/images/Music128.png" alt="" />
                         </div>
                         <div class="suit">
+							<div class="badge paused"></div>
                             <span class="name">Music</span>
                         </div>
                     </div>
 
                     <div class="tarotCard double bg-color-blueDark">
                         <div class="tarotCard-content">
-                            <img src="demos/images/michael.jpg" class="place-left"/>
-                            <h3 style="margin-bottom: 5px;">michael_angiulo</h3>
+                            <img src="demos/images/alice.jpg" class="place-left"/>
+                            <h3 style="margin-bottom: 5px;">Alice_Morgan</h3>
                             <p>
-                                I just saw Thor last night. It was awesome! I think you'd love it.
-                                <h5>RT @julie_green</h5>
+                                I saw Luther last night. Isn't he the dreamiest?
+                                <h5>RT @molly_hooper</h5>
                             </p>
                         </div>
                         <div class="suit">
-                            <span class="name">Tweet@rama</span>
+							<div class="badge newMessage"></div>
+                            <span class="name">@twitter</span>
                         </div>
                     </div>
 
@@ -2251,19 +2256,27 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 
                     <div class="tarotCard icon">
                         <div class="tarotCard-content">
-                            <img src="demos/images/excel2013icon.png"/>
+                            <img src="demos/images/PumpkinKing.png"/>
                         </div>
                         <div class="suit">
-                            <span class="name">Excel 2013</span>
+							
+                            <span class="name">huement</span>
                         </div>
                     </div>
 
-                    <div class="tarotCard double bg-color-green">
+                    <div class="tarotCard double bg-color-green" data-role="Tarot" data-param-period="5000">
                         <div class="tarotCard-content">
                             <h2>mattberg@live.com</h2>
-                            <h5>Re: Wedding Annoucement!</h5>
+                            <h5>Re: Launch Party Invites</h5>
                             <p>
                                 Congratulations! I'm really excited to celebrate with you all. Thanks for...
+                            </p>
+                        </div>
+                        <div class="tarotCard-content">
+                            <h2>tina@live.com</h2>
+                            <h5>Re: Launch Party Invites</h5>
+                            <p>
+                                Huh! Waw!!! I'm really excited to celebrate with you all. Thanks for...
                             </p>
                         </div>
                         <div class="suit">
@@ -2300,16 +2313,18 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
                             <img src="demos/images/5.jpg" alt="">
                         </div>
                         <div class="suit">
+							<div class="badge playing"></div>
                             <span class="name">Photos</span>
                         </div>
                     </div>
 
-                    <div class="tarotCard bg-color-blue icon">
+                    <div class="tarotCard bg-color-blue icon" data-param-shift="true">
                         <div class="tarotCard-content">
-                            <img src="demos/images/InternetExplorer128.png"/>
+                            <img src="demos/images/hui128.png"/>
                         </div>
                         <div class="suit">
-                            <span class="name">Internet Explorer</span>
+							<div class="badge attention"></div>
+                            
                         </div>
                     </div>
 

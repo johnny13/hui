@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
-        src: ['src/css/standardization.css', 'src/css/body.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/character.css', 'src/css/forms.css', 'src/css/widgets.css'],
+        src: ['src/css/standardization.css', 'src/css/body.css', 'src/css/display.css', 'src/css/buttons.css', 'src/css/character.css', 'src/css/forms.css', 'src/css/widgets.css','src/css/colors.css'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
       },
     },

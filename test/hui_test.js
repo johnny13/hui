@@ -18,7 +18,7 @@
       strictEqual(actual, expected, [message])
       notStrictEqual(actual, expected, [message])
       throws(block, [expected], [message])
-  */
+ 
 
   module('jQuery#awesome', {
     // This will run before each test in this module.
@@ -31,7 +31,7 @@
       var value = "hello";
       equal( value, "hello", "We expect value to be hello" );
   });
-
+*/
  // test("prettydate basics", function() {
  //   var now = "2008/01/28 22:25:00";
    // equal(prettyDate(now, "2008/01/28 22:24:30"), "just now");
