@@ -1,6 +1,7 @@
-/*! huement user interface - v1.15.2 - 2013-04-16
+/*! huement user interface - v1.15.2 - 2013-04-18
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
+
 (function(jQuery) {
  
  jQuery.fn.hui = function(options) {
@@ -4737,4 +4738,6 @@ function shuffleTarot(){
 jQuery(window).ready(function(){
     shuffleTarot();
 });
+
 /*! http://hui.huement.com */
+

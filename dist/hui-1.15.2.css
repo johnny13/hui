@@ -1,6 +1,9 @@
-/*! huement user interface - v1.15.2 - 2013-04-16
+/*! huement user interface - v1.15.2 - 2013-04-18
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
+
+/* NOTE: hui base css only. THIS DOES NOT CONTAIN A DEV-THEME. Use this file if you want to make your own theme. The Provided themes, hui-dark.css and hui-light.css are a minfied version of this file, plus a minfied version of their respective dev-theme.css files, and work great to get started quickly or for production. */
+
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}
 table{border-spacing:0}
 fieldset,img{border:0}
@@ -5517,4 +5520,6 @@ box-sizing: border-box;
 .outline-color-redLight {
   outline-color: #ee1111;
 }
+
 /*! http://hui.huement.com */
+
