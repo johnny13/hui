@@ -71,25 +71,10 @@ a {
  margin-right:auto;
 }
 
-.tR {
- text-align:right;
-}
-
-.tL {
- text-align:left;
-}
-
 .page-header {
 padding: 5px 0 9px 10px;
 margin: 20px 0 30px;
 border-bottom: 1px solid #B1B1B1;
-	-moz-box-shadow: 0px 1px 2px #EBEBEB;
-	-webkit-box-shadow: 0px 1px 2px #EBEBEB;
-	box-shadow: 0px 1px 2px #EBEBEB;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#EBEBEB')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#EBEBEB');
 }
 
 p {

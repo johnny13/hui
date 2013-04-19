@@ -155,12 +155,7 @@ h1 {
   font-smooth: always;
   color: #000000;
 }
-h1:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h1:active {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 h2 {
   font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -170,12 +165,7 @@ h2 {
   font-smooth: always;
   color: #000000;
 }
-h2:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h2:active {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 h3 {
   font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -186,12 +176,7 @@ h3 {
   color: rgba(0, 0, 0, 0.6);
   line-height: 24px;
 }
-h3:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h3:active {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 h4 {
   font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -202,18 +187,8 @@ h4 {
   color: #000000;
   color: rgba(0, 0, 0, 0.6);
 }
-h4:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h4:active {
-  color: rgba(0, 0, 0, 0.4);
-}
-h4:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h4:active {
-  color: rgba(0, 0, 0, 0.4);
-}
+
+
 h5 {
   font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -222,12 +197,7 @@ h5 {
   line-height: 13pt;
   color: rgba(0, 0, 0, 0.6);
 }
-h5:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h5:active {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 h6 {
   font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
   font-weight: normal;
@@ -235,12 +205,6 @@ h6 {
   letter-spacing: 0.01em;
   line-height: 13pt;
   color: rgba(0, 0, 0, 0.6);
-}
-h6:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-h6:active {
-  color: rgba(0, 0, 0, 0.4);
 }
 
 .lead {
