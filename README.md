@@ -1,19 +1,26 @@
 hui - Classy like a Lady
 ======
 
-hui [Huement User Interface] can adapt to viewport sizes, and has multiple fallbacks for various end user systems. It also supports a standard touch interface from the get go, and can be easily integrated into any project, online or offline. Basically a great option for any project supporting javascript and css.    
+hui is an under development web framework. It has two main areas, CSS and JS.    
+
+css technologies include SVG icons, google style buttons, @font-face    
+
+javascript is plenty of dynamic content widgets, and overall ui enhancements, as well as a number of useful scripts, like select box plugins, reactive navigation and animations.
 
 ## Why hui?
-hui aims to make your design process two things, Simple & Stylish.  
-Some of it's best features, and reason you might consider using it:
+hui provides a great ui environment. Load the hui library and a theme and you've got a basic setup that can get your next project started quickly.
+
+you can also rest assured that anything you build is going to work across all browsers. With special support for scaling to retina and television size displays.
+
+the majority of hui is contained within the CSS theme file, the small javascript library shouldn't interfere with any of your other plugins. All hui code uses GruntJS and JSLint to ensure quality is maintained. In addition we also use Quint testing for a case by case breakdown of the library's core functions.
 
 #### Automatic Functionality 
 
 Items like Browser Resets, Media Queries, HTML5 Fallbacks & Shiv's, and oldIE Fixers.    
 
-#### Basically Better
+#### Write Better Code
 
-Improve standard site elements, such as Typography, Icons and Images, Animations and Grid Layouts.   
+Improve standard site elements, such as font-face Typography, SVG Icons. Page and app layout assistance with a 12 column grid and a Sprite Image backed button framework. Use the included node.js and sass setup to create clean and minified code unique to your site. Easily integrate your own style sheets by simply dropping them in the appropriate folder (js, css, sass) and calling the GruntJS command.   
 
 #### Dynamic Plugins    
 
@@ -90,21 +97,23 @@ More Info on Our Blog: [huement.com/blog/](http://huement.com/blog/).
 
 ## Build, Hack & Customize. Fall in Love.
 
-hui Uses GruntJS, QUnit Tests, and PhantomJS to ensure quality code is maintained. It also allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.    
+hui Uses GruntJS, Sass, QUnit Tests, and PhantomJS to ensure quality code is written. These programs also benefit you the developers by allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.  Drop in your custom plugins and style sheets, use the Grunt or Sass commands and get a unique hui build in seconds.
     
  * Grunt.JS : [http://gruntjs.com/](http://gruntjs.com/)
- * YUI Grunt Module : [https://github.com/mathiasbynens/grunt-yui-compressor](https://github.com/mathiasbynens/grunt-yui-compressor)
+ * Grunt Sass : [http://github.com/sindresorhus/grunt-sass](https://github.com/sindresorhus/grunt-sass)
  * Phantom.JS : [http://phantomjs.org/](http://phantomjs.org/)
  * QUint Tests : [http://qunitjs.com/](http://qunitjs.com/)
     
 
 ## Major Change log
    
-v1.10.0	[jan-01-2013]	Released under GPL v3 & MIT    
+v0.0.1	[jan-01-2013]	Released under GPL v3 & MIT    
 
-v1.13.5	[feb-12-2013]	Majorish Update! List styles added. Notefy revamp. CSS Cleanup.
+v0.0.5	[feb-12-2013]	Majorish Update! List styles added. Notefy revamp. CSS Cleanup.
 
-v1.15.2	[apr-14-2013]	Woo! Framework cleaned up in a major effort to get production ready.
+v0.0.7	[apr-14-2013]	Woo! Framework cleaned up in a major effort to get production ready.
+
+v0.1.6	[may-15-2013]	Sass Themes. Demos and Widgets Updated.
     
 
 ## De jure
@@ -113,9 +122,10 @@ Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) & [
     
 Author: Derek Scott [@huement.com](https://twitter.com/huement).    
 
-![hui - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)    
-    
-
 ### Acknowledgements
 Thanks to all giants and plugin authors shoulders this framework is standing on.    
 Credits to any forks can be found in the un-minified javascript file.
+
+    
+
+![hui - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)  
