@@ -1,0 +1,29 @@
+@mixin boxShadow($xOffset, $yOffset, $blur, $color) {
+  -moz-box-shadow: $xOffset, $yOffset, $blur, $color; // FF3.5+
+  -webkit-box-shadow: $xOffset, $yOffset, $blur, $color; // Saf3.0+, Chrome
+  box-shadow: $xOffset, $yOffset, $blur, $color; // Opera 10.5, IE9+, Chrome 10+
+}
+
+@mixin boxShadowInset($xOffset, $yOffset, $blur, $color, $inset) {
+  -moz-box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // FF3.5+
+  -webkit-box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // Saf3.0+, Chrome
+  box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // Opera 10.5, IE9+, Chrome 10+
+}
+
+@mixin gradientV($start, $end){
+  background: mix($start, $end); // Non CSS3 browsers get the average color
+  background-image: -moz-linear-gradient(top,  $start, $end); // FF 3.6
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start), to($end)); // Safari 4+, Chrome
+  background-image: -webkit-linear-gradient(top, $start, $end); // Chrome 10+, Safari 5.1+
+  background-image: -o-linear-gradient(top, $start, $end); // Opera 11.10+
+  background-image: linear-gradient(top, $start, $end); // CSS3
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}'); // IE6 & 7
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}'); // IE8
+  background-image: -ms-linear-gradient(top, $start, $end); // IE10
+}
+
+@mixin borderRadius($radius){
+  border-radius: $radius; // Opera 10.5, IE 9, Saf5, Chrome
+  -moz-border-radius: $radius; // FF 1+
+  -webkit-border-radius: $radius; // FF 1+
+}

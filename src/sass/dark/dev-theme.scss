@@ -1,0 +1,1032 @@
+// ============================================================= //
+// =              hui sass boilerplate - dark theme            = //
+// =      by Derek Scott @huement, 2013  -  hui.huement.com/   = //
+// ============================================================= //
+
+// ================== //
+//  Mixins Functions  //
+// ================== //
+@import "../boilerplate";
+
+// ================== //
+// = Main Variables = //
+// ================== //
+$linkColor:#00BCEB;
+$linkHover:#5FDFFF;
+$linkVisit:#FF0090;
+$fontSize:1em;
+$lineHeight:1.5em;
+$family:Helvetica, Arial, sans-serif;
+$fontColor:#FCFCFC;
+$paragraphP:5px 0 0 5px;
+$bodyBack:#2B2B2B;
+$headerP:5px 0 9px 10px;
+$headerM:20px 0 30px;
+$headerBorder:1px solid #5F5F5F;
+$smallLimitOne:800px;
+$smallLimitTwo:480px;
+$smallLimitThree:320px;
+$smallFontSize:0.95em;
+
+$buttonBase:#EEEEEE;
+$buttonBorder:#747474;
+$buttonLabel:#000000;
+$buttonHover:#979797;
+$buttonHoverBorder:#383838;
+$buttonHoverLabel:#FFFFFF;
+$buttonHoverSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-white.png";
+$buttonSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-hue.png";
+
+$formPadding:1em 2em 2em 2em;
+$fieldsetBack:#A8A8A8;
+$fieldsetBorder:1px solid #727272;
+$fieldsetPadding:2em;
+$labelPadding:0 1em 0 0;
+$labelColor:#F5F5F5;
+
+$tableBack:#B1B1B1;
+$tableColor:#333333;
+$tableHighlight:#CCCCCC;
+$tableTheme:#A7A7A7;
+$tableThemeColor:#080808;
+$tableThemeText:#3f3f3f;
+$tableThemeHeader:#BEBEBE;
+$tableThemeHeaderText:#111111;
+$tableEven:#E4E4E4;
+$tableEvenText:#4d4d4d;
+$tableOdd:#F1F1F1;
+$tableOddText:#2d2d2d;
+
+$faceboxBack:#f7f7f7;
+$faceboxText:#1b1b1b;
+$faceboxSecondText:#1b1b1b;
+$faceboxHighlight:#e0e0e0;
+$faceboxBorder:2px #555555 solid;
+
+$TipTipBack:#141414;
+$TipTipText:#F7F7F7;
+$TipTipSecondText:#1b1b1b;
+$TipTipHighlight:#e0e0e0;
+$TipTipxBorder:1px solid #e6e6e6;
+$TipTipPadding:.5em 1em;
+$TipTipArrow:#ffffff;
+
+$flapperBack:#E6E6E8;
+$flapperText:#666;
+$flappermargin:10px 0px 50px 0px;
+$flapperpadding:4px 5px 4px 3px;
+$flapperSecondText:#999;
+$flapperHighlight:#E6E6E6;
+$flapperBorder:1px solid #C5C5C5;
+$flapperPadding:.5em 1em;
+$flapperSpeak:#ffffff;
+$flapperSpeakBorder:#C2C2C2;
+$flapperActive:#838383;
+$flapperActiveColor:#000000;
+
+$navbarHeight:40px;
+$navbarBack:#141414;
+$navbarLinkText:#f7f7f7;
+$navbarLinkSize:100px;
+$navbarLinkbackground:#242424;
+$navbarFontSize:1.2em;
+$navbarSecondText:#999;
+$navbarHighlight:#E6E6E6;
+$navbarBorder:1px solid #6D6D6D;
+$navbarPadding:.5em 1em;
+$navbarSpeak:#ffffff;
+$navbarSpeakBorder:#C2C2C2;
+$navbarActive:#838383;
+$navbarActiveColor:#000000;
+
+$horizontalNavBack:#505050;
+$horizontalNavBackTwo:#2E2E2E;
+$horizontalNavBackhover:#3d3d3d;
+$horizontalNavBackhoverTwo:#111111;
+$horizontalNavText:#F7F7F7;
+$horizontalNavFontSize:1.2em;
+$horizontalNavLine:1.6em;
+$horizontalNavSecondText:#ffffff;
+$horizontalNavHighlight:#000000;
+$horizontalNavBorder: 1px solid #646464;
+
+$red:#C20000;
+$green:#0F8000;
+$orange:#E75C00; 
+$yellow:#F3D124;
+$blue:#1D92FF;
+$purple:#911CFF;
+$white:#FFFFFF;
+$black:#2E2E2E;
+$redH:#D32323;
+$greenH:#33D424;
+$orangeH:#D44D24; 
+$yellowH:#EBE313;
+$blueH:#13A6EB;
+$purpleH:#D113EB;
+$whiteH:#F7F7F7;
+$blackH:#3d3d3d;
+$redB:#C20000;
+$greenB:#0F8000;
+$orangeB:#E75C00; 
+$yellowB:#F3D124;
+$blueB:#1D92FF;
+$purpleB:#911CFF;
+$whiteB:#FFFFFF;
+$blackB:#2E2E2E;
+
+// ================== //
+// Lets Rock and Roll //
+// ================== //
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $family;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: $fontColor;
+  background-color: $bodyBack;
+  text-rendering: optimizeLegibility 
+}
+
+a {
+  color: $linkColor;
+  &:hover { color:$linkHover; }
+  &:visited { color: $linkVisit; }
+}
+
+.tC {
+  text-align:center;
+  padding:1px;
+  margin-left:auto;
+  margin-right:auto;
+}
+  
+.page-header {
+  padding: $headerP;
+  margin: $headerM;
+  border-bottom: $headerBorder;
+}
+p {
+  border:none;
+  font-family:$family;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  padding:$paragraphP;
+}
+.fnote {
+  color:#666 !important;
+  padding:5px !important;
+  margin:0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  text-align: left !important;
+  width: 95%;
+  font-size: .98em;
+  line-height: 1.5em;
+}
+
+ul {
+  list-style-type: none
+}
+// unique styles //
+.shadow {
+  @include boxShadow(2px, 2px, 4px, #111111);
+}
+
+.glass {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 10px 10px 2px 2px;
+  -moz-border-radius: 10px 10px 2px 2px;
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+  -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}
+
+.round { @include borderRadius(3px); }
+
+.shadowRound {
+  padding:5px;
+  @include borderRadius(5px);
+  @include boxShadow(2px, 2px, 4px, #111111);
+}
+
+// Clearfix //
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.superFix {
+  position:fixed!important;
+}
+
+// Text Color Classes //
+.redText {color: $red;} 
+.orangeText {color: $orange;} 
+.yellowText {color: $yellow;} 
+.greenText {color: $green;} 
+.blueText {color: $blue;} 
+.purpleText {color: $purple;} 
+.whiteText {color: $white;} 
+.blackText {color: $black;}
+
+// Complimentary Color / Effects //
+a.redText:hover {color:$redH;}
+a.orangeText:hover {color: $orangeH;} 
+a.yellowText:hover {color: $yellowH;} 
+a.greenText:hover {color: $greenH;} 
+a.blueText:hover {color: $blueH;} 
+a.purpleText:hover {color: $purpleH;} 
+a.whiteText:hover {color: $whiteH;} 
+a.blackText:hover {color: $blackH;}
+
+// Background Color Classes //
+.redb {background-color: $redB;}
+.orangeb {background-color: $orangeB;} 
+.yellowb {background-color: $yellowB;} 
+.greenb {background-color: $greenB;} 
+.blueb {background-color: $blueB;} 
+.purpleb {background-color: $purpleB;} 
+.whiteb {background-color: $whiteB;} 
+.blackb {background-color: $blackB;}
+
+.greyb, .grayb {
+  background:#f6f6f6;
+}
+.greyb, .grayb p {
+  color:#333;
+}
+.greyb a { color:#25A1F3; }
+.greyb a:hover, .container p a:hover{ color:#00B7FF; }
+
+// Tegan Sara Taylor Lists // 
+.Tegan.style {
+  border:1px solid #969696;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.Tegan.style li:nth-child(1n), .Tegan.Sara.style li:nth-child(1n)  { background:#f7f7f7;background-color:#f7f7f7; }
+
+.Tegan.style li:nth-child(2n),.Tegan.Sara.style li:nth-child(2n) {background:#e7e7e7;background-color:#e7e7e7;}
+
+// BUTTON FRAMEWORK //
+button, .button {
+  background:$buttonBase;
+  border-color:$buttonBorder;
+}
+button .label, .button .label { color:$buttonLabel; }
+
+button:hover, .button:hover {
+  background: $buttonHover;
+  border-color: $buttonHoverBorder;
+}
+button:hover .label, .button:hover .label {
+  color:$buttonHoverLabel;
+}
+
+.huicon, .ddm span.icon, button span.icon, .button span.icon {
+  background-image: url($buttonSprite);
+}
+.ddm:hover span.icon, button:hover span.icon, .button:hover span.icon {
+  background-image: url($buttonHoverSprite);
+}
+
+button.MAC {
+  @include gradientV($buttonBase, $buttonHover);
+  &:hover { @include gradientV($buttonHover, $buttonBorder); }
+  &.on { @include gradientV($buttonBorder, $buttonBase); }
+}
+
+button.black {
+  @include gradientV($fontColor, $buttonHoverLabel);
+  &:hover { @include gradientV($buttonHover, $buttonHoverLabel); }
+  &.on { @include gradientV($buttonHoverBorder, $buttonHoverLabel); }
+}
+
+@media only screen and (max-width : $smallLimitOne) {
+  button, .button {
+    font-size: $smallFontSize;
+    padding: .3em .31em;
+    margin: 5px;
+  }
+}
+
+// -- notefy theme -- //
+
+div.jGrowl div.jGrowl-notification {
+  color:   $buttonBase;
+  @include borderRadius(4px);
+  border: 1px solid $buttonBorder;
+  @include gradientV($buttonHoverLabel,$fontColor);
+}
+
+div.jGrowl div.jGrowl-closer {
+  background-color: $fontColor;
+  color: $bodyBack;
+  @include borderRadius(0px);
+}
+
+@media screen and (max-width: $smallLimitOne) {
+  div.jGrowl div.jGrowl-notification {
+    @include borderRadius(3px);
+    background:$fontColor;
+    width:98%;
+    height:113px;
+    text-shadow:none;
+    color:#fff;
+  }
+}
+
+pre {
+  color: white;
+  background: $fontColor;
+  border: 3px solid $buttonHoverBorder;
+  @include boxShadow(2px, 2px, 10px, rgba(0,0,0,.15));
+}
+
+code {
+  background: $buttonBase;
+  color: $buttonLabel;
+  border: 1px solid $buttonBorder;
+}
+
+//--- Forms ---//
+form {
+  display: block;
+  clear: both;
+  padding: $formPadding;
+}
+
+input[type=submit] {
+  display: block;
+  font-weight: bold;
+  font-size: 1.25em;
+  background-color:#f5f5f5;
+  border-color:#e6e6e6;
+  color:#999;
+  padding: .5em 1em;
+  margin: 0;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  text-decoration: none;
+  @include borderRadius(4px);
+  @include boxShadow(0px, 0px, 6px, #e7e7e7);
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  border-color:#0099FF;
+  outline: none;
+  color:#FFFFFF;
+  background:#616161;
+}
+
+fieldset {
+  padding: $fieldsetPadding;
+  margin: 0 0 1em 0;
+  border: $fieldsetBorder;
+  background:$fieldsetBack;
+}
+
+label {
+  padding: $labelPadding;
+  color: $labelColor;
+  font-weight: normal;
+}
+select {
+  clear: both;
+  display: block;
+  margin: .5em 0 1em 0;
+}
+
+//--- Misc ---//
+sup, sub {
+  color: $labelColor;
+  font-size: .65em;
+}
+acronym {
+  font-weight: bold;
+  font-style: italic;
+  color: $labelColor;
+}
+abbr {
+  color: $labelColor;
+}
+
+blockquote {
+  padding: 0.15em .5em;
+  margin: 0.5em 0;
+  font-size: 2em;
+  color: $labelColor;
+  display: block;
+  font-style: italic;
+}
+
+blockquote:before, blockquote:after {
+  display: inline;
+  color: $fieldsetBorder;
+  font-size: 3em;
+  position: relative;
+  top: 0.25em;
+  left: -0.1em;
+}
+
+blockquote:before {
+  content: '\D \201C';
+}
+
+blockquote:after {
+  content: '\201D';
+}
+
+//--- Table ---//
+table.theme tr th, table.theme th {
+  background-color: $tableBack;
+  color: $tableColor;
+  text-shadow:-1px -1px 1px $tableHighlight;
+}
+table.theme th {
+  background-color: $tableHighlight;
+}
+table.theme th:hover {
+  background-color:$tableTheme;
+  color:$tableThemeColor;
+}
+
+table.theme th {
+  text-align: left;
+  padding: 0px 0 0 5px;
+  font-weight:bold;
+  line-height:2em;
+  background-color: $tableThemeHeader;
+  text-shadow:none;
+  color:$tableThemeHeaderText;
+}
+
+table.theme th:hover {
+  background-color:$tableTheme;
+  background:$tableTheme;
+  color:$red;
+}
+
+table.theme tbody td {
+  color: $tableThemeText;
+  padding: 2px;
+}
+table.theme .even, table.theme tr:nth-child(even) {
+  background-color: $tableEven;
+  background: $tableEven;
+  color:$tableEvenText;
+}
+table.theme .odd, table.theme tr:nth-child(odd) {
+  background-color: $tableOdd;
+  background: $tableOdd;
+  color:$tableOddText;
+}
+
+table .sorting-box {
+  // default affected //
+  background-color: $tableThemeHeader;
+}
+table .sorting-asc {
+  background-color: $green!important;
+  background: $green!important;
+  color:$tableOdd!important;
+}
+table .sorting-desc {
+  background-color: $red!important;
+  background: $red!important;
+  color:$tableEven!important;
+}
+table.style {
+  border: 1px solid $tableEven;
+}
+
+table.style th {
+  padding: .5em  1em;
+  color: black;
+  background: $tableThemeHeader;
+  font-weight: normal;
+}
+
+table.style th, table.style td {
+  border-bottom: 1px solid $tableOdd;
+}
+
+.style td {
+  padding: 6px 8px;
+  background: $tableEven;
+  width: 35%;
+  text-align: left;
+  white-space: nowrap;
+}
+
+table.style {
+  border: 1px solid $tableEven;
+  border-collapse: collapse;
+  clear: both;
+  width: 100%;
+  border-spacing: 0;
+  background: $tableOdd;
+  margin: 12px 0;
+  font-size: 13px; 
+  line-height: 18px;
+  margin: 0 0 20px 0;
+  border-left: 1px solid $tableOdd;
+}
+
+table.style th {
+  padding: .5em  1em;
+  color: black;
+  background: $tableEven;
+  font-weight: normal;
+}
+table.style th, table.style td {
+  border-bottom: 1px solid $tableOdd;
+}
+
+.style td {
+  text-align: left;
+  white-space: nowrap;
+  padding: 6px 8px;
+  background:$tableEven;
+  width: 35%;
+}
+
+.style td, .style th {
+  padding: .25em 1em;
+  border: 1px solid $tableEven;
+  vertical-align: middle;
+  text-align: left;
+  font-weight: normal;
+  color: $tableThemeText;
+  font-size: 0.85em;
+}
+.style tr:nth-child(even) {
+  background: $tableEven;
+}
+.style thead th, .style tfoot td {
+  background: $tableOdd;
+  color: $tableThemeText;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  padding: .5em .75em;
+}
+table.style tr th, table.style tr td {
+  padding: 10px 14px;
+  text-align: left;
+}
+table.style tr th {
+  background-color: $tableColor;
+  color:#fff;
+  border-right: 1px solid rgba(255,255,255, 0.15);
+  text-shadow: 0 -1px 1px rgba(0,0,0, 0.25);
+  @include gradientV($tableColor, $tableThemeHeaderText);
+}
+table.style tr td {
+  border-right: 1px solid $tableEven;
+  border-bottom: 1px solid $tableEven;
+}
+
+// FaceBox Modal //
+#facebox h1, #facebox h2 {
+  text-shadow:-1px -1px 1px $faceboxHighlight;
+  font-weight:bold;
+  color:$faceboxText;
+}
+
+#facebox .popup {
+  color: $faceboxText;
+  background: $faceboxBack;
+  border: $faceboxBorder;
+  @include boxShadow(2px, 2px, 8px, rgba(0,0,0,.15));
+} 
+
+#facebox .content {
+  background: $faceboxBack;
+}
+
+#facebox .content p {
+  color: $faceboxSecondText;
+}
+
+#facebox .content a {
+  color: $linkColor;
+}
+
+.facebox_overlayBG {
+  background-color: $faceboxText;
+  z-index: 99;
+}
+
+// TipTip CSS - Version 1.2 //
+#tiptip_holder { display: none; position: absolute; top: 0; left: 0; z-index: 99999; }
+
+#tiptip_holder.tip_top { padding-bottom: 5px; }
+
+#tiptip_holder.tip_bottom { padding-top: 5px; }
+
+#tiptip_holder.tip_right { padding-left: 5px; }
+
+#tiptip_holder.tip_left { padding-right: 5px; }
+
+#tiptip_content {
+  font-size: $smallFontSize;
+  color: $TipTipText;
+  padding: $TipTipPadding;
+  margin: 0;
+  background-color: $TipTipBack;
+  border: $TipTipxBorder;
+  text-decoration: none;
+  @include borderRadius(2px);
+}
+
+#tiptip_arrow, #tiptip_arrow_inner {
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  height: 0;
+  width: 0;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow {
+  border-top-color: $TipTipArrow;
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow {
+  border-bottom-color: $TipTipArrow;
+}
+
+#tiptip_holder.tip_right #tiptip_arrow {
+  border-right-color: $TipTipArrow;
+}
+
+#tiptip_holder.tip_left #tiptip_arrow {
+  border-left-color: $TipTipArrow;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+  margin-top: -7px;
+  margin-left: -6px;
+  border-top-color: rgb(25,25,25);
+  border-top-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+  margin-top: -5px;
+  margin-left: -6px;
+  border-bottom-color: rgb(25,25,25);
+  border-bottom-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+  margin-top: -6px;
+  margin-left: -5px;
+  border-right-color: rgb(25,25,25);
+  border-right-color: rgba(25,25,25,0.92);
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+  margin-top: -6px;
+  margin-left: -7px;
+  border-left-color: rgb(25,25,25);
+  border-left-color: rgba(25,25,25,0.92);
+}
+
+// Webkit Hacks  //
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  #tiptip_content {
+    padding: 4px 8px 5px 8px;
+    background-color: rgba(45,45,45,0.88);
+  }
+  #tiptip_holder.tip_bottom #tiptip_arrow_inner { 
+    border-bottom-color: rgba(45,45,45,0.88);
+  }
+  #tiptip_holder.tip_top #tiptip_arrow_inner { 
+    border-top-color: rgba(20,20,20,0.92);
+  }
+}
+
+// flapper girl accordion menu //
+
+.flapperStage {
+  min-width: 230px;
+  width:98%;
+  margin: $flappermargin;
+  padding: $flapperpadding;
+  border: $flapperBorder ;
+  @include borderRadius(3px);
+  position: relative;
+  background-color: $flapperBack;
+}
+
+.flapperStage .speakEasy {
+  width: 100%;
+  background: $flapperSpeak;
+  border: 1px solid $flapperSpeakBorder;
+  font: bold $smallFontSize/$fontSize;
+}
+
+.flapperStage .speakEasy ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.flapperStage .speakEasy ul li {
+  font-size: $fontSize;
+  padding: 5px 0px 5px 0;
+  width:100%;
+  margin:0;
+  color:$flapperText $flapperHighlight;
+  text-indent:25px;
+  border-bottom: 2px solid ;
+  position: relative;
+  line-height:1em;
+}
+
+.title_bar, .title_bar:hover {
+  padding: 10px 0px 10px 0 !important;
+  margin-left:0 !important;
+  text-align:center;
+  background-color:$flapperHighlight;
+  color:$flapperSecondText!important;
+  font-weight:bold;
+  text-shadow:none;
+}
+.title_bar:hover {
+  background-color:#f0f0f0;
+}
+.flapperStage .speakEasy ul li:hover {
+  background: $tableTheme !important;
+  color:$flapperSecondText;
+}
+.flapperStage .speakEasy ul li:hover a {
+  color:$linkHover;
+}
+
+.speakEasy ul li.active {
+  background: $flapperActive;
+  color: $flapperActiveColor;
+}
+.speakEasy ul li.active a {
+  color:$linkHover;
+}
+.flapperStage .speakEasy ul li:last-child {
+  border-bottom: none;
+}
+
+.speakEasy ul li a {
+width:100%;height:100%;display:block;
+color:$linkColor;
+}
+
+// Navigation Menu //
+nav.flex {
+  height: $navbarHeight;
+  width: 100%;
+  text-align:center;
+  font-size: $navbarFontSize;
+  font-weight:bold;
+  position: relative;
+  @include borderRadius(3px);
+  background: $navbarBack;
+}
+
+nav.flex ul {
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+
+nav.flex li {
+  display: inline;
+  float: left;
+}
+
+nav.flex a {
+  color: $navbarLinkText;
+  display: inline-block;
+  width: $navbarLinkSize;
+  text-align: center;
+  text-decoration: none;
+  line-height: $navbarHeight;
+  padding: 0;
+}
+
+nav.flex li a {
+  color:$navbarHighlight !important;
+  border-right: $navbarBorder;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+nav.flex li:last-child a {
+  border-right: 0;
+}
+
+nav.flex a:hover, nav.flex a:active {
+  background: $navbarLinkbackground;
+  color:$navbarLinkText;
+}
+
+nav.flex a.active-start {
+  background: $navbarLinkbackground;
+}
+
+nav.flex a.navpuller {
+  display: none;
+}
+
+//Styles for screen 600px and lower//
+@media screen and (max-width: $smallLimitOne) {
+  nav.flex { 
+    height: auto;
+  }
+
+  nav.flex ul {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  nav.flex li {
+    width: 50%;
+    float: left;
+    position: relative;
+  }
+
+  nav.flex li a {
+    border-bottom: $navbarBorder;
+    border-right: $navbarBorder;
+  }
+
+  nav.flex a {
+    text-align: left;
+    width: 100%;
+    text-indent: 25px;
+  }
+
+// horizontalNav Select Box //
+  select.mnav {
+    position:fixed;
+    display: block;
+    float:none;
+    clear:both;
+    overflow: hidden;
+    margin: 6px auto 0px auto;
+    width: 98%;  
+    max-width:550px;
+    max-height:2.2em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background:#fff url("https://huementui.s3.amazonaws.com/cdn/imgs/bg-select.png") no-repeat right;
+    border: 1px solid #2d2d2d;
+    font-size: 1.1em;
+    padding: 0.5em 1em 0.5em 0.75em;
+    height:100%;
+    z-index:999;
+    line-height: 1.1em;
+  }
+}
+
+//Styles for screen 515px and lower//
+@media only screen and (max-width : $smallLimitTwo) {
+  nav.flex {
+    border-bottom: 0;
+  }
+  
+  nav.flex ul, .horizontalNav-processed {
+    display: none;
+    height: auto;
+  }
+
+  nav.flex a.navpuller {
+    display: block;
+    background-color:#5C5C5C;
+    width: 100%;
+    position: relative;
+  }
+  
+  nav.flex a.navpuller:after {
+    content:"";
+    background:url("https://huementui.s3.amazonaws.com/images/navicon-white.png") no-repeat;
+    width: 5%;
+    height: 5%;
+    min-height:30px;
+    min-width:30px;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+  }
+}
+
+//Smartphone//
+@media only screen and (max-width : $smallLimitThree) {
+  nav.flex li {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+
+  nav.flex li a {
+    border-bottom: 1px solid #576979;
+  }
+}
+
+
+//  -- Horizontal Navigation Style TWO -- //
+.horizontalNav-processed {
+  font-weight: bold;
+  background: $horizontalNavBack;
+  @include gradientV($horizontalNavBack, $horizontalNavBackTwo);
+  @include boxShadowInset(0px, 1px, 0px, #030303, "inset");
+  border-bottom: $horizontalNavBorder;
+  float: left;
+}
+
+.horizontalNav-processed li {
+  float: left;
+  border-left: 1px solid $horizontalNavHighlight;
+  font-size: $horizontalNavFontSize;
+  line-height:$horizontalNavLine;
+}
+
+.horizontalNav-processed li .icon {
+  background-image: url($buttonSprite);
+  display: inline-block;
+  margin: 3px 3px 3px 0;
+  float: left;
+  line-height: 17px;
+  height: 17.5px;
+  width: 18px;
+  max-width: 18px;
+  max-height:17.5px;
+  overflow: hidden;
+  text-indent: -9999px !important;
+  background-repeat: no-repeat;
+}
+
+.horizontalNav-processed li:first-child {
+  border-left: 0 none;
+}
+
+.horizontalNav-processed li a {
+  font-weight:bold;
+  font-size:1em;
+  display: block;
+  padding: 3px 3px 3px 6px;
+  color: $horizontalNavText;
+  border-top:none;
+  border-left: $horizontalNavBorder;
+}
+
+.horizontalNav-processed li:first-child a {
+  border-left: 0 none;
+}
+
+.horizontalNav-processed li a:hover, .horizontal-nav ul li a:visited:hover {
+  background: $horizontalNavBackhover;
+  @include gradientV($horizontalNavBackhover, $horizontalNavBackhoverTwo);
+  color:$horizontalNavSecondText;
+}
+
+.horizontalNav-processed li.active {
+  background:$horizontalNavHighlight;
+  background-color:$horizontalNavHighlight;
+}
+
+@media screen and (max-width: $smallLimitOne) {
+  .horizontalNav-processed li a {
+    font-size:0.8em !important;
+    display: inline;
+    white-space: nowrap;
+    float:left;
+  }
+}
+
+@media screen and (max-width: $smallLimitTwo) {
+  .horizontalNav-processed, .smallHide {
+    display:none !important;
+  }
+}

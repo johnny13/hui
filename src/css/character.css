@@ -86,7 +86,8 @@ text-indent:3px;
 .success a {color:#264409;}
 .info a {color:#205791;}
 
-/* Metro UI */
+/* Font Face Stuff. To style, simply Use your own Font File. */
+/* More information about custom fonts and stuff is on the hui site */
 @font-face {
   font-family: "annie";
   font-style: normal;
