@@ -13,11 +13,14 @@
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 	
 	<!-- For THEME BUILDING. Something Like this Would be easier to use. (check ver 1.15.2 matches file in dist folder)
-	<style type="text/css">@import url("dist/hui-1.15.2.css");</style>
-	<link id="theme_sheet" href="src/themes/YourTheme/Filename.css" type="text/css" rel="stylesheet"/>
+	<style type="text/css">@import url("dist/hui-0.1.6.css");</style>
+	<link id="theme_sheet" href="src/sass/theme/dev-theme.css" type="text/css" rel="stylesheet"/>
+	
+	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
+	<link id="theme_sheet" href="dist/hui-light-orig.css" type="text/css" rel="stylesheet"/>
 	-->
-
-	<link id="theme_sheet" href="dist/hui-light.css" type="text/css" rel="stylesheet"/>
+	<style type="text/css">@import url("dist/hui-0.1.6.css");</style>
+	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
 	
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
@@ -170,7 +173,7 @@
 </head>
 <body>
 	<div id="homerow">
-		<div class="twelvecol last" style="border-bottom:1px solid #666666;background-color:#2b2b2b;height:auto;min-height:20px;">
+		<div class="twelvecol last blackB" style="border-bottom:1px solid #666666;height:auto;min-height:20px;">
 			
 			<a href="#" class="reload"><h2 class="el_arco_iris L" style="margin:0px 5px -2px 5px;line-height:1em;padding:3px 0 0 0;">hui</h2></a>
 			
@@ -4127,7 +4130,7 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			        <ul>
 			            <li style="margin-top:30px;">
 			                <p class="fnote">In this Slide to the RIGHT Example, There will be content from a Secondary HTML Page loaded into the Slide Panel on this page.</p>
-							<p><a href="test/secondary.html" class="pageslide_first button action blue full_button"><span class="label">Slide to the right</span></a></p>
+							<p><a href="demos/secondary.html" class="pageslide_first button action blue full_button"><span class="label">Slide to the right</span></a></p>
 <div class="push" style="height:10px;"></div>                
 <pre>
 &lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
@@ -4232,8 +4235,8 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
 			<br/>
 			<div class="push"></div>
-			<nav id="flex1" class="flex clearfix">
-				<ul class="clearfix">
+			<nav id="flex1" class="flex">
+				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">How-to</a></li>
 					<li><a href="#">Icons</a></li>

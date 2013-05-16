@@ -71,7 +71,7 @@ $TipTipxBorder:1px solid #e6e6e6;
 $TipTipPadding:.5em 1em;
 $TipTipArrow:#ffffff;
 
-$flapperBack:#E6E6E8;
+$flapperBack:#D1D1D1;
 $flapperText:#666;
 $flappermargin:10px 0px 50px 0px;
 $flapperpadding:4px 5px 4px 3px;
@@ -79,9 +79,11 @@ $flapperSecondText:#999;
 $flapperHighlight:#E6E6E6;
 $flapperBorder:1px solid #C5C5C5;
 $flapperPadding:.5em 1em;
-$flapperSpeak:#ffffff;
+$flapperSpeak:#fdfdfd;
 $flapperSpeakBorder:#C2C2C2;
 $flapperActive:#838383;
+$flapperActiveBack:#3d3d3d;
+$flapperActiveDark:#262626;
 $flapperActiveColor:#000000;
 
 $navbarHeight:40px;
@@ -118,6 +120,7 @@ $blue:#1D92FF;
 $purple:#911CFF;
 $white:#FFFFFF;
 $black:#2E2E2E;
+$grey:#BDBDBD;
 $redH:#D32323;
 $greenH:#33D424;
 $orangeH:#D44D24; 
@@ -178,7 +181,7 @@ p {
   padding:$paragraphP;
 }
 .fnote {
-  color:#666 !important;
+  color:$tableEvenText !important;
   padding:5px !important;
   margin:0 !important;
   background: transparent !important;
@@ -193,6 +196,30 @@ ul {
   list-style-type: none
 }
 // unique styles //
+.card {
+  background: $buttonBase;
+  background-color: $buttonBase;
+  border: 1px solid $buttonHover;
+  width: 95%;
+  margin: 5px auto;
+  display: block;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.card p {
+  padding: 5px;
+  line-height: 1.6em;
+  font-size: 1.2em;
+  color: $labelColor;
+}
+.card a {
+  color: $blue;
+}
+.card a:hover, .card a:active, .card a:visited {
+  color: $linkHover!important;
+}
+
 .shadow {
   @include boxShadow(2px, 2px, 4px, #111111);
 }
@@ -218,71 +245,58 @@ ul {
   @include boxShadow(2px, 2px, 4px, #111111);
 }
 
-// Clearfix //
-.clearfix:before, .clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  *zoom: 1;
-}
-.superFix {
-  position:fixed!important;
-}
-
 // Text Color Classes //
-.redText {color: $red;} 
-.orangeText {color: $orange;} 
-.yellowText {color: $yellow;} 
-.greenText {color: $green;} 
-.blueText {color: $blue;} 
-.purpleText {color: $purple;} 
-.whiteText {color: $white;} 
-.blackText {color: $black;}
+.redText {color: $red ;}
+.orangeText {color: $orange;}
+.yellowText {color: $yellow;}
+.greenText {color: $green;}
+.blueText {color: $blue ;}
+.purpleText {color: $purple ;}
+.whiteText {color: $white;}
+.blackText {color: $black ;}
 
 // Complimentary Color / Effects //
-a.redText:hover {color:$redH;}
-a.orangeText:hover {color: $orangeH;} 
-a.yellowText:hover {color: $yellowH;} 
-a.greenText:hover {color: $greenH;} 
-a.blueText:hover {color: $blueH;} 
-a.purpleText:hover {color: $purpleH;} 
-a.whiteText:hover {color: $whiteH;} 
-a.blackText:hover {color: $blackH;}
+a.redText:hover {color:$redH ;}
+a.orangeText:hover {color: $orangeH;}
+a.yellowText:hover {color: $yellowH;}
+a.greenText:hover {color: $greenH;}
+a.blueText:hover {color: $blueH;}
+a.purpleText:hover {color: $purpleH;}
+a.whiteText:hover {color: $whiteH;}
+a.blackText:hover {color: $blackH ;}
 
 // Background Color Classes //
-.redb {background-color: $redB;}
-.orangeb {background-color: $orangeB;} 
-.yellowb {background-color: $yellowB;} 
-.greenb {background-color: $greenB;} 
-.blueb {background-color: $blueB;} 
-.purpleb {background-color: $purpleB;} 
-.whiteb {background-color: $whiteB;} 
-.blackb {background-color: $blackB;}
+.redb,.redB {background-color: $redB;}
+.orangeb,.orangeB {background-color: $orangeB;background: $orangeB;} 
+.yellowb,.yellowB {background-color: $yellowB;background: $yellowB;} 
+.greenb,.greenB {background-color: $greenB;background: $greenB;} 
+.blueb,.blueB {background-color: $blueB;background: $blueB;} 
+.purpleb,.purpleB {background-color: $purpleB;background: $purpleB;} 
+.whiteb,.whiteB {background-color: $whiteB;background: $whiteB;} 
+.blackb,.blackB {background-color: $blackB;background: $blackB;}
 
 .greyb, .grayb {
-  background:#f6f6f6;
+  background: $grey;
 }
 .greyb, .grayb p {
-  color:#333;
+  color: $blackB;
 }
-.greyb a { color:#25A1F3; }
-.greyb a:hover, .container p a:hover{ color:#00B7FF; }
+.greyb a {
+  color: $blueB !important;
+}
+.greyb a:hover, .container p a:hover {
+  color: $blue !important;
+}
 
 // Tegan Sara Taylor Lists // 
 .Tegan.style {
-  border:1px solid #969696;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  border:1px solid $buttonBorder;
+  @include borderRadius(4px);
 }
 
-.Tegan.style li:nth-child(1n), .Tegan.Sara.style li:nth-child(1n)  { background:#f7f7f7;background-color:#f7f7f7; }
+.Tegan.style li:nth-child(1n),.Tegan.Sara.style li:nth-child(1n) {background:$buttonHover;background-color:$buttonHover;}
 
-.Tegan.style li:nth-child(2n),.Tegan.Sara.style li:nth-child(2n) {background:#e7e7e7;background-color:#e7e7e7;}
+.Tegan.style li:nth-child(2n),.Tegan.Sara.style li:nth-child(2n) {background:$buttonBase;background-color:$buttonBase;}
 
 // BUTTON FRAMEWORK //
 button, .button {
@@ -724,13 +738,12 @@ table.style tr td {
 }
 
 // flapper girl accordion menu //
-
 .flapperStage {
   min-width: 230px;
   width:98%;
   margin: $flappermargin;
   padding: $flapperpadding;
-  border: $flapperBorder ;
+  border: $flapperBorder;
   @include borderRadius(3px);
   position: relative;
   background-color: $flapperBack;
@@ -747,38 +760,54 @@ table.style tr td {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  overflow:hidden;
 }
 
 .flapperStage .speakEasy ul li {
   font-size: $fontSize;
-  padding: 5px 0px 5px 0;
+  padding: 5px 0px 5px 10px;
   width:100%;
   margin:0;
-  color:$flapperText $flapperHighlight;
-  text-indent:25px;
-  border-bottom: 2px solid ;
+  color:$flapperText;
+  border-bottom: 1px solid $flapperHighlight;
   position: relative;
   line-height:1em;
 }
 
-.title_bar, .title_bar:hover {
+.flapperStage .speakEasy ul li.title_bar {
   padding: 10px 0px 10px 0 !important;
   margin-left:0 !important;
   text-align:center;
-  background-color:$flapperHighlight;
-  color:$flapperSecondText!important;
+  background-color: $flapperHighlight;
+  border-bottom:1px inset $flapperSpeakBorder !important;
+  color: $flapperSecondText !important;
   font-weight:bold;
   text-shadow:none;
 }
-.title_bar:hover {
-  background-color:#f0f0f0;
+
+.flapperStage .speakEasy ul li a {
+  width:100%;
+  height:100%;
+  display:block;
+  color:$linkColor;
+  padding-top:3px;
+  padding-bottom:3px;
 }
-.flapperStage .speakEasy ul li:hover {
+
+.flapperStage .speakEasy ul li.title_bar:hover  {
+  background-color: $tableTheme !important;
   background: $tableTheme !important;
-  color:$flapperSecondText;
+  color: $flapperActiveDark !important;
 }
+
+.flapperStage .speakEasy ul li:hover {
+  border-color: $flapperHighlight;
+  background-color: $fieldsetBack !important;
+  background: $fieldsetBack !important;
+}
+
 .flapperStage .speakEasy ul li:hover a {
-  color:$linkHover;
+  color:$blue !important;
 }
 
 .speakEasy ul li.active {
@@ -792,12 +821,113 @@ table.style tr td {
   border-bottom: none;
 }
 
-.speakEasy ul li a {
-width:100%;height:100%;display:block;
-color:$linkColor;
+
+.accordion, .accordion ul, .accordion li, .accordion a, .accordion span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+.accordion li {
+  list-style: none;
+}
+.accordion li>a {
+  display: block;
+  position: relative;
+  min-width: 110px;
+  padding: 8px 10px 5px;
+  color: $flapperSpeak;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  text-decoration: none;
+  background: $flapperActiveBack;
+  @include boxShadowInset(0px, 1px, 0px, $flapperHighlight, "inset");
+}
+.accordion li .huicon {
+  margin-top: 2px;
+}
+.accordion li>a span {
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 0 10px;
+  margin-right: 10px;
+  font: 400 bold 12px/18px Arial, sans-serif;
+  background: $flapperText;
+  @include borderRadius(15px);
+  @include boxShadowInset(1px, 1px, 1px, $flapperSecondText, "inset");
+}
+.accordion>li:hover>a, .accordion>li:target>a, .accordion>li>a.active {
+  color: $flapperSecondText;
+  background: $flapperActiveBack;
+}
+.accordion>li:hover>a span, .accordion>li:target>a span, .accordion>li>a.active span {
+  color: $flapperSpeak;
+  background: $red;
+}
+.accordion li a {
+  color: $flapperHighlight;
+}
+.sub-menu li a {
+  color: $flapperActive;
+  padding-left: 40px;
+  background: $flapperHighlight;
+  border-bottom: $flapperBorder;
+  @include boxShadowInset(0px, 1px, 0px, $flapperHighlight, "inset");
+}
+.sub-menu li:last-child a {
+  border: 0;
+}
+.sub-menu li>a span {
+  color: $flapperActive;
+  background: transparent;
+  border: 1px solid $flapperSpeakBorder;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.sub-menu em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 14px;
+  color:  $flapperSpeakBorder;
+  font: 400 10px/32px Arial, sans-serif;
+}
+.accordion>li:hover>a, .accordion>li:target>a {
+  color: $blue;
+  background: $flapperActiveDark;
+}
+.accordion>li:hover>a span, .accordion>li:target>a span {
+  color: $flapperSpeak;
+  background: $flapperActiveBack;
+}
+.sub-menu li:hover a {
+  background:$flapperHighlight;
+}
+.accordion li>.sub-menu {
+  display: none;
+}
+.accordion li:target>.sub-menu {
+  display: block;
 }
 
 // Navigation Menu //
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.superFix {
+  position: fixed!important;
+}
+
 nav.flex {
   height: $navbarHeight;
   width: 100%;
@@ -812,8 +942,8 @@ nav.flex {
 nav.flex ul {
   padding: 0;
   margin: 0 auto;
-  width: 100%;
-  height: auto;
+  width: 600px;
+  height: 40px;
 }
 
 nav.flex li {
