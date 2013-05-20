@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.0 - 2013-05-19
+/*! huement user interface - v0.2.0 - 2013-05-20
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -909,7 +909,7 @@ tr {
 }
 
 .Tegan li .comment {
-	margin:3px 0 3px 5px;
+	margin:3px 0 3px 0px;
 	font-size: 1em;
 	line-height:1em;
 	float: left;
@@ -917,6 +917,7 @@ tr {
 	min-width:75%;
 	width:auto;
 	max-width:90%;
+	padding-left:5px;
 }
 .Tegan.dark li .comment {
 	color: #e7e7e7;
@@ -4757,9 +4758,7 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  min-width:800px;
-  max-width:960px;
-  width:auto;
+  width:800px;
 }
 @media only screen and (max-width : 800px) {
 .tarotBox {
@@ -4770,10 +4769,10 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  width:405px;
+  width:400px;
 }
 }
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 400px) {
 .tarotBox {
   display:block;
   position:relative;
@@ -4782,7 +4781,7 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  width:320px;
+  width:200px;
 }
 }
 .tarotDeck [class*="span"] {

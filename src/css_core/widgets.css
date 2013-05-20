@@ -481,9 +481,7 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  min-width:800px;
-  max-width:960px;
-  width:auto;
+  width:800px;
 }
 @media only screen and (max-width : 800px) {
 .tarotBox {
@@ -494,10 +492,10 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  width:405px;
+  width:400px;
 }
 }
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 400px) {
 .tarotBox {
   display:block;
   position:relative;
@@ -506,7 +504,7 @@ box-sizing: border-box;
   margin-left:auto;
   margin-right:auto;
   padding:5px;
-  width:320px;
+  width:200px;
 }
 }
 .tarotDeck [class*="span"] {
