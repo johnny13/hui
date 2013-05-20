@@ -328,8 +328,8 @@ button.MAC {
 
 button.black {
   @include gradientV($fontColor, $buttonHoverLabel);
-  &:hover { @include gradientV($buttonHover, $buttonHoverLabel); }
-  &.on { @include gradientV($buttonHoverBorder, $buttonHoverLabel); }
+  &:hover { @include gradientV($blackB, $buttonHoverLabel); }
+  &.on { @include gradientV($blackB, $fontColor); }
 }
 
 @media only screen and (max-width : $smallLimitOne) {
@@ -344,9 +344,9 @@ button.black {
 
 div.jGrowl div.jGrowl-notification {
   color:   $buttonBase;
-  @include borderRadius(4px);
-  border: 1px solid $buttonBorder;
-  @include gradientV($buttonHoverLabel,$fontColor);
+  @include borderRadius(2px);
+  border: 1px solid $blackB;
+  @include gradientV($blackB, $buttonHoverLabel);
 }
 
 div.jGrowl div.jGrowl-closer {
@@ -359,10 +359,9 @@ div.jGrowl div.jGrowl-closer {
   div.jGrowl div.jGrowl-notification {
     @include borderRadius(3px);
     background:$fontColor;
-    width:98%;
-    height:113px;
+    width:97%;
+	margin-right:1%;
     text-shadow:none;
-    color:#fff;
   }
 }
 

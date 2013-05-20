@@ -6,16 +6,16 @@
 * <div class=wallpaper><img class=wallpaper/></div> 
 */
 .wallpaper {
-	position:absolute;width:100%;
-	height:100%;top: 0px;left: 0px;z-index:-999;
-	overflow: hidden;
+position:absolute;width:100%;
+height:100%;top: 0px;left: 0px;z-index:-999;
+overflow: hidden;
 }
 /* place a div w/ this id after it. stops users from accidently clicking the image. */
 #wallpaperClear {position:absolute;
-	width:100%;height:100%;
-	top: 0px;left: 0px;z-index:-998;
-	background-image:url("https://huementui.s3.amazonaws.com/images/block.png");
-	background-repeat:repeat;
+width:100%;height:100%;
+top: 0px;left: 0px;z-index:-998;
+background-image:url("https://huementui.s3.amazonaws.com/images/block.png");
+background-repeat:repeat;
 }
 
 /*
@@ -25,16 +25,16 @@
 *
 */
 .box {
-	display: block;padding:5px;
-	min-height: 100%;height:100%;
-	min-width:800px;position:relative;margin:0 auto;
+display: block;padding:5px;
+min-height: 100%;height:100%;
+min-width:800px;position:relative;margin:0 auto;
 }
 
 .boxFix { display: block;margin: 0px auto; }
 
 /* for the rest, think FRACTIONS 2/3 1/3 etc */
 .boxHalf, .box12, .boxThird, .box13, .boxTwoThird, .box23, .boxFourth, .box14, .box4, .boxMost, .boxM {
-	float:left;
+float:left;
 }
 .boxHalf, .box12 {min-width:250px;width:49.4%;max-width:49.4%;}
 .boxThird, .box13 {width:32%;min-width:165px;max-width:32%;}
@@ -44,11 +44,11 @@
 
 /* SetUp Columns (Divide Boxes in Further or in Half) */
 .column, .columnL, .columnR { 
-	display: block; zoom: 1; 
-	display: inline; 
-	letter-spacing: normal; 
-	word-spacing: normal; 
-	vertical-align: top; 
+display: block; zoom: 1; 
+display: inline; 
+letter-spacing: normal; 
+word-spacing: normal; 
+vertical-align: top; 
 }
 
 .column {display: block;height:100%;width:96%;margin:0 auto;padding: 5px 10px 5px 10px;position:relative;}
@@ -56,16 +56,29 @@
 .columnR {float:right;width:49%;padding: 0 0 5px 5px;}
 
 @media (min-width: 799px) {
-	.column, .boxMost {display: block;height:100%;width:98%;margin:0 auto;padding: 5px;position:relative;min-width:300px;max-width:98%;}
-	.columnL, .columnR {float:none;width:98%;padding: 5px;margin:0 auto;position:relative;}
+.column, .boxMost {display: block;height:100%;width:98%;margin:0 auto;padding: 5px;position:relative;min-width:300px;max-width:98%;}
+.columnL, .columnR {float:none;width:98%;padding: 5px;margin:0 auto;position:relative;}
 }
 @media (max-width: 599px) {
-	.boxHalf, .box12, .boxThird, .box13, .boxTwoThird, .box23, .boxFourth, .box14, .box4, .boxMost, .boxM {
-		float:none;width:98%;padding: 5px;margin:0 auto;position:relative;max-width:98%;min-width:300px;
-	}
+.boxHalf, .box12, .boxThird, .box13, .boxTwoThird, .box23, .boxFourth, .box14, .box4, .boxMost, .boxM {
+	float:none;width:98%;padding: 5px;margin:0 auto;position:relative;max-width:98%;min-width:300px;
+}
 }
 
-/* Standard Floats */
+/* Shorthand Class Functions */
+.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
+.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
+.hide, .none {display:none;}
+.quiet {color:#666;}
+.loud {color:#000;}
+.highlight {background:#ff0;}
+.added {background:#060;color:#fff;}
+.removed {background:#900;color:#fff;}
+.first {margin-left:0;padding-left:0;}
+.last {margin-right:0;padding-right:0;}
+.top {margin-top:0;padding-top:0;}
+.bottom {margin-bottom:0;padding-bottom:0;}
+
 /* Easy Float / Quick Alignment */
 .L, .l {float:left;}
 .R, .r {float:right;}
@@ -83,14 +96,20 @@
 .p10 {padding:10px 10px 10px 10px}
 .p15 {padding:0 7.5px 0 7.5px}
 .zero {margin: 0px;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:0px;padding: 0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;}
-
+.push {
+display:block;
+position:relative;
+width:99.5%;
+height:25px;
+clear:both;
+}
 
 hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-* html .clearfix             { zoom: 1; } /* IE6 */
+* html .clearfix { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 .container:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
-* html .container             { zoom: 1; } /* IE6 */
+* html .container { zoom: 1; } /* IE6 */
 *:first-child+html .container { zoom: 1; } /* IE7 */.clear {clear:both;}
 .clear {clear:both;}
 *:first-child+html #iconautente{ text-indent:0; line-height:0; font-size:0; overflow:hidden}/*ie7 hack */
@@ -100,26 +119,19 @@ br {min-height:10px;height:10px;}
 .alpha:after,.alphaSticky:after, .column:after, br,  br:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
 hr.dark { clear:both;width:90%;color:#000; border-color:#666;margin:0 auto;margin-bottom:20px;}
 hr {
-	background:#ddd;
-	clear:both;
-	float:none;
-	height:1px;
-	width:90%;
-	border: none;
-	height: 0;
-	color:#000; 
-	border-color:#FFF;
-	border-bottom: 1px solid #e6e6e6;
-	margin:0 auto 1.45em auto;
-	display:block;
-	position:relative;
-}
-.push {
-	display:block;
-	position:relative;
-	width:99.5%;
-	height:25px;
-	clear:both;
+background:#ddd;
+clear:both;
+float:none;
+height:1px;
+width:90%;
+border: none;
+height: 0;
+color:#000; 
+border-color:#FFF;
+border-bottom: 1px solid #e6e6e6;
+margin:0 auto 1.45em auto;
+display:block;
+position:relative;
 }
 
 /* [S02 Part B] Grid System *********************************************************************************************/
@@ -206,11 +218,11 @@ margin-right: 0px;
 
 @media only screen and (max-width: 1023px) {
 
-	body {
-	font-size: 0.8em;
-	line-height: 1.5em;
-	}
-	
+body {
+font-size: 0.8em;
+line-height: 1.5em;
+}
+
 }
 
 
@@ -218,30 +230,30 @@ margin-right: 0px;
 
 @media handheld, only screen and (max-width: 770px) {
 
-	body {
-	font-size: 16px;
-	-webkit-text-size-adjust: none;
-	}
-	
-	.row, body, .container {
-	width: 100%;
-	min-width: 0;
-	margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-	}
-	
-	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
-	width: auto;
-	float: none;
-	max-width:100%;
-	margin-left: 0;
-    margin-right: 0;
-	padding-left: 0px !important;
-	padding-right: 0px !important;
-	}
-	
-	.limit { max-width:100%; }
-	
+body {
+font-size: 16px;
+-webkit-text-size-adjust: none;
+}
+
+.row, body, .container {
+width: 100%;
+min-width: 0;
+margin-left: 0;
+margin-right: 0;
+padding-left: 0;
+padding-right: 0;
+}
+
+.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+width: auto;
+float: none;
+max-width:100%;
+margin-left: 0;
+margin-right: 0;
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+
+.limit { max-width:100%; }
+
 }

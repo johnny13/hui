@@ -19,8 +19,8 @@
 	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
 	<link id="theme_sheet" href="dist/hui-light-orig.css" type="text/css" rel="stylesheet"/>
 	-->
-	<style type="text/css">@import url("dist/hui-0.1.6.css");</style>
-	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
+	<style type="text/css">@import url("dist/hui-0.2.0.css");</style>
+	<link id="theme_sheet" href="src/themes/lithium/dev-theme.css?ver=2.1" type="text/css" rel="stylesheet"/>
 	
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
@@ -3026,7 +3026,7 @@ $("table").stupidtable();
 		<!-- FORMS -->
 		<div class="row limit category forms_category">
 			<div class="twelvecol last">
-			<h2 class="page-header">Forms</h2>
+			<h1 class="page-header">Forms</h1>
 			<p class="warning">this area is under development</p>
 			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>, and anything that was working with them should still work with hui.</p><div class="push"></div>
 <div>
@@ -3063,34 +3063,33 @@ $("table").stupidtable();
 </pre>
 
 
-      <hr class="bs-docs-separator">
-
-
-      <h2 class="page-header">Optional layouts</h2>
-      <p>Included are three optional form layouts for common use cases.</p>
-
+      <hr class="bs-docs-separator"><div class="push" style="height:150px;"><br/></div>
       <h3 class="page-header">Search form</h3>
       <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
-      <form class="bs-docs-example form-search">
-        <input type="text" class="input-medium search-query">
-        <button type="submit" class="btn">Search</button>
-      </form>
+		<form style="width:300px;">
+			<input type="text" class="input-medium L" style="margin-right:10px;">
+			<button type="submit" class="m0 blue"><span class="L icon-search whiteText"></span><span class="label">&nbsp;Search</span></button>
+		</form>
+		<form style="width:300px;">
+			<input type="text" class="input-medium search-query L" style="margin-right:10px;">
+			<button type="submit" class="m0 blue"><span class="L icon-search whiteText"></span><span class="label">Search</span></button>
+		</form>
 <pre class="htmlCode">
-&lt;form class="form-search"&gt;
+&lt;form style="width:300px;"&gt;
 &lt;input type="text" class="input-medium search-query"&gt;
-&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+&lt;button type="submit" class="m0 blue"&gt;&lt;span class="label"&gt;Search&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 </pre>
 
       <h3 class="page-header">Inline form</h3>
       <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
-      <form class="bs-docs-example form-inline">
+      <form class="bs-docs-example form-inline" style="width:450px;">
         <input type="text" class="input-small" placeholder="Email">
         <input type="password" class="input-small" placeholder="Password">
         <label class="checkbox">
           <input type="checkbox"> Remember me
         </label>
-        <button type="submit" class="btn">Sign in</button>
+        <button type="submit" class="m0 R green"><span class="label">Sign in</span></button>
       </form>
 <pre class="htmlCode">
 &lt;form class="form-inline"&gt;
@@ -3099,18 +3098,19 @@ $("table").stupidtable();
 &lt;label class="checkbox"&gt;
 &lt;input type="checkbox"&gt; Remember me
 &lt;/label&gt;
-&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+&lt;button type="submit" class="R green"&gt;&lt;span class="label"&gt;Sign In&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 </pre>
 
       <h3 class="page-header">Horizontal form</h3>
       <p>Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:</p>
-      <ul>
-        <li>Add <code>.form-horizontal</code> to the form</li>
-        <li>Wrap labels and controls in <code>.control-group</code></li>
-        <li>Add <code>.control-label</code> to the label</li>
-        <li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
-      </ul>
+      <ol>
+        <li class="p10">Add <code>.form-horizontal</code> to the form</li>
+        <li class="p10">Wrap labels and controls in <code>.control-group</code></li>
+        <li class="p10">Add <code>.control-label</code> to the label</li>
+        <li class="p10">Wrap any associated controls in <code>.controls</code> for proper alignment</li>
+      </ol>
+		<div class="push"></div>
       <form class="bs-docs-example form-horizontal">
         <div class="control-group">
           <label class="control-label" for="inputEmail">Email</label>
@@ -3129,7 +3129,7 @@ $("table").stupidtable();
             <label class="checkbox">
               <input type="checkbox"> Remember me
             </label>
-            <button type="submit" class="btn">Sign in</button>
+            <button type="submit" class="red action"><span class="label">Sign in</span></button>
           </div>
         </div>
       </form>
@@ -3152,7 +3152,7 @@ $("table").stupidtable();
   &lt;label class="checkbox"&gt;
     &lt;input type="checkbox"&gt; Remember me
   &lt;/label&gt;
-  &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+  &lt;button type="submit" class="red action"&gt;&lt;span class="label"&gt;Sign In&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/form&gt;
@@ -3313,7 +3313,7 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h3>Combined</h3>
+      <h3 class="page-header">Combined</h3>
       <p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>
       <form class="bs-docs-example form-inline">
         <div class="input-prepend input-append">
@@ -3330,25 +3330,33 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h3>Buttons instead of text</h3>
-      <p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) to an input.</p>
+<br/><div class="push" style="150px;"><br/></div><br/>
+	
+      <h3 class="page-header">Let's bring sexy back</h3>
+      <p>Using a the same layout as the button framework, can really create some nice forms, albeit a bit counterintuitive. Kinda like sex for the first time. You put the button class on the input class. like so: <code>&lt;input class="button left" type="text"&gt;</code> and match it with the opposing directional button: <code>&lt;button class="right blue"&gt;</code></p>
       <form class="bs-docs-example">
         <div class="input-append">
-          <input class="span2" id="appendedInputButton" type="text">
-          <button class="btn" type="button">Go!</button>
+          <input class="button left" id="appendedInputButton" type="text">
+          <button class="right blue"><span class="label">Go!</span></button>
+        </div>
+      </form>
+	  <form class="bs-docs-example">
+        <div class="input-append">
+          <input class="button left" id="appendedInputButton2" type="text">
+          <button class="right"><span class="icon icon196"></span><span class="label">Go!</span></button>
         </div>
       </form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
 &lt;input class="span2" id="appendedInputButton" type="text"&gt;
-&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
+&lt;button class="right blue"&gt;&lt;span class="label"&gt;Go!&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
       <form class="bs-docs-example">
         <div class="input-append">
-          <input class="span2" id="appendedInputButtons" type="text">
-          <button class="btn" type="button">Search</button>
-          <button class="btn" type="button">Options</button>
+          <input class="button left" id="appendedInputButtons" type="text">
+          <button class="middle"><span class="icon icon96"></span><span class="label">Options</span></button>
+          <button class="right"><span class="L icon-search whiteText"></span><span class="label">Search</span></button>
         </div>
       </form>
 <pre class="htmlCode">
@@ -3359,186 +3367,126 @@ Option two can be something else and selecting it will deselect option one
 &lt;/div&gt;
 </pre>
 
-      <h3>Button dropdowns</h3>
-      <p></p>
-      <form class="bs-docs-example">
-        <div class="input-append">
-          <input class="span2" id="appendedDropdownButton" type="text">
-          <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-        </div><!-- /input-append -->
-      </form>
+      <h3 class="page-header">Button dropdowns</h3>
+      <p>Again, this works by using the same classes as the button framework, on the input class. <code>&lt;input class="button left" type="text"&gt;</code>. In this example we have added a button dropdown, instead of the regular button. this is the same layout and functions as are covered in the button framework section.</p>
+	  <p>This Example Also uses <strong>a href's</strong> instead of buttons. For the most part, Either can be used. Button is recommend for toolbars that include input elements. if using a hrefs, the <code>.button</code> class must be added to indicate that link is a button, not a text link. Unless the a href is in a dropdown, then use the dropdown menu class <code>.ddm</code></p>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				
+				<input class="button left" id="appendedDropdownButton" type="text">
+					<div class="dropdown right">
+					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
+					 <div class="dropdown-slider">
+						<a href="#" class="ddm"><span class="label">Google</span></a>
+						<a href="#" class="ddm"><span class="label">Yahoo</span></a>
+						<a href="#" class="ddm"><span class="label">Bing It! ™</span></a>
+					 </div> <!-- /.dropdown-slider -->
+					</div> <!-- /.dropdown -->
+				
+			</div><!-- /input-append -->
+		</form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
-&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
-&lt;div class="btn-group"&gt;
-&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-  Action
-  &lt;span class="caret"&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;ul class="dropdown-menu"&gt;
-  ...
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-      <form class="bs-docs-example">
-        <div class="input-prepend">
-          <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input class="span2" id="prependedDropdownButton" type="text">
-        </div><!-- /input-prepend -->
-      </form>
-<pre class="htmlCode">
-&lt;div class="input-prepend"&gt;
-&lt;div class="btn-group"&gt;
-&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-  Action
-  &lt;span class="caret"&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;ul class="dropdown-menu"&gt;
-  ...
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
+ &lt;input class="button left" id="appendedDropdownButton" type="text"&gt;
+  &lt;div class="dropdown middle"&gt;
+   &lt;a href="#" class="button"&gt;&lt;span class="icon icon198"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="dropdown-slider"&gt;
+     &lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Google&lt;/span&gt;&lt;/a&gt;
+     &lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Yahoo&lt;/span&gt;&lt;/a&gt;
+     &lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Bing It! ™&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 
-      <form class="bs-docs-example">
-        <div class="input-prepend input-append">
-          <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input class="span2" id="appendedPrependedDropdownButton" type="text">
-          <div class="btn-group">
-            <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-        </div><!-- /input-prepend input-append -->
-      </form>
+      	<form class="bs-docs-example">
+			<div class="input-append">
+				<button class="L"><span class="label">Pants</span></button>
+				<input class="button left" id="appendedDropdownButton" type="text">
+					<div class="dropdown right">
+					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
+					 <div class="dropdown-slider">
+						<a href="#" class="ddm"><span class="label">Google</span></a>
+						<a href="#" class="ddm"><span class="label">Yahoo</span></a>
+						<a href="#" class="ddm"><span class="label">Bing It! ™</span></a>
+					 </div> <!-- /.dropdown-slider -->
+					</div> <!-- /.dropdown -->
+				<button class="L"><span class="label">Party</span></button>
+			</div><!-- /input-append -->
+		</form>
 <pre class="htmlCode">
-&lt;div class="input-prepend input-append"&gt;
-&lt;div class="btn-group"&gt;
-&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-  Action
-  &lt;span class="caret"&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;ul class="dropdown-menu"&gt;
-  ...
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
-&lt;div class="btn-group"&gt;
-&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-  Action
-  &lt;span class="caret"&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;ul class="dropdown-menu"&gt;
-  ...
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-      <h3>Segmented dropdown groups</h3>
-      <form class="bs-docs-example">
-        <div class="input-prepend">
-          <div class="btn-group">
-            <button class="btn" tabindex="-1">Action</button>
-            <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div>
-          <input type="text">
-        </div>
-        <div class="input-append">
-          <input type="text">
-          <div class="btn-group">
-            <button class="btn" tabindex="-1">Action</button>
-            <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div>
-        </div>
-      </form>
-<pre class="htmlCode">
-&lt;form&gt;
-&lt;div class="input-prepend"&gt;
-&lt;div class="btn-group"&gt;...&lt;/div&gt;
-&lt;input type="text"&gt;
-&lt;/div&gt;
-&lt;div class="input-append"&gt;
-&lt;input type="text"&gt;
-&lt;div class="btn-group"&gt;...&lt;/div&gt;
-&lt;/div&gt;
+&lt;form class="bs-docs-example"&gt;
+	&lt;div class="input-append"&gt;
+		&lt;button class="L"&gt;&lt;span class="label"&gt;Pants&lt;/span&gt;&lt;/button&gt;
+		&lt;input class="button left" id="appendedDropdownButton" type="text"&gt;
+			&lt;div class="dropdown right"&gt;
+			 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon198"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
+			 &lt;div class="dropdown-slider"&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Google&lt;/span&gt;&lt;/a&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Yahoo&lt;/span&gt;&lt;/a&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Bing It! ™&lt;/span&gt;&lt;/a&gt;
+			 &lt;/div&gt; &lt;!-- /.dropdown-slider --&gt;
+			&lt;/div&gt; &lt;!-- /.dropdown --&gt;
+		&lt;button class="L"&gt;&lt;span class="label"&gt;Party&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;&lt;!-- /input-append --&gt;
 &lt;/form&gt;
 </pre>
 
-      <h3>Search form</h3>
-      <form class="bs-docs-example form-search">
-        <div class="input-append">
-          <input type="text" class="span2 search-query">
-          <button type="submit" class="btn">Search</button>
-        </div>
-        <div class="input-prepend">
-          <button type="submit" class="btn">Search</button>
-          <input type="text" class="span2 search-query">
-        </div>
-      </form>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<div class="dropdown">
+				 <button><span class="label">Complexity</span><span class="toggle"></span></button>
+				 <div class="dropdown-slider">
+					<a href="#" class="ddm"><span class="label">Uno</span></a>
+					<a href="#" class="ddm"><span class="label">Dos</span></a>
+					<a href="#" class="ddm"><span class="label">Tres</span></a>
+				 </div> <!-- /.dropdown-slider -->
+				</div> <!-- /.dropdown -->
+				
+				<input class="button left" id="appendedDropdownButton" type="text">
+					<div class="dropdown right">
+					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
+					 <div class="dropdown-slider">
+						<a href="#" class="ddm"><span class="label">Google</span></a>
+						<a href="#" class="ddm"><span class="label">Yahoo</span></a>
+						<a href="#" class="ddm"><span class="label">Bing It! ™</span></a>
+					 </div> <!-- /.dropdown-slider -->
+					</div> <!-- /.dropdown -->
+					
+				<button class="L"><span class="icon icon177"></span><span class="label"><strong>Star</strong></span></button>
+				<button class="middle red"><span class="label">Party</span></button>
+				<button class="middle green"><span class="label">Party</span></button>
+				<button class="right blue"><span class="label">Party</span></button>
+			</div><!-- /input-append -->
+		</form>
+		
 <pre class="htmlCode">
-&lt;form class="form-search"&gt;
-&lt;div class="input-append"&gt;
-&lt;input type="text" class="span2 search-query"&gt;
-&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="input-prepend"&gt;
-&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-&lt;input type="text" class="span2 search-query"&gt;
-&lt;/div&gt;
+&lt;form class="bs-docs-example"&gt;
+	&lt;div class="input-append"&gt;
+		&lt;div class="dropdown"&gt;
+		 &lt;button&gt;&lt;span class="label"&gt;Complexity&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/button&gt;
+		 &lt;div class="dropdown-slider"&gt;
+			&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Uno&lt;/span&gt;&lt;/a&gt;
+			&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Dos&lt;/span&gt;&lt;/a&gt;
+			&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Tres&lt;/span&gt;&lt;/a&gt;
+		 &lt;/div&gt; &lt;!-- /.dropdown-slider --&gt;
+		&lt;/div&gt; &lt;!-- /.dropdown --&gt;
+
+		&lt;input class="button left" id="appendedDropdownButton" type="text"&gt;
+			&lt;div class="dropdown right"&gt;
+			 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon198"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
+			 &lt;div class="dropdown-slider"&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Google&lt;/span&gt;&lt;/a&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Yahoo&lt;/span&gt;&lt;/a&gt;
+				&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Bing It! ™&lt;/span&gt;&lt;/a&gt;
+			 &lt;/div&gt; &lt;!-- /.dropdown-slider --&gt;
+			&lt;/div&gt; &lt;!-- /.dropdown --&gt;
+
+		&lt;button class="L"&gt;&lt;span class="icon icon177"&gt;&lt;/span&gt;&lt;span class="label"&gt;&lt;strong&gt;Star&lt;/strong&gt;&lt;/span&gt;&lt;/button&gt;
+		&lt;button class="middle red"&gt;&lt;span class="label"&gt;Party&lt;/span&gt;&lt;/button&gt;
+		&lt;button class="middle green"&gt;&lt;span class="label"&gt;Party&lt;/span&gt;&lt;/button&gt;
+		&lt;button class="right blue"&gt;&lt;span class="label"&gt;Party&lt;/span&gt;&lt;/button&gt;
+	&lt;/div&gt;&lt;!-- /input-append --&gt;
 &lt;/form&gt;
 </pre>
 
@@ -3575,76 +3523,66 @@ Option two can be something else and selecting it will deselect option one
 &lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
 &lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;
 </pre>
-      <p>
-        <span class="label label-info">Heads up!</span> In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example, <code>.input-large</code> will increase the padding and font-size of an input.
+      <p class="information p10">
+        <strong>Heads up!</strong> In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example, <code>.input-large</code> will increase the padding and font-size of an input.
       </p>
 
       <h3 class="page-header">Grid sizing</h3>
-      <p>Use <code>.span1</code> to <code>.twelvecol last</code> for inputs that match the same sizes of the grid columns.</p>
+      <p>Use <code>.onecol</code> to <code>.twelvecol</code> for inputs that match the same sizes of the grid columns. Don't forget to add <code>.last</code> to close out the <code>.row</code>. On Select Inputs, or anything that would normally clear, you will need to include the <code>.inline</code> and <code>.L</code> or <code>.R</code> classes, depending on which float you want.</p>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
-        <div class="controls docs-input-sizes">
-          <input class="span1" type="text" placeholder=".span1">
-          <input class="span2" type="text" placeholder=".span2">
-          <input class="span3" type="text" placeholder=".span3">
-          <select class="span1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="span2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="span3">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
+		<div class="container">
+        	<div class="row">
+	          <input class="onecol L" type="text" placeholder=".onecol">
+	          <input class="twocol L" type="text" placeholder=".twocol">
+	          <input class="threecol L" type="text" placeholder=".threecol">
+	          <select class="fivecol L last m0 inline" style="clear:none;">
+	            <option>1</option>
+	            <option>2</option>
+	            <option>3</option>
+	            <option>4</option>
+	            <option>5</option>
+	          </select>
+			</div>
+			<div class="push"></div>
+			<div class="row">
+	          <select class="eightcol L inline" style="clear:none;">
+	            <option>eightcol 1</option>
+	            <option>eightcol 2</option>
+	            <option>eightcol 3</option>
+	            <option>eightcol 4</option>
+	            <option>eightcol 5</option>
+	          </select>
+	          <select class="fourcol L last inline" style="clear:none;">
+	            <option>fourcol 1</option>
+	            <option>fourcol 2</option>
+	            <option>fourcol 3</option>
+	            <option>fourcol 4</option>
+	            <option>fourcol 5</option>
+	          </select>
+	        </div>
+			</div>
       </form>
-<pre class="htmlCode">
-&lt;input class="span1" type="text" placeholder=".span1"&gt;
-&lt;input class="span2" type="text" placeholder=".span2"&gt;
-&lt;input class="span3" type="text" placeholder=".span3"&gt;
-&lt;select class="span1"&gt;
-...
-&lt;/select&gt;
-&lt;select class="span2"&gt;
-...
-&lt;/select&gt;
-&lt;select class="span3"&gt;
-...
-&lt;/select&gt;
-</pre>
 
       <p>For multiple grid inputs per line, <strong>use the <code>.controls-row</code> modifier class for proper spacing</strong>. It floats the inputs to collapse white-space, sets the proper margins, and clears the float.</p>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
-        <div class="controls">
-          <input class="span5" type="text" placeholder=".span5">
-        </div>
-        <div class="controls controls-row">
+		<div class="container">
+        <div class="row">
           <input class="fourcol" type="text" placeholder=".fourcol">
-          <input class="span1" type="text" placeholder=".span1">
+          <input class="onecol" type="text" placeholder=".onecol">
         </div>
-        <div class="controls controls-row">
-          <input class="span3" type="text" placeholder=".span3">
-          <input class="span2" type="text" placeholder=".span2">
+        <div class="row">
+          <input class="threecol" type="text" placeholder=".threecol">
+          <input class="twocol" type="text" placeholder=".twocol">
         </div>
-        <div class="controls controls-row">
-          <input class="span2" type="text" placeholder=".span2">
-          <input class="span3" type="text" placeholder=".span3">
+        <div class="row">
+          <input class="twocol" type="text" placeholder=".twocol">
+          <input class="threecol" type="text" placeholder=".threecol">
         </div>
-        <div class="controls controls-row">
-          <input class="span1" type="text" placeholder=".span1">
+        <div class="row">
+          <input class="onecol" type="text" placeholder=".onecol">
           <input class="fourcol" type="text" placeholder=".fourcol">
         </div>
+		</div>
       </form>
 <pre class="htmlCode">
 &lt;div class="controls"&gt;
@@ -3670,8 +3608,8 @@ Option two can be something else and selecting it will deselect option one
       <p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the buttons will automatically indent to line up with the form controls.</p>
       <form class="bs-docs-example">
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn">Cancel</button>
+          <button type="submit" class="black">Save changes</button>
+          <button type="button" class="MAC">Cancel</button>
         </div>
       </form>
 <pre class="htmlCode">

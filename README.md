@@ -109,11 +109,11 @@ hui Uses GruntJS, Sass, QUnit Tests, and PhantomJS to ensure quality code is wri
    
 v0.0.1	[jan-01-2013]	Released under GPL v3 & MIT    
 
-v0.0.5	[feb-12-2013]	Majorish Update! List styles added. Notefy revamp. CSS Cleanup.
-
-v0.0.7	[apr-14-2013]	Woo! Framework cleaned up in a major effort to get production ready.
+..
 
 v0.1.6	[may-15-2013]	Sass Themes. Demos and Widgets Updated.
+
+v0.2.0	[may-19-2013]	Forms Implemented. TODO: Input Masking
     
 
 ## De jure

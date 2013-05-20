@@ -1,3 +1,12 @@
+/* 
+*
+* Hey. If you're reading this, this file goes to the index.html file in the MAIN Github Folder. 
+* Not the demos/index.html. That file is a simple list and uses no javascript.
+* 
+* Thanks For Reading,
+* - derek
+*
+*/
 //This Script has
 //Example Functions for the index.html hui demo
 var HistoryDiz,nextName,titleName;

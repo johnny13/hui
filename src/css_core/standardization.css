@@ -29,20 +29,8 @@ p {margin:0 0 1.5em; line-height:1.7em; font-size:15px;}
 a:focus, a:hover {color:#902B2B;}
 a {color:#09f;text-decoration:none;}
 
+/*
 caption {background:#eee;}
-.small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;}
-.large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;}
-.hide {display:none;}
-.quiet {color:#666;}
-.loud {color:#000;}
-.highlight {background:#ff0;}
-.added {background:#060;color:#fff;}
-.removed {background:#900;color:#fff;}
-.first {margin-left:0;padding-left:0;}
-.last {margin-right:0;padding-right:0;}
-.top {margin-top:0;padding-top:0;}
-.bottom {margin-bottom:0;padding-bottom:0;}
-
 label {font-weight:bold;}
 legend {font-weight:bold;font-size:1.2em;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #bbb; padding:5px; font-size:13px; display:block;}
@@ -53,3 +41,4 @@ input.title {font-size:1.5em;}
 textarea {width:auto;padding:5px;}
 form.inline {line-height:3;}
 form.inline p {margin-bottom:0;}
+*/

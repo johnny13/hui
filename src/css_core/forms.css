@@ -12,17 +12,17 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
-  font-size: 21px;
-  line-height: 40px;
+  margin: 13px auto 0 auto;
+  font-size: 1.3em;
+  line-height: 1.5em;
   color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
-  margin-left:-1em;
 }
 
 legend small {
-  font-size: 15px;
+  font-size: 1.13em;
+  line-height: 1.15em;
   color: #999999;
 }
 
@@ -254,6 +254,10 @@ textarea::-webkit-input-placeholder {
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
   margin-left: 10px;
+}
+
+select.inline {
+	clear:none;float:left;
 }
 
 .input-mini {
