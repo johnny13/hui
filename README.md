@@ -85,25 +85,20 @@ This will give you a base core. Next copy the dark or light dev-theme.css file. 
     
 Full Theme information can be found at [hui.huement.com/themes/](http://hui.huement.com/themes/)    
 
-    
-## Get Cracking   
 
-Once you have hui installed, visit the Tests folder in a web browser to confirm everything is working correctly.    
-After that, start building from scratch, or use one of our HTML boilerplates.    
-You should also consider setting up GruntJS so you can build your own custom version on the fly and allow for your codebase to grow and adapt.    
-    
-hui Main Page: [hui.huement.com](http://hui.huement.com).    
-More Info on Our Blog: [huement.com/blog/](http://huement.com/blog/).
+## Build & Customize. Fall in Love.
 
-## Build, Hack & Customize. Fall in Love.
-
-hui Uses GruntJS, Sass, QUnit Tests, and PhantomJS to ensure quality code is written. These programs also benefit you the developers by allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.  Drop in your custom plugins and style sheets, use the Grunt or Sass commands and get a unique hui build in seconds.
+hui uses a number of Node.js modules. Inclduing GruntJS, Sass, QUnit Tests, and PhantomJS to ensure quality code is written. These programs also benefit you the developers by allows for all sorts of custom setups and allows you to easily integrate other plugins and themes.  Drop in your custom plugins and style sheets, use the Grunt or Sass commands and get a unique hui build in seconds.
     
  * Grunt.JS : [http://gruntjs.com/](http://gruntjs.com/)
  * Grunt Sass : [http://github.com/sindresorhus/grunt-sass](https://github.com/sindresorhus/grunt-sass)
  * Phantom.JS : [http://phantomjs.org/](http://phantomjs.org/)
  * QUint Tests : [http://qunitjs.com/](http://qunitjs.com/)
     
+
+if you would just like to download all the modules we use in one shot, get this Zip File and place it in the hui folder.
+[http://huementui.s3.amazonaws.com/cdn/node_modules.zip](http://huementui.s3.amazonaws.com/cdn/node_modules.zip)
+
 
 ## Major Change log
    
