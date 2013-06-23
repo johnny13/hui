@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         footer: '\n\n'+'/*! <%= pkg.homepage %> */'+'\n\n',
       },
       dist: {
-        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js', 'src/js_core/pageslide.js', 'src/js_core/tarot.js'],
+        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js', 'src/js_core/pageslide.js'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js' ,'src/js_core/pageslide.js' , 'src/js_core/tarot.js']
+        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js' ,'src/js_core/pageslide.js' ]
       },
       test: {
         options: {
