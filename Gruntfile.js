@@ -6,17 +6,19 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     // Metadata.
-
     pkg: grunt.file.readJSON('hui.jquery.json'),
+
     banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
       '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
+
     // Task configuration.
     clean: {
       files: ['dist']
     },
+
 	sass:{
       dist: {
           files: {
@@ -25,6 +27,7 @@ module.exports = function(grunt) {
           }
       }
     },
+
     concat: {
       options: {
         banner: '<%= banner %>',
@@ -32,18 +35,19 @@ module.exports = function(grunt) {
         footer: '\n\n'+'/*! <%= pkg.homepage %> */'+'\n\n',
       },
       dist: {
-        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tipTip.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js', 'src/js_core/pageslide.js', 'src/js_core/tarot.js'],
+        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js', 'src/js_core/pageslide.js', 'src/js_core/tarot.js'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
 	   options: {
-		banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +'<%= grunt.template.today("yyyy-mm-dd") %>\n' +'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'+'\n/* NOTE: hui base css only. THIS DOES NOT CONTAIN A DEV-THEME. Use this file if you want to make your own theme. The Provided themes, hui-dark.css and hui-light.css are a minfied version of this file, plus a minfied version of their respective dev-theme.css files, and work great to get started quickly or for production. */\n\n'
-	    },
-        src: ['<%= banner %>','src/css_core/standardization.css', 'src/css_core/body.css', 'src/css_core/display.css', 'src/css_core/buttons.css', 'src/css_core/character.css', 'src/css_core/forms.css', 'src/css_core/widgets.css', 'src/css_core/antiscroll.css', 'src/css_core/colors.css'],
-        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
+		banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +'<%= grunt.template.today("yyyy-mm-dd") %>\n' +'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'+'\n/* THIS DOES NOT CONTAIN A DEV-THEME. Use this file if you want to make your own theme. Example themes are in the theme folder. */\n\n'
+	   },
+       src: ['<%= banner %>','src/css_core/standardization.css', 'src/css_core/body.css', 'src/css_core/display.css', 'src/css_core/buttons.css', 'src/css_core/character.css', 'src/css_core/forms.css', 'src/css_core/tips.css', 'src/css_core/widgets.css', 'src/css_core/antiscroll.css'],
+       dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
       },
     },
-	cssmin: {
+    
+    cssmin: {
 	 combine: {
 		options: {
 			stripBanners: true,
@@ -53,8 +57,9 @@ module.exports = function(grunt) {
 	      'dist/<%= pkg.name %>-light.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','src/themes/lithium/dev-theme.css'],
           'dist/ie-min.css': ['src/css_core/ie.css']
 	    }
-	  }
+	 }
 	},
+    
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %>  v. <%= pkg.version %> || built on: <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -64,9 +69,11 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>-min.js'
       },
     },
+    
     qunit: {
       files: ['test/index.html']
     },
+    
     jshint: {
       options: {
         curly: true,
@@ -91,7 +98,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tipTip.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js' ,'src/js_core/pageslide.js' , 'src/js_core/tarot.js']
+        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js' ,'src/js_core/pageslide.js' , 'src/js_core/tarot.js']
       },
       test: {
         options: {
@@ -100,6 +107,7 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',

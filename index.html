@@ -19,9 +19,8 @@
 	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
 	<link id="theme_sheet" href="dist/hui-light-orig.css" type="text/css" rel="stylesheet"/>
 	-->
-	<style type="text/css">@import url("dist/hui-0.2.0.css");</style>
-	<link id="theme_sheet" href="src/themes/lithium/dev-theme.css?ver=2.1" type="text/css" rel="stylesheet"/>
-	
+	<style type="text/css">@import url("dist/hui-0.2.1.css");</style>
+	<link id="theme_sheet" href="src/themes/lithium/dev-theme.css?ver=855454" type="text/css" rel="stylesheet"/>
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
 	<link rel="stylesheet" href="dist/ie-min.css" type="text/css" media="screen" />
@@ -124,16 +123,78 @@
 			min-height:100px;
 		}
 		/* Styles specific to this particular page */
-		.scroll-pane
-		{
-			width: 100%;
-			height: 200px;
-			overflow: auto;
+		.list {
+			padding:20px;
+			max-width:200px;
 		}
-		.horizontal-only
-		{
-			height: auto;
-			max-height: 200px;
+		.list li {
+			margin-top:10px;
+			margin-bottom:10px;
+		}
+		.colors {
+		  clear: both;
+		  padding: 24px 0 9px;
+		}
+		.skin-line .colors {
+		  padding-top: 28px;
+		}
+		.colors strong {
+		  float: left;
+		  line-height: 20px;
+		  margin-right: 20px;
+		}
+		.colors li {
+		  position: relative;
+		  float: left;
+		  width: 16px;
+		  height: 16px;
+		  margin: 2px 1px 0 0;
+		  background: #000;
+		  cursor: pointer;
+		  filter: alpha(opacity=50);
+		  opacity: 0.5;
+		  -webkit-transition: opacity 0.2s;
+		  -moz-transition: opacity 0.2s;
+		  -ms-transition: opacity 0.2s;
+		  -o-transition: opacity 0.2s;
+		  transition: opacity 0.2s;
+		}
+		.colors li:hover {
+		  filter: alpha(opacity=100);
+		  opacity: 1;
+		}
+		.colors li.active {
+		  height: 20px;
+		  margin-top: 0;
+		  filter: alpha(opacity=75);
+		  opacity: 0.75;
+		}
+		.colors li.red {
+		  background: #d54e21;
+		}
+		.colors li.green {
+		  background: #78a300;
+		}
+		.colors li.blue {
+		  background: #0e76a8;
+		}
+		.colors li.aero {
+		  background: #9cc2cb;
+		}
+		.colors li.grey {
+		  background: #73716e;
+		}
+		.colors li.orange {
+		  background: #f70;
+		}
+		.colors li.yellow {
+		  background: #fc0;
+		}
+		.colors li.pink {
+		  background: #ff66b5;
+		}
+		.colors li.purple {
+		  background: #6a5a8c;
 		}
 		/* log element for demo purposes */
 		.log {
@@ -146,10 +207,6 @@
 			margin-left: 0;
 			list-style: none;
 			padding: 10px;
-			li {
-				margin-top: 0;
-				margin-bottom: 5px;
-			}
 		}
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
@@ -597,16 +654,18 @@ preload([
 		<div class="row limit category action_category">
 			<div class="twelvecol last">
 			<div class="push" style="height:60px;"></div>
-			<h2 class="page-header">Font Awesome Icon Fonts</h2>
-			<p><code>@font-face</code> Icon Fonts. Perfect for Retina Displays! No more Fuzzy Buttons.</p>
-			<p>The full suite of pictographic icons, examples, and documentation can be found at: <a href="fortawesome.github.io/Font-Awesome">fortawesome.github.io/Font-Awesome</a>.</p>
-			<div class="push"></div>
-			<p class="fnote">Fun Fact: The grey <code>.boxMost</code> HTML Markup featured below uses the Fraction Boxes instead the Grid. Allowing it to keep its Checkerboard layout to smaller screen sizes, while the main site is still able to adapt into neat rows.</p>
-			</div> 
+				<div class="card">
+					<h2 class="page-header">Font Awesome Icon Fonts</h2>
+					<p><code>@font-face</code> Icon Fonts. Perfect for Retina Displays! No more Fuzzy Buttons.</p>
+					<p>The full suite of pictographic icons, examples, and documentation can be found at: <a href="fortawesome.github.io/Font-Awesome">fortawesome.github.io/Font-Awesome</a>.</p>
+					<div class="push"></div>
+					<p class="fnote">Fun Fact: The grey <code>.boxMost</code> HTML Markup featured below uses the Fraction Boxes instead the Grid. Allowing it to keep its Checkerboard layout to smaller screen sizes, while the main site is still able to adapt into neat rows.</p>
+				</div> 
+			</div>
 		</div>	
 	
 		<!-- this uses the Fraction Boxes on top of the Grid -->
-		<div class="C greyb category action_category row limit">
+		<div class="C category action_category row limit">
 		<div class="boxMost">
 		 <div class="box13 L">
 			 <h4><span class="icon-flag"></span> One font, 249 icons</h4>
@@ -622,7 +681,7 @@ preload([
 			</div>
 		</div>
 			<br/>
-		<div class="C greyb category action_category">
+		<div class="C category action_category">
 		 <div class="box13 L">
 		   <h4><span class="icon-beer"></span> Free, as in Beer</h4>
 		   <p>Font Awesome is completely free for commercial use. Check out the <a href="#license">license</a>.</p>
@@ -637,7 +696,7 @@ preload([
 		 </div>
 		</div>
 			<br/>
-		<div class="C greyb category action_category">
+		<div class="C category action_category">
 		 <div class="box13 L">
 		   <h4><span class="icon-thumbs-up"></span> Font Awesome</h4>
 		   <p>Forked and adapted from <a href="fortawesome.github.io/Font-Awesome" target="_blank">Font-Awesome 3</a>.</p>
@@ -740,7 +799,20 @@ preload([
 			<div class="push"></div>
 			<div class="twelvecol last">
 				<p class="fnote"><code>&lt;button&gt;</code> and <code>.button</code> elements can also use <code>@font-face</code> icons.</p>
+<div class="push"></div>
+<pre class="jsCode">
+
+&lt;a href="#" class="button tipTip" title="icon-magic icon-large"&gt;&lt;span class="fa-icon icon-magic icon-large"&gt;&lt;/span&gt;&lt;/a&gt;
+
+&lt;button&gt;&lt;span class="fa-icon icon-magic"&gt;&lt;/span&gt;&lt;span class="label"&gt;Button&lt;/span&gt;&lt;/button&gt;
+
+&lt;button&gt;&lt;span class="fa-icon icon-magic icon-large"&gt;&lt;/span&gt;&lt;span class="label"&gt;Button&lt;/span&gt;&lt;/button&gt;
+
+&lt;button class="action"&gt;&lt;span class="label label-2x"&gt;Button&lt;/span&gt;&lt;span class="fa-icon icon-magic icon-2x"&gt;&lt;/span&gt;&lt;/button&gt;
+
+</pre>
 			</div>
+
 			<div class="twocol">
 		      <a href="#" class="button tipTip" title="icon-magic"><span class="fa-icon icon-magic"></span></a>
 		    </div>
@@ -2058,12 +2130,12 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 				<div class="tarotDeck tarotBox">
                     <div class="tarotCard">
                         <div class="tarotCard-status">
-                            <div class="badge bg-color-blue">99</div>
+                            <div class="badge blueB">99</div>
                         </div>
                     </div>
                     <div class="tarotCard">
                         <div class="tarotCard-status">
-                            <div class="badge activity"></div>
+                            <div class="badge blackB"><span class="fa-icon icon-magic"></span></div>
                         </div>
                     </div>
                     <div class="tarotCard">
@@ -2507,6 +2579,7 @@ jQuery(function(){
 			<div class="push"></div>
 			</div>
 		</div>
+		
 		<!-- DATAS -->
 		<!-- lists -->
 		<div class="row limit category datas_category">
@@ -2514,12 +2587,17 @@ jQuery(function(){
 			<div class="twelvecol last">
 				<h2 class="page-header">Lists</h2>
 				<p class="fnote">Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
+				<div class="warning m10">
+					<p class="p10"><code>.minilist</code> examples need to be added</p>
+					<p class="p10"><code>.Tegan .title_bar</code> needs docs and examples</p>
+				</div>
 			</div>
 		</div>
 		
 		<div class="row limit category datas_category">
 			<div class="sixcol">
 				<h3>Tegan</h3>
+				
 				<p class="fnote">Starting with a standard &lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List and adding <code>class = 'Tegan'</code> .</p>
 				<br/>
 				
@@ -2643,61 +2721,61 @@ jQuery(function(){
 				<br/>
 				
 				<ul class="Tegan Sara inset">
-						<li>
-							<span class="arrow icon200"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan1.jpg">
-								<span class="name">Sample Title</span>
-								<span class="comment limit"><p>Duis bibendum nulla sed quam interdum at luctus libero varius.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-						<li>
-							<span class="arrow icon199"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan2.jpg">
+					<li>
+						<span class="arrow icon200"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan1.jpg">
 							<span class="name">Sample Title</span>
-							<span class="comment limit"><p>Cras laoreet luctus vehicula.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-						<li>
-							<span class="arrow icon198"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan3.jpg">
-							<span class="name">Sample Title</span>
-							<span class="comment limit"><p>Nullam non mi non risus imperdiet pulvinar.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-						<li>
-							<span class="arrow icon197"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan4.jpg">
-							<span class="name">Sample Title</span>
-							<span class="comment limit"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-						<li>
-							<span class="arrow icon196"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan1.jpg">
-							<span class="name">Sample Title</span>
-							<span class="comment limit"><p>Nam euismod nisi id nulla dapibus auctor.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-						<li>
-							<span class="arrow icon195"></span>
-							<a href="#">
-							<img alt="test" src="http://hui.huement.com/img/tegan3.jpg">
-							<span class="name">Sample Title</span>
-							<span class="comment limit"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
-							</a>
-							<hr class="end">
-						</li>
-					</ul>
+							<span class="comment limit"><p>Duis bibendum nulla sed quam interdum at luctus libero varius.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+					<li>
+						<span class="arrow icon199"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan2.jpg">
+						<span class="name">Sample Title</span>
+						<span class="comment limit"><p>Cras laoreet luctus vehicula.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+					<li>
+						<span class="arrow icon198"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan3.jpg">
+						<span class="name">Sample Title</span>
+						<span class="comment limit"><p>Nullam non mi non risus imperdiet pulvinar.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+					<li>
+						<span class="arrow icon197"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan4.jpg">
+						<span class="name">Sample Title</span>
+						<span class="comment limit"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+					<li>
+						<span class="arrow icon196"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan1.jpg">
+						<span class="name">Sample Title</span>
+						<span class="comment limit"><p>Nam euismod nisi id nulla dapibus auctor.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+					<li>
+						<span class="arrow icon195"></span>
+						<a href="#">
+						<img alt="test" src="http://hui.huement.com/img/tegan3.jpg">
+						<span class="name">Sample Title</span>
+						<span class="comment limit"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></span>
+						</a>
+						<hr class="end">
+					</li>
+				</ul>
 				
 			</div>
 			<div class="sixcol last">
@@ -2853,7 +2931,6 @@ jQuery(function(){
 					</ul>
 			</div>
 		</div>
-		
 		<!-- table -->
 		<div class="row limit category datas_category">
 
@@ -2999,14 +3076,16 @@ $("table").stupidtable();
 				</table>
 				
 				<br/>
+				
 				<div class="push" style="height:50px;"></div>
-				<h2>Images</h2>
+				<h2 class="page-header">Image Styling</h2>
 				<p class="fnote">
 					Add classes to an &lt;img&gt; element to easily style images in any project. However <code>.img-rounded</code> and <code>.img-circle</code> do not work in IE7-8 due to lack of <code>border-radius</code> support.
 				</p>
 				<div class="push" style="height:20px;"></div>
 				<section id="images">
-		          <p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>
+				<p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>
+				<p>These "Blank" Images are generated with the <code>holder.js</code> library provided in the libs folder</p>
 		          <div class="bs-docs-example bs-docs-example-images">
 		            <img data-src="libs/holder/holder.js/180x180/social" class="img-rounded m10">
 		            <img data-src="libs/holder/holder.js/180x180/industrial" class="img-circle m10">
@@ -3023,6 +3102,7 @@ $("table").stupidtable();
 		        </section>
 			</div>
 		</div>
+		
 		<!-- FORMS -->
 		<div class="row limit category forms_category">
 			<div class="twelvecol last">
@@ -3161,129 +3241,6 @@ $("table").stupidtable();
 
       <div class="push"></div>
 
-
-      <h2 class="page-header">Supported form controls</h2>
-      <p>Examples of standard form controls supported in an example form layout.</p>
-
-      <h3 class="page-header">Inputs</h3>
-      <p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
-      <p>Requires the use of a specified <code>type</code> at all times.</p>
-      <form class="bs-docs-example form-inline">
-        <input type="text" placeholder="Text input">
-      </form>
-<pre class="htmlCode">
-&lt;input type="text" placeholder="Text input"&gt;
-</pre>
-
-      <h3 class="page-header">Textarea</h3>
-      <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
-      <form class="bs-docs-example form-inline">
-        <textarea rows="3"></textarea>
-      </form>
-<pre class="htmlCode">
-&lt;textarea rows="3"&gt;&lt;/textarea&gt;
-</pre>
-
-      <h3 class="page-header">Checkboxes and radios</h3>
-      <p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
-      <h4>Default (stacked)</h4>
-      <form class="bs-docs-example">
-        <label class="checkbox">
-          <input type="checkbox" value="">
-          Option one is this and that&mdash;be sure to include why it's great
-        </label>
-        <br>
-        <label class="radio">
-          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-          Option one is this and that&mdash;be sure to include why it's great
-        </label>
-        <label class="radio">
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Option two can be something else and selecting it will deselect option one
-        </label>
-      </form>
-<pre class="htmlCode">
-&lt;label class="checkbox"&gt;
-&lt;input type="checkbox" value=""&gt;
-Option one is this and that&mdash;be sure to include why it's great
-&lt;/label&gt;
-
-&lt;label class="radio"&gt;
-&lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
-Option one is this and that&mdash;be sure to include why it's great
-&lt;/label&gt;
-&lt;label class="radio"&gt;
-&lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
-Option two can be something else and selecting it will deselect option one
-&lt;/label&gt;
-</pre>
-
-      <h3 class="page-header">Inline checkboxes</h3>
-      <p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
-      <form class="bs-docs-example">
-        <label class="checkbox inline">
-          <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-        </label>
-        <label class="checkbox inline">
-          <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-        </label>
-        <label class="checkbox inline">
-          <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-        </label>
-      </form>
-<pre class="htmlCode">
-&lt;label class="checkbox inline"&gt;
-&lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
-&lt;/label&gt;
-&lt;label class="checkbox inline"&gt;
-&lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
-&lt;/label&gt;
-&lt;label class="checkbox inline"&gt;
-&lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
-&lt;/label&gt;
-</pre>
-
-      <h3 class="page-header">Selects</h3>
-      <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
-      <form class="bs-docs-example">
-        <select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <br>
-        <select multiple="multiple">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </form>
-<pre class="htmlCode">
-&lt;select&gt;
-&lt;option&gt;1&lt;/option&gt;
-&lt;option&gt;2&lt;/option&gt;
-&lt;option&gt;3&lt;/option&gt;
-&lt;option&gt;4&lt;/option&gt;
-&lt;option&gt;5&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;select multiple="multiple"&gt;
-&lt;option&gt;1&lt;/option&gt;
-&lt;option&gt;2&lt;/option&gt;
-&lt;option&gt;3&lt;/option&gt;
-&lt;option&gt;4&lt;/option&gt;
-&lt;option&gt;5&lt;/option&gt;
-&lt;/select&gt;
-</pre>
-
-
-      <div class="push"></div>
-
-
       <h2 class="page-header">Extending form controls</h2>
       <p>Adding other useful form components on top of existing browser controls.</p>
 	<div class="push"></div>
@@ -3348,8 +3305,8 @@ Option two can be something else and selecting it will deselect option one
       </form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
-&lt;input class="span2" id="appendedInputButton" type="text"&gt;
-&lt;button class="right blue"&gt;&lt;span class="label"&gt;Go!&lt;/span&gt;&lt;/button&gt;
+&lt;input class="button left" id="appendedInputButton" type="text"&gt;
+&lt;button class="right"&gt;&lt;span class="label"&gt;Go!&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
       <form class="bs-docs-example">
@@ -3488,8 +3445,80 @@ Option two can be something else and selecting it will deselect option one
 		&lt;button class="right blue"&gt;&lt;span class="label"&gt;Party&lt;/span&gt;&lt;/button&gt;
 	&lt;/div&gt;&lt;!-- /input-append --&gt;
 &lt;/form&gt;
-</pre>
+</pre><br/>
+	  <div class="push" style="height:50px;"></div>
+	  <h2 class="page-header">Stylish Checkboxes & Radio Buttons</h2>
+      <p>hui features highly customizable checkboxes and radio buttons. Increase the usability and visibility of some of the most hard to see, but most important form elements. Originally forked from <a href="https://github.com/damirfoy/iCheck">Damirfoy's iCheck</a> plugin. hui includes a modified version of iCheck's original Line theme by default. you can easily swap this out for any other of the iCheck themes, as all original markup is maintained.</p>
+	  <img style="width:100%;max-width:800px;" class="C" src="https://a248.e.akamai.net/camo.github.com/3b0689b0e0c265c789e55460a2fb61fc7999f1e0/687474703a2f2f64616d6972666f792e636f6d2f69436865636b2f6578616d706c65732e706e67"/>
+	  <div class="p10">
+		<ul style="list-style-position:inside;list-style-type: disc;" class="p10">
+	        <li>
+	          <strong>Identical inputs across different browsers and devices</strong> — both <span class="self" data-to="download">desktop and mobile</span>
+	        </li>
+	        <li>
+	          <strong>Touch devices support</strong> — iOS, Android, BlackBerry, Windows Phone
+	        </li>
+	        <li>
+	          <strong>Keyboard accessible inputs</strong> — <span class="mark">Tab</span>, <span class="mark">Spacebar</span>, <span class="mark">Arrow up/down</span> and other shortcuts
+	        </li>
+	        <li>
+	          <strong>Customization freedom</strong> — use any HTML and CSS to style inputs (try <span class="self" data-to="skins">6 Retina-ready skins</span>)
+	        </li>
+	        <li>
+	          <strong>Lightweight size</strong> — 1 kb gzipped
+	        </li>
+	        <li class="offset">
+	          <strong class="self" data-to="options">25 options</strong> to customize checkboxes and radio buttons
+	        </li>
+	        <li>
+	          <strong class="self" data-to="callbacks">8 callbacks</strong> to handle changes
+	        </li>
+	        <li>
+	          <strong class="self" data-to="methods">7 methods</strong> to make changes programmatically
+	        </li>
+	        <li>
+	          Saves changes to original inputs, <span class="self" data-to="init">works carefully</span> with any selectors
+	        </li>
+		 </ul>
+	  </div>
+	  <div class="push"></div>
+      <h3 class="page-header">Selects</h3>
+      <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
+      <form class="bs-docs-example">
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <br>
+        <select multiple="multiple">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </form>
+<pre class="htmlCode">
+&lt;select&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
 
+&lt;select multiple="multiple"&gt;
+&lt;option&gt;1&lt;/option&gt;
+&lt;option&gt;2&lt;/option&gt;
+&lt;option&gt;3&lt;/option&gt;
+&lt;option&gt;4&lt;/option&gt;
+&lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+      <div class="push"></div>
       <h3 class="page-header">Control sizing</h3>
       <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.span*</code> classes.</p>
 
@@ -3752,7 +3781,7 @@ Option two can be something else and selecting it will deselect option one
 		<div class="row limit category forms_category">
 			<div class="push"></div>
 			<div class="twelvecol last">
-		        <h3 class="page-header">Form controls</h3>
+		        <h2 class="page-header">All Supported Form Controls</h2>
 		    </div>
 			<form class="container">
 			<div class="sixcol last">
@@ -4063,14 +4092,69 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			<div class="twelvecol last">
 				<div class="push" style="height:100px;"></div>
 				<div id="PageSlide_content" class="boxMost">
-			        <h3 class="page-header">PageSlide Basic Demo</h3>
+			        <h3 class="page-header">PageSlider Demos</h3>
 			        <p>Below are a couple examples of how the plugin works:</p>
 			        <ul>
-			            <li style="margin-top:30px;">
-			                <p class="fnote">In this Slide to the RIGHT Example, There will be content from a Secondary HTML Page loaded into the Slide Panel on this page.</p>
-							<p><a href="demos/secondary.html" class="pageslide_first button action blue full_button"><span class="label">Slide to the right</span></a></p>
+						<li style="margin-top:10px;">
+			                <p class="fnote">Basic Demo</p>
+							<p><a href="#Mary_Boleyn" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
+							<div class="none">
+								<div id="Mary_Boleyn">
+									<ul class="Tegan Sara dark minilist">
+										<li class="title_bar">Nav Menu</li>
+										<li>
+											<span class="name">Item One</span>
+										</li>
+										<li>
+											<span class="name">Item Two</span>
+										</li>
+										<li>
+											<span class="name">Item Three</span>
+										</li>
+										<li>
+											<span class="name">Item Four</span>
+										</li>
+										<li>
+											<span class="name">Item Three</span>
+										</li>
+										<li>
+											<span class="name">Item Two</span>
+										</li>
+										<li>
+											<span class="name">Item One</span>
+										</li>
+									</ul>
+									<div class="push"></div>
+								</div>
+							</div>
+							
 <div class="push" style="height:10px;"></div>                
-<pre>
+<pre class="htmlCode">
+&lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
+&lt;script&gt;
+    $(&quot;a.first&quot;).pageslide();
+&lt;/script&gt;
+</pre>
+			            </li>
+			            <li style="margin-top:30px;">
+			                <p class="fnote">In this Slide to the Left Example, There will be content from a hidden DIV loaded into the Slide Panel on this page. It will be a large amount of text and should cause the overflow to scroll.</p>
+							<p><a href="#LadyAnne" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
+							<div class="none">
+								<div id="LadyAnne">
+									<h2 class="redText">Marquess of Pembroke</h2>
+									<p>A number of people have claimed to have seen Anne's ghost at Hever Castle, Blickling Hall, Salle Church, Tower of London, and Marwell Hall.</p>
+									<p>In 1864, Major General J.D. Dundas of the 60th Rifles regiment was quartered in the Tower of London. As he was looking out the window of his quarters, he noticed a guard below in the courtyard, in front of the lodgings where Anne had been imprisoned, behaving strangely. He appeared to challenge something, which to the General "looked like a whitish, female figure sliding towards the soldier". The guard charged through the form with his bayonet, then fainted.</p>
+									
+									<p>Only the General's testimony and corroboration at the court-martial saved the guard from a lengthy prison sentence for having fainted while on duty. In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
+									
+									<p>In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
+									<br/>
+									<div class="push"></div>
+								</div>
+							</div>
+							
+<div class="push" style="height:10px;"></div>                
+<pre class="htmlCode">
 &lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
 &lt;script&gt;
     $(&quot;a.first&quot;).pageslide();
@@ -4079,9 +4163,9 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			            </li>
 			            <li style="margin-top:30px;">
 			                <p class="fnote">In this Slide to the Left Example, we will display hidden content from a <code>DIV id="modal_name"</code> on this page, into the resulting modal pane.</p>
-							<p><a href="#PageSlide_modal" class="pageslide_second button action blue full_button"><span class="label">Slide to the left</span></a></p>
+							<p><a href="#PageSlide_modal" class="pageslide_second button action blue full_button"><span class="label">Slide to the Right</span></a></p>
 <div class="push" style="height:10px;"></div>
-<pre>
+<pre class="htmlCode">
 &lt;a href=&quot;#PageSlide_modal&quot; class=&quot;second&quot;&gt;Link text&lt;/a&gt;
 &lt;div id=&quot;PageSlide_modal&quot; style=&quot;display:none&quot;&gt;
     &lt;h2&gt;Modal&lt;/h2&gt;
@@ -4093,18 +4177,20 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 </pre>
 			            </li>
 			            <li style="margin-top:30px;">
-							<p class="fnote">Another Example. Showing the loading of a Remote HTML Page.</p>
-			                <p><a href="javascript:$.pageslide({ direction: 'left', href: 'test/secondary.html' })" class="button action red full_button"><span class="label">Open the page Programmatically</span></a></p>
+							<p class="fnote">Another Example. Showing the loading of a Remote HTML Page. Also shows the automatic scrolling features, as the iframe defaults to a height of 100% and forces scrolling. you can adjust this in the css, however if you remove the ability for overflow you could cut off part of your navigation menu when in landscape views.</p>
+			                <p><a href="javascript:$.pageslide({ direction: 'right', href: 'demos/secondary.html' })" class="button action red full_button"><span class="label">Open the page Programmatically</span></a></p>
                 <pre>
 &lt;a href=&quot;javascript:$.pageslide({ direction: &#39;left&#39;, href=&#39;_secondary.html&#39; })&quot;&gt;Link text&lt;/a&gt;
                 </pre>
 			            </li>
 			        </ul>
+					<div class="none">
 			        <div id="PageSlide_modal">
-			            <h3 class="whiteText">Modal</h3>
-			            <p class="fnote whiteText p10">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
-			            <p class="p10"><a href="javascript:$.pageslide.close()" class="button action red full_button"><span class="label">Close</span></a></p>
+			            <h3 class="orangeText">Modal</h3>
+			            <p class="p10 whiteText">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
+			            <p class="p10 whiteText"><a href="javascript:$.pageslide.close()" class="button action red full_button"><span class="label">Close</span></a></p>
 			        </div>
+					</div>
 			    </div>
 			</div>
 		</div>
@@ -4231,8 +4317,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 
 <!-- minified hui library -->
-<script type="text/javascript" src="dist/hui-min.js?ver=1.15.2"></script>
-
+<script type="text/javascript" src="dist/hui-min.js?ver=4536486453153"></script>
 <!-- Example Functions for the Demo -->
 <script type="text/javascript" src="demos/index_demo.js"></script>
 

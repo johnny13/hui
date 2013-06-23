@@ -17,12 +17,13 @@ $linkVisit:#B21CED;
 $fontSize:1em;
 $lineHeight:1.5em;
 $family:Helvetica, Arial, sans-serif;
+$fontface:"annie", Verdana, Arial, Helvetica, sans-serif !important;
 $fontColor:#0d0d0d;
 $paragraphP:5px 0 0 5px;
 $bodyBack:#ffffff;
 $headerP:5px 0 9px 10px;
 $headerM:20px 0 30px;
-$headerBorder:1px solid #B1B1B1;
+$headerBorder:1px groove #F0F0F0;
 $smallLimitOne:800px;
 $smallLimitTwo:480px;
 $smallLimitThree:320px;
@@ -173,6 +174,23 @@ a {
   margin: $headerM;
   border-bottom: $headerBorder;
 }
+
+/* Font Face Stuff. To style, simply Use your own Font File. */
+/* More information about custom fonts and stuff is on the hui site */
+@font-face {
+  font-family: "annie";
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../../font/annieuseyourtelescope.eot');
+  src: url('../../../font/annieuseyourtelescope.eot?#iefix&') format('embedded-opentype'),
+    url('../../../font/annieuseyourtelescope.woff') format('woff'),
+    url('../../../font/annieuseyourtelescope.ttf') format('truetype');
+}
+
+a.style,h1,h2,h3,h4,h5,h6 {
+  font-family: $fontface;
+}
+
 p {
   border:none;
   font-family:$family;
@@ -180,6 +198,7 @@ p {
   line-height: $lineHeight;
   padding:$paragraphP;
 }
+
 .fnote {
   color:$tableEvenText !important;
   padding:5px !important;

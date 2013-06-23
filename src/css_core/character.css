@@ -1,7 +1,5 @@
 /* [S03] 3_character.css  **********************************************************/
-
 /*--- Basics ---*/
-
 strong { font-weight: bold; }
 em { font-style: italic; }
 
@@ -22,14 +20,7 @@ p {
 	margin: 0 0 10px;
 	line-height:1em;
 }
-p.long-text {
-  font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif !important;
-  font-weight: 300;
-  font-size: 10pt;
-  letter-spacing: 0.02em;
-  line-height: 12pt;
-  font-smooth: always;
-}
+
 p.indent:first-letter {
   padding-left: 25px;
 }
@@ -70,53 +61,16 @@ code {
  overflow: auto;
  font-size: .9em;
  line-height:95%;
-text-indent:3px;
-}
-
-/**
- * Data Results
- */
-.error, .notice, .success, .info, .accept, .warning {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
-.error {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
-.notice,.warning {background:#fff6bf;color:#514721;border-color:#ffd324;}
-.success,.accept {background:#e6efc2;color:#264409;border-color:#c6d880;}
-.info, .information {background:#d5edf8;color:#205791;border-color:#92cae4;}
-.error a {color:#8a1f11;}
-.notice a {color:#514721;}
-.success a {color:#264409;}
-.info a {color:#205791;}
-
-/* Font Face Stuff. To style, simply Use your own Font File. */
-/* More information about custom fonts and stuff is on the hui site */
-@font-face {
-  font-family: "annie";
-  font-style: normal;
-  font-weight: normal;
-  src: url('../font/annieuseyourtelescope.eot?v=3.0.1');
-  src: url('../font/annieuseyourtelescope.eot?#iefix&v=3.0.1') format('embedded-opentype'),
-    url('../font/annieuseyourtelescope.woff?v=3.0.1') format('woff'),
-    url('../font/annieuseyourtelescope.ttf?v=3.0.1') format('truetype');
-}
-
-.text-rest-state {
-  color: #000000;
-}
-.text-rest2-state {
-  color: rgba(0, 0, 0, 0.6);
-}
-.text-hover-state {
-  color: rgba(0, 0, 0, 0.8);
-}
-.text-pressed-state {
-  color: rgba(0, 0, 0, 0.4);
+ text-indent:3px;
 }
 
 a {
  color: #2e92cf;
  text-decoration: none;
 }
+
 a.link {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: 400;
   font-size: 11pt;
   font-smooth: always;
@@ -147,8 +101,9 @@ h6 {
   margin: 0.5em 0 0.5em 0;
   padding: 0;
 }
+
 h1 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 3em;
   letter-spacing: 0.00em;
@@ -158,7 +113,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 2.7em;
   letter-spacing: 0.01em;
@@ -168,7 +123,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 2.4em;
   letter-spacing: 0.01em;
@@ -179,7 +134,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 1.4em;
   letter-spacing: 0.01em;
@@ -191,7 +146,7 @@ h4 {
 
 
 h5 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 1.2em;
   letter-spacing: 0.01em;
@@ -200,7 +155,7 @@ h5 {
 }
 
 h6 {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: normal;
   font-size: 1.1em;
   letter-spacing: 0.01em;
@@ -208,55 +163,10 @@ h6 {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.lead {
-  font-size: 120%;
-  line-height: 26px;
-}
-.tertiary-info-text,
-.tertiary-text {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 9pt;
-  font-smooth: always;
-  line-height: 11pt;
-  color: #000000;
-}
-.tertiary-info-text:hover,
-.tertiary-text:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-.tertiary-info-text:active,
-.tertiary-text:active {
-  color: rgba(0, 0, 0, 0.4);
-}
-.tertiary-info-secondary-text,
-.tertiary-secondary-text {
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 9pt;
-  font-smooth: always;
-  line-height: 11pt;
-  color: rgba(0, 0, 0, 0.6);
-}
-.tertiary-info-secondary-text:hover,
-.tertiary-secondary-text:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-.tertiary-info-secondary-text:active,
-.tertiary-secondary-text:active {
-  color: rgba(0, 0, 0, 0.4);
-}
-abbr.initialism {
-  font-size: 90%;
-  text-transform: uppercase !important;
-}
-abbr[title] {
-  cursor: help !important;
-}
 address {
   display: block;
   margin-bottom: 20px;
-  font-family: 'annie', Verdana, Arial, Helvetica, sans-serif;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: 300;
   font-size: 11pt;
   letter-spacing: 0.02em;
@@ -265,6 +175,7 @@ address {
   line-height: 20px;
   font-style: normal;
 }
+
 blockquote {
   margin: 0;
   padding: 5px 20px;
@@ -272,62 +183,36 @@ blockquote {
   display: block;
   background-color: rgba(204, 204, 204, 0.1);
 }
+
 blockquote p {
   margin-bottom: 0;
 }
+
 blockquote small:before {
   content: '\2014';
   color: rgba(0, 0, 0, 0.4);
   margin-right: 5px;
 }
+
 blockquote.place-right {
   float: none !important;
   text-align: right;
   border: 0;
-  border-right: 4px #ccc solid;
+  border-right: 3px #ccc solid;
 }
+
 blockquote.place-right small {
   text-align: right;
 }
+
 blockquote.place-right small:before {
   content: "";
 }
+
 blockquote.place-right small:after {
   content: '\2014';
   color: rgba(0, 0, 0, 0.4);
   margin-left: 5px;
-}
-
-.inline-tag{
-  display: inline-block;
-  line-height: inherit;
-  font-size: .75em;
-  font-weight: bold;
-  padding: 2px 4px;
-  background-color: #d5e7ec !important;
-  color: #4d4d4d;
-  vertical-align: 3%;
-}
-.inline-tag.success{
-  background-color: #00a300 !important;
-  color: #ffffff !important;
-}
-.inline-tag.warning{
-  background-color: #e3a21a !important;
-  color: #ffffff !important;
-}
-.inline-tag.important,
-.inline-tag.error {
-  background-color: #b91d47 !important;
-  color: #ffffff !important;
-}
-.inline-tag.info{
-  background-color: #2d89ef !important;
-  color: #ffffff !important;
-}
-.inline-tag.inverse {
-  background-color: #1d1d1d !important;
-  color: #ffffff !important;
 }
 
 /**!
@@ -370,7 +255,6 @@ blockquote.place-right small:after {
   font-style: normal;
   text-decoration: inherit;
   -webkit-font-smoothing: antialiased;
-
   /* sprites.less reset */
   display: inline;
   width: auto;
@@ -383,21 +267,6 @@ blockquote.place-right small:after {
   margin-top: 0;
 }
 /* more sprites.less reset */
-.icon-white,
-.nav-pills > .active > a > [class^="icon-"],
-.nav-pills > .active > a > [class*=" icon-"],
-.nav-list > .active > a > [class^="icon-"],
-.nav-list > .active > a > [class*=" icon-"],
-.navbar-inverse .nav > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class*=" icon-"],
-.dropdown-menu > li > a:hover > [class^="icon-"],
-.dropdown-menu > li > a:hover > [class*=" icon-"],
-.dropdown-menu > .active > a > [class^="icon-"],
-.dropdown-menu > .active > a > [class*=" icon-"],
-.dropdown-submenu:hover > a > [class^="icon-"],
-.dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: none;
-}
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   text-decoration: inherit;
@@ -434,23 +303,7 @@ a [class*=" icon-"] {
 .nav [class*=" icon-"].icon-spin {
   display: inline-block;
 }
-.nav-tabs [class^="icon-"],
-.nav-pills [class^="icon-"],
-.nav-tabs [class*=" icon-"],
-.nav-pills [class*=" icon-"] {
-  /* keeps button heights with and without icons the same */
 
-}
-.nav-tabs [class^="icon-"],
-.nav-pills [class^="icon-"],
-.nav-tabs [class*=" icon-"],
-.nav-pills [class*=" icon-"],
-.nav-tabs [class^="icon-"].icon-large,
-.nav-pills [class^="icon-"].icon-large,
-.nav-tabs [class*=" icon-"].icon-large,
-.nav-pills [class*=" icon-"].icon-large {
-  line-height: .9em;
-}
 li [class^="icon-"],
 .nav li [class^="icon-"],
 li [class*=" icon-"],

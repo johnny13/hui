@@ -1,3 +1,8 @@
+/* 
+* deep breaths. oldIE is almost dead.
+* until then, if you want to support ie 8 & 7 you should include this style sheet.
+* you should also include the HTML5SHIV.js
+*/
 .onecol {
     width: 4.7%}
 .twocol {
@@ -20,9 +25,9 @@
     width: 82%}
 .elevencol {
     width: 91.35%}
-.gradient  {
-     filter:  none;
- }
+.gradient {
+     filter:  none;}
+
 input[type="checkbox"] {
     width:  94px;
     height:  27px;
@@ -51,7 +56,7 @@ li .comment.limit  {
 
 /*
  *  Font Awesome 3.0.2
- *  the iconic font designed for use with Twitter Bootstrap
+ *  
  *  -------------------------------------------------------
  *  The full suite of pictographic icons, examples, and documentation
  *  can be found at: http://fortawesome.github.com/Font-Awesome/

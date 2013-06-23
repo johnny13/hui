@@ -26,7 +26,19 @@ a {
 .page-header {
   padding: 5px 0 9px 10px;
   margin: 20px 0 30px;
-  border-bottom: 1px solid #b1b1b1; }
+  border-bottom: 1px groove #f0f0f0; }
+
+/* Font Face Stuff. To style, simply Use your own Font File. */
+/* More information about custom fonts and stuff is on the hui site */
+@font-face {
+  font-family: "annie";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../../font/annieuseyourtelescope.eot");
+  src: url("../../../font/annieuseyourtelescope.eot?#iefix&") format("embedded-opentype"), url("../../../font/annieuseyourtelescope.woff") format("woff"), url("../../../font/annieuseyourtelescope.ttf") format("truetype"); }
+
+a.style, h1, h2, h3, h4, h5, h6 {
+  font-family: "annie", Verdana, Arial, Helvetica, sans-serif !important; }
 
 p {
   border: none;

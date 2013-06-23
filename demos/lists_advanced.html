@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- Mobile Related Stuff -->
 	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
-	<title>DEMO Page</title>
+	<title>Advanced Accordion Demo</title>
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
 	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 	
@@ -21,7 +21,7 @@
 	
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="dist/ie-min.css" type="text/css" media="screen" />
 	<![endif]-->
 
 	<!-- Demo Styles -->
@@ -174,37 +174,66 @@
 </head>
 <body>
 	
-	<div class="container" id="content">
-		<div class="push"></div>
-	
-		<!-- Demo START -->
-		
-			<div class="row limit category EXAMPLE_category">
-				<div class="twelvecol last">
-				<h1 class="page-header">hui included demos</h1>
-				
-				<div class="p10">
-					<a href="grid.html">Fluid Grid Demo</a><br/>
-				</div>
-				
-				<div class="p10">
-					<a href="lists_advanced.html">Advanced List Demo</a><br/>
-				</div>
-				
-				<div class="p10">
-					<a href="tarot_basic.html">Tarot Basic Demo</a><br/>
-				</div>
-				
-				<div class="p10">
-					<a href="tarot_advanced.html">Tarot Advanced Demo</a><br/>
-				</div>
-				
-				</div>
+	<div class="row limit category datas_category">
+
+		<div class="twelvecol last">
+			<h2 class="page-header">Advanced Accordion Demo</h2>
+			<p class="fnote">hui built in lists support a number of optional styles and classes. this allows you to easily customize the appearance. However with a bit of javascript you can easily add functionality above and beyond a simple list menu.</p>
+			
+			<div class="information m10" style="border:2px solid #3D9EE9">
+				<p class="p10">Standard Display Lists work without Javascript.</p>
+				<p class="p10"><code>.minilist</code> examples need to be added</p>
+				<p class="p10"><code>.Tegan .title_bar</code> needs docs and examples</p>
+				<p class="p10">An additional <code>.style</code> class is added to the UL. the <code>.inset</code> class is activated below 800px.</p>
+				<p class="p10">optionally limit LI by adding to comments: <code>class="comment limit"</code></p>
 			</div>
 			
-		<!-- Demo END -->
+			<p class="fnote"></p>
+			<div class="push"></div>
+			
+<pre>//Example jQuery
+var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
+jQuery("&lt;div&gt; &lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);</pre>
+			
+			<div class="push"></div>
+			<p class="p10">Targeting the List with some jQuery will jazz things up.</p>
+			
+			<div class="fourcol">
+			<div class="flapperStage">
+				<div class="speakEasy">
+					<ul>
+						<li class="title_bar" id='absbs'>Prohibition And Curls</li>
+						<li class="basic absbs">
+							<a href="#" class="pageloader">Song 1</a>
+						</li>
+						<li class="basic absbs"><a href="#" class="pageloader">Song 2</a></li>
+						<li class="basic absbs"><a href="#" class="pageloader">Song 3</a></li>
+						<li class="basic absbs"><a href="#" class="pageloader">Song 4</a></li>
+						<li class="basic absbs"><a href="#" class="pageloader">Song 5</a></li>
+						<li class="basic absbs"><a href="#" class="pageloader">Song 6</a></li>							
+						<li class="title_bar docked" id="bsbs">Basic Setup</li>
+						<li class="basic bsbs active" style="display: none;"><a href="#" class="pageloader">Download</a></li>
+						<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Install</a></li>
+						<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Tutorials</a></li>
+						<li class="title_bar docked" id="cscs">Mating</li>
+						<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Lithium PHP</a></li>
+						<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Wordpress</a></li>
+						<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+						
+						
+						<li class="title_bar" id='dcscs'>Dance Number</li>
+						<li class="basic dcscs"><a href="#" class="pageloader">Chorus</a></li>
+						<li class="basic dcscs"><a href="#" class="pageloader">Refrain</a></li>
+						<li class="basic dcscs"><a href="#" class="pageloader">Showstopper</a></li>
+					</ul>
+				</div>
+			</div>
+			</div>
+			<div class="fourcol"></div>
+			<div class="fourcol last"></div>
+			<div class="push"></div>
+		</div>
 		
-		<div class="push" style="height:50px;"></div>
 	</div>
 
 <!-- Stable jQuery 1.8 Product type setup -->
@@ -213,9 +242,14 @@
 
 <!-- minified hui library -->
 <script type="text/javascript" src="../dist/hui-min.js?ver=1.15.2"></script>
-
-<!-- Example Functions for the Demo 
-<script type="text/javascript" src="tarot_demo.js"></script>-->
-
+<script>
+jQuery(document).ready(function() { 
+	//Flapper Girl Menu
+	 var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
+	 jQuery("<div></div>").flapperGirl(ladyParts);
+}); 
+</script>
+<!-- Example Functions for the Demo -->
+<!-- not needed. -->
 </body>
 </html>

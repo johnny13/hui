@@ -14,7 +14,6 @@ var counter = 0;
 var demo1 = 0;
 var demo2 = 0;
 var demo3 = 0;
-
 var colorArrLight = ["#F10000","#57DB23","#49C5FF","#C14DF7","#DD6B00"];
 var colorArr = ["#C51111","#44B915","#109CDD","#8F00D1","#E65614"];
 
@@ -397,6 +396,8 @@ jQuery(document).ready(function() {
 			setTimeout("PanelSwap('.home_category','home page')",500);
 		}
 	}
+	
+	
 }); 
 
 /* History.js Setup */

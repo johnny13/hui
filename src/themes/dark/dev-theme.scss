@@ -17,6 +17,7 @@ $linkVisit:#FF0090;
 $fontSize:1em;
 $lineHeight:1.5em;
 $family:Helvetica, Arial, sans-serif;
+$fontface:"annie", Verdana, Arial, Helvetica, sans-serif !important;
 $fontColor:#FCFCFC;
 $paragraphP:5px 0 0 5px;
 $bodyBack:#2B2B2B;
@@ -159,6 +160,22 @@ a {
   color: $linkColor;
   &:hover { color:$linkHover; }
   &:visited { color: $linkVisit; }
+}
+
+/* Font Face Stuff. To style, simply Use your own Font File. */
+/* More information about custom fonts and stuff is on the hui site */
+@font-face {
+  font-family: "annie";
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/annieuseyourtelescope.eot');
+  src: url('../font/annieuseyourtelescope.eot?#iefix&') format('embedded-opentype'),
+    url('../font/annieuseyourtelescope.woff') format('woff'),
+    url('../font/annieuseyourtelescope.ttf') format('truetype');
+}
+
+a.style,h1,h2,h3,h4,h5,h6 {
+  font-family: $fontface;
 }
 
 h1,h2,h3,h4,h5,h6 {
