@@ -2,17 +2,6 @@
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
-(function(jQuery) {
- 
- jQuery.fn.hui = function(options) {
-  	if(options["-v"]==true){
-		return "1.13.6";
-	}
- }
-
-})(jQuery);
-
-/* shuffle things */
 /* example| jQuery.shuffle(colorArray); */
 (function(jQuery){
   jQuery.fn.shuffle = function() {

@@ -11,7 +11,7 @@
  <title>Welcome to Huement</title>
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
- <link href="http://huementui.s3.amazonaws.com/cdn/github/dist/hui-dark.css" rel="stylesheet" type="text/css"/>
+ <link href="../dist/hui-dark.css" rel="stylesheet" type="text/css"/>
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
 	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
@@ -296,7 +296,7 @@
  <div class="push" style="height:50px;"></div>
 
 <!-- Stable jQuery 1.8 Product type setup -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
 
 <!-- or setup for jQuery 1.9+ & 2.0b Slower. For Development.
@@ -308,7 +308,7 @@
 -->
 
 <!-- Include the hui javascript library -->
-<script src="https://huementui.s3.amazonaws.com/cdn/hui-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- if you wanted to add additional plugins, it would be like this:
 <script src="https://huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/js/jquery.thimbleberry.min.js" type="text/javascript"></script>
@@ -319,8 +319,33 @@ eg: huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/css/thimbleberry-min
 
 <!-- sample doc ready -->
 <script type="text/javascript">
-jQuery(document).ready(function() {
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
 
+})(jQuery);
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
 });
 
 jQuery(window).load(function() {
