@@ -953,7 +953,6 @@ nav.flex {
   font-size: $navbarFontSize;
   font-weight:bold;
   position: relative;
-  @include borderRadius(3px);
   background: $navbarBack;
 }
 
@@ -1012,8 +1011,15 @@ nav.flex a.navpuller {
 
   nav.flex ul {
     width: 100%;
-    display: block;
+    display: none;
     height: auto;
+  }
+
+  nav.flex a.navpuller {
+    display: block;
+    background-color: $horizontalNavBack;
+    width: 100%;
+    position: relative;
   }
 
   nav.flex li {
@@ -1048,7 +1054,7 @@ nav.flex a.navpuller {
     -webkit-appearance: none;
     appearance: none;
     background:#fff url("https://huementui.s3.amazonaws.com/cdn/imgs/bg-select.png") no-repeat right;
-    border: 1px solid #2d2d2d;
+    border: 1px solid $navbarLinkbackground;
     font-size: 1.1em;
     padding: 0.5em 1em 0.5em 0.75em;
     height:100%;
@@ -1066,26 +1072,6 @@ nav.flex a.navpuller {
   nav.flex ul, .horizontalNav-processed {
     display: none;
     height: auto;
-  }
-
-  nav.flex a.navpuller {
-    display: block;
-    background-color:#5C5C5C;
-    width: 100%;
-    position: relative;
-  }
-  
-  nav.flex a.navpuller:after {
-    content:"";
-    background:url("https://huementui.s3.amazonaws.com/images/navicon-grey.png") no-repeat;
-    width: 5%;
-    height: 5%;
-    min-height:30px;
-    min-width:30px;
-    display: inline-block;
-    position: absolute;
-    right: 15px;
-    top: 5px;
   }
 }
 

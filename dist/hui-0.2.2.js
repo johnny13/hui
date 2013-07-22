@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.2 - 2013-06-23
+/*! huement user interface - v0.2.2 - 2013-07-22
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -3754,6 +3754,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
                     clearTimeout(resizeTimer);
                     resizeTimer = setTimeout(function() {
                         callback();
+						console.debug("this");
                     }, delay);
                 });
             }
@@ -3815,7 +3816,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
                 }
         /* minify down to select box on small screens */
         
-              if ( typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
+              if ( options != null && typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
                var prepre = options["prependTo"];
                jQuery(ul).mobileMenu({
                prependTo: prepre
@@ -4132,7 +4133,6 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
  * By Derek Scott - Copyright 2012 - All rights reserved
  * Author URL: http://huement.com 
 */
-
 //jQuery.fn.watermark = function(options) { /* ... */ }   
 //Shortcut for jQuery.prototype.watermark = function(options) { /* ... */ }
 (function($) {
@@ -4146,7 +4146,10 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
   jQuery(pull).on('click', function(e) {
    e.preventDefault();
-   menu.slideToggle();
+   //menu.slideToggle();
+   menu.animate({
+       "height": "toggle"
+   }, 1200, "easeOutBounce");
   });
 
   jQuery(window).resize(function(){
@@ -4162,6 +4165,8 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
  };
  
 })(jQuery);
+
+
 // Stupid jQuery table plugin.
 
 // Call on a table

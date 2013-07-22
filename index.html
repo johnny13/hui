@@ -53,6 +53,7 @@
 			text-align:center;
 			padding:5px;
 			margin:0;
+			color:#FFF;
 			font-weight:bold;
 		}
 		
@@ -252,8 +253,9 @@
 		 <li><a href="#useful" title="useful">useful</a></li>
 		 <li><a href="#datas" title="datas">data</a></li>
 		 <li><a href="#forms" title="forms">form</a></li>
-		 <li><a href="#widgets" title="widgets">widget</a></li>
-		 <li><a href="#accordion" title="accordion">dance</a></li>
+		 <li><a href="#buttons" title="buttons">button</a></li>
+		 <li><a href="#widgets" title="widgets">modal</a></li>
+		 <li><a href="#accordion" title="accordion">flex</a></li>
 		 <li><a href="#navigate" title="navigate">nav</a></li>
 		</ul>
 		</div>
@@ -317,10 +319,12 @@ preload([
 				
 				<p>Currently Supported Functions:</p>
 				<ul class="Tegan">
+				
+				<li><span class="name">Hammer.js</span><span class="comment">touch and gesture support</span></li>
 				<li><span class="name">shuffle</span><span class="comment">randomize js array contents</span></li>
 				<li><span class="name">animate colors</span><span class="comment">make it hot</span></li>
 				<li><span class="name">History</span><span class="comment">HTML 5 History plugin. (?page=whatever)</span></li>
-				<li><span class="name">preload image(s)</span><span class="comment"><a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow Based</a></span></li>
+				<li><span class="name">preload image(s)</span><span class="comment"><a href="http://stackoverflow.com/questions/476679/preloading-images-with-jquery">Stack Overflow credit</a></span></li>
 				</ul>
 				
 				<div class="push"></div>
@@ -337,7 +341,7 @@ preload([
 			</div>
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="twelvecol last">
 				<h2 class="page-header">Button Framework</h2>
 				<p class="fnote">the button framework contains the core user interaction elements. allowing you to offer everything from a confirmation or yes no button, to a drop down toolbar with @font-face icons.</p>
@@ -651,7 +655,7 @@ preload([
 			</div>
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="twelvecol last">
 			<div class="push" style="height:60px;"></div>
 				<div class="card">
@@ -665,7 +669,7 @@ preload([
 		</div>	
 	
 		<!-- this uses the Fraction Boxes on top of the Grid -->
-		<div class="C category action_category row limit">
+		<div class="row limit category buttons_category">
 		<div class="boxMost">
 		 <div class="box13 L">
 			 <h4><span class="icon-flag"></span> One font, 249 icons</h4>
@@ -712,7 +716,8 @@ preload([
 		<br/>
 		</div>
 		</div>
-		<div class="row limit category action_category">
+		
+		<div class="row limit category buttons_category">
 			<div class="twelvecol last">
 				<div class="push" style="height:50px;"></div>
 				<h3 class="page-header">Font-Face Links</h3>
@@ -721,7 +726,7 @@ preload([
 			</div>
 		</div>
 		
-		<div class="row limit category action_category lead">
+		<div class="row limit category buttons_category lead">
 		    <div class="twocol">
 		      <a href="#" class="redText"><span class="icon-magic"></span> Link Here</a>
 		    </div>
@@ -742,7 +747,7 @@ preload([
 		    </div><br/>
 		</div>
 
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 		    <div class="twocol">
 		      <a href="#" class="orangeText"><span class="icon-magic"></span> Link Here</a>
 		    </div>
@@ -763,7 +768,7 @@ preload([
 		    </div>
 		</div>
 		
-		<div class="row limit category action_category gigantic">
+		<div class="row limit category buttons_category gigantic">
 			<div class="push" style="height:20px;"></div>
 		    <div class="twocol">
 		      <a href="#" class="p10"><span class="icon-magic"></span> Link Here</a>
@@ -785,7 +790,7 @@ preload([
 		    </div>
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="twelvecol last"><br/>
 <pre class="htmlCode">&lt;a href="#"&gt; &lt;span class="icon-magic"&gt;&lt;/span&gt; Link Here&lt;/a&gt;
 &lt;a href="#"&gt; &lt;span class="icon-magic icon-large"&gt;&lt;/span&gt; Link Here&lt;/a&gt;
@@ -795,7 +800,7 @@ preload([
 			</div>
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="push"></div>
 			<div class="twelvecol last">
 				<p class="fnote"><code>&lt;button&gt;</code> and <code>.button</code> elements can also use <code>@font-face</code> icons.</p>
@@ -833,7 +838,7 @@ preload([
 		    </div>
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="push"></div>
 			<div class="twelvecol last">
 				<p class="fnote"><code>@font-face</code> icons can scale to any size. this examples shows off the <code>.icon-2x</code> version.</p>
@@ -854,7 +859,7 @@ preload([
 		    
 		</div>
 		
-		<div class="row limit category action_category">
+		<div class="row limit category buttons_category">
 			<div class="push"></div>
 			<div class="twelvecol last">
 				<p class="fnote"><code>@font-face</code> icons can scale to any size. this examples shows off the <code>.icon-3x</code> version.</p>
@@ -1525,10 +1530,13 @@ preload([
 
 		</div>
 		
+		<!-- Typography -->
 		<div class="row limit category type_category">
 		
 			<div class="twelvecol last">
 				<h2 class="page-header">Typography</h2>
+				
+				<p>@font-face font loading is setup from the start. Using it for only the Page Headings is ready out of the box, if you want to add support for paragraph text or anything else, include additional references in the css file.</p>
 				
 				<div class="boxMost card">
 					<h1>H1. Heading 1</h1>
@@ -1633,44 +1641,45 @@ preload([
   &lt;small&gt;...&lt/small&gt;
  &lt/blockquote&gt;
 </pre>
-
-				<h2 class="page-header">Labels</h2>
-                <table class="style">
-                    <thead>
-                    <tr>
-                        <th>Label type</th>
-                        <th>Label definition</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td width="120"><span class="label">Default</span></td>
-                        <td><code>&lt;span class="label"&gt;Default&lt;/span&gt;</code></td>
-                    </tr>
-                    <tr>
-                        <td><span class="label success">Success</span></td>
-                        <td><code>&lt;span class="label success"&gt;Success&lt;/span&gt;</code></td>
-                    </tr>
-                    <tr>
-                        <td><span class="label warning">Warning</span></td>
-                        <td><code>&lt;span class="label warning"&gt;Warning&lt;/span&gt;</code></td>
-                    </tr>
-                    <tr>
-                        <td><span class="label error">Important</span></td>
-                        <td><code>&lt;span class="label error"&gt;Error&lt;/span&gt;</code></td>
-                    </tr>
-                    <tr>
-                        <td><span class="label info">Info</span></td>
-                        <td><code>&lt;span class="label info"&gt;Info&lt;/span&gt;</code></td>
-                    </tr>
-                    <tr>
-                        <td><span class="label inverse">Inverse</span></td>
-                        <td><code>&lt;span class="label inverse"&gt;Inverse&lt;/span&gt;</code></td>
-                    </tr>
-                    </tbody>
-                </table>
 				</div>
 				
+			</div>
+		</div>
+		
+		<div class="row limit category type_category">
+			<div class="push" style="height:50px;"></div>
+			<div class="twelvecol last">
+			<h3 class="page-header">Context Classes</h3>
+			<p>Additional Classes that easily convey additional information, and feedback options like confirmations and warnings.</p>
+			<div class="push"></div>
+			<h3>success</h3>
+				<div class="success">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>error</h3>
+				<div class="error">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>warning</h3>
+				<div class="warning">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
+			<h3>info</h3>
+				<div class="info">
+					<div class="push"></div>
+					<p>This is a string of sample text.</p>
+					<div class="push"></div>
+				</div>
+			<div class="push"></div>
 			</div>
 		</div>
 		
@@ -1834,14 +1843,32 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 		
 		<!-- USEFUL -->
 		<div class="row limit category useful_category">
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">Usability</h2>
+				<p>Additional elements that increase the usability of your project. HTML Grid, manipulating select elements, tooltips, button toolbars and improved pagination are all standard.</p>
+				<p>there are just basic examples here, for further details and examples see the advanced demos and the documentation.</p>
+				
+			</div>
+			
+			<div class="push" style="height:50px;"></div>
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">12 Column Grid</h2>
+				<p>Using a basic 12 column grid allows you to easily build fluid html layouts that work across almost all devices.</p>
+				<p>adding the optional <code>.limit</code> code can set you up with a fixed limited width, such as 1140px.</p>
+				
+			</div>
+			
+			<div class="push" style="height:150px;"></div>
+			
 			<div class="fourcol smallHide">
-
+<pre>&nbsp;
+&nbsp;
+</pre>				
 			</div>
 			<div class="eightcol last">
-				<h2 class="page-header">Usability</h2>
-				<p>Form and Data Elements</p>
-
-				<h3 class="page-header">Select drop-down manipulation</h3>
+				<h2 class="page-header">Select drop-down manipulation</h2>
 				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
 					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
 
@@ -1853,12 +1880,29 @@ jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
 							<option>default</option>
 						</select>
 					</div>
-				
 			</div>
+			
+			<div class="push" style="height:50px;"></div>
+			<div class="fourcol smallHide">
+<pre>$(function () {
+$('.antiscroll-wrap').antiscroll({
+  autoHide: false
+});
+});
+</pre>				
+			</div>
+			<div class="eightcol last">
+				<h2 class="page-header">Antiscroll</h2>
+				<p class="fnote">os x lion style cross-browser native scrolling on the web that gets out of the way. Forked from the Learnboost plugin found here: <a href="http://learnboost.github.io/antiscroll/">learnboost.github.io/antiscroll</a></p>
+					<h3>It Looks Like This</h3>
+					<img src="https://a248.e.akamai.net/camo.github.com/3c61b3d3355482eaa9d36fa19c707d4181513f55/687474703a2f2f662e636c2e6c792f6974656d732f335230793150315533723263304f335a323533332f496d616765253230323031312e31312e3233253230383a34323a3531253230414d2e706e67" class="p10 m10"/>
+					
+			</div>
+			
 		</div>
 		
 		<div class="row limit category useful_category">
-
+			<div class="push" style="height:50px;"></div>
 			<div class="fourcol smallHide">
 <pre>
 /* doc ready activate all */
@@ -1875,7 +1919,7 @@ jQuery(function(){
 			</div>
 
 			<div class="eightcol last">
-			<h3 class="page-header">TipTip Tooltips</h3>
+			<h2 class="page-header">TipTip Tooltips</h2>
 			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
 			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
 
@@ -1884,9 +1928,12 @@ jQuery(function(){
 		</div>
 		
 		<div class="row limit category useful_category">
-			<br/>
 			<div class="push" style="height:150px;"></div>
-			<div class="fourcol smallHide">
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">Pagination</h2>
+				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				
 
 <pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
     &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
@@ -1895,22 +1942,19 @@ jQuery(function(){
     &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
     &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
 &lt;/div&gt;</pre>
-<br/>
-<div class="push"></div>
-<pre class="jsCode">$('.pagination').jqPagination({
-    paged: function(page) {
-        // do something with the page variable
-    }
-});</pre>
+	<br/>
+	<div class="push"></div>
+	<pre class="jsCode">$('.pagination').jqPagination({
+	    paged: function(page) {
+	        // do something with the page variable
+	    }
+	});</pre>
 
+	<div class="push"></div>
+	<p><a href="#" class="show-log">Show / hide event log:</a></p>
+	<ul class="log"></ul>
+	
 <div class="push"></div>
-<p><a href="#" class="show-log">Show / hide event log:</a></p>
-<ul class="log"></ul>
-
-			</div>
-			<div class="eightcol last">
-				<h2 class="page-header">Pagination</h2>
-				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
 				<ul>
 					<li>Design agnostic</li>
 					<li>Customizable</li>
@@ -1969,42 +2013,6 @@ jQuery(function(){
 			</div>
 		</div>
 		
-		<div class="row limit category useful_category">
-			<div class="push" style="height:50px;"></div>
-			<div class="twelvecol last">
-			<h3 class="page-header">3d. Context Classes</h3>
-			<p>Additional Classes that easily convey additional information, and feedback options like confirmations and warnings.</p>
-			<div class="push"></div>
-			<h3>success</h3>
-				<div class="success">
-					<div class="push"></div>
-					<p>This is a string of sample text.</p>
-					<div class="push"></div>
-				</div>
-			<div class="push"></div>
-			<h3>error</h3>
-				<div class="error">
-					<div class="push"></div>
-					<p>This is a string of sample text.</p>
-					<div class="push"></div>
-				</div>
-			<div class="push"></div>
-			<h3>warning</h3>
-				<div class="warning">
-					<div class="push"></div>
-					<p>This is a string of sample text.</p>
-					<div class="push"></div>
-				</div>
-			<div class="push"></div>
-			<h3>info</h3>
-				<div class="info">
-					<div class="push"></div>
-					<p>This is a string of sample text.</p>
-					<div class="push"></div>
-				</div>
-			<div class="push"></div>
-			</div>
-		</div>
 		
 		<!-- DATAS -->
 		<!-- lists -->
@@ -2873,42 +2881,8 @@ $("table").stupidtable();
 &lt;/form&gt;
 </pre><br/>
 	  <div class="push" style="height:50px;"></div>
-	  <h2 class="page-header">Stylish Checkboxes & Radio Buttons</h2>
-      <p>hui features highly customizable checkboxes and radio buttons. Increase the usability and visibility of some of the most hard to see, but most important form elements. Originally forked from <a href="https://github.com/damirfoy/iCheck">Damirfoy's iCheck</a> plugin. hui includes a modified version of iCheck's original Line theme by default. you can easily swap this out for any other of the iCheck themes, as all original markup is maintained.</p>
-	  <img style="width:100%;max-width:800px;" class="C" src="https://a248.e.akamai.net/camo.github.com/3b0689b0e0c265c789e55460a2fb61fc7999f1e0/687474703a2f2f64616d6972666f792e636f6d2f69436865636b2f6578616d706c65732e706e67"/>
-	  <div class="p10">
-		<ul style="list-style-position:inside;list-style-type: disc;" class="p10">
-	        <li>
-	          <strong>Identical inputs across different browsers and devices</strong> — both <span class="self" data-to="download">desktop and mobile</span>
-	        </li>
-	        <li>
-	          <strong>Touch devices support</strong> — iOS, Android, BlackBerry, Windows Phone
-	        </li>
-	        <li>
-	          <strong>Keyboard accessible inputs</strong> — <span class="mark">Tab</span>, <span class="mark">Spacebar</span>, <span class="mark">Arrow up/down</span> and other shortcuts
-	        </li>
-	        <li>
-	          <strong>Customization freedom</strong> — use any HTML and CSS to style inputs (try <span class="self" data-to="skins">6 Retina-ready skins</span>)
-	        </li>
-	        <li>
-	          <strong>Lightweight size</strong> — 1 kb gzipped
-	        </li>
-	        <li class="offset">
-	          <strong class="self" data-to="options">25 options</strong> to customize checkboxes and radio buttons
-	        </li>
-	        <li>
-	          <strong class="self" data-to="callbacks">8 callbacks</strong> to handle changes
-	        </li>
-	        <li>
-	          <strong class="self" data-to="methods">7 methods</strong> to make changes programmatically
-	        </li>
-	        <li>
-	          Saves changes to original inputs, <span class="self" data-to="init">works carefully</span> with any selectors
-	        </li>
-		 </ul>
-	  </div>
-	  <div class="push"></div>
-      <h3 class="page-header">Selects</h3>
+	  
+	  <h2 class="page-header">Selects</h2>
       <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
       <form class="bs-docs-example">
         <select>
@@ -3745,7 +3719,430 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 <!-- minified hui library -->
 <script type="text/javascript" src="dist/hui-min.js?ver=4536486453153"></script>
 <!-- Example Functions for the Demo -->
-<script type="text/javascript" src="demos/index_demo.js"></script>
+<script type="text/javascript">
+	/* 
+	*
+	* Hey. If you're reading this, this file goes to the index.html file in the MAIN Github Folder. 
+	* Not the demos/index.html. That file is a simple list and uses no javascript.
+	* 
+	* Thanks For Reading,
+	* - derek
+	*
+	*/
+	//This Script has
+	//Example Functions for the index.html hui demo
+	var HistoryDiz,nextName,titleName;
+	var counter = 0;     
+	var demo1 = 0;
+	var demo2 = 0;
+	var demo3 = 0;
+	var colorArrLight = ["#F10000","#57DB23","#49C5FF","#C14DF7","#DD6B00"];
+	var colorArr = ["#C51111","#44B915","#109CDD","#8F00D1","#E65614"];
+
+	function shuffledemo(){
+	 var colorArray = ["#C20000","#37C200","#09F","#A823E6","#F56200"];
+	 jQuery.shuffle(colorArray);
+	 var ippo = 0;
+	 jQuery(".democolors").html(" ");
+	 jQuery(colorArray).each(function (index) {
+	     var name = colorArray[index];
+	  jQuery(".democolors").append("<li>"+name+"</li>");
+	  ippo++;
+	 });
+
+	 jQuery(".democolors li").each(function (index) {
+	     var name = jQuery(this).text();
+	  jQuery(this).animate({backgroundColor: name});
+	 });
+	}
+
+	function callbackGirl(){
+	 var htmlitem = jQuery(".speakEasy li.active").text();
+	 notefy("Clicked!",htmlitem);
+	}
+
+	function randomColors(single){
+	 var shuffleArr = jQuery.shuffle(colorArr);
+	 //console.debug(shuffleArr);
+	 jQuery("#el_arco_iris li a").each(function(index,item){
+		if(jQuery(item).parent("li").hasClass("active")==false){
+			jQuery(item).stop(true).animate({color: "#FFFFFF"},500);
+		}
+	 });
+
+	 jQuery(".el_arco_iris, #el_arco_iris li.active a").stop(true).animate({color: colorArr[0]},4979);
+
+	 if(jQuery(document).width() <= 460){
+	  //jQuery(".navList").hide();
+	 }
+	 if(single==null){
+		setTimeout("randomColors()",5013);
+	 }
+
+	}
+
+	function brightnessToggle(newStyle){
+	 if(newStyle=="dark"){
+
+	  var darkStylecss = "http://dev.huement.com/hui/dist/hui-dark.css";
+	  //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
+	  //jQuery(darkFinal).appendTo("head");
+	  $("#theme_sheet").attr("href", darkStylecss);
+	  jQuery(".brightToggleTxt").toggleClass("dark");
+	  //jQuery("p, h1, h2, h3, h4").css("color","#f7f7f7");
+	 }
+	 if(newStyle=="light"){
+	  var darkStylecss = "http://dev.huement.com/hui/dist/hui-light.css";
+	  //var darkFinal = '<link rel="stylesheet" type="text/css" href="'+darkStylecss+'" >';
+	  //jQuery(darkFinal).appendTo("head");
+	  $("#theme_sheet").attr("href", darkStylecss);
+	  jQuery(".brightToggleTxt").toggleClass("dark");
+	  //jQuery("p, h1, h2, h3, h4").css("color","#1b1b1b");
+	 }
+	}
+
+	//Notefy Demo Function
+	var iconarray = ["heart","star","gear","maps","mumford","jackolantern","jack","x","plus","twitter"];
+
+	function runfulltests(){
+	 /* jGrowl Full Tests */
+	 // This value can be true, false or a function to be used as a callback when the closer is clciked
+	 jQuery.jGrowl.defaults.closer = function() {
+	  console.log("Closing everything!", this);
+	 };
+
+	 // A callback for logging notifications.
+	 jQuery.jGrowl.defaults.log = function(e,m,o) {
+	  $('#logs').append("<div><strong>#" + $(e).attr('id') + "</strong> <em>" + (new Date()).getTime() + "</em>: " + m + " (" + o.theme + ")</div>")
+	 }    
+	 jQuery.shuffle(iconarray);
+	 jQuery.jGrowl("Hello world!");
+	 jQuery.jGrowl("This notification will live a little longer.", { life: 1000 });
+	 jQuery.jGrowl("Sticky notification with a header", { header: 'A Header', sticky: true });
+	 jQuery.jGrowl("Custom theme, and a whole bunch of callbacks...", { 
+	  icon_theme:  iconarray[1],
+	  speed:  'slow',
+	  beforeOpen: function(e,m,o) {
+	   console.log("I am going to be opened!", this);
+	  },
+	  open: function(e,m,o) {
+	   console.log("I have been opened!", this);
+	  },
+	  beforeClose: function(e,m,o) {
+	   console.log("I am going to be closed!", this);
+	  },
+	  close: function(e,m,o) {
+	   console.log("I have been closed!", this);
+	  }
+	 });
+
+	 jQuery.jGrowl("Custom animation test...", { 
+	  icon_theme:  iconarray[2],
+	  speed: 'slow',
+	  animateOpen: { 
+	   height: "show"
+	  },
+	  animateClose: { 
+	   height: "hide"
+	  }
+	 });
+
+	 jQuery.jGrowl("Mobile Ready!", { 
+	  sticky: true,
+	  header: 'iPhone',
+	  icon_theme: "ape",
+	 });
+
+
+	 jQuery.jGrowl("This message will not open because we have a callback that returns false.", {
+	  beforeOpen: function() {
+	   console.log("Going to open a notification, but not really...");
+	  },
+	  open: function() {
+	   return false;
+	  }
+	 });
+
+	 jQuery.jGrowl("This message will not close because we have a callback that returns false.", {
+	  icon_theme:  "alert",
+	  beforeClose: function() {
+	   return false;
+	  }
+	 });
+
+	 jQuery.jGrowl.defaults.closerTemplate = '<div>hide all notifications</div>';
+
+	 $('#test1').jGrowl("Testing a custom container (this one is sticky, and will also be prepended).", {
+	  icon_theme:  iconarray[3],
+	  closer: false,
+	  sticky: true, 
+	  glue: 'before',
+	  speed: 2000,
+	  animateOpen: { 
+	   height: "show",
+	   width: "show"
+	  },
+	  animateClose: { 
+	   height: "hide",
+	   width: "show"
+	  }
+	 });
+
+	 $('#test1').jGrowl("Another custom container test.", { 
+	  glue: 'before',
+	  speed: 2000,
+	  animateOpen: { 
+	   height: "show",
+	   width: "show"
+	  },
+	  animateClose: { 
+	   height: "hide",
+	   width: "show"
+	  }
+	 });
+
+	 $('#test2').jGrowl("earth bottom left", { 
+	  header:      "party on",
+	  icon_theme:  "earth",
+	  location: "bottom-left",
+	  closer: false
+	 });
+	}
+
+	/* controls page animations. newTitle is optional*/
+	function PanelSwap(ShowTarget,newTitle){
+		var FixedTarget = ShowTarget.replace(".", "");
+		var subTarget = FixedTarget.split('_');
+		$("div.category").each(function(){
+			if($(this).is(":visible")==true&& $(this).hasClass(FixedTarget) != true){
+				//$(this).fadeOut();
+				$(this).stop(true).animate({ 'height': 'toggle'}, { queue: false, duration: 888, easing:"easeOutCubic" },function(){
+					if($(this).hasClass("none")==false){
+						$(this).addClass("none");
+					}
+				});
+			}
+		});
+		if($(ShowTarget).is(":visible")!=true){
+			jQuery(ShowTarget).removeClass("none");
+			//$(ShowTarget).slideDown();
+			$(ShowTarget).stop(true).animate({ 'height': 'show'}, { queue: false, duration: 999, easing:"easeInCubic" });
+		}
+		if(newTitle!=undefined||newTitle.length>=3){
+			titleName = 'hui'+' '+newTitle;
+		} else {
+			titleName = 'hui'+' '+subTarget[0];
+		}
+		setTimeout("windowRename()",567.8);
+	}
+	function windowRename(){
+		if(titleName.length<=3){
+			$(document).attr('title', "White Blank Page");
+		} else {
+			$(document).attr('title', titleName);
+		}
+	}
+
+	jQuery(document).ready(function() { 
+	 /* Sample Animations */
+	 //jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
+	 randomColors();
+	 jQuery("#el_arco_iris li.active a").animate({color: colorArr[0]},100);
+
+	 jQuery(".reload").on("click",function(){
+		PanelSwap(".home_category","home page");
+		jQuery(".navList li").removeClass("active");
+		if(!History.enabled){
+			//No History Mode Available.
+			window.location = newURL+"?history="+newURL;
+			return false;
+		} else{
+			var pageval = "?history="+"home";
+			History.pushState(null, null,pageval);
+		}
+		return false;
+	 }); 
+
+	 jQuery(".brightToggle").on("click",function(){
+		if(jQuery(".brightToggleTxt").hasClass("dark")==true){
+			brightnessToggle("light");
+		}else{
+			brightnessToggle("dark");
+		}
+		return false;
+	 });
+
+	 // Toggle the dropdown menu's
+	 jQuery(".dropdown .button, .dropdown button").click(function () {
+		if (!$(this).find('span.toggle').hasClass('active')) {
+			$('.dropdown-slider').slideUp();
+			$('span.toggle').removeClass('active');
+		}
+
+		// open selected dropown
+		$(this).parent().find('.dropdown-slider').slideToggle('fast');
+		$(this).find('span.toggle').toggleClass('active');
+
+		return false;
+	 });
+
+	 //Facebox
+	 $('a[rel*=facebox]').facebox();
+	 $(".fbdemobtn").on("click",function(){
+		var theText = $("#fbdemo").val();
+		if(theText.length>=3){
+			var demoHTML = "<h2 style='margin:10px 0 0 0;padding:0;' class='tC'>facebox demo</h2><div class='push'></div><p class='p10'>"+theText+"</p><div class='push'></div>";
+			jQuery.facebox(demoHTML);
+		}
+		return false;
+	 });
+	 //ToolTips
+	 jQuery(".tipTip").tipTip();
+	 jQuery(".tipTipR").tipTip({
+	  defaultPosition:"right"
+	 });
+
+	 jQuery('.navList li a').on("click",function(){
+
+	  var thehref = $(this).attr("href");
+	  var substr = thehref.split('#');
+	  var thetarget = "."+substr[1]+"_category";
+	  PanelSwap(thetarget,substr[1]);
+
+	  jQuery(".navList li").removeClass("active");
+	  jQuery(this).parent().addClass("active");
+
+	  jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+	  var newURL = encodeURIComponent(jQuery(this).attr("title"));
+
+		/* History or Regular Click 
+		(support for PHP $_GET in this example) if Not */
+		if(!History.enabled){
+			//No History Mode Available.
+		} else{
+			var pageval = "?history="+newURL;
+			History.pushState(null, null, pageval);
+		}
+
+	  jQuery(this).css("color","#f7f7f7");
+	  randomColors("true");
+	  return false;
+	 });
+
+	 //Reactive Navigation Menu
+	 var navobj = {"pull":".navpuller"};
+	 jQuery("nav#flex1 ul").reactiveNav(navobj);
+
+	 //Accordion Nav Menu
+	 jQuery(".accordion").accordionNav();
+
+	 //Flapper Girl Menu
+	 var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
+	 jQuery("<div></div>").flapperGirl(ladyParts, callbackGirl);
+
+	 // Default pageslide, moves to the right
+	 $(".pageslide_first").pageslide();
+	 //Slide to the left, and make it model 
+	 //(you'll have to call $.pageslide.close() to close) 
+	 $(".pageslide_second").pageslide({ direction: "left", modal: true });
+
+	 //Notefy Demo
+	 jQuery(".notefytest").click(function(){
+	  var varone = $(".notefytm").val();
+	  var vartwo = $(".notefyfm").val();
+	  jQuery.shuffle(iconarray);
+	  notefy(varone, vartwo, iconarray[0], true);
+	  return false;
+	 });
+
+	 jQuery(".notefytestfull").click(function(){
+	  runfulltests();
+	  return false;
+	 });
+
+	 jQuery("#notefyIconList li").each(function(){
+	  var name = $(this).find('img').attr("title");
+	  jQuery(this).append("<p class='iconlabel'><em>"+name+"</em></p>")
+	 });
+
+	 jQuery('.paginatebox').jqPagination({
+	   paged: function(page) {
+	   // do something with the page variable
+		notefy("paginate demo","page: "+page);
+	  }
+	 });
+
+	 //Scroll Panel
+	 //$('.scroll-pane').jScrollPane();
+
+	 jQuery("#hbbh").removeClass("none");
+
+		$("table").stupidtable();
+
+		/* fixed Fluid Horizontal Navbar header */
+		/* 
+		* nav menu used in the demo. build navbar from basic ul li list.
+		* toggles a top:0 left:0 fixed class in your css.
+		*/
+		jQuery('.navList').horizontalNav({
+		     prependTo : '#navbar'
+			 //,responsive : true
+		});
+		var thetest = jQuery(window).width();
+		if (thetest >= 777) {
+			var top = jQuery('#el_arco_iris').offset().top;
+			jQuery(window).scroll(function (event) {
+				var y = jQuery(this).scrollTop();
+				if (y >= top) { 
+					jQuery('#el_arco_iris').addClass('superFix'); 
+				} else { 
+					jQuery('#el_arco_iris').removeClass('superFix'); 
+				}
+			});
+		}
+
+		/* intial page loader */
+		if(History.enabled){
+			var theHash = History.getState().hash;
+			var substr = theHash.split('=');
+			if(substr[1]!=""||substr[1]!=" "){
+				//console.debug(substr[1]);
+				HistoryDiz = "."+substr[1]+"_category";
+				if(substr[1]==undefined){
+					setTimeout("PanelSwap('.home_category','home page')",500);
+				}else{
+					jQuery('a[href$="'+substr[1]+'"]').parent("li").addClass("active");
+					nextName = substr[1];
+					setTimeout("PanelSwap(HistoryDiz,nextName)",500);
+				}
+			} else {
+				setTimeout("PanelSwap('.home_category','home page')",500);
+			}
+		}
+
+
+	}); 
+
+	/* History.js Setup */
+	(function(window,undefined){
+
+	    // Prepare
+	    var History = window.History; // Note: We are using a capital H instead of a lower h
+	    if ( !History.enabled ) {
+			notefy("History.js","is disabled for this browser","caution");
+	         // History.js is disabled for this browser.
+	         // This is because we can optionally choose to support HTML4 browsers or not.
+	        return false;
+	    }
+
+	    // Bind to StateChange Event
+	    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+	        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+	        History.log(State.data, State.title, State.url);
+	    });
+
+	})(window);
+</script>
 
 </body>
 </html>

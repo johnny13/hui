@@ -63,6 +63,7 @@
                     clearTimeout(resizeTimer);
                     resizeTimer = setTimeout(function() {
                         callback();
+						console.debug("this");
                     }, delay);
                 });
             }
@@ -124,7 +125,7 @@
                 }
         /* minify down to select box on small screens */
         
-              if ( typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
+              if ( options != null && typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
                var prepre = options["prependTo"];
                jQuery(ul).mobileMenu({
                prependTo: prepre
@@ -441,7 +442,6 @@
  * By Derek Scott - Copyright 2012 - All rights reserved
  * Author URL: http://huement.com 
 */
-
 //jQuery.fn.watermark = function(options) { /* ... */ }   
 //Shortcut for jQuery.prototype.watermark = function(options) { /* ... */ }
 (function($) {
@@ -455,7 +455,10 @@
 
   jQuery(pull).on('click', function(e) {
    e.preventDefault();
-   menu.slideToggle();
+   //menu.slideToggle();
+   menu.animate({
+       "height": "toggle"
+   }, 1200, "easeOutBounce");
   });
 
   jQuery(window).resize(function(){
@@ -471,3 +474,4 @@
  };
  
 })(jQuery);
+
