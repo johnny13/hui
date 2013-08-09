@@ -1,0 +1,9 @@
+{
+  "undef": true,
+  "unused": true,
+  "globals": { "MY_GLOBAL": false },
+  "curly": true,
+  "strict": true,
+  "browser": true,
+  "jquery": true
+}

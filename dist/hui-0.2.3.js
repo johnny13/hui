@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.2 - 2013-07-22
+/*! huement user interface - v0.2.3 - 2013-08-09
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -3754,7 +3754,6 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
                     clearTimeout(resizeTimer);
                     resizeTimer = setTimeout(function() {
                         callback();
-						console.debug("this");
                     }, delay);
                 });
             }
@@ -3806,16 +3805,17 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
                 }
                 $this.addClass("horizontalNav-processed").removeClass("horizontalNav-notprocessed");
             }
-
+			if(o.responsive==undefined||o.responsive==""){
+				o.responsive=true;
+			}
+			if(o.responsiveDelay==undefined||o.responsiveDelay==""){
+				o.responsiveDelay = 500;
+			}
             // If set to responsive, re-construct after every browser resize
             if ( o.responsive === true ) {
-                // Only need to do this for IE7 and below
-                // or if we set tableDisplay to false
-                if ( (o.tableDisplay !== true) || (!$.support.leadingWhitespace) ) {
-                    resizeTrigger( _construct, o.responsiveDelay );
-                }
-        /* minify down to select box on small screens */
-        
+                resizeTrigger( _construct, o.responsiveDelay );
+
+			  /* minify down to select box on small screens */
               if ( options != null && typeof options["prependTo"] !== "undefined" && options["prependTo"]) {
                var prepre = options["prependTo"];
                jQuery(ul).mobileMenu({
@@ -3827,6 +3827,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
               if(jQuery(document).width() <= 480){
                 jQuery(".horizontalNav-processed").hide();
               }
+
             }
 
             if (jQuery('.clearHorizontalNav').length ) {

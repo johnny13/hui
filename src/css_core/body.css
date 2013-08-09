@@ -254,6 +254,21 @@ padding-left: 0px !important;
 padding-right: 0px !important;
 }
 
-.limit { max-width:100%; }
-
+.onecol.dontbreak, .twocol.dontbreak, .threecol.dontbreak, .fourcol.dontbreak, .fivecol.dontbreak, .sixcol.dontbreak, .sevencol.dontbreak, .eightcol.dontbreak, .ninecol.dontbreak, .tencol.dontbreak, .elevencol.dontbreak {
+margin-right: 1px;
+float: left;
+min-height: 1px;
+}
+.onecol.dontbreak {width: 4%;}
+.twocol.dontbreak {width: 13%;}
+.threecol.dontbreak {width: 22%;}
+.fourcol.dontbreak {width: 31%;}
+.fivecol.dontbreak {width: 39%;}
+.sixcol.dontbreak {width: 47.5%;}
+.sevencol.dontbreak {width: 56%;}
+.eightcol.dontbreak {width: 65%;}
+.ninecol.dontbreak {width: 74%;}
+.tencol.dontbreak {width: 82%;}
+.elevencol.dontbreak {width: 91%;}
+.twelvecol.dontbreak {width:99%;float: left;}
 }
