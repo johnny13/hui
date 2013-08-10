@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.3 - 2013-08-09
+/*! huement user interface - v0.2.3 - 2013-08-10
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -4797,197 +4797,76 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
 })(jQuery);
 
-;(function($){
-    // Convenience vars for accessing elements
-    var $body = $('body'),
-        $pageslide = $('#pageslide');
-    
-    var _sliding = false,   // Mutex to assist closing only once
-        _lastCaller;        // Used to keep track of last element to trigger pageslide
-    
-	// If the pageslide element doesn't exist, create it
-    if( $pageslide.length == 0 ) {
-         $pageslide = $('<div />').attr( 'id', 'pageslide' )
-                                  .css( 'display', 'none' )
-                                  .appendTo( $('body') );
-    }
-    
-    /*
-     * Private methods 
-     */
-    function _load( url, useIframe ) {
-        // Are we loading an element from the page or a URL?
-        if ( url.indexOf("#") === 0 ) {                
-            // Load a page element                
-            $(url).clone(true).appendTo( $pageslide.empty() ).show();
-        } else {
-            // Load a URL. Into an iframe?
-            if( useIframe ) {
-                var iframe = $("<iframe />").attr({
-                                                src: url,
-                                                frameborder: 0,
-                                                hspace: 0
-                                            })
-                                            .css({
-                                                width: "100%",
-                                                height: "100%"
-                                            });
-                
-                $pageslide.html( iframe );
-            } else {
-                $pageslide.load( url );
-            }
-            
-            $pageslide.data( 'localEl', false );
-            
-        }
-    }
-    
-    // Function that controls opening of the pageslide
-    function _start( direction, speed ) {
-        var slideWidth = $pageslide.outerWidth( true ),
-            bodyAnimateIn = {},
-            slideAnimateIn = {};
-        
-        // If the slide is open or opening, just ignore the call
-        if( $pageslide.is(':visible') || _sliding ) return;	        
-        _sliding = true;
-                                                                    
-        switch( direction ) {
-            case 'left':
-                $pageslide.css({ left: 'auto', right: '-' + slideWidth + 'px' });
-                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
-                slideAnimateIn['right'] = '+=' + slideWidth;
-                break;
-            default:
-                $pageslide.css({ left: '-' + slideWidth + 'px', right: 'auto' });
-                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
-                slideAnimateIn['left'] = '+=' + slideWidth;
-                break;
-        }
-                    
-        // Animate the slide, and attach this slide's settings to the element
-        $body.animate(bodyAnimateIn, speed);
-        $pageslide.show()
-                  .animate(slideAnimateIn, speed, function() {
-                      _sliding = false;
-                  });
-    }
-      
-    /*
-     * Declaration 
-     */
-    $.fn.pageslide = function(options) {
-        var $elements = this;
-        
-        // On click
-        $elements.click( function(e) {
-            var $self = $(this),
-                settings = $.extend({ href: $self.attr('href') }, options);
-            
-            // Prevent the default behavior and stop propagation
-            e.preventDefault();
-            e.stopPropagation();
-            
-            if ( $pageslide.is(':visible') && $self[0] == _lastCaller ) {
-                // If we clicked the same element twice, toggle closed
-                $.pageslide.close();
-            } else {                 
-                // Open
-                $.pageslide( settings );
+/*!
+ * classie - class helper functions
+ * from bonzo https://github.com/ded/bonzo
+ * 
+ * classie.has( elem, 'my-class' ) -> true/false
+ * classie.add( elem, 'my-new-class' )
+ * classie.remove( elem, 'my-unwanted-class' )
+ * classie.toggle( elem, 'my-class' )
+ */
 
-                // Record the last element to trigger pageslide
-                _lastCaller = $self[0];
-            }       
-        });                   
-	};
-	
-	/*
-     * Default settings 
-     */
-    $.fn.pageslide.defaults = {
-        speed:      200,        // Accepts standard jQuery effects speeds (i.e. fast, normal or milliseconds)
-        direction:  'right',    // Accepts 'left' or 'right'
-        modal:      false,      // If set to true, you must explicitly close pageslide using $.pageslide.close();
-        iframe:     true,       // By default, linked pages are loaded into an iframe. Set this to false if you don't want an iframe.
-        href:       null        // Override the source of the content. Optional in most cases, but required when opening pageslide programmatically.
-    };
-	
-	/*
-     * Public methods 
-     */
-	
-	// Open the pageslide
-	$.pageslide = function( options ) {	    
-	    // Extend the settings with those the user has provided
-        var settings = $.extend({}, $.fn.pageslide.defaults, options);
-	    
-	    // Are we trying to open in different direction?
-        if( $pageslide.is(':visible') && $pageslide.data( 'direction' ) != settings.direction) {
-            $.pageslide.close(function(){
-                _load( settings.href, settings.iframe );
-                _start( settings.direction, settings.speed );
-            });
-        } else {                
-            _load( settings.href, settings.iframe );
-            if( $pageslide.is(':hidden') ) {
-                _start( settings.direction, settings.speed );
-            }
-        }
-        
-        $pageslide.data( settings );
-	}
-	
-	// Close the pageslide
-	$.pageslide.close = function( callback ) {
-        var $pageslide = $('#pageslide'),
-            slideWidth = $pageslide.outerWidth( true ),
-            speed = $pageslide.data( 'speed' ),
-            bodyAnimateIn = {},
-            slideAnimateIn = {}
-            	        
-        // If the slide isn't open, just ignore the call
-        if( $pageslide.is(':hidden') || _sliding ) return;	        
-        _sliding = true;
-        
-        switch( $pageslide.data( 'direction' ) ) {
-            case 'left':
-                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
-                slideAnimateIn['right'] = '-=' + slideWidth;
-                break;
-            default:
-                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
-                slideAnimateIn['left'] = '-=' + slideWidth;
-                break;
-        }
-        
-        $pageslide.animate(slideAnimateIn, speed);
-        $body.animate(bodyAnimateIn, speed, function() {
-            $pageslide.hide();
-            _sliding = false;
-            if( typeof callback != 'undefined' ) callback();
-        });
-    }
-	
-	/* Events */
-	
-	// Don't let clicks to the pageslide close the window
-    $pageslide.click(function(e) {
-        e.stopPropagation();
-    });
+/*jshint browser: true, strict: true, undef: true */
 
-	// Close the pageslide if the document is clicked or the users presses the ESC key, unless the pageslide is modal
-	$(document).bind('click keyup', function(e) {
-	    // If this is a keyup event, let's see if it's an ESC key
-        if( e.type == "keyup" && e.keyCode != 27) return;
-	    
-	    // Make sure it's visible, and we're not modal	    
-	    if( $pageslide.is( ':visible' ) && !$pageslide.data( 'modal' ) ) {	        
-	        $.pageslide.close();
-	    }
-	});
-	
-})(jQuery);
+( function( window ) {
+
+'use strict';
+
+// class helper functions from bonzo https://github.com/ded/bonzo
+
+function classReg( className ) {
+  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+}
+
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
+var hasClass, addClass, removeClass;
+
+if ( 'classList' in document.documentElement ) {
+  hasClass = function( elem, c ) {
+    return elem.classList.contains( c );
+  };
+  addClass = function( elem, c ) {
+    elem.classList.add( c );
+  };
+  removeClass = function( elem, c ) {
+    elem.classList.remove( c );
+  };
+}
+else {
+  hasClass = function( elem, c ) {
+    return classReg( c ).test( elem.className );
+  };
+  addClass = function( elem, c ) {
+    if ( !hasClass( elem, c ) ) {
+      elem.className = elem.className + ' ' + c;
+    }
+  };
+  removeClass = function( elem, c ) {
+    elem.className = elem.className.replace( classReg( c ), ' ' );
+  };
+}
+
+function toggleClass( elem, c ) {
+  var fn = hasClass( elem, c ) ? removeClass : addClass;
+  fn( elem, c );
+}
+
+window.classie = {
+  // full names
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  // short names
+  has: hasClass,
+  add: addClass,
+  remove: removeClass,
+  toggle: toggleClass
+};
+
+})( window );
 
 /*! http://hui.huement.com */
 

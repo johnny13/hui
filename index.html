@@ -209,6 +209,40 @@
 			list-style: none;
 			padding: 10px;
 		}
+		.slideoutmain > section {
+			max-width: 260px;
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		.slideoutmain > section h2 {
+			font-weight: 300;
+			color: #ccc;
+		}
+
+		.slideoutmain > section button {
+			border: none;
+			background: #47a3da;
+			color: #fff;
+			padding: 1.5em;
+			display: block;
+			width: 100%;
+			cursor: pointer;
+			margin: 10px 0;
+			font-size: 0.8em;
+		}
+
+		.slideoutmain > section button:hover {
+			background: #258ecd;
+		}
+
+		.slideoutmain > section button.active {
+			background: #0d77b6;
+		}
+
+		.slideoutmain > section button.disabled {
+			background: #aaa;
+			poin
 		@media only screen and (max-width : 777px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -1877,8 +1911,8 @@ notefy(
 			
 			<div class="twelvecol last">
 			<h2 class="page-header">FaceBox</h2>
-			
-			<button class="blue fbdemobtn box13 L"><span class='label'>FaceBox Test</span></button><input type="text" id="fbdemo" value="This Is some text that will appear in the Modal Window." class="L box23">
+			<input type="text" id="fbdemo" value="This Is some text that will appear in the Modal Window." class="L box13"><br/>
+			<button class="blue fbdemobtn box13 L"><span class='label'>FaceBox Test</span></button>
 			<div class="push" style="height:10px;"></div>
 			<p class="fnote">Facebox is a jQuery-based, Facebook-style lightbox which can display images, divs, or entire remote pages.</p>
 			<p class="fnote">HUI uses a maintained Fork of Facebox ver 1.3 <a href="http://github.com/defunkt/facebox">http://github.com/defunkt/facebox</a>.</p>
@@ -1891,22 +1925,22 @@ $('a[rel*=facebox]').facebox();
 			<h3>Images</h3>
 			<code>&lt;a href="images/stairs.jpg" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
 			<code>jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' })</code><br/>
-			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;">launch demo</button>
+			<button onclick="jQuery.facebox({ image: 'http://ndrigs.s3.amazonaws.com/imgs/caution.png' });return false;" class="action blue"><span class="label">launch demo</span></button>
 			<br/>
 			
 			<h3>Divs</h3>
 			<code>&lt;a href="#info" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
 			<code>jQuery.facebox({ div: '#info' })</code><br/>
-			<button onclick="jQuery.facebox({ div: '#info' });return false;">launch demo</button>
+			<button onclick="jQuery.facebox({ div: '#info' });return false;" class="action blue"><span class="label">launch demo</span></button>
 			<div class="none" id="info">
 				<p>This is an inline Div that has been loaded into this facebox.<br/>Yup. thats about it.</p>
 			</div>
 			<br/>
 			
 			<h3>Ajax</h3>
-			<code>&lt;a href="remote.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
-			<code>jQuery.facebox({ ajax: 'remote.html' })</code><br/>
-			<button onclick="jQuery.facebox({ ajax: 'src/css/body.css' });return false;">launch demo</button><br/>
+			<code>&lt;a href="demos/example.html" rel="facebox"&gt;text&lt;/a&gt;</code><br/>
+			<code>jQuery.facebox({ ajax: 'demos/example.html' })</code><br/>
+			<button onclick="jQuery.facebox({ ajax: 'demos/example.html' });return false;" class="action blue"><span class="label">launch demo</span></button><br/>
 			<p class="fnote">In this example we loaded a css from the src folder of this project, but any remote file can be loaded, so long as you comply with security settings and all that stuff.
 			<br/>			
 
@@ -1931,8 +1965,8 @@ jQuery.facebox({ div: '#box' });
 jQuery.facebox({ div: '#box' }, 'my-groovy-style');
 
 Ajax Remote files
-jQuery.facebox({ ajax: 'remote.html' });
-jQuery.facebox({ ajax: 'remote.html' }, 'my-groovy-style');
+jQuery.facebox({ ajax: 'demos/example.html' });
+jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 </pre>
 <br/>
 			</div>
@@ -3329,6 +3363,77 @@ $("table").stupidtable();
 		</div>
 		
 		<!-- DANCE -->
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+		<div class="row limit category accordion_category slideoutmain">
+			<div class="twocol">&nbsp;</div>
+			<div class="eightcol">
+			<section>
+				<h2>Slide Menus</h2>
+				<!-- Class "cbp-spmenu-open" gets applied to menu -->
+				<button id="showLeft" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
+				<button id="showRight" class="action green C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
+				<button id="showTop" class="action blue C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Top Slide Menu</span></button>
+				<button id="showBottom" class="action red C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
+			</section>
+			<div class="push"></div>
+			<section class="buttonset">
+				<h2>Push Menus</h2>
+				<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+				<button id="showLeftPush">Show/Hide Left Push Menu</button>
+				<button id="showRightPush">Show/Hide Right Push Menu</button>
+			</section>
+			<div class="push" style="height:60px;"></div>
+			</div>
+			<div class="twocol last">&nbsp;</div>
+		</div>
+		
 		<div class="row limit category accordion_category">
 		
 			<div class="fourcol smallHide">
@@ -3499,112 +3604,7 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			
 		</div>
 		
-		<div class="row limit category accordion_category">
-			<div class="twelvecol last">
-				<div class="push" style="height:100px;"></div>
-				<div id="PageSlide_content" class="boxMost">
-			        <h3 class="page-header">PageSlider Demos</h3>
-			        <p>Below are a couple examples of how the plugin works:</p>
-			        <ul>
-						<li style="margin-top:10px;">
-			                <p class="fnote">Basic Demo</p>
-							<p><a href="#Mary_Boleyn" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
-							<div class="none">
-								<div id="Mary_Boleyn">
-									<ul class="Tegan Sara dark minilist">
-										<li class="title_bar">Nav Menu</li>
-										<li>
-											<span class="name">Item One</span>
-										</li>
-										<li>
-											<span class="name">Item Two</span>
-										</li>
-										<li>
-											<span class="name">Item Three</span>
-										</li>
-										<li>
-											<span class="name">Item Four</span>
-										</li>
-										<li>
-											<span class="name">Item Three</span>
-										</li>
-										<li>
-											<span class="name">Item Two</span>
-										</li>
-										<li>
-											<span class="name">Item One</span>
-										</li>
-									</ul>
-									<div class="push"></div>
-								</div>
-							</div>
-							
-<div class="push" style="height:10px;"></div>                
-<pre class="htmlCode">
-&lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
-&lt;script&gt;
-    $(&quot;a.first&quot;).pageslide();
-&lt;/script&gt;
-</pre>
-			            </li>
-			            <li style="margin-top:30px;">
-			                <p class="fnote">In this Slide to the Left Example, There will be content from a hidden DIV loaded into the Slide Panel on this page. It will be a large amount of text and should cause the overflow to scroll.</p>
-							<p><a href="#LadyAnne" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
-							<div class="none">
-								<div id="LadyAnne">
-									<h2 class="redText">Marquess of Pembroke</h2>
-									<p>A number of people have claimed to have seen Anne's ghost at Hever Castle, Blickling Hall, Salle Church, Tower of London, and Marwell Hall.</p>
-									<p>In 1864, Major General J.D. Dundas of the 60th Rifles regiment was quartered in the Tower of London. As he was looking out the window of his quarters, he noticed a guard below in the courtyard, in front of the lodgings where Anne had been imprisoned, behaving strangely. He appeared to challenge something, which to the General "looked like a whitish, female figure sliding towards the soldier". The guard charged through the form with his bayonet, then fainted.</p>
-									
-									<p>Only the General's testimony and corroboration at the court-martial saved the guard from a lengthy prison sentence for having fainted while on duty. In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
-									
-									<p>In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
-									<br/>
-									<div class="push"></div>
-								</div>
-							</div>
-							
-<div class="push" style="height:10px;"></div>                
-<pre class="htmlCode">
-&lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
-&lt;script&gt;
-    $(&quot;a.first&quot;).pageslide();
-&lt;/script&gt;
-</pre>
-			            </li>
-			            <li style="margin-top:30px;">
-			                <p class="fnote">In this Slide to the Left Example, we will display hidden content from a <code>DIV id="modal_name"</code> on this page, into the resulting modal pane.</p>
-							<p><a href="#PageSlide_modal" class="pageslide_second button action blue full_button"><span class="label">Slide to the Right</span></a></p>
-<div class="push" style="height:10px;"></div>
-<pre class="htmlCode">
-&lt;a href=&quot;#PageSlide_modal&quot; class=&quot;second&quot;&gt;Link text&lt;/a&gt;
-&lt;div id=&quot;PageSlide_modal&quot; style=&quot;display:none&quot;&gt;
-    &lt;h2&gt;Modal&lt;/h2&gt;
-    &lt;a href=&quot;javascript:$.pageslide.close()&quot;&gt;Close&lt;/a&gt;
-&lt;/div&gt;
-&lt;script&gt;
-    $(&quot;.second&quot;).pageslide({ direction: &quot;left&quot;, modal: true });
-&lt;/script&gt;
-</pre>
-			            </li>
-			            <li style="margin-top:30px;">
-							<p class="fnote">Another Example. Showing the loading of a Remote HTML Page. Also shows the automatic scrolling features, as the iframe defaults to a height of 100% and forces scrolling. you can adjust this in the css, however if you remove the ability for overflow you could cut off part of your navigation menu when in landscape views.</p>
-			                <p><a href="javascript:$.pageslide({ direction: 'right', href: 'demos/secondary.html' })" class="button action red full_button"><span class="label">Open the page Programmatically</span></a></p>
-                <pre>
-&lt;a href=&quot;javascript:$.pageslide({ direction: &#39;left&#39;, href=&#39;_secondary.html&#39; })&quot;&gt;Link text&lt;/a&gt;
-                </pre>
-			            </li>
-			        </ul>
-					<div class="none">
-			        <div id="PageSlide_modal">
-			            <h3 class="orangeText">Modal</h3>
-			            <p class="p10 whiteText">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
-			            <p class="p10 whiteText"><a href="javascript:$.pageslide.close()" class="button action red full_button"><span class="label">Close</span></a></p>
-			        </div>
-					</div>
-			    </div>
-			</div>
-		</div>
+		
 		<!--NAV -->
 		<div class="row limit category navigate_category">
 		
@@ -3794,6 +3794,27 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 	}
 
+	function disableOther( button ) {
+		if( button !== 'showLeft' ) {
+			classie.toggle( showLeft, 'disabled' );
+		}
+		if( button !== 'showRight' ) {
+			classie.toggle( showRight, 'disabled' );
+		}
+		if( button !== 'showTop' ) {
+			classie.toggle( showTop, 'disabled' );
+		}
+		if( button !== 'showBottom' ) {
+			classie.toggle( showBottom, 'disabled' );
+		}
+		if( button !== 'showLeftPush' ) {
+			classie.toggle( showLeftPush, 'disabled' );
+		}
+		if( button !== 'showRightPush' ) {
+			classie.toggle( showRightPush, 'disabled' );
+		}
+	}
+	
 	function brightnessToggle(newStyle){
 	 if(newStyle=="dark"){
 
@@ -4053,12 +4074,6 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	 var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
 	 jQuery("<div></div>").flapperGirl(ladyParts, callbackGirl);
 
-	 // Default pageslide, moves to the right
-	 $(".pageslide_first").pageslide();
-	 //Slide to the left, and make it model 
-	 //(you'll have to call $.pageslide.close() to close) 
-	 $(".pageslide_second").pageslide({ direction: "left", modal: true });
-
 	 //Notefy Demo
 	 jQuery(".notefytest").click(function(){
 	  var varone = $(".notefytm").val();
@@ -4085,8 +4100,51 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	  }
 	 });
 
-	 //Scroll Panel
-	 //$('.scroll-pane').jScrollPane();
+	//Slide Out Menus
+	var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+	menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+	menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+	menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+	showLeft = document.getElementById( 'showLeft' ),
+	showRight = document.getElementById( 'showRight' ),
+	showTop = document.getElementById( 'showTop' ),
+	showBottom = document.getElementById( 'showBottom' ),
+	showLeftPush = document.getElementById( 'showLeftPush' ),
+	showRightPush = document.getElementById( 'showRightPush' ),
+	body = document.body;
+
+	showLeft.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+	disableOther( 'showLeft' );
+	};
+	showRight.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( menuRight, 'cbp-spmenu-open' );
+	disableOther( 'showRight' );
+	};
+	showTop.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( menuTop, 'cbp-spmenu-open' );
+	disableOther( 'showTop' );
+	};
+	showBottom.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( menuBottom, 'cbp-spmenu-open' );
+	disableOther( 'showBottom' );
+	};
+	showLeftPush.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( body, 'cbp-spmenu-push-toright' );
+	classie.toggle( menuLeft, 'cbp-spmenu-open' );
+	disableOther( 'showLeftPush' );
+	};
+	showRightPush.onclick = function() {
+	classie.toggle( this, 'active' );
+	classie.toggle( body, 'cbp-spmenu-push-toleft' );
+	classie.toggle( menuRight, 'cbp-spmenu-open' );
+	disableOther( 'showRightPush' );
+	};
 
 	 jQuery("#hbbh").removeClass("none");
 

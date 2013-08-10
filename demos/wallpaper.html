@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Viewport -->
+	<meta name="description" content="Huement User Interface (hui)">
+	<meta name="author" content="Derek Scott (@huement)">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Mobile Related Stuff -->
+	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+	<title>Wallpaper Background</title>
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	
+	<!-- For THEME BUILDING. Something Like this Would be easier to use. (check ver 1.15.2 matches file in dist folder)
+	<style type="text/css">@import url("dist/hui-1.15.2.css");</style>
+	<link id="theme_sheet" href="src/themes/YourTheme/Filename.css" type="text/css" rel="stylesheet"/>
+	-->
+
+	<link id="theme_sheet" href="../dist/hui-light.css" type="text/css" rel="stylesheet"/>
+	
+	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
+	<![endif]-->
+
+	<!-- Demo Styles -->
+	<style type="text/css">
+		/* main size controller. */
+		a.demosetters,a.demosetters:visited,a.progressMode,a.progressMode:visited {
+			color:#09F;
+		}
+		.progress-bar {
+			background-color: #1a1a1a;
+			height: 50px;
+			padding: 5px;
+			width: 95%;
+			margin: 30px auto 0px auto;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			-moz-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+			-webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+			box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;	          
+		}
+		.progress-bar span {
+			display: inline-block;
+			height: 100%;	
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+		        -webkit-transition: width .4s ease-in-out;
+		        -moz-transition: width .4s ease-in-out;
+		        -ms-transition: width .4s ease-in-out;
+		        -o-transition: width .4s ease-in-out;
+		        transition: width .4s ease-in-out;    
+		}
+		.blue-bar span {
+			background-color: #1B75BB;   
+		}
+
+		.orange-bar span {
+			  background-color: #fecf23;
+			  background-image: -webkit-gradient(linear, left top, left bottom, from(#fecf23), to(#fd9215));
+			  background-image: -webkit-linear-gradient(top, #fecf23, #fd9215);
+			  background-image: -moz-linear-gradient(top, #fecf23, #fd9215);
+			  background-image: -ms-linear-gradient(top, #fecf23, #fd9215);
+			  background-image: -o-linear-gradient(top, #fecf23, #fd9215);
+			  background-image: linear-gradient(top, #fecf23, #fd9215);  
+		}	
+		.green-bar span {
+			  background-color: #a5df41;
+			  background-image: -webkit-gradient(linear, left top, left bottom, from(#a5df41), to(#4ca916));
+			  background-image: -webkit-linear-gradient(top, #a5df41, #4ca916);
+			  background-image: -moz-linear-gradient(top, #a5df41, #4ca916);
+			  background-image: -ms-linear-gradient(top, #a5df41, #4ca916);
+			  background-image: -o-linear-gradient(top, #a5df41, #4ca916);
+			  background-image: linear-gradient(top, #a5df41, #4ca916);  
+		}
+		
+		/* STRIPES ANIMATION */
+		.stripes span {
+			-webkit-background-size: 30px 30px;
+			-moz-background-size: 30px 30px;
+			background-size: 30px 30px;			
+			background-image: -webkit-gradient(linear, left top, right bottom,
+								color-stop(.25, rgba(255, 255, 255, .15)), color-stop(.25, transparent),
+								color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .15)),
+								color-stop(.75, rgba(255, 255, 255, .15)), color-stop(.75, transparent),
+								to(transparent));
+			background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+								transparent 75%, transparent);
+			background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+								transparent 75%, transparent);
+			background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+								transparent 75%, transparent);
+			background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+								transparent 75%, transparent);
+			background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+								transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+								transparent 75%, transparent);            
+
+			-webkit-animation: animate-stripes 3s linear infinite;
+			-moz-animation: animate-stripes 3s linear infinite;       		
+		}
+
+		@-webkit-keyframes animate-stripes { 
+			0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+		}
+
+		@-moz-keyframes animate-stripes {
+			0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+		}
+		
+		/* Shine On */
+		.shine span {
+			position: relative;
+		}
+
+		.shine span::after {
+			content: '';
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #fff;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;			
+
+			-webkit-animation: animate-shine 2s ease-out infinite;
+			-moz-animation: animate-shine 2s ease-out infinite; 			
+		}
+
+		@-webkit-keyframes animate-shine { 
+			0% {opacity: 0; width: 0;}
+			50% {opacity: .5;}
+			100% {opacity: 0; width: 95%;}
+		}
+
+		@-moz-keyframes animate-shine {
+			0% {opacity: 0; width: 0;}
+			50% {opacity: .5;}
+			100% {opacity: 0; width: 95%;}
+		}
+		
+		.glow span {
+			-moz-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+			-webkit-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+			box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+
+			-webkit-animation: animate-glow 1s ease-out infinite;
+			-moz-animation: animate-glow 1s ease-out infinite; 			
+		}
+
+		@-webkit-keyframes animate-glow {
+		 0% { -webkit-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;} 
+		 50% { -webkit-box-shadow: 0 5px 5px rgba(255, 255, 255, .3) inset, 0 -5px 5px rgba(255, 255, 255, .3) inset;} 
+		 100% { -webkit-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;}
+		}
+
+		@-moz-keyframes animate-glow {
+		 0% { -moz-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;} 
+		 50% { -moz-box-shadow: 0 5px 5px rgba(255, 255, 255, .3) inset, 0 -5px 5px rgba(255, 255, 255, .3) inset;} 
+		 100% { -moz-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;}
+		}
+		
+		@media only screen and (max-width : 777px) {
+			.progress-bar {
+				width: 90%;
+				margin: 20px auto 0px auto;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				-moz-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+				-webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+				box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;	          
+			}
+		}
+	</style>
+	
+	<!-- jquery & remainder of javascript loaded in the body -->
+	<script src="../libs/modernizr/modernizr-min.js"></script>
+	<!-- If you dont use modernizr, you should include the html5shiv here for backwards compliance. modernizr includes it already. -->
+	<!-- <script src="https://huementui.s3.amazonaws.com/cdn/html5shiv.js" type="text/javascript"></script> -->
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="wallpaper">
+				<img class="wallpaper" src="http://huement.s3.amazonaws.com/artwork/mumford_loading.png" alt="Mumford Splash"/> 
+			</div>
+			<div id="wallpaperClear"></div>
+		</div>
+
+		<!-- Demo START -->
+		
+		<div class="row" style="position:fixed;bottom:30px;">
+			<div class="twocol"><div class="push">&nbsp;</div></div>
+			<div class="eightcol">
+				<div>
+				<p>MODE:
+					<a href="#" class="progressMode" title="style_one">stripes</a> |
+					<a href="#" class="progressMode" title="style_two">shine on</a> |
+					<a href="#" class="progressMode" title="style_three">glow</a>
+				</p>
+				<div id="style_one">
+				<div class="progress-bar blue-bar stripes">
+				    <span style="width: 20%"></span>
+				</div>
+				<p>Set above to:
+					<a href="#" class="quarter demosetters" title="25">25%</a> /
+					<a href="#" class="half demosetters">50%</a> /
+					<a href="#" class="three-quarters demosetters">75%</a> /
+					<a href="#" class="full demosetters">100%</a>
+				</p>
+				</div>
+				
+				<div id="style_two" style="display:none">
+				<div class="progress-bar orange-bar shine">
+				    <span style="width: 65%"></span>
+				</div>
+				<p>Set above to:
+					<a href="#" class="quarter demosetters" title="25">25%</a> /
+					<a href="#" class="half demosetters">50%</a> /
+					<a href="#" class="three-quarters demosetters">75%</a> /
+					<a href="#" class="full demosetters">100%</a>
+				</p>
+				</div>
+				
+				<div id="style_three" style="display:none">
+				<div class="progress-bar green-bar glow">
+				    <span style="width: 55%"></span>
+				</div>
+				<p>Set above to:
+					<a href="#" class="quarter demosetters" title="25">25%</a> /
+					<a href="#" class="half demosetters">50%</a> /
+					<a href="#" class="three-quarters demosetters">75%</a> /
+					<a href="#" class="full demosetters">100%</a>
+				</p>
+				</div>
+				</div>
+			</div>
+			<div class="twocol last"><div class="push">&nbsp;</div></div>
+		</div>
+		
+		<div class="row" style="position:fixed;top:0px;z-index:999;display:block;">
+			<div class="twelvecol last"><p class="R tR p10" style="color:#e6e6e6">CSS3 Animated Progress Bars were adapted from <a href='http://www.red-team-design.com/stylish-css3-progress-bars'>red-team-design</a>.</p></div>
+		</div>
+		<!-- Demo END -->
+		
+		<div class="push" style="height:50px;"></div>
+	</div>
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+
+<!-- minified hui library -->
+<script type="text/javascript" src="../dist/hui-min.js?ver=1.15.2"></script>
+
+<!-- Example Functions for the Demo -->
+<script type="text/javascript">
+	
+	$(document).ready(function(){ 
+		$(".progressMode").on("click",function(ev){
+			ev.preventDefault();
+			var pmode = $(this).attr("title");
+			$("#style_one, #style_two, #style_three").hide();
+			$("#"+pmode).show();
+			return false;
+		});
+		$('.quarter').click(function(){
+			$(this).parent().prev().children('span').css('width','25%');
+			});
+		$('.half').click(function(){
+			$(this).parent().prev().children('span').css('width','50%');
+			});
+		$('.three-quarters').click(function(){
+			$(this).parent().prev().children('span').css('width','75%');
+			});
+		$('.full').click(function(){
+			$(this).parent().prev().children('span').css('width','100%');
+			});			
+	});
+
+</script>
+
+</body>
+</html>
