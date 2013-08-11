@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.3.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+
+ <!-- 
+ Simple CDN CSS Setup
+ <link href="http://huementui.s3.amazonaws.com/cdn/github/dist/hui-dark.css" rel="stylesheet" type="text/css"/> -->
+
+
+	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
+	<![endif]-->
+ <!-- sample styles -->
+ <style type="text/css">
+  /* DEMO STYLES */
+  body { 
+   min-height: 100% !important; 
+   height: 100% !important; 
+   width:100%;
+   display:block;
+   background-image:url("https://huement.s3.amazonaws.com/imgs/noisy_grid.png");
+   background-repeat:repeat;
+   color:#2d2d2d;
+  }
+  h1.page-header{border-bottom:5px solid #3d3d3d;}
+  h2.page-header{border-bottom:1px dashed #666;} 
+  h3.page-header{border-bottom:none;}
+  h4.page-header{border-bottom:none;}
+  h5.page-header{border-bottom:none;}
+  a { color: #264c99; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+
+  @media screen and (max-width: 800px) {
+
+  }
+ </style>
+ <!-- Header JS -->
+ <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+<div style="max-width:1000px;" class="C">
+	
+ <div class="container">
+ <div class="row">
+  <div class="twelvecol last" style="background-color:transparent;">
+	<h1 class="page-header">hui button basics</h1>
+  </div>
+ </div>
+ </div>
+
+ 	<div class="row limit category buttons_category">
+		<div class="twelvecol last">
+			<h2 class="page-header">Button Framework</h2>
+			<p class="fnote">the button framework contains the core user interaction elements. allowing you to offer everything from a confirmation or yes no button, to a drop down toolbar with @font-face icons.</p>
+			<div class="push"></div>
+			<h3 class="page-header">Text Buttons & Icon Buttons</h3>
+			<p class="fnote">
+				<button><span class="label">Button</span></button>
+
+				<button class="on"><span class="label">Active</span></button>
+
+				<button class="button left"><span class="label">Left</span></button>
+				<button class="button middle"><span class="label">Middle</span></button>
+				<button class="button right"><span class="label">Right</span></button>
+
+				<a href="#" class="button left" title="Home"><span class="icon icon108"></span></a>
+				<a href="#" class="button middle" title="Photos"><span class="icon icon148"></span></a>
+				<a href="#" class="button middle" title="Music"><span class="icon icon134"></span></a>
+				<a href="#" class="button right" title="Save"><span class="icon icon67"></span></a>
+				<br/>
+			</p>	
+			
+<pre class="htmlCode smallHide">
+&lt;button class="action blue"&gt;&lt;span class="label"&gt;Save&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action red"&gt;&lt;span class="label"&gt;Upload&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action green"&gt;&lt;span class="label"&gt;Comment&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action"&gt;&lt;span class="label"&gt;Cancel&lt;/span&gt;&lt;/button&gt;
+</pre><div class="push"></div>
+			<h3 class="page-header">Icon Buttons with Label</h3>
+			<p class="fnote">
+				<a href="#" class="button left"><span class="icon icon108"></span><span class="label">Normal</span></a>
+				<a href="#" class="button middle"><span class="icon icon125"></span><span class="label red">Red</span></a>
+				<a href="#" class="button middle"><span class="icon icon191"></span><span class="label blue">Blue</span></a>
+				<a href="#" class="button middle"><span class="icon icon151"></span><span class="label green">Green</span></a>
+				<a href="#" class="button right"><span class="icon icon177"></span><span class="label yellow">Yellow</span></a>
+				<br/>
+			</p>
+			
+<pre class="htmlCode smallHide">
+&lt;a href="#" class="button left"&gt;&lt;span class="icon icon108"&gt;&lt;/span&gt;&lt;span class="label"&gt;Normal&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="button middle"&gt;&lt;span class="icon icon125"&gt;&lt;/span&gt;&lt;span class="label red"&gt;Red&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="button middle"&gt;&lt;span class="icon icon191"&gt;&lt;/span&gt;&lt;span class="label blue"&gt;Blue&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="button middle"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;span class="label green"&gt;Green&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="button right"&gt;&lt;span class="icon icon177"&gt;&lt;/span&gt;&lt;span class="label yellow"&gt;Yellow&lt;/span&gt;&lt;/a&gt;
+</pre><div class="push"></div>
+
+			<h3 class="page-header">Action Buttons</h3>
+
+			<p class="fnote">
+			  <button class="action red"><span class="label">Upload</span></button>
+			  <button class="action green"><span class="label">Comment</span></button>
+			  <button class="action blue"><span class="label">Save</span></button>
+			  <button class="action yellow"><span class="label">Rock Out</span></button>
+			  <button class="action"><span class="label">Cancel</span></button>
+			</p> <!-- /.buttons --><br/>
+<pre class="htmlCode smallHide">
+&lt;button class="action blue"&gt;&lt;span class="label"&gt;Save&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action red"&gt;&lt;span class="label"&gt;Upload&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action green"&gt;&lt;span class="label"&gt;Comment&lt;/span&gt;&lt;/button&gt;
+&lt;button class="action"&gt;&lt;span class="label"&gt;Cancel&lt;/span&gt;&lt;/button&gt;
+</pre><div class="push"></div>
+
+			<h3 class="page-header">Acted Upon Buttons</h3>
+
+			<p class="fnote">
+			  <button><span class="label">regular</span></button>
+			  <button class="on"><span class="label">On Btn</span></button>
+			  <button class="active"><span class="label">Active</span></button>
+			  <button class="action on"><span class="label">Action On</span></button>
+			  <button class="action active"><span class="label">Action Active</span></button>
+			</p> <!-- /.buttons --><br/>
+<pre class="htmlCode smallHide">
+&lt;button class=&quot;on&quot;&gt;&lt;span class=&quot;label&quot;&gt;On Btn&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;active&quot;&gt;&lt;span class=&quot;label&quot;&gt;Active&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;action on&quot;&gt;&lt;span class=&quot;label&quot;&gt;Action On&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;action active&quot;&gt;&lt;span class=&quot;label&quot;&gt;Action Active&lt;/span&gt;&lt;/button&gt;
+</pre><div class="push"></div>
+
+			<h3 class="page-header">Dropdown Menu Buttons</h3>
+			<div class="dropdown">
+			 <a href="#" class="button"><span class="label">File</span><span class="toggle"></span></a>
+			 <div class="dropdown-slider">
+			   <a href="#" class="ddm"><span class="label">New</span></a>
+			   <a href="#" class="ddm"><span class="label">Save</span></a>
+			 </div> <!-- /.dropdown-slider -->
+			</div> <!-- /.dropdown -->
+
+			<a href="#" class="button left"><span class="icon icon108"></span></a>
+			<div class="dropdown middle">
+			 <a href="#" class="button middle"><span class="icon icon68"></span><span class="toggle"></span></a>
+			 <div class="dropdown-slider">
+			   <a href="#" class="ddm"><span class="icon icon3"></span><span class="label">Add</span></a>
+			   <a href="#" class="ddm"><span class="icon icon145"></span><span class="label">Edit</span></a>
+			   <a href="#" class="ddm"><span class="icon icon186"></span><span class="label">Trash</span></a>
+			 </div> <!-- /.dropdown-slider -->
+			</div> <!-- /.dropdown -->
+			<a href="#" class="button right"><span class="icon icon151"></span></a>
+			<div class="push"></div>
+			<p class='p5'>Dropdowns can occur inline with other icon or text buttons. They can also occur by themselves. To close the Dropdown click the toggle or anywhere else on the screen.</p>
+			<br/>
+<pre class="htmlCode smallHide">
+&lt;div class="dropdown"&gt;
+&lt;a href="#" class="button"&gt;&lt;span class="label"&gt;File&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;div class="dropdown-slider"&gt;
+&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;New&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="ddm"&gt;&lt;span class="label"&gt;Save&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt; 
+&lt;/div&gt; 
+
+&lt;a href="#" class="button left"&gt;&lt;span class="icon icon108"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;div class="dropdown middle"&gt;
+&lt;a href="#" class="button middle"&gt;&lt;span class="icon icon68"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;div class="dropdown-slider"&gt;
+&lt;a href="#" class="ddm"&gt;&lt;span class="icon icon3"&gt;&lt;/span&gt;&lt;span class="label"&gt;Add&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="ddm"&gt;&lt;span class="icon icon145"&gt;&lt;/span&gt;&lt;span class="label"&gt;Edit&lt;/span&gt;&lt;/a&gt;
+&lt;a href="#" class="ddm"&gt;&lt;span class="icon icon186"&gt;&lt;/span&gt;&lt;span class="label"&gt;Trash&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;a href="#" class="button right"&gt;&lt;span class="icon icon151"&gt;&lt;/span&gt;&lt;/a&gt;
+</pre><div class="push"></div>
+			<h3 class="page-header">Sprite Button Demo</h3>
+			<p class="fnote">All Available Icon Classes in the included PNG Sprite. Simple to use, and great for older systems or quick mockups. Times when editing an entire font file would be inconvenient.</p><br/>
+			<p class="fnote">Mouse Over any Icon to see its Class displayed via the tipTip() plugin built into hui.</p><br/>
+			<ul class="list-unstyled"> 
+			  <li><a href="#" class="button tipTip" title=".icon1 - Abacus"><span class="icon icon1"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon2 - Access Point"><span class="icon icon2"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon3 - Add"><span class="icon icon3"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon4 - Administrator"><span class="icon icon4"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon5 - Alarm"><span class="icon icon5"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon6 - Arrow Bidirectional"><span class="icon icon6"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon7 - Arrow Down"><span class="icon icon7"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon8 - Arrow Left"><span class="icon icon8"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon9 - Arrow Right"><span class="icon icon9"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon10 - Arrow Up"><span class="icon icon10"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon11 - Attachment"><span class="icon icon11"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon12 - Audio Knob"><span class="icon icon12"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon13 - Barcode"><span class="icon icon13"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon14 - Battery Empty"><span class="icon icon14"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon15 - Battery Full"><span class="icon icon15"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon16 - Battery Half"><span class="icon icon16"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon17 - Bell"><span class="icon icon17"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon18 - Bill"><span class="icon icon18"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon19 - Binoculars"><span class="icon icon19"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon20 - Bold"><span class="icon icon20"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon21 - Book"><span class="icon icon21"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon22 - Bookmark"><span class="icon icon22"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon23 - Briefcase"><span class="icon icon23"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon24 - Brightness"><span class="icon icon24"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon25 - Broken Link"><span class="icon icon25"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon26 - Brush"><span class="icon icon26"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon27 - Burn Blu-ray"><span class="icon icon27"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon28 - Burn Blu-ray"><span class="icon icon28"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon29 - Burn DVD"><span class="icon icon29"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon30 - Burn DVD"><span class="icon icon30"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon31 - Cabinet"><span class="icon icon31"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon32 - Calculator"><span class="icon icon32"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon33 - Calendar"><span class="icon icon33"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon34 - Camera"><span class="icon icon34"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon35 - Cancel"><span class="icon icon35"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon36 - Card Clubs"><span class="icon icon36"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon37 - Card Diamonds"><span class="icon icon37"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon38 - Card Hearts"><span class="icon icon38"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon39 - Card Spades"><span class="icon icon39"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon40 - Certificate"><span class="icon icon40"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon41 - Certificate"><span class="icon icon41"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon42 - Chat Exclamation"><span class="icon icon42"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon43 - Checkmark"><span class="icon icon43"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon44 - Checkmark"><span class="icon icon44"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon45 - Clip"><span class="icon icon45"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon46 - Clipboard"><span class="icon icon46"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon47 - Clock"><span class="icon icon47"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon48 - Close"><span class="icon icon48"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon49 - Cloud"><span class="icon icon49"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon50 - Cloud"><span class="icon icon50"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon51 - Coin"><span class="icon icon51"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon52 - Compress"><span class="icon icon52"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon53 - Connect"><span class="icon icon53"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon54 - Contrast"><span class="icon icon54"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon55 - Copy"><span class="icon icon55"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon56 - Cross"><span class="icon icon56"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon57 - Cutter"><span class="icon icon57"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon58 - Delete"><span class="icon icon58"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon59 - Dial"><span class="icon icon59"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon60 - Diary"><span class="icon icon60"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon61 - Dimensions"><span class="icon icon61"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon62 - Directional Down"><span class="icon icon62"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon63 - Directional Left"><span class="icon icon63"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon64 - Directional Right"><span class="icon icon64"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon65 - Directional Up"><span class="icon icon65"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon66 - Disconnect"><span class="icon icon66"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon67 - Diskette"><span class="icon icon67"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon68 - Document"><span class="icon icon68"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon69 - Door"><span class="icon icon69"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon70 - Download"><span class="icon icon70"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon71 - Dropper"><span class="icon icon71"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon72 - Earphones"><span class="icon icon72"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon73 - Effects"><span class="icon icon73"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon74 - Eject"><span class="icon icon74"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon75 - Emoticon Angry"><span class="icon icon75"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon76 - Emoticon Confused"><span class="icon icon76"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon77 - Emoticon Grin"><span class="icon icon77"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon78 - Emoticon In Love"><span class="icon icon78"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon79 - Emoticon Sad"><span class="icon icon79"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon80 - Emoticon Sleeping"><span class="icon icon80"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon81 - Emoticon Smile"><span class="icon icon81"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon82 - Encrypt"><span class="icon icon82"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon83 - Eraser"><span class="icon icon83"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon84 - Eye"><span class="icon icon84"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon85 - Eye Closed"><span class="icon icon85"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon86 - Fast Forward"><span class="icon icon86"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon87 - File"><span class="icon icon87"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon88 - Fill"><span class="icon icon88"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon89 - Fingerprint"><span class="icon icon89"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon90 - Firewall"><span class="icon icon90"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon91 - First"><span class="icon icon91"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon92 - Folder"><span class="icon icon92"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon93 - Font"><span class="icon icon93"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon94 - Font Size"><span class="icon icon94"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon95 - Game Control"><span class="icon icon95"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon96 - Gear"><span class="icon icon96"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon97 - Group"><span class="icon icon97"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon98 - Hammer"><span class="icon icon98"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon99 - Hand Point"><span class="icon icon99"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon100 - Hand Thumbsdown"><span class="icon icon100"></span></a></li>
+
+			  <li><a href="#" class="button tipTip" title=".icon101 - Hand Thumbsup"><span class="icon icon101"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon102 - Hard Disk"><span class="icon icon102"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon103 - Headset"><span class="icon icon103"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon104 - Heart"><span class="icon icon104"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon105 - Help"><span class="icon icon105"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon106 - Help"><span class="icon icon106"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon107 - History"><span class="icon icon107"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon108 - Home"><span class="icon icon108"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon109 - Hourglass"><span class="icon icon109"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon110 - Hourglass"><span class="icon icon110"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon111 - ID"><span class="icon icon111"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon112 - Info"><span class="icon icon112"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon113 - Info"><span class="icon icon113"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon114 - Italic"><span class="icon icon114"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon115 - Item"><span class="icon icon115"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon116 - Key"><span class="icon icon116"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon117 - Last"><span class="icon icon117"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon118 - Lightbulb"><span class="icon icon118"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon119 - Link"><span class="icon icon119"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon120 - List"><span class="icon icon120"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon121 - Location"><span class="icon icon121"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon122 - Lock"><span class="icon icon122"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon123 - Lock Open"><span class="icon icon123"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon124 - Login"><span class="icon icon124"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon125 - Mail"><span class="icon icon125"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon126 - Mail Open"><span class="icon icon126"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon127 - Messenger"><span class="icon icon127"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon128 - Microphone"><span class="icon icon128"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon129 - Microphone"><span class="icon icon129"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon130 - Money Bag"><span class="icon icon130"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon131 - Monitor"><span class="icon icon131"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon132 - Moon"><span class="icon icon132"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon133 - Music"><span class="icon icon133"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon134 - Music Folder"><span class="icon icon134"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon135 - Music Library"><span class="icon icon135"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon136 - Next"><span class="icon icon136"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon137 - Notepad"><span class="icon icon137"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon138 - Paragraph Align Left"><span class="icon icon138"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon139 - Paragraph Align Right"><span class="icon icon139"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon140 - Paragraph Justify"><span class="icon icon140"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon141 - Password"><span class="icon icon141"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon142 - Paste"><span class="icon icon142"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon143 - Pause"><span class="icon icon143"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon144 - Pen"><span class="icon icon144"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon145 - Pencil"><span class="icon icon145"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon146 - Phone"><span class="icon icon146"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon147 - Photo Album"><span class="icon icon147"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon148 - Pictures Folder"><span class="icon icon148"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon149 - Play"><span class="icon icon149"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon150 - Point"><span class="icon icon150"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon151 - Power"><span class="icon icon151"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon152 - Previous"><span class="icon icon152"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon153 - Print"><span class="icon icon153"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon154 - Pyramid"><span class="icon icon154"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon155 - Random"><span class="icon icon155"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon156 - Record"><span class="icon icon156"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon157 - Redo"><span class="icon icon157"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon158 - Reload"><span class="icon icon158"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon159 - Repeat"><span class="icon icon159"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon160 - Resize"><span class="icon icon160"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon161 - Rewind"><span class="icon icon161"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon162 - Rotate"><span class="icon icon162"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon163 - Round"><span class="icon icon163"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon164 - Ruler Square"><span class="icon icon164"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon165 - Satellite"><span class="icon icon165"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon166 - Scissors"><span class="icon icon166"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon167 - Screwdriver"><span class="icon icon167"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon168 - Security"><span class="icon icon168"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon169 - Shopping Basket"><span class="icon icon169"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon170 - Software"><span class="icon icon170"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon171 - Spam"><span class="icon icon171"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon172 - Speaker"><span class="icon icon172"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon173 - Speaker"><span class="icon icon173"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon174 - Sphere"><span class="icon icon174"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon175 - Spreadsheet"><span class="icon icon175"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon176 - Square"><span class="icon icon176"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon177 - Star"><span class="icon icon177"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon178 - Stats Bars"><span class="icon icon178"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon179 - Stats Lines"><span class="icon icon179"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon180 - Stats Pie"><span class="icon icon180"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon181 - Stop"><span class="icon icon181"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon182 - Strike Through"><span class="icon icon182"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon183 - Sun"><span class="icon icon183"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon184 - Target"><span class="icon icon184"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon185 - Thunder"><span class="icon icon185"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon186 - Trash Can"><span class="icon icon186"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon187 - Underlined"><span class="icon icon187"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon188 - Undo"><span class="icon icon188"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon189 - Upload"><span class="icon icon189"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon190 - USB"><span class="icon icon190"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon191 - User"><span class="icon icon191"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon192 - User Woman"><span class="icon icon192"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon193 - Volume Control"><span class="icon icon193"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon194 - Web Cam"><span class="icon icon194"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon195 - Window"><span class="icon icon195"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon196 - Wizard"><span class="icon icon196"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon197 - World"><span class="icon icon197"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon198 - Zoom"><span class="icon icon198"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon199 - Zoom In"><span class="icon icon199"></span></a></li>
+			  <li><a href="#" class="button tipTip" title=".icon200 - Zoom Out"><span class="icon icon200"></span></a></li>
+			</ul> <!-- /.buttons -->
+			<br/>
+			<div class="push"></div>
+		</div>
+	</div>
+
+</div>
+<div class="push" style="height:50px;"></div>
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+
+<!-- or setup for jQuery 1.9+ & 2.0b Slower. For Development.
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.0.0b1.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+-->
+
+<!-- Include the hui javascript library -->
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- if you wanted to add additional plugins, it would be like this:
+<script src="https://huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/js/jquery.thimbleberry.min.js" type="text/javascript"></script>
+
+and dont forget to include the css in the header!
+eg: huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/css/thimbleberry-min.css
+-->
+
+<!-- sample doc ready -->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	$(".tipTip").tipTip();
+});
+</script>
+</body>
+</html>

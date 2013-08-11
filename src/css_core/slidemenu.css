@@ -13,7 +13,7 @@
 	background: #0d77b6;
 }
 
-.cbp-spmenu a {
+.cbp-spmenu a, .cbp-spmenu a:visited {
 	display: block;
 	color: #fff;
 	font-size: 1.1em;

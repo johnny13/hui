@@ -35,14 +35,14 @@ module.exports = function(grunt) {
         footer: '\n\n'+'/*! <%= pkg.homepage %> */'+'\n\n',
       },
       dist: {
-        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js', 'src/js_core/classie.js'],
+        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/classie.js'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
 	   options: {
 		banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +'<%= grunt.template.today("yyyy-mm-dd") %>\n' +'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'+'\n/* THIS DOES NOT CONTAIN A DEV-THEME. Use this file if you want to make your own theme. Example themes are in the theme folder. */\n\n'
 	   },
-       src: ['<%= banner %>','src/css_core/standardization.css', 'src/css_core/body.css', 'src/css_core/display.css', 'src/css_core/buttons.css', 'src/css_core/character.css', 'src/css_core/forms.css', 'src/css_core/tips.css', 'src/css_core/widgets.css', 'src/css_core/slidemenu.css', 'src/css_core/antiscroll.css'],
+       src: ['<%= banner %>','src/css_core/standardization.css', 'src/css_core/body.css', 'src/css_core/display.css', 'src/css_core/buttons.css', 'src/css_core/character.css', 'src/css_core/forms.css', 'src/css_core/tips.css', 'src/css_core/widgets.css', 'src/css_core/slidemenu.css'],
        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
       },
     },
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/antiscroll.js' ,'src/js_core/classie.js' ]
+        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/classie.js' ]
       },
       test: {
         options: {

@@ -529,17 +529,20 @@ li .comment.limit {
   background: rgba(0,0,0,0.4);
 }
 .Taylor.dark li:before { background: #333;background: rgba(0,0,0,0.7); }
+
+/* popper */
 .Tbox:before {
-  width: 9px;
-  height: 9px;
-  border: 3px solid #ddd;
+  width: 18px;
+  height: 18px;
+  border: 9px solid #ddd;
   border-radius: 100px;
-  margin: 16px 0 0 -10px;
+  margin: 9px 0 0 -19px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.2);
   background: #999;
 }
+
 .Tbox:hover:before { background: #DA0000; border-color: #666;}
-.dark .Tbox:before { background: #333; border: 3px solid #666; }
+.dark .Tbox:before { background: #333; border-color: #666; }
 .dark .Tbox:hover:before { background: #DA0000; border-color: #999;}
 
 .Tbox .text:before {

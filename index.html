@@ -29,22 +29,40 @@
 	<!-- Demo Styles -->
 	<style type="text/css">
 		/* main size controller. */
-		.lead {
-		  margin-bottom: 20px;
-		  font-size: 21px;
-		  font-weight: 200;
-		  line-height: 30px;
+		.row {max-width:98%;}
+		.limit {
+			max-width:1140px!important;
 		}
+		.btnbarbox {
+			width:auto;margin:2px 10px 0 0;
+			float:right;
+		}
+		h1.page-header{border-bottom:5px solid #3d3d3d;}
+		h2.page-header{border-bottom:1px dashed #666;} 
+		h3.page-header{border-bottom:none;}
+		h4.page-header{border-bottom:none;}
+		h5.page-header{border-bottom:none;}
+		
+		.bs-example {
+			background: #f7f7f7;
+			background-color: #f7f7f7;
+			border: 1px solid #e7e7e7;
+			width: 95%;
+			margin: 15px auto 15px auto;
+			display: block;
+			position: relative;
+			padding: 10px;
+		}
+
 		#content {
 			background-image: url("https://huementui.s3.amazonaws.com/images/gridMasked.png?ver=2.1");
 		 	background-repeat:repeat-x;
 		}
 		
-		.row {max-width:98%;}
-		.blackb {border:2px solid #555;}
 		.greyb label {
 			color:#fff;
 		}
+		
 		.tophat {padding-top:50px;border-top:3px solid #e6e6e6;}
 		
 		.el_arco_iris {
@@ -61,6 +79,7 @@
 			margin:10px;
 			padding:10px;
 		}
+		
 		.democolors li {
 			font-size:1em;
 			padding:10px;
@@ -69,6 +88,7 @@
 			color:#e7e7e7;
 			background:#666;
 		}
+		
 		#notefyIconList {
 			padding:10px;
 			width:90%;
@@ -76,10 +96,12 @@
 			margin:13px auto 0 auto;
 			position:relative;
 		}
+		
 		code {
 			margin-top:3px;
 			margin-bottom:3px;
 		}
+		
 		/* horizontalNav menu */
 		.navList {
 			position:relative;
@@ -95,6 +117,7 @@
 			position:fixed;
 			z-index:999;
 		}
+		
 		/* horizontalNav Select Box */
 		.mnav {
 			position:fixed;
@@ -110,12 +133,6 @@
 			padding:10px 0 10px 10px;
 		}
 		
-		.greyb, .grayb {
-		 overflow: auto;
-		 font-size: 1.2em;
-		 line-height: 1.5em;
-		 
-		}
 		#notefyIconList li {
 			float:left;
 			width:auto;
@@ -123,80 +140,7 @@
 			padding:4px;
 			min-height:100px;
 		}
-		/* Styles specific to this particular page */
-		.list {
-			padding:20px;
-			max-width:200px;
-		}
-		.list li {
-			margin-top:10px;
-			margin-bottom:10px;
-		}
-		.colors {
-		  clear: both;
-		  padding: 24px 0 9px;
-		}
-		.skin-line .colors {
-		  padding-top: 28px;
-		}
-		.colors strong {
-		  float: left;
-		  line-height: 20px;
-		  margin-right: 20px;
-		}
-		.colors li {
-		  position: relative;
-		  float: left;
-		  width: 16px;
-		  height: 16px;
-		  margin: 2px 1px 0 0;
-		  background: #000;
-		  cursor: pointer;
-		  filter: alpha(opacity=50);
-		  opacity: 0.5;
-		  -webkit-transition: opacity 0.2s;
-		  -moz-transition: opacity 0.2s;
-		  -ms-transition: opacity 0.2s;
-		  -o-transition: opacity 0.2s;
-		  transition: opacity 0.2s;
-		}
-		.colors li:hover {
-		  filter: alpha(opacity=100);
-		  opacity: 1;
-		}
-		.colors li.active {
-		  height: 20px;
-		  margin-top: 0;
-		  filter: alpha(opacity=75);
-		  opacity: 0.75;
-		}
-		.colors li.red {
-		  background: #d54e21;
-		}
-		.colors li.green {
-		  background: #78a300;
-		}
-		.colors li.blue {
-		  background: #0e76a8;
-		}
-		.colors li.aero {
-		  background: #9cc2cb;
-		}
-		.colors li.grey {
-		  background: #73716e;
-		}
-		.colors li.orange {
-		  background: #f70;
-		}
-		.colors li.yellow {
-		  background: #fc0;
-		}
-		.colors li.pink {
-		  background: #ff66b5;
-		}
-		.colors li.purple {
-		  background: #6a5a8c;
-		}
+		
 		/* log element for demo purposes */
 		.log {
 			display: none;
@@ -209,44 +153,19 @@
 			list-style: none;
 			padding: 10px;
 		}
-		.slideoutmain > section {
-			max-width: 260px;
-			width: 90%;
-			margin: 0 auto;
+		#topBarBox {
+			border-bottom:1px solid #666666;height:auto;min-height:50px;
 		}
-
-		.slideoutmain > section h2 {
-			font-weight: 300;
-			color: #ccc;
-		}
-
-		.slideoutmain > section button {
-			border: none;
-			background: #47a3da;
-			color: #fff;
-			padding: 1.5em;
-			display: block;
-			width: 100%;
-			cursor: pointer;
-			margin: 10px 0;
-			font-size: 0.8em;
-		}
-
-		.slideoutmain > section button:hover {
-			background: #258ecd;
-		}
-
-		.slideoutmain > section button.active {
-			background: #0d77b6;
-		}
-
-		.slideoutmain > section button.disabled {
-			background: #aaa;
-			poin
-		@media only screen and (max-width : 777px) {
+		
+		@media only screen and (max-width : 800px) {
 			.el_arco_iris {
 				font-size:2em;
 				line-height:1em;
+			}
+			.btnbarbox {
+				width:auto;
+				margin:3px 7px 0 0;
+				float:right;
 			}
 			.mtb a span.label {font-size:0.8em;}
 			.row {max-width:100%;}
@@ -257,6 +176,7 @@
 			#homerow {
 				margin-bottom:45px;
 			}
+			.btnbarbox {display:none !important;}
 			#homerow .blackB {
 				position:fixed;
 				top:0;
@@ -279,11 +199,11 @@
 </head>
 <body>
 	<div id="homerow">
-		<div class="twelvecol last blackB" style="border-bottom:1px solid #666666;height:auto;min-height:20px;">
+		<div class="twelvecol last blackB" id="topBarBox">
 			
 			<a href="#" class="reload"><h2 class="el_arco_iris L" style="margin:0px 5px -2px 5px;line-height:1em;padding:3px 0 0 0;">hui</h2></a>
 			
-			<div class="R" style="width:auto;margin:10px 10px 0 0;">
+			<div class="btnbarbox">
 				<a class="button left" href="test/"><span class="icon icon43"></span><span class="label smallHide">tests</label></a>
 				<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108 smallHide"></span><span class="label">main</label></a>
 				<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97 smallHide"></span><span class="label">github</label></a>
@@ -342,24 +262,93 @@
 			<div class="push" style="height:50px;"></div>
 			
 			<div class="twelvecol last">
-				<h2 class="page-header">12 Column Grid</h2>
-				<p>Using a basic 12 column grid allows you to easily build fluid html layouts that work across almost all devices.</p>
-				<p>adding the optional <code>.limit</code> code can set you up with a fixed limited width, such as 1140px.</p>
+				<h2 class="page-header">Twelve Column Grid</h2>
+				<img src="http://hui.huement.com/img/feature-grid-1.png" width="100%" style="width:100%;max-width:1640px;max-height:600px;margin-top:20px;margin-bottom:20px;">
+				<p>Every Project is Easier with A CSS Grid. Create HTML Pages based on the natural scrolling order of the web. HUI's 12 Column Grid aims to give you that Graph Paper style accuracy in your layout, while being flexible and liquid enough to fit just about any screen size, orientation or DPI.</p>
+				<p>New computers, old computers, netbooks, tablets, smartphones, some feature phones. The 1140 grid fits perfectly into a 1280 monitor. On smaller monitors it becomes fluid and adapts to the width of the browser. For Mobile devices, Media Queries are used.</p>
+				<h3 class="page-subheader">Layout Hierarchy:</h3>
+				<p><strong>1.</strong> Basically, each content block goes inside a '<span style="font-style:italic">wrapper</span> div' denoted as: <span style="color:#70D2FF"><strong>.container</strong></span>.<br/>
+				<span style="color:#70D2FF"><strong>.container</strong></span> is a full width div that allows layouts to have a background that spans the full width of the browser. It also contains 20 px padding on either side to keep content away from the edges <strong>when it becomes fluid</strong>.</p>
+
+				<p><strong>2.</strong> Inside <span style="color:#70D2FF"><strong>.container</strong></span> is the <strong>Variable %-Width</strong> <span style="font-style:italic">wrapper</span>: <span style="color:#F7851A"><strong>.row</strong></span><br/> 
+				<span style="color:#F7851A"><strong>.row</strong></span> can then be further divided into any 12 or fewer column grid style arrangement.</p> 
+
+				<p><strong>3.</strong> Finally, The last column within a finished <span style="color:#F7851A"><strong>.row</strong></span> needs to be closed out by adding <span style="color:#F10000"><strong>.last</strong></span> to the ending column. (Dont forget this!)</p>  
+
+				<p style="margin:5px auto 15px auto;">3 Column Liquid Grid: <strong>.fourcol</strong> [1] <strong>.fourcol</strong> [2] <strong>.fourcol <span style="color:#F10000">.last</span></strong> [3]</p>
+				<br/>
+<pre class="htmlCode" style="margin-bottom:20px;">
+Three Column Liquid Grid Example
+
+&lt;div class="container"&gt;
+
+	&lt;div class="row"&gt;
+
+		&lt;div class="fourcol"&gt;
+			&lt;p&gt;This Is Column One&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div class="fourcol"&gt;
+			&lt;p&gt;This Is Column Two&lt;/p&gt;
+			&lt;p&gt;This Is Column Double&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div class="fourco"&gt;
+			&lt;p&gt;The Final Third Column&lt;/p&gt;
+			&lt;p&gt;Triple Column Content&lt;/p&gt;
+			&lt;p&gt;The total is 12.&lt;/p&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+&lt;/div&gt;
+		
+</pre>
+				<div class="push"></div>
+				<h2 class="page-subheader">Classy Columns</h2>
+				<p>Here Be Thy Classes for each Column. They can be used in any combination within a row that adds up to twelve or less. The naming Structure makes them a no brainer to remember!<br/> <span class="colorone">.onecol</span>, <span class="colorone">.twocol</span>, <span class="colorone">.threecol</span>, <span class="colorone">.fourcol</span>, <span class="colorone">.fivecol</span>, <span class="colorone">.sixcol</span>, <span class="colorone">.sevencol</span>, <span class="colorone">.eightcol</span>, <span class="colorone">.ninecol</span>, <span class="colorone">.tencol</span>, <span class="colorone">.elevencol</span>, <span class="colorone">.twelvecol</span>.</p>
+
+				<div class="push"></div>
+
+				<h2 class="page-subheader">GRID Detailed Breakdown</h2>
+				<h3>Image Scaling</h3>
+				<p>If an image is smaller than the column it is contained in, it will be displayed at its original size. If it is larger then it will be shrunk to the width of the column. Don't define height and width of images inline, it'll break the proportions if they're scaled down.</p>
+				<h3>From TV to The Mobile</h3>
+				<p>By tweaking the original Grid, HUI is able to template at almost any view-port. From a 400 ish pixel smart screen to a 10 foot living room UI. With media queries you can even include x2 images for the iPhone 4 Retina Display.</p>
+				<h3>Before you Start Coding Info</h3>
+				<p>You will probably want to decide up before you start coding what you want for the "Max-Width" on <span style="color:#F7851A"><strong>.row</strong></span>. This is important. If you leave it to nothing, The Grid Will scale and adapt to any screen size, no matter what the dimensions. This is perfect for a 10ft TV User Interface Application, or users with retina screens. It can however be annoying if you are trying to manage every pixel and want a tight layout. In that case you can remove the comment or add <span style="color:#F7851A"><strong>.row</strong></span> to your css file, as be default Row is set with no limits on width.</p>
+
+<pre class="htmlCode">
+&lt;div class="container"&gt;
+ &lt;div class="row"&gt;
+   &lt;div class="eightcol"&gt;
+     &lt;h1&gt;eightcol content&lt;/h1&gt;
+       &lt;p class="filler"&gt;Eight column content&lt;/p&gt;
+     &lt;/div&gt;
+     &lt;div class="fourcol last"&gt;
+       &lt;h1&gt;fourcol sidebar&lt;/h1&gt;
+     &lt;p class="filler"&gt;Four column sidebar&lt;/p&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+</pre>
 				
 			</div>
 			
 			<div class="push" style="height:150px;"></div>
 			
-			<div class="fourcol smallHide">
+			<div class="twelvecol last">
+				<h2 class="page-header">Select drop-down manipulation</h2>
+				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
+					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
+			</div>
+			<div class="push"></div>
+			<div class="fourcol">
 <pre>&nbsp;
 &nbsp;
 </pre>				
 			</div>
-			<div class="eightcol last">
-				<h2 class="page-header">Select drop-down manipulation</h2>
-				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
-					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
-
+			<div class="onecol"></div><div class="sevencol">
 					<button onclick='jQuery("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
 					<button onclick='jQuery("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
 					<div class="push" style="height:5px"></div>
@@ -371,26 +360,16 @@
 			</div>
 			
 			<div class="push" style="height:50px;"></div>
-			<div class="fourcol smallHide">
-<pre>$(function () {
-$('.antiscroll-wrap').antiscroll({
-  autoHide: false
-});
-});
-</pre>				
-			</div>
-			<div class="eightcol last">
-				<h2 class="page-header">Antiscroll</h2>
-				<p class="fnote">os x lion style cross-browser native scrolling on the web that gets out of the way. Forked from the Learnboost plugin found here: <a href="http://learnboost.github.io/antiscroll/">learnboost.github.io/antiscroll</a></p>
-					<h3>It Looks Like This</h3>
-					<img src="https://a248.e.akamai.net/camo.github.com/3c61b3d3355482eaa9d36fa19c707d4181513f55/687474703a2f2f662e636c2e6c792f6974656d732f335230793150315533723263304f335a323533332f496d616765253230323031312e31312e3233253230383a34323a3531253230414d2e706e67" class="p10 m10"/>
-					
-			</div>
 			
 		</div>
 		
 		<div class="row limit category basic_category">
-			<div class="fourcol smallHide">
+			<div class="twelvecol last">
+				<h2 class="page-header">Action Functions</h2>
+				<p>This Sections contains additional snippets and commands that make basic development tasks a little easier. It also provides a nice space to slowly add your app wide functions and DOM manipulating tidbits later.</p>
+			</div>
+			<div class="push"></div>
+			<div class="fourcol">
 <h2>shuffle</h2>
 <pre class="jsCode">
 /* shake things up */
@@ -419,10 +398,7 @@ preload([
 ]);
 </pre>
 			</div>
-			<div class="eightcol last">
-				<h2 class="page-header">Action Functions</h2>
-				<p>This Sections contains additional snippets and commands that make basic development tasks a little easier. It also provides a nice space to slowly add your app wide functions and DOM manipulating tidbits later.</p>
-				
+			<div class="onecol"></div><div class="sevencol">
 				<p>Currently Supported Functions:</p>
 				<ul class="Tegan">
 				
@@ -443,13 +419,20 @@ preload([
 				<ul class="democolors"> 
 					<li style="background-color: rgb(0, 153, 255);">#09F</li><li style="background-color: rgb(194, 0, 0);">#C20000</li><li style="background-color: rgb(245, 98, 0);">#F56200</li><li style="background-color: rgb(168, 35, 230);">#A823E6</li><li style="background-color: rgb(55, 194, 0);">#37C200</li>
 				</ul>
-				<div class="push" style="height:60px;"></div>
 			</div>
 		</div>
 		
+		
 		<div class="row limit category basic_category">
 			<div class="push" style="height:50px;"></div>
-			<div class="fourcol smallHide">
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">TipTip Tooltips</h2>
+				<p>Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
+			</div>
+			<div class="push"></div>
+			
+			<div class="fourcol">
 <pre>
 /* doc ready activate all */
 jQuery(function(){
@@ -464,21 +447,18 @@ jQuery(function(){
 </pre>
 			</div>
 
-			<div class="eightcol last">
-			<h2 class="page-header">TipTip Tooltips</h2>
+			<div class="onecol"></div><div class="sevencol">
 			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
 			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
-
-			<p class="greyb" style="margin-top:30px">Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
 			</div>
 		</div>
 		
 		<div class="row limit category buttons_category">
 			<div class="twelvecol last">
-				<h2 class="page-header">Button Framework</h2>
+				<h1 class="page-header">Button Framework</h1>
 				<p class="fnote">the button framework contains the core user interaction elements. allowing you to offer everything from a confirmation or yes no button, to a drop down toolbar with @font-face icons.</p>
 				<div class="push"></div>
-				<h3 class="page-header">Text Buttons & Icon Buttons</h3>
+				<h2 class="page-header">Text Buttons & Icon Buttons</h2>
 				<p class="fnote">
 					<button><span class="label">Button</span></button>
 
@@ -579,7 +559,7 @@ jQuery(function(){
 				<h3 class="page-header">Sprite Button Demo</h3>
 				<p class="fnote">All Available Icon Classes in the included PNG Sprite. Simple to use, and great for older systems or quick mockups. Times when editing an entire font file would be inconvenient.</p><br/>
 				<p class="fnote">Mouse Over any Icon to see its Class displayed via the tipTip() plugin built into hui.</p><br/>
-				<ul class="labelMe"> 
+				<ul class="list-unstyled"> 
 				  <li><a href="#" class="button tipTip" title=".icon1 - Abacus"><span class="icon icon1"></span></a></li>
 				  <li><a href="#" class="button tipTip" title=".icon2 - Access Point"><span class="icon icon2"></span></a></li>
 				  <li><a href="#" class="button tipTip" title=".icon3 - Add"><span class="icon icon3"></span></a></li>
@@ -1017,7 +997,7 @@ jQuery(function(){
 			  </div>
 
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-adjust"></i> icon-adjust</li>
 			      <li><i class="icon-asterisk"></i> icon-asterisk</li>
 			      <li><i class="icon-ban-circle"></i> icon-ban-circle</li>
@@ -1059,7 +1039,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-edit"></i> icon-edit</li>
 			      <li><i class="icon-envelope"></i> icon-envelope</li>
 			      <li><i class="icon-envelope-alt"></i> icon-envelope-alt</li>
@@ -1101,7 +1081,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-magic"></i> icon-magic</li>
 			      <li><i class="icon-magnet"></i> icon-magnet</li>
 			      <li><i class="icon-map-marker"></i> icon-map-marker</li>
@@ -1143,7 +1123,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-share"></i> icon-share</li>
 			      <li><i class="icon-share-alt"></i> icon-share-alt</li>
 			      <li><i class="icon-shopping-cart"></i> icon-shopping-cart</li>
@@ -1190,7 +1170,7 @@ jQuery(function(){
 			  </div>
 			
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-file"></i> icon-file</li>
 			      <li><i class="icon-file-alt"></i> icon-file-alt</li>
 			      <li><i class="icon-cut"></i> icon-cut</li>
@@ -1202,7 +1182,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-text-height"></i> icon-text-height</li>
 			      <li><i class="icon-text-width"></i> icon-text-width</li>
 			      <li><i class="icon-align-left"></i> icon-align-left</li>
@@ -1214,7 +1194,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-font"></i> icon-font</li>
 			      <li><i class="icon-bold"></i> icon-bold</li>
 			      <li><i class="icon-italic"></i> icon-italic</li>
@@ -1226,7 +1206,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-table"></i> icon-table</li>
 			      <li><i class="icon-th-large"></i> icon-th-large</li>
 			      <li><i class="icon-th"></i> icon-th</li>
@@ -1244,7 +1224,7 @@ jQuery(function(){
 			  </div>
 			
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-angle-left"></i> icon-angle-left</li>
 			      <li><i class="icon-angle-right"></i> icon-angle-right</li>
 			      <li><i class="icon-angle-up"></i> icon-angle-up</li>
@@ -1256,7 +1236,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-caret-down"></i> icon-caret-down</li>
 			      <li><i class="icon-caret-left"></i> icon-caret-left</li>
 			      <li><i class="icon-caret-right"></i> icon-caret-right</li>
@@ -1268,7 +1248,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-circle-arrow-down"></i> icon-circle-arrow-down</li>
 			      <li><i class="icon-circle-arrow-left"></i> icon-circle-arrow-left</li>
 			      <li><i class="icon-circle-arrow-right"></i> icon-circle-arrow-right</li>
@@ -1280,7 +1260,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-hand-down"></i> icon-hand-down</li>
 			      <li><i class="icon-hand-left"></i> icon-hand-left</li>
 			      <li><i class="icon-hand-right"></i> icon-hand-right</li>
@@ -1296,7 +1276,7 @@ jQuery(function(){
 			  </div>
 			
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-play-circle"></i> icon-play-circle</li>
 			      <li><i class="icon-play"></i> icon-play</li>
 			      <li><i class="icon-pause"></i> icon-pause</li>
@@ -1304,7 +1284,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-step-backward"></i> icon-step-backward</li>
 			      <li><i class="icon-fast-backward"></i> icon-fast-backward</li>
 			      <li><i class="icon-backward"></i> icon-backward</li>
@@ -1312,14 +1292,14 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-fast-forward"></i> icon-fast-forward</li>
 			      <li><i class="icon-step-forward"></i> icon-step-forward</li>
 			      <li><i class="icon-eject"></i> icon-eject</li>
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-fullscreen"></i> icon-fullscreen</li>
 			      <li><i class="icon-resize-full"></i> icon-resize-full</li>
 			      <li><i class="icon-resize-small"></i> icon-resize-small</li>
@@ -1332,7 +1312,7 @@ jQuery(function(){
 			  </div>
 			
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-phone"></i> icon-phone</li>
 			      <li><i class="icon-phone-sign"></i> icon-phone-sign</li>
 			      <li><i class="icon-facebook"></i> icon-facebook</li>
@@ -1340,7 +1320,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-twitter"></i> icon-twitter</li>
 			      <li><i class="icon-twitter-sign"></i> icon-twitter-sign</li>
 			      <li><i class="icon-github"></i> icon-github</li>
@@ -1348,7 +1328,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-github-sign"></i> icon-github-sign</li>
 			      <li><i class="icon-linkedin"></i> icon-linkedin</li>
 			      <li><i class="icon-linkedin-sign"></i> icon-linkedin-sign</li>
@@ -1356,7 +1336,7 @@ jQuery(function(){
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-pinterest-sign"></i> icon-pinterest-sign</li>
 			      <li><i class="icon-google-plus"></i> icon-google-plus</li>
 			      <li><i class="icon-google-plus-sign"></i> icon-google-plus-sign</li>
@@ -1370,25 +1350,25 @@ jQuery(function(){
 			  </div>
 			
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-ambulance"></i> icon-ambulance</li>
 			      <li><i class="icon-beaker"></i> icon-beaker</li>
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-h-sign"></i> icon-h-sign</li>
 			      <li><i class="icon-hospital"></i> icon-hospital</li>
 			    </ul>
 			  </div>
 			  <div class="threecol">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-medkit"></i> icon-medkit</li>
 			      <li><i class="icon-plus-sign-alt"></i> icon-plus-sign-alt</li>
 			    </ul>
 			  </div>
 			  <div class="threecol last">
-			    <ul class="the-icons">
+			    <ul class="the-icons list-unstyled">
 			      <li><i class="icon-stethoscope"></i> icon-stethoscope</li>
 			      <li><i class="icon-user-md"></i> icon-user-md</li>
 			    </ul>
@@ -1401,8 +1381,8 @@ jQuery(function(){
 				<p class="fnote">These are the SAME Icons as above, only this layout will allow you to copy and paste any of these icons to use them in your mockups & designs.</p>
 			</div>
 			
-			<div class="fourcol greyb" style="margin-top:0;margin-bottom:0;">
-			 <ul class="unstyled">
+			<div class="fourcol" style="margin-top:0;margin-bottom:0;">
+			 <ul class="list-unstyled">
 			   <li><span class="icon-">&#xf000;</span> icon-glass <span class="muted">(&amp;#xf000;)</span></li>
 			   <li><span class="icon-">&#xf001;</span> icon-music <span class="muted">(&amp;#xf001;)</span></li>
 			   <li><span class="icon-">&#xf002;</span> icon-search <span class="muted">(&amp;#xf002;)</span></li>
@@ -1487,8 +1467,8 @@ jQuery(function(){
 			   <li><span class="icon-">&#xf056;</span> icon-minus-sign <span class="muted">(&amp;#xf056;)</span></li>
 			 </ul>
 			</div>
-			<div class="fourcol greyb" style="margin-top:0;margin-bottom:0;">
-			 <ul class="unstyled">
+			<div class="fourcol" style="margin-top:0;margin-bottom:0;">
+			 <ul class="list-unstyled">
 			   <li><span class="icon-">&#xf057;</span> icon-remove-sign <span class="muted">(&amp;#xf057;)</span></li>
 			   <li><span class="icon-">&#xf058;</span> icon-ok-sign <span class="muted">(&amp;#xf058;)</span></li>
 			   <li><span class="icon-">&#xf059;</span> icon-question-sign <span class="muted">(&amp;#xf059;)</span></li>
@@ -1573,8 +1553,8 @@ jQuery(function(){
 			   <li><span class="icon-">&#xf0ad;</span> icon-wrench <span class="muted">(&amp;#xf0ad;)</span></li>
 			 </ul>
 			</div>
-			<div class="fourcol greyb last" style="margin-top:0;margin-bottom:0;">
-			 <ul class="unstyled">
+			<div class="fourcol last" style="margin-top:0;margin-bottom:0;">
+			 <ul class="list-unstyled">
 			   <li><span class="icon-">&#xf0ae;</span> icon-tasks <span class="muted">(&amp;#xf0ae;)</span></li>
 			   <li><span class="icon-">&#xf0b0;</span> icon-filter <span class="muted">(&amp;#xf0b0;)</span></li>
 			   <li><span class="icon-">&#xf0b1;</span> icon-briefcase <span class="muted">(&amp;#xf0b1;)</span></li>
@@ -1664,8 +1644,254 @@ jQuery(function(){
 		
 		<!-- Typography -->
 		<div class="row limit category type_category">
-		
-			<div class="twelvecol last">
+			<div class="twelvecol">
+				<!-- Typography
+				  ================================================== -->
+				  <div class="bs-docs-section">
+				    <h1 class="page-header">Typography</h1>
+
+				    <!-- Headings -->
+				    
+				    <p><a href="https://www.google.com/fonts/"><img alt="Google" src="//www.google.com/images/logos/google_logo_41.png" class="L" style="margin-top:10px"> <span style="font-size:2em;font-weight:bold;line-height:1.6em;padding:0px 10px;margin:5px 0px 5px 5px;color:#2d2d2d">Fonts</span></a> API Supported.</p>
+					<p>Standard HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available and ready to be styled by any font file you want to include.<br/>All of the fonts are Open Source. This means that you are free to share your favorites with friends and colleagues. You can even customize them for your own use, or collaborate with the original designer to improve them. And you can use them in every way you want, privately or commercially — in print, on your computer, or in your websites.</p>
+					<div class="push"></div>
+					
+					<h2 class="page-header">Headings</h2>
+				    <div class="card tencol C" style="float:none;">
+				      <table class="table">
+				        <tbody>
+				          <tr>
+				            <th><h1>h1 See Spot Run</h1></th>
+				            <td>Semibold 42px</td>
+				          </tr>
+				          <tr>
+				            <th><h2>h2 See Spot Run</h2></th>
+				            <td>Semibold 38px</td>
+				          </tr>
+				          <tr>
+				            <th><h3>h3 See Spot Run</h3></th>
+				            <td>Semibold 32px</td>
+				          </tr>
+				          <tr>
+				            <th><h4>h4 See Spot Run</h4></th>
+				            <td>Semibold 24px</td>
+				          </tr>
+				          <tr>
+				            <th><h5>h5 See Spot Run</h5></th>
+				            <td>Semibold 18px</td>
+				          </tr>
+				          <tr>
+				            <th><h6>h6 See Spot Run</h6></th>
+				            <td>Semibold 16px</td>
+				          </tr>
+				        </tbody>
+				      </table>
+					  <div class="push" style="height:20px;"></div>
+				    </div>
+<div class="push" style="height:50px;"></div>
+<pre>
+@font-face {
+	font-family: "annie";
+	font-style: normal;
+	font-weight: normal;
+	src: url("annieuseyourtelescope.eot");
+	src: url("annieuseyourtelescope.eot?#iefix&") format("embedded-opentype"), 
+		 url("annieuseyourtelescope.woff") format("woff"), 
+		 url("annieuseyourtelescope.ttf") format("truetype");
+}
+	
+	&lt;h1&gt;...&lt;/h1&gt;
+	&lt;h2&gt;...&lt;/h2&gt;
+	&lt;h3&gt;...&lt;/h3&gt;
+	&lt;h4&gt;...&lt;/h4&gt;
+	&lt;h5&gt;...&lt;/h5&gt;
+	&lt;h6&gt;...&lt;/h6&gt;
+</pre>
+<div class="push" style="height:50px;"></div>
+
+				    <!-- Body copy .lead -->
+				    <h3>Lead body copy</h3>
+				    <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
+				    <div class="bs-example">
+				      <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+				    </div>
+<pre>
+&lt;p class=&quot;lead&quot;&gt;...&lt;/p&gt;
+</pre>
+<div class="push" style="height:50px;"></div>
+				    
+				    <!-- Emphasis -->
+				    <h2 id="type-emphasis">Emphasis</h2>
+				    <p>Make use of HTML's default emphasis tags with lightweight styles.</p>
+					<div class="push"></div>
+					
+				    <h3>Small text</h3>
+				    <p>For de-emphasizing inline or blocks of text, use the <code>&lt;small&gt;</code> tag to set text at 85% the size of the parent. Heading elements receive their own <code>font-size</code> for nested <code>&lt;small&gt;</code> elements.</p>
+				    <div class="bs-example">
+				      <p><small>This line of text is meant to be treated as fine print.</small></p>
+				    </div>
+<pre>
+&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;
+</pre>
+<div class="push"></div>
+
+				    <h3>Bold</h3>
+				    <p>For emphasizing a snippet of text with a heavier font-weight.</p>
+				    <div class="bs-example">
+				      <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+				    </div>
+<pre>
+&lt;strong&gt;rendered as bold text&lt;/strong&gt;
+</pre>
+<div class="push"></div>
+
+				    <h3>Italics</h3>
+				    <p>For emphasizing a snippet of text with italics.</p>
+				    <div class="bs-example">
+				      <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+				    </div>
+<pre>
+&lt;em&gt;rendered as italicized text&lt;/em&gt;
+</pre>
+<div class="push"></div>
+
+				    <div class="card information">
+				      <h3>Alternate elements</h3>
+				      <p>Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.</p>
+				    </div>
+<div class="push" style="height:50px;"></div>
+
+				    <h3>Alignment classes</h3>
+				    <p>Easily realign text to components with text alignment classes. <code>.tL .tC .tR</code></p>
+				    <div class="bs-example">
+				      <p class="tL">Left aligned text.</p>
+				      <p class="tC">Center aligned text.</p>
+				      <p class="tR">Right aligned text.</p>
+				    </div>
+<pre>
+&lt;p class=&quot;tL&quot;&gt;Left aligned text.&lt;/p&gt;
+&lt;p class=&quot;tC&quot;&gt;Center aligned text.&lt;/p&gt;
+&lt;p class=&quot;tR&quot;&gt;Right aligned text.&lt;/p&gt;
+</pre>
+
+
+				    <!-- Addresses -->
+				    <h2 id="type-addresses">Addresses</h2>
+				    <p>Present contact information for the nearest ancestor or the entire body of work. Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.</p>
+				    <div class="bs-example">
+				      <address>
+				        <strong>Twitter, Inc.</strong><br>
+				        795 Folsom Ave, Suite 600<br>
+				        San Francisco, CA 94107<br>
+				        <abbr title="Phone">P:</abbr> (123) 456-7890
+				      </address>
+				      <address>
+				        <strong>Full Name</strong><br>
+				        <a href="mailto:#">first.last@example.com</a>
+				      </address>
+				    </div>
+<pre>
+&lt;address&gt;
+  &lt;strong&gt;Twitter, Inc.&lt;/strong&gt;&lt;br&gt;
+  795 Folsom Ave, Suite 600&lt;br&gt;
+  San Francisco, CA 94107&lt;br&gt;
+  &lt;abbr title=&quot;Phone&quot;&gt;P:&lt;/abbr&gt; (123) 456-7890
+&lt;/address&gt;
+
+&lt;address&gt;
+  &lt;strong&gt;Full Name&lt;/strong&gt;&lt;br&gt;
+  &lt;a href=&quot;mailto:#&quot;&gt;first.last@example.com&lt;/a&gt;
+&lt;/address&gt;
+</pre>
+<div class="push"></div>
+
+				    <!-- Blockquotes -->
+				    <h2 id="type-blockquotes">Blockquotes</h2>
+				    <p>For quoting blocks of content from another source within your document.</p>
+
+				    <h3>Default blockquote</h3>
+				    <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.</p>
+				    <div class="bs-example">
+				      <blockquote>
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+				      </blockquote>
+				    </div>
+<pre>
+	&lt;blockquote&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+	&lt;/blockquote&gt;
+</pre>
+<div class="push"></div>
+
+				    <h3>Blockquote options</h3>
+				    <p>Style and content changes for simple variations on a standard <code>&lt;blockquote&gt;</code>.</p>
+
+				    <h4>Naming a source</h4>
+				    <p>Add <code>&lt;small&gt;</code> tag for identifying the source. Wrap the name of the source work in <code>&lt;cite&gt;</code>.</p>
+				    <div class="bs-example">
+				      <blockquote>
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+				        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+				      </blockquote>
+				    </div>
+<pre>
+	&lt;blockquote&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+		&lt;small&gt;Someone famous in &lt;cite title=&quot;Source Title&quot;&gt;Source Title&lt;/cite&gt;&lt;/small&gt;
+	&lt;/blockquote&gt;
+</pre>
+<div class="push"></div>
+
+				    <h4>Alternate displays</h4>
+				    <p>Use <code>.pull-right</code> for a floated, right-aligned blockquote.</p>
+				    <div class="bs-example" style="overflow: hidden;">
+				      <blockquote class="pull-right">
+				        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+				        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+				      </blockquote>
+				    </div>
+<pre>
+	&lt;blockquote class=&quot;pull-right&quot;&gt;
+		...
+	&lt;/blockquote&gt;
+</pre>
+<div class="push"></div>
+				
+				  </div>
+
+
+				  <!-- Code
+				  ================================================== -->
+				  <div class="bs-docs-section">
+				    <div class="page-header">
+				      <h1 id="code">Code</h1>
+				    </div>
+
+				    <h2>Inline</h2>
+				    <p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>
+				<div class="bs-example">
+				  For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+				</div>
+<pre>
+For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inline.
+</pre>
+
+				    <h2>Basic block</h2>
+				    <p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.</p>
+
+<pre>
+&lt;pre&gt;
+	&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;/pre&gt;
+</pre>
+
+				    <p>You may optionally add the <code>.pre-scrollable</code> class, which will set a max-height of 350px and provide a y-axis scrollbar.</p>
+				  </div>
+				
+			
+			</div>
+			
+			<div class="twelvecol last none">
 				<h2 class="page-header">Typography</h2>
 				
 				<p>@font-face font loading is setup from the start. Using it for only the Page Headings is ready out of the box, if you want to add support for paragraph text or anything else, include additional references in the css file.</p>
@@ -1817,7 +2043,14 @@ jQuery(function(){
 		
 		<!-- WIDGETS -->
 		<div class="row limit category widgets_category">
-			<div class="fourcol smallHide">
+			<div class="twelvecol">
+				<h1 class="page-header">Modal Widgets</h1>
+				<p class="fnote">Dynamic Content Delivery Systems. Bring in Data such as Images or HTML after the page loads with these widgets. <code>$.facebox();</code> is a full fledged modal window with the ability to load almost any kind of media, both local and remote. <code>notefy()</code> is an easy to use built in function that displays image and text alerts or feedback in a Growl or Libnotify or OS X Notification Center fashion.</p>
+				
+				<div class="push" style="height:50px;"></div>
+			</div>
+			
+			<div class="fourcol">
 				<h2>notefy command</h2>
 <pre class="jsCode">	
 
@@ -1840,7 +2073,7 @@ notefy(
 <div id="test1" class="top-left"></div>
 <div id="test2" class="bottom-left"></div>
 			</div>
-			<div class="eightcol last">
+			<div class="onecol"></div><div class="sevencol">
 				<h2 class="page-header">Notefy</h2>
 				<p>A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
 				Features support for mobile and tablet screen sizes, as well as touch interfaces. Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
@@ -1867,10 +2100,11 @@ notefy(
 				</p>
 			</div>
 			<div class="twelvecol last">
+				<div class="push" style="height:50px"></div>
 				<h3 class="page-header">Icons</h3>
 				<p class="fnote">You could use a sprite for this. However if you are using this many classes your sprite will be +70kb, where each icon is only 2-3kb when loaded separately, and its Easy to Add your Own. 32 x 32 px icons.</p>
-				<div class="greyb C">
-					<ul id="notefyIconList">
+				<div class="C">
+					<ul id="notefyIconList" class="list-unstyled">
 					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png" title="alert or caution" class="L" style="padding:0 1px 0 0;margin:0"/></li>
 					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png" title="ape" class="L" style="padding:0 1px 0 0;margin:0"/></li>
 					<li><img src="http://huementui.s3.amazonaws.com/notefy/hui-icon-box.png" title="box" class="L" style="padding:0 1px 0 0;margin:0"/></li>
@@ -1978,17 +2212,164 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 		<div class="row limit category datas_category">
 
 			<div class="twelvecol last">
-				<h2 class="page-header">Lists</h2>
+				<h1 class="page-header">Lists</h1>
 				<p class="fnote">Multiple List Styles. Light or Dark. Fluid sizes. with or without icons</p>
 				<div class="warning m10">
 					<p class="p10"><code>.minilist</code> examples need to be added</p>
 					<p class="p10"><code>.Tegan .title_bar</code> needs docs and examples</p>
 				</div>
+				<div class="push" style="height:50px;"></div>
+				
+				<!-- Lists -->
+			    <h2 id="type-lists">Lists</h2>
+
+			    <h3>Unordered</h3>
+			    <p>A list of items in which the order does <em>not</em> explicitly matter.</p>
+			    <div class="bs-example">
+			      <ul>
+			        <li>Lorem ipsum dolor sit amet</li>
+			        <li>Consectetur adipiscing elit</li>
+			        <li>Integer molestie lorem at massa</li>
+			        <li>Facilisis in pretium nisl aliquet</li>
+			        <li>Nulla volutpat aliquam velit
+			          <ul>
+			            <li>Phasellus iaculis neque</li>
+			            <li>Purus sodales ultricies</li>
+			            <li>Vestibulum laoreet porttitor sem</li>
+			            <li>Ac tristique libero volutpat at</li>
+			          </ul>
+			        </li>
+			        <li>Faucibus porta lacus fringilla vel</li>
+			        <li>Aenean sit amet erat nunc</li>
+			        <li>Eget porttitor lorem</li>
+			      </ul>
+			    </div>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<div class="push"></div>
+
+			    <h3>Ordered</h3>
+			    <p>A list of items in which the order <em>does</em> explicitly matter.</p>
+			    <div class="bs-example">
+			      <ol>
+			        <li>Lorem ipsum dolor sit amet</li>
+			        <li>Consectetur adipiscing elit</li>
+			        <li>Integer molestie lorem at massa</li>
+			        <li>Facilisis in pretium nisl aliquet</li>
+			        <li>Nulla volutpat aliquam velit</li>
+			        <li>Faucibus porta lacus fringilla vel</li>
+			        <li>Aenean sit amet erat nunc</li>
+			        <li>Eget porttitor lorem</li>
+			      </ol>
+			    </div>
+<pre>
+&lt;ol&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+<div class="push"></div>
+
+			    <h3>Unstyled</h3>
+			    <p>Remove the default <code>list-style</code> and left margin on list items (immediate children only). <strong>This only applies to immediate children list items</strong>, meaning you will need to add the class for any nested lists as well.</p>
+			    <div class="bs-example">
+			      <ul class="list-unstyled">
+			        <li>Lorem ipsum dolor sit amet</li>
+			        <li>Consectetur adipiscing elit</li>
+			        <li>Integer molestie lorem at massa</li>
+			        <li>Facilisis in pretium nisl aliquet</li>
+			        <li>Nulla volutpat aliquam velit
+			          <ul>
+			            <li>Phasellus iaculis neque</li>
+			            <li>Purus sodales ultricies</li>
+			            <li>Vestibulum laoreet porttitor sem</li>
+			            <li>Ac tristique libero volutpat at</li>
+			          </ul>
+			        </li>
+			        <li>Faucibus porta lacus fringilla vel</li>
+			        <li>Aenean sit amet erat nunc</li>
+			        <li>Eget porttitor lorem</li>
+			      </ul>
+			    </div>
+<pre>
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<div class="push"></div>
+
+			    <h3>Inline</h3>
+			    <p>Place all list items on a single line with <code>inline-block</code> and some light padding.</p>
+			    <div class="bs-example">
+			      <ul class="list-inline">
+			        <li>Lorem ipsum</li>
+			        <li>Phasellus iaculis</li>
+			        <li>Nulla volutpat</li>
+			      </ul>
+			    </div>
+<pre>
+&lt;ul class=&quot;list-inline&quot;&gt;
+	&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+<div class="push"></div>
+
+			    <h3>Description</h3>
+			    <p>A list of terms with their associated descriptions.</p>
+			    <div class="bs-example">
+			      <dl>
+			        <dt>Description lists</dt>
+			        <dd>A description list is perfect for defining terms.</dd>
+			        <dt>Euismod</dt>
+			        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+			        <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+			        <dt>Malesuada porta</dt>
+			        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+			      </dl>
+			    </div>
+<pre>
+&lt;dl&gt;
+	&lt;dt&gt;...&lt;/dt&gt;
+	&lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+<div class="push"></div>
+
+			    <h4>Horizontal description</h4>
+			    <p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side. Starts off stacked like default <code>&lt;dl&gt;</code>s, but when the navbar expands, so do these.</p>
+			    <div class="bs-example">
+			      <dl class="dl-horizontal">
+			        <dt>Description lists</dt>
+			        <dd>A description list is perfect for defining terms.</dd>
+			        <dt>Euismod</dt>
+			        <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+			        <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+			        <dt>Malesuada porta</dt>
+			        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+			        <dt>Felis euismod semper eget lacinia</dt>
+			        <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+			      </dl>
+			    </div>
+<pre>
+&lt;dl class=&quot;dl-horizontal&quot;&gt;
+	&lt;dt&gt;...&lt;/dt&gt;
+	&lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+<div class="push"></div>
+
+			    <div class="card info">
+			      <h4>Auto-truncating</h4>
+			      <p>Horizontal description lists will truncate terms that are too long to fit in the left column with <code>text-overflow</code>. In narrower viewports, they will change to the default stacked layout.</p>
+			    </div>
+				<div class="push" style="height:100px;"></div>
 			</div>
 		</div>
 		
 		<div class="row limit category datas_category">
-			<div class="sixcol">
+			<div class="fivecol">
 				<h3>Tegan</h3>
 				
 				<p class="fnote">Starting with a standard &lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List and adding <code>class = 'Tegan'</code> .</p>
@@ -2046,7 +2427,8 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 				</ul>
 				
 			</div>
-			<div class="sixcol last">
+			<div class="twocol">&nbsp;</div>
+			<div class="fivecol">
 				<h3>Tegan style limit</h3>
 				<p class="fnote">An additional <code>.style</code> class is added to the UL. the <code>.inset</code> class is activated below 800px.</p>
 				<p class="fnote">optionally limit LI by adding to comments: <code>class="comment limit"</code></p>
@@ -2108,7 +2490,7 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 		
 		<div class="row limit category datas_category">
 			<div class="push" style="height:50px;"></div>
-			<div class="sixcol">
+			<div class="fivecol">
 				<h3>Tegan Sara limit</h3>
 				<p class="fnote">Using a two class setup, <code>class = 'Tegan Sara'</code> adds support for Thumbnails.<br/>optionally you can force [ ... ] ellipsis by adding the <code>.limit</code> class to the LI items.</p>
 				<br/>
@@ -2171,7 +2553,8 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 				</ul>
 				
 			</div>
-			<div class="sixcol last">
+			<div class="twocol">&nbsp;</div>
+			<div class="fivecol">
 				<h3>Tegan Sara dark inset</h3>
 				<p class="fnote">The dark version of the thumbnail theme. The Dark version can also be used on the Tegan List w / o thumbnails.</p>
 				<br/>
@@ -2237,9 +2620,11 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 		
 		<div class="row limit category datas_category">
 			<div class="push" style="height:50px;"></div>
-			<div class="sixcol">
+			<h2 class="page-header">Taylor Style Lists</h1>
+			<p>Fluid Single Column Timeline</p>
+			<div class="fivecol">
 				<h3>Taylor</h3>
-				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Taylor'</code> . Fluid Single Column Timeline</p>
+				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Taylor'</code> .</p>
 
 				<ul class="Taylor">
 				<li>
@@ -2280,7 +2665,8 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 				</li>
 				</ul>
 			</div>
-			<div class="sixcol last">
+			<div class="twocol">&nbsp;</div>
+			<div class="fivecol">
 				<h3>Taylor dark</h3>
 				<p class="fnote">&lt;ul&gt; &lt;li&gt;  &lt;/li&gt;  &lt;/ul&gt; List <code>class = 'Taylor dark'</code>.</p>
 					<ul class="Taylor dark">
@@ -2496,6 +2882,92 @@ $("table").stupidtable();
 			</div>
 		</div>
 		
+		<div class="row limit category datas_category">
+			<div class="push" style="height:60px;"></div>
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">Pagination</h2>
+				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				
+
+<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
+    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
+    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
+&lt;/div&gt;</pre>
+	<br/>
+	<div class="push"></div>
+	<pre class="jsCode">$('.pagination').jqPagination({
+	    paged: function(page) {
+	        // do something with the page variable
+	    }
+	});</pre>
+
+	<div class="push"></div>
+	<p><a href="#" class="show-log">Show / hide event log:</a></p>
+	<ul class="log"></ul>
+	
+<div class="push"></div>
+				<ul>
+					<li>Design agnostic</li>
+					<li>Customizable</li>
+					<li>Degrades beautifully</li>
+					<li>Super simple to integrate with your app / site</li>
+				</ul>
+				<br/>
+				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
+				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
+				<div class="push"></div>
+				<h3>Pagination Demo</h3>
+				<p>It's oversized too, so you can try it when you're drunk!</p>
+				<div class="gigantic paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				<div class='push'></div>
+				<div class="paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				
+				<h2 id="installation">Installation</h2>
+				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
+
+				<h2 id="customisation">Customization</h2>
+				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
+				<h3>Options</h3>
+				<p><strong>current_page</strong> - option, default: 1
+				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
+				<p><strong>max_page</strong> - option, default: null
+				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
+				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
+				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
+				<h3>Callbacks</h3>
+				<p><strong>paged</strong> - callback, params: page
+				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
+				<h3>Methods</h3>
+				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
+				<p>The option method allows to get / set (when supplied with a value) the following values</p>
+				<ul>
+					<li>current_page</li>
+					<li>max_page</li>
+				</ul>
+				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
+				<h2 id="feedback">Feedback and Support</h2>
+				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
+			</div>
+		</div>
+		
 		<!-- FORMS -->
 		<div class="row limit category forms_category">
 			<div class="twelvecol last">
@@ -2536,7 +3008,7 @@ $("table").stupidtable();
 </pre>
 
 
-      <hr class="bs-docs-separator"><div class="push" style="height:150px;"><br/></div>
+      <div class="push"></div>
       <h3 class="page-header">Search form</h3>
       <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
 		<form style="width:300px;">
@@ -3136,93 +3608,7 @@ $("table").stupidtable();
 			<div class="push"></div>
 			</div>
 		</div>
-		
-		<div class="row limit category forms_category">
-			<div class="push" style="height:60px;"></div>
-			
-			<div class="twelvecol last">
-				<h2 class="page-header">Pagination</h2>
-				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
-				
 
-<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
-    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
-    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
-    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
-&lt;/div&gt;</pre>
-	<br/>
-	<div class="push"></div>
-	<pre class="jsCode">$('.pagination').jqPagination({
-	    paged: function(page) {
-	        // do something with the page variable
-	    }
-	});</pre>
-
-	<div class="push"></div>
-	<p><a href="#" class="show-log">Show / hide event log:</a></p>
-	<ul class="log"></ul>
-	
-<div class="push"></div>
-				<ul>
-					<li>Design agnostic</li>
-					<li>Customizable</li>
-					<li>Degrades beautifully</li>
-					<li>Super simple to integrate with your app / site</li>
-				</ul>
-				<br/>
-				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
-				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
-				<div class="push"></div>
-				<h3>Pagination Demo</h3>
-				<p>It's oversized too, so you can try it when you're drunk!</p>
-				<div class="gigantic paginatebox">
-				    <a href="#" class="first" data-action="first">&laquo;</a>
-				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-				    <input type="text" readonly="readonly" />
-				    <a href="#" class="next" data-action="next">&rsaquo;</a>
-				    <a href="#" class="last" data-action="last">&raquo;</a>
-				</div>
-				<br/>
-				<div class='push'></div>
-				<div class="paginatebox">
-				    <a href="#" class="first" data-action="first">&laquo;</a>
-				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-				    <input type="text" readonly="readonly" />
-				    <a href="#" class="next" data-action="next">&rsaquo;</a>
-				    <a href="#" class="last" data-action="last">&raquo;</a>
-				</div>
-				<br/>
-				
-				<h2 id="installation">Installation</h2>
-				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
-
-				<h2 id="customisation">Customization</h2>
-				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
-				<h3>Options</h3>
-				<p><strong>current_page</strong> - option, default: 1
-				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
-				<p><strong>max_page</strong> - option, default: null
-				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
-				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
-				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
-				<h3>Callbacks</h3>
-				<p><strong>paged</strong> - callback, params: page
-				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
-				<h3>Methods</h3>
-				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
-				<p>The option method allows to get / set (when supplied with a value) the following values</p>
-				<ul>
-					<li>current_page</li>
-					<li>max_page</li>
-				</ul>
-				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
-				<h2 id="feedback">Feedback and Support</h2>
-				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
-			</div>
-		</div>
-		
 		<div class="row limit category forms_category">
 			<div class="push" style="height:100px;"></div>
 			<div class="twelvecol last">
@@ -3412,129 +3798,32 @@ $("table").stupidtable();
 			<a href="#">Rutabaga</a>
 		</nav>
 		<div class="row limit category accordion_category slideoutmain">
+			<div class="twelvecol">
+				<h1 class="page-header">Flexible Content</h1>
+				<p>Secondary Content can be delivered via Modal windows, but it can also be delivered via slide out panels. In this section we have the "fly out" panels as well as collapsible accordions.</p>
+				<div class="push"></div>
+			</div>
 			<div class="twocol">&nbsp;</div>
 			<div class="eightcol">
-			<section>
-				<h2>Slide Menus</h2>
-				<!-- Class "cbp-spmenu-open" gets applied to menu -->
-				<button id="showLeft" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
-				<button id="showRight" class="action green C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
-				<button id="showTop" class="action blue C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Top Slide Menu</span></button>
-				<button id="showBottom" class="action red C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
-			</section>
+			<h2 class="tC">Slide Menus</h2>
+			<!-- Class "cbp-spmenu-open" gets applied to menu -->
+			<button id="showLeft" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
+			<button id="showRight" class="action green C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
+			<button id="showTop" class="action blue C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Top Slide Menu</span></button>
+			<button id="showBottom" class="action yellow C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
 			<div class="push"></div>
-			<section class="buttonset">
-				<h2>Push Menus</h2>
-				<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-				<button id="showLeftPush">Show/Hide Left Push Menu</button>
-				<button id="showRightPush">Show/Hide Right Push Menu</button>
-			</section>
-			<div class="push" style="height:60px;"></div>
+			
 			</div>
 			<div class="twocol last">&nbsp;</div>
 		</div>
 		
 		<div class="row limit category accordion_category">
-		
-			<div class="fourcol smallHide">
-<h2>Control Panel Example</h2>
-<pre>
-jQuery(".accordion").accordionNav();	
-	
-&lt;ul class="accordion"&gt;
-
- &lt;li id="one" class="files"&gt;
-
-   &lt;a href="#one"&gt;My Files&lt;span&gt;10&lt;/span&gt;&lt;/a&gt;
-
-	&lt;ul class="sub-menu"&gt;
-
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;li&gt;&lt;a href="#"&gt;&lt;em&gt;01&lt;/em&gt;Sub Menu&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-	 &lt;/ul&gt;
-
- &lt;/li&gt;
- ...
- ...
-&lt;/ul&gt;
-</pre>
-			</div>
-			
-			<div class="eightcol last">
-			<h2 class="page-header">Dance Like Nobodies Watching</h2>
-			<p>hui has a number of accordion style menus at your disposal. The first accordion has the functionality needed for a full fledged secondary or navigation panel. The second accordion variation is great for making quick and simple collapsing navigation menus out of list links.</p>
-			
+			<div class="twelvecol">
+			<h2 class="page-header">Flapper Girl</h2>
+			<p>CSS3 Hardware animations power this accordion menu. Of course you can easily use jQuery to control the animations, but instead of the <code>.animate()</code> function everything is handled via CSS3, and manipulated with the <code>.css()</code> function in jQuery.</p>
 			<div class="push"></div>
-			<h3 class="page-header">Accordion Panel</h3>
-			<p class="greyb">This is a perfect secondary app panel.</p>
-			<br/>
-			
-			<ul class="accordion">
-
-			    <li id="one" class="files">
-
-			        <a href="#one"><div class="huicon icon68"></div>My Files<span>10</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="two" class="mail">
-
-			        <a href="#two"><div class="huicon icon125"></div>Mail<span>20</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>2</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="three" class="cloud">
-
-			        <a href="#three"><div class="huicon icon72"></div>Songs<span>30</span></a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu<span>3</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-						<li><a href="#"><em>01</em>Sub Menu<span>1</span></a></li>
-			        </ul>
-
-			    </li>
-
-			    <li id="four" class="sign">
-
-			        <a href="#four"><div class="huicon icon108"></div>Sign Out</a>
-
-			        <ul class="sub-menu">
-
-			            <li><a href="#"><em>01</em>Sub Menu</a></li>
-
-			        </ul>
-
-			    </li>
-
-			</ul>
-			<div class="push" style="height:100px;"></div>
 			</div>
-		</div>
-		
-		<div class="row limit category accordion_category">
-			<div class="fourcol smallHide">
-<h2>Flapper Girl Example</h2>
+			<div class="fourcol">
 <pre class="jsCode">
 //JS
 var ladyParts = {
@@ -3569,9 +3858,8 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 &lt;/div&gt;
 </pre>
 			</div>
-			<div class="eightcol last">
-			<h3 class="page-header">Flapper Girl</h3>
-			<p class="fnote">Click the Headers to Toggle that category's visibility, or click a name to see a notefy example.</p>
+			<div class="onecol"></div><div class="sevencol">
+			<p>Click the Headers to Toggle that category's visibility, or click a name to see a notefy example.</p>
 				<div class="flapperStage">
 					<div class="speakEasy">
 						<ul>
@@ -3583,19 +3871,51 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 							<li class="basic absbs"><a href="#" class="pageloader">Song 5</a></li>
 							<li class="basic absbs"><a href="#" class="pageloader">Song 6</a></li>							
 							<li class="title_bar docked" id="bsbs">Basic Setup</li>
-							<li class="basic bsbs active" style="display: none;"><a href="#" class="pageloader">Download</a></li>
-							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Install</a></li>
-							<li class="basic bsbs" style="display: none;"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="basic bsbs"><a href="#" class="pageloader">Download</a></li>
+							<li class="basic bsbs"><a href="#" class="pageloader">Install</a></li>
+							<li class="basic bsbs"><a href="#" class="pageloader">Tutorials</a></li>
 							<li class="title_bar docked" id="cscs">Mating</li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Lithium PHP</a></li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Wordpress</a></li>
-							<li class="basic cscs" style="display: none;"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
-							
-							
+							<li class="basic cscs"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic cscs"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic cscs"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
 							<li class="title_bar" id='dcscs'>Dance Number</li>
 							<li class="basic dcscs"><a href="#" class="pageloader">Chorus</a></li>
 							<li class="basic dcscs"><a href="#" class="pageloader">Refrain</a></li>
 							<li class="basic dcscs"><a href="#" class="pageloader">Showstopper</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="push" style="height:50px;"></div>
+			
+			<div class="fourcol"></div>
+			<div class="onecol"></div>
+			<div class="sevencol">
+			<p>Second Version. Command Panel Example.</p>
+				<div class="flapperStage">
+					<div class="speakEasy">
+						<ul>
+							<li class="title_bar docked tL" id='cDscs'><div class="huicon icon68"></div>My Files<span class="button green push_notification">10</span></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+							<li class="title_bar docked tL" id="bDsbs"><div class="huicon icon125"></div>Mail<span class="button red push_notification">20</span></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Download <span class="push_notification">10</span></a></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Install <span class="push_notification">10</span></a></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="title_bar tL" id="aDbsbs"><div class="huicon icon72"></div>Songs<span class="button blue push_notification">30</span></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 1</a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 2</a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 3</a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 4</a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 5</a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 6</a></li>
+							<li class="title_bar docked tL" id='dcDscs'><div class="huicon icon108"></div>Shine On</li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Chorus</a></li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Refrain</a></li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Showstopper</a></li>
 						</ul>
 					</div>
 				</div>
@@ -3607,8 +3927,14 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 		
 		<!--NAV -->
 		<div class="row limit category navigate_category">
-		
-			<div class="fourcol smallHide">
+			<div class="twelvecol">
+				<h1 class="page-header">Navigation Menus</h1>
+				<p class="fnote">There are two plugins currently supported. <code>$.HorizontalNav()</code> is great if you have a lot of links. On mobile screens it can switch to a select box. The other menu plugin, <code>$.reactiveNav()</code> uses a slide down curtain on smaller screens, and it supports both a split column layout for tablets, and a single column for phone.</p>
+			</div>
+			
+			<div class="push"></div>
+			
+			<div class="fourcol">
 <h2>horizontal navbar</h2>
 <pre>
 jQuery('.full-width').horizontalNav({
@@ -3624,7 +3950,7 @@ jQuery('.full-width').horizontalNav({
 &lt;/ul&gt;
 </pre>
 			</div>
-			<div class="eightcol last">
+			<div class="onecol"></div><div class="sevencol">
 			<h2 class="page-header">Flexible Navigation</h2>
 			<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
 			
@@ -3634,15 +3960,14 @@ jQuery('.full-width').horizontalNav({
 			<div id="mobilenav"></div>
             <p class="fnote">This Page Uses HorizontalNav for its menu. Resize to see in action.</p>
 			<img src="http://huement.s3.amazonaws.com/imgs/flexmenu.png" width="100%" height="100%" style="max-width:458px;max-height:264px;" class="tC C"/>
-			<div class="push"></div>
-			
-			
+			<div class="push" style="height:100px;"></div>
 			</div>
 		</div>
 		
 		<div class="row limit category navigate_category">
 		
-			<div class="fourcol smallHide">
+			<div class="fourcol">
+				<div class="push"></div>
 <pre>
 var navobj = {"pull":"#pull"};
 jQuery("nav#flex1 ul").reactiveNav(navobj);
@@ -3663,9 +3988,9 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 &lt;/nav&gt;
 </pre>
 			</div>
-			<div class="eightcol last">
+			<div class="onecol"></div><div class="sevencol">
 			<div class="push"></div>
-			<h3 class="page-header">Reactive Navigation</h3>
+			<h2 class="page-header">Reactive Navigation</h2>
 			<p class="fnote">As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later! <br/>Also, it's import that "mobile menu" is first in your HTML. else you will get some funny animations in some browsers.
 			<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
 			<br/>
@@ -3696,8 +4021,8 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 		Blank Layout Templates
 		<div class="row limit category $BLANK_category">
 		
-			<div class="fourcol smallHide"></div>
-			<div class="eightcol last">
+			<div class="fourcol"></div>
+			<div class="onecol"></div><div class="sevencol">
 			<h2>1A. Action</h2>
 			<p>Additional Functions and Commands that Extend the standard jQuery Library.</p>
 			
@@ -3730,7 +4055,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 
 <!-- minified hui library -->
-<script type="text/javascript" src="dist/hui-min.js?ver=4536486453153"></script>
+<script type="text/javascript" src="dist/hui-min.js?ver=123153"></script>
 <!-- Example Functions for the Demo -->
 <script type="text/javascript">
 	/* 
@@ -4109,8 +4434,6 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	showRight = document.getElementById( 'showRight' ),
 	showTop = document.getElementById( 'showTop' ),
 	showBottom = document.getElementById( 'showBottom' ),
-	showLeftPush = document.getElementById( 'showLeftPush' ),
-	showRightPush = document.getElementById( 'showRightPush' ),
 	body = document.body;
 
 	showLeft.onclick = function() {
@@ -4133,18 +4456,6 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	classie.toggle( menuBottom, 'cbp-spmenu-open' );
 	disableOther( 'showBottom' );
 	};
-	showLeftPush.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( body, 'cbp-spmenu-push-toright' );
-	classie.toggle( menuLeft, 'cbp-spmenu-open' );
-	disableOther( 'showLeftPush' );
-	};
-	showRightPush.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( body, 'cbp-spmenu-push-toleft' );
-	classie.toggle( menuRight, 'cbp-spmenu-open' );
-	disableOther( 'showRightPush' );
-	};
 
 	 jQuery("#hbbh").removeClass("none");
 
@@ -4157,7 +4468,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 		*/
 		jQuery('.navList').horizontalNav({
 		     prependTo : '#navbar'
-			 ,responsive : true
+			 //,responsive : true
 		});
 		var thetest = jQuery(window).width();
 		if (jQuery('#el_arco_iris').is(":visible")==true) {

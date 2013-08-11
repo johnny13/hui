@@ -154,121 +154,96 @@ clear: both;
 .limit { width:98%; max-width:1140px; }
 
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
-margin-right: 3.8%;
+/*margin-right: 3.8%;*/
 float: left;
 min-height: 1px;
 }
 
-.onecol {
-width: 4.85%;
+.onecol {width: 8.333333333333332%;}
+.twocol {width: 16.666666666666664%;}
+.threecol {width: 25%;}
+.fourcol {width: 33.33333333333333%;}
+.fivecol {width: 41.66666666666667%;}
+.sixcol {width: 50%;}
+.sevencol {width: 58.333333333333336%;}
+.eightcol {width: 66.66666666666666%;}
+.ninecol {width: 75%;}
+.tencol {width: 83.33333333333334%;}
+.elevencol {width: 91.66666666666666%;}
+.twelvecol {width:100%;}
+
+.last {
+	margin-right: 0px;
 }
 
-.twocol {
-width: 13.45%;
-}
-
-.threecol {
-width: 22.05%;
-}
-
-.fourcol {
-width: 30.75%;
-}
-
-.fivecol {
-width: 39.45%;
-}
-
-.sixcol {
-width: 48%;
-}
-
-.sevencol {
-width: 56.75%;
-}
-
-.eightcol {
-width: 65.4%;
-}
-
-.ninecol {
-width: 74.05%;
-}
-
-.tencol {
-width: 82.7%;
-}
-
-.elevencol {
-width: 91.35%;
-}
-
-.twelvecol {
-width:100%;
+/* Add -bside to a column and have a dual grid system. one desktop. one mobile. */
+.onecol-bside, .twocol-bside, .threecol-bside, .fourcol-bside, .fivecol-bside, .sixcol-bside, .sevencol-bside, .eightcol-bside, .ninecol-bside, .tencol-bside, .elevencol-bside {
 float: left;
 }
-.row.limit .twelvecol {
-width:98.5%;margin-left:1%;
+
+@media (min-width: 800px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+  .dl-horizontal dd:before,
+  .dl-horizontal dd:after {
+    display: table;
+    content: " ";
+  }
+  .dl-horizontal dd:after {
+    clear: both;
+  }
+  .dl-horizontal dd:before,
+  .dl-horizontal dd:after {
+    display: table;
+    content: " ";
+  }
+  .dl-horizontal dd:after {
+    clear: both;
+  }
 }
-.last {
-margin-right: 0px;
-}
 
-/* Smaller screens */
-
-@media only screen and (max-width: 1023px) {
-
-body {
-font-size: 0.8em;
-line-height: 1.5em;
-}
-
-}
-
-
-/* Mobile */
-
-@media handheld, only screen and (max-width: 770px) {
-
+/* Breakitondowntofunkytown */
+@media (max-width: 800px) {
+	
 body {
 font-size: 16px;
 -webkit-text-size-adjust: none;
 }
 
-.row, body, .container {
+.container, .row {
 width: 100%;
-min-width: 0;
-margin-left: 0;
-margin-right: 0;
-padding-left: 0;
-padding-right: 0;
 }
 
 .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
-width: auto;
-float: none;
-max-width:100%;
-margin-left: 0;
-margin-right: 0;
-padding-left: 0px !important;
-padding-right: 0px !important;
+width: 100%;
+clear:none;
 }
 
-.onecol.dontbreak, .twocol.dontbreak, .threecol.dontbreak, .fourcol.dontbreak, .fivecol.dontbreak, .sixcol.dontbreak, .sevencol.dontbreak, .eightcol.dontbreak, .ninecol.dontbreak, .tencol.dontbreak, .elevencol.dontbreak {
-margin-right: 1px;
+/* Add .immune to a column and it keeps its shape. */
+.onecol.immune, .twocol.immune, .threecol.immune, .fourcol.immune, .fivecol.immune, .sixcol.immune, .sevencol.immune, .eightcol.immune, .ninecol.immune, .tencol.immune, .elevencol.immune {
 float: left;
-min-height: 1px;
 }
-.onecol.dontbreak {width: 4%;}
-.twocol.dontbreak {width: 13%;}
-.threecol.dontbreak {width: 22%;}
-.fourcol.dontbreak {width: 31%;}
-.fivecol.dontbreak {width: 39%;}
-.sixcol.dontbreak {width: 47.5%;}
-.sevencol.dontbreak {width: 56%;}
-.eightcol.dontbreak {width: 65%;}
-.ninecol.dontbreak {width: 74%;}
-.tencol.dontbreak {width: 82%;}
-.elevencol.dontbreak {width: 91%;}
-.twelvecol.dontbreak {width:99%;float: left;}
+.row .onecol.immune, .row .onecol-bside {width: 8.333333333333332%;}
+.row .twocol.immune, .row .twocol-bside {width: 16.666666666666664%;}
+.row .threecol.immune, .row .threecol-bside {width: 25%;}
+.row .fourcol.immune, .row .fourcol-bside {width: 33.33333333333333%;}
+.row .fivecol.immune, .row .fivecol-bside {width: 41.66666666666667%;}
+.row .sixcol.immune, .row .sixcol-bside {width: 50%;}
+.row .sevencol.immune, .row .sevencol-bside {width: 58.333333333333336%;}
+.row .eightcol.immune, .row .eightcol-bside {width: 66.66666666666666%;}
+.row .ninecol.immune, .row .ninecol-bside {width: 75%;}
+.row .tencol.immune, .row .tencol-bside {width: 83.33333333333334%;}
+.row .elevencol.immune, .row .elevencol-bside {width: 91.66666666666666%;}
+.row .twelvecol.immune, .row .twelvecol-bside {width:100%;}
+
 }

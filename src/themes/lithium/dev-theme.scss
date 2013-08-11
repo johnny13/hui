@@ -28,15 +28,14 @@ $smallLimitOne:800px;
 $smallLimitTwo:480px;
 $smallLimitThree:320px;
 $smallFontSize:0.95em;
-
-$buttonBase:#f7f7f7;
-$buttonBorder:#999;
+$buttonBase:#f5f5f5;
+$buttonBorder:#dcdcdc;
 $buttonLabel:#666;
 $buttonHover:#E7E7E7;
-$buttonHoverBorder:#666;
+$buttonHoverBorder:#A0A0A0;
 $buttonHoverLabel:#000;
-$buttonSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png";
-$buttonHoverSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-li3.png";
+$buttonSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-hue.png";
+$buttonHoverSprite: "https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png";
 
 $formPadding:1em 2em 2em 2em;
 $fieldsetBack:#f3f3f3;
@@ -122,6 +121,14 @@ $purple:#911CFF;
 $white:#FFFFFF;
 $black:#2E2E2E;
 $grey:#BDBDBD;
+$redL:#E96868;
+$greenL:#6EC762;
+$orangeL:#F1975A; 
+$yellowL:#FDE982;
+$blueL:#76BCFD;
+$purpleL:#BA93DF;
+$blackL:#6F6F6F;
+$grey:#BDBDBD;
 $redH:#D32323;
 $greenH:#33D424;
 $orangeH:#D44D24; 
@@ -136,8 +143,7 @@ $orangeB:#E75C00;
 $yellowB:#F3D124;
 $blueB:#1D92FF;
 $purpleB:#911CFF;
-$whiteB:#FFFFFF;
-$blackB:#2E2E2E;
+$blackB:#111111;
 
 // ================== //
 // Lets Rock and Roll //
@@ -211,7 +217,7 @@ p {
   line-height: 1.5em;
 }
 
-ul {
+ul.list-unstyled {
   list-style-type: none
 }
 // unique styles //
@@ -265,17 +271,17 @@ ul {
 }
 
 // Text Color Classes //
-.redText {color: $red ;}
+.redText {color: $red;}
 .orangeText {color: $orange;}
 .yellowText {color: $yellow;}
 .greenText {color: $green;}
-.blueText {color: $blue ;}
-.purpleText {color: $purple ;}
+.blueText {color: $blue;}
+.purpleText {color: $purple;}
 .whiteText {color: $white;}
 .blackText {color: $black ;}
 
 // Complimentary Color / Effects //
-a.redText:hover {color:$redH ;}
+a.redText:hover {color:$redH;}
 a.orangeText:hover {color: $orangeH;}
 a.yellowText:hover {color: $yellowH;}
 a.greenText:hover {color: $greenH;}
@@ -291,7 +297,7 @@ a.blackText:hover {color: $blackH ;}
 .greenb,.greenB {background-color: $greenB;background: $greenB;} 
 .blueb,.blueB {background-color: $blueB;background: $blueB;} 
 .purpleb,.purpleB {background-color: $purpleB;background: $purpleB;} 
-.whiteb,.whiteB {background-color: $whiteB;background: $whiteB;} 
+.whiteb,.whiteB {background-color: $white;background: $white;} 
 .blackb,.blackB {background-color: $blackB;background: $blackB;}
 
 .greyb, .grayb {
@@ -306,6 +312,11 @@ a.blackText:hover {color: $blackH ;}
 .greyb a:hover, .container p a:hover {
   color: $blue !important;
 }
+
+.error {background:$redL;color:$white;border-color:$redB;}
+.notice,.warning {background:$yellowL;color:$black;border-color:$yellowB;}
+.success,.accept {background:$greenL;color:$white;border-color:$greenB;}
+.info, .information {background:$blueL;color:$white;border-color:$blue;}
 
 // Tegan Sara Taylor Lists // 
 .Tegan.style {
@@ -322,6 +333,7 @@ button, .button {
   background:$buttonBase;
   border-color:$buttonBorder;
 }
+
 button .label, .button .label { color:$buttonLabel; }
 
 button:hover, .button:hover {
@@ -351,14 +363,6 @@ button.black {
   &.on { @include gradientV($blackB, $fontColor); }
 }
 
-@media only screen and (max-width : $smallLimitOne) {
-  button, .button {
-    font-size: $smallFontSize;
-    padding: .3em .31em;
-    margin: 5px;
-  }
-}
-
 // -- notefy theme -- //
 
 div.jGrowl div.jGrowl-notification {
@@ -385,10 +389,12 @@ div.jGrowl div.jGrowl-closer {
 }
 
 pre {
-  color: white;
-  background: $fontColor;
-  border: 3px solid $buttonHoverBorder;
-  @include boxShadow(2px, 2px, 10px, rgba(0,0,0,.15));
+  color: $white;
+  background: $blackL;
+  border: 3px solid $grey;
+  padding: 5px 5px 5px 10px;
+  font-size:15px;
+  line-height:17px;
 }
 
 code {
@@ -530,20 +536,6 @@ table.theme .odd, table.theme tr:nth-child(odd) {
   color:$tableOddText;
 }
 
-table .sorting-box {
-  // default affected //
-  background-color: $tableThemeHeader;
-}
-table .sorting-asc {
-  background-color: $green!important;
-  background: $green!important;
-  color:$tableOdd!important;
-}
-table .sorting-desc {
-  background-color: $red!important;
-  background: $red!important;
-  color:$tableEven!important;
-}
 table.style {
   border: 1px solid $tableEven;
 }
@@ -783,13 +775,25 @@ table.style tr td {
 
 .flapperStage .speakEasy ul li {
   font-size: $fontSize;
-  padding: 5px 0px 5px 10px;
+  padding: 5px 0px 5px 0px;
   width:100%;
   margin:0;
   color:$flapperText;
   border-bottom: 1px solid $flapperHighlight;
   position: relative;
-  line-height:1em;
+  line-height:1.1;
+  /* Set our transitions up. */
+  -webkit-transition: all 0.8s;
+  -moz-transition:  all 0.8s;
+  transition:  all 0.8s;
+  max-height:30px;
+}
+
+.flapperStage .speakEasy ul li.smushed {
+  max-height:0px;
+  height:0px;
+  min-height:0px;
+  display:none;
 }
 
 .flapperStage .speakEasy ul li.title_bar {
@@ -798,8 +802,9 @@ table.style tr td {
   text-align:center;
   background-color: $flapperHighlight;
   border-bottom:1px inset $flapperSpeakBorder !important;
-  color: $flapperSecondText !important;
+  color: $labelColor !important;
   font-weight:bold;
+  cursor:pointer;
   text-shadow:none;
 }
 
@@ -808,8 +813,7 @@ table.style tr td {
   height:100%;
   display:block;
   color:$linkColor;
-  padding-top:3px;
-  padding-bottom:3px;
+  padding:3px 0px 3px 10px;
 }
 
 .flapperStage .speakEasy ul li.title_bar:hover  {
@@ -839,96 +843,40 @@ table.style tr td {
   border-bottom: none;
 }
 
-
-.accordion, .accordion ul, .accordion li, .accordion a, .accordion span {
+span.push_notification {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
 }
-.accordion li {
-  list-style: none;
+
+li .huicon {
+  border: 3px solid $buttonBase;
+  background-color: $buttonBase;
+  margin-top: -3px;
+  margin-left:10px;
+  @include borderRadius(2px);
 }
-.accordion li>a {
-  display: block;
-  position: relative;
-  min-width: 110px;
-  padding: 8px 10px 5px;
-  color: $flapperSpeak;
-  font-size: $fontSize;
-  line-height: $lineHeight;
-  text-decoration: none;
-  background: $flapperActiveBack;
-  @include boxShadowInset(0px, 1px, 0px, $flapperHighlight, "inset");
-}
-.accordion li .huicon {
-  margin-top: 2px;
-}
-.accordion li>a span {
+
+span.push_notification {
   display: block;
   position: absolute;
-  top: 7px;
+  top: 5px;
   right: 0;
   padding: 0 10px;
   margin-right: 10px;
-  font: 400 bold 12px/18px Arial, sans-serif;
   background: $flapperText;
   @include borderRadius(15px);
   @include boxShadowInset(1px, 1px, 1px, $flapperSecondText, "inset");
-}
-.accordion>li:hover>a, .accordion>li:target>a, .accordion>li>a.active {
-  color: $flapperSecondText;
-  background: $flapperActiveBack;
-}
-.accordion>li:hover>a span, .accordion>li:target>a span, .accordion>li>a.active span {
-  color: $flapperSpeak;
-  background: $red;
-}
-.accordion li a {
-  color: $flapperHighlight;
-}
-.sub-menu li a {
-  color: $flapperActive;
-  padding-left: 40px;
-  background: $flapperHighlight;
-  border-bottom: $flapperBorder;
-  @include boxShadowInset(0px, 1px, 0px, $flapperHighlight, "inset");
-}
-.sub-menu li:last-child a {
-  border: 0;
-}
-.sub-menu li>a span {
-  color: $flapperActive;
-  background: transparent;
   border: 1px solid $flapperSpeakBorder;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-}
-.sub-menu em {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 14px;
-  color:  $flapperSpeakBorder;
-  font: 400 10px/32px Arial, sans-serif;
-}
-.accordion>li:hover>a, .accordion>li:target>a {
-  color: $blue;
-  background: $flapperActiveDark;
-}
-.accordion>li:hover>a span, .accordion>li:target>a span {
   color: $flapperSpeak;
   background: $flapperActiveBack;
-}
-.sub-menu li:hover a {
-  background:$flapperHighlight;
-}
-.accordion li>.sub-menu {
-  display: none;
-}
-.accordion li:target>.sub-menu {
-  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight:500;
 }
 
 // Navigation Menu //
@@ -957,7 +905,7 @@ nav.flex {
 }
 
 nav.flex ul {
-  background: $flapperActiveBack;
+  background: $navbarBack;
   padding: 0;
   margin: 0 auto;
   width: 600px;
@@ -1040,6 +988,7 @@ nav.flex a.navpuller {
     width: 50%;
     float: left;
     position: relative;
+    background: $navbarBack;
   }
 
   nav.flex li a {
@@ -1111,6 +1060,8 @@ nav.flex a.navpuller {
   @include boxShadowInset(0px, 1px, 0px, #030303, "inset");
   border-bottom: $horizontalNavBorder;
   float: left;
+  padding:0;margin:0;
+  list-style-type:none;
 }
 
 .horizontalNav-processed li {

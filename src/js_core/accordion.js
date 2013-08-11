@@ -59,11 +59,46 @@
    
      jQuery(title_bar+" "+"li.basic:first").first().addClass("active");
      
+
+	jQuery("li.docked").each(function(){
+		var theid = jQuery(this).attr("id");
+		var targets = jQuery("."+theid);
+		
+		targets.each(function(){
+			//$(this).css("height","0px");
+			jQuery(this).css("max-height","0px");
+			jQuery(this).css("padding-top","0px");
+			jQuery(this).css("padding-bottom","0px");
+			jQuery(this).css("border-width","0px");
+			jQuery(this).addClass("contrary");
+		});
+		
+	});
+
      //<li id='category_example' class="title_bar"
      jQuery(title_bar).click(function(){
        var theid=jQuery(this).attr("id");
        jQuery(this).toggleClass("docked");
-       jQuery("."+theid).slideToggle();
+       var targets = jQuery("."+theid);
+       targets.each(function(){
+			if(jQuery(this).hasClass("contrary")!=true){
+				jQuery(this).addClass("contrary");
+				//$(this).css("height","0px");
+				jQuery(this).css("max-height","0px");
+				jQuery(this).css("padding-top","0px");
+				jQuery(this).css("padding-bottom","0px");
+				jQuery(this).css("border-width","0px");
+			} else {
+				jQuery(this).removeClass("contrary");
+				//$(this).css("height","0px");
+				jQuery(this).css("max-height","30px");
+				jQuery(this).css("padding-top","5px");
+				jQuery(this).css("padding-bottom","5px");
+				jQuery(this).css("border-width","1px");
+			}
+       });
+	   
+       //jQuery("."+theid).slideToggle();
      });
      
      //<li class="basic category_example"><a href="#" class="pageloader">Download</a></li>

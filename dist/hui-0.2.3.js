@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.3 - 2013-08-10
+/*! huement user interface - v0.2.3 - 2013-08-11
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -1433,7 +1433,7 @@ function notefy(headerMsg, sentmessage, user_icon, sticky, user_position){
  var stickyo = false;
  var noteloc = 'top-right';
 
- if(user_icon != undefined){
+ if(user_icon !== undefined){
   icon = user_icon;
  }
  if(sticky !== undefined){
@@ -1454,280 +1454,280 @@ function notefy(headerMsg, sentmessage, user_icon, sticky, user_position){
 }
 
 (function($) {
-	
-	/* hui tweak */
-	/* instead of checking for ie6, now we check if the screen size is less than 800 pixels. 
-	*  if true, then we add an optional "smallscreen" class to growl, instead of the ie6 class.
-	*  the small screen class gives support for mobile phones and tablet views.
-	*/
-	//Compatibility holdover for 1.9 to check IE6
-	//var $ie6 = (function(){
-	//	return false === jQuery.support.boxModel && jQuery.support.objectAll && $support.leadingWhitespace;
-	//})();
+  
+  /* hui tweak */
+  /* instead of checking for ie6, now we check if the screen size is less than 800 pixels. 
+  *  if true, then we add an optional "smallscreen" class to growl, instead of the ie6 class.
+  *  the small screen class gives support for mobile phones and tablet views.
+  */
+  //Compatibility holdover for 1.9 to check IE6
+  //var $ie6 = (function(){
+  //  return false === jQuery.support.boxModel && jQuery.support.objectAll && $support.leadingWhitespace;
+  //})();
 
-	/** jGrowl Wrapper - Establish a base jGrowl Container for compatibility with older releases. **/
-	jQuery.jGrowl = function( m , o ) {
-		// To maintain compatibility with older version that only supported one instance we'll create the base container.
-		if ( $('#jGrowl').size() == 0 ) 
-			$('<div id="jGrowl"></div>').addClass( (o && o.position) ? o.position : jQuery.jGrowl.defaults.position ).appendTo('body');
+  /** jGrowl Wrapper - Establish a base jGrowl Container for compatibility with older releases. **/
+  jQuery.jGrowl = function( m , o ) {
+    // To maintain compatibility with older version that only supported one instance we'll create the base container.
+    if ( $('#jGrowl').size() === 0 ) 
+      $('<div id="jGrowl"></div>').addClass( (o && o.position) ? o.position : jQuery.jGrowl.defaults.position ).appendTo('body');
 
-		// Create a notification on the container.
-		$('#jGrowl').jGrowl(m,o);
-	};
+    // Create a notification on the container.
+    $('#jGrowl').jGrowl(m,o);
+  };
 
 
-	/** Raise jGrowl Notification on a jGrowl Container **/
-	jQuery.fn.jGrowl = function( m , o ) {
-		if ( jQuery.isFunction(this.each) ) {
-			var args = arguments;
+  /** Raise jGrowl Notification on a jGrowl Container **/
+  jQuery.fn.jGrowl = function( m , o ) {
+    if ( jQuery.isFunction(this.each) ) {
+      var args = arguments;
 
-			return this.each(function() {
-				var self = this;
+      return this.each(function() {
+        var self = this;
 
-				/** Create a jGrowl Instance on the Container if it does not exist **/
-				if ( $(this).data('jGrowl.instance') == undefined ) {
-					$(this).data('jGrowl.instance', jQuery.extend( new jQuery.fn.jGrowl(), { notifications: [], element: null, interval: null } ));
-					$(this).data('jGrowl.instance').startup( this );
-				}
+        /** Create a jGrowl Instance on the Container if it does not exist **/
+        if ( $(this).data('jGrowl.instance') === undefined ) {
+          $(this).data('jGrowl.instance', jQuery.extend( new jQuery.fn.jGrowl(), { notifications: [], element: null, interval: null } ));
+          $(this).data('jGrowl.instance').startup( this );
+        }
 
-				/** Optionally call jGrowl instance methods, or just raise a normal notification **/
-				if ( jQuery.isFunction($(this).data('jGrowl.instance')[m]) ) {
-					$(this).data('jGrowl.instance')[m].apply( $(this).data('jGrowl.instance') , jQuery.makeArray(args).slice(1) );
-				} else {
-					$(this).data('jGrowl.instance').create( m , o );
-				}
-			});
-		};
-	};
+        /** Optionally call jGrowl instance methods, or just raise a normal notification **/
+        if ( jQuery.isFunction($(this).data('jGrowl.instance')[m]) ) {
+          $(this).data('jGrowl.instance')[m].apply( $(this).data('jGrowl.instance') , jQuery.makeArray(args).slice(1) );
+        } else {
+          $(this).data('jGrowl.instance').create( m , o );
+        }
+      });
+    };
+  };
 
-	jQuery.extend( jQuery.fn.jGrowl.prototype , {
+  jQuery.extend( jQuery.fn.jGrowl.prototype , {
 
-		/** Default JGrowl Settings **/
-		defaults: {
-			pool: 			0,
-			header: 		'',
-			group: 			'',
-			sticky: 		false,
-			position: 		'top-right',
-			glue: 			'after',
-			theme: 			'default',
-			themeState: 	'highlight',
-			icon_theme: 	'notefy',
-			corners: 		'3px',
-			check: 			250,
-			life: 			3000,
-			closeDuration:  'normal',
-			openDuration:   'normal',
-			easing: 		'easeOutCubic',
-			closer: 		true,
-			closeTemplate: '&times;',
-			closerTemplate: '<div>[ clear all ]</div>',
-			log: 			function(e,m,o) {},
-			beforeOpen: 	function(e,m,o) {},
-			afterOpen: 		function(e,m,o) {},
-			open: 			function(e,m,o) {},
-			beforeClose: 	function(e,m,o) {},
-			close: 			function(e,m,o) {},
-			animateOpen: 	{
-				opacity: 	'show'
-			},
-			animateClose: 	{
-				opacity: 	'hide'
-			}
-		},
-		
-		notifications: [],
-		
-		/** jGrowl Container Node **/
-		element: 	null,
-	
-		/** Interval Function **/
-		interval:   null,
-		
-		/** Create a Notification **/
-		create: 	function( message , o ) {
-			var o = jQuery.extend({}, this.defaults, o);
+    /** Default JGrowl Settings **/
+    defaults: {
+      pool:       0,
+      header:     '',
+      group:       '',
+      sticky:     false,
+      position:     'top-right',
+      glue:       'after',
+      theme:       'default',
+      themeState:   'highlight',
+      icon_theme:   'notefy',
+      corners:     '3px',
+      check:       250,
+      life:       3000,
+      closeDuration:  'normal',
+      openDuration:   'normal',
+      easing:     'easeOutCubic',
+      closer:     true,
+      closeTemplate: '&times;',
+      closerTemplate: '<div>[ clear all ]</div>',
+      log:       function(e,m,o) {},
+      beforeOpen:   function(e,m,o) {},
+      afterOpen:     function(e,m,o) {},
+      open:       function(e,m,o) {},
+      beforeClose:   function(e,m,o) {},
+      close:       function(e,m,o) {},
+      animateOpen:   {
+        opacity:   'show'
+      },
+      animateClose:   {
+        opacity:   'hide'
+      }
+    },
+    
+    notifications: [],
+    
+    /** jGrowl Container Node **/
+    element:   null,
+  
+    /** Interval Function **/
+    interval:   null,
+    
+    /** Create a Notification **/
+    create:   function( message , o ) {
+      var o = jQuery.extend({}, this.defaults, o);
 
-			/* To keep backward compatibility with 1.24 and earlier, honor 'speed' if the user has set it */
-			if (typeof o.speed !== 'undefined') {
-				o.openDuration = o.speed;
-				o.closeDuration = o.speed;
-			}
+      /* To keep backward compatibility with 1.24 and earlier, honor 'speed' if the user has set it */
+      if (typeof o.speed !== 'undefined') {
+        o.openDuration = o.speed;
+        o.closeDuration = o.speed;
+      }
 
-			this.notifications.push({ message: message , options: o });
-			
-			o.log.apply( this.element , [this.element,message,o] );
-		},
-		
-		render: 		function( notification ) {
-			var self = this;
-			var message = notification.message;
-			var o = notification.options;
+      this.notifications.push({ message: message , options: o });
+      
+      o.log.apply( this.element , [this.element,message,o] );
+    },
+    
+    render:     function( notification ) {
+      var self = this;
+      var message = notification.message;
+      var o = notification.options;
 
-			// Support for jQuery theme-states, if this is not used it displays a widget header
-			o.themeState = (o.themeState == '') ? '' : 'ui-state-' + o.themeState;
+      // Support for jQuery theme-states, if this is not used it displays a widget header
+      o.themeState = (o.themeState === '') ? '' : 'ui-state-' + o.themeState;
 
-//			var notification = $(
-//				'<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
-//				((o.group != undefined && o.group != '') ? ' ' + o.group : '') + '">' +
-//				'<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
-//				'<div class="jGrowl-header">' + o.header + '</div>' +
-//				'<div class="jGrowl-message">' + message + '</div></div>'
-//			).data("jGrowl", o).addClass(o.theme).children('div.jGrowl-close').bind("click.jGrowl", function() {
-//				$(this).parent().trigger('jGrowl.close');
-//			}).parent();
+//      var notification = $(
+//        '<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
+//        ((o.group !== undefined && o.group !== '') ? ' ' + o.group : '') + '">' +
+//        '<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
+//        '<div class="jGrowl-header">' + o.header + '</div>' +
+//        '<div class="jGrowl-message">' + message + '</div></div>'
+//      ).data("jGrowl", o).addClass(o.theme).children('div.jGrowl-close').bind("click.jGrowl", function() {
+//        $(this).parent().trigger('jGrowl.close');
+//      }).parent();
 
-			/* hui tweak */
-			var notification = jQuery(
-				'<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
-				((o.group !== undefined && o.group !== '') ? ' ' + o.group : '') + '"><div class="jGhuicon jGrowl-icon-'+ o.icon_theme +'"></div>' +
-				'<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
-				'<div class="jGrowl-header">' + o.header + '</div>' +
-				'<div class="jGrowl-message">' + message + '</div></div>'
-				).data("jGrowl", o).addClass(o.theme).children('div.jGrowl-close').bind("click.jGrowl", function() {
-				jQuery(this).parent().trigger('jGrowl.close');
-				}).parent();
-			
+      /* hui tweak */
+      var notification = jQuery(
+        '<div class="jGrowl-notification ' + o.themeState + ' ui-corner-all' + 
+        ((o.group !== undefined && o.group !== '') ? ' ' + o.group : '') + '"><div class="jGhuicon jGrowl-icon-'+ o.icon_theme +'"></div>' +
+        '<div class="jGrowl-close">' + o.closeTemplate + '</div>' +
+        '<div class="jGrowl-header">' + o.header + '</div>' +
+        '<div class="jGrowl-message">' + message + '</div></div>'
+        ).data("jGrowl", o).addClass(o.theme).children('div.jGrowl-close').bind("click.jGrowl", function() {
+        jQuery(this).parent().trigger('jGrowl.close');
+        }).parent();
+      
 
-			/** Notification Actions **/
-			$(notification).bind("mouseover.jGrowl", function() {
-				$('div.jGrowl-notification', self.element).data("jGrowl.pause", true);
-			}).bind("mouseout.jGrowl", function() {
-				$('div.jGrowl-notification', self.element).data("jGrowl.pause", false);
-			}).bind('jGrowl.beforeOpen', function() {
-				if ( o.beforeOpen.apply( notification , [notification,message,o,self.element] ) != false ) {
-					$(this).trigger('jGrowl.open');
-				}
-			}).bind('jGrowl.open', function() {
-				if ( o.open.apply( notification , [notification,message,o,self.element] ) != false ) {
-					if ( o.glue == 'after' ) {
-						$('div.jGrowl-notification:last', self.element).after(notification);
-					} else {
-						$('div.jGrowl-notification:first', self.element).before(notification);
-					}
-					
-					$(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
-						// Fixes some anti-aliasing issues with IE filters.
-						if (jQuery.support.opacity === false) 
-							this.style.removeAttribute('filter');
+      /** Notification Actions **/
+      $(notification).bind("mouseover.jGrowl", function() {
+        $('div.jGrowl-notification', self.element).data("jGrowl.pause", true);
+      }).bind("mouseout.jGrowl", function() {
+        $('div.jGrowl-notification', self.element).data("jGrowl.pause", false);
+      }).bind('jGrowl.beforeOpen', function() {
+        if ( o.beforeOpen.apply( notification , [notification,message,o,self.element] ) !== false ) {
+          $(this).trigger('jGrowl.open');
+        }
+      }).bind('jGrowl.open', function() {
+        if ( o.open.apply( notification , [notification,message,o,self.element] ) !== false ) {
+          if ( o.glue === 'after' ) {
+            $('div.jGrowl-notification:last', self.element).after(notification);
+          } else {
+            $('div.jGrowl-notification:first', self.element).before(notification);
+          }
+          
+          $(this).animate(o.animateOpen, o.openDuration, o.easing, function() {
+            // Fixes some anti-aliasing issues with IE filters.
+            if (jQuery.support.opacity === false) 
+              this.style.removeAttribute('filter');
 
-						if ( $(this).data("jGrowl") != null ) // Happens when a notification is closing before it's open.
-							$(this).data("jGrowl").created = new Date();
-						
-						$(this).trigger('jGrowl.afterOpen');
-					});
-				}
-			}).bind('jGrowl.afterOpen', function() {
-			    o.afterOpen.apply( notification , [notification,message,o,self.element] );
-					//swipe it closed
-					var obj = notification;
-					var hammer = new Hammer(obj.get(0));
+            if ( $(this).data("jGrowl") !== null ) // Happens when a notification is closing before it's open.
+              $(this).data("jGrowl").created = new Date();
+            
+            $(this).trigger('jGrowl.afterOpen');
+          });
+        }
+      }).bind('jGrowl.afterOpen', function() {
+          o.afterOpen.apply( notification , [notification,message,o,self.element] );
+          //swipe it closed
+          var obj = notification;
+          var hammer = new Hammer(obj.get(0));
 
-					hammer.ondrag = function(ev) {
-			        var left = 0;
-			        // determine which direction we need to show the preview
-			    		if(ev.direction === 'left') {
-			    			left = ev.distance;
-			    		}
-			    	};
-					hammer.ondragend = function(ev) {
-			        // if we moved the slide 100px then navigate
-			        if(Math.abs(ev.distance) > 100) {
-			            if(ev.direction === 'left') {
-										notification.trigger('jGrowl.close');
-										notification.remove();
-			            }
-			        }
-			    };
-			}).bind('jGrowl.beforeClose', function() {
-				if ( o.beforeClose.apply( notification , [notification,message,o,self.element] ) != false )
-					$(this).trigger('jGrowl.close');
-			}).bind('jGrowl.close', function() {
-				// Pause the notification, lest during the course of animation another close event gets called.
-				$(this).data('jGrowl.pause', true);
-				$(this).animate(o.animateClose, o.closeDuration, o.easing, function() {
-					if ( jQuery.isFunction(o.close) ) {
-						if ( o.close.apply( notification , [notification,message,o,self.element] ) !== false )
-							$(this).remove();
-					} else {
-						$(this).remove();
-					}
-				});
-			}).trigger('jGrowl.beforeOpen');
-		
-			/** Optional Corners Plugin **/
-			if ( o.corners != '' && jQuery.fn.corner != undefined ) $(notification).corner( o.corners );
+          hammer.ondrag = function(ev) {
+              var left = 0;
+              // determine which direction we need to show the preview
+              if(ev.direction === 'left') {
+                left = ev.distance;
+              }
+            };
+          hammer.ondragend = function(ev) {
+              // if we moved the slide 100px then navigate
+              if(Math.abs(ev.distance) > 100) {
+                  if(ev.direction === 'left') {
+                    notification.trigger('jGrowl.close');
+                    notification.remove();
+                  }
+              }
+          };
+      }).bind('jGrowl.beforeClose', function() {
+        if ( o.beforeClose.apply( notification , [notification,message,o,self.element] ) !== false )
+          $(this).trigger('jGrowl.close');
+      }).bind('jGrowl.close', function() {
+        // Pause the notification, lest during the course of animation another close event gets called.
+        $(this).data('jGrowl.pause', true);
+        $(this).animate(o.animateClose, o.closeDuration, o.easing, function() {
+          if ( jQuery.isFunction(o.close) ) {
+            if ( o.close.apply( notification , [notification,message,o,self.element] ) !== false )
+              $(this).remove();
+          } else {
+            $(this).remove();
+          }
+        });
+      }).trigger('jGrowl.beforeOpen');
+    
+      /** Optional Corners Plugin **/
+      if ( o.corners !== '' && jQuery.fn.corner !== undefined ) $(notification).corner( o.corners );
 
-			/** Add a Global Closer if more than one notification exists **/
-			if ( $('div.jGrowl-notification:parent', self.element).size() > 1 && 
-				 $('div.jGrowl-closer', self.element).size() == 0 && this.defaults.closer != false ) {
-				$(this.defaults.closerTemplate).addClass('jGrowl-closer ' + this.defaults.themeState + ' ui-corner-all').addClass(this.defaults.theme)
-					.appendTo(self.element).animate(this.defaults.animateOpen, this.defaults.speed, this.defaults.easing)
-					.bind("click.jGrowl", function() {
-						$(this).siblings().trigger("jGrowl.beforeClose");
+      /** Add a Global Closer if more than one notification exists **/
+      if ( $('div.jGrowl-notification:parent', self.element).size() > 1 && 
+         $('div.jGrowl-closer', self.element).size() === 0 && this.defaults.closer !== false ) {
+        $(this.defaults.closerTemplate).addClass('jGrowl-closer ' + this.defaults.themeState + ' ui-corner-all').addClass(this.defaults.theme)
+          .appendTo(self.element).animate(this.defaults.animateOpen, this.defaults.speed, this.defaults.easing)
+          .bind("click.jGrowl", function() {
+            $(this).siblings().trigger("jGrowl.beforeClose");
 
-						if ( jQuery.isFunction( self.defaults.closer ) ) {
-							self.defaults.closer.apply( $(this).parent()[0] , [$(this).parent()[0]] );
-						}
-					});
-			};
-		},
+            if ( jQuery.isFunction( self.defaults.closer ) ) {
+              self.defaults.closer.apply( $(this).parent()[0] , [$(this).parent()[0]] );
+            }
+          });
+      };
+    },
 
-		/** Update the jGrowl Container, removing old jGrowl notifications **/
-		update:	 function() {
-			$(this.element).find('div.jGrowl-notification:parent').each( function() {
-				if ( $(this).data("jGrowl") != undefined && $(this).data("jGrowl").created != undefined && 
-					 ($(this).data("jGrowl").created.getTime() + parseInt($(this).data("jGrowl").life))  < (new Date()).getTime() && 
-					 $(this).data("jGrowl").sticky != true && 
-					 ($(this).data("jGrowl.pause") == undefined || $(this).data("jGrowl.pause") != true) ) {
+    /** Update the jGrowl Container, removing old jGrowl notifications **/
+    update:   function() {
+      $(this.element).find('div.jGrowl-notification:parent').each( function() {
+        if ( $(this).data("jGrowl") !== undefined && $(this).data("jGrowl").created !== undefined && 
+           ($(this).data("jGrowl").created.getTime() + parseInt($(this).data("jGrowl").life))  < (new Date()).getTime() && 
+           $(this).data("jGrowl").sticky !== true && 
+           ($(this).data("jGrowl.pause") === undefined || $(this).data("jGrowl.pause") !== true) ) {
 
-					// Pause the notification, lest during the course of animation another close event gets called.
-					$(this).trigger('jGrowl.beforeClose');
-				}
-			});
+          // Pause the notification, lest during the course of animation another close event gets called.
+          $(this).trigger('jGrowl.beforeClose');
+        }
+      });
 
-			if ( this.notifications.length > 0 && 
-				 (this.defaults.pool == 0 || $(this.element).find('div.jGrowl-notification:parent').size() < this.defaults.pool) )
-				this.render( this.notifications.shift() );
+      if ( this.notifications.length > 0 && 
+         (this.defaults.pool === 0 || $(this.element).find('div.jGrowl-notification:parent').size() < this.defaults.pool) )
+        this.render( this.notifications.shift() );
 
-			if ( $(this.element).find('div.jGrowl-notification:parent').size() < 2 ) {
-				$(this.element).find('div.jGrowl-closer').animate(this.defaults.animateClose, this.defaults.speed, this.defaults.easing, function() {
-					$(this).remove();
-				});
-			}
-		},
+      if ( $(this.element).find('div.jGrowl-notification:parent').size() < 2 ) {
+        $(this.element).find('div.jGrowl-closer').animate(this.defaults.animateClose, this.defaults.speed, this.defaults.easing, function() {
+          $(this).remove();
+        });
+      }
+    },
 
-		/** Setup the jGrowl Notification Container **/
-		startup:	function(e) {
-			this.element = $(e).addClass('jGrowl').append('<div class="jGrowl-notification"></div>');
-			this.interval = setInterval( function() { 
-				$(e).data('jGrowl.instance').update(); 
-			}, parseInt(this.defaults.check));
-			
-			/* hui tweak */
-			//if ($ie6) {
-			//	$(this.element).addClass('ie6');
-			//}	
-			if (jQuery(document).width() <= 800) {
-				jQuery(this.element).addClass('smallscreen');
-			}
-		},
+    /** Setup the jGrowl Notification Container **/
+    startup:  function(e) {
+      this.element = $(e).addClass('jGrowl').append('<div class="jGrowl-notification"></div>');
+      this.interval = setInterval( function() { 
+        $(e).data('jGrowl.instance').update(); 
+      }, parseInt(this.defaults.check));
+      
+      /* hui tweak */
+      //if ($ie6) {
+      //  $(this.element).addClass('ie6');
+      //}  
+      if (jQuery(document).width() <= 800) {
+        jQuery(this.element).addClass('smallscreen');
+      }
+    },
 
-		/** Shutdown jGrowl, removing it and clearing the interval **/
-		shutdown:   function() {
-			$(this.element).removeClass('jGrowl').find('div.jGrowl-notification').remove();
-			clearInterval( this.interval );
-		},
-		
-		close: 	function() {
-			$(this.element).find('div.jGrowl-notification').each(function(){
-				$(this).trigger('jGrowl.beforeClose');
-			});
-		}
-	});
-	
-	/** Reference the Defaults Object for compatibility with older versions of jGrowl **/
-	jQuery.jGrowl.defaults = jQuery.fn.jGrowl.prototype.defaults;
+    /** Shutdown jGrowl, removing it and clearing the interval **/
+    shutdown:   function() {
+      $(this.element).removeClass('jGrowl').find('div.jGrowl-notification').remove();
+      clearInterval( this.interval );
+    },
+    
+    close:   function() {
+      $(this.element).find('div.jGrowl-notification').each(function(){
+        $(this).trigger('jGrowl.beforeClose');
+      });
+    }
+  });
+  
+  /** Reference the Defaults Object for compatibility with older versions of jGrowl **/
+  jQuery.jGrowl.defaults = jQuery.fn.jGrowl.prototype.defaults;
 
 })(jQuery);
 
@@ -1760,7 +1760,7 @@ window.HTMLNotification = (function(win, $) {
         constructor: EventTarget,
 
         addListener: function(type, listener){
-            if (typeof this._listeners[type] == "undefined"){
+            if (typeof this._listeners[type] === "undefined"){
                 this._listeners[type] = [];
             }
 
@@ -1768,7 +1768,7 @@ window.HTMLNotification = (function(win, $) {
         },
 
         fire: function(event){
-            if (typeof event == "string"){
+            if (typeof event === "string"){
                 event = { type: event };
             }
             if (!event.target){
@@ -3669,11 +3669,46 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
    
      jQuery(title_bar+" "+"li.basic:first").first().addClass("active");
      
+
+	jQuery("li.docked").each(function(){
+		var theid = jQuery(this).attr("id");
+		var targets = jQuery("."+theid);
+		
+		targets.each(function(){
+			//$(this).css("height","0px");
+			jQuery(this).css("max-height","0px");
+			jQuery(this).css("padding-top","0px");
+			jQuery(this).css("padding-bottom","0px");
+			jQuery(this).css("border-width","0px");
+			jQuery(this).addClass("contrary");
+		});
+		
+	});
+
      //<li id='category_example' class="title_bar"
      jQuery(title_bar).click(function(){
        var theid=jQuery(this).attr("id");
        jQuery(this).toggleClass("docked");
-       jQuery("."+theid).slideToggle();
+       var targets = jQuery("."+theid);
+       targets.each(function(){
+			if(jQuery(this).hasClass("contrary")!=true){
+				jQuery(this).addClass("contrary");
+				//$(this).css("height","0px");
+				jQuery(this).css("max-height","0px");
+				jQuery(this).css("padding-top","0px");
+				jQuery(this).css("padding-bottom","0px");
+				jQuery(this).css("border-width","0px");
+			} else {
+				jQuery(this).removeClass("contrary");
+				//$(this).css("height","0px");
+				jQuery(this).css("max-height","30px");
+				jQuery(this).css("padding-top","5px");
+				jQuery(this).css("padding-bottom","5px");
+				jQuery(this).css("border-width","1px");
+			}
+       });
+	   
+       //jQuery("."+theid).slideToggle();
      });
      
      //<li class="basic category_example"><a href="#" class="pageloader">Download</a></li>
@@ -4320,483 +4355,6 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   $.fn.stupidtable.dir = { ASC: "asc", DESC: "desc" };
 
 })(jQuery);
-(function ($) {
-
-  /**
-   * Augment jQuery prototype.
-   */
-
-  $.fn.antiscroll = function (options) {
-    return this.each(function () {
-      if ($(this).data('antiscroll')) {
-        $(this).data('antiscroll').destroy();
-      }
-
-      $(this).data('antiscroll', new $.Antiscroll(this, options));
-    });
-  };
-
-  /**
-   * Expose constructor.
-   */
-
-  $.Antiscroll = Antiscroll;
-
-  /**
-   * Antiscroll pane constructor.
-   *
-   * @param {Element|jQuery} main pane
-   * @parma {Object} options
-   * @api public
-   */
-
-  function Antiscroll (el, opts) {
-    this.el = $(el);
-    this.options = opts || {};
-
-    this.x = (false !== this.options.x) || this.options.forceHorizontal;
-    this.y = (false !== this.options.y) || this.options.forceVertical;
-    this.autoHide = false !== this.options.autoHide;
-    this.padding = undefined == this.options.padding ? 2 : this.options.padding;
-
-    this.inner = this.el.find('.antiscroll-inner');
-    this.inner.css({
-        'width':  '+=' + (this.y ? scrollbarSize() : 0)
-      , 'height': '+=' + (this.x ? scrollbarSize() : 0)
-    });
-
-    var cssMap = {};
-    if (this.x) cssMap.width = '+=' + scrollbarSize();
-    if (this.y) cssMap.height = '+=' + scrollbarSize();
-    this.inner.css(cssMap);
-
-    this.refresh();
-  };
-
-  /**
-   * refresh scrollbars
-   *
-   * @api public
-   */
-
-  Antiscroll.prototype.refresh = function() {
-    var needHScroll = this.inner.get(0).scrollWidth > this.el.width() + (this.y ? scrollbarSize() : 0), 
-	    needVScroll = this.inner.get(0).scrollHeight > this.el.height() + (this.x ? scrollbarSize() : 0);
-
-    if (this.x) {
-      if (!this.horizontal && needHScroll) {
-        this.horizontal = new Scrollbar.Horizontal(this);
-      } else if (this.horizontal && !needHScroll)  {
-        this.horizontal.destroy();
-        this.horizontal = null;
-      } else if (this.horizontal) {
-        this.horizontal.update();
-      }
-    }
-
-    if (this.y) {
-      if (!this.vertical && needVScroll) {
-        this.vertical = new Scrollbar.Vertical(this);
-      } else if (this.vertical && !needVScroll)  {
-        this.vertical.destroy();
-        this.vertical = null;
-      } else if (this.vertical) {
-        this.vertical.update();
-      }
-    }
-  };
-
-  /**
-   * Cleans up.
-   *
-   * @return {Antiscroll} for chaining
-   * @api public
-   */
-
-  Antiscroll.prototype.destroy = function () {
-    if (this.horizontal) {
-      this.horizontal.destroy();
-      this.horizontal = null
-    }
-    if (this.vertical) {
-      this.vertical.destroy();
-      this.vertical = null
-    }
-    return this;
-  };
-
-  /**
-   * Rebuild Antiscroll.
-   *
-   * @return {Antiscroll} for chaining
-   * @api public
-   */
-
-  Antiscroll.prototype.rebuild = function () {
-    this.destroy();
-    this.inner.attr('style', '');
-    Antiscroll.call(this, this.el, this.options);
-    return this;
-  };
-
-  /**
-   * Scrollbar constructor.
-   *
-   * @param {Element|jQuery} element
-   * @api public
-   */
-
-  function Scrollbar (pane) {
-    this.pane = pane;
-    this.pane.el.append(this.el);
-    this.innerEl = this.pane.inner.get(0);
-
-    this.dragging = false;
-    this.enter = false;
-    this.shown = false;
-
-    // hovering
-    this.pane.el.mouseenter($.proxy(this, 'mouseenter'));
-    this.pane.el.mouseleave($.proxy(this, 'mouseleave'));
-
-    // dragging
-    this.el.mousedown($.proxy(this, 'mousedown'));
-
-    // scrolling
-    this.innerPaneScrollListener = $.proxy(this, 'scroll');
-    this.pane.inner.scroll(this.innerPaneScrollListener);
-
-    // wheel -optional-
-    this.innerPaneMouseWheelListener = $.proxy(this, 'mousewheel');
-    this.pane.inner.bind('mousewheel', this.innerPaneMouseWheelListener);
-
-    // show
-    var initialDisplay = this.pane.options.initialDisplay;
-
-    if (initialDisplay !== false) {
-      this.show();
-      if (this.pane.autoHide) {
-          this.hiding = setTimeout($.proxy(this, 'hide'), parseInt(initialDisplay, 10) || 3000);
-      }
-    }
-  };
-
-  /**
-   * Cleans up.
-   *
-   * @return {Scrollbar} for chaining
-   * @api public
-   */
-
-  Scrollbar.prototype.destroy = function () {
-    this.el.remove();
-    this.pane.inner.unbind('scroll', this.innerPaneScrollListener);
-    this.pane.inner.unbind('mousewheel', this.innerPaneMouseWheelListener);
-    return this;
-  };
-
-  /**
-   * Called upon mouseenter.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.mouseenter = function () {
-    this.enter = true;
-    this.show();
-  };
-
-  /**
-   * Called upon mouseleave.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.mouseleave = function () {
-    this.enter = false;
-
-    if (!this.dragging) {
-        if (this.pane.autoHide) {
-            this.hide();
-        }
-    }
-  };
-
-  /**
-   * Called upon wrap scroll.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.scroll = function () {
-    if (!this.shown) {
-      this.show();
-      if (!this.enter && !this.dragging) {
-        if (this.pane.autoHide) {
-            this.hiding = setTimeout($.proxy(this, 'hide'), 1500);
-        }
-      }
-    }
-
-    this.update();
-  };
-
-  /**
-   * Called upon scrollbar mousedown.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.mousedown = function (ev) {
-    ev.preventDefault();
-
-    this.dragging = true;
-
-    this.startPageY = ev.pageY - parseInt(this.el.css('top'), 10);
-    this.startPageX = ev.pageX - parseInt(this.el.css('left'), 10);
-
-    // prevent crazy selections on IE
-    this.el[0].ownerDocument.onselectstart = function () { return false; };
-
-    var pane = this.pane,
-	    move = $.proxy(this, 'mousemove'),
-		self = this
-
-    $(this.el[0].ownerDocument)
-      .mousemove(move)
-      .mouseup(function () {
-        self.dragging = false;
-        this.onselectstart = null;
-
-        $(this).unbind('mousemove', move);
-
-        if (!self.enter) {
-          self.hide();
-        }
-      });
-  };
-
-  /**
-   * Show scrollbar.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.show = function (duration) {
-    if (!this.shown && this.update()) {
-      this.el.addClass('antiscroll-scrollbar-shown');
-      if (this.hiding) {
-        clearTimeout(this.hiding);
-        this.hiding = null;
-      }
-      this.shown = true;
-    }
-  };
-
-  /**
-   * Hide scrollbar.
-   *
-   * @api private
-   */
-
-  Scrollbar.prototype.hide = function () {
-    if (this.pane.autoHide !== false && this.shown) {
-      // check for dragging
-      this.el.removeClass('antiscroll-scrollbar-shown');
-      this.shown = false;
-    }
-  };
-
-  /**
-   * Horizontal scrollbar constructor
-   *
-   * @api private
-   */
-
-  Scrollbar.Horizontal = function (pane) {
-    this.el = $('<div class="antiscroll-scrollbar antiscroll-scrollbar-horizontal">', pane.el);
-    Scrollbar.call(this, pane);
-  };
-
-  /**
-   * Inherits from Scrollbar.
-   */
-
-  inherits(Scrollbar.Horizontal, Scrollbar);
-
-  /**
-   * Updates size/position of scrollbar.
-   *
-   * @api private
-   */
-
-  Scrollbar.Horizontal.prototype.update = function () {
-    var paneWidth = this.pane.el.width(), 
-	    trackWidth = paneWidth - this.pane.padding * 2,
-		innerEl = this.pane.inner.get(0)
-
-    this.el
-      .css('width', trackWidth * paneWidth / innerEl.scrollWidth)
-      .css('left', trackWidth * innerEl.scrollLeft / innerEl.scrollWidth);
-
-    return paneWidth < innerEl.scrollWidth;
-  };
-
-  /**
-   * Called upon drag.
-   *
-   * @api private
-   */
-
-  Scrollbar.Horizontal.prototype.mousemove = function (ev) {
-    var trackWidth = this.pane.el.width() - this.pane.padding * 2, 
-	    pos = ev.pageX - this.startPageX,
-		barWidth = this.el.width(),
-		innerEl = this.pane.inner.get(0)
-
-    // minimum top is 0, maximum is the track height
-    var y = Math.min(Math.max(pos, 0), trackWidth - barWidth);
-
-    innerEl.scrollLeft = (innerEl.scrollWidth - this.pane.el.width())
-      * y / (trackWidth - barWidth);
-  };
-
-  /**
-   * Called upon container mousewheel.
-   *
-   * @api private
-   */
-
-  Scrollbar.Horizontal.prototype.mousewheel = function (ev, delta, x, y) {
-    if ((x < 0 && 0 == this.pane.inner.get(0).scrollLeft) ||
-        (x > 0 && (this.innerEl.scrollLeft + Math.ceil(this.pane.el.width())
-          == this.innerEl.scrollWidth))) {
-      ev.preventDefault();
-      return false;
-    }
-  };
-
-  /**
-   * Vertical scrollbar constructor
-   *
-   * @api private
-   */
-
-  Scrollbar.Vertical = function (pane) {
-    this.el = $('<div class="antiscroll-scrollbar antiscroll-scrollbar-vertical">', pane.el);
-    Scrollbar.call(this, pane);
-  };
-
-  /**
-   * Inherits from Scrollbar.
-   */
-
-  inherits(Scrollbar.Vertical, Scrollbar);
-
-  /**
-   * Updates size/position of scrollbar.
-   *
-   * @api private
-   */
-
-  Scrollbar.Vertical.prototype.update = function () {
-    var paneHeight = this.pane.el.height(), 
-	    trackHeight = paneHeight - this.pane.padding * 2,
-		innerEl = this.innerEl;
-      
-    var scrollbarHeight = trackHeight * paneHeight / innerEl.scrollHeight;
-    scrollbarHeight = scrollbarHeight < 20 ? 20 : scrollbarHeight;
-    
-    var topPos = trackHeight * innerEl.scrollTop / innerEl.scrollHeight;
-    
-    if((topPos + scrollbarHeight) > trackHeight) {
-        var diff = (topPos + scrollbarHeight) - trackHeight;
-        topPos = topPos - diff - 3;
-    }
-
-    this.el
-      .css('height', scrollbarHeight)
-      .css('top', topPos);
-	  
-	  return paneHeight < innerEl.scrollHeight;
-  };
-
-  /**
-   * Called upon drag.
-   *
-   * @api private
-   */
-
-  Scrollbar.Vertical.prototype.mousemove = function (ev) {
-    var paneHeight = this.pane.el.height(),
-	    trackHeight = paneHeight - this.pane.padding * 2,
-		pos = ev.pageY - this.startPageY,
-		barHeight = this.el.height(),
-		innerEl = this.innerEl
-
-    // minimum top is 0, maximum is the track height
-    var y = Math.min(Math.max(pos, 0), trackHeight - barHeight);
-
-    innerEl.scrollTop = (innerEl.scrollHeight - paneHeight)
-      * y / (trackHeight - barHeight);
-  };
-
-  /**
-   * Called upon container mousewheel.
-   *
-   * @api private
-   */
-
-  Scrollbar.Vertical.prototype.mousewheel = function (ev, delta, x, y) {
-    if ((y > 0 && 0 == this.innerEl.scrollTop) ||
-        (y < 0 && (this.innerEl.scrollTop + Math.ceil(this.pane.el.height())
-          == this.innerEl.scrollHeight))) {
-      ev.preventDefault();
-      return false;
-    }
-  };
-
-  /**
-   * Cross-browser inheritance.
-   *
-   * @param {Function} constructor
-   * @param {Function} constructor we inherit from
-   * @api private
-   */
-
-  function inherits (ctorA, ctorB) {
-    function f() {};
-    f.prototype = ctorB.prototype;
-    ctorA.prototype = new f;
-  };
-
-  /**
-   * Scrollbar size detection.
-   */
-
-  var size;
-
-  function scrollbarSize () {
-    if (size === undefined) {
-      var div = $(
-          '<div class="antiscroll-inner" style="width:50px;height:50px;overflow-y:scroll;'
-        + 'position:absolute;top:-200px;left:-200px;"><div style="height:100px;width:100%">'
-        + '</div>'
-      );
-
-      $('body').append(div);
-      var w1 = $(div).innerWidth();
-      var w2 = $('div', div).innerWidth();
-      $(div).remove();
-
-      size = w1 - w2;
-    }
-
-    return size;
-  };
-
-})(jQuery);
-
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo

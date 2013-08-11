@@ -37,6 +37,7 @@
    background-repeat:repeat;
    color:#EEE;font-weight:bold;
   }
+  p.dark { color: #3d3d3d; line-height:20px;font-size:16px;padding:5px;margin:5px; }
   a { color: #264c99; text-decoration: none; }
   a:hover { text-decoration: underline; }
 
@@ -44,7 +45,7 @@
 		background-color:#3d3d3d;
 		min-height:100px;height:auto;
 	}
-	.sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+	.sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .altcolor {
 		background-color:#AAAAAA;
 		min-height:100px;height:auto;
 		color:#3d3d3d;
@@ -54,7 +55,7 @@
    	.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol {
 		background-color:#2d2d2d;
 	}
-	.sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+	.sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .altcolor {
 		background-color:#BEBEBE;
 	}
   }
@@ -63,89 +64,46 @@
  <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
 </head>
 <body>
-<div style="max-width:1000px;" class="C">
+<div style="max-width:1140px;" class="C">
 	
  <div class="container">
  <div class="row">
   <div class="twelvecol last" style="background-color:transparent;">
-	<h1 class="page-header">twelve column fluid stack</h1>
+	<h1 class="page-header">immunized stack</h1>
+	<p class="dark">adding the <code>.immune</code> class to any numbered column will cause it to keep its shape, even on smaller screens.</p>
   </div>
  </div>
  </div>
 
  <div class="container">
   <div class="row">
-   <div class="onecol">
-    <p>One</p>
+   <div class="threecol immune">
+    <p>Three columns</p>
    </div>
-   <div class="onecol">
-    <p>One</p>
+   <div class="threecol immune">
+    <p>Three columns</p>
    </div>
-   <div class="onecol">
-    <p>One</p>
+   <div class="threecol immune">
+    <p>Three columns</p>
    </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol">
-    <p>One</p>
-   </div>
-   <div class="onecol last">
-    <p>One</p>
+   <div class="threecol immune last">
+    <p>Three columns</p>
    </div>
   </div>
  </div>
 
- <div class="container">
-  <div class="row">
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="twocol last">
-    <p>Two columns</p>
-   </div>
-  </div>
- </div>
+ <div class="push"></div>
 
+ <p class="dark">These <code>.row .threecol</code> containers do not have the <code>.immune</code> class and will "fall in line" on small screens.</p>
  <div class="container">
   <div class="row">
-   <div class="threecol">
+   <div class="threecol altcolor">
     <p>Three columns</p>
    </div>
    <div class="threecol">
     <p>Three columns</p>
    </div>
-   <div class="threecol">
+   <div class="threecol altcolor">
     <p>Three columns</p>
    </div>
    <div class="threecol last">
@@ -154,157 +112,71 @@
   </div>
  </div>
 
+ <div class="push" style="height:60px;"></div>
+
  <div class="container">
-  <div class="row">
-   <div class="fourcol">
-    <p>Four columns</p>
-   </div>
-   <div class="fourcol">
-    <p>Four columns</p>
-   </div>
-   <div class="fourcol last">
-    <p>Four columns</p>
-   </div>
+ <div class="row">
+  <div class="twelvecol last" style="background-color:transparent;">
+	<h1 class="page-header">the bside</h1>
+	<p class="dark">adding any number column from the <code>-bside</code> allows for some really complex grids. force some grids to break on mobile screens, force some to not. but don't run with scissors.</p>
+	<br/>
+	<p class="dark">in this example we the first two columns will form a two column layout on small devices, while column 3 and 4 will behave as normal and break to 100% width.</p>
   </div>
+ </div>
  </div>
 
  <div class="container">
   <div class="row">
-   <div class="onecol">
-    <p>One</p>
+   <div class="threecol sixcol-bside altcolor">
+    <p>Big Three</p><br/>
+	<p>Small Six</p>
    </div>
-   <div class="elevencol last">
-    <p>Eleven columns</p>
+   <div class="threecol sixcol-bside altcolor">
+    <p>Big Three</p><br/>
+	<p>Small Six</p>
    </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="twocol">
-    <p>Two columns</p>
-   </div>
-   <div class="tencol last">
-    <p>Ten columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
    <div class="threecol">
-    <p>Three columns</p>
+    <p>Big Three</p><br/>
+	<p>Small Twelve</p>
    </div>
-   <div class="ninecol last">
-    <p>Nine columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="fourcol">
-    <p>Four columns</p>
-   </div>
-   <div class="eightcol last">
-    <p>Eight columns</p>
+   <div class="threecol eightcol-bside">
+    <p>Big Three</p><br/>
+	<p>Small Eight</p>
    </div>
   </div>
  </div>
 
+ <div class="push" style="height:60px;"></div>
+
  <div class="container">
-  <div class="row">
-   <div class="fivecol">
-    <p>Five columns</p>
-   </div>
-   <div class="sevencol last">
-    <p>Seven columns</p>
-   </div>
+ <div class="row">
+  <div class="twelvecol last" style="background-color:transparent;">
+	<h1 class="page-header">another bside</h1>
+	<p class="dark">this is another example showing how you can create complex grids with the bside grid.</p>
   </div>
+ </div>
  </div>
 
  <div class="container">
   <div class="row">
-   <div class="sixcol">
-    <p>Six columns</p>
+   <div class="threecol" style="background:#f7f7f7;color:#000">
+    <p>Big Three</p><br/>
+	<p>Small Twelve</p>
    </div>
-   <div class="sixcol last">
-    <p>Six columns</p>
+   <div class="sixcol eightcol-bside">
+    <p>Big Six</p><br/>
+	<p>Small Five</p>
    </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="sevencol">
-    <p>Seven columns</p>
-   </div>
-   <div class="fivecol last">
-    <p>Five columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="eightcol">
-    <p>Eight columns</p>
-   </div>
-   <div class="fourcol last">
-    <p>Four columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="ninecol">
-    <p>Nine columns</p>
-   </div>
-   <div class="threecol last">
-    <p>Three columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="tencol">
-    <p>Ten columns</p>
-   </div>
-   <div class="twocol last">
-    <p>Two columns</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="elevencol">
-    <p>Eleven columns</p>
-   </div>
-   <div class="onecol last">
-    <p>One</p>
-   </div>
-  </div>
- </div>
-
- <div class="container">
-  <div class="row">
-   <div class="threecol">
-    <p>Three columns</p>
-   </div>
-   <div class="sixcol">
-    <p>Six columns</p>
-   </div>
-   <div class="threecol last">
-    <p>Three columns</p>
+   <div class="threecol fourcol-bside altcolor">
+    <p>Big Three</p><br/>
+	<p>Small Eleven</p>
    </div>
   </div>
  </div>
 
 </div>
-<div class="push" style="height:50px;"></div>
+
+<div class="push" style="height:250px;"></div>
 
 <!-- Stable jQuery 1.8 Product type setup -->
 <script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
