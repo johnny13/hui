@@ -415,7 +415,7 @@ input[type=submit] {
   font-weight: bold;
   font-size: 1.25em;
   background-color:#f5f5f5;
-  border-color:#e6e6e6;
+  border-color:$flapperHighlight;
   color:#999;
   padding: .5em 1em;
   margin: 0;
@@ -653,11 +653,6 @@ table.style tr td {
   color: $linkColor;
 }
 
-.facebox_overlayBG {
-  background-color: $faceboxText;
-  z-index: 99;
-}
-
 // TipTip CSS - Version 1.2 //
 #tiptip_holder { display: none; position: absolute; top: 0; left: 0; z-index: 99999; }
 
@@ -848,35 +843,36 @@ span.push_notification {
   padding: 0;
   border: 0;
   outline: 0;
-}
-
-li .huicon {
-  border: 3px solid $buttonBase;
-  background-color: $buttonBase;
-  margin-top: -3px;
-  margin-left:10px;
-  @include borderRadius(2px);
-}
-
-span.push_notification {
   display: block;
   position: absolute;
   top: 5px;
   right: 0;
-  padding: 0 10px;
-  margin-right: 10px;
+  padding: 3px;
+  margin-right: 6px;
   background: $flapperText;
-  @include borderRadius(15px);
+  @include borderRadius(3px);
   @include boxShadowInset(1px, 1px, 1px, $flapperSecondText, "inset");
-  border: 1px solid $flapperSpeakBorder;
+  border: 1px solid $tableOdd;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  color: $flapperSpeak;
-  background: $flapperActiveBack;
-  font-size: 18px;
-  line-height: 22px;
-  font-weight:500;
+  color: $flapperActive;
+  background: $tableEven;
+  font-size: 15px;
+  line-height: 17px;
+  font-weight:400;
+}
+
+span.push_notification.button {
+  color: $tableOdd;
+}
+
+li .huicon {
+  border: 3px solid $flapperHighlight;
+  background-color: $flapperHighlight;
+  margin-top: -3px;
+  margin-left:10px;
+  @include borderRadius(2px);
 }
 
 // Navigation Menu //
@@ -971,17 +967,22 @@ nav.flex a.navpuller {
     position: relative;
   }
 
+  nav.flex a.navpuller .fa-icon {
+    float:right;
+    margin-right:15px;
+  }
+
   nav.flex a.navpuller:after {
-    content: "";
-    background: url("https://huementui.s3.amazonaws.com/images/navicon-white.png") no-repeat;
+	content: "";
     width: 5%;
     height: 5%;
     min-height: 30px;
     min-width: 30px;
     display: inline-block;
     position: absolute;
-    right: 15px;
+    right: 20px;
     top: 5px;
+    
   }
 
   nav.flex li {
@@ -1056,8 +1057,6 @@ nav.flex a.navpuller {
 .horizontalNav-processed {
   font-weight: bold;
   background: $horizontalNavBack;
-  @include gradientV($horizontalNavBack, $horizontalNavBackTwo);
-  @include boxShadowInset(0px, 1px, 0px, #030303, "inset");
   border-bottom: $horizontalNavBorder;
   float: left;
   padding:0;margin:0;

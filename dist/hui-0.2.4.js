@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.3 - 2013-08-11
+/*! huement user interface - v0.2.4 - 2013-09-21
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -2620,7 +2620,7 @@ if (!console) {
 
   jQuery.extend(jQuery.facebox, {
     settings: {
-      opacity      : 0.5,
+      opacity      : 0.75,
       overlay      : true,
       loadingImage : 'https://huementui.s3.amazonaws.com/images/loading.gif',
       closeImage   : 'https://huementui.s3.amazonaws.com/images/closelabel.png',
@@ -2637,20 +2637,11 @@ if (!console) {
       showOverlay();
 
       jQuery('#facebox .content').empty().
-        append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'"/></div>');
+        append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'" style="width:32px;height:32px;margin-top:20px;max-width:32px;max-height:32px;" class="C" /></div>');
 
-				if(getPageHeight() >= 767){
-					jQuery('#facebox').show().css({
-						top: getPageScroll()[1] + (getPageHeight() / 10),
-						left: jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2)
-					});
-				} else {
-					jQuery('#facebox').show().css({
-						top: getPageScroll()[1] + (getPageHeight() / 10)
-						//, left: 0
-					});
-					//console.debug("mobile");
-				}
+			jQuery('#facebox').show().css({
+				top: "100px"
+			});
 
       jQuery(document).bind('keydown.facebox', function(e) {
         if (e.keyCode === 27) {
@@ -2666,22 +2657,24 @@ if (!console) {
       if (klass){
 				jQuery('#facebox .content').addClass(klass);
 			}
-      jQuery('#facebox .content').empty().append(data);
-      jQuery('#facebox .popup').children().fadeIn('normal');
-
+			jQuery('#facebox .content').empty().append(data);
+			//  jQuery('#facebox .popup').children().fadeIn('normal');
+			
 			if(jQuery(window).width() >= 767){
-				jQuery('#facebox').css('left', jQuery(window).width() / 2 - (jQuery('#facebox .popup').outerWidth() / 2));
+				var minusTotal = jQuery('#facebox .popup').outerWidth() / 2;
+				jQuery('#facebox').css('left', '50%');
+				jQuery('#facebox').css('margin-left', '-'+minusTotal+'px');
 				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
 			}else{
-				jQuery('#facebox').css('left', 0);
+			//	jQuery('#facebox').css('left', 0);
 				jQuery(document).trigger('reveal.facebox').trigger('afterReveal.facebox');
 				///console.debug("vision");
 				jQuery('#facebox').width(jQuery(window).width()-10);
 				jQuery('#facebox .popup').width(jQuery(window).width()-5);
 			}
 			
+			
     },
-
     close: function() {
       jQuery(document).trigger('close.facebox');
       return false;
@@ -2826,6 +2819,8 @@ if (!console) {
   }
 
   function showOverlay() {
+	setTimeout("jQuery('#facebox').addClass('showbox')", 250);
+	
     if (skipOverlay()) return;
 
     if (jQuery('#facebox_overlay').length === 0)
@@ -2839,9 +2834,11 @@ if (!console) {
   }
 
   function hideOverlay() {
-    if (skipOverlay()) {
-   return;
-  }
+	 jQuery(document).trigger('afterClose.facebox');
+	
+	if (skipOverlay()) {
+		return;
+	}
 
     jQuery('#facebox_overlay').fadeOut(200, function(){
       jQuery("#facebox_overlay").removeClass("facebox_overlayBG");
@@ -2855,6 +2852,9 @@ if (!console) {
   /*
    * Bindings
    */
+  //jQuery(document).bind('reveal.facebox', function() { 
+	//console.debug('showbox');
+  //});
 
   jQuery(document).bind('close.facebox', function() {
     if (jQuery.facebox.jqxhr) {
@@ -2862,11 +2862,11 @@ if (!console) {
       jQuery.facebox.jqxhr = null;
     }
     jQuery(document).unbind('keydown.facebox');
-    jQuery('#facebox').fadeOut(function() {
-      jQuery('#facebox .content').removeClass().addClass('content');
-      jQuery('#facebox .loading').remove();
-      jQuery(document).trigger('afterClose.facebox');
-    });
+	jQuery('#facebox').removeClass("showbox");
+	
+    jQuery('#facebox .content').removeClass().addClass('content');
+    jQuery('#facebox .loading').remove();
+
     hideOverlay();
   });
 
@@ -4176,16 +4176,35 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
  jQuery.fn.reactiveNav = function(options) {
   //console.debug(this.selector);
   //console.debug(options["menu"]);
+  var easing;
+  if(options["easing"]!=null && options["easing"] != undefined && options["easing"] != ""){
+    easing = options["easing"];
+  } else {
+    easing = "jswing";
+  }
+  var timeout;
+  if(options["timeout"]!=null && options["timeout"] != undefined && options["timeout"] != ""){
+    timeout = options["timeout"];
+  } else {
+    timeout = 600;
+  }
   var pull   = jQuery(options["pull"]);
   var menu   = jQuery(this.selector);
   var menuHeight = menu.height();
 
-  jQuery(pull).on('click', function(e) {
-   e.preventDefault();
+  jQuery(pull).on('click', function(ev) {
+   ev.preventDefault();
    //menu.slideToggle();
-   menu.animate({
-       "height": "toggle"
-   }, 1200, "easeOutBounce");
+   //menu.animate({
+   //    "height": "toggle"
+   //}, timeout, easing);
+   var display = menu.css("display");
+   if(display=="none"){
+    menu.css("display", "block");
+   } else {
+    menu.css("display", "none");
+   }
+   return false;
   });
 
   jQuery(window).resize(function(){

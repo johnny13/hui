@@ -450,16 +450,35 @@
  jQuery.fn.reactiveNav = function(options) {
   //console.debug(this.selector);
   //console.debug(options["menu"]);
+  var easing;
+  if(options["easing"]!=null && options["easing"] != undefined && options["easing"] != ""){
+    easing = options["easing"];
+  } else {
+    easing = "jswing";
+  }
+  var timeout;
+  if(options["timeout"]!=null && options["timeout"] != undefined && options["timeout"] != ""){
+    timeout = options["timeout"];
+  } else {
+    timeout = 600;
+  }
   var pull   = jQuery(options["pull"]);
   var menu   = jQuery(this.selector);
   var menuHeight = menu.height();
 
-  jQuery(pull).on('click', function(e) {
-   e.preventDefault();
+  jQuery(pull).on('click', function(ev) {
+   ev.preventDefault();
    //menu.slideToggle();
-   menu.animate({
-       "height": "toggle"
-   }, 1200, "easeOutBounce");
+   //menu.animate({
+   //    "height": "toggle"
+   //}, timeout, easing);
+   var display = menu.css("display");
+   if(display=="none"){
+    menu.css("display", "block");
+   } else {
+    menu.css("display", "none");
+   }
+   return false;
   });
 
   jQuery(window).resize(function(){

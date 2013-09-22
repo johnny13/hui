@@ -88,9 +88,9 @@ ul {
   color: #5fdfff !important; }
 
 .shadow {
-  -moz-box-shadow: 2px, 2px, 4px, #111111;
-  -webkit-box-shadow: 2px, 2px, 4px, #111111;
-  box-shadow: 2px, 2px, 4px, #111111; }
+  -moz-box-shadow: 2px 2px 4px #111111;
+  -webkit-box-shadow: 2px 2px 4px #111111;
+  box-shadow: 2px 2px 4px #111111; }
 
 .glass {
   margin: 10px;
@@ -114,9 +114,9 @@ ul {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-box-shadow: 2px, 2px, 4px, #111111;
-  -webkit-box-shadow: 2px, 2px, 4px, #111111;
-  box-shadow: 2px, 2px, 4px, #111111; }
+  -moz-box-shadow: 2px 2px 4px #111111;
+  -webkit-box-shadow: 2px 2px 4px #111111;
+  box-shadow: 2px 2px 4px #111111; }
 
 .redText {
   color: #c20000; }
@@ -347,9 +347,9 @@ pre {
   color: #2b2b2b;
   background: #fcfcfc;
   border: 3px solid #383838;
-  -moz-box-shadow: 2px, 2px, 10px, rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 2px, 2px, 10px, rgba(0, 0, 0, 0.15);
-  box-shadow: 2px, 2px, 10px, rgba(0, 0, 0, 0.15); }
+  -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15); }
 
 code {
   background: #eeeeee;
@@ -376,9 +376,9 @@ input[type=submit] {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -moz-box-shadow: 0px, 0px, 6px, #e7e7e7;
-  -webkit-box-shadow: 0px, 0px, 6px, #e7e7e7;
-  box-shadow: 0px, 0px, 6px, #e7e7e7; }
+  -moz-box-shadow: 0px 0px 6px #e7e7e7;
+  -webkit-box-shadow: 0px 0px 6px #e7e7e7;
+  box-shadow: 0px 0px 6px #e7e7e7; }
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
   border-color: #0099FF;
@@ -589,9 +589,9 @@ table.style tr td {
   color: #1b1b1b;
   background: #f7f7f7;
   border: 2px #555555 solid;
-  -moz-box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15);
-  box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15); }
+  -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); }
 
 #facebox .content {
   background: #f7f7f7; }
@@ -785,9 +785,8 @@ table.style tr td {
   line-height: 1.5em;
   text-decoration: none;
   background: #818181;
-  -moz-box-shadow: 0px, 1px, 0px, #161616, "inset";
-  -webkit-box-shadow: 0px, 1px, 0px, #161616, "inset";
-  box-shadow: 0px, 1px, 0px, #161616, "inset"; }
+  -webkit-box-shadow: inset 0px 1px 0px #161616;
+  box-shadow: inset 0px 1px 0px #161616; }
 
 .accordion li .huicon {
   margin-top: 2px; }
@@ -804,9 +803,8 @@ table.style tr td {
   border-radius: 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
-  -moz-box-shadow: 1px, 1px, 1px, #e2e2e2, "inset";
-  -webkit-box-shadow: 1px, 1px, 1px, #e2e2e2, "inset";
-  box-shadow: 1px, 1px, 1px, #e2e2e2, "inset"; }
+  -webkit-box-shadow: inset 1px 1px 1px #e2e2e2;
+  box-shadow: inset 1px 1px 1px #e2e2e2; }
 
 .accordion > li:hover > a, .accordion > li:target > a, .accordion > li > a.active {
   color: #e2e2e2;
@@ -824,9 +822,8 @@ table.style tr td {
   padding-left: 40px;
   background: #161616;
   border-bottom: 1px solid #4b4b4b;
-  -moz-box-shadow: 0px, 1px, 0px, #161616, "inset";
-  -webkit-box-shadow: 0px, 1px, 0px, #161616, "inset";
-  box-shadow: 0px, 1px, 0px, #161616, "inset"; }
+  -webkit-box-shadow: inset 0px 1px 0px #161616;
+  box-shadow: inset 0px 1px 0px #161616; }
 
 .sub-menu li:last-child a {
   border: 0; }
@@ -1016,9 +1013,8 @@ nav.flex a.navpuller {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e');
   -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e');
   background-image: -ms-linear-gradient(top, #505050, #2e2e2e);
-  -moz-box-shadow: 0px, 1px, 0px, #030303, "inset";
-  -webkit-box-shadow: 0px, 1px, 0px, #030303, "inset";
-  box-shadow: 0px, 1px, 0px, #030303, "inset";
+  -webkit-box-shadow: inset 0px 1px 0px #030303;
+  box-shadow: inset 0px 1px 0px #030303;
   border-bottom: 1px solid #646464;
   float: left; }
 

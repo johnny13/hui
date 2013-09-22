@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Viewport -->
+	<meta name="description" content="Huement User Interface (hui)">
+	<meta name="author" content="Derek Scott (@huement)">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Mobile Related Stuff -->
+	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+	<title>Advanced Accordion Demo</title>
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+	<link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+	<link href="../dist/hui-light.css" type="text/css" rel="stylesheet"/>
+	<!-- Demo Styles -->
+	<style type="text/css">
+		#content {
+			background-image: url("https://huementui.s3.amazonaws.com/images/gridMasked.png?ver=2.1");
+		 	background-repeat:repeat-x;
+		}
+	</style>
+	<!-- jquery & remainder of javascript loaded in the body -->
+	<script src="../libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+	
+	<div class="row limit category datas_category">
+
+		<div class="twelvecol last">
+			<h2 class="page-header">Advanced Accordion Demo</h2>
+			<p>The Flapper Girl menu is fairly simple to setup. The hardest part is remembering the TWO containers around the UL in order to get the stage and everything setup properly.</p>
+			<p>Animations are handled with CSS3. This means smoother movements across almost all platforms.</p>
+			<p>If you want a subcategory to start <strong>CLOSED</strong> add the class <code>.docked</code> to any <code>.title_bar</code> and those LI's will be hidden on startup.</p>
+			<div class="push"></div>
+				<div class="card information">
+					<h3>Keep it Tight</h3>
+					<p>The Plugin toggles visibility by grabbing the <code>ID</code> from the <code>.title_bar</code> and using it to match LI's with the corresponding Class. <strong></strong></p>
+<pre>...
+
+&lt;li id=&quot;bsbs&quot; class=&quot;title_bar&quot;&gt;Master 1&lt;/li&gt;
+&lt;li class=&quot;bsbs&quot;&gt;&lt;a href=&quot;#&quot;&gt; . sub 1 . &lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;bsbs&quot;&gt;&lt;a href=&quot;#&quot;&gt; . sub 2 . &lt;/a&gt;&lt;/li&gt;
+
+...
+</pre>
+				</div>
+			<div class="push"></div>
+
+			<p class="p10">Targeting the List with some jQuery and CSS3 Hardware Animations will really jazz things up.</p>
+			<p class="p10">The Second Menu has the <code>.push_notification</code> classes applied to spans for numeric push notification style alerts. It also uses the <code>.huicon</code> class to add an icon from the same sprite and class structure used in the Button Icons.<br/>The first menu uses the @font-face icons <code>.fa-icon.icon-magic</code> and can scale to any size without distorting. perfect for retina displays.</p>
+<pre>
+var ladyParts = {
+	"title":".title_bar",
+	"loader":".pageloader",
+	"stage":".speakEasy"
+};
+
+jQuery("&lt;div&gt; &lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
+</pre>
+
+						<div class="push"></div>
+						
+			<div class="push"></div>
+			<div class="fivecol">
+				<div class="flapperStage">
+					<div class="speakEasy">
+						<ul>
+							<li class="title_bar docked tL" id='Dscs'><div class="fa-icon icon-magic"></div>Magic Files</li>
+							<li class="basic Dscs"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic Dscs"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic Dscs"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+							<li class="title_bar docked tL" id="Dsbs"><div class="fa-icon icon-magic"></div>Mail</li>
+							<li class="basic Dsbs"><a href="#" class="pageloader">Download</a></li>
+							<li class="basic Dsbs"><a href="#" class="pageloader">Install</a></li>
+							<li class="basic Dsbs"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="title_bar tL" id="Dbsbs"><div class="fa-icon icon-music"></div>Songs</li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 1 <span class="push_notification">5:01</span></a></li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 2 <span class="push_notification">2:74</span></a></li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 3 <span class="push_notification">3:59</span></a></li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 4 <span class="push_notification">3:16</span></a></li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 5 <span class="push_notification">4:39</span></a></li>
+							<li class="basic Dbsbs"><a href="#" class="pageloader">Song 6 <span class="push_notification">6:45</span></a></li>
+							<li class="title_bar docked tL" id='dDscs'><div class="fa-icon icon-magic"></div>Shine On</li>
+							<li class="basic dDscs"><a href="#" class="pageloader">Chorus</a></li>
+							<li class="basic dDscs"><a href="#" class="pageloader">Refrain</a></li>
+							<li class="basic dDscs"><a href="#" class="pageloader">Showstopper</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="twocol"></div>
+			<div class="fivecol last">
+				<div class="flapperStage">
+					<div class="speakEasy">
+						<ul>
+							<li class="title_bar docked tL" id='cDscs'><div class="huicon icon68"></div>My Files<span class="button green push_notification">10</span></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Lithium PHP</a></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Wordpress</a></li>
+							<li class="basic cDscs"><a href="#" class="pageloader">Handheld &amp; Tablets</a></li>
+							<li class="title_bar docked tL" id="bDsbs"><div class="huicon icon125"></div>Mail<span class="button red push_notification">20</span></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Download <span class="push_notification">10</span></a></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Install <span class="push_notification">10</span></a></li>
+							<li class="basic bDsbs"><a href="#" class="pageloader">Tutorials</a></li>
+							<li class="title_bar tL" id="aDbsbs"><div class="huicon icon72"></div>Songs<span class="button blue push_notification">30</span></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 7 <span class="push_notification">3:38</span></a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 8 <span class="push_notification">5:41</span></a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 9 <span class="push_notification">6:01</span></a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 10<span class="push_notification">8:24</span></a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 11<span class="push_notification">4:31</span></a></li>
+							<li class="basic aDbsbs"><a href="#" class="pageloader">Song 12<span class="push_notification">3:51</span></a></li>
+							<li class="title_bar docked tL" id='dcDscs'><div class="huicon icon108"></div>Shine On</li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Chorus</a></li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Refrain</a></li>
+							<li class="basic dcDscs"><a href="#" class="pageloader">Showstopper</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		
+	</div>
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+<!-- minified hui library -->
+<script type="text/javascript" src="../dist/hui-min.js?ver=1.15.2"></script>
+<script>
+jQuery(document).ready(function() { 
+	//Flapper Girl Menu
+	 var ladyParts = {"title":".title_bar","loader":".pageloader","stage":".speakEasy"};
+	 jQuery("<div></div>").flapperGirl(ladyParts);
+}); 
+</script>
+<!-- Example Functions for the Demo -->
+<!-- not needed. -->
+</body>
+</html>

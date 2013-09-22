@@ -359,6 +359,45 @@ div.jGrowl div.jGrowl-closer:hover {
   text-align: left;
 }
 
+#facebox_overlay {
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+	z-index: 99;
+	background: #333333;
+	background-color: #333333;
+	transition: all 0.3s;
+}
+
+#facebox {
+	position: fixed!important;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+#facebox.showbox {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+#facebox div.image img {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	position:relative;
+	margin-top:10px;
+	margin-bottom:10px;
+	width:auto;
+}
+
 #facebox .popup {
   position:relative;
   overflow: hidden;

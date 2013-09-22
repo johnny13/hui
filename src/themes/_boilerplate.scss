@@ -1,13 +1,12 @@
 @mixin boxShadow($xOffset, $yOffset, $blur, $color) {
-  -moz-box-shadow: $xOffset, $yOffset, $blur, $color; // FF3.5+
-  -webkit-box-shadow: $xOffset, $yOffset, $blur, $color; // Saf3.0+, Chrome
-  box-shadow: $xOffset, $yOffset, $blur, $color; // Opera 10.5, IE9+, Chrome 10+
+  -moz-box-shadow: $xOffset $yOffset $blur $color; // FF3.5+
+  -webkit-box-shadow: $xOffset $yOffset $blur $color; // Saf3.0+, Chrome
+  box-shadow: $xOffset $yOffset $blur $color; // Opera 10.5, IE9+, Chrome 10+
 }
 
 @mixin boxShadowInset($xOffset, $yOffset, $blur, $color, $inset) {
-  -moz-box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // FF3.5+
-  -webkit-box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // Saf3.0+, Chrome
-  box-shadow: $xOffset, $yOffset, $blur, $color, "inset"; // Opera 10.5, IE9+, Chrome 10+
+-webkit-box-shadow: inset $xOffset $yOffset $blur $color;
+box-shadow: inset $xOffset $yOffset $blur $color;
 }
 
 @mixin gradientV($start, $end){

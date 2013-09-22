@@ -85,9 +85,9 @@ ul.list-unstyled {
   color: #00b7ff !important; }
 
 .shadow {
-  -moz-box-shadow: 2px, 2px, 4px, #111111;
-  -webkit-box-shadow: 2px, 2px, 4px, #111111;
-  box-shadow: 2px, 2px, 4px, #111111; }
+  -moz-box-shadow: 2px 2px 4px #111111;
+  -webkit-box-shadow: 2px 2px 4px #111111;
+  box-shadow: 2px 2px 4px #111111; }
 
 .glass {
   margin: 10px;
@@ -111,9 +111,9 @@ ul.list-unstyled {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-box-shadow: 2px, 2px, 4px, #111111;
-  -webkit-box-shadow: 2px, 2px, 4px, #111111;
-  box-shadow: 2px, 2px, 4px, #111111; }
+  -moz-box-shadow: 2px 2px 4px #111111;
+  -webkit-box-shadow: 2px 2px 4px #111111;
+  box-shadow: 2px 2px 4px #111111; }
 
 .redText {
   color: #c20000; }
@@ -387,9 +387,9 @@ input[type=submit] {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -moz-box-shadow: 0px, 0px, 6px, #e7e7e7;
-  -webkit-box-shadow: 0px, 0px, 6px, #e7e7e7;
-  box-shadow: 0px, 0px, 6px, #e7e7e7; }
+  -moz-box-shadow: 0px 0px 6px #e7e7e7;
+  -webkit-box-shadow: 0px 0px 6px #e7e7e7;
+  box-shadow: 0px 0px 6px #e7e7e7; }
 
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
   border-color: #0099FF;
@@ -587,9 +587,9 @@ table.style tr td {
   color: #1b1b1b;
   background: #f7f7f7;
   border: 2px #555555 solid;
-  -moz-box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15);
-  box-shadow: 2px, 2px, 8px, rgba(0, 0, 0, 0.15); }
+  -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); }
 
 #facebox .content {
   background: #f7f7f7; }
@@ -599,10 +599,6 @@ table.style tr td {
 
 #facebox .content a {
   color: #1cb1ec; }
-
-.facebox_overlayBG {
-  background-color: #1b1b1b;
-  z-index: 99; }
 
 #tiptip_holder {
   display: none;
@@ -779,40 +775,40 @@ span.push_notification {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0; }
+  outline: 0;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  padding: 3px;
+  margin-right: 6px;
+  background: #666666;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: inset 1px 1px 1px #999999;
+  box-shadow: inset 1px 1px 1px #999999;
+  border: 1px solid #f1f1f1;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #838383;
+  background: #e4e4e4;
+  font-size: 15px;
+  line-height: 17px;
+  font-weight: 400; }
+
+span.push_notification.button {
+  color: #f1f1f1; }
 
 li .huicon {
-  border: 3px solid whitesmoke;
-  background-color: whitesmoke;
+  border: 3px solid #e6e6e6;
+  background-color: #e6e6e6;
   margin-top: -3px;
   margin-left: 10px;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px; }
-
-span.push_notification {
-  display: block;
-  position: absolute;
-  top: 5px;
-  right: 0;
-  padding: 0 10px;
-  margin-right: 10px;
-  background: #666666;
-  border-radius: 15px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-box-shadow: 1px, 1px, 1px, #999999, "inset";
-  -webkit-box-shadow: 1px, 1px, 1px, #999999, "inset";
-  box-shadow: 1px, 1px, 1px, #999999, "inset";
-  border: 1px solid #c2c2c2;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  color: #fdfdfd;
-  background: #3d3d3d;
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 500; }
 
 .clearfix:before, .clearfix:after {
   content: " ";
@@ -891,16 +887,19 @@ nav.flex a.navpuller {
     width: 100%;
     position: relative; }
 
+  nav.flex a.navpuller .fa-icon {
+    float: right;
+    margin-right: 15px; }
+
   nav.flex a.navpuller:after {
     content: "";
-    background: url("https://huementui.s3.amazonaws.com/images/navicon-white.png") no-repeat;
     width: 5%;
     height: 5%;
     min-height: 30px;
     min-width: 30px;
     display: inline-block;
     position: absolute;
-    right: 15px;
+    right: 20px;
     top: 5px; }
 
   nav.flex li {
@@ -956,18 +955,6 @@ nav.flex a.navpuller {
 .horizontalNav-processed {
   font-weight: bold;
   background: #505050;
-  background: #3f3f3f;
-  background-image: -moz-linear-gradient(top, #505050, #2e2e2e);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#505050), to(#2e2e2e));
-  background-image: -webkit-linear-gradient(top, #505050, #2e2e2e);
-  background-image: -o-linear-gradient(top, #505050, #2e2e2e);
-  background-image: linear-gradient(top, #505050, #2e2e2e);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e');
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050', endColorstr='#2e2e2e');
-  background-image: -ms-linear-gradient(top, #505050, #2e2e2e);
-  -moz-box-shadow: 0px, 1px, 0px, #030303, "inset";
-  -webkit-box-shadow: 0px, 1px, 0px, #030303, "inset";
-  box-shadow: 0px, 1px, 0px, #030303, "inset";
   border-bottom: 1px solid #646464;
   float: left;
   padding: 0;

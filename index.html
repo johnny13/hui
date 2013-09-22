@@ -19,7 +19,7 @@
 	<link id="theme_sheet" href="src/sass/lithium/dev-theme.css" type="text/css" rel="stylesheet"/>
 	<link id="theme_sheet" href="dist/hui-light-orig.css" type="text/css" rel="stylesheet"/>
 	-->
-	<style type="text/css">@import url("dist/hui-0.2.3.css");</style>
+	<style type="text/css">@import url("dist/hui-0.2.4.css");</style>
 	<link id="theme_sheet" href="src/themes/lithium/dev-theme.css?ver=855454" type="text/css" rel="stylesheet"/>
 	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
 	<!--[if lte IE 9]>
@@ -156,7 +156,7 @@
 		#topBarBox {
 			border-bottom:1px solid #666666;height:auto;min-height:50px;
 		}
-		
+
 		@media only screen and (max-width : 800px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -166,6 +166,10 @@
 				width:auto;
 				margin:3px 7px 0 0;
 				float:right;
+			}
+			#facebox {
+				margin-left: 0px!important;
+				left: 0px!important;
 			}
 			.mtb a span.label {font-size:0.8em;}
 			.row {max-width:100%;}
@@ -222,8 +226,7 @@
 		 <li><a href="#forms" title="forms">form</a></li>
 		 <li><a href="#datas" title="datas">data</a></li>
 		 <li><a href="#widgets" title="widgets">modal</a></li>
-		 <li><a href="#accordion" title="accordion">flex</a></li>
-		 <li><a href="#navigate" title="navigate">nav</a></li>
+		 <li><a href="#navigate" title="navigate">flexnav</a></li>
 		</ul>
 		</div>
 	</div>
@@ -335,32 +338,7 @@ Three Column Liquid Grid Example
 				
 			</div>
 			
-			<div class="push" style="height:150px;"></div>
-			
-			<div class="twelvecol last">
-				<h2 class="page-header">Select drop-down manipulation</h2>
-				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
-					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
-			</div>
-			<div class="push"></div>
-			<div class="fourcol">
-<pre>&nbsp;
-&nbsp;
-</pre>				
-			</div>
-			<div class="onecol"></div><div class="sevencol">
-					<button onclick='jQuery("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
-					<button onclick='jQuery("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
-					<div class="push" style="height:5px"></div>
-					<div class="p10 m10">
-						<select id="myselect" style="min-width:250px;font-size:1.3em;line-height:1.5em;">
-							<option>default</option>
-						</select>
-					</div>
-			</div>
-			
 			<div class="push" style="height:50px;"></div>
-			
 		</div>
 		
 		<div class="row limit category basic_category">
@@ -421,38 +399,7 @@ preload([
 				</ul>
 			</div>
 		</div>
-		
-		
-		<div class="row limit category basic_category">
-			<div class="push" style="height:50px;"></div>
-			
-			<div class="twelvecol last">
-				<h2 class="page-header">TipTip Tooltips</h2>
-				<p>Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
-			</div>
-			<div class="push"></div>
-			
-			<div class="fourcol">
-<pre>
-/* doc ready activate all */
-jQuery(function(){
 
- jQuery(".tipTip").tipTip();
-
- jQuery(".tipTipR").tipTip({
-  defaultPosition:"right"
- });
-
-});
-</pre>
-			</div>
-
-			<div class="onecol"></div><div class="sevencol">
-			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
-			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
-			</div>
-		</div>
-		
 		<div class="row limit category buttons_category">
 			<div class="twelvecol last">
 				<h1 class="page-header">Button Framework</h1>
@@ -2206,6 +2153,35 @@ jQuery.facebox({ ajax: 'demos/example.html' }, 'my-groovy-style');
 			</div>
 			<div class="push" style="height:50px;"></div>
 		</div>
+		<div class="row limit category widgets_category">
+			<div class="push" style="height:50px;"></div>
+			
+			<div class="twelvecol last">
+				<h2 class="page-header">TipTip Tooltips</h2>
+				<p>Based on the latest 1.3 version of <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin">tipTip</a>. The Plugin uses the title attribute just like the native browser tooltip does. However, the title will be copied and then removed from the element when using TipTip so that the browser tooltip will not show up. The Plugin also detects the edges of the browser window and will adjust to stay within the current window size. It supports positioning above, below, to the left and to the right of the element.</p>
+			</div>
+			<div class="push"></div>
+			
+			<div class="fourcol">
+<pre>
+/* doc ready activate all */
+jQuery(function(){
+
+ jQuery(".tipTip").tipTip();
+
+ jQuery(".tipTipR").tipTip({
+  defaultPosition:"right"
+ });
+
+});
+</pre>
+			</div>
+
+			<div class="onecol"></div><div class="sevencol">
+			<a href="#" title="Regular ToolTip" class="tipTip p10 m10">Regular</a>
+			<a href="#" title="Positioning Right" class="tipTipR p10 m10">Default Right</a>
+			</div>
+		</div>
 		
 		<!-- DATAS -->
 		<!-- lists -->
@@ -2973,7 +2949,31 @@ $("table").stupidtable();
 			<div class="twelvecol last">
 			<h1 class="page-header">Forms</h1>
 			<p class="warning">this area is under development</p>
-			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>, and anything that was working with them should still work with hui.</p><div class="push"></div>
+			<p>Responsive Forms and Inputs. The majority of the Forms section has been Forked from <a href="https://github.com/twitter/bootstrap">Bootstrap ver 2</a>, and anything that was working with them should still work with hui.</p>
+			<div class="push"></div>
+			<div class="twelvecol last">
+				<h2 class="page-header">Select drop-down manipulation</h2>
+				<p class="fnote">Use jQuery to dynamically Adds (single/multiple) options to a select box (or series of select boxes). This plugin can further be expanded to allow removing of options, and using the shuffle plugin, randomization.<br/>
+					Based on the work by Sam Collett [http://www.texotela.co.uk/code/jquery/select].</p>
+			</div>
+			<div class="push"></div>
+			<div class="fourcol">
+<pre>&nbsp;
+&nbsp;
+</pre>				
+			</div>
+			<div class="onecol"></div><div class="sevencol">
+					<button onclick='jQuery("#myselect").addOption("Value", "Text-"+counter);counter++;return false;'><span class='label'>Select Add Value</span></button>
+					<button onclick='jQuery("#myselect").removeOption(0);return false;'><span class='label'>Select Remove First</span></button>
+					<div class="push" style="height:5px"></div>
+					<div class="p10 m10">
+						<select id="myselect" style="min-width:250px;font-size:1.3em;line-height:1.5em;">
+							<option>default</option>
+						</select>
+					</div>
+			</div>
+			
+			<div class="push" style="height:50px;"></div>
 <div>
 	<!-- Forms
     ================================================== -->
@@ -3750,7 +3750,7 @@ $("table").stupidtable();
 		
 		<!-- DANCE -->
 		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
+			<h3>Menu <span class="faicon icon-circle-arrow-left R" id="trigger-close"></span></h3>
 			<a href="#">Celery seakale</a>
 			<a href="#">Dulse daikon</a>
 			<a href="#">Zucchini garlic</a>
@@ -3758,8 +3758,8 @@ $("table").stupidtable();
 			<a href="#">Dandelion bunya</a>
 			<a href="#">Rutabaga</a>
 		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-			<h3>Menu</h3>
+		<nav class="cbp-spmenu cbp-spmenu-red cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+			<h3>Menu <span class="faicon icon-circle-arrow-right R" id="trigger-close2"></span></h3>
 			<a href="#">Celery seakale</a>
 			<a href="#">Dulse daikon</a>
 			<a href="#">Zucchini garlic</a>
@@ -3767,23 +3767,8 @@ $("table").stupidtable();
 			<a href="#">Dandelion bunya</a>
 			<a href="#">Rutabaga</a>
 		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
-			<h3>Menu</h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-			<h3>Menu</h3>
+		<nav class="cbp-spmenu cbp-spmenu-blue cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
+			<h3>Menu <span class="faicon icon-circle-arrow-up R" id="trigger-close3"></span></h3>
 			<a href="#">Celery seakale</a>
 			<a href="#">Dulse daikon</a>
 			<a href="#">Zucchini garlic</a>
@@ -3797,7 +3782,22 @@ $("table").stupidtable();
 			<a href="#">Dandelion bunya</a>
 			<a href="#">Rutabaga</a>
 		</nav>
-		<div class="row limit category accordion_category slideoutmain">
+		<nav class="cbp-spmenu cbp-spmenu-green cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<h3>Menu <span class="faicon icon-circle-arrow-down R" id="trigger-close4"></span></h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+		<div class="row limit category navigate_category slideoutmain">
 			<div class="twelvecol">
 				<h1 class="page-header">Flexible Content</h1>
 				<p>Secondary Content can be delivered via Modal windows, but it can also be delivered via slide out panels. In this section we have the "fly out" panels as well as collapsible accordions.</p>
@@ -3807,23 +3807,23 @@ $("table").stupidtable();
 			<div class="eightcol">
 			<h2 class="tC">Slide Menus</h2>
 			<!-- Class "cbp-spmenu-open" gets applied to menu -->
-			<button id="showLeft" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
-			<button id="showRight" class="action green C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
+			<button id="showLeft" class="action yellow C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
+			<button id="showRight" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
 			<button id="showTop" class="action blue C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Top Slide Menu</span></button>
-			<button id="showBottom" class="action yellow C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
+			<button id="showBottom" class="action green C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
 			<div class="push"></div>
 			
 			</div>
 			<div class="twocol last">&nbsp;</div>
 		</div>
 		
-		<div class="row limit category accordion_category">
+		<div class="row limit category navigate_category">
 			<div class="twelvecol">
 			<h2 class="page-header">Flapper Girl</h2>
 			<p>CSS3 Hardware animations power this accordion menu. Of course you can easily use jQuery to control the animations, but instead of the <code>.animate()</code> function everything is handled via CSS3, and manipulated with the <code>.css()</code> function in jQuery.</p>
 			<div class="push"></div>
 			</div>
-			<div class="fourcol">
+			<div class="fivecol">
 <pre class="jsCode">
 //JS
 var ladyParts = {
@@ -3858,7 +3858,8 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 &lt;/div&gt;
 </pre>
 			</div>
-			<div class="onecol"></div><div class="sevencol">
+			<div class="onecol"></div>
+			<div class="sixcol last">
 			<p>Click the Headers to Toggle that category's visibility, or click a name to see a notefy example.</p>
 				<div class="flapperStage">
 					<div class="speakEasy">
@@ -3890,9 +3891,9 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			
 			<div class="push" style="height:50px;"></div>
 			
-			<div class="fourcol"></div>
+			<div class="fivecol"></div>
 			<div class="onecol"></div>
-			<div class="sevencol">
+			<div class="sixcol last">
 			<p>Second Version. Command Panel Example.</p>
 				<div class="flapperStage">
 					<div class="speakEasy">
@@ -3966,17 +3967,33 @@ jQuery('.full-width').horizontalNav({
 		
 		<div class="row limit category navigate_category">
 		
-			<div class="fourcol">
+			<div class="twelvecol last">
+				<h2 class="page-header">Reactive Navigation</h2>
+				<p class="fnote">As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later! <br/>Also, it's import that "mobile menu" is first in your HTML. else you will get some funny animations in some browsers.
+				<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
+				<br/>
 				<div class="push"></div>
-<pre>
+			</div>
+
+			<div class="twelvecol last">
+			
+				<div class="push"></div>
+<pre style="overflow:hidden;">
+	
+//jQuery Activate
 var navobj = {"pull":"#pull"};
 jQuery("nav#flex1 ul").reactiveNav(navobj);
 	
-&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
-...
-...	
-&lt;nav class="clearfix"&gt;
-&lt;ul class="clearfix"&gt;
+
+//HTML MARKUP
+&lt;nav class="flex"&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;navpuller&quot;&gt;
+ &lt;span class=&quot;L&quot;&gt;Menu&lt;/span&gt; 
+ &lt;span class=&quot;fa-icon icon-reorder icon-2x&quot;&gt;&lt;/span&gt;
+&lt;/a&gt;
+			
+&lt;ul&gt;
  &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="#"&gt;How-to&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="#"&gt;Icons&lt;/a&gt;&lt;/li&gt;
@@ -3984,20 +4001,20 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
  &lt;li&gt;&lt;a href="#"&gt;Web 2.0&lt;/a&gt;&lt;/li&gt;
  &lt;li&gt;&lt;a href="#"&gt;Tools&lt;/a&gt;&lt;/li&gt;	
 &lt;/ul&gt;
-&lt;a href="#" id="pull"&gt;Menu&lt;/a&gt;
+
 &lt;/nav&gt;
+
 </pre>
-			</div>
-			<div class="onecol"></div><div class="sevencol">
 			<div class="push"></div>
-			<h2 class="page-header">Reactive Navigation</h2>
-			<p class="fnote">As you can see above, we have six primary menu links and added one more link after them. This extra link will be used to pull the menu navigation when it is hidden in a small screen. Give the Pull <strong>an ID [#name]</strong>. You will need it Later! <br/>Also, it's import that "mobile menu" is first in your HTML. else you will get some funny animations in some browsers.
-			<br/>This meta viewport tag is required for our page to scale properly inside any screen size, particularly in the mobile viewport.</p>
-			<br/>
-			<div class="push"></div>
+			
+			
 			<nav id="flex1" class="flex">
 				<!-- import that navpuller is first.-->
-				<a href="#" class="navpuller">Menu</a>
+				<a href="#" class="navpuller">
+					<span class="L">Menu</span> 
+					<span class="fa-icon icon-reorder icon-2x"></span>
+					<div class="push" style="height:0px;"></div>
+				</a>
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">How-to</a></li>
@@ -4055,7 +4072,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 
 
 <!-- minified hui library -->
-<script type="text/javascript" src="dist/hui-min.js?ver=123153"></script>
+<script type="text/javascript" src="dist/hui-min.js?ver=74528741"></script>
 <!-- Example Functions for the Demo -->
 <script type="text/javascript">
 	/* 
@@ -4132,12 +4149,7 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 		if( button !== 'showBottom' ) {
 			classie.toggle( showBottom, 'disabled' );
 		}
-		if( button !== 'showLeftPush' ) {
-			classie.toggle( showLeftPush, 'disabled' );
-		}
-		if( button !== 'showRightPush' ) {
-			classie.toggle( showRightPush, 'disabled' );
-		}
+		
 	}
 	
 	function brightnessToggle(newStyle){
@@ -4441,6 +4453,24 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	classie.toggle( menuLeft, 'cbp-spmenu-open' );
 	disableOther( 'showLeft' );
 	};
+	
+	$("#trigger-close").on("click",function() {
+		classie.toggle( menuLeft, 'cbp-spmenu-open' );
+		return false;
+	});
+	$("#trigger-close2").on("click",function() {
+		classie.toggle( menuRight, 'cbp-spmenu-open' );
+		return false;
+	});
+	$("#trigger-close3").on("click",function() {
+		classie.toggle( menuTop, 'cbp-spmenu-open' );
+		return false;
+	});
+	$("#trigger-close4").on("click",function() {
+		classie.toggle( menuBottom, 'cbp-spmenu-open' );
+		return false;
+	});
+	
 	showRight.onclick = function() {
 	classie.toggle( this, 'active' );
 	classie.toggle( menuRight, 'cbp-spmenu-open' );
