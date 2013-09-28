@@ -370,7 +370,7 @@ div.jGrowl div.jGrowl-closer:hover {
 }
 
 #facebox {
-	position: fixed!important;
+	position: absolute!important;
 	-webkit-transform: scale(0.7);
 	-moz-transform: scale(0.7);
 	-ms-transform: scale(0.7);

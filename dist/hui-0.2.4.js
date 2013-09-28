@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.4 - 2013-09-21
+/*! huement user interface - v0.2.4 - 2013-09-22
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -2640,7 +2640,8 @@ if (!console) {
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'" style="width:32px;height:32px;margin-top:20px;max-width:32px;max-height:32px;" class="C" /></div>');
 
 			jQuery('#facebox').show().css({
-				top: "100px"
+				//top: "100px"
+				top: getPageScroll()[1] + (getPageHeight() / 10),
 			});
 
       jQuery(document).bind('keydown.facebox', function(e) {

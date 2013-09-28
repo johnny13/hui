@@ -84,6 +84,101 @@ tr {
   color: #ffffff !important;
 }
 
+/* Pure Email Lists */
+.email-box {
+  background:#f7f7f7;
+}
+.pure-u-3-4 {
+  width: 75%;
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+.pure-u {
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+.pure-g {
+  letter-spacing: -.31em;
+  text-rendering: optimizespeed;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+}
+
+/* Email Item Styles */
+.email-item {
+  padding: 6px 3px 5px 5px;
+  border-bottom: 1px solid #ddd;
+  border-left: 6px solid transparent;
+}
+.email-avatar {
+  border-radius: 3px;
+  margin-right: 0.5em;
+}
+.email-name,
+.email-subject {
+  margin: 0;
+}
+.email-name {
+  text-transform: uppercase;
+  color: #999;
+}
+.email-desc {
+  font-size: 80%;
+  margin: 0.4em 0;
+}
+
+.email-item-selected {
+  background: #eee;
+}
+.email-item-unread {
+  border-left: 6px solid #02a3c6;
+}
+
+/* Email Content Styles */
+.email-content-header, .email-content-body, .email-content-footer {
+  padding: 1em 2em;
+}
+.email-content-header {
+  border-bottom: 1px solid #ddd;
+}
+
+.email-content-title {
+  margin: 0.5em 0 0;
+}
+.email-content-subtitle {
+font-size: 1em;
+  margin: 0;
+  font-weight: normal;
+}
+.email-content-subtitle span {
+  color: #999;
+}
+.email-content-controls {
+  margin-top: 2em;
+  text-align: right;
+}
+.email-content-controls .secondary-button {
+  margin-bottom: 0.3em;
+}
+
+@media screen and (max-width: 480px) {
+  .email-avatar {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
 /* Tegan and Sara */
 .Tegan {
   border-radius: 0px;
@@ -189,6 +284,7 @@ li .comment.limit {
   overflow: hidden;
   white-space: nowrap;
   margin-left:3px;
+  max-width:75%!important;
 }
 
 .Tegan li .arrow {
@@ -266,7 +362,7 @@ li .comment.limit {
   font-size: 1em;
   line-height:1em;
   float: left;
-  width:auto;
+  
   max-width:75%;
 }
 

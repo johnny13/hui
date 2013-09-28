@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.4.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+
+  <style type='text/css'>
+   html, body {height: 100%; margin: 0}
+
+   #content {
+	width: 100%; 
+	height: 100%;
+	
+   }
+.email-item-unread {
+border-left: 6px solid #32B127;
+}
+
+   #email_menu {
+	width: 140px; 
+	height: 100%; 
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index:99;
+	background-color: #333333;
+   }
+   #email_menu span.push_notification {
+	position:relative;
+	float:right;
+	display:inline;
+	margin-top:-5px;
+   }
+   .ecat { margin-top:5px;margin-bottom:5px;padding:5px 5px 0px 7px;color:#e6e6e6;min-height:30px; }
+   .ecat:hover { background:#222222;color:#f6f6f6;}
+   #email_messages {
+	width: 340px; 
+	height: 100%; 
+	background-color: #F3F3F3;
+	left:140px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+   }
+   
+   #email_display {
+	margin-left: 480px; 
+	height: 100%; 
+	background-color: #FFFFFF;
+	right: 0;
+   }
+
+   .message_column {
+    position: absolute;
+    top: 0px;
+    overflow-y: auto;
+   }
+
+   .compose { display:block;float:none;margin:10px auto 0px auto;position:relative;width:115px;}
+   .compose .fa-icon { margin:7px -10px 0px 10px;font-size:20px;}
+   @media screen and (max-width: 800px) {
+	 #email_menu {
+		position:fixed;
+		top:0;
+		left:0;
+		z-index:99;
+	   }
+	
+	#email_messages {
+		width: 100%; 
+		height: 30%; 
+		float: none; 
+		position:fixed;
+		top:0;
+		left:140;
+		vertical-align:top;
+	   }
+	#email_display {
+		display:inline-block;
+		margin-left: 140px;
+		width:auto;
+		position: fixed;
+		top: 33%;
+		right: 0;
+		bottom: 0;
+		overflow: auto;
+	}
+   }
+  </style>
+
+  <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+<div id='content'>
+	<div id='email_menu'>
+		<div class="push"></div>
+		<button class="compose"><span class="fa-icon icon-envelope-alt"></span><span class="label">Compose</span></button>
+		<div class="push" style="height:10px;"></div>
+		<h4 class="tC greenText">categories</h4>
+		<p class="ecat">My Files<span class="button green push_notification">10</span></p>
+		<p class="ecat">Lithium PHP</p>
+		<p class="ecat">Lithium PHP</p>
+		<h4 class="tC redText">categories</h4>
+		<p class="ecat">Mail<span class="button red push_notification">20</span></p>
+		<p class="ecat">Lithium PHP</p>			
+	</div>
+	
+	<div id='email_messages' class='message_column'>
+		<div class="pure-u-1 email-box" id="list">
+		        <div class="email-item email-item-selected pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Tilo Mitra's avatar" src="http://huementui.s3.amazonaws.com/imgs/glenn.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Tilo Mitra</h5>
+		                <h4 class="email-subject">Hello from Toronto</h4>
+		                <p class="email-desc">
+		                    Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item email-item-unread pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Eric Ferraiuolo's avatar" src="http://huementui.s3.amazonaws.com/imgs/malcom.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Eric Ferraiuolo</h5>
+		                <h4 class="email-subject">Re: Pull Requests</h4>
+		                <p class="email-desc">
+		                    Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item email-item-unread pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="YUI's avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">YUI Library</h5>
+		                <h4 class="email-subject">You have 5 bugs assigned to you</h4>
+		                <p class="email-desc">
+		                    Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Reid Burke's avatar" src="http://huementui.s3.amazonaws.com/imgs/otherguy.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Reid Burke</h5>
+		                <h4 class="email-subject">Re: Design Language</h4>
+		                <p class="email-desc">
+		                    Excepteur sint occaecat cupidatat non proident, sunt in culpa.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Terry Wooldridge's avatar" src="http://huementui.s3.amazonaws.com/imgs/terry.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Terry Wooldridge</h5>
+		                <h4 class="email-subject">YUI Blog Updates?</h4>
+		                <p class="email-desc">
+		                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Yahoo! Finance's Avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Yahoo! Finance</h5>
+		                <h4 class="email-subject">How to protect your finances from winter storms</h4>
+		                <p class="email-desc">
+		                    Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Yahoo! News' avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Yahoo! News</h5>
+		                <h4 class="email-subject">Summary for April 3rd, 2012</h4>
+		                <p class="email-desc">
+		                    We found 10 news articles that you may like.
+		                </p>
+		            </div>
+		        </div>
+		</div>
+
+		
+	</div>
+	
+	<div id='email_display'>
+		<div class="container">
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+			
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+			
+		  </div>
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+
+		  </div>
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+
+		  </div>
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+
+		  </div>
+		
+		</div>
+	</div>
+</div>
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
+
+})(jQuery);
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
+});
+
+jQuery(window).load(function() {
+ 
+});
+</script>
+</body>
+</html>

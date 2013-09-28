@@ -113,7 +113,8 @@
         append('<div class="loading"><img src="'+jQuery.facebox.settings.loadingImage+'" style="width:32px;height:32px;margin-top:20px;max-width:32px;max-height:32px;" class="C" /></div>');
 
 			jQuery('#facebox').show().css({
-				top: "100px"
+				//top: "100px"
+				top: getPageScroll()[1] + (getPageHeight() / 10),
 			});
 
       jQuery(document).bind('keydown.facebox', function(e) {

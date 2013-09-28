@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.4.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+
+  <style type='text/css'>
+   html, body {height: 100%; margin: 0}
+
+   #content {
+	width: 100%; 
+	height: 100%;
+   }
+
+   #left {
+	width: 300px; 
+	height: 100%; 
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index:99;
+	background-color: #772A2A;
+   }
+   .blogTitle { margin-top:60px;}
+   .blogSubtitle {color:#A7A7A7; padding:10px;}
+   .blog_compose { float:none;display:block;margin:10px auto 10px auto;min-width:110px}
+   .fa-icon { margin:7px -10px 0px 10px;font-size:20px;}
+
+   #right {margin-left: 300px; height: 100%; background-color: #D4D4D4;}
+   
+   @media screen and (max-width: 800px) {
+	#left {
+		width: 100%; 
+		height: 30%; 
+		float: none; 
+		position:relative;
+		display:inline-block;
+		vertical-align:top;
+		min-height:200px;
+	   }
+	#right {
+		display:inline-block;
+		margin-left: 0px; 
+		height: 70%;
+		box-sizing:border-box;
+	}
+	.blogTitle { margin-top:3px;}
+	.blogSubtitle {padding:0px;text-align:center;margin-top:-5px;}
+	.blog_compose { float:left;display:block;margin:5px -15% 10px 20%;position:relative;min-width:90px}
+	.fa-icon { margin:3px 10px 0px 5px;font-size:18px;}
+	
+   }
+   @media screen and (max-width: 500px) {
+	.blog_compose {margin-left:10px;margin-right:5px;}
+   }
+  </style>
+
+  <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+<div id='content'>
+	<div id='left'>
+		
+		<h1 class="tC whiteText blogTitle">blog it!</h1>
+		<h3 class="blogSubtitle">blue sky thinker and fresh earther</h3>
+		<button class="blog_compose"><span class="fa-icon icon-home"></span><span class="label">Home</span></button>
+		<button class="blog_compose"><span class="fa-icon icon-camera"></span><span class="label">Galleries</span></button>
+		<button class="blog_compose"><span class="fa-icon icon-film"></span><span class="label">Youtube</span></button>
+	</div>
+	<div id='right'>
+		
+		<div class="container">
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+			
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+			
+		  </div>
+		  <div class="row">			
+			<div class="threecol immune blueb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune blueb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune blueb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last blueb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+
+		  </div>
+		  <div class="row">			
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol immune last redb">
+			 <p>Three columns</p>
+			</div>
+
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Six</p>
+			</div>
+			<div class="threecol whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Twelve</p>
+			</div>
+			<div class="threecol eightcol-bside whiteb" style="height:300px;">
+			<p>Big Three</p><br/>
+			<p>Small Eight</p>
+			</div>
+
+		  </div>
+		 </div>
+		
+
+	</div>
+</div>
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
+
+})(jQuery);
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
+});
+
+jQuery(window).load(function() {
+ 
+});
+</script>
+</body>
+</html>

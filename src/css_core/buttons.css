@@ -134,12 +134,7 @@ button.action,
   background: -ms-linear-gradient(top, #F5F5F5, #F1F1F1);
   background: -o-linear-gradient(top, #F5F5F5, #F1F1F1);
 }
-button.action:hover, 
-.button.action:hover {
-	-moz-box-shadow: 0 1px 0px #DDD;
-	-webkit-box-shadow: 0 1px 0px #DDD;
-	box-shadow:iset 0 1px 0px #DDD;
-}
+
 
 .full_button {
   width: 95%;

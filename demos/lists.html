@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.4.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+
+ <!-- 
+ Simple CDN CSS Setup
+ <link href="http://huementui.s3.amazonaws.com/cdn/github/dist/hui-dark.css" rel="stylesheet" type="text/css"/> -->
+
+
+	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
+	<![endif]-->
+ <!-- sample styles -->
+ <style type="text/css">
+  /* DEMO STYLES */
+  body { 
+   min-height: 100% !important; 
+   height: 100% !important; 
+   width:100%;
+   display:block;
+   background-image:url("https://huement.s3.amazonaws.com/imgs/noisy_grid.png");
+   background-repeat:repeat;
+   
+  }
+  p.dark { color: #3d3d3d; line-height:20px;font-size:16px;padding:5px;margin:5px; }
+  a { color: #264c99; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+ </style>
+ <!-- Header JS -->
+ <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+  <div class="push" style="height:20px;"></div>
+
+
+  <div class="container">
+  <div class="row limit">
+   <div class="sixcol immune">
+    
+		<div class="pure-u-1 email-box" id="list">
+		        <div class="email-item email-item-selected pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Tilo Mitra's avatar" src="http://huementui.s3.amazonaws.com/imgs/glenn.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Tilo Mitra</h5>
+		                <h4 class="email-subject">Hello from Toronto</h4>
+		                <p class="email-desc">
+		                    Hey, I just wanted to check in with you from Toronto. I got here earlier today.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item email-item-unread pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Eric Ferraiuolo's avatar" src="http://huementui.s3.amazonaws.com/imgs/malcom.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Eric Ferraiuolo</h5>
+		                <h4 class="email-subject">Re: Pull Requests</h4>
+		                <p class="email-desc">
+		                    Hey, I had some feedback for pull request #51. We should center the menu so it looks better on mobile.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item email-item-unread pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="YUI's avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">YUI Library</h5>
+		                <h4 class="email-subject">You have 5 bugs assigned to you</h4>
+		                <p class="email-desc">
+		                    Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Reid Burke's avatar" src="http://huementui.s3.amazonaws.com/imgs/otherguy.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Reid Burke</h5>
+		                <h4 class="email-subject">Re: Design Language</h4>
+		                <p class="email-desc">
+		                    Excepteur sint occaecat cupidatat non proident, sunt in culpa.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Terry Wooldridge's avatar" src="http://huementui.s3.amazonaws.com/imgs/terry.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Terry Wooldridge</h5>
+		                <h4 class="email-subject">YUI Blog Updates?</h4>
+		                <p class="email-desc">
+		                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Yahoo! Finance's Avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Yahoo! Finance</h5>
+		                <h4 class="email-subject">How to protect your finances from winter storms</h4>
+		                <p class="email-desc">
+		                    Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris.
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="email-item pure-g">
+		            <div class="pure-u">
+		                <img class="email-avatar" alt="Yahoo! News' avatar" src="http://huementui.s3.amazonaws.com/imgs/olly.png" height="64" width="64">
+		            </div>
+
+		            <div class="pure-u-3-4">
+		                <h5 class="email-name">Yahoo! News</h5>
+		                <h4 class="email-subject">Summary for April 3rd, 2012</h4>
+		                <p class="email-desc">
+		                    We found 10 news articles that you may like.
+		                </p>
+		            </div>
+		        </div>
+		</div>
+
+
+
+   </div>
+   <div class="sixcol immune">
+    <p>Three columns</p>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="push" style="height:420px;"></div>
+ <div class="container">
+  <div class="row limit">
+   <div class="threecol immune">
+    <p>Three columns</p>
+   </div>
+   <div class="threecol immune">
+    <p>Three columns</p>
+   </div>
+   <div class="threecol immune">
+    <p>Three columns</p>
+   </div>
+   <div class="threecol immune last">
+    <p>Three columns</p>
+   </div>
+  </div>
+ </div>
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+
+<!-- or setup for jQuery 1.9+ & 2.0b Slower. For Development.
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.0.0b1.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+-->
+
+<!-- Include the hui javascript library -->
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- if you wanted to add additional plugins, it would be like this:
+<script src="https://huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/js/jquery.thimbleberry.min.js" type="text/javascript"></script>
+
+and dont forget to include the css in the header!
+eg: huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/css/thimbleberry-min.css
+-->
+
+<!-- sample doc ready -->
+<script type="text/javascript">
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
+
+})(jQuery);
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
+});
+
+jQuery(window).load(function() {
+ 
+});
+</script>
+</body>
+</html>
