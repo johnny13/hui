@@ -293,7 +293,7 @@ button.yellow .label,
 .button.green .label, button.blue .label, 
 .button.blue .label {
   color: #FFF !important;
-  text-shadow: 0 1px 0 #B0281A !important;
+  text-shadow: 0 1px 0 #1b1b1b !important;
 }
 
 button.blue:active .label, 

@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.4 - 2013-09-22
+/*! huement user interface - v0.2.4 - 2013-09-28
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -1392,7 +1392,7 @@ button.yellow .label,
 .button.green .label, button.blue .label, 
 .button.blue .label {
   color: #FFF !important;
-  text-shadow: 0 1px 0 #B0281A !important;
+  text-shadow: 0 1px 0 #1b1b1b !important;
 }
 
 button.blue:active .label, 
