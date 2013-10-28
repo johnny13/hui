@@ -1116,6 +1116,24 @@ legend + .control-group {
   }
 }
 
+.input-button {
+	padding:8px 8px 8px 8px!important;
+	margin:6px 10px 0px 0px!important;
+	-webkit-border-radius: 3px 3px 3px 3px !important;
+	-moz-border-radius: 3px 3px 3px 3px !important;
+	border-radius: 3px 3px 3px 3px !important;
+	float:left;
+}
+
+.input-button-left {
+	padding: 8px 8px 8px 8px!important;
+	margin: 6px 0px 0px 10px!important;
+	-webkit-border-radius: 3px 0px 3px 3px !important;
+	-moz-border-radius: 3px 0px 3px 3px !important;
+	border-radius: 3px 0px 3px 3px !important;
+	float:left;
+}
+
 @media (min-width: 980px) {
   .nav-collapse.collapse {
     height: auto !important;

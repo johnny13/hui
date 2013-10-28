@@ -79,7 +79,7 @@ button.middle,
 button.right, 
 .button.right {
   margin: 5px 5px 5px 0;
-  float:left !important;
+  float:left;
   border-left-color: #ACACAC;
   border-top-left-radius: 0;
   -webkit-border-top-left-radius: 0;
@@ -149,7 +149,7 @@ button.action,
 button.action span.label, .button.action span.label {
   color: #353535;
   text-shadow: 0 1px 0 #f7f7f7;
-  
+  font-weight:bold;
   padding:10px 20px 10px 20px;
 }
 .button.action span.fa-icon,
@@ -159,13 +159,9 @@ button.action span.fa-icon {
 }
 button.action:hover, 
 .button.action:hover {
-  background: #F3F3F3;
+  background: #E0E0E0;
+}
 
-}
-button.action:hover span.label, .button.action:hover span.label {
-  color:#F3F3F3;
-  text-shadow:-1px -1px 1px #5F5F5F;  
-}
 button.blue, 
 .button.blue {
   border: 1px solid #3079ED !important;
@@ -606,24 +602,23 @@ button:hover span.toggle,
 div.dropdown-slider {
   display: none;
   overflow: hidden;
-  margin: 0 7px 5px 7px;
+  margin: 3px 7px 5px 7px;
   position: absolute;
   top: 34px;
   right: 0;
   background: #E2E2E2;
-  border-right: solid 1px #797979;
-  border-bottom: solid 1px #797979;
-  border-left: solid 1px #797979;
-  -webkit-border-bottom-right-radius: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -moz-border-radius-bottomleft: 2px;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
+  border: solid 1px #797979;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .middle div.dropdown-slider {
   margin: 0 1px 5px 1px;
+}
+
+div.dropdown-slider .ddm .label {
+	margin-top:-5px!important;
 }
 
 div.dropdown-slider .ddm {
@@ -761,10 +756,29 @@ button.black.on {
  color-stop(1, rgba(0, 0, 0, 0.9)));
 }
 
+.fa-icon {
+  padding: 10px 15px 10px 15px;
+}
+
+.fa-icon.icon-2x {
+  margin-top:6px;
+}
+
+button span.label-2x, .button span.label-2x {
+  font-size: 25px!important;
+  line-height: 25px!important;
+  padding: 15px;
+  overflow: visible!important;
+}
+
 @media (max-width: 800px) {
   button, .button {
     font: bold 14px Helvetica, Arial, sans-serif;
     margin: 3px;
+  }
+  button.left, .button.left, button.right, .button.right, button.middle, .button.middle {
+    margin-top:3px;
+    margin-bottom:3px;
   }
   .ddm span.label, 
   button span.label, 
@@ -777,6 +791,6 @@ button.black.on {
     margin: 3px 7px 3px 7px; /* SAME AS PADDING ON LABEL */
   }
   div.dropdown span.toggle {
-    margin-top: 0px;
+    margin-top: 3px;
   }
 }

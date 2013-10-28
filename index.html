@@ -99,7 +99,6 @@
 			margin-top:3px;
 			margin-bottom:3px;
 		}
-		
 		/* horizontalNav menu */
 		.navList {
 			position:relative;
@@ -206,9 +205,10 @@
 			<a href="#" class="reload"><h2 class="el_arco_iris L" style="margin:0px 5px -2px 5px;line-height:1em;padding:3px 0 0 0;">hui</h2></a>
 			
 			<div class="btnbarbox">
-				<a class="button left" href="test/"><span class="icon icon43"></span><span class="label smallHide">tests</label></a>
-				<a class="button middle" href="http://hui.huement.com/"><span class="icon icon108 smallHide"></span><span class="label">main</label></a>
-				<a class="button middle" href="https://github.com/johnny13/hui/"><span class="icon icon97 smallHide"></span><span class="label">github</label></a>
+				<a class="tipTip button left" href="demos/" title="more demos"><span class="icon icon12"></span></a>
+				<a class="tipTip button middle" href="test/" title="qunit tests"><span class="icon icon43"></span></a>
+				<a class="tipTip button middle" title="hui home" href="http://hui.huement.com/"><span class="icon icon108"></span></a>
+				<a class="tipTip button middle" title="github" href="https://github.com/johnny13/hui/"><span class="icon icon97"></span></a>
 				<a class="button right brightToggle" href="https://github.com/johnny13/li3-hui/"><span class="icon icon24 smallHide"></span><span class="label brightToggleTxt">mode</label></a>
 			</div>
 			<div class="push" style="height:0px;"></div>
@@ -3009,17 +3009,17 @@ $("table").stupidtable();
       <div class="push"></div>
       <h3 class="page-header">Search form</h3>
       <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
-		<form style="width:300px;">
-			<input type="text" class="input-medium L" style="margin-right:10px;">
-			<button type="submit" class="m0 blue"><span class="L icon-search whiteText"></span><span class="label">&nbsp;Search</span></button>
+		<form>
+			<input type="text" class="input-medium input-button">
+			<button type="submit" class="blue"><span class="fa-icon icon-search whiteText"></span><span class="label">&nbsp;Search</span></button>
 		</form>
-		<form style="width:300px;">
-			<input type="text" class="input-medium search-query L" style="margin-right:10px;">
-			<button type="submit" class="m0 blue"><span class="L icon-search whiteText"></span><span class="label">Search</span></button>
+		<form>
+			<input type="text" class="input-medium input-button search-query"/>
+			<button type="submit" class="blue"><span class="fa-icon icon-search whiteText"></span><span class="label">Search</span></button>
 		</form>
 <pre class="htmlCode">
 &lt;form style="width:300px;"&gt;
-&lt;input type="text" class="input-medium search-query"&gt;
+&lt;input type="text" class="input-medium search-query input-button"&gt;
 &lt;button type="submit" class="m0 blue"&gt;&lt;span class="label"&gt;Search&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 </pre>
@@ -3027,8 +3027,8 @@ $("table").stupidtable();
       <h3 class="page-header">Inline form</h3>
       <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
       <form class="bs-docs-example form-inline" style="width:450px;">
-        <input type="text" class="input-small" placeholder="Email">
-        <input type="password" class="input-small" placeholder="Password">
+        <input type="text" class="input-small input-button" placeholder="Email">
+        <input type="password" class="input-small input-button" placeholder="Password">
         <label class="checkbox">
           <input type="checkbox"> Remember me
         </label>
@@ -3036,8 +3036,8 @@ $("table").stupidtable();
       </form>
 <pre class="htmlCode">
 &lt;form class="form-inline"&gt;
-&lt;input type="text" class="input-small" placeholder="Email"&gt;
-&lt;input type="password" class="input-small" placeholder="Password"&gt;
+&lt;input type="text" class="input-small input-button" placeholder="Email"&gt;
+&lt;input type="password" class="input-small input-button" placeholder="Password"&gt;
 &lt;label class="checkbox"&gt;
 &lt;input type="checkbox"&gt; Remember me
 &lt;/label&gt;
@@ -3058,13 +3058,13 @@ $("table").stupidtable();
         <div class="control-group">
           <label class="control-label" for="inputEmail">Email</label>
           <div class="controls">
-            <input type="text" id="inputEmail" placeholder="Email">
+            <input type="text" id="inputEmail" placeholder="Email" class="input-button">
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="inputPassword">Password</label>
           <div class="controls">
-            <input type="password" id="inputPassword" placeholder="Password">
+            <input type="password" id="inputPassword" placeholder="Password" class="input-button">
           </div>
         </div>
         <div class="control-group">
@@ -3156,32 +3156,32 @@ $("table").stupidtable();
       <p>Using a the same layout as the button framework, can really create some nice forms, albeit a bit counterintuitive. Kinda like sex for the first time. You put the button class on the input class. like so: <code>&lt;input class="button left" type="text"&gt;</code> and match it with the opposing directional button: <code>&lt;button class="right blue"&gt;</code></p>
       <form class="bs-docs-example">
         <div class="input-append">
-          <input class="button left" id="appendedInputButton" type="text">
+          <input class="input-button" id="appendedInputButton" type="text">
           <button class="right blue"><span class="label">Go!</span></button>
         </div>
       </form>
 	  <form class="bs-docs-example">
         <div class="input-append">
-          <input class="button left" id="appendedInputButton2" type="text">
+          <input class="input-button" id="appendedInputButton2" type="text">
           <button class="right"><span class="icon icon196"></span><span class="label">Go!</span></button>
         </div>
       </form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
-&lt;input class="button left" id="appendedInputButton" type="text"&gt;
+&lt;input class="input-button left" id="appendedInputButton" type="text"&gt;
 &lt;button class="right"&gt;&lt;span class="label"&gt;Go!&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
       <form class="bs-docs-example">
         <div class="input-append">
-          <input class="button left" id="appendedInputButtons" type="text">
+          <input class="input-button" id="appendedInputButtons" type="text">
           <button class="middle"><span class="icon icon96"></span><span class="label">Options</span></button>
           <button class="right"><span class="L icon-search whiteText"></span><span class="label">Search</span></button>
         </div>
       </form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
-&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
+&lt;input class="input-button" id="appendedInputButtons" type="text"&gt;
 &lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
 &lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
 &lt;/div&gt;
@@ -3193,7 +3193,7 @@ $("table").stupidtable();
 		<form class="bs-docs-example">
 			<div class="input-append">
 				
-				<input class="button left" id="appendedDropdownButton" type="text">
+				<input class="input-button-left" id="appendedDropdownButton" type="text">
 					<div class="dropdown right">
 					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
 					 <div class="dropdown-slider">
@@ -3207,7 +3207,7 @@ $("table").stupidtable();
 		</form>
 <pre class="htmlCode">
 &lt;div class="input-append"&gt;
- &lt;input class="button left" id="appendedDropdownButton" type="text"&gt;
+ &lt;input class="input-button" id="appendedDropdownButton" type="text"&gt;
   &lt;div class="dropdown middle"&gt;
    &lt;a href="#" class="button"&gt;&lt;span class="icon icon198"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
     &lt;div class="dropdown-slider"&gt;
@@ -3222,7 +3222,7 @@ $("table").stupidtable();
       	<form class="bs-docs-example">
 			<div class="input-append">
 				<button class="L"><span class="label">Pants</span></button>
-				<input class="button left" id="appendedDropdownButton" type="text">
+				<input class="input-button-left" id="appendedDropdownButton" type="text">
 					<div class="dropdown right">
 					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
 					 <div class="dropdown-slider">
@@ -3238,7 +3238,7 @@ $("table").stupidtable();
 &lt;form class="bs-docs-example"&gt;
 	&lt;div class="input-append"&gt;
 		&lt;button class="L"&gt;&lt;span class="label"&gt;Pants&lt;/span&gt;&lt;/button&gt;
-		&lt;input class="button left" id="appendedDropdownButton" type="text"&gt;
+		&lt;input class="input-button left" id="appendedDropdownButton" type="text"&gt;
 			&lt;div class="dropdown right"&gt;
 			 &lt;a href="#" class="button right"&gt;&lt;span class="icon icon198"&gt;&lt;/span&gt;&lt;span class="toggle"&gt;&lt;/span&gt;&lt;/a&gt;
 			 &lt;div class="dropdown-slider"&gt;
@@ -3263,7 +3263,7 @@ $("table").stupidtable();
 				 </div> <!-- /.dropdown-slider -->
 				</div> <!-- /.dropdown -->
 				
-				<input class="button left" id="appendedDropdownButton" type="text">
+				<input class="input-button-left" id="appendedDropdownButton" type="text">
 					<div class="dropdown right">
 					 <a href="#" class="button right"><span class="icon icon198"></span><span class="toggle"></span></a>
 					 <div class="dropdown-slider">
@@ -3922,7 +3922,6 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			</div>
 			
 		</div>
-		
 		
 		<!--NAV -->
 		<div class="row limit category navigate_category">

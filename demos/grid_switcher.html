@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.4.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+
+ <!-- 
+ Simple CDN CSS Setup
+ <link href="http://huementui.s3.amazonaws.com/cdn/github/dist/hui-dark.css" rel="stylesheet" type="text/css"/> -->
+
+
+	<!-- Old IE CDN version here: huementui.s3.amazonaws.com/cdn/ie-min.css -->
+	<!--[if lte IE 9]>
+	<link rel="stylesheet" href="http://huementui.s3.amazonaws.com/cdn/github/dist/ie-min.css" type="text/css" media="screen" />
+	<![endif]-->
+ <!-- sample styles -->
+<style type="text/css">
+  /* DEMO STYLES */
+  body { 
+	  min-height: 100% !important; 
+	  height: 100% !important; 
+	  width:100%;
+	  display:block;
+	  background-image:url("http://huement.s3.amazonaws.com/imgs/noisy_grid.png");
+	  background-repeat:repeat;
+	  color:#EEE;font-weight:bold;
+  }
+  
+  /** list view **/
+  ul.gridlist { list-style: none; width: 98%; margin:0px auto; display:block; position:relative; border:1px solid #C4C4C4; }
+  ul.gridlist li { display: block; background: #F7F7F7; padding: 10px 15px; }
+  ul.gridlist li.alt { background: #EBEBEB; }
+  ul.gridlist li section.left { display: block; float: left; width: 47%; position: relative; padding-left: 20px; }
+  ul.gridlist li section.right { display: block; float: right; margin-right: 10px; width: 47%; text-align: right; }
+  ul.gridlist li section.left img.thumb { float: left; padding: 3px; background:#FFFFFF; margin-right: 10px; }
+  ul.gridlist li section.left img.featured-banner { position: absolute; left: -18px; top: 35px; }
+  ul.gridlist li section.left h3 { 
+	  font-family: "Trebuchet MS", Arial, sans-serif; font-weight: bold; text-transform: uppercase; color: #2E2E2E; 
+	  font-size: 1.4em; line-height: 1.6em;
+	  margin:2px 0px 0px 2px;
+  }
+  ul.gridlist li section.left span.meta { color: #5A5A5A; font-weight: normal; font-size: 1.1em; }
+  ul.gridlist li section.right span.price { 
+	  font-weight: bold; display: block; margin-bottom: 0px; color: #ad3939; font-size: 1.6em; text-align: right;
+  }
+  ul.gridlist li section.right a.firstbtn { margin-right: 7px; }
+  ul.gridlist li section.right .be1 {
+  	float:right!important;
+  }
+  ul.gridlist li section.right .be2 {
+  	float:right!important;
+  }
+  @media screen and (max-width: 800px) {
+   	
+  }
+  
+  /** grid view **/
+  ul.gridgrid { list-style: none; margin: 0 auto; padding-left: 25px; }
+  ul.gridgrid li { 
+	  position: relative; display: block; float: left; width: 220px; background:#F7F7F7; 
+	  border: 1px solid #b6bdbe; padding: 10px 22px; margin-bottom: 0px; 
+	  box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+  }
+  ul.gridgrid li.alt { background: #EBEBEB; }
+  ul.gridgrid li.third { border: 0; }
+  ul.gridgrid li section.left { position: relative; }
+  ul.gridgrid li section.right { /* nothing */ }
+  ul.gridgrid li section.left img.thumb { 
+	  background:#FFFFFF;
+	  display:block;
+	  margin:0 auto;
+	  position:relative;
+	  padding:3px;
+  }
+  ul.gridgrid li section.left img.featured-banner { position: absolute; top: 0; }
+  ul.gridgrid li section.left h3 { 
+	  font-family: "Trebuchet MS", Arial, sans-serif; font-weight: bold; 
+	  text-transform: uppercase; color: #707375; font-size: 1.4em; line-height: 1.5em; 
+  }
+  ul.gridgrid li section.left span.meta { display: block; color: #93989b; font-weight: normal; font-size: 1.1em; margin-bottom: 7px; }
+  ul.gridgrid li section.right span.price { font-weight: bold; display: block; margin-bottom: 5px; color: #ad3939; font-size: 1.75em; }
+  ul.gridgrid li section.right span.darkview {
+	  opacity: 0;
+	  margin: 0;
+	  position: absolute;
+	  top: 25px;
+	  left: 0;
+	  width: 190px;
+	  height: 200px;
+	  margin: 0 15px;
+	  border-radius: 6px;
+	  background: rgba(40, 45, 55, 0.75);
+	  overflow: hidden;
+	  text-align: center;
+	  padding-top: 35px;
+	  box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  -webkit-box-sizing: border-box;
+	  transition: opacity 0.2s linear 0s;
+	  -webkit-transition: opacity 0.2s linear 0s;
+	  -moz-transition: opacity 0.25s linear 0s;
+	  -o-transition: opacity 0.25s linear 0s;
+  }
+  ul.gridgrid li:hover section.right span.darkview { opacity: 1; }
+  ul.gridgrid li section.right span.darkview button.be1,ul.gridgrid li:hover section.right span.darkview button.be1 {
+  	float:left!important;
+	margin-left:10px;
+  }
+  ul.gridgrid li section.right span.darkview button.be2,ul.gridgrid li:hover section.right span.darkview button.be2 {
+  	float:right!important;
+	margin-right:10px;
+  }
+</style>
+ <link href="./grid_switcher.css" rel="stylesheet" type="text/css"/>
+ <!-- Header JS -->
+ <script src="../libs/holder/holder.js"></script>
+ <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+ <div class="push" style="height:30px;"></div>
+ <div class="container">
+ <div class="row">
+  <div class="twelvecol last" style="background-color:transparent;">
+	<div class="button-container C" style="width:95%;">
+		<p class="grid R" style="width:300px;">
+			<button id="grid_switch" class="button glswitch" title="Grid"><span class="fa-icon icon-th"></span><span class="label">Grid</span></button>
+			<button id="list_switch" class="button glswitch on" title="List"><span class="fa-icon icon-list-ul"></span><span class="label">List</span></button>
+		</p>
+	</div>
+  </div>
+ </div>
+ </div>
+ <div class="push" style="height:10px;"></div>
+
+<div class="container">
+ <div class="row">
+  <div class="twelvecol last" style="background-color:transparent;">
+	<ul id="products" class="gridlist clearfix" style="width:95%;list-style-type:none;">
+		<!-- row 1 -->
+		<li class="clearfix">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J423</span>
+			</section>
+			<section class="right">
+				<span class="price">$45.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+		
+		<!-- row 2 -->
+		<li class="clearfix alt">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J424</span>
+			</section>
+			<section class="right">
+				<span class="price">$32.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+		
+		<!-- row 3 -->
+		<li class="clearfix">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J425</span>
+			</section>
+			<section class="right">
+				<span class="price">$15.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+	
+		<!-- row 4 -->
+		<li class="clearfix alt">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J423</span>
+			</section>
+			<section class="right">
+				<span class="price">$45.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+		
+		<!-- row 5 -->
+		<li class="clearfix">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J424</span>
+			</section>
+			<section class="right">
+				<span class="price">$32.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+		
+		<!-- row 6 -->
+		<li class="clearfix alt">
+			<section class="left">
+				<img src="../libs/holder/holder.js/81x81" alt="default thumb" class="thumb">
+				<h3>Product Name</h3>
+				<span class="meta">Product ID: 543J425</span>
+			</section>
+			<section class="right">
+				<span class="price">$15.00</span>
+				<span class="darkview">
+					<button class="button be1">
+						<span class="fa-icon icon-shopping-cart"></span>
+					</button>
+					<button class="button be2">
+						<span class="fa-icon icon-align-left"></span>
+					</button>
+				</span>
+			</section>
+		</li>
+	</ul>
+  </div>
+ </div>
+
+
+<div class="push" style="height:250px;"></div>
+
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+
+<!-- or setup for jQuery 1.9+ & 2.0b Slower. For Development.
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.0.0b1.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.0.0.js"></script>
+-->
+
+<!-- Include the hui javascript library -->
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- if you wanted to add additional plugins, it would be like this:
+<script src="https://huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/js/jquery.thimbleberry.min.js" type="text/javascript"></script>
+
+and dont forget to include the css in the header!
+eg: huementui.s3.amazonaws.com/cdn/hui-plugins/Thimbleberry/css/thimbleberry-min.css
+-->
+
+<!-- sample doc ready -->
+<script src="./grid_switcher.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
+
+})(jQuery);
+
+function gridListSwitch(themode){
+	
+	var theproducts = $("ul#products");
+	
+	if(themode == "Grid") {
+		//Update Grid / List Button
+		$("#grid_switch").addClass("on");
+		$("#list_switch").removeClass("on");
+
+		// remove the list class and change to grid
+		theproducts.removeClass("gridlist fadeInLeft");
+		theproducts.addClass("gridgrid animated fadeInDown");
+
+		// update all thumbnails to larger size
+		
+	} else if(themode == "List") {
+		//Update Grid / List Button
+		$("#grid_switch").removeClass("on");
+		$("#list_switch").addClass("on");
+		
+		// remove the list class and change to grid
+		theproducts.removeClass("gridgrid animated fadeInDown");
+		theproducts.addClass("gridlist animated fadeInLeft");
+		
+		// update all thumbnails to larger size
+		
+	}
+}
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
+
+	$("button.glswitch").on("click", function(ev){
+		ev.preventDefault();
+		
+		var viewmode = $(this).attr("title");
+		gridListSwitch(viewmode);
+		console.debug(viewmode);
+		if($(this).hasClass("on")) {
+			// if currently clicked button has the active class
+			// then we do nothing!
+			return false;
+		} else {
+			// otherwise we are clicking on the inactive button
+			// and in the process of switching views!
+			
+		}
+		return false;
+	});
+	
+});
+
+jQuery(window).load(function() {
+ 
+});
+</script>
+</body>
+</html>

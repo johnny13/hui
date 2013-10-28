@@ -8,7 +8,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <!-- Mobile Related Stuff -->
  <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
- <title>Welcome to Huement</title>
+ <title>Blog About It</title>
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 
@@ -31,15 +31,21 @@
 	top: 0;
 	bottom: 0;
 	z-index:99;
-	background-color: #772A2A;
+	background-color: #AD2424;
+   }
+   .post-container {
+    margin-bottom:20px;
    }
    .blogTitle { margin-top:60px;}
    .blogSubtitle {color:#A7A7A7; padding:10px;}
-   .blog_compose { float:none;display:block;margin:10px auto 10px auto;min-width:110px}
+   .blog_compose { float:none;display:block;margin:10px auto 10px auto;width:140px;}
    .fa-icon { margin:7px -10px 0px 10px;font-size:20px;}
-
-   #right {margin-left: 300px; height: 100%; background-color: #D4D4D4;}
+   .button.green, button.green { background-color:#24AD67;background:#24AD67; }
+   #right {margin-left: 300px; height: 100%;}
    
+   .category-title {
+   	padding:0px;margin:0px;border-bottom:1px solid #C4C4C4;color:#5d5d5d;
+   }
    @media screen and (max-width: 800px) {
 	#left {
 		width: 100%; 
@@ -58,7 +64,7 @@
 	}
 	.blogTitle { margin-top:3px;}
 	.blogSubtitle {padding:0px;text-align:center;margin-top:-5px;}
-	.blog_compose { float:left;display:block;margin:5px -15% 10px 20%;position:relative;min-width:90px}
+	.blog_compose { float:left;display:block;margin:5px -15% 10px 20%;position:relative;width:140px;}
 	.fa-icon { margin:3px 10px 0px 5px;font-size:18px;}
 	
    }
@@ -66,131 +72,88 @@
 	.blog_compose {margin-left:10px;margin-right:5px;}
    }
   </style>
-
+  <script src="../libs/holder/holder.js"></script>
   <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
 </head>
 <body>
 <div id='content'>
+	
 	<div id='left'>
-		
 		<h1 class="tC whiteText blogTitle">blog it!</h1>
 		<h3 class="blogSubtitle">blue sky thinker and fresh earther</h3>
 		<button class="blog_compose"><span class="fa-icon icon-home"></span><span class="label">Home</span></button>
 		<button class="blog_compose"><span class="fa-icon icon-camera"></span><span class="label">Galleries</span></button>
 		<button class="blog_compose"><span class="fa-icon icon-film"></span><span class="label">Youtube</span></button>
 	</div>
+	
 	<div id='right'>
 		
-		<div class="container">
-		  <div class="row">			
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune last redb">
-			 <p>Three columns</p>
-			</div>
-			
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Twelve</p>
-			</div>
-			<div class="threecol eightcol-bside whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Eight</p>
-			</div>
-			
-		  </div>
-		  <div class="row">			
-			<div class="threecol immune blueb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune blueb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune blueb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune last blueb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Twelve</p>
-			</div>
-			<div class="threecol eightcol-bside whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Eight</p>
-			</div>
-
-		  </div>
-		  <div class="row">			
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol immune last redb">
-			 <p>Three columns</p>
-			</div>
-
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol sixcol-bside whiteText blackb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Six</p>
-			</div>
-			<div class="threecol whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Twelve</p>
-			</div>
-			<div class="threecol eightcol-bside whiteb" style="height:300px;">
-			<p>Big Three</p><br/>
-			<p>Small Eight</p>
-			</div>
-
-		  </div>
-		 </div>
+		<div class="post-container container">
+		  <div class="row">
+			  <div class="twelvecol last whiteb">
+				<div class="p10">
+  					<h4 class="category-title">Post Category</h4>
+					<div class="sevencol">
+  					<h1 class="m0 p10">hui article</h1>
+  					<p class="L">By: <a href="#">derek</a> Tagged:</p>
+					<button class="blue"><span class="label" style="padding:2px;">css</span></button> <button class="green"><span class="label" style="padding:2px;">pure</span></button><div class="push" style="height:1px"></div>
+				    </div>
+					<img src="../libs/holder/holder.js/81x81/sky" alt="default thumb" class="p10 m10 thumb R"/>
+					<div class="push" style="height:1px"></div>
+				</div>
+				
+				<div class="post-body p10">
+					<p>Disrupt wayfarers cliche, dreamcatcher chambray deep v bitters hella Bushwick eiusmod nihil cardigan next level quinoa irure. Readymade anim retro, vinyl irure accusamus skateboard four loko enim. Irony pour-over qui veniam, Thundercats pug letterpress disrupt sed semiotics non Shoreditch labore. Etsy paleo retro fashion axe, assumenda sed ut ethical street art flexitarian forage organic laborum pork belly proident. Sriracha before they sold out actually VHS duis deep v wolf, cray est nihil Schlitz. Banksy McSweeney's assumenda, pour-over velit dolore church-key lo-fi cornhole ex consequat Shoreditch. Nostrud master cleanse deserunt, craft beer shabby chic pariatur McSweeney's paleo Thundercats gluten-free Wes Anderson mlkshk reprehenderit.</p>
+				</div>
+			   </div>
+  		  </div>
+		</div>
 		
-
+		<div class="post-container container">
+		  <div class="row">
+			  <div class="twelvecol last whiteb">
+				<div class="p10">
+  					<h4 class="category-title">Post Category</h4>
+					<div class="sevencol">
+  					<h1 class="m0 p10">hui article</h1>
+  					<p class="L">By: <a href="#">derek</a> Tagged:</p>
+					<button class="blue"><span class="label" style="padding:2px;">css</span></button> <button class="green"><span class="label" style="padding:2px;">pure</span></button><div class="push" style="height:1px"></div>
+				    </div>
+					<img src="../libs/holder/holder.js/81x81/social" alt="default thumb" class="p10 m10 thumb R"/>
+					<div class="push" style="height:1px"></div>
+				</div>
+				
+				<div class="post-body p10">
+					<p>Duis you probably haven't heard of them Odd Future irure accusamus. Street art four loko Truffaut tattooed, aliquip VHS cornhole mumblecore ethnic vegan irony. Blue Bottle bicycle rights whatever deserunt bespoke four loko. Minim squid meggings, whatever small batch pork belly Pitchfork blog bicycle rights cupidatat. Meh dreamcatcher Williamsburg sriracha nihil Banksy artisan drinking vinegar. Vice McSweeney's iPhone four loko, et seitan officia semiotics. McSweeney's umami skateboard velit, ugh master cleanse hella polaroid Cosby sweater vegan try-hard next level pug incididunt Portland.</p>
+					<p>PBR Marfa ennui tofu, fugiat twee gluten-free. Anim sunt freegan do, beard small batch sustainable duis exercitation deserunt Godard XOXO cupidatat food truck. Next level sriracha quinoa Pitchfork, cupidatat Williamsburg voluptate 8-bit lomo single-origin coffee. Adipisicing master cleanse salvia, cornhole bespoke keytar in ullamco enim flexitarian butcher. Wolf quinoa vero esse. Esse forage ad, keffiyeh fixie whatever flannel 90's distillery Austin skateboard gluten-free Tonx ullamco pop-up. Farm-to-table consequat tousled nihil.</p>
+				</div>
+			   </div>
+  		  </div>
+		</div>
+		
+		<div class="post-container container">
+		  <div class="row">
+			  <div class="twelvecol last whiteb">
+				<div class="p10">
+  					<h4 class="category-title">Post Category</h4>
+					<div class="sevencol">
+  					<h1 class="m0 p10">hui article</h1>
+  					<p class="L">By: <a href="#">derek</a> Tagged:</p>
+					<button class="blue"><span class="label" style="padding:2px;">css</span></button> <button class="green"><span class="label" style="padding:2px;">pure</span></button><div class="push" style="height:1px"></div>
+				    </div>
+					<img src="../libs/holder/holder.js/81x81/vine" alt="default thumb" class="p10 m10 thumb R"/>
+					<div class="push" style="height:1px"></div>
+				</div>
+				
+				<div class="post-body p10">
+					<p>Enim meh culpa, cray Austin pickled McSweeney's put a bird on it Wes Anderson chambray American Apparel Truffaut ugh lomo. Meh Blue Bottle dolore, tote bag raw denim sapiente wayfarers kitsch fingerstache et hella accusamus master cleanse. 8-bit drinking vinegar post-ironic duis non. Banjo post-ironic quis reprehenderit seitan. Whatever gentrify bitters, irony brunch do pug raw denim aesthetic. Synth lomo nisi roof party yr, distillery 90's McSweeney's beard sint mlkshk elit ullamco. Consectetur street art do brunch kitsch.</p>
+				</div>
+			   </div>
+  		  </div>
+		</div>
+		
 	</div>
+	
 </div>
 <!-- Stable jQuery 1.8 Product type setup -->
 <script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>

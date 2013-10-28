@@ -8,7 +8,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <!-- Mobile Related Stuff -->
  <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
- <title>Welcome to Huement</title>
+ <title>eMail Application</title>
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
  <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
 
@@ -17,17 +17,17 @@
  <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
 
   <style type='text/css'>
-   html, body {height: 100%; margin: 0}
+   html, body { height: 100%; margin: 0; }
 
    #content {
 	width: 100%; 
-	height: 100%;
-	
+	height: 100%;	
    }
-.email-item-unread {
-border-left: 6px solid #32B127;
-}
-
+   
+   .email-item-unread {
+     border-left: 6px solid #32B127;
+   }
+   
    #email_menu {
 	width: 140px; 
 	height: 100%; 
@@ -37,26 +37,42 @@ border-left: 6px solid #32B127;
 	z-index:99;
 	background-color: #333333;
    }
+   
    #email_menu span.push_notification {
 	position:relative;
 	float:right;
 	display:inline;
 	margin-top:-5px;
    }
+   
    .ecat { margin-top:5px;margin-bottom:5px;padding:5px 5px 0px 7px;color:#e6e6e6;min-height:30px; }
-   .ecat:hover { background:#222222;color:#f6f6f6;}
+   
+   .ecat:hover, .ecat.on { background:#222222;color:#f6f6f6; }
+   
    #email_messages {
+	/*
+	show all the time
 	width: 340px; 
+	*/
+	width: 0px;
 	height: 100%; 
 	background-color: #F3F3F3;
-	left:140px;
+	left: 140px;
 	position: fixed;
 	top: 0;
 	bottom: 0;
+	-webkit-transition: width 0.75s ease-in-out;
+	-moz-transition: width 0.75s ease-in-out;
+	-o-transition: width 0.75s ease-in-out;
+	transition: width 0.75s ease-in-out;
+   }
+   
+   #email_messages.fullshow {
+   	width: 340px; 
    }
    
    #email_display {
-	margin-left: 480px; 
+	margin-left: 140px; 
 	height: 100%; 
 	background-color: #FFFFFF;
 	right: 0;
@@ -66,10 +82,13 @@ border-left: 6px solid #32B127;
     position: absolute;
     top: 0px;
     overflow-y: auto;
+	z-index:2;
    }
 
    .compose { display:block;float:none;margin:10px auto 0px auto;position:relative;width:115px;}
-   .compose .fa-icon { margin:7px -10px 0px 10px;font-size:20px;}
+   
+   .compose .fa-icon { margin:7px -10px 0px 10px; font-size:20px; padding:2px; }
+   
    @media screen and (max-width: 800px) {
 	 #email_menu {
 		position:fixed;
@@ -106,7 +125,7 @@ border-left: 6px solid #32B127;
 <div id='content'>
 	<div id='email_menu'>
 		<div class="push"></div>
-		<button class="compose"><span class="fa-icon icon-envelope-alt"></span><span class="label">Compose</span></button>
+		<button class="compose"><span class="fa-icon icon-envelope-alt"></span><span class="label">Write</span></button>
 		<div class="push" style="height:10px;"></div>
 		<h4 class="tC greenText">categories</h4>
 		<p class="ecat">My Files<span class="button green push_notification">10</span></p>
@@ -223,7 +242,24 @@ border-left: 6px solid #32B127;
 	
 	<div id='email_display'>
 		<div class="container">
-		  <div class="row">			
+		  <div class="row">
+			<div class="twelvecol last whiteb">
+				<div class="container">
+				  <div class="row">
+  					<div class="sixcol">
+						<h1 class="L p10">Hello World Email</h1><br/>
+  					</div>
+					<div class="sixcol last">
+						<div class="push" style="height:10px"></div>
+						<button class="action" title="Grid"><span class="label">Reply</span></button>
+						<button class="action" title="Grid"><span class="label">Forward</span></button>
+						<button class="action" title="Grid"><span class="label">Label</span></button>
+						<div class="push" style="height:1px"></div>
+						<p>From Tilo Mitra at 3:56pm, April 3, 2012</p>
+					</div>
+				  </div>
+				</div>
+			</div>
 			<div class="threecol immune redb">
 			 <p>Three columns</p>
 			</div>
@@ -399,6 +435,20 @@ border-left: 6px solid #32B127;
 jQuery(document).ready(function() {
 	var ladyParts = ["-v", "-m"];
 	console.debug( jQuery.hui(ladyParts) );
+	
+	$(".ecat").on("click", function(ev){
+
+		if($("#email_messages").hasClass("fullshow")==false){
+			$("#email_messages").addClass("fullshow");
+			$(this).addClass("on");
+		} else {
+			if($(this).hasClass("on")==true){
+				$("#email_messages").removeClass("fullshow");
+				$(this).removeClass("on");
+			}
+		}
+		ev.preventDefault();
+	});
 });
 
 jQuery(window).load(function() {

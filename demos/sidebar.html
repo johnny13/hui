@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!-- Viewport -->
+ <meta name="description" content="Huement User Interface (hui)">
+ <meta name="author" content="Derek Scott (@huement)">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <!-- Mobile Related Stuff -->
+ <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+ <title>Welcome to Huement</title>
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="shortcut icon">
+ <link href="https://huement.s3.amazonaws.com/code/hui/favicon.ico" title="Icon" type="image/x-icon" rel="icon">
+
+ <!-- DEMO THEME BUILDING SETUP -->
+ <link href="../dist/hui-0.2.4.css" rel="stylesheet" type="text/css"/>
+ <link href="../src/themes/lithium/dev-theme.css" rel="stylesheet" type="text/css"/>
+ <link href="./sidebar.css" rel="stylesheet" type="text/css"/>
+ <script src="http://huementui.s3.amazonaws.com/cdn/github/libs/modernizr/modernizr-min.js"></script>
+</head>
+<body>
+<div id='content'>
+	<div id='left'>
+		<nav id="menu" class="mm-menu mm-is-menu mm-horizontal">
+			<div class="mm-inner">
+				<ul class="mm-opened">
+					<li id="open-icon-menu"><a href="http://mmenu.frebsite.nl/examples/responsive/#">
+					<i class="icon icon-white icon-th-list"></i></a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#home">
+					<i class="icon icon-white icon-home"></i>
+					Home</a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#iconbar">
+					<i class="icon icon-white icon-th"></i>
+					Iconbar</a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#styling">
+					<i class="icon icon-white icon-bold"></i>
+					Styling</a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#responsive">
+					<i class="icon icon-white icon-resize-horizontal"></i>
+					Responsive</a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#scrolling">
+					<i class="icon icon-white icon-arrow-down"></i>
+					Scrolling</a></li>
+					<li><a href="http://mmenu.frebsite.nl/examples/responsive/#about">
+					<i class="icon icon-white icon-cog"></i>
+					About</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div id='right'>
+		
+		<div class="container">
+			<div class="row greyb" id="page_one">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+			<div class="row redb" id="page_two">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+			<div class="row blueb" id="page_three">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+			<div class="row greenb" id="page_four">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+			<div class="row purpleb" id="page_five">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+			<div class="row blackb" id="page_six">
+				<div class="twelvecol">
+					<div class="push" style="height:100px;"></div>
+						<h1 class="tC">Page One</h1>
+						<h2 class="p0 m0 tC">Lets Read About Stuff</h2>
+					<div class="push" style="height:100px;"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Stable jQuery 1.8 Product type setup -->
+<script src="../libs/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="https://huementui.s3.amazonaws.com/cdn/github/libs/jquery/jquery-1.8.3.min.js"><\/script>')</script>
+<script src="../dist/hui-min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/************************************************ [S01] Action Functions */
+(function(jQuery) {
+ 
+ $.hui = function(optionArray) {
+	var plugin = this;
+	var result = "";
+	
+  	if($.inArray("-v", optionArray) != -1){
+		result += "hui version: 0.2.2"+"\n";
+	}
+	
+	if($.inArray("-m", optionArray) != -1){
+		result += "hui manual available here: hui.huement.com/docs"+"\n";
+	}
+		
+	if(result == ""){
+		return "unknown parameter";
+	} else {
+		return result;
+	}
+ }
+
+})(jQuery);
+
+jQuery(document).ready(function() {
+	var ladyParts = ["-v", "-m"];
+	console.debug( jQuery.hui(ladyParts) );
+});
+
+jQuery(window).load(function() {
+ 
+});
+</script>
+</body>
+</html>
