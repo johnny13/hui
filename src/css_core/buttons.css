@@ -106,10 +106,10 @@ button:active, .button:active, .button.active, button.active {
 
 button.on, 
 .button.on {
-  border-color: #BBB;
-  -moz-box-shadow:inset 0 0 10px #D4D4D4;
-  -webkit-box-shadow:inset 0 0 10px #D4D4D4;
-  box-shadow:inset 0 0 10px #D4D4D4;
+  border-color: #888888;
+  -moz-box-shadow:inset 0 0 10px #AFAFAF;
+  -webkit-box-shadow:inset 0 0 10px #AFAFAF;
+  box-shadow:inset 0 0 10px #AFAFAF;
 }
 
 button.on:hover, 
@@ -150,12 +150,12 @@ button.action span.label, .button.action span.label {
   color: #353535;
   text-shadow: 0 1px 0 #f7f7f7;
   font-weight:bold;
-  padding:10px 20px 10px 20px;
+  padding:10px 20px 10px 20px;  
 }
-.button.action span.fa-icon,
-button.action span.fa-icon {
-  color: #FFF !important;
-  text-shadow: -1px -1px 1px #000!important;
+.button.red span.fa-icon,
+button.red span.fa-icon {
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #1B1B1B;
 }
 button.action:hover, 
 .button.action:hover {
@@ -164,36 +164,36 @@ button.action:hover,
 
 button.blue, 
 .button.blue {
-  border: 1px solid #3079ED !important;
-  background: #4B8DF8;
-  background: -webkit-linear-gradient(top, #4C8FFD, #4787ED);
-  background: -moz-linear-gradient(top, #4C8FFD, #4787ED);
-  background: -ms-linear-gradient(top, #4C8FFD, #4787ED);
-  background: -o-linear-gradient(top, #4C8FFD, #4787ED);
+  border: 1px solid #2C8AC0 !important;
+  background: #47A3DA;
+  background: -webkit-linear-gradient(top, #47A3DA, #3B96CA);
+  background: -moz-linear-gradient(top, #47A3DA, #3B96CA);
+  background: -ms-linear-gradient(top, #47A3DA, #3B96CA);
+  background: -o-linear-gradient(top, #47A3DA, #3B96CA);
 
 }
 button.blue:hover, 
 .button.blue:hover {
   border: 1px solid #2F5BB7 !important;
-  background: #3F83F1;
+  background: #3B96CA;
 }
 button.green, 
 .button.green {
   border: 1px solid #29691D !important;
-  background: #3A8E00;
-  background: -webkit-linear-gradient(top, #3C9300, #398A00);
-  background: -moz-linear-gradient(top, #3C9300, #398A00);
-  background: -ms-linear-gradient(top, #3C9300, #398A00);
-  background: -o-linear-gradient(top, #3C9300, #398A00);
+  background: #26C42B;
+  background: -webkit-linear-gradient(top, #47CC4B, #51B655);
+  background: -moz-linear-gradient(top, #47CC4B, #51B655);
+  background: -ms-linear-gradient(top, #47CC4B, #51B655);
+  background: -o-linear-gradient(top, #47CC4B, #51B655);
 }
 button.green:hover, 
 .button.green:hover {
-  border: 1px solid #2D6200 !important;
-  background: #3F83F1;
-  background: -webkit-linear-gradient(top, #3C9300, #368200);
-  background: -moz-linear-gradient(top, #3C9300, #368200);
-  background: -ms-linear-gradient(top, #3C9300, #368200);
-  background: -o-linear-gradient(top, #3C9300, #368200);
+  border: 1px solid #3AAA3E !important;
+  background: #3ECF43;
+  background: -webkit-linear-gradient(top, #3ECF43, #26C42B);
+  background: -moz-linear-gradient(top, #3ECF43, #26C42B);
+  background: -ms-linear-gradient(top, #3ECF43, #26C42B);
+  background: -o-linear-gradient(top, #3ECF43, #26C42B);
 }
 button.red, 
 .button.red {
@@ -330,19 +330,6 @@ button:hover span.icon,
 .button:hover span.icon,
 .button.on span.icon, button.on span.icon {
   background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png");
-}
-
-button span.label-2x, .button span.label-2x {
-  font-size: 2.0em!important;
-  line-height:1.1em!important;
-  overflow:visible!important;
-}
-
-
-button span.label-3x, .button span.label-3x {
-  font-size: 2.3em!important;
-  line-height:1.3em!important;
-  overflow:visible!important;
 }
 
 /*------------------------------------*\
@@ -764,11 +751,20 @@ button.black.on {
   margin-top:6px;
 }
 
-button span.label-2x, .button span.label-2x {
+button span.label-2x, .button span.label-2x,
+button.action span.label-2x, .button.action span.label-2x {
   font-size: 25px!important;
   line-height: 25px!important;
-  padding: 15px;
-  overflow: visible!important;
+  padding: 15px 15px 15px 15px;
+  overflow:visible!important;
+}
+
+button span.label-3x, .button span.label-3x,
+button.action span.label-3x, .button.action span.label-3x {
+  font-size: 35px!important;
+  line-height:35px!important;
+  padding: 15px 15px 15px 15px;
+  overflow:visible!important;
 }
 
 @media (max-width: 800px) {
