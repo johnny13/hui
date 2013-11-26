@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.4 - 2013-11-10
+/*! huement user interface - v0.2.4 - 2013-11-25
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -1939,191 +1939,566 @@ window.HTMLNotification = (function(win, $) {
 // Setup
 window.Notification || (window.Notification = window.HTMLNotification);
 
-/* Select box manipulation Plugin [http://www.texotela.co.uk/code/jquery/select]
+/*
  *
- * Copyright (c) 2006 Sam Collett (http://www.texotela.co.uk)
- * Licensed under the MIT License:
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Addepted to select an option by Mathias Bank (http://www.mathias-bank.de)
+ * Copyright (c) 2006-2010 Sam Collett (http://www.texotela.co.uk)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version 2.2.6
+ * Demo: http://www.texotela.co.uk/code/jquery/select/
+ *
+ *
  */
  
-/*
+;(function($) {
+ 
+/**
  * Adds (single/multiple) options to a select box (or series of select boxes)
  *
  * @name     addOption
  * @author   Sam Collett (http://www.texotela.co.uk)
- * @example  jQuery("#myselect").addOption("Value", "Text"); // add single value (will be selected)
- *           jQuery("#myselect").addOption("Value 2", "Text 2", false); // add single value (won't be selected)
- *           jQuery("#myselect").addOption({"foo":"bar","bar":"baz"}, false); // add multiple values, but don't select
+ * @type     jQuery
+ * @example  $("#myselect").addOption("Value", "Text"); // add single value (will be selected)
+ * @example  $("#myselect").addOption("Value 2", "Text 2", false); // add single value (won't be selected)
+ * @example  $("#myselect").addOption({"foo":"bar","bar":"baz"}, false); // add multiple values, but don't select
  *
  */
-jQuery.fn.addOption = function()
+$.fn.addOption = function()
 {
- if(arguments.length === 0){
- return this;
- } 
- // select option when added? default is true
- var selectOption = true;
- // multiple items
- var multiple = false;
- if(typeof arguments[0] === "object"){
-  multiple = true;
-  var items = arguments[0];
- }
- if(arguments.length >= 2){
-  if(typeof arguments[1] === "boolean"){ selectOption = arguments[1]; }
-  else if(typeof arguments[2] === "boolean"){ selectOption = arguments[2]; }
-  if(!multiple){
-   var value = arguments[0];
-   var text = arguments[1];
-  }
- }
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select"){return;}
-   if(multiple){
-    for(var v in items)
-    {
-     jQuery(this).addOption(v, items[v], selectOption);
-    }
-   } else {
-    var option = document.createElement("option");
-    option.value = value;
-    option.text = text;
-    this.options.add(option);
-   }
-   if(selectOption){
-    this.options[this.options.length-1].selected = true;
-   }
-  }
- );
- return this;
+	var add = function(el, v, t, sO, index)
+	{
+		var option = document.createElement("option");
+		option.value = v, option.text = t;
+		// get options
+		var o = el.options;
+		// get number of options
+		var oL = o.length;
+		if(!el.cache)
+		{
+			el.cache = {};
+			// loop through existing options, adding to cache
+			for(var i = 0; i < oL; i++)
+			{
+				el.cache[o[i].value] = i;
+			}
+		}
+		if (index || index == 0)
+		{
+ 			// we're going to insert these starting  at a specific index...
+			// this has the side effect of el.cache[v] being the 
+			// correct value for the typeof check below
+			var ti = option;
+			for(var ii =index; ii <= oL; ii++)
+			{
+				var tmp = el.options[ii];
+				el.options[ii] = ti;
+				o[ii] = ti;
+				el.cache[o[ii].value] = ii;
+				ti = tmp;
+			}
+		}
+    
+		// add to cache if it isn't already
+		if(typeof el.cache[v] == "undefined") el.cache[v] = oL;
+		el.options[el.cache[v]] = option;
+		if(sO)
+		{
+			option.selected = true;
+		}
+	};
+	
+	var a = arguments;
+	if(a.length == 0) return this;
+	// select option when added? default is true
+	var sO = true;
+	// multiple items
+	var m = false;
+	// other variables
+	var items, v, t, startindex = 0;
+	if(typeof(a[0]) == "object")
+	{
+		m = true;
+		items = a[0];
+	}
+	if(a.length >= 2)
+	{
+		if(typeof(a[1]) == "boolean")
+		{
+			sO = a[1];
+			startindex = a[2];
+		}
+		else if(typeof(a[2]) == "boolean")
+		{
+			sO = a[2];
+			startindex = a[1];
+		}
+		else
+		{
+			startindex = a[1];
+		}
+		if(!m)
+		{
+			v = a[0];
+			t = a[1];
+		}
+	}
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			if(m)
+			{
+				var sel = this;
+				jQuery.each(items, function(val, text){
+					if(typeof(text) == "object"){
+						jQuery.each(text, function(k,v){
+							val = k;
+							text = v;
+						});
+					}
+					add(sel, val, text, sO, startindex);
+					startindex += 1; 
+				});
+			}
+			else
+			{
+				add(this, v, t, sO, startindex);
+			}
+		}
+	);
+	return this;
 };
 
-/*
-* Removes an option (by value or index) from a select box (or series of select boxes)
-*
-* @name     removeOption
-* @author   Sam Collett (http://www.texotela.co.uk)
-* @example  jQuery("#myselect").removeOption("Value"); // remove by value
-*           jQuery("#myselect").removeOption(0); // remove by index
-*
-*/
-jQuery.fn.removeOption = function()
+/**
+ * Add options via ajax
+ *
+ * @name     ajaxAddOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String url      Page to get options from (must be valid JSON)
+ * @param    Object params   (optional) Any parameters to send with the request
+ * @param    Boolean select  (optional) Select the added options, default true
+ * @param    Function fn     (optional) Call this function with the select object as param after completion
+ * @param    Array args      (optional) Array with params to pass to the function afterwards
+ * @example  $("#myselect").ajaxAddOption("myoptions.php");
+ * @example  $("#myselect").ajaxAddOption("myoptions.php", {"code" : "007"});
+ * @example  $("#myselect").ajaxAddOption("myoptions.php", {"code" : "007"}, false, sortoptions, [{"dir": "desc"}]);
+ *
+ */
+$.fn.ajaxAddOption = function(url, params, select, fn, args)
 {
- if(arguments.length === 0){ return this; }
- if(typeof arguments[0] === "string"){ var value = arguments[0]; }
- else if(typeof arguments[0] === "number"){ var index = arguments[0]; }
- else{ return this; }
- this.each(
-  function()
-  {
-   if(this.nodeName.toLowerCase() !== "select"){ return; }
-   if(value){
-    var optionsLength = this.options.length;
-    for(var i=optionsLength-1; i>=0; i--){
-     if(this.options[i].value === value){
-      this.options[i] = null;
-     }
-    }
-   }
-   else{
-    this.remove(index);
-   }
-  }
- );
- return this;
+	if(typeof(url) != "string") return this;
+	if(typeof(params) != "object") params = {};
+	if(typeof(select) != "boolean") select = true;
+	this.each(
+		function()
+		{
+			var el = this;
+			$.getJSON(url,
+				params,
+				function(r)
+				{
+					$(el).addOption(r, select);
+					if(typeof fn == "function")
+					{
+						if(typeof args == "object")
+						{
+							fn.apply(el, args);
+						} 
+						else
+						{
+							fn.call(el);
+						}
+					}
+				}
+			);
+		}
+	);
+	return this;
 };
 
-/*
-* Sort options (ascending or descending) in a select box (or series of select boxes)
-*
-* @name     sortOptions
-* @author   Sam Collett (http://www.texotela.co.uk)
-* @param    ascending   Sort ascending (true/undefined), or descending (false)
-* @example  // ascending
-*           jQuery("#myselect").sortOptions(); // or jQuery("#myselect").sortOptions(true);
-*           // descending
-*           jQuery("#myselect").sortOptions(false);
-*
-*/
-jQuery.fn.sortOptions = function(ascending)
+/**
+ * Removes an option (by value or index) from a select box (or series of select boxes)
+ *
+ * @name     removeOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String|RegExp|Number what  Option to remove
+ * @param    Boolean selectedOnly       (optional) Remove only if it has been selected (default false)   
+ * @example  $("#myselect").removeOption("Value"); // remove by value
+ * @example  $("#myselect").removeOption(/^val/i); // remove options with a value starting with 'val'
+ * @example  $("#myselect").removeOption(/./); // remove all options
+ * @example  $("#myselect").removeOption(/./, true); // remove all options that have been selected
+ * @example  $("#myselect").removeOption(0); // remove by index
+ * @example  $("#myselect").removeOption(["myselect_1","myselect_2"]); // values contained in passed array
+ *
+ */
+$.fn.removeOption = function()
 {
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select"){ return; }
-   // default sort is ascending if parameter is undefined
-   ascending = typeof ascending === "undefined" ? true : ascending;
-   // get number of options
-   var optionsLength = this.options.length;
-   // create an array for sorting
-   var sortArray = [];
-   // loop through options, adding to sort array
-   for(var i = 0; i<optionsLength; i++)
-   {
-    sortArray[i] =
-    {
-     value: this.options[i].value,
-     text: this.options[i].text
-    };
-   }
-   // sort items in array
-   sortArray.sort(
-    function(option1, option2)
-    {
-     // option text is made lowercase for case insensitive sorting
-     
-     var option1text = option1.text.toLowerCase();
-     var option2text = option2.text.toLowerCase();
-     // if options are the same, no sorting is needed
-     if(option1text === option2text){ return 0; }
-     if(ascending){
-      return option1text < option2text ? -1 : 1;
-     }
-     else {
-      return option1text > option2text ? -1 : 1;
-     }
-    }
-   );
-   // change the options to match the sort array
-   for(var ix = 0; ix<optionsLength; ix++){
-    this.options[i].text = sortArray[ix].text;
-    this.options[i].value = sortArray[ix].value;
-   }
-  }
- );
- return this;
+	var a = arguments;
+	if(a.length == 0) return this;
+	var ta = typeof(a[0]);
+	var v, index;
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(ta == "string" || ta == "object" || ta == "function" )
+	{
+		v = a[0];
+		// if an array, remove items
+		if(v.constructor == Array)
+		{
+			var l = v.length;
+			for(var i = 0; i<l; i++)
+			{
+				this.removeOption(v[i], a[1]); 
+			}
+			return this;
+		}
+	}
+	else if(ta == "number") index = a[0];
+	else return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			// clear cache
+			if(this.cache) this.cache = null;
+			// does the option need to be removed?
+			var remove = false;
+			// get options
+			var o = this.options;
+			if(!!v)
+			{
+				// get number of options
+				var oL = o.length;
+				for(var i=oL-1; i>=0; i--)
+				{
+					if(v.constructor == RegExp)
+					{
+						if(o[i].value.match(v))
+						{
+							remove = true;
+						}
+					}
+					else if(o[i].value == v)
+					{
+						remove = true;
+					}
+					// if the option is only to be removed if selected
+					if(remove && a[1] === true) remove = o[i].selected;
+					if(remove)
+					{
+						o[i] = null;
+					}
+					remove = false;
+				}
+			}
+			else
+			{
+				// only remove if selected?
+				if(a[1] === true)
+				{
+					remove = o[index].selected;
+				}
+				else
+				{
+					remove = true;
+				}
+				if(remove)
+				{
+					this.remove(index);
+				}
+			}
+		}
+	);
+	return this;
 };
 
-/*
+/**
+ * Sort options (ascending or descending) in a select box (or series of select boxes)
+ *
+ * @name     sortOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    Boolean ascending   (optional) Sort ascending (true/undefined), or descending (false)
+ * @example  // ascending
+ * $("#myselect").sortOptions(); // or $("#myselect").sortOptions(true);
+ * @example  // descending
+ * $("#myselect").sortOptions(false);
+ *
+ */
+$.fn.sortOptions = function(ascending)
+{
+	// get selected values first
+	var sel = $(this).selectedValues();
+	var a = typeof(ascending) == "undefined" ? true : !!ascending;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			// create an array for sorting
+			var sA = [];
+			// loop through options, adding to sort array
+			for(var i = 0; i<oL; i++)
+			{
+				sA[i] = {
+					v: o[i].value,
+					t: o[i].text
+				}
+			}
+			// sort items in array
+			sA.sort(
+				function(o1, o2)
+				{
+					// option text is made lowercase for case insensitive sorting
+					o1t = o1.t.toLowerCase(), o2t = o2.t.toLowerCase();
+					// if options are the same, no sorting is needed
+					if(o1t == o2t) return 0;
+					if(a)
+					{
+						return o1t < o2t ? -1 : 1;
+					}
+					else
+					{
+						return o1t > o2t ? -1 : 1;
+					}
+				}
+			);
+			// change the options to match the sort array
+			for(var i = 0; i<oL; i++)
+			{
+				o[i].text = sA[i].t;
+				o[i].value = sA[i].v;
+			}
+		}
+	).selectOptions(sel, true); // select values, clearing existing ones
+	return this;
+};
+/**
  * Selects an option by value
  *
  * @name     selectOptions
- * @author   Mathias Bank (http://www.mathias-bank.de)
- * @param    value specifies, which options should be selected
- * @example  jQuery("#myselect").selectOptions("val1");
+ * @author   Mathias Bank (http://www.mathias-bank.de), original function
+ * @author   Sam Collett (http://www.texotela.co.uk), addition of regular expression matching
+ * @type     jQuery
+ * @param    String|RegExp|Array value  Which options should be selected
+ * can be a string or regular expression, or an array of strings / regular expressions
+ * @param    Boolean clear  Clear existing selected options, default false
+ * @example  $("#myselect").selectOptions("val1"); // with the value 'val1'
+ * @example  $("#myselect").selectOptions(["val1","val2","val3"]); // with the values 'val1' 'val2' 'val3'
+ * @example  $("#myselect").selectOptions(/^val/i); // with the value starting with 'val', case insensitive
  *
  */
-jQuery.fn.selectOptions = function(value) {
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select") {
-    return;
-   }
-   // get number of options
-   var optionsLength = this.options.length;
-   
-   
-   for(var i = 0; i<optionsLength; i++) {
-    if (this.options[i].value === value) {
-     this.options[i].selected = true;
-    }
-   }
-  }
- );
- return this;
+$.fn.selectOptions = function(value, clear)
+{
+	var v = value;
+	var vT = typeof(value);
+	// handle arrays
+	if(vT == "object" && v.constructor == Array)
+	{
+		var $this = this;
+		$.each(v, function()
+			{
+      				$this.selectOptions(this, clear);
+    			}
+		);
+	};
+	var c = clear || false;
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(vT != "string" && vT != "function" && vT != "object") return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(v.constructor == RegExp)
+				{
+					if(o[i].value.match(v))
+					{
+						o[i].selected = true;
+					}
+					else if(c)
+					{
+						o[i].selected = false;
+					}
+				}
+				else
+				{
+					if(o[i].value == v)
+					{
+						o[i].selected = true;
+					}
+					else if(c)
+					{
+						o[i].selected = false;
+					}
+				}
+			}
+		}
+	);
+	return this;
 };
+
+/**
+ * Copy options to another select
+ *
+ * @name     copyOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String to  Element to copy to
+ * @param    String which  (optional) Specifies which options should be copied - 'all' or 'selected'. Default is 'selected'
+ * @example  $("#myselect").copyOptions("#myselect2"); // copy selected options from 'myselect' to 'myselect2'
+ * @example  $("#myselect").copyOptions("#myselect2","selected"); // same as above
+ * @example  $("#myselect").copyOptions("#myselect2","all"); // copy all options from 'myselect' to 'myselect2'
+ *
+ */
+$.fn.copyOptions = function(to, which)
+{
+	var w = which || "selected";
+	if($(to).size() == 0) return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(w == "all" || (w == "selected" && o[i].selected))
+				{
+					$(to).addOption(o[i].value, o[i].text);
+				}
+			}
+		}
+	);
+	return this;
+};
+
+/**
+ * Checks if a select box has an option with the supplied value
+ *
+ * @name     containsOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Boolean|jQuery
+ * @param    String|RegExp value  Which value to check for. Can be a string or regular expression
+ * @param    Function fn          (optional) Function to apply if an option with the given value is found.
+ * Use this if you don't want to break the chaining
+ * @example  if($("#myselect").containsOption("val1")) alert("Has an option with the value 'val1'");
+ * @example  if($("#myselect").containsOption(/^val/i)) alert("Has an option with the value starting with 'val'");
+ * @example  $("#myselect").containsOption("val1", copyoption).doSomethingElseWithSelect(); // calls copyoption (user defined function) for any options found, chain is continued
+ *
+ */
+$.fn.containsOption = function(value, fn)
+{
+	var found = false;
+	var v = value;
+	var vT = typeof(v);
+	var fT = typeof(fn);
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(vT != "string" && vT != "function" && vT != "object") return fT == "function" ? this: found;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// option already found
+			if(found && fT != "function") return false;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(v.constructor == RegExp)
+				{
+					if (o[i].value.match(v))
+					{
+						found = true;
+						if(fT == "function") fn.call(o[i], i);
+					}
+				}
+				else
+				{
+					if (o[i].value == v)
+					{
+						found = true;
+						if(fT == "function") fn.call(o[i], i);
+					}
+				}
+			}
+		}
+	);
+	return fT == "function" ? this : found;
+};
+
+/**
+ * Returns values which have been selected
+ *
+ * @name     selectedValues
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Array
+ * @example  $("#myselect").selectedValues();
+ *
+ */
+$.fn.selectedValues = function()
+{
+	var v = [];
+	this.selectedOptions().each(
+		function()
+		{
+			v[v.length] = this.value;
+		}
+	);
+	return v;
+};
+
+/**
+ * Returns text which has been selected
+ *
+ * @name     selectedTexts
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Array
+ * @example  $("#myselect").selectedTexts();
+ *
+ */
+$.fn.selectedTexts = function()
+{
+	var t = [];
+	this.selectedOptions().each(
+		function()
+		{
+			t[t.length] = this.text;
+		}
+	);
+	return t;
+};
+
+/**
+ * Returns options which have been selected
+ *
+ * @name     selectedOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @example  $("#myselect").selectedOptions();
+ *
+ */
+$.fn.selectedOptions = function()
+{
+	return this.find("option:selected");
+};
+
+})(jQuery);
+
 /*
  * jqPagination, a jQuery pagination plugin (obviously)
  *
@@ -2678,6 +3053,7 @@ if (!console) {
     },
     close: function() {
       jQuery(document).trigger('close.facebox');
+	  jQuery('#facebox').fadeOut();
       return false;
     }
   });
@@ -3610,6 +3986,501 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 	}
 })(this);
 
+/* ------------------ Collapsible Panel Plugin ----------- 
+ * created exclusively for hui
+ * By Derek Scott - Copyright 2013 - All rights reserved
+ * Author URL: http://huement.com
+ *
+ * forked from: John Snyder : snyderplace.com/collapsible
+ * @version 1.2.1
+*/
+$.fn.slideFadeToggle = function(speed, easing, callback) {
+  return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+};
+
+(function($) {
+    $.fn.collapsible = function (cmd, arg) {
+
+        //firewalling
+        if (!this || this.length < 1) {
+            return this;
+        }
+
+        //address command requests
+        if (typeof cmd == 'string') {
+            return $.fn.collapsible.dispatcher[cmd](this, arg);
+        }
+        
+        //return the command dispatcher
+        return $.fn.collapsible.dispatcher['_create'](this, cmd);
+    };
+
+    //create the command dispatcher
+    $.fn.collapsible.dispatcher = {
+
+        //initialized with options
+        _create : function(obj, arg) {
+            createCollapsible(obj, arg);
+        },
+
+        //toggle the element's display
+        toggle: function(obj) {
+            toggle(obj, loadOpts(obj));
+            return obj;
+        },
+
+        //show the element
+        open: function(obj) {
+            open(obj, loadOpts(obj));
+            return obj;
+        },
+
+        //hide the element
+        close: function(obj) {
+            close(obj, loadOpts(obj));
+            return obj;
+        },
+
+        //check if the element is closed
+        collapsed: function(obj) {
+            return collapsed(obj, loadOpts(obj));
+        },
+
+        //open all closed containers
+        openAll: function(obj) {
+            return openAll(obj, loadOpts(obj));
+        },
+
+        //close all opened containers
+        closeAll: function(obj) {
+            return closeAll(obj, loadOpts(obj));
+        }
+    };
+
+    //create the initial collapsible
+    function createCollapsible(obj, options)
+    {
+
+        //build main options before element iteration
+        var opts = $.extend({}, $.fn.collapsible.defaults, options);
+        
+        //store any opened default values to set cookie later
+        var opened = [];
+        
+        //iterate each matched object, bind, and open/close
+        obj.each(function() {
+
+            var $this = $(this);
+            saveOpts($this, opts);
+            
+            //bind it to the event
+            if (opts.bind == 'mouseenter') {
+
+                $this.bind('mouseenter', function(e) {
+                    e.preventDefault(); 
+                    toggle($this, opts);
+                });
+            }
+            
+            //bind it to the event
+            if (opts.bind == 'mouseover') {
+
+                $this.bind('mouseover',function(e) {
+                    e.preventDefault(); 
+                    toggle($this, opts); 
+                });
+            }
+            
+            //bind it to the event
+            if (opts.bind == 'click') {
+
+                $this.bind('click', function(e) {
+                    e.preventDefault();
+                    toggle($this, opts);
+                });
+
+            }
+            
+            //bind it to the event
+            if (opts.bind == 'dblclick') {
+
+                $this.bind('dblclick', function(e) {
+
+                    e.preventDefault();
+                    toggle($this, opts);
+                });
+
+            }
+            
+            //initialize the collapsibles
+            //get the id for this element
+            var id = $this.attr('id');
+            
+            //if not using cookies, open defaults
+            if (!useCookies(opts)) {
+
+                //is this collapsible in the default open array?
+                var dOpenIndex = inDefaultOpen(id, opts);
+                
+                //close it if not defaulted to open
+                if (dOpenIndex === false) {
+
+                    $this.addClass(opts.cssClose);
+                    opts.loadClose($this, opts);
+
+                } else { //its a default open, open it
+
+                    $this.addClass(opts.cssOpen);
+                    opts.loadOpen($this, opts);
+                    opened.push(id);
+                }
+
+            } else { //can use cookies, use them now
+
+                //has a cookie been set, this overrides default open
+                if (issetCookie(opts)) {
+
+                    var cookieIndex = inCookie(id, opts);
+
+                    if (cookieIndex === false) {
+
+                        $this.addClass(opts.cssClose);
+                        opts.loadClose($this, opts);
+
+                    } else {
+
+                        $this.addClass(opts.cssOpen);
+                        opts.loadOpen($this, opts);
+                        opened.push(id);
+                    }
+
+                } else { //a cookie hasn't been set open defaults, add them to opened array
+
+                    dOpenIndex = inDefaultOpen(id, opts);
+
+                    if (dOpenIndex === false) {
+
+                        $this.addClass(opts.cssClose);
+                        opts.loadClose($this, opts);
+
+                    } else {
+
+                        $this.addClass(opts.cssOpen);
+                        opts.loadOpen($this, opts);
+                        opened.push(id);
+                    }
+                }
+            }
+        });
+        
+        //now that the loop is done, set the cookie
+        if (opened.length > 0 && useCookies(opts)) {
+
+            setCookie(opened.toString(), opts);
+
+        } else { //there are none open, set cookie
+
+            setCookie('', opts);
+        }
+        
+        return obj;
+    }
+    
+    //load opts from object
+    function loadOpts($this) {
+        return $this.data('collapsible-opts');
+    }
+    
+    //save opts into object
+    function saveOpts($this, opts) {
+        return $this.data('collapsible-opts', opts);
+    }
+    
+    //returns true if object is opened
+    function collapsed($this, opts) {
+        return $this.hasClass(opts.cssClose);
+    }
+    
+    //hides a collapsible
+    function close($this, opts) {
+
+        //give the proper class to the linked element
+        $this.addClass(opts.cssClose).removeClass(opts.cssOpen);
+        
+        //close the element
+        opts.animateClose($this, opts);
+        
+        //do cookies if plugin available
+        if (useCookies(opts)) {
+            // split the cookieOpen string by ","
+            var id = $this.attr('id');
+            unsetCookieId(id, opts);
+        }
+    }
+    
+    //opens a collapsible
+    function open($this, opts) {
+
+        //give the proper class to the linked element
+        $this.removeClass(opts.cssClose).addClass(opts.cssOpen);
+        
+        //open the element
+        opts.animateOpen($this, opts);
+        
+        //do cookies if plugin available
+        if (useCookies(opts)) {
+
+            // split the cookieOpen string by ","
+            var id = $this.attr('id');
+            appendCookie(id, opts);
+        }
+    }
+    
+    //toggle a collapsible on an event
+    function toggle($this, opts) {
+
+        if (collapsed($this, opts)) {
+
+            //open a closed element
+            open($this, opts);
+
+        } else {
+
+            //close an open element
+            close($this, opts);
+        }
+        
+        return false;
+    }
+
+    //open all closed containers
+    function openAll($this, opts) {
+
+        // loop through all container elements
+        $.each($this, function(elem, value) {
+
+            if (collapsed($(value), opts)) {
+
+                //open a closed element
+                open($(value), opts);
+            }
+        });
+    }
+
+    //close all open containers
+    function closeAll($this, opts) {
+
+        $.each($this, function(elem, value) {
+
+            if (!collapsed($(value), opts)) {
+
+                //close an opened element
+                close($(value), opts);
+            }
+        });
+    }
+    
+    //use cookies?
+    function useCookies(opts) {
+
+        //return false if cookie plugin not present or if a cookie name is not provided
+        if (!$.cookie || opts.cookieName == '') {
+            return false;
+        }
+        
+        //we can use cookies
+        return true;
+    }
+    
+    //append a collapsible to the cookie
+    function appendCookie(value, opts) {
+
+        //check if cookie plugin available and cookiename is set
+        if (!useCookies(opts)) {
+            return false;
+        }
+        
+        //does a cookie already exist
+        if (!issetCookie(opts)) {
+
+            //no lets set one
+            setCookie(value, opts);
+            return true;
+        }
+        
+        //cookie already exists, is this collapsible already set?
+        if (inCookie(value, opts)) { //yes, quit here
+            return true;
+        }
+        
+        //get the cookie
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
+
+        //turn it into an array
+        var cookieArray = cookie.split(',');
+        
+        //add it to list
+        cookieArray.push(value);
+        
+        //save it
+        setCookie(cookieArray.toString(), opts);
+        
+        return true;    
+    }
+    
+    //unset a collapsible from the cookie
+    function unsetCookieId(value, opts)
+    {
+        //check if cookie plugin available and cookiename is set
+        if (!useCookies(opts)) {
+            return false;
+        }
+        
+        //if its not there we don't need to remove from it
+        if (!issetCookie(opts)) { //quit here, don't have a cookie 
+            return true;
+        }
+        
+        //we have a cookie, is this collapsible in it
+        var cookieIndex = inCookie(value, opts);
+        if (cookieIndex === false) { //not in the cookie quit here
+            return true;
+        }
+        
+        //still here get the cookie
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
+        
+        //turn it into an array
+        var cookieArray = cookie.split(',');
+        
+        //lets pop it out of the array
+        cookieArray.splice(cookieIndex, 1);
+
+        //overwrite
+        setCookie(cookieArray.toString(), opts);
+
+        return true
+    }
+    
+    //set a cookie
+    function setCookie(value, opts)
+    {
+        //can use the cookie plugin
+        if (!useCookies(opts)) { //no, quit here
+            return false;
+        }
+        
+        //cookie plugin is available, lets set the cookie
+        $.cookie(opts.cookieName, value, opts.cookieOptions);
+
+        return true;
+    }
+    
+    //check if a collapsible is in the cookie
+    function inCookie(value, opts)
+    {
+        //can use the cookie plugin
+        if (!useCookies(opts)) {
+            return false;
+        }
+        
+        //if its not there we don't need to remove from it
+        if (!issetCookie(opts)) { //quit here, don't have a cookie 
+            return false;
+        }
+
+        //get the cookie value
+        var cookie = decodeURIComponent($.cookie(opts.cookieName));
+        
+        //turn it into an array
+        var cookieArray = cookie.split(',');
+        
+        //get the index of the collapsible if in the cookie array
+        var cookieIndex = $.inArray(value, cookieArray);
+        
+        //is this value in the cookie array
+        if (cookieIndex == -1) { //no, quit here
+            return false;
+        }
+        
+        return cookieIndex;
+    }
+    
+    //check if a cookie is set
+    function issetCookie(opts)
+    {
+        //can we use the cookie plugin
+        if (!useCookies(opts)) { //no, quit here
+            return false;
+        }
+        
+        //is the cookie set
+        if ($.cookie(opts.cookieName) === null) { //no, quit here
+            return false;
+        }
+        
+        return true;
+    }
+    
+    //check if a collapsible is in the list of collapsibles to be opened by default
+    function inDefaultOpen(id, opts)
+    {
+        //get the array of open collapsibles
+        var defaultOpen = getDefaultOpen(opts);
+        
+        //is it in the default open array
+        var index = $.inArray(id, defaultOpen);
+        if (index == -1) { //nope, quit here
+            return false;
+        }
+        
+        return index;
+    }
+    
+    //get the default open collapsibles and return array
+    function getDefaultOpen(opts)
+    {
+        //initialize an empty array
+        var defaultOpen = [];
+        
+        //if there is a list, lets split it into an array
+        if (opts.defaultOpen != '') {
+            defaultOpen = opts.defaultOpen.split(',');
+        }
+        
+        return defaultOpen;
+    }
+    
+    // settings
+    $.fn.collapsible.defaults = {
+        cssClose: 'collapse-close', //class you want to assign to a closed collapsible header
+        cssOpen: 'collapse-open', //class you want to assign an opened collapsible header
+        cookieName: 'collapsible', //name of the cookie you want to set for this collapsible
+        cookieOptions: { //cookie options, see cookie plugin for details
+            path: '/',
+            expires: 7,
+            domain: '',
+            secure: ''
+        },
+        defaultOpen: '', //comma separated list of header ids that you want opened by default
+        speed: 'slow', //speed of the slide effect
+        bind: 'click', //event to bind to, supports click, dblclick, mouseover and mouseenter
+        animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+            elem.next().stop(true, true).slideDown(opts.speed);
+        },
+        animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+            elem.next().stop(true, true).slideUp(opts.speed);
+        },
+        loadOpen: function (elem, opts) { //replace the default open state with custom function
+            elem.next().show();
+        },
+        loadClose: function (elem, opts) { //replace the default close state with custom function
+            elem.next().hide();
+        }
+    };
+
+})(jQuery);
+
 /* ------------------ accordionNav MENU PLUGIN ----------- 
  * created exclusively for hui
  * By Derek Scott - Copyright 2012 - All rights reserved
@@ -3653,12 +4524,10 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
 
 })(jQuery);
 
-
 /* ------------------ flapperGirl plugin ----------- 
  * created exclusively for hui
  * By Derek Scott - Copyright 2012 - All rights reserved
  * Author URL: http://huement.com
- *
  *
 */
 (function(jQuery) {
@@ -4375,76 +5244,197 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   $.fn.stupidtable.dir = { ASC: "asc", DESC: "desc" };
 
 })(jQuery);
-/*!
- * classie - class helper functions
- * from bonzo https://github.com/ded/bonzo
- * 
- * classie.has( elem, 'my-class' ) -> true/false
- * classie.add( elem, 'my-new-class' )
- * classie.remove( elem, 'my-unwanted-class' )
- * classie.toggle( elem, 'my-class' )
- */
-
-/*jshint browser: true, strict: true, undef: true */
-
-( function( window ) {
-
-'use strict';
-
-// class helper functions from bonzo https://github.com/ded/bonzo
-
-function classReg( className ) {
-  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
-}
-
-// classList support for class management
-// altho to be fair, the api sucks because it won't accept multiple classes at once
-var hasClass, addClass, removeClass;
-
-if ( 'classList' in document.documentElement ) {
-  hasClass = function( elem, c ) {
-    return elem.classList.contains( c );
-  };
-  addClass = function( elem, c ) {
-    elem.classList.add( c );
-  };
-  removeClass = function( elem, c ) {
-    elem.classList.remove( c );
-  };
-}
-else {
-  hasClass = function( elem, c ) {
-    return classReg( c ).test( elem.className );
-  };
-  addClass = function( elem, c ) {
-    if ( !hasClass( elem, c ) ) {
-      elem.className = elem.className + ' ' + c;
+;(function($){
+    // Convenience vars for accessing elements
+    var $body = $('body'),
+        $pageslide = $('#pageslide');
+    
+    var _sliding = false,   // Mutex to assist closing only once
+        _lastCaller;        // Used to keep track of last element to trigger pageslide
+    
+	// If the pageslide element doesn't exist, create it
+    if( $pageslide.length == 0 ) {
+         $pageslide = $('<div />').attr( 'id', 'pageslide' )
+                                  .css( 'display', 'none' )
+                                  .appendTo( $('body') );
     }
-  };
-  removeClass = function( elem, c ) {
-    elem.className = elem.className.replace( classReg( c ), ' ' );
-  };
-}
+    
+    /*
+     * Private methods 
+     */
+    function _load( url, useIframe ) {
+        // Are we loading an element from the page or a URL?
+        if ( url.indexOf("#") === 0 ) {                
+            // Load a page element                
+            $(url).clone(true).appendTo( $pageslide.empty() ).show();
+        } else {
+            // Load a URL. Into an iframe?
+            if( useIframe ) {
+                var iframe = $("<iframe />").attr({
+                                                src: url,
+                                                frameborder: 0,
+                                                hspace: 0
+                                            })
+                                            .css({
+                                                width: "100%",
+                                                height: "100%"
+                                            });
+                
+                $pageslide.html( iframe );
+            } else {
+                $pageslide.load( url );
+            }
+            
+            $pageslide.data( 'localEl', false );
+            
+        }
+    }
+    
+    // Function that controls opening of the pageslide
+    function _start( direction, speed ) {
+        var slideWidth = $pageslide.outerWidth( true ),
+            bodyAnimateIn = {},
+            slideAnimateIn = {};
+        
+        // If the slide is open or opening, just ignore the call
+        if( $pageslide.is(':visible') || _sliding ) return;	        
+        _sliding = true;
+                                                                    
+        switch( direction ) {
+            case 'left':
+                $pageslide.css({ left: 'auto', right: '-' + slideWidth + 'px' });
+                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
+                slideAnimateIn['right'] = '+=' + slideWidth;
+                break;
+            default:
+                $pageslide.css({ left: '-' + slideWidth + 'px', right: 'auto' });
+                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                slideAnimateIn['left'] = '+=' + slideWidth;
+                break;
+        }
+                    
+        // Animate the slide, and attach this slide's settings to the element
+        $body.animate(bodyAnimateIn, speed);
+        $pageslide.show()
+                  .animate(slideAnimateIn, speed, function() {
+                      _sliding = false;
+                  });
+    }
+      
+    /*
+     * Declaration 
+     */
+    $.fn.pageslide = function(options) {
+        var $elements = this;
+        
+        // On click
+        $elements.click( function(e) {
+            var $self = $(this),
+                settings = $.extend({ href: $self.attr('href') }, options);
+            
+            // Prevent the default behavior and stop propagation
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if ( $pageslide.is(':visible') && $self[0] == _lastCaller ) {
+                // If we clicked the same element twice, toggle closed
+                $.pageslide.close();
+            } else {                 
+                // Open
+                $.pageslide( settings );
 
-function toggleClass( elem, c ) {
-  var fn = hasClass( elem, c ) ? removeClass : addClass;
-  fn( elem, c );
-}
+                // Record the last element to trigger pageslide
+                _lastCaller = $self[0];
+            }       
+        });                   
+	};
+	
+	/*
+     * Default settings 
+     */
+    $.fn.pageslide.defaults = {
+        speed:      200,        // Accepts standard jQuery effects speeds (i.e. fast, normal or milliseconds)
+        direction:  'right',    // Accepts 'left' or 'right'
+        modal:      false,      // If set to true, you must explicitly close pageslide using $.pageslide.close();
+        iframe:     true,       // By default, linked pages are loaded into an iframe. Set this to false if you don't want an iframe.
+        href:       null        // Override the source of the content. Optional in most cases, but required when opening pageslide programmatically.
+    };
+	
+	/*
+     * Public methods 
+     */
+	
+	// Open the pageslide
+	$.pageslide = function( options ) {	    
+	    // Extend the settings with those the user has provided
+        var settings = $.extend({}, $.fn.pageslide.defaults, options);
+	    
+	    // Are we trying to open in different direction?
+        if( $pageslide.is(':visible') && $pageslide.data( 'direction' ) != settings.direction) {
+            $.pageslide.close(function(){
+                _load( settings.href, settings.iframe );
+                _start( settings.direction, settings.speed );
+            });
+        } else {                
+            _load( settings.href, settings.iframe );
+            if( $pageslide.is(':hidden') ) {
+                _start( settings.direction, settings.speed );
+            }
+        }
+        
+        $pageslide.data( settings );
+	}
+	
+	// Close the pageslide
+	$.pageslide.close = function( callback ) {
+        var $pageslide = $('#pageslide'),
+            slideWidth = $pageslide.outerWidth( true ),
+            speed = $pageslide.data( 'speed' ),
+            bodyAnimateIn = {},
+            slideAnimateIn = {}
+            	        
+        // If the slide isn't open, just ignore the call
+        if( $pageslide.is(':hidden') || _sliding ) return;	        
+        _sliding = true;
+        
+        switch( $pageslide.data( 'direction' ) ) {
+            case 'left':
+                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                slideAnimateIn['right'] = '-=' + slideWidth;
+                break;
+            default:
+                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
+                slideAnimateIn['left'] = '-=' + slideWidth;
+                break;
+        }
+        
+        $pageslide.animate(slideAnimateIn, speed);
+        $body.animate(bodyAnimateIn, speed, function() {
+            $pageslide.hide();
+            _sliding = false;
+            if( typeof callback != 'undefined' ) callback();
+        });
+    }
+	
+	/* Events */
+	
+	// Don't let clicks to the pageslide close the window
+    $pageslide.click(function(e) {
+        e.stopPropagation();
+    });
 
-window.classie = {
-  // full names
-  hasClass: hasClass,
-  addClass: addClass,
-  removeClass: removeClass,
-  toggleClass: toggleClass,
-  // short names
-  has: hasClass,
-  add: addClass,
-  remove: removeClass,
-  toggle: toggleClass
-};
-
-})( window );
+	// Close the pageslide if the document is clicked or the users presses the ESC key, unless the pageslide is modal
+	$(document).bind('click keyup', function(e) {
+	    // If this is a keyup event, let's see if it's an ESC key
+        if( e.type == "keyup" && e.keyCode != 27) return;
+	    
+	    // Make sure it's visible, and we're not modal	    
+	    if( $pageslide.is( ':visible' ) && !$pageslide.data( 'modal' ) ) {	        
+	        $.pageslide.close();
+	    }
+	});
+	
+})(jQuery);
 
 /*! http://hui.huement.com */
 

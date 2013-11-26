@@ -36,13 +36,15 @@ Clone this repository into your projects web-root directory.
 ### Optionally Setup the Plugins (optional but recommended)
 Step 1. clone plugin repo into hui repo.   
     
-    cd hui    
-    git clone https://github.com/johnny13/hui-plugins.git    
-    cd hui-plugins    
+    cd hui   
+	git submodule init     
+    npm install    
     
 
 Step 2A. activate entire plugin system.    
     
+    git clone https://github.com/johnny13/hui-plugins.git hui-plugins    
+    cd hui-plugins
     git submodule init    
     
 

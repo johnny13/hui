@@ -464,3 +464,32 @@ div.jGrowl div.jGrowl-closer:hover {
   width:100% !important;
  }
 }
+
+/* Collapsible Content Data Slider */
+.collapsible {
+    margin: 0;
+    padding:10px;
+    height:20px;
+
+    border-top:#f0f0f0 1px solid;
+    background: #D6D6D6;
+    text-decoration:none;
+    text-transform:uppercase;
+    color: #000;
+    font-size:1em;
+}
+.collapsible-box {
+	padding:10px;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+}
+
+.collapse-open {
+    background:#3d3d3d;
+    color: #f7f7f7;
+}
+
+.collapsible .fa-icon{
+	float:right !important;
+	margin: -8px -10px 0px 0px;
+}

@@ -153,7 +153,6 @@
 		#topBarBox {
 			border-bottom:1px solid #666666;height:auto;min-height:50px;
 		}
-
 		@media only screen and (max-width : 800px) {
 			.el_arco_iris {
 				font-size:2em;
@@ -2021,7 +2020,8 @@ notefy(
 <div id="test1" class="top-left"></div>
 <div id="test2" class="bottom-left"></div>
 			</div>
-			<div class="onecol"></div><div class="sevencol">
+			<div class="onecol"></div>
+			<div class="sevencol">
 				<h2 class="page-header">Notefy</h2>
 				<p>A <strong>H</strong>eads <strong>U</strong>p <strong>D</strong>isplay notification system for <strong>hui</strong>.<br/>
 				Features support for mobile and tablet screen sizes, as well as touch interfaces. Optionally, <strong>SWIPE</strong> Right to Left to Close.</p>
@@ -2834,7 +2834,7 @@ $("table").stupidtable();
 				<br/>
 				
 				<div class="push" style="height:50px;"></div>
-				<h2 class="page-header">Image Styling</h2>
+				<h2 class="page-header">Images</h2>
 				<p class="fnote">
 					Add classes to an &lt;img&gt; element to easily style images in any project. However <code>.img-rounded</code> and <code>.img-circle</code> do not work in IE7-8 due to lack of <code>border-radius</code> support.
 				</p>
@@ -2863,86 +2863,96 @@ $("table").stupidtable();
 			<div class="push" style="height:60px;"></div>
 			
 			<div class="twelvecol last">
-				<h2 class="page-header">Pagination</h2>
-				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				<h2 class="page-header">Collapsible Content</h2>
+				<p class="fnote">
+					Create Lists of Collapsible containers. Perfect for breaking up large amounts of data into manigable chunks. Animations are controlled via CSS for a smooth experience.
+				</p>
+				<div class="push" style="height:20px;"></div>
 				
-
-<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
-    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
-    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
-    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
-    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
-&lt;/div&gt;</pre>
-	<br/>
-	<div class="push"></div>
-	<pre class="jsCode">$('.pagination').jqPagination({
-	    paged: function(page) {
-	        // do something with the page variable
-	    }
-	});</pre>
-
-	<div class="push"></div>
-	<p><a href="#" class="show-log">Show / hide event log:</a></p>
-	<ul class="log"></ul>
-	
-<div class="push"></div>
-				<ul>
-					<li>Design agnostic</li>
-					<li>Customizable</li>
-					<li>Degrades beautifully</li>
-					<li>Super simple to integrate with your app / site</li>
-				</ul>
-				<br/>
-				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
-				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
-				<div class="push"></div>
-				<h3>Pagination Demo</h3>
-				<p>It's oversized too, so you can try it when you're drunk!</p>
-				<div class="gigantic paginatebox">
-				    <a href="#" class="first" data-action="first">&laquo;</a>
-				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-				    <input type="text" readonly="readonly" />
-				    <a href="#" class="next" data-action="next">&rsaquo;</a>
-				    <a href="#" class="last" data-action="last">&raquo;</a>
-				</div>
-				<br/>
-				<div class='push'></div>
-				<div class="paginatebox">
-				    <a href="#" class="first" data-action="first">&laquo;</a>
-				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-				    <input type="text" readonly="readonly" />
-				    <a href="#" class="next" data-action="next">&rsaquo;</a>
-				    <a href="#" class="last" data-action="last">&raquo;</a>
-				</div>
-				<br/>
+				<!-- collapse html -->
+				<a href="#" class="button action red" id="closeAll" title="Close all"><span class="label">Close All</span></a>
+				<a href="#" class="button action green" id="openAll" title="Open All"><span class="label">Open All</span></a>
+				<div class="push" style="height:10px;"></div>
 				
-				<h2 id="installation">Installation</h2>
-				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
-
-				<h2 id="customisation">Customization</h2>
-				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
-				<h3>Options</h3>
-				<p><strong>current_page</strong> - option, default: 1
-				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
-				<p><strong>max_page</strong> - option, default: null
-				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
-				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
-				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
-				<h3>Callbacks</h3>
-				<p><strong>paged</strong> - callback, params: page
-				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
-				<h3>Methods</h3>
-				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
-				<p>The option method allows to get / set (when supplied with a value) the following values</p>
-				<ul>
-					<li>current_page</li>
-					<li>max_page</li>
-				</ul>
-				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
-				<h2 id="feedback">Feedback and Support</h2>
-				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
+				<div class="collapsible" id="nav-section1">Navigation Section <span class="fa-icon icon-star"></span></div>
+				<div class="collapsible-box">
+					<p>These are the methods available from the plugin:</p>
+					<ul>
+		                <li>cssClose - class assigned when closed</li>
+		                <li>collapsed - returns 'true' if element is collapsed</li>
+		                <li>toggle - toggle collapsible state</li>
+		                <li>open - open a collapsible</li>
+		                <li>close - close a collapsible</li>
+		                <li>openAll - open all closed containers</li>
+		                <li>closeAll - close all opened containers</li>
+		            </ul>
+					<p>all them using jquery-ui style:</p>
+<pre><code class="undefined">$(selector).collapsible('method', [arg]);</code></pre>
+<pre><code class="javascript"><span class="keyword">if</span> ( $(<span class="string">'#nav-block'</span>).collapsible(<span class="string">'collapsed'</span>) ) {
+    <span class="comment">// code here</span>
+}</code></pre>
+<pre><code class="undefined">appendToLog('Error: service is down!');
+$('#nav-logs').collapsible('open');
+    </code></pre>
+				</div>
+				<div class="collapsible" id="nav-section2">Navigation Section <span class="fa-icon icon-star"></span></div>
+				<div class="collapsible-box">
+					<p>In the above example HTML you will see a span, this is useful if you wish to assign an open/close image.
+					This plugin will append a user defined (or default, see options above) class to header of the collapsible. You can use this to swap out the images or style the different states of your collapsible.</p>
+<pre>
+  .collapsible div.collapse-open {}
+  .collapsible div.collapse-close {}
+  .collapsible div.collapse-open span {}
+  .collapsible div.collapse-close span {}
+</pre>
+				</div>
+				<div class="collapsible" id="nav-section3">Navigation Section <span class="fa-icon icon-star"></span></div>
+				<div class="collapsible-box">
+					<p>This is the sample Markup</p>
+					<pre>
+---HTML code--------------------------------------------------------------------
+&lt;div class=&quot;collapsible&quot; id=&quot;nav-section1&quot;&gt;Navigation Section&lt;span class=&quot;fa-icon icon-star&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;collapsible&quot; id=&quot;nav-section1&quot;&gt;Navigation Section&lt;span class=&quot;fa-icon icon-star&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;collapsible&quot; id=&quot;nav-section1&quot;&gt;Navigation Section&lt;span class=&quot;fa-icon icon-star&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;
+    &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Navigation Item&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+---end HTML code----------------------------------------------------------------
+					</pre>
+					<div class="push" style="height:20px;"></div>
+				</div>
+				<!-- end collapse html -->
+				<div class="push" style="height:60px;"></div></div>
 			</div>
+			
+			
 		</div>
 		
 		<!-- FORMS -->
@@ -3749,73 +3759,198 @@ $("table").stupidtable();
 			</form> <!-- /container -->
 		</div>
 		
-		<!-- DANCE -->
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu <span class="faicon icon-circle-arrow-left R" id="trigger-close"></span></h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-red cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-			<h3>Menu <span class="faicon icon-circle-arrow-right R" id="trigger-close2"></span></h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-blue cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
-			<h3>Menu <span class="faicon icon-circle-arrow-up R" id="trigger-close3"></span></h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-		<nav class="cbp-spmenu cbp-spmenu-green cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-			<h3>Menu <span class="faicon icon-circle-arrow-down R" id="trigger-close4"></span></h3>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-			<a href="#">Celery seakale</a>
-			<a href="#">Dulse daikon</a>
-			<a href="#">Zucchini garlic</a>
-			<a href="#">Catsear azuki bean</a>
-			<a href="#">Dandelion bunya</a>
-			<a href="#">Rutabaga</a>
-		</nav>
-		<div class="row limit category navigate_category slideoutmain">
-			<div class="twelvecol">
-				<h1 class="page-header">Flexible Content</h1>
-				<p>Secondary Content can be delivered via Modal windows, but it can also be delivered via slide out panels. In this section we have the "fly out" panels as well as collapsible accordions.</p>
-				<div class="push"></div>
-			</div>
-			<div class="twocol">&nbsp;</div>
-			<div class="eightcol">
-			<h2 class="tC">Slide Menus</h2>
-			<!-- Class "cbp-spmenu-open" gets applied to menu -->
-			<button id="showLeft" class="action yellow C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Left Slide Menu</span></button>
-			<button id="showRight" class="action red C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Right Slide Menu</span></button>
-			<button id="showTop" class="action blue C" style="float:none;width:250px;margin-bottom:20px;"><span class="label">Show/Hide Top Slide Menu</span></button>
-			<button id="showBottom" class="action green C" style="float:none;width:250px;"><span class="label">Show/Hide Bottom Slide Menu</span></button>
-			<div class="push"></div>
+		<div class="row limit category forms_category">
+			<div class="push" style="height:60px;"></div>
 			
+			<div class="twelvecol last">
+				<h2 class="page-header">Pagination</h2>
+				<p>powered by jQuery plugin <a href="https://github.com/beneverard/jqPagination/">jqPagination</a>. A newer method of pagination for your web site or application. Instead of displaying a list of page numbers like traditional pagination methods jqPagination uses an interactive 'Page 1 of 5' input that, when selected, allows the user to enter their desired page number. The plugin will ensure that only valid pages can be selected, a valid request will result in the paged callback. First, previous, next and last buttons work out of the box, but are optional.</p><br/>
+				
+
+<pre class="htmlCode">&lt;div class=&quot;pagination&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;first&quot; data-action=&quot;first&quot;&gt;&amp;laquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;previous&quot; data-action=&quot;previous&quot;&gt;&amp;lsaquo;&lt;/a&gt;
+    &lt;input type=&quot;text&quot; readonly=&quot;readonly&quot; data-max-page=&quot;40&quot; /&gt;
+    &lt;a href=&quot;#&quot; class=&quot;next&quot; data-action=&quot;next&quot;&gt;&amp;rsaquo;&lt;/a&gt;
+    &lt;a href=&quot;#&quot; class=&quot;last&quot; data-action=&quot;last&quot;&gt;&amp;raquo;&lt;/a&gt;
+&lt;/div&gt;</pre>
+	<br/>
+	<div class="push"></div>
+	<pre class="jsCode">$('.pagination').jqPagination({
+	    paged: function(page) {
+	        // do something with the page variable
+	    }
+	});</pre>
+
+	<div class="push"></div>
+	<p><a href="#" class="show-log">Show / hide event log:</a></p>
+	<ul class="log"></ul>
+	
+<div class="push"></div>
+				<ul>
+					<li>Design agnostic</li>
+					<li>Customizable</li>
+					<li>Degrades beautifully</li>
+					<li>Super simple to integrate with your app / site</li>
+				</ul>
+				<br/>
+				<p><a href="https://github.com/beneverard/jqPagination/zipball/master" class="action blue button"><span class="label">Download</span></a> 
+				<a href="https://github.com/beneverard/jqPagination/" class="action blue button"><span class="label">Fork on GitHub</span></a><br/></p>
+				<div class="push"></div>
+				<h3>Pagination Demo</h3>
+				<p>It's oversized too, so you can try it when you're drunk!</p>
+				<div class="gigantic paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				<div class='push'></div>
+				<div class="paginatebox">
+				    <a href="#" class="first" data-action="first">&laquo;</a>
+				    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+				    <input type="text" readonly="readonly" />
+				    <a href="#" class="next" data-action="next">&rsaquo;</a>
+				    <a href="#" class="last" data-action="last">&raquo;</a>
+				</div>
+				<br/>
+				
+				<h2 id="installation">Installation</h2>
+				<p>Installation is super easy, for a basic setup you'll need the following HTML:</p>
+
+				<h2 id="customisation">Customization</h2>
+				<p>jqPagination is built to be basic, but it does have a couple options and callbacks for customization.</p>
+				<h3>Options</h3>
+				<p><strong>current_page</strong> - option, default: 1
+				<br />Sets the current page, can also be set using the <code>current-page</code> data attribute on the input element.</p>
+				<p><strong>max_page</strong> - option, default: null
+				<br />Sets the maximum page, if this option is left null we'll use the <code>max-page</code> data attribute instead, if that doesn't exist we'll assume we only have one page.</p>
+				<p><strong>page_string</strong> - option, default: 'Page {current_page} of {max_page}'
+				<br />The string to base the input value on, no restrictions on the string, use <code>{current_page}</code> and <code>{max_page}</code> placeholders to allow the plugin to replace the respective numbers.</p>
+				<h3>Callbacks</h3>
+				<p><strong>paged</strong> - callback, params: page
+				<br />The paged callback is called when a valid page request has been made, the page variable simply contains the page requested.</p>
+				<h3>Methods</h3>
+				<p><strong>option</strong> - <code>.jqPagination('option', key [, value])</code></p>
+				<p>The option method allows to get / set (when supplied with a value) the following values</p>
+				<ul>
+					<li>current_page</li>
+					<li>max_page</li>
+				</ul>
+				<p>Setting these values will call their respetive internal functions, and thus will perform other actions such as updating the input text.</p>
+				<h2 id="feedback">Feedback and Support</h2>
+				<p>If you feel improvements can be made to jqPagination <a href="http://twitter.com/ilmv">tweet me</a> or <a href="http://github.com/beneverard/jqPagination/">fork the project</a> and put in a pull request. If you want to report a bug head on over to <a href="https://github.com/beneverard/jqPagination/issues">GitHub issues</a>. If you're having problems ask a question on Stack Overflow and tag the question with <code>jqpagination</code>.</p>
 			</div>
-			<div class="twocol last">&nbsp;</div>
+			<div class="push" style="height:60px;"></div> 
+		</div>
+		
+		
+		<div class="row limit category navigate_category slideoutmain">
+			  <div id="PageSlide_content" class="boxMost">
+			       <h2 class="page-header">PageSlider Demos</h2>
+			       <p>Below are a couple examples of how the plugin works:</p>
+			       <ul>
+			      <li style="margin-top:10px;">
+			                <p class="fnote">Basic Demo</p>
+			        <p><a href="#Mary_Boleyn" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
+			        <div class="none">
+			          <div id="Mary_Boleyn">
+			            <ul class="Tegan Sara dark minilist">
+			              <li class="title_bar">Nav Menu</li>
+			              <li>
+			                <span class="name">Item One</span>
+			              </li>
+			              <li>
+			                <span class="name">Item Two</span>
+			              </li>
+			              <li>
+			                <span class="name">Item Three</span>
+			              </li>
+			              <li>
+			                <span class="name">Item Four</span>
+			              </li>
+			              <li>
+			                <span class="name">Item Three</span>
+			              </li>
+			              <li>
+			                <span class="name">Item Two</span>
+			              </li>
+			              <li>
+			                <span class="name">Item One</span>
+			              </li>
+			            </ul>
+			            <div class="push"></div>
+			          </div>
+			        </div>
+        
+			 <div class="push" style="height:10px;"></div>                
+			 <pre class="htmlCode">
+			 &lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
+			 &lt;script&gt;
+			    $(&quot;a.first&quot;).pageslide();
+			 &lt;/script&gt;
+			 </pre>
+			            </li>
+			            <li style="margin-top:30px;">
+			                <p class="fnote">In this Slide to the Left Example, There will be content from a hidden DIV loaded into the Slide Panel on this page. It will be a large amount of text and should cause the overflow to scroll.</p>
+			        <p><a href="#LadyAnne" class="pageslide_first button action blue full_button"><span class="label">Slide to the Left</span></a></p>
+			        <div class="none">
+			          <div id="LadyAnne">
+			            <h2 class="redText">Marquess of Pembroke</h2>
+			            <p>A number of people have claimed to have seen Anne's ghost at Hever Castle, Blickling Hall, Salle Church, Tower of London, and Marwell Hall.</p>
+			            <p>In 1864, Major General J.D. Dundas of the 60th Rifles regiment was quartered in the Tower of London. As he was looking out the window of his quarters, he noticed a guard below in the courtyard, in front of the lodgings where Anne had been imprisoned, behaving strangely. He appeared to challenge something, which to the General "looked like a whitish, female figure sliding towards the soldier". The guard charged through the form with his bayonet, then fainted.</p>
+            
+			            <p>Only the General's testimony and corroboration at the court-martial saved the guard from a lengthy prison sentence for having fainted while on duty. In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
+            
+			            <p>In 1960, Canon W. S. Pakenham-Walsh, vicar of Sulgrave, Northamptonshire, reported having conversations with Anne.</p>
+			            <br/>
+			            <div class="push"></div>
+			          </div>
+			        </div>
+        
+			 <div class="push" style="height:10px;"></div>                
+			 <pre class="htmlCode">
+			 &lt;a href=&quot;test/secondary.html&quot; class=&quot;first&quot;&gt;Link text&lt;/a&gt;
+			 &lt;script&gt;
+			    $(&quot;a.first&quot;).pageslide();
+			 &lt;/script&gt;
+			 </pre>
+			            </li>
+			            <li style="margin-top:30px;">
+			                <p class="fnote">In this Slide to the Left Example, we will display hidden content from a <code>DIV id="modal_name"</code> on this page, into the resulting modal pane.</p>
+			        <p><a href="#PageSlide_modal" class="pageslide_second button action blue full_button"><span class="label">Slide to the Right</span></a></p>
+			 <div class="push" style="height:10px;"></div>
+			 <pre class="htmlCode">
+			 &lt;a href=&quot;#PageSlide_modal&quot; class=&quot;second&quot;&gt;Link text&lt;/a&gt;
+			 &lt;div id=&quot;PageSlide_modal&quot; style=&quot;display:none&quot;&gt;
+			 &lt;h2&gt;Modal&lt;/h2&gt;
+			     &lt;a href=&quot;javascript:$.pageslide.close()&quot;&gt;Close&lt;/a&gt;
+			 &lt;/div&gt;
+			 &lt;script&gt;
+			     $(&quot;.second&quot;).pageslide({ direction: &quot;left&quot;, modal: true });
+			 &lt;/script&gt;
+			 </pre>
+			            </li>
+			            <li style="margin-top:30px;">
+			        <p class="fnote">Another Example. Showing the loading of a Remote HTML Page. Also shows the automatic scrolling features, as the iframe defaults to a height of 100% and forces scrolling. you can adjust this in the css, however if you remove the ability for overflow you could cut off part of your navigation menu when in landscape views.</p>
+			                <p><a href="javascript:$.pageslide({ direction: 'right', href: 'demos/secondary.html' })" class="button action red full_button"><span class="label">Open the page Programmatically</span></a></p>
+			          <pre>
+			 &lt;a href=&quot;javascript:$.pageslide({ direction: &#39;left&#39;, href=&#39;_secondary.html&#39; })&quot;&gt;Link text&lt;/a&gt;
+			          </pre>
+			            </li>
+			        </ul>
+			    <div class="none">
+			        <div id="PageSlide_modal">
+			            <h3 class="orangeText">Modal</h3>
+			            <p class="p10 whiteText">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
+			            <p class="p10 whiteText"><a href="javascript:$.pageslide.close()" class="button action red full_button"><span class="label">Close</span></a></p>
+			        </div>
+			    </div>
+			    </div>
+
+			
 		</div>
 		
 		<div class="row limit category navigate_category">
@@ -3925,7 +4060,7 @@ jQuery("&lt;div&gt;&lt;/div&gt;").flapperGirl(ladyParts, callbackGirl);
 			</div>
 			
 		</div>
-		
+
 		<!--NAV -->
 		<div class="row limit category navigate_category">
 			<div class="twelvecol">
@@ -4313,7 +4448,14 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			$(document).attr('title', titleName);
 		}
 	}
-
+    //assign open/close all to functions
+    function openAll() {
+        $('.collapsible').collapsible('openAll');
+    }
+    function closeAll() {
+        $('.collapsible').collapsible('closeAll');
+    }
+	
 	jQuery(document).ready(function() { 
 	 /* Sample Animations */
 	 //jQuery(".el_arco_iris, h3, #el_arco_iris li a").css("color","#333");
@@ -4438,54 +4580,11 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 	 });
 
 	//Slide Out Menus
-	var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-	menuRight = document.getElementById( 'cbp-spmenu-s2' ),
-	menuTop = document.getElementById( 'cbp-spmenu-s3' ),
-	menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
-	showLeft = document.getElementById( 'showLeft' ),
-	showRight = document.getElementById( 'showRight' ),
-	showTop = document.getElementById( 'showTop' ),
-	showBottom = document.getElementById( 'showBottom' ),
-	body = document.body;
-
-	showLeft.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( menuLeft, 'cbp-spmenu-open' );
-	disableOther( 'showLeft' );
-	};
-	
-	$("#trigger-close").on("click",function() {
-		classie.toggle( menuLeft, 'cbp-spmenu-open' );
-		return false;
-	});
-	$("#trigger-close2").on("click",function() {
-		classie.toggle( menuRight, 'cbp-spmenu-open' );
-		return false;
-	});
-	$("#trigger-close3").on("click",function() {
-		classie.toggle( menuTop, 'cbp-spmenu-open' );
-		return false;
-	});
-	$("#trigger-close4").on("click",function() {
-		classie.toggle( menuBottom, 'cbp-spmenu-open' );
-		return false;
-	});
-	
-	showRight.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( menuRight, 'cbp-spmenu-open' );
-	disableOther( 'showRight' );
-	};
-	showTop.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( menuTop, 'cbp-spmenu-open' );
-	disableOther( 'showTop' );
-	};
-	showBottom.onclick = function() {
-	classie.toggle( this, 'active' );
-	classie.toggle( menuBottom, 'cbp-spmenu-open' );
-	disableOther( 'showBottom' );
-	};
+	// Default pageslide, moves to the right
+	 $(".pageslide_first").pageslide();
+	 //Slide to the left, and make it model 
+	 //(you'll have to call $.pageslide.close() to close) 
+	 $(".pageslide_second").pageslide({ direction: "left", modal: true });
 
 	 jQuery("#hbbh").removeClass("none");
 
@@ -4532,6 +4631,35 @@ jQuery("nav#flex1 ul").reactiveNav(navobj);
 			}
 		}
 
+		/* Collapsible Content */
+        //collapsible management
+        $('.collapsible').collapsible({
+            defaultOpen: 'section1',
+            cookieName: 'nav',
+            speed: 'slow',
+            animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+                elem.next().slideFadeToggle(opts.speed);
+            },
+            animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+                elem.next().slideFadeToggle(opts.speed);
+            },
+            loadOpen: function (elem) { //replace the standard open state with custom function
+                elem.next().show();
+            },
+            loadClose: function (elem, opts) { //replace the close state with custom function
+                elem.next().hide();
+            }
+        });
+        //listen for close/open all
+        $('#closeAll').click(function(event) {
+            event.preventDefault();
+            closeAll();
+
+        });
+        $('#openAll').click(function(event) {
+            event.preventDefault();
+            openAll();
+        });
 
 	}); 
 

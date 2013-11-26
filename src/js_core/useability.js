@@ -1,191 +1,566 @@
 /************************************************ [S03] Form Manipulation */
 
 
-/* Select box manipulation Plugin [http://www.texotela.co.uk/code/jquery/select]
+/*
  *
- * Copyright (c) 2006 Sam Collett (http://www.texotela.co.uk)
- * Licensed under the MIT License:
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Addepted to select an option by Mathias Bank (http://www.mathias-bank.de)
+ * Copyright (c) 2006-2010 Sam Collett (http://www.texotela.co.uk)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version 2.2.6
+ * Demo: http://www.texotela.co.uk/code/jquery/select/
+ *
+ *
  */
  
-/*
+;(function($) {
+ 
+/**
  * Adds (single/multiple) options to a select box (or series of select boxes)
  *
  * @name     addOption
  * @author   Sam Collett (http://www.texotela.co.uk)
- * @example  jQuery("#myselect").addOption("Value", "Text"); // add single value (will be selected)
- *           jQuery("#myselect").addOption("Value 2", "Text 2", false); // add single value (won't be selected)
- *           jQuery("#myselect").addOption({"foo":"bar","bar":"baz"}, false); // add multiple values, but don't select
+ * @type     jQuery
+ * @example  $("#myselect").addOption("Value", "Text"); // add single value (will be selected)
+ * @example  $("#myselect").addOption("Value 2", "Text 2", false); // add single value (won't be selected)
+ * @example  $("#myselect").addOption({"foo":"bar","bar":"baz"}, false); // add multiple values, but don't select
  *
  */
-jQuery.fn.addOption = function()
+$.fn.addOption = function()
 {
- if(arguments.length === 0){
- return this;
- } 
- // select option when added? default is true
- var selectOption = true;
- // multiple items
- var multiple = false;
- if(typeof arguments[0] === "object"){
-  multiple = true;
-  var items = arguments[0];
- }
- if(arguments.length >= 2){
-  if(typeof arguments[1] === "boolean"){ selectOption = arguments[1]; }
-  else if(typeof arguments[2] === "boolean"){ selectOption = arguments[2]; }
-  if(!multiple){
-   var value = arguments[0];
-   var text = arguments[1];
-  }
- }
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select"){return;}
-   if(multiple){
-    for(var v in items)
-    {
-     jQuery(this).addOption(v, items[v], selectOption);
-    }
-   } else {
-    var option = document.createElement("option");
-    option.value = value;
-    option.text = text;
-    this.options.add(option);
-   }
-   if(selectOption){
-    this.options[this.options.length-1].selected = true;
-   }
-  }
- );
- return this;
+	var add = function(el, v, t, sO, index)
+	{
+		var option = document.createElement("option");
+		option.value = v, option.text = t;
+		// get options
+		var o = el.options;
+		// get number of options
+		var oL = o.length;
+		if(!el.cache)
+		{
+			el.cache = {};
+			// loop through existing options, adding to cache
+			for(var i = 0; i < oL; i++)
+			{
+				el.cache[o[i].value] = i;
+			}
+		}
+		if (index || index == 0)
+		{
+ 			// we're going to insert these starting  at a specific index...
+			// this has the side effect of el.cache[v] being the 
+			// correct value for the typeof check below
+			var ti = option;
+			for(var ii =index; ii <= oL; ii++)
+			{
+				var tmp = el.options[ii];
+				el.options[ii] = ti;
+				o[ii] = ti;
+				el.cache[o[ii].value] = ii;
+				ti = tmp;
+			}
+		}
+    
+		// add to cache if it isn't already
+		if(typeof el.cache[v] == "undefined") el.cache[v] = oL;
+		el.options[el.cache[v]] = option;
+		if(sO)
+		{
+			option.selected = true;
+		}
+	};
+	
+	var a = arguments;
+	if(a.length == 0) return this;
+	// select option when added? default is true
+	var sO = true;
+	// multiple items
+	var m = false;
+	// other variables
+	var items, v, t, startindex = 0;
+	if(typeof(a[0]) == "object")
+	{
+		m = true;
+		items = a[0];
+	}
+	if(a.length >= 2)
+	{
+		if(typeof(a[1]) == "boolean")
+		{
+			sO = a[1];
+			startindex = a[2];
+		}
+		else if(typeof(a[2]) == "boolean")
+		{
+			sO = a[2];
+			startindex = a[1];
+		}
+		else
+		{
+			startindex = a[1];
+		}
+		if(!m)
+		{
+			v = a[0];
+			t = a[1];
+		}
+	}
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			if(m)
+			{
+				var sel = this;
+				jQuery.each(items, function(val, text){
+					if(typeof(text) == "object"){
+						jQuery.each(text, function(k,v){
+							val = k;
+							text = v;
+						});
+					}
+					add(sel, val, text, sO, startindex);
+					startindex += 1; 
+				});
+			}
+			else
+			{
+				add(this, v, t, sO, startindex);
+			}
+		}
+	);
+	return this;
 };
 
-/*
-* Removes an option (by value or index) from a select box (or series of select boxes)
-*
-* @name     removeOption
-* @author   Sam Collett (http://www.texotela.co.uk)
-* @example  jQuery("#myselect").removeOption("Value"); // remove by value
-*           jQuery("#myselect").removeOption(0); // remove by index
-*
-*/
-jQuery.fn.removeOption = function()
+/**
+ * Add options via ajax
+ *
+ * @name     ajaxAddOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String url      Page to get options from (must be valid JSON)
+ * @param    Object params   (optional) Any parameters to send with the request
+ * @param    Boolean select  (optional) Select the added options, default true
+ * @param    Function fn     (optional) Call this function with the select object as param after completion
+ * @param    Array args      (optional) Array with params to pass to the function afterwards
+ * @example  $("#myselect").ajaxAddOption("myoptions.php");
+ * @example  $("#myselect").ajaxAddOption("myoptions.php", {"code" : "007"});
+ * @example  $("#myselect").ajaxAddOption("myoptions.php", {"code" : "007"}, false, sortoptions, [{"dir": "desc"}]);
+ *
+ */
+$.fn.ajaxAddOption = function(url, params, select, fn, args)
 {
- if(arguments.length === 0){ return this; }
- if(typeof arguments[0] === "string"){ var value = arguments[0]; }
- else if(typeof arguments[0] === "number"){ var index = arguments[0]; }
- else{ return this; }
- this.each(
-  function()
-  {
-   if(this.nodeName.toLowerCase() !== "select"){ return; }
-   if(value){
-    var optionsLength = this.options.length;
-    for(var i=optionsLength-1; i>=0; i--){
-     if(this.options[i].value === value){
-      this.options[i] = null;
-     }
-    }
-   }
-   else{
-    this.remove(index);
-   }
-  }
- );
- return this;
+	if(typeof(url) != "string") return this;
+	if(typeof(params) != "object") params = {};
+	if(typeof(select) != "boolean") select = true;
+	this.each(
+		function()
+		{
+			var el = this;
+			$.getJSON(url,
+				params,
+				function(r)
+				{
+					$(el).addOption(r, select);
+					if(typeof fn == "function")
+					{
+						if(typeof args == "object")
+						{
+							fn.apply(el, args);
+						} 
+						else
+						{
+							fn.call(el);
+						}
+					}
+				}
+			);
+		}
+	);
+	return this;
 };
 
-/*
-* Sort options (ascending or descending) in a select box (or series of select boxes)
-*
-* @name     sortOptions
-* @author   Sam Collett (http://www.texotela.co.uk)
-* @param    ascending   Sort ascending (true/undefined), or descending (false)
-* @example  // ascending
-*           jQuery("#myselect").sortOptions(); // or jQuery("#myselect").sortOptions(true);
-*           // descending
-*           jQuery("#myselect").sortOptions(false);
-*
-*/
-jQuery.fn.sortOptions = function(ascending)
+/**
+ * Removes an option (by value or index) from a select box (or series of select boxes)
+ *
+ * @name     removeOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String|RegExp|Number what  Option to remove
+ * @param    Boolean selectedOnly       (optional) Remove only if it has been selected (default false)   
+ * @example  $("#myselect").removeOption("Value"); // remove by value
+ * @example  $("#myselect").removeOption(/^val/i); // remove options with a value starting with 'val'
+ * @example  $("#myselect").removeOption(/./); // remove all options
+ * @example  $("#myselect").removeOption(/./, true); // remove all options that have been selected
+ * @example  $("#myselect").removeOption(0); // remove by index
+ * @example  $("#myselect").removeOption(["myselect_1","myselect_2"]); // values contained in passed array
+ *
+ */
+$.fn.removeOption = function()
 {
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select"){ return; }
-   // default sort is ascending if parameter is undefined
-   ascending = typeof ascending === "undefined" ? true : ascending;
-   // get number of options
-   var optionsLength = this.options.length;
-   // create an array for sorting
-   var sortArray = [];
-   // loop through options, adding to sort array
-   for(var i = 0; i<optionsLength; i++)
-   {
-    sortArray[i] =
-    {
-     value: this.options[i].value,
-     text: this.options[i].text
-    };
-   }
-   // sort items in array
-   sortArray.sort(
-    function(option1, option2)
-    {
-     // option text is made lowercase for case insensitive sorting
-     
-     var option1text = option1.text.toLowerCase();
-     var option2text = option2.text.toLowerCase();
-     // if options are the same, no sorting is needed
-     if(option1text === option2text){ return 0; }
-     if(ascending){
-      return option1text < option2text ? -1 : 1;
-     }
-     else {
-      return option1text > option2text ? -1 : 1;
-     }
-    }
-   );
-   // change the options to match the sort array
-   for(var ix = 0; ix<optionsLength; ix++){
-    this.options[i].text = sortArray[ix].text;
-    this.options[i].value = sortArray[ix].value;
-   }
-  }
- );
- return this;
+	var a = arguments;
+	if(a.length == 0) return this;
+	var ta = typeof(a[0]);
+	var v, index;
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(ta == "string" || ta == "object" || ta == "function" )
+	{
+		v = a[0];
+		// if an array, remove items
+		if(v.constructor == Array)
+		{
+			var l = v.length;
+			for(var i = 0; i<l; i++)
+			{
+				this.removeOption(v[i], a[1]); 
+			}
+			return this;
+		}
+	}
+	else if(ta == "number") index = a[0];
+	else return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			// clear cache
+			if(this.cache) this.cache = null;
+			// does the option need to be removed?
+			var remove = false;
+			// get options
+			var o = this.options;
+			if(!!v)
+			{
+				// get number of options
+				var oL = o.length;
+				for(var i=oL-1; i>=0; i--)
+				{
+					if(v.constructor == RegExp)
+					{
+						if(o[i].value.match(v))
+						{
+							remove = true;
+						}
+					}
+					else if(o[i].value == v)
+					{
+						remove = true;
+					}
+					// if the option is only to be removed if selected
+					if(remove && a[1] === true) remove = o[i].selected;
+					if(remove)
+					{
+						o[i] = null;
+					}
+					remove = false;
+				}
+			}
+			else
+			{
+				// only remove if selected?
+				if(a[1] === true)
+				{
+					remove = o[index].selected;
+				}
+				else
+				{
+					remove = true;
+				}
+				if(remove)
+				{
+					this.remove(index);
+				}
+			}
+		}
+	);
+	return this;
 };
 
-/*
+/**
+ * Sort options (ascending or descending) in a select box (or series of select boxes)
+ *
+ * @name     sortOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    Boolean ascending   (optional) Sort ascending (true/undefined), or descending (false)
+ * @example  // ascending
+ * $("#myselect").sortOptions(); // or $("#myselect").sortOptions(true);
+ * @example  // descending
+ * $("#myselect").sortOptions(false);
+ *
+ */
+$.fn.sortOptions = function(ascending)
+{
+	// get selected values first
+	var sel = $(this).selectedValues();
+	var a = typeof(ascending) == "undefined" ? true : !!ascending;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			// create an array for sorting
+			var sA = [];
+			// loop through options, adding to sort array
+			for(var i = 0; i<oL; i++)
+			{
+				sA[i] = {
+					v: o[i].value,
+					t: o[i].text
+				}
+			}
+			// sort items in array
+			sA.sort(
+				function(o1, o2)
+				{
+					// option text is made lowercase for case insensitive sorting
+					o1t = o1.t.toLowerCase(), o2t = o2.t.toLowerCase();
+					// if options are the same, no sorting is needed
+					if(o1t == o2t) return 0;
+					if(a)
+					{
+						return o1t < o2t ? -1 : 1;
+					}
+					else
+					{
+						return o1t > o2t ? -1 : 1;
+					}
+				}
+			);
+			// change the options to match the sort array
+			for(var i = 0; i<oL; i++)
+			{
+				o[i].text = sA[i].t;
+				o[i].value = sA[i].v;
+			}
+		}
+	).selectOptions(sel, true); // select values, clearing existing ones
+	return this;
+};
+/**
  * Selects an option by value
  *
  * @name     selectOptions
- * @author   Mathias Bank (http://www.mathias-bank.de)
- * @param    value specifies, which options should be selected
- * @example  jQuery("#myselect").selectOptions("val1");
+ * @author   Mathias Bank (http://www.mathias-bank.de), original function
+ * @author   Sam Collett (http://www.texotela.co.uk), addition of regular expression matching
+ * @type     jQuery
+ * @param    String|RegExp|Array value  Which options should be selected
+ * can be a string or regular expression, or an array of strings / regular expressions
+ * @param    Boolean clear  Clear existing selected options, default false
+ * @example  $("#myselect").selectOptions("val1"); // with the value 'val1'
+ * @example  $("#myselect").selectOptions(["val1","val2","val3"]); // with the values 'val1' 'val2' 'val3'
+ * @example  $("#myselect").selectOptions(/^val/i); // with the value starting with 'val', case insensitive
  *
  */
-jQuery.fn.selectOptions = function(value) {
- this.each(
-  function(){
-   if(this.nodeName.toLowerCase() !== "select") {
-    return;
-   }
-   // get number of options
-   var optionsLength = this.options.length;
-   
-   
-   for(var i = 0; i<optionsLength; i++) {
-    if (this.options[i].value === value) {
-     this.options[i].selected = true;
-    }
-   }
-  }
- );
- return this;
+$.fn.selectOptions = function(value, clear)
+{
+	var v = value;
+	var vT = typeof(value);
+	// handle arrays
+	if(vT == "object" && v.constructor == Array)
+	{
+		var $this = this;
+		$.each(v, function()
+			{
+      				$this.selectOptions(this, clear);
+    			}
+		);
+	};
+	var c = clear || false;
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(vT != "string" && vT != "function" && vT != "object") return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(v.constructor == RegExp)
+				{
+					if(o[i].value.match(v))
+					{
+						o[i].selected = true;
+					}
+					else if(c)
+					{
+						o[i].selected = false;
+					}
+				}
+				else
+				{
+					if(o[i].value == v)
+					{
+						o[i].selected = true;
+					}
+					else if(c)
+					{
+						o[i].selected = false;
+					}
+				}
+			}
+		}
+	);
+	return this;
 };
+
+/**
+ * Copy options to another select
+ *
+ * @name     copyOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @param    String to  Element to copy to
+ * @param    String which  (optional) Specifies which options should be copied - 'all' or 'selected'. Default is 'selected'
+ * @example  $("#myselect").copyOptions("#myselect2"); // copy selected options from 'myselect' to 'myselect2'
+ * @example  $("#myselect").copyOptions("#myselect2","selected"); // same as above
+ * @example  $("#myselect").copyOptions("#myselect2","all"); // copy all options from 'myselect' to 'myselect2'
+ *
+ */
+$.fn.copyOptions = function(to, which)
+{
+	var w = which || "selected";
+	if($(to).size() == 0) return this;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(w == "all" || (w == "selected" && o[i].selected))
+				{
+					$(to).addOption(o[i].value, o[i].text);
+				}
+			}
+		}
+	);
+	return this;
+};
+
+/**
+ * Checks if a select box has an option with the supplied value
+ *
+ * @name     containsOption
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Boolean|jQuery
+ * @param    String|RegExp value  Which value to check for. Can be a string or regular expression
+ * @param    Function fn          (optional) Function to apply if an option with the given value is found.
+ * Use this if you don't want to break the chaining
+ * @example  if($("#myselect").containsOption("val1")) alert("Has an option with the value 'val1'");
+ * @example  if($("#myselect").containsOption(/^val/i)) alert("Has an option with the value starting with 'val'");
+ * @example  $("#myselect").containsOption("val1", copyoption).doSomethingElseWithSelect(); // calls copyoption (user defined function) for any options found, chain is continued
+ *
+ */
+$.fn.containsOption = function(value, fn)
+{
+	var found = false;
+	var v = value;
+	var vT = typeof(v);
+	var fT = typeof(fn);
+	// has to be a string or regular expression (object in IE, function in Firefox)
+	if(vT != "string" && vT != "function" && vT != "object") return fT == "function" ? this: found;
+	this.each(
+		function()
+		{
+			if(this.nodeName.toLowerCase() != "select") return this;
+			// option already found
+			if(found && fT != "function") return false;
+			// get options
+			var o = this.options;
+			// get number of options
+			var oL = o.length;
+			for(var i = 0; i<oL; i++)
+			{
+				if(v.constructor == RegExp)
+				{
+					if (o[i].value.match(v))
+					{
+						found = true;
+						if(fT == "function") fn.call(o[i], i);
+					}
+				}
+				else
+				{
+					if (o[i].value == v)
+					{
+						found = true;
+						if(fT == "function") fn.call(o[i], i);
+					}
+				}
+			}
+		}
+	);
+	return fT == "function" ? this : found;
+};
+
+/**
+ * Returns values which have been selected
+ *
+ * @name     selectedValues
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Array
+ * @example  $("#myselect").selectedValues();
+ *
+ */
+$.fn.selectedValues = function()
+{
+	var v = [];
+	this.selectedOptions().each(
+		function()
+		{
+			v[v.length] = this.value;
+		}
+	);
+	return v;
+};
+
+/**
+ * Returns text which has been selected
+ *
+ * @name     selectedTexts
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     Array
+ * @example  $("#myselect").selectedTexts();
+ *
+ */
+$.fn.selectedTexts = function()
+{
+	var t = [];
+	this.selectedOptions().each(
+		function()
+		{
+			t[t.length] = this.text;
+		}
+	);
+	return t;
+};
+
+/**
+ * Returns options which have been selected
+ *
+ * @name     selectedOptions
+ * @author   Sam Collett (http://www.texotela.co.uk)
+ * @type     jQuery
+ * @example  $("#myselect").selectedOptions();
+ *
+ */
+$.fn.selectedOptions = function()
+{
+	return this.find("option:selected");
+};
+
+})(jQuery);
+
 /*
  * jqPagination, a jQuery pagination plugin (obviously)
  *

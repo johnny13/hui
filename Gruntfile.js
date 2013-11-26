@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         footer: '\n\n'+'/*! <%= pkg.homepage %> */'+'\n\n',
       },
       dist: {
-        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/classie.js'],
+        src: ['src/js_core/actions.js', 'src/js_core/history.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/animate.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/pageslide.js'],
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
       cssdist: {
@@ -53,8 +53,8 @@ module.exports = function(grunt) {
 			stripBanners: true,
 		},
 	    files: {
-	      'dist/<%= pkg.name %>-dark.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','src/themes/dark/dev-theme.css'],
-	      'dist/<%= pkg.name %>-light.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','src/themes/lithium/dev-theme.css'],
+	      'dist/<%= pkg.name %>-dark.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','dist/dark-theme.css'],
+	      'dist/<%= pkg.name %>-light.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','dist/lithium-theme.css'],
           'dist/ie-min.css': ['src/css_core/ie.css']
 	    }
 	 }
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/classie.js' ]
+        src: ['src/js_core/actions.js', 'src/js_core/notefy.js', 'src/js_core/useability.js', 'src/js_core/facebox.js', 'src/js_core/tips.js', 'src/js_core/mediaQuery.js', 'src/js_core/accordion.js', 'src/js_core/navigation.js', 'src/js_core/table.js', 'src/js_core/pageslide.js' ]
       },
       test: {
         options: {

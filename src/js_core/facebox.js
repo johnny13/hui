@@ -151,6 +151,7 @@
     },
     close: function() {
       jQuery(document).trigger('close.facebox');
+	  jQuery('#facebox').fadeOut();
       return false;
     }
   });
