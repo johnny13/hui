@@ -53,8 +53,8 @@ module.exports = function(grunt) {
 			stripBanners: true,
 		},
 	    files: {
-	      'dist/<%= pkg.name %>-dark.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','dist/dark-theme.css'],
-	      'dist/<%= pkg.name %>-light.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','dist/lithium-theme.css'],
+	      'dist/<%= pkg.name %>-dark.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','src/themes/dark/dev-theme.css'],
+	      'dist/<%= pkg.name %>-light.css': ['dist/<%= pkg.name %>-<%= pkg.version %>.css','src/themes/lithium/dev-theme.css'],
           'dist/ie-min.css': ['src/css_core/ie.css']
 	    }
 	 }
