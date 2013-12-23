@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.4 - 2013-11-29
+/*! huement user interface - v0.2.4 - 2013-12-21
 * http://hui.huement.com
 * Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
 
@@ -3054,6 +3054,7 @@ if (!console) {
     close: function() {
       jQuery(document).trigger('close.facebox');
 	  jQuery('#facebox').fadeOut();
+	  
       return false;
     }
   });
@@ -3197,7 +3198,7 @@ if (!console) {
 
   function showOverlay() {
 	setTimeout("jQuery('#facebox').addClass('showbox')", 250);
-	
+	setTimeout("jQuery('#facebox').addClass('showbox')", 800);
     if (skipOverlay()) return;
 
     if (jQuery('#facebox_overlay').length === 0)
@@ -3211,6 +3212,7 @@ if (!console) {
   }
 
   function hideOverlay() {
+	 setTimeout("jQuery('#facebox').hide()",500);
 	 jQuery(document).trigger('afterClose.facebox');
 	
 	if (skipOverlay()) {
@@ -3221,6 +3223,7 @@ if (!console) {
       jQuery("#facebox_overlay").removeClass("facebox_overlayBG");
       jQuery("#facebox_overlay").addClass("facebox_hide");
       jQuery("#facebox_overlay").remove();
+	  
     });
 
     return false;
@@ -5299,22 +5302,29 @@ $.fn.slideFadeToggle = function(speed, easing, callback) {
         // If the slide is open or opening, just ignore the call
         if( $pageslide.is(':visible') || _sliding ) return;	        
         _sliding = true;
-                                                                    
+		var settings = $.fn.pageslide.defaults;
+		                                                                      
         switch( direction ) {
             case 'left':
                 $pageslide.css({ left: 'auto', right: '-' + slideWidth + 'px' });
-                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
+                if(settings.movebody==true){
+                	bodyAnimateIn['margin-left'] = '-=' + slideWidth;
+                }
                 slideAnimateIn['right'] = '+=' + slideWidth;
                 break;
             default:
                 $pageslide.css({ left: '-' + slideWidth + 'px', right: 'auto' });
-                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                if(settings.movebody==true){
+                	bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                }
                 slideAnimateIn['left'] = '+=' + slideWidth;
                 break;
         }
                     
         // Animate the slide, and attach this slide's settings to the element
-        $body.animate(bodyAnimateIn, speed);
+		if(settings.movebody==true){
+        	$body.animate(bodyAnimateIn, speed);
+		}
         $pageslide.show()
                   .animate(slideAnimateIn, speed, function() {
                       _sliding = false;
@@ -5357,7 +5367,8 @@ $.fn.slideFadeToggle = function(speed, easing, callback) {
         direction:  'right',    // Accepts 'left' or 'right'
         modal:      false,      // If set to true, you must explicitly close pageslide using $.pageslide.close();
         iframe:     true,       // By default, linked pages are loaded into an iframe. Set this to false if you don't want an iframe.
-        href:       null        // Override the source of the content. Optional in most cases, but required when opening pageslide programmatically.
+        href:       null,       // Override the source of the content. Optional in most cases, but required when opening pageslide programmatically.
+		movebody:   false		// Put a Margin on the Body when the Slider Opens. (Kinda annoying, disabled by default)
     };
 	
 	/*
@@ -5392,25 +5403,48 @@ $.fn.slideFadeToggle = function(speed, easing, callback) {
             speed = $pageslide.data( 'speed' ),
             bodyAnimateIn = {},
             slideAnimateIn = {}
-            	        
+        
+		var settings = $.fn.pageslide.defaults;
+		
         // If the slide isn't open, just ignore the call
         if( $pageslide.is(':hidden') || _sliding ) return;	        
         _sliding = true;
         
         switch( $pageslide.data( 'direction' ) ) {
             case 'left':
-                bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                if(settings.movebody==true){
+                	bodyAnimateIn['margin-left'] = '+=' + slideWidth;
+                }
                 slideAnimateIn['right'] = '-=' + slideWidth;
                 break;
             default:
-                bodyAnimateIn['margin-left'] = '-=' + slideWidth;
-                slideAnimateIn['left'] = '-=' + slideWidth;
+				if(settings.movebody==true){
+					bodyAnimateIn['margin-left'] = '-=' + slideWidth;
+				}
+				slideAnimateIn['left'] = '-=' + slideWidth;
                 break;
         }
         
+		
+        // Animate the slide, and attach this slide's settings to the element
+        // $body.animate(bodyAnimateIn, speed);
+        // $pageslide.show()
+        //          .animate(slideAnimateIn, speed, function() {
+        //              _sliding = false;
+        //          });
+		/*		  
         $pageslide.animate(slideAnimateIn, speed);
         $body.animate(bodyAnimateIn, speed, function() {
             $pageslide.hide();
+            _sliding = false;
+            if( typeof callback != 'undefined' ) callback();
+        });
+		*/
+		if(settings.movebody==true){
+        	$body.animate(bodyAnimateIn, speed);
+		}
+        $pageslide.animate(slideAnimateIn, speed, function() {
+            $pageslide.delay( settings.speed + 500 ).fadeOut();
             _sliding = false;
             if( typeof callback != 'undefined' ) callback();
         });
@@ -5419,14 +5453,14 @@ $.fn.slideFadeToggle = function(speed, easing, callback) {
 	/* Events */
 	
 	// Don't let clicks to the pageslide close the window
-    $pageslide.click(function(e) {
-        e.stopPropagation();
+    $pageslide.click(function(ev) {
+        ev.stopPropagation();
     });
 
 	// Close the pageslide if the document is clicked or the users presses the ESC key, unless the pageslide is modal
-	$(document).bind('click keyup', function(e) {
+	$(document).bind('click keyup', function(ev) {
 	    // If this is a keyup event, let's see if it's an ESC key
-        if( e.type == "keyup" && e.keyCode != 27) return;
+        if( ev.type == "keyup" && ev.keyCode != 27) return;
 	    
 	    // Make sure it's visible, and we're not modal	    
 	    if( $pageslide.is( ':visible' ) && !$pageslide.data( 'modal' ) ) {	        

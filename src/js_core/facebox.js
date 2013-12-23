@@ -152,6 +152,7 @@
     close: function() {
       jQuery(document).trigger('close.facebox');
 	  jQuery('#facebox').fadeOut();
+	  
       return false;
     }
   });
@@ -295,7 +296,7 @@
 
   function showOverlay() {
 	setTimeout("jQuery('#facebox').addClass('showbox')", 250);
-	
+	setTimeout("jQuery('#facebox').addClass('showbox')", 800);
     if (skipOverlay()) return;
 
     if (jQuery('#facebox_overlay').length === 0)
@@ -309,6 +310,7 @@
   }
 
   function hideOverlay() {
+	 setTimeout("jQuery('#facebox').hide()",500);
 	 jQuery(document).trigger('afterClose.facebox');
 	
 	if (skipOverlay()) {
@@ -319,6 +321,7 @@
       jQuery("#facebox_overlay").removeClass("facebox_overlayBG");
       jQuery("#facebox_overlay").addClass("facebox_hide");
       jQuery("#facebox_overlay").remove();
+	  
     });
 
     return false;

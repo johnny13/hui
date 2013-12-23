@@ -167,24 +167,24 @@ a.blackText:hover {
   background-color: #c20000; }
 
 .orangeb, .orangeB {
-  background-color: #e75c00;
-  background: #e75c00; }
+  background-color: #ee7f34;
+  background: #ee7f34; }
 
 .yellowb, .yellowB {
-  background-color: #f3d124;
-  background: #f3d124; }
+  background-color: #ecd560;
+  background: #ecd560; }
 
 .greenb, .greenB {
-  background-color: #0f8000;
-  background: #0f8000; }
+  background-color: #47cc4b;
+  background: #47cc4b; }
 
 .blueb, .blueB {
-  background-color: #1d92ff;
-  background: #1d92ff; }
+  background-color: #47a3db;
+  background: #47a3db; }
 
 .purpleb, .purpleB {
-  background-color: #911cff;
-  background: #911cff; }
+  background-color: #925cc5;
+  background: #925cc5; }
 
 .whiteb, .whiteB {
   background-color: white;
@@ -201,7 +201,7 @@ a.blackText:hover {
   color: #111111; }
 
 .greyb a {
-  color: #1d92ff !important; }
+  color: #47a3db !important; }
 
 .greyb a:hover, .container p a:hover {
   color: #1d92ff !important; }
@@ -214,12 +214,12 @@ a.blackText:hover {
 .notice, .warning {
   background: #fde982;
   color: #2e2e2e;
-  border-color: #f3d124; }
+  border-color: #ecd560; }
 
 .success, .accept {
   background: #6ec762;
   color: white;
-  border-color: #0f8000; }
+  border-color: #47cc4b; }
 
 .info, .information {
   background: #76bcfd;
@@ -231,6 +231,18 @@ a.blackText:hover {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px; }
+
+.Tegan li .arrow {
+  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png"); }
+
+.Tegan.dark li .arrow {
+  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png"); }
+
+.Tegan.Sara li:hover .arrow, .Tegan li:hover .arrow {
+  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png"); }
+
+.Tegan.dark li:hover .arrow {
+  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png"); }
 
 .Tegan.style li:nth-child(1n), .Tegan.Sara.style li:nth-child(1n) {
   background: #e7e7e7;
@@ -321,6 +333,106 @@ button.black {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#111111', endColorstr='#0d0d0d');
     -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#111111', endColorstr='#0d0d0d');
     background-image: -ms-linear-gradient(top, #111111, #0d0d0d); }
+
+/* Icon */
+.jGhuicon {
+  min-width: 32px !important;
+  width: 32px !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png");
+  float: left;
+  margin: 10px 5px 0 -5px; }
+
+.jGrowl-icon-notefy {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png") !important; }
+
+.jGrowl-icon-address {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-address.png") !important; }
+
+.jGrowl-icon-alert {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png") !important; }
+
+.jGrowl-icon-ape {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png") !important; }
+
+.jGrowl-icon-box {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-box.png") !important; }
+
+.jGrowl-icon-caution {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-caution.png") !important; }
+
+.jGrowl-icon-chat {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png") !important; }
+
+.jGrowl-icon-date {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-date.png") !important; }
+
+.jGrowl-icon-down {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-down.png") !important; }
+
+.jGrowl-icon-earth {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png") !important; }
+
+.jGrowl-icon-facebook {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png") !important; }
+
+.jGrowl-icon-gear {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png") !important; }
+
+.jGrowl-icon-heart {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png") !important; }
+
+.jGrowl-icon-help {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-help.png") !important; }
+
+.jGrowl-icon-info {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-info.png") !important; }
+
+.jGrowl-icon-jack {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png") !important; }
+
+.jGrowl-icon-jackolantern {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png") !important; }
+
+.jGrowl-icon-maps {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png") !important; }
+
+.jGrowl-icon-mumford {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png") !important; }
+
+.jGrowl-icon-ok {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png") !important; }
+
+.jGrowl-icon-player {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-player.png") !important; }
+
+.jGrowl-icon-plus {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png") !important; }
+
+.jGrowl-icon-rss {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png") !important; }
+
+.jGrowl-icon-search {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-search.png") !important; }
+
+.jGrowl-icon-spade {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png") !important; }
+
+.jGrowl-icon-star {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-star.png") !important; }
+
+.jGrowl-icon-twitter {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png") !important; }
+
+.jGrowl-icon-up {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-up.png") !important; }
+
+.jGrowl-icon-weather {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png") !important; }
+
+.jGrowl-icon-x {
+  background-image: url("https://huementui.s3.amazonaws.com/notefy/hui-icon-x.png") !important; }
 
 div.jGrowl div.jGrowl-notification {
   color: whitesmoke;
@@ -499,13 +611,6 @@ table.style th {
 table.style th, table.style td {
   border-bottom: 1px solid #f1f1f1; }
 
-.style td {
-  padding: 6px 8px;
-  background: #e4e4e4;
-  width: 35%;
-  text-align: left;
-  white-space: nowrap; }
-
 table.style {
   border: 1px solid #e4e4e4;
   border-collapse: collapse;
@@ -529,6 +634,7 @@ table.style th, table.style td {
   border-bottom: 1px solid #f1f1f1; }
 
 .style td {
+  padding: 6px 8px;
   text-align: left;
   white-space: nowrap;
   padding: 6px 8px;

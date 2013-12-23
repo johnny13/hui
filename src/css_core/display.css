@@ -298,19 +298,6 @@ li .comment.limit {
   clear:none;
   display:inline;
   z-index:222;
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
-}
-
-.Tegan.dark li .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
-}
-
-.Tegan.Sara li:hover .arrow, .Tegan li:hover .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png");
-}
-
-.Tegan.dark li:hover .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
 }
 
 .Tegan li a:nth-child(1) {
@@ -530,17 +517,6 @@ li .comment.limit {
   font-size:1.2em;
   }
   .Tegan li .comment { font-size:1em; }
-}
-
-@media only screen and (max-width : 550px) {
-  .Tegan {
-  margin-left:-5px;
-  }
-  .Tegan li {
-  padding:3px 0px 0 0px;
-  }
-  .Tegan li .name { width:98%;font-size:1em;}
-  .Tegan li .comment { width:98%;font-size:0.9em; }
 }
 
 /* Taylor Swifty style List */
