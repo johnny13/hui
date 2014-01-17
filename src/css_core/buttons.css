@@ -46,7 +46,6 @@ button, .button {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  -webkit-user-select: none;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;

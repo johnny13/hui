@@ -1,5 +1,4 @@
-hui - Classy like a Lady
-======
+#hui - Classy like a Lady
 
 hui is an under development web framework. It has two main areas, CSS and JS.    
 
@@ -29,34 +28,34 @@ Git Submodules made adding on functionality easy. Clone plugins and load them on
 ## Download hui
 Clone this repository into your projects web-root directory.    
     
-    git clone https://github.com/johnny13/hui.git /your/webroot    
+    $ git clone https://github.com/johnny13/hui.git /your/webroot    
     
 
 ## Download plugins
 ### Optionally Setup the Plugins (optional but recommended)
 Step 1. clone plugin repo into hui repo.   
     
-    cd hui   
-	git submodule init     
-    npm install    
+    $ cd hui   
+	$ git submodule init     
+    $ npm install    
     
 
 Step 2A. activate entire plugin system.    
     
-    git clone https://github.com/johnny13/hui-plugins.git hui-plugins    
-    cd hui-plugins
-    git submodule init    
+	$ git clone https://github.com/johnny13/hui-plugins.git
+	$ cd hui-plugins
+	$ git submodule update --init --recursive  
     
 
 Step 2B. OR activate single plugin (eg. slideshow plugin)    
     
-    git submodule init Thimbleberry
+    $ git submodule init Thimbleberry
     
 
 Note: Its Important to immediately UPDATE Any Plugins you want to use.    
     
-    cd ./hui-plugins/<plugin name>
-    git pull origin master
+    $ cd ./hui-plugins/<plugin name>
+    $ git pull origin master
     
 
 More information about downloads, installs, cdn versions, plugin updates, builds and developer packages can be found at [hui.huement.com/start](http://hui.huement.com/start/).    
@@ -74,6 +73,7 @@ Included in the dist folder are two themes, hui-dark.css or hui-light.css. They 
     </head>
     
     <body>
+	<!-- some stuff -->
     <script src="libs/jquery/jquery.js"></script>
 	<script src="dist/hui.min.js"></script>
 	</body>

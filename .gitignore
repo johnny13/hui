@@ -1,3 +1,6 @@
 node_modules/*
-
-.DS_Store
+*.sassh-cache
+*.DS_Store
+*.jshintrc
+/**.jshintrc
+/**.DS_Store

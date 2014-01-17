@@ -117,7 +117,7 @@ $green:#0F8000;
 $orange:#E75C00; 
 $yellow:#F3D124;
 $blue:#1D92FF;
-$purple:#911CFF;
+$purple:#874AC0;
 $white:#FFFFFF;
 $black:#2E2E2E;
 $grey:#BDBDBD;
@@ -134,15 +134,15 @@ $greenH:#33D424;
 $orangeH:#D44D24; 
 $yellowH:#EBE313;
 $blueH:#13A6EB;
-$purpleH:#D113EB;
+$purpleH:#9340B9;
 $whiteH:#F7F7F7;
 $blackH:#3d3d3d;
 $redB:#C20000;
-$greenB:#47CC4B;
-$orangeB:#EE7F34; 
-$yellowB:#ECD560;
-$blueB:#47A3DB;
-$purpleB:#925CC5;
+$greenB:#0F8000;
+$orangeB:#E75C00; 
+$yellowB:#F3D124;
+$blueB:#1D92FF;
+$purpleB:#7D4FA8;
 $blackB:#111111;
 
 // ================== //
@@ -246,20 +246,105 @@ ul.list-unstyled {
 }
 
 .shadow {
-  @include boxShadow(2px, 2px, 4px, #111111);
+  @include boxShadow(2px, 2px, 4px, $black);
 }
 
-.glass {
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid rgba(0,0,0,0.5);
-  border-radius: 10px 10px 2px 2px;
-  -moz-border-radius: 10px 10px 2px 2px;
-  background: rgba(0,0,0,0.25);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-  -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
-  -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+.alert {
+  padding: 15px 35px 15px 15px;
+  margin-bottom: 20px;
+  color: $TipTipText;
+  background-color: $yellow;
+  border: 1px solid $grey;
+  border-radius: 4px;
+}
+
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.alert hr {
+  border-top-color: $buttonBorder;
+}
+
+.alert .alert-link {
+  font-weight: bold;
+  color: $buttonHoverBorder;
+}
+
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+
+.alert > p + p {
+  margin-top: 5px;
+}
+
+.alert-success {
+  color: $greenB;
+  background-color: $green;
+  border-color: $greenB;
+}
+
+.alert-success hr {
+  border-top-color: $greenH;
+}
+
+.alert-success .alert-link {
+  color: $greenH;
+}
+
+.alert-danger {
+  color: $white;
+  background-color: $red;
+  border-color: $redB;
+}
+
+.alert-danger hr {
+  border-top-color: $redH;
+}
+
+.alert-danger .alert-link {
+  color: $redH;
+}
+
+.alert-info {
+  color: $blueB;
+  background-color: $blue;
+  border-color: $blueB;
+}
+
+.alert-info hr {
+  border-top-color: $blueH;
+}
+
+.alert-info .alert-link {
+  color: $blueH;
+}
+
+.alert-info,.badge-info,.btn-info,.label-info,.text-info,.progress-info{
+	background-color:$blueH;
+	color: $TipTipText;
+}
+.alert-success,.badge-success,.btn-success,.label-success,.text-success,.progress-success{
+	background-color:$greenH;
+	color: $TipTipText;
+}
+.alert-warning,.badge-warning,.btn-warning,.label-warning,.text-warning,.progress-warning{
+	background-color:$redH;
+	color: $TipTipText;
+}
+.alert-error,.badge-error,.btn-error,.label-error,.text-error,.progress-error{
+	background-color:$purpleH;
+	color: $TipTipText;
 }
 
 .round { @include borderRadius(3px); }
@@ -324,22 +409,6 @@ a.blackText:hover {color: $blackH ;}
   @include borderRadius(4px);
 }
 
-.Tegan li .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-gray.png");
-}
-
-.Tegan.dark li .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
-}
-
-.Tegan.Sara li:hover .arrow, .Tegan li:hover .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-dark.png");
-}
-
-.Tegan.dark li:hover .arrow {
-  background-image: url("https://huementui.s3.amazonaws.com/images/hui-sprite-light.png");
-}
-
 .Tegan.style li:nth-child(1n),.Tegan.Sara.style li:nth-child(1n) {background:$buttonHover;background-color:$buttonHover;}
 
 .Tegan.style li:nth-child(2n),.Tegan.Sara.style li:nth-child(2n) {background:$buttonBase;background-color:$buttonBase;}
@@ -380,107 +449,6 @@ button.black {
 }
 
 // -- notefy theme -- //
-/* Icon */
-.jGhuicon { 
- min-width: 32px !important;
- width: 32px !important; 
- min-height: 32px !important; 
- height:32px !important;
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png');
- float:left;  
- margin:10px 5px 0 -5px;
-}
-
-.jGrowl-icon-notefy { 
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-notefy.png') !important;
-}
-.jGrowl-icon-address {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-address.png') !important;
-}
-.jGrowl-icon-alert {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-alert.png') !important;
-}
-.jGrowl-icon-ape {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-ape.png') !important;
-}
-.jGrowl-icon-box {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-box.png') !important;
-}
-.jGrowl-icon-caution {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-caution.png') !important;
-}
-.jGrowl-icon-chat {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-chat.png') !important;
-}
-.jGrowl-icon-date {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-date.png') !important;
-}
-.jGrowl-icon-down {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-down.png') !important;
-}
-.jGrowl-icon-earth {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-earth.png') !important;
-}
-.jGrowl-icon-facebook {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-facebook.png') !important;
-}
-.jGrowl-icon-gear {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-gear.png') !important;
-}
-.jGrowl-icon-heart {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-heart.png') !important;
-}
-.jGrowl-icon-help {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-help.png') !important;
-}
-.jGrowl-icon-info {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-info.png') !important;
-}
-.jGrowl-icon-jack {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-jack.png') !important;
-}
-.jGrowl-icon-jackolantern {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-jackolantern.png') !important;
-}
-.jGrowl-icon-maps {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-maps.png') !important;
-}
-.jGrowl-icon-mumford {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-mumford.png') !important;
-}
-.jGrowl-icon-ok {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-ok.png') !important;
-}
-.jGrowl-icon-player {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-player.png') !important;
-}
-.jGrowl-icon-plus {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-plus.png') !important;
-}
-.jGrowl-icon-rss {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-rss.png') !important;
-}
-.jGrowl-icon-search {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-search.png') !important;
-}
-.jGrowl-icon-spade {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-spade.png') !important;
-}
-.jGrowl-icon-star {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-star.png') !important;
-}
-.jGrowl-icon-twitter {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-twitter.png') !important;
-}
-.jGrowl-icon-up {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-up.png') !important;
-}
-.jGrowl-icon-weather {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-weather.png') !important;
-}
-.jGrowl-icon-x {  
- background-image: url('https://huementui.s3.amazonaws.com/notefy/hui-icon-x.png') !important;
-}
 
 div.jGrowl div.jGrowl-notification {
   color:   $buttonBase;
@@ -668,6 +636,14 @@ table.style th, table.style td {
   border-bottom: 1px solid $tableOdd;
 }
 
+.style td {
+  padding: 6px 8px;
+  background: $tableEven;
+  width: 35%;
+  text-align: left;
+  white-space: nowrap;
+}
+
 table.style {
   border: 1px solid $tableEven;
   border-collapse: collapse;
@@ -693,7 +669,6 @@ table.style th, table.style td {
 }
 
 .style td {
-  padding: 6px 8px;
   text-align: left;
   white-space: nowrap;
   padding: 6px 8px;

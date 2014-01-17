@@ -1,6 +1,6 @@
-/*! huement user interface - v0.2.4 - 2013-12-21
+/*! huement user interface - v0.2.5 - 2014-01-17
 * http://hui.huement.com
-* Copyright (c) 2013 Derek Scott; Licensed MIT, GPLv3 */
+* Copyright (c) 2014 Derek Scott; Licensed MIT, GPLv3 */
 
 /* example| jQuery.shuffle(colorArray); */
 (function(jQuery){
