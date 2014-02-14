@@ -1,17 +1,10 @@
-#hui - Classy like a Lady
+#hui
 
 hui is an under development web framework. It has two main areas, CSS and JS.    
 
 css technologies include SVG icons, google style buttons, @font-face    
 
 javascript is plenty of dynamic content widgets, and overall ui enhancements, as well as a number of useful scripts, like select box plugins, reactive navigation and animations.
-
-## Why hui?
-hui provides a great ui environment. Load the hui library and a theme and you've got a basic setup that can get your next project started quickly.
-
-you can also rest assured that anything you build is going to work across all browsers. With special support for scaling to retina and television size displays.
-
-the majority of hui is contained within the CSS theme file, the small javascript library shouldn't interfere with any of your other plugins. All hui code uses GruntJS and JSLint to ensure quality is maintained. In addition we also use Quint testing for a case by case breakdown of the library's core functions.
 
 #### Automatic Functionality 
 
@@ -28,17 +21,16 @@ Git Submodules made adding on functionality easy. Clone plugins and load them on
 ## Download hui
 Clone this repository into your projects web-root directory.    
     
-    $ git clone https://github.com/johnny13/hui.git /your/webroot    
-    
+    $ git clone https://github.com/johnny13/hui.git /your/webroot
+
 
 ## Download plugins
 ### Optionally Setup the Plugins (optional but recommended)
 Step 1. clone plugin repo into hui repo.   
     
-    $ cd hui   
-	$ git submodule init     
-    $ npm install    
-    
+   $ cd hui
+   $ git submodule init
+   $ npm install     
 
 Step 2A. activate entire plugin system.    
     
@@ -50,13 +42,11 @@ Step 2A. activate entire plugin system.
 Step 2B. OR activate single plugin (eg. slideshow plugin)    
     
     $ git submodule init Thimbleberry
-    
 
 Note: Its Important to immediately UPDATE Any Plugins you want to use.    
     
     $ cd ./hui-plugins/<plugin name>
     $ git pull origin master
-    
 
 More information about downloads, installs, cdn versions, plugin updates, builds and developer packages can be found at [hui.huement.com/start](http://hui.huement.com/start/).    
 
