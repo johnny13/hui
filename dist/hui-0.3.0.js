@@ -1,4 +1,4 @@
-/*! huement user interface - v0.2.5 - 2014-01-17
+/*! huement user interface - v0.3.0 - 2014-02-14
 * http://hui.huement.com
 * Copyright (c) 2014 Derek Scott; Licensed MIT, GPLv3 */
 

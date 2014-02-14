@@ -111,10 +111,11 @@ v0.0.1	[jan-01-2013]	Released under GPL v3 & MIT
 v0.1.6	[may-15-2013]	Sass Themes. Demos and Widgets Updated.
 
 v0.2.0	[may-19-2013]	Forms Implemented. TODO: Input Masking
-    
+
+v0.3.0	[feb-14-2014]	CSS Transforms. Removed some bad code.
 
 ## De jure
-#### copyright (c) 2013 [huement.com](http://huement.com)    
+#### copyright (c) 2014 [huement.com](http://huement.com)    
 Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) & [GPL v3](http://opensource.org/licenses/gpl-3.0.html) licenses.    
     
 Author: Derek Scott [@huement.com](https://twitter.com/huement).    
@@ -125,4 +126,4 @@ Credits to any forks can be found in the un-minified javascript file.
 
     
 
-![hui - Huement User Interface](http://huement.s3.amazonaws.com/imgs/white_pumpkin.jpg)  
+![hui - Huement User Interface](https://huementui.s3.amazonaws.com/images/hui-rainbow.png)  
