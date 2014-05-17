@@ -2,7 +2,7 @@
   "name": "hui",
   "title": "huement user interface",
   "description": "Taylor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "hui.huement.com",
   "copyright": "huement.com",
   "author": {
@@ -57,6 +57,7 @@
     "matchdep": "~0.3.0",
     "grunt-jade": "~0.4.0",
     "grunt-shell": "~0.6.4",
-    "grunt-template": "~0.2.3"
+    "grunt-template": "~0.2.3",
+    "grunt-bump": "0.0.14"
   }
 }
