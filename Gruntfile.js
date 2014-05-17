@@ -202,8 +202,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-bump');
+  
   /**
-   * Load Grunt plugins
+   * Load Grunt plugins.
+   * call these from the command line, or just grunt for default.
    */
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   
