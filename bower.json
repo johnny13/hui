@@ -1,11 +1,12 @@
 {
   "name": "hui",
-  "version": "0.0.1",
+  "version": "2.3.1",
+    
   "authors": [
     "Derek Scott <derek@huement.com>"
   ],
   "description": "huement user interface - augment bootstrap",
-  "main": "dist/js/hui.min.js",
+  "main": ["dist/js/hui.min.js", "dist/css/hui.min.css"],
   "keywords": [
     "user",
     "interface",
@@ -23,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass-official": "~3.1.1+1",
-    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#v3.1.0"
+    "bootstrap-sass-official": "master",
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git"
   }
 }
