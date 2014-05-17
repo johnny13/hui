@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <!-- includes/head.jade-->
+  <html class="no-js">
+    <head></head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HUI Documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./../dist/css/hui-min.css">
+    <link rel="stylesheet" href="./../libs/snippet/snippet-min.css">
+  </html>
+</html>
+<body><!-- Ride the Lighting -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span class="fa fa-flask"></span> <strong>H</strong> <strong>U</strong> <strong>I</strong></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+	        <ul class="nav navbar-nav navbar-right">
+
+		  		<li id="FEATURE"><a href="getting-started.html"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Start</a></li>
+
+		  		<li id="ABOUT"><a href="css.html"><i class="fa fa-magic"></i>&nbsp;&nbsp;CSS</a></li>
+				<li id="ABOUT"><a href="components.html"><i class="fa fa-puzzle-piece"></i>&nbsp;&nbsp;Component</a></li>
+				<li id="ABOUT"><a href="javascript.html"><i class="fa fa-bug"></i>&nbsp;&nbsp;JavaScript</a></li>
+			
+				<li class="dropdown">
+	              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><i class="fa fa-cloud"></i>&nbsp;&nbsp;Tweak&nbsp;&nbsp;<span class="caret"></span></a>
+	              <ul class="dropdown-menu" aria-labelledby="download">
+	                <li><a href="tweak.html">Customize</a></li>
+									<li class="divider"></li>
+									<li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+	                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+	                <li class="divider"></li>
+	                <li><a href="./variables.less">variables.sass</a></li>
+	                <li><a href="./bootswatch.less">Gruntfile.js</a></li>
+	              </ul>
+	            </li>
+      
+	        </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="push" style="height:50px"></div><div class="container">
+	<div class="row">
+
+  <!-- Global Bootstrap settings
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="overview">Overview</h1>
+    </div>
+    
+    <h3 id="overview-container">Containers</h3>
+    <p>Added <code>.container-smooth</code> a container to use the same <code>max-width</code> for all viewport sizes. This means that the container size won't jump at media query breakpoints.</p>
+  </div>
+
+
+  <!-- Buttons
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="buttons">Buttons</h1>
+    </div>
+
+    <div>
+      <h2 id="buttons-labels">Labels</h2>
+      <p>Give a button some extra style by adding a label. Add <code>.btn-labeled</code> to any button with a label.</p>
+      <div class="bs-example">
+        <button type="button" class="btn btn-labeled btn-default"><span class="btn-label"><i class="fa fa-arrow-circle-left"></i></span>Left</button>
+        <button type="button" class="btn btn-labeled btn-default">Right<span class="btn-label btn-label-right"><i class="fa fa-arrow-circle-right"></i></span></button>
+        <button type="button" class="btn btn-labeled btn-success"><span class="btn-label"><i class="fa fa-check-square"></i></span>Success</button>
+        <button type="button" class="btn btn-labeled btn-danger"><span class="btn-label"><i class="fa fa-minus-square"></i></span>Danger</button>
+      </div>
+
+<div class="push"></div>
+<pre class="htmlCode">
+&lt;!-- Standard button with label --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-default&quot;&gt;
+	&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-left&quot;&gt;&lt;/i&gt;&lt;/span&gt;Left
+&lt;/button&gt;
+
+&lt;!-- Standard button with label on the right side --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-default&quot;&gt;
+	Right&lt;span class=&quot;btn-label btn-label-right&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-right&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Success button with label --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-success&quot;&gt;
+	&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-check-square&quot;&gt;&lt;/i&gt;&lt;/span&gt;Success
+&lt;/button&gt;
+
+&lt;!-- Danger button with label --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-danger&quot;&gt;
+	&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-minus-square&quot;&gt;&lt;/i&gt;&lt;/span&gt;Danger
+&lt;/button&gt;
+</pre>
+<div class="push"></div>
+
+    </div>
+  </div>
+	</div>
+</div>
+  <script src="./../libs/jquery/jquery-1.10.2.min.js"></script>
+  <script src="./../dist/js/hui.min.js"></script>
+  <script src="./../libs/modernizr/modernizr.2.6.2.custom.js"></script>
+  <script src="./../libs/snippet/jquery.snippet.min.js"></script>
+  <script type="text/javascript">
+    $("pre.htmlCode").snippet("html",{style:"whatis"});
+    $("pre.jsCode").snippet("javascript");    
+  </script>
+  <div id="Foots" class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="push">&nbsp;</div>
+        <p class="text-right">© 2014 huement.com</p>
+        <div class="push">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</body>

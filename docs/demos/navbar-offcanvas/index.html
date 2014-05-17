@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+
+    <title>Navbar Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="./../../../dist/css/hui-min.css" media="screen">
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar-offcanvas.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-offcanvas navmenu-fixed-left offcanvas">
+          <a class="navmenu-brand" href="#">Project name</a>
+          <ul class="nav navbar-nav">
+	        <li><a href="../navmenu-side/"><i class="fa fa-columns"></i>&nbsp;&nbsp;Responsive</a></li>
+	        <li><a href="../navmenu-push/"><i class="fa fa-hand-o-up"></i>&nbsp;&nbsp;Push</a></li>
+	        <li><a href="../navmenu-reveal/"><i class="fa fa-caret-square-o-right"></i>&nbsp;&nbsp;Reveal</a></li>
+	        <li class="active"><a href="./"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;Off Canvas</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Offcanvas Navbar example</h1>
+        <p>This example demonstrates using the offcanvas plugin with the navbar.</p>
+      </div>
+      <div class="push"></div>
+      <p class="lead">
+        In this Example the navbar is show on the Left side of the screen. You can show it on the Right side instead by
+        removing <code>.navmenu-fixed-left</code> to the <code>.navbar-offcanvas</code>.<div class="push"></div>
+      </p>
+	  
+	  
+		<div class="row">
+			<div class="pure-layout">
+			    <div id="main">
+			        <div class="content">
+				        <div class="push"></div>
+			            <h2 class="content-subhead">How to use this layout</h2>
+			            <p>
+			                To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
+			            </p>
+
+			            <h2 class="content-subhead">Now Let's Speak Some Latin</h2>
+			            <p>
+			                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			            </p>
+
+			            <div class="row">
+			                <div class="col-xs-3">
+			                    <img class="img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
+			                </div>
+			                <div class="col-xs-3">
+			                    <img class="img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train">
+			                </div>
+			                <div class="col-xs-3">
+			                    <img class="img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store">
+			                </div>
+			                <div class="col-xs-3">
+			                    <img class="img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain">
+			                </div>
+			            </div>
+
+			            <h2 class="content-subhead">Try Resizing your Browser</h2>
+			            <p>
+			                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			            </p>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	  
+	  	<div class="push" style="height:300px;"></div>
+    </div> <!-- /container -->
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./../../../libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="./../../../dist/js/hui.min.js"></script>
+  </body>
+</html>

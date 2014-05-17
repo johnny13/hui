@@ -1,0 +1,1 @@
+--include assets/javascripts --include assets/stylesheets --output public/assets

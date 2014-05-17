@@ -1,0 +1,116 @@
+@font-face {
+  font-family: $font-brand-primary;
+  src: url($font-brand-url + '.eot');
+  src: url($font-brand-url + '.eot?#iefix') format('embedded-opentype'),
+       url($font-brand-url + '.woff') format('woff'),
+       url($font-brand-url + '.ttf') format('truetype'),
+       url($font-brand-url + '.svg#' + $font-brand-url) format('svg');
+}
+
+//Style Our Headers
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-brand-primary;
+}
+
+//Font Awesome Size & Coloring
+.fa-1{
+  font-size:1.5em;
+}
+.fa-2{
+  font-size:1.6em;
+}
+.fa-3{
+  font-size:3.5em;
+}
+.fa-4{
+  font-size:7em;
+}
+.fa-5{
+  font-size:12em;
+}
+.fa-6{
+  font-size:20em;
+}
+.fa-primary {
+	color: $brand-primary;
+}
+.fa-success {
+	color: $brand-success;
+}
+.fa-info {
+	color: $brand-info;
+}
+.fa-warning {
+	color: $brand-warning;
+}
+.fa-danger {
+	color: $brand-danger;
+}
+.fa-inverse {
+	color: $brand-inverse;
+}
+
+/**
+  MEDIA QUERIES
+*/
+//@include max-screen(320px)  { ... }
+@include max-screen(480px)  {
+  h1,
+  .h1 {
+    font-size: 30px;
+  }
+  h2,
+  .h2 {
+    font-size: 24px;
+  }
+  h3,
+  .h3 {
+    font-size: 18px;
+  }
+  h4,
+  .h4 {
+    font-size: 15px;
+  }
+  h5,
+  .h5 {
+    font-size: 14px;
+  }
+  h6,
+  .h6 {
+    font-size: 12.5px;
+  }
+}
+@include max-screen(768px)  {
+  h1,
+  .h1 {
+    font-size: 32px;
+  }
+  h2,
+  .h2 {
+    font-size: 26px;
+  }
+  h3,
+  .h3 {
+    font-size: 19px;
+  }
+  h4,
+  .h4 {
+    font-size: 16px;
+  }
+  h5,
+  .h5 {
+    font-size: 15px;
+  }
+  h6,
+  .h6 {
+    font-size: 13px;
+  }
+  .fa-1{font-size:1.5em}
+  .fa-2{font-size: 26px;}
+  .fa-3{font-size:4em}
+  .fa-4{font-size:7em}
+  .fa-5{font-size:12em}
+  .fa-6{font-size:20em}
+}
+//@include max-screen(1024px) { }

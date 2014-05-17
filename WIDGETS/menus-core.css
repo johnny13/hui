@@ -1,0 +1,136 @@
+/*csslint adjoining-classes:false, outline-none:false*/
+/*TODO: Remove this lint rule override after a refactor of this code.*/
+
+.hui-menu ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+.hui-menu.hui-menu-open {
+    visibility: visible;
+    z-index: 2;
+    width: 100%;
+}
+
+.hui-menu ul {
+    left: -10000px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    top: -10000px;
+    z-index: 1;
+}
+
+.hui-menu > ul { position: relative; }
+
+.hui-menu-open > ul {
+    left: 0;
+    top: 0;
+    visibility: visible;
+}
+
+.hui-menu-open > ul:focus {
+    outline: 0;
+}
+
+.hui-menu li { position: relative; }
+
+.hui-menu a,
+.hui-menu .hui-menu-heading {
+    display: block;
+    color: inherit;
+    line-height: 1.5em;
+    padding: 5px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.hui-menu.hui-menu-horizontal > .hui-menu-heading {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    vertical-align: middle;
+}
+.hui-menu.hui-menu-horizontal > ul {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.hui-menu li a { padding: 5px 20px; }
+
+.hui-menu-can-have-children > .hui-menu-label:after {
+    content: '\25B8';
+    float: right;
+    /* These specific fonts have the Unicode char we need. */
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+    margin-right: -20px;
+    margin-top: -1px;
+}
+
+.hui-menu-can-have-children > .hui-menu-label {
+    padding-right: 30px;
+}
+
+.hui-menu-separator {
+    background-color: #dfdfdf;
+    display: block;
+    height: 1px;
+    font-size: 0;
+    margin: 7px 2px;
+    overflow: hidden;
+}
+
+.hui-menu-hidden {
+    display: none;
+}
+
+/* FIXED MENU */
+.hui-menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+/* HORIZONTAL MENU CODE */
+
+/* Initial menus should be inline-block so that they are horizontal */
+.hui-menu-horizontal li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+/* Submenus should still be display: block; */
+.hui-menu-horizontal li li {
+    display: block;
+}
+
+/* Content after should be down arrow */
+.hui-menu-horizontal > .hui-menu-children > .hui-menu-can-have-children > .hui-menu-label:after {
+    content: "\25BE";
+}
+/*Add extra padding to elements that have the arrow so that the hover looks nice */
+.hui-menu-horizontal > .hui-menu-children > .hui-menu-can-have-children > .hui-menu-label {
+    padding-right: 30px;
+}
+
+/* Adjusting separator for vertical menus */
+.hui-menu-horizontal li.hui-menu-separator {
+	height: 50%;
+	width: 1px;
+	margin: 0 7px;
+}
+
+/* Submenus should be horizontal separator again */
+.hui-menu-horizontal li li.hui-menu-separator {
+	height: 1px;
+	width: auto;
+	margin: 7px 2px;
+}
+

@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  padding: 50px 0 0 0;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background: #999999!important;
+}
+
+@media (min-width: 0) {
+  .navbar-toggle {
+    display: block; /* force showing the toggle */
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+  .navbar-toggle {
+     border: 1px solid #000;
+     border-color: #333 !important;
+  }
+}
+
+
+/*
+Main Page Stylings
+*/
+.content {
+  margin: 0 auto;
+  padding: 0 20px 0px 20px;
+  margin-bottom: 50px;
+  line-height: 1.6em;
+}
+
+.header {
+ margin: 0;
+ color: #333;
+ text-align: center;
+ padding: 2.5em 2em 0;
+ border-bottom: 1px solid #eee;
+}
+.header h1 {
+  margin: 0.2em 0;
+  font-size: 3em;
+  font-weight: 300;
+}
+.header h2 {
+  font-weight: 300;
+  color: #ccc;
+  padding: 0;
+  margin-top: 0;
+}
+
+.content-subhead {
+  margin: 50px 0 20px 0;
+  font-weight: 300;
+  color: #888;
+}

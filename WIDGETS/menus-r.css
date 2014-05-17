@@ -1,0 +1,10 @@
+@media (max-width: 480px) {
+    .hui-menu-horizontal {
+        width: 100%;
+    }
+
+    .hui-menu-children li {
+        display: block;
+        border-bottom: 1px solid black;
+    }
+}
