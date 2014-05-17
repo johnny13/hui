@@ -184,6 +184,29 @@ module.exports = function(grunt) {
         src: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js',
         dest: 'dist/js/<%= pkg.name %>.min.js'
       }
+    },
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release v<%= pkg.version %>',
+        commitFiles: ['-a'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version <%= pkg.version %> <%= pkg.description %>',
+        push: true,
+        pushTo: "https://github.com/johnny13/hui",
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+      }
+    },
+    build: {
+      tasks: ['default'],
+      packageConfig: 'pkg',
+      packages: '*.json',
+      jsonSpace: 2,
+      jsonReplacer: undefined,
+      gitAdd: '--all'
     }
   });
 
@@ -201,7 +224,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-template');
-  
+  grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-bump-build-git');
   /**
    * Load Grunt plugins
    */
@@ -214,4 +238,6 @@ module.exports = function(grunt) {
   grunt.registerTask('docs', ['jade','watch:jadedocs']);
   
   grunt.registerTask('docstemp', ['template']);
+  
+  grunt.registerTask('bumpmaster', ['bump']);
 };
