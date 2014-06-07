@@ -100,7 +100,7 @@ module.exports = function(grunt) {
           compass: true
         },
         files: {
-          'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome.scss','assets/stylesheets/hui.scss']
+          'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome/font-awesome.scss','assets/stylesheets/hui.scss']
         }
       }
     },
