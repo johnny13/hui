@@ -1,0 +1,59 @@
+// TEGAN AND SARA FOREVAH!!!!
+// --------------------------------------------------
+.Tegan {
+  
+}
+
+.Tegan .list-group-item.active {
+  background-color: $gray-dark;
+  border-color: $gray;
+}
+
+.Tegan .list-group-item.active .list-group-item-text, .Tegan .list-group-item.active:hover .list-group-item-text, .Tegan .list-group-item.active:focus .list-group-item-text {
+  color: $gray-lighter;
+}
+
+.Tegan .list-group-item {
+  height:75px;
+  overflow:hidden;
+  padding:0px 0px 0px 0px;
+}
+
+.Tegan .list-group-item-heading {
+  padding-left:10px;
+  padding-top:5px;
+}
+
+.Tegan .list-group-item-text {
+  padding-left:10px;
+}
+
+.Tegan .Sara {
+  width:75px;
+  height:75px;
+  background-color: $gray-light;
+  border-right:1px solid $gray;
+  float:left;
+  display:block;
+  position:relative;
+  margin-right:10px;
+}
+
+.Tegan .Sara.primary {
+	background-color: $brand-primary;
+}
+.Tegan .Sara.success {
+	background-color: $brand-success;
+}
+.Tegan .Sara.info {
+	background-color: $brand-info;
+}
+.Tegan .Sara.warning {
+	background-color: $brand-warning;
+}
+.Tegan .Sara.danger {
+	background-color: $brand-danger;
+}
+.Tegan .Sara.inverse {
+	background-color: $brand-inverse;
+}

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <!-- includes/head.jade-->
-  <html class="no-js">
-    <head></head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HUI Documentation</title>
@@ -10,375 +8,279 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./../dist/css/hui-min.css">
     <link rel="stylesheet" href="./../libs/snippet/snippet-min.css">
-  </html>
-</html>
-<body><!-- Ride the Lighting -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+    <link rel="stylesheet" href="./docs.css">
+  </head>
+  <body><!--
+    <Ride>the Lighting </Ride>-->
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html"><span class="fa fa-flask"></span> <strong>H</strong> <strong>U</strong> <strong>I</strong></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
+          <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><span class="fa fa-flask"></span><strong>H</strong><strong>U</strong><strong>I</strong></a>
+        </div><!--
+        <Collect>the nav links, forms, and other content for toggling </Collect>-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-	        <ul class="nav navbar-nav navbar-right">
-
-		  		<li id="FEATURE"><a href="getting-started.html"><i class="fa fa-dashboard"></i>&nbsp;&nbsp;Start</a></li>
-
-		  		<li id="ABOUT"><a href="css.html"><i class="fa fa-magic"></i>&nbsp;&nbsp;CSS</a></li>
-				<li id="ABOUT"><a href="components.html"><i class="fa fa-puzzle-piece"></i>&nbsp;&nbsp;Component</a></li>
-				<li id="ABOUT"><a href="javascript.html"><i class="fa fa-bug"></i>&nbsp;&nbsp;JavaScript</a></li>
-			
-				<li class="dropdown">
-	              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><i class="fa fa-cloud"></i>&nbsp;&nbsp;Tweak&nbsp;&nbsp;<span class="caret"></span></a>
-	              <ul class="dropdown-menu" aria-labelledby="download">
-	                <li><a href="tweak.html">Customize</a></li>
-									<li class="divider"></li>
-									<li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-	                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-	                <li class="divider"></li>
-	                <li><a href="./variables.less">variables.sass</a></li>
-	                <li><a href="./bootswatch.less">Gruntfile.js</a></li>
-	              </ul>
-	            </li>
-      
-	        </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
+            <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
+            <li id="COMP"><a href="components.html"><i class="fa fa-puzzle-piece"></i> Components</a></li>
+            <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-bug"></i> JavaScript<span class="caret"></span></a>
+              <ul aria-labelledby="download" class="dropdown-menu">
+                <li><a href="javascript.html">Documentation</a></li>
+                <li><a href="demos/">Demos</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-cloud"></i> Tweaks<span class="caret"></span></a>
+              <ul aria-labelledby="download" class="dropdown-menu">
+                <li><a href="tweak.html">Customize</a></li>
+                <li class="divider"></li>
+                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                <li class="divider"></li>
+                <li><a href="./variables.less">variables.sass</a></li>
+                <li><a href="./bootswatch.less">Gruntfile.js</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div><!--/.container-->
+    </nav>
+    <div class="container">
+      <div class="row"><!--
+        <Getting>started</Getting>-->
+        <div class="bs-docs-section"></div>
+        <div class="page-header">
+          <h1 id="hui">HUI</h1>
         </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-<div class="push" style="height:50px"></div><div class="container">
-	<div class="row">
-	  <!-- Getting started
-	  ================================================== -->
-	  <div class="bs-docs-section">
-	    <div class="page-header">
-	      <h1 id="jasny-bootstrap">HUI Bootstrap</h1>
-	    </div>
-	    <p class="lead">HUI Bootstrap is an extension to <a href="http://getbootstrap.com">Twitter Bootstrap</a>, adding a number of features and components.</p>
-	    <p>The aim of HUI Bootstrap is to provide all the required features for building highly interactive web applications for desktop and mobile.</p>
-    
-	    <div class="bs-callout bs-callout-warning">
-	      <h4>Delivered as extension only</h4>
-	      <p>As of version 3.1.0 HUI Bootstrap is no longer bundeled with Twitter Bootstrap. You should load Twitter Bootstrap's CSS before this extension.</p>
-	    </div>
-	  </div>
-
-	  <!-- Getting started
-	  ================================================== -->
-	  <div class="bs-docs-section"> 
-	    <div class="page-header">
-	      <h1 id="download">Download</h1>
-	    </div>
-	    <p class="lead">HUI Bootstrap has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
-			
-	    <h3 id="download-compiled">Compiled CSS and JS</h3>
-	    <p>The fastest way to get HUI Bootstrap is to download the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.</p> 
-	    <p><a class="btn btn-lg btn-primary" href="{{ site.download.dist }}" >Download HUI Bootstrap</a></p>
-  
-	    <h3 id="download-additional">Additional downloads</h3>
-	    <div class="bs-docs-dl-options">
-	      <h4>
-	        <a href="{{ site.download.source }}">Download source code</a>
-	      </h4>
-	      <p>Get the latest HUI Bootstrap LESS and JavaScript source code by downloading it directly from GitHub.</p>
-	      <h4>
-	        <a href="{{ site.repo }}">Clone or fork via GitHub</a>
-	      </h4>
-	      <p>Visit us on GitHub to clone or fork the HUI Bootstrap project.</p>
-	      <h4>
-	        Install with <a href="http://bower.io">Bower</a>
-	      </h4>
-	      <p>Install and manage the original files for all CSS and JavaScript, along with a local copy of the docs, using <a href="http://bower.io">Bower</a>.</p>
-	      {% highlight bash %}$ bower install jasny-bootstrap{% endhighlight %}
-	    </div>
-
-	    <h3 id="download-cdn">HUI Bootstrap @ cdnjs</h3>
-	    <p><a href="http://cdnjs.com" target="_blank">CDNJS</a> is a community driven CDN hosted by CloudFlare, supporting over a hundred projects. To use this CDN, swap your local instances for the CDN links listed below.</p>
-	{% highlight html %}
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="{{ site.cdn.css }}">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="{{ site.cdn.js }}"></script>
-	{% endhighlight %}
-
-	    <div class="bs-callout bs-callout-warning" id="callout-less-compilation">
-	      <h4>Compiling HUI Bootstrap's LESS files</h4>
-	      <p>If you work with HUI Bootstrap's uncompiled source code, you need to compile the LESS files to produce usable CSS files. For compiling LESS files into CSS, we only officially support <a href="http://twitter.github.io/recess/">Recess</a>, which is Twitter's CSS hinter based on <a href="http://lesscss.org">less.js</a>.</p>
-	    </div>
-	  </div>
-
-
-	  <!-- File structure
-	  ================================================== -->
-	  <div class="bs-docs-section bs-jasny">
-	    <div class="page-header">
-	      <h1 id="whats-included">What's included</h1>
-	    </div>
-	    <p class="lead">Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
-	    <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) HUI Bootstrap. You'll see something like this:</p>
-
-	<!-- NOTE: This info is intentionally duplicated in the README.
-	Copy any changes made here over to the README too. -->
-	{% highlight bash %}
-	jasny-bootstrap/
-	├── css/
-	│   ├── jasny-bootstrap.css
-	│   ├── jasny-bootstrap.min.css
-	└── js/
-	    ├── jasny-bootstrap.js
-	    └── jasny-bootstrap.min.js
-    
-	{% endhighlight %}
-
-	    <p>This is the most basic form of HUI Bootstrap. We provide compiled CSS and JS (<code>jasny-bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>jasny-bootstrap.min.*</code>).</p>
-    
-	    <p>The <code>jasny-bootstrap.*</code> files should be loaded in conjunction with the original Twitter Bootstrap files.</p>
-        
-	    <div class="bs-callout bs-callout-danger" id="jquery-required">
-	      <h4>jQuery required</h4>
-	      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="{{ site.repo }}/blob/v{{ site.current_version }}/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
-	    </div>
-	  </div>
-
-
-	  <!-- Template
-	  ================================================== -->
-	  <div class="bs-docs-section">
-	    <div class="page-header">
-	      <h1 id="template">Basic template</h1>
-	    </div>
-	    <p class="lead">Start with this basic HTML template, or modify <a href="../getting-started#examples">these examples</a>. We hope you'll customize our templates and examples, adapting them to suit your needs.</p>
-
-	    <p>Copy the HTML below to begin working with a minimal Bootstrap document.</p>
-	{% highlight html %}
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Bootstrap 101 Template</title>
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <!-- Bootstrap -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	    <link href="css/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
-
-	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	    <!--[if lt IE 9]>
-	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-	    <![endif]-->
-	  </head>
-	  <body>
-	    <h1>Hello, world!</h1>
-
-	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	    <script src="https://code.jquery.com/jquery.js"></script>
-	    <!-- Include all compiled plugins (below), or include individual files as needed -->
-	    <script src="js/bootstrap.min.js"></script>
-	    <script src="js/jasny-bootstrap.min.js"></script>
-	  </body>
-	</html>
-	{% endhighlight %}
-	  </div>
-
-
-	  <!-- Template
-	  ================================================== -->
-	  <div class="bs-docs-section">
-	    <div class="page-header">
-	      <h1 id="examples">Examples</h1>
-	    </div>
-	    <p class="lead">Create diverse and advanced user interfaces using Jasny's Bootstrap components. See also <a href="#customizing">Customizing Bootstrap</a> for tips on maintaining your own Bootstrap variants.</p>
-    
-	    <div class="row bs-examples">
-	      <div class="col-xs-6 col-md-4">
-	        <a class="thumbnail" href="../examples/starter-template/">
-	          <img src="../examples/screenshots/starter-template.jpg" alt="">
-	        </a>
-	        <h4>Starter template</h4>
-	        <p>Nothing but the basics: compiled CSS and JavaScript along with a container.</p>
-	      </div>
-	      <div class="col-xs-6 col-md-4">
-	        <a class="thumbnail" href="../examples/navmenu/">
-	          <img src="../examples/screenshots/navmenu.jpg" alt="">
-	        </a>
-	        <h4>Navmenu</h4>
-	        <p>A basic template showing the navmenu element and demonstrates usage of the offcanvas plugin.</p>
-	      </div>
-	      <div class="clearfix visible-xs visible-sm"></div>
-	      <div class="col-xs-6 col-md-4">
-	        <a class="thumbnail" href="../examples/navmenu-push/">
-	          <img src="../examples/screenshots/navmenu-push.jpg" alt="">
-	        </a>
-	        <h4>Off Canvas Push Menu</h4>
-	        <p>A template demonstrating a push effect for the off canvas navmenu.</p>
-	      </div>
-	      <div class="clearfix visible-md visible-lg"></div>
-	      <div class="col-xs-6 col-md-4">
-	        <a class="thumbnail" href="../examples/navmenu-reveal/">
-	          <img src="../examples/screenshots/navmenu-reveal.jpg" alt="">
-	        </a>
-	        <h4>Off Canvas Reveal Menu</h4>
-	        <p>A template demonstrating a reveal effect by placing the navmenu under the content.</p>
-	      </div>
-	      <div class="col-xs-6 col-md-4">
-	        <a class="thumbnail" href="../examples/navbar-offcanvas/">
-	          <img src="../examples/screenshots/navbar-offcanvas.jpg" alt="">
-	        </a>
-	        <h4>Off canvas navbar</h4>
-	        <p>A template using offcanvas for mobile view of the navbar.</p>
-	      </div>
-	    </div>
-	  </div>
-
-
-	  <!-- Migration
-	  ================================================== -->
-	  <div class="bs-docs-section">
-	    <div class="page-header">
-	      <h1 id="migration">Migrating from 2.x to 3.0</h1>
-	    </div>
-	    <p class="lead">Folks looking to upgrade to v3 should use this section as a general upgrade guide. We've outlined some of the major changes and provided tables that highlight key changes.</p>
-
-	    <h2 id="migration-classes">Major class changes</h2>
-	    <p>This table shows the style changes between v2.x and v3.0.</p>
-	    <div class="table-responsive">
-	      <table class="table table-bordered table-striped">
-	        <thead>
-	          <tr>
-	            <th>Bootstrap 2.x</th>
-	            <th>Bootstrap 3.0</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr>
-	            <td><code>.container-semifluid</code></td>
-	            <td><code>.container-smooth</code></td>
-	          </tr>
-	          <tr>
-	            <td><code>.fileupload</code> <code>.fileupload-*</code></td>
-	            <td><code>.fileinput</code> <code>.fileinput-*</code></td>
-	          </tr>
-	        </tbody>
-	      </table>
-	    </div><!-- /.table-responsive -->
-
-	    <h2 id="migration-new">What's new</h2>
-	    <p>We've added new elements and changed some existing ones. Here are the new or updated styles.</p>
-	    <div class="table-responsive">
-	      <table class="table table-bordered table-striped">
-	        <thead>
-	          <tr>
-	            <th>Element</th>
-	            <th>Description</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr>
-	            <td>Navmenu</td>
-	            <td><code>.navmenu .navmenu-default</code> <code>.navmenu .navmenu-inverse</code> <code>.navmenu-fixed-left</code> <code>.navmenu-fixed-right</code> <code>.navmenu-brand</code> <code>.navmenu-nav</code></td>
-	          </tr>
-	          <tr>
-	            <td>Fixed alerts</td>
-	            <td><code>.alert-fixed-top</code> <code>.alert-fixed-bottom</code></td>
-	          </tr>
-	          <tr>
-	            <td>Off canvas</td>
-	            <td><code>.offcanvas</code> <code>.offcanvas-*</code></td>
-	          </tr>
-	        </tbody>
-	      </table>
-	    </div><!-- /.table-responsive -->
-
-
-	    <h2 id="migration-dropped">What's removed</h2>
-	    <p>The following elements have been dropped or changed in v3.0.</p>
-	    <div class="table-responsive">
-	      <table class="table table-bordered table-striped">
-	        <thead>
-	          <tr>
-	            <th>Element</th>
-	            <th>Removed from 2.x</th>
-	            <th>3.0 Equivalent</th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr>
-	            <td>Header actions</td>
-	            <td><code>.header-actions</code></td>
-	            <td class="text-muted">N/A</td>
-	          </tr>
-	          <tr>
-	            <td>Table actions</td>
-	            <td><code>.table-actions</code></td>
-	            <td class="text-muted">N/A</td>
-	          </tr>
-	          <tr>
-	            <td>Desktop rows</td>
-	            <td><code>.row-desktop</code></td>
-	            <td><code>.row &gt; .col-md-*</code></td>
-	          </tr>
-	          <tr>
-	            <td>Action links</td>
-	            <td><code>.act-*</code></td>
-	            <td class="text-muted">N/A</td>
-	          </tr>
-	          <tr>
-	            <td>Page alerts</td>
-	            <td><code>.pagealert</code></td>
-	            <td><code>.alert-fixed-top</code></td>
-	          </tr>
-	          <tr>
-	            <td>Iconic icons</td>
-	            <td><code>.iconic-*</code></td>
-	            <td class="text-muted">N/A</td>
-	          </tr>
-	          <tr>
-	            <td>Editor textarea</td>
-	            <td><code>.editor</code></td>
-	            <td class="text-muted">N/A</td>
-	          </tr>
-	        </tbody>
-	      </table>
-	    </div><!-- /.table-responsive -->
-
-
-	    <h2 id="migration-notes">Additional notes</h2>
-	    <p>Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our <em>mobile first</em> approach. Here's a partial list:</p>
-	    <ul>
-	      <li>The fileupload plugin has been renamed to fileinput. File upload was poorly chosen, since the plugin allows the creation of a styled file input element. It has nothing to do with how the file is uploaded.</li>
-	      <li class="bs-jasny-only">Tab alignments are still supported in this fork (while dropped in Twitter Bootstrap).</li>
-	      <li>Typeahead has been dropped, in favor of using <a href="http://brianreavis.github.io/selectize.js/">Selectize.js</a>.</li>
-	      <li>Iconic icons are still available from <a href="http://www.somerandomdude.com/work/open-iconic/">P.J. Onori</a>.</li>
-	    </ul>
-	    <p>For more information on upgrading to v3.0, and code snippets from the community, see <a href="http://bootply.com/">Bootply</a>.</p>
-	  </div>
-	</div>
-</div>
-  <script src="./../libs/jquery/jquery-1.10.2.min.js"></script>
-  <script src="./../dist/js/hui.min.js"></script>
-  <script src="./../libs/modernizr/modernizr.2.6.2.custom.js"></script>
-  <script src="./../libs/snippet/jquery.snippet.min.js"></script>
-  <script type="text/javascript">
-    $("pre.htmlCode").snippet("html",{style:"whatis"});
-    $("pre.jsCode").snippet("javascript");    
-  </script>
-  <div id="Foots" class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="push">&nbsp;</div>
-        <p class="text-right">© 2014 huement.com</p>
-        <div class="push">&nbsp;</div>
+        <p class="lead">HUI is an extension to<a href="http://getbootstrap.com">Twitter Bootstrap</a>, adding a number of features and components.</p>
+        <p>The aim of HUI is to provide all the required features for building highly interactive web applications for desktop and mobile.</p>
+        <div class="bs-callout bs-callout-warning">
+          <h4>Delivered as extension only</h4>
+          <p>Complete Bootstrap Package. HUI allows you to easily build and modify bookstrap into your own personal style. No need to include multiple files.</p>
+        </div><!--
+        <Getting>started</Getting>-->
+        <div class="bs-docs-section"></div>
+        <div class="page-header">
+          <h1 id="download">Download</h1>
+        </div>
+        <pre class="htmlCode">&lt;p&gt;escape&lt;/p&gt;</pre>
+        <p class="lead">HUI has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+        <h3 id="download-compiled">Compiled CSS and JS</h3>
+        <p>The fastest way to get HUI is to download the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.</p>
+        <p><a href="{{ site.download.dist }}" class="btn btn-lg btn-primary">Download HUI</a></p>
+        <h3 id="download-additional">Additional downloads</h3>
+        <div class="bs-docs-dl-options">
+          <h4><a href="{{ site.download.source }}">Download source code</a></h4>
+          <p>Get the latest HUI LESS and JavaScript source code by downloading it directly from GitHub.</p>
+          <h4><a href="{{ site.repo }}">Clone or fork via GitHub</a></h4>
+          <p>Visit us on GitHub to clone or fork the HUI project.</p>
+          <h4>Install with<a href="http://bower.io">Bower</a></h4>
+          <p>Install and manage the original files for all CSS and JavaScript, along with a local copy of the docs, using<a href="http://bower.io">Bower</a>.</p>
+        </div>
+        <pre class="bashCode"> bower install hui</pre>
+        <h3 id="download-cdn">HUI @ cdnjs</h3>
+        <p><a href="http://cdnjs.com" target="_blank">CDNJS</a>is a community driven CDN hosted by CloudFlare, supporting over a hundred projects. To use this CDN, swap your local instances for the CDN links listed below.</p>
+        <pre class="htmlCode">&lt;!-- Latest compiled and minified CSS --&gt; 
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/hui/3.1.3/css/hui.min.css&quot;&gt; 
+ &lt;!-- Latest compiled and minified JavaScript --&gt; 
+ &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/hui/3.1.3/js/hui.min.js&quot;&gt;&lt;/script&gt;</pre>
+        <div id="callout-less-compilation" class="bs-callout bs-callout-warning">
+          <h4>Compiling HUI's SASS files</h4>
+          <p>If you work with HUI's uncompiled source code, you need to compile the SASS files to produce usable CSS files. There are a number of ways to use and install SASS. The HUI repository will automatically set you up with an Automatically rebuilding GruntJS setup. Visit the <a href="http://sasscss.org">sass.js homepage </a>for more information. You can also check out the official documentation for the SASS Bootstrap Files.</p>
+        </div><!--
+        <File>structure</File>-->
+        <div class="bs-docs-section bs-jasny"></div>
+        <div class="page-header">
+          <h1 id="whats-included">What's included</h1>
+        </div>
+        <p class="lead">Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.</p>
+        <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) HUI. You'll see something like this:</p><!--
+        <NOTE>
+          <This>info is intentionally duplicated in the README.</This>
+        </NOTE>-->
+        <Copy>any changes made here over to the README too. </Copy>
+        <pre class="bashCode"> hui/
+ ├── css/
+ │   ├── hui.css
+ │   ├── hui.min.css
+ └── js/
+ ├── hui.js
+ └── hui.min.js</pre>
+        <p>This is the most basic form of HUI. We provide compiled CSS and JS (<code>hui.*</code>), as well as compiled and minified CSS and JS (<code>hui.min.*</code>).</p>
+        <p>The<code>hui.*</code>files should be loaded in conjunction with the original Twitter Bootstrap files.</p>
+        <div id="jquery-required" class="bs-callout bs-callout-danger">
+          <h4>jQuery required</h4>
+          <p>Please note that<strong>all JavaScript plugins require jQuery</strong>to be included, as shown in the<a href="#template">starter template</a>.<a href="{{ site.repo }}/blob/v{{ site.current_version }}/bower.json">Consult our<code>bower.json</code></a>to see which versions of jQuery are supported.</p>
+        </div>
+        <div class="bs-docs-section">
+          <div class="page-header">
+            <h1 id="template">Basic template</h1>
+            <p class="lead">Start with this basic HTML template, or modify<a href="../getting-started#examples">these examples</a>. We hope you'll customize our templates and examples, adapting them to suit your needs.</p>
+            <p>Copy the HTML below to begin working with a minimal Bootstrap document.</p>
+          </div>
+        </div><!--
+        <Template></Template>-->
+        <div class="bs-docs-section"></div>
+        <div class="page-header">
+          <h1 id="examples">Examples</h1>
+        </div>
+        <p class="lead">Create diverse and advanced user interfaces using HUI components. See also<a href="#customizing">Customizing Bootstrap</a>for tips on maintaining your own Bootstrap variants.</p>
+        <div class="row bs-examples">
+          <div class="col-xs-6 col-md-4"><a href="../examples/starter-template/" class="thumbnail"><img src="../examples/screenshots/starter-template.jpg" alt=""></a>
+            <h4>Starter template</h4>
+            <p>Nothing but the basics: compiled CSS and JavaScript along with a container.</p>
+          </div>
+          <div class="col-xs-6 col-md-4"><a href="../examples/navmenu/" class="thumbnail"><img src="../examples/screenshots/navmenu.jpg" alt=""></a>
+            <h4>Navmenu</h4>
+            <p>A basic template showing the navmenu element and demonstrates usage of the offcanvas plugin.</p>
+          </div>
+          <div class="clearfix visible-xs visible-sm"></div>
+          <div class="col-xs-6 col-md-4"><a href="../examples/navmenu-push/" class="thumbnail"><img src="../examples/screenshots/navmenu-push.jpg" alt=""></a>
+            <h4>Off Canvas Push Menu</h4>
+            <p>A template demonstrating a push effect for the off canvas navmenu.</p>
+          </div>
+          <div class="clearfix visible-md visible-lg"></div>
+          <div class="col-xs-6 col-md-4"><a href="../examples/navmenu-reveal/" class="thumbnail"><img src="../examples/screenshots/navmenu-reveal.jpg" alt=""></a>
+            <h4>Off Canvas Reveal Menu</h4>
+            <p>A template demonstrating a reveal effect by placing the navmenu under the content.</p>
+          </div>
+          <div class="col-xs-6 col-md-4"><a href="../examples/navbar-offcanvas/" class="thumbnail"><img src="../examples/screenshots/navbar-offcanvas.jpg" alt=""></a>
+            <h4>Off canvas navbar</h4>
+            <p>A template using offcanvas for mobile view of the navbar.</p>
+          </div>
+        </div><!--
+        <Migration></Migration>-->
+        <div class="bs-docs-section"></div>
+        <div class="page-header">
+          <h1 id="migration">Migrating from 2.x to 3.0</h1>
+        </div>
+        <p class="lead">Folks looking to upgrade to v3 should use this section as a general upgrade guide. We've outlined some of the major changes and provided tables that highlight key changes.</p>
+        <h2 id="migration-classes">Major class changes</h2>
+        <p>This table shows the style changes between v2.x and v3.0.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Bootstrap 2.x</th>
+                <th>Bootstrap 3.0</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.container-semifluid</code></td>
+                <td><code>.container-smooth</code></td>
+              </tr>
+              <tr>
+                <td><code>.fileupload</code><code>.fileupload-*</code></td>
+                <td><code>.fileinput</code><code>.fileinput-*</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!--/.table-responsive -->
+        <h2 id="migration-new">What's new</h2>
+        <p>We've added new elements and changed some existing ones. Here are the new or updated styles.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Navmenu</td>
+                <td><code>.navmenu .navmenu-default</code><code>.navmenu .navmenu-inverse</code><code>.navmenu-fixed-left</code><code>.navmenu-fixed-right</code><code>.navmenu-brand</code><code>.navmenu-nav</code></td>
+              </tr>
+              <tr>
+                <td>Fixed alerts</td>
+                <td><code>.alert-fixed-top</code><code>.alert-fixed-bottom</code></td>
+              </tr>
+              <tr>
+                <td>Off canvas</td>
+                <td><code>.offcanvas</code><code>.offcanvas-*</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!--/.table-responsive -->
+        <h2 id="migration-dropped">What's removed</h2>
+        <p>The following elements have been dropped or changed in v3.0.</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Removed from 2.x</th>
+                <th>3.0 Equivalent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Header actions</td>
+                <td><code>.header-actions</code></td>
+                <td class="text-muted">N/A</td>
+              </tr>
+              <tr>
+                <td>Table actions</td>
+                <td><code>.table-actions</code></td>
+                <td class="text-muted">N/A</td>
+              </tr>
+              <tr>
+                <td>Desktop rows</td>
+                <td><code>.row-desktop</code></td>
+                <td><code>.row > .col-md-*</code></td>
+              </tr>
+              <tr>
+                <td>Action links</td>
+                <td><code>.act-*</code></td>
+                <td class="text-muted">N/A</td>
+              </tr>
+              <tr>
+                <td>Page alerts</td>
+                <td><code>.pagealert</code></td>
+                <td><code>.alert-fixed-top</code></td>
+              </tr>
+              <tr>
+                <td>Iconic icons</td>
+                <td><code>.iconic-*</code></td>
+                <td class="text-muted">N/A</td>
+              </tr>
+              <tr>
+                <td>Editor textarea</td>
+                <td><code>.editor</code></td>
+                <td class="text-muted">N/A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!--/.table-responsive -->
+        <h2 id="migration-notes">Additional notes</h2>
+        <p>Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our<em>mobile first</em>approach. Here's a partial list:</p>
+        <ul>
+          <li>The fileupload plugin has been renamed to fileinput. File upload was poorly chosen, since the plugin allows the creation of a styled file input element. It has nothing to do with how the file is uploaded.</li>
+          <li class="bs-jasny-only">Tab alignments are still supported in this fork (while dropped in Twitter Bootstrap).</li>
+          <li>Typeahead has been dropped, in favor of using<a href="http://brianreavis.github.io/selectize.js/">Selectize.js</a>.</li>
+          <li>Iconic icons are still available from<a href="http://www.somerandomdude.com/work/open-iconic/">P.J. Onori</a>.</li>
+        </ul>
+        <p>For more information on upgrading to v3.0, and code snippets from the community, see<a href="http://bootply.com/">Bootply</a>.</p>
       </div>
     </div>
-  </div>
-</body>
+    <script src="./../libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="./../dist/js/hui.min.js"></script>
+    <script src="./../libs/modernizr/modernizr.2.6.2.custom.js"></script>
+    <script src="./../libs/snippet/jquery.snippet.min.js"></script>
+    <script type="text/javascript">
+      $("pre.htmlCode").snippet("html",{style:"whatis"});
+      $("pre.jsCode").snippet("javascript",{style:"whatis"});
+      $("pre.cssCode").snippet("css",{style:"whatis"});
+      $("pre.bashCode").snippet("python",{style:"whatis"});
+    </script>
+    <div id="Foots" class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="push">&nbsp;</div>
+          <p class="text-right">© 2014 huement.com</p>
+          <div class="push">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HUI Documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./../../dist/css/hui-min.css">
+    <link rel="stylesheet" href="./../../libs/snippet/snippet-min.css">
+    <link rel="stylesheet" href="./../docs.css">
+  </head>
+</html>
+<body><!--
+  <Ride>the Lighting </Ride>-->
+  <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><span class="fa fa-flask"></span><strong>H</strong><strong>U</strong><strong>I</strong></a>
+      </div><!--
+      <Collect>the nav links, forms, and other content for toggling </Collect>-->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
+          <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
+          <li id="COMP"><a href="components.html"><i class="fa fa-puzzle-piece"></i> Components</a></li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-bug"></i> JavaScript<span class="caret"></span></a>
+            <ul aria-labelledby="download" class="dropdown-menu">
+              <li><a href="javascript.html">Documentation</a></li>
+              <li><a href="demos/">Demos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-cloud"></i> Tweaks<span class="caret"></span></a>
+            <ul aria-labelledby="download" class="dropdown-menu">
+              <li><a href="tweak.html">Customize</a></li>
+              <li class="divider"></li>
+              <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+              <li><a href="./bootstrap.css">bootstrap.css</a></li>
+              <li class="divider"></li>
+              <li><a href="./variables.less">variables.sass</a></li>
+              <li><a href="./bootswatch.less">Gruntfile.js</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+    </div><!--/.container-->
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="bs-docs-section">
+        <div class="page-header">
+          <h1 id="overview">Tegan & Sara Lists</h1>
+          <p>Custom HUI List Groups with support for Thumbnail Icons and more fancy stuff.</p>
+        </div>
+        <h3 id="overview-container">Building Lists</h3>
+        <p>Adding <code>.Tegan</code> to a <code>.list-group</code> container will allow you to use the List group with your standard bootstrap 3 lists. To add an image, attach the <code>.Sara</code> class to any image.</p>
+        <p>Anytime you add the standard <code>.active</code> to any <code>.list-group-item</code> it will be highlighted.</p>
+        <p>You can easily mockup blocks by using the Bootstrap coloring scheme of <code>.Sara.primary .Sara.info ...</code> to any <code>.Sara</code> span and it will be highlighted.</p>
+      </div>
+      
+      <h2 id="buttons-labels">List Group</h2>
+      <div class="bs-example">
+        
+        <div class="row">
+          <div class="col-xs-6">
+            <ul class="list-group Tegan">
+              <li class="list-group-item">
+                <span class="Sara primary"></span>
+                <h4 class="list-group-item-heading">Walking with a Ghost</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit</p>
+              </li>
+              <li class="list-group-item active">
+                <span class="Sara"></span>
+                <h4 class="list-group-item-heading">City Girl</h4>
+                <p class="list-group-item-text">Ut enim ad minim veniam, ut aliquip ex ea quis nostrud exercitation ullamco laboris</p>
+              </li>
+              <li class="list-group-item">
+                <span class="Sara info"></span>
+                <h4 class="list-group-item-heading">Burn Your Life Down</h4>
+                <p class="list-group-item-text">Nisi ut aliquip ex ea quis nostrud exercitation. Lorem ipsum dolor sit commodo consequat. </p>
+              </li>
+          
+              <li class="list-group-item">
+                <span class="Sara success"></span>
+                <h4 class="list-group-item-heading">Back In Your Head</h4>
+                <p class="list-group-item-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum sint occaecat cupidatat</p>
+              </li>
+          
+              <li class="list-group-item">
+                <span class="Sara primary"></span>
+                <h4 class="list-group-item-heading">Knife Going In</h4>
+                <p class="list-group-item-text">Excepteur sint occaecat cupidatat non proident, ut aliquip ex ea sunt in culpa qui</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-6">
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="push"></div>
+      
+       <pre class="htmlCode">&lt;!-- Standard button with label --&gt; 
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-default&quot;&gt; 
+&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-left&quot;&gt;&lt;/i&gt;&lt;/span&gt;Left 
+&lt;/button&gt; 
+&lt;!-- Standard button with label on the right side --&gt; 
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-default&quot;&gt; 
+Right&lt;span class=&quot;btn-label btn-label-right&quot;&gt;&lt;i class=&quot;fa fa-arrow-circle-right&quot;&gt;&lt;/i&gt;&lt;/span&gt; 
+&lt;/button&gt; 
+&lt;!-- Success button with label --&gt; 
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-success&quot;&gt; 
+&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-check-square&quot;&gt;&lt;/i&gt;&lt;/span&gt;Success 
+&lt;/button&gt; 
+&lt;!-- Danger button with label --&gt; 
+&lt;button type=&quot;button&quot; class=&quot;btn btn-labeled btn-danger&quot;&gt; 
+&lt;span class=&quot;btn-label&quot;&gt;&lt;i class=&quot;fa fa-minus-square&quot;&gt;&lt;/i&gt;&lt;/span&gt;Danger 
+&lt;/button&gt;</pre>
+      
+    </div>
+  </div>
+  
+  <script src="./../../libs/jquery/jquery-1.10.2.min.js"></script>
+  <script src="./../../dist/js/hui.min.js"></script>
+  <script src="./../../libs/modernizr/modernizr.2.6.2.custom.js"></script>
+  <script src="./../../libs/snippet/jquery.snippet.min.js"></script>
+  <script type="text/javascript">
+    $("pre.htmlCode").snippet("html",{style:"whatis"});
+    $("pre.jsCode").snippet("javascript",{style:"whatis"});
+    $("pre.cssCode").snippet("css",{style:"whatis"});
+    $("pre.bashCode").snippet("python",{style:"whatis"});
+  </script>
+  <div id="Foots" class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="push">&nbsp;</div>
+        <p class="text-right">© 2014 huement.com</p>
+        <div class="push">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</body>

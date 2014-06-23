@@ -1,7 +1,50 @@
 doctype html
 html
-	include includes/head.jade
+  include includes/head.jade
 body
-	include includes/navigate.html
-	include pages/css.html
-	include includes/footer.jade
+  include includes/navigate.jade
+  .container
+    .row
+     
+      .bs-docs-section
+        .page-header
+          h1#overview Overview
+        h3#overview-container Containers
+        p
+          | Added
+          code .container-smooth
+          | a container to use the same
+          code max-width
+          | for all viewport sizes. This means that the container size won't jump at media query breakpoints.
+     
+      .bs-docs-section
+        .page-header
+          h1#buttons Buttons
+        div
+          h2#buttons-labels Labels
+          p
+            | Give a button some extra style by adding a label. Add
+            code .btn-labeled
+            | to any button with a label.
+          .bs-example
+            button.btn.btn-labeled.btn-default(type='button')
+              span.btn-label
+                i.fa.fa-arrow-circle-left
+              | Left
+            button.btn.btn-labeled.btn-default(type='button')
+              | Right
+              span.btn-label.btn-label-right
+                i.fa.fa-arrow-circle-right
+            button.btn.btn-labeled.btn-success(type='button')
+              span.btn-label
+                i.fa.fa-check-square
+              | Success
+            button.btn.btn-labeled.btn-danger(type='button')
+              span.btn-label
+                i.fa.fa-minus-square
+              | Danger
+          .push
+          pre.htmlCode
+              = '<!-- Standard button with label --> \n <button type="button" class="btn btn-labeled btn-default"> \n  <span class="btn-label"><i class="fa fa-arrow-circle-left"></i></span>Left \n  </button> \n  <!-- Standard button with label on the right side --> \n  <button type="button" class="btn btn-labeled btn-default"> \n  Right<span class="btn-label btn-label-right"><i class="fa fa-arrow-circle-right"></i></span> \n  </button> \n  <!-- Success button with label --> \n  <button type="button" class="btn btn-labeled btn-success"> \n  <span class="btn-label"><i class="fa fa-check-square"></i></span>Success \n  </button> \n  <!-- Danger button with label --> \n  <button type="button" class="btn btn-labeled btn-danger"> \n  <span class="btn-label"><i class="fa fa-minus-square"></i></span>Danger \n </button>'
+              
+  include includes/footer.jade

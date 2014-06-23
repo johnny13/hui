@@ -5,7 +5,9 @@ script(src='./../libs/modernizr/modernizr.2.6.2.custom.js')
 script(src='./../libs/snippet/jquery.snippet.min.js')
 script(type='text/javascript').
 	$("pre.htmlCode").snippet("html",{style:"whatis"});
-	$("pre.jsCode").snippet("javascript");    
+	$("pre.jsCode").snippet("javascript",{style:"whatis"});
+	$("pre.cssCode").snippet("css",{style:"whatis"});
+	$("pre.bashCode").snippet("python",{style:"whatis"});
 	
 #Foots.container
 	div.row

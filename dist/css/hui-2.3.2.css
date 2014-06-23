@@ -8108,6 +8108,65 @@ button.close {
   border-radius: 0 -1px -1px 0;
 }
 
+.Tegan .list-group-item.active {
+  background-color: #333333;
+  border-color: #6f6f6f;
+}
+
+.Tegan .list-group-item.active .list-group-item-text, .Tegan .list-group-item.active:hover .list-group-item-text, .Tegan .list-group-item.active:focus .list-group-item-text {
+  color: #eeeeee;
+}
+
+.Tegan .list-group-item {
+  height: 75px;
+  overflow: hidden;
+  padding: 0px 0px 0px 0px;
+}
+
+.Tegan .list-group-item-heading {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.Tegan .list-group-item-text {
+  padding-left: 10px;
+}
+
+.Tegan .Sara {
+  width: 75px;
+  height: 75px;
+  background-color: #999999;
+  border-right: 1px solid #6f6f6f;
+  float: left;
+  display: block;
+  position: relative;
+  margin-right: 10px;
+}
+
+.Tegan .Sara.primary {
+  background-color: #008cba;
+}
+
+.Tegan .Sara.success {
+  background-color: #43ac6a;
+}
+
+.Tegan .Sara.info {
+  background-color: #5bc0de;
+}
+
+.Tegan .Sara.warning {
+  background-color: #e99002;
+}
+
+.Tegan .Sara.danger {
+  background-color: #f04124;
+}
+
+.Tegan .Sara.inverse {
+  background-color: #1f1f1f;
+}
+
 @font-face {
   font-family: "ubunturegular";
   src: url("../fonts/ubuntu-r-webfont.eot");

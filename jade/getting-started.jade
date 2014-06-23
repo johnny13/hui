@@ -1,7 +1,292 @@
 doctype html
 html
-	include includes/head.jade
-body
-	include includes/navigate.html
-	include pages/getting-started.html
-	include includes/footer.jade
+  include includes/head.jade
+  body
+    include includes/navigate.jade
+    .container
+      .row
+        //
+         Getting started
+ 
+        .bs-docs-section
+        .page-header
+          h1#hui HUI
+        p.lead
+          | HUI is an extension to
+          a(href='http://getbootstrap.com') Twitter Bootstrap
+          | , adding a number of features and components.
+        p
+          | The aim of HUI is to provide all the required features for building highly interactive web applications for desktop and mobile.
+        .bs-callout.bs-callout-warning
+          h4 Delivered as extension only
+          p
+            | Complete Bootstrap Package. HUI allows you to easily build and modify bookstrap into your own personal style. No need to include multiple files.
+        //
+         Getting started
+ 
+        .bs-docs-section
+        .page-header
+          h1#download Download
+
+        pre.htmlCode
+            = '<p>escape</p>'
+
+        p.lead
+          | HUI has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
+        h3#download-compiled Compiled CSS and JS
+        p
+          | The fastest way to get HUI is to download the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.
+        p
+          a.btn.btn-lg.btn-primary(href='{{ site.download.dist }}') Download HUI
+        h3#download-additional Additional downloads
+        .bs-docs-dl-options
+          h4
+            a(href='{{ site.download.source }}') Download source code
+          p
+            | Get the latest HUI LESS and JavaScript source code by downloading it directly from GitHub.
+          h4
+            a(href='{{ site.repo }}') Clone or fork via GitHub
+          p Visit us on GitHub to clone or fork the HUI project.
+          h4
+            | Install with
+            a(href='http://bower.io') Bower
+          p
+            | Install and manage the original files for all CSS and JavaScript, along with a local copy of the docs, using
+            a(href='http://bower.io') Bower
+            | .
+        pre.bashCode 
+          = 'bower install hui'
+        h3#download-cdn HUI @ cdnjs
+        p
+          a(href='http://cdnjs.com', target='_blank') CDNJS
+          | is a community driven CDN hosted by CloudFlare, supporting over a hundred projects. To use this CDN, swap your local instances for the CDN links listed below.
+        pre.htmlCode
+          = '<!-- Latest compiled and minified CSS --> \n <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hui/3.1.3/css/hui.min.css"> \n <!-- Latest compiled and minified JavaScript --> \n <script src="//cdnjs.cloudflare.com/ajax/libs/hui/3.1.3/js/hui.min.js"></script>'
+        #callout-less-compilation.bs-callout.bs-callout-warning
+          h4 Compiling HUI's SASS files
+          p
+            | If you work with HUI's uncompiled source code, you need to compile the SASS files to produce usable CSS files. There are a number of ways to use and install SASS. The HUI repository will automatically set you up with an Automatically rebuilding GruntJS setup. Visit the 
+            a(href='http://sasscss.org') sass.js homepage 
+            | for more information. You can also check out the official documentation for the SASS Bootstrap Files.
+        //
+         File structure
+ 
+        .bs-docs-section.bs-jasny
+        .page-header
+          h1#whats-included What's included
+        p.lead
+          | Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.
+        p
+          | Once downloaded, unzip the compressed folder to see the structure of (the compiled) HUI. You'll see something like this:
+        //
+           NOTE: This info is intentionally duplicated in the README.
+         Copy any changes made here over to the README too. 
+        pre.bashCode 
+          = 'hui/\n ├── css/\n │   ├── hui.css\n │   ├── hui.min.css\n └── js/\n ├── hui.js\n └── hui.min.js'
+        p
+          | This is the most basic form of HUI. We provide compiled CSS and JS (
+          code hui.*
+          | ), as well as compiled and minified CSS and JS (
+          code hui.min.*
+          | ).
+        p
+          | The
+          code hui.*
+          | files should be loaded in conjunction with the original Twitter Bootstrap files.
+        #jquery-required.bs-callout.bs-callout-danger
+          h4 jQuery required
+          p
+            | Please note that
+            strong all JavaScript plugins require jQuery
+            | to be included, as shown in the
+            a(href='#template') starter template
+            | .
+            a(href='{{ site.repo }}/blob/v{{ site.current_version }}/bower.json')
+              | Consult our
+              code bower.json
+            | to see which versions of jQuery are supported.
+            
+        .bs-docs-section
+          .page-header
+            h1#template Basic template
+            p.lead
+              | Start with this basic HTML template, or modify
+              a(href='../getting-started#examples') these examples
+              | . We hope you'll customize our templates and examples, adapting them to suit your needs.
+            p Copy the HTML below to begin working with a minimal Bootstrap document.
+        
+        //
+         Template
+ 
+        .bs-docs-section
+        .page-header
+          h1#examples Examples
+        p.lead
+          | Create diverse and advanced user interfaces using HUI components. See also
+          a(href='#customizing') Customizing Bootstrap
+          | for tips on maintaining your own Bootstrap variants.
+        .row.bs-examples
+          .col-xs-6.col-md-4
+            a.thumbnail(href='../examples/starter-template/')
+              img(src='../examples/screenshots/starter-template.jpg', alt='')
+            h4 Starter template
+            p Nothing but the basics: compiled CSS and JavaScript along with a container.
+          .col-xs-6.col-md-4
+            a.thumbnail(href='../examples/navmenu/')
+              img(src='../examples/screenshots/navmenu.jpg', alt='')
+            h4 Navmenu
+            p
+              | A basic template showing the navmenu element and demonstrates usage of the offcanvas plugin.
+          .clearfix.visible-xs.visible-sm
+          .col-xs-6.col-md-4
+            a.thumbnail(href='../examples/navmenu-push/')
+              img(src='../examples/screenshots/navmenu-push.jpg', alt='')
+            h4 Off Canvas Push Menu
+            p A template demonstrating a push effect for the off canvas navmenu.
+          .clearfix.visible-md.visible-lg
+          .col-xs-6.col-md-4
+            a.thumbnail(href='../examples/navmenu-reveal/')
+              img(src='../examples/screenshots/navmenu-reveal.jpg', alt='')
+            h4 Off Canvas Reveal Menu
+            p
+              | A template demonstrating a reveal effect by placing the navmenu under the content.
+          .col-xs-6.col-md-4
+            a.thumbnail(href='../examples/navbar-offcanvas/')
+              img(src='../examples/screenshots/navbar-offcanvas.jpg', alt='')
+            h4 Off canvas navbar
+            p A template using offcanvas for mobile view of the navbar.
+        //
+         Migration
+ 
+        .bs-docs-section
+        .page-header
+          h1#migration Migrating from 2.x to 3.0
+        p.lead
+          | Folks looking to upgrade to v3 should use this section as a general upgrade guide. We've outlined some of the major changes and provided tables that highlight key changes.
+        h2#migration-classes Major class changes
+        p This table shows the style changes between v2.x and v3.0.
+        .table-responsive
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th Bootstrap 2.x
+                th Bootstrap 3.0
+            tbody
+              tr
+                td
+                  code .container-semifluid
+                td
+                  code .container-smooth
+              tr
+                td
+                  code .fileupload
+                  code .fileupload-*
+                td
+                  code .fileinput
+                  code .fileinput-*
+        //
+           /.table-responsive 
+        h2#migration-new What's new
+        p
+          | We've added new elements and changed some existing ones. Here are the new or updated styles.
+        .table-responsive
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th Element
+                th Description
+            tbody
+              tr
+                td Navmenu
+                td
+                  code .navmenu .navmenu-default
+                  code .navmenu .navmenu-inverse
+                  code .navmenu-fixed-left
+                  code .navmenu-fixed-right
+                  code .navmenu-brand
+                  code .navmenu-nav
+              tr
+                td Fixed alerts
+                td
+                  code .alert-fixed-top
+                  code .alert-fixed-bottom
+              tr
+                td Off canvas
+                td
+                  code .offcanvas
+                  code .offcanvas-*
+        //
+           /.table-responsive 
+        h2#migration-dropped What's removed
+        p The following elements have been dropped or changed in v3.0.
+        .table-responsive
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th Element
+                th Removed from 2.x
+                th 3.0 Equivalent
+            tbody
+              tr
+                td Header actions
+                td
+                  code .header-actions
+                td.text-muted N/A
+              tr
+                td Table actions
+                td
+                  code .table-actions
+                td.text-muted N/A
+              tr
+                td Desktop rows
+                td
+                  code .row-desktop
+                td
+                  code .row > .col-md-*
+              tr
+                td Action links
+                td
+                  code .act-*
+                td.text-muted N/A
+              tr
+                td Page alerts
+                td
+                  code .pagealert
+                td
+                  code .alert-fixed-top
+              tr
+                td Iconic icons
+                td
+                  code .iconic-*
+                td.text-muted N/A
+              tr
+                td Editor textarea
+                td
+                  code .editor
+                td.text-muted N/A
+        //
+           /.table-responsive 
+        h2#migration-notes Additional notes
+        p
+          | Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our
+          em mobile first
+          | approach. Here's a partial list:
+        ul
+          li
+            | The fileupload plugin has been renamed to fileinput. File upload was poorly chosen, since the plugin allows the creation of a styled file input element. It has nothing to do with how the file is uploaded.
+          li.bs-jasny-only
+            | Tab alignments are still supported in this fork (while dropped in Twitter Bootstrap).
+          li
+            | Typeahead has been dropped, in favor of using
+            a(href='http://brianreavis.github.io/selectize.js/') Selectize.js
+            | .
+          li
+            | Iconic icons are still available from
+            a(href='http://www.somerandomdude.com/work/open-iconic/') P.J. Onori
+            | .
+        p
+          | For more information on upgrading to v3.0, and code snippets from the community, see
+          a(href='http://bootply.com/') Bootply
+          | .
+    
+    include includes/footer.jade 

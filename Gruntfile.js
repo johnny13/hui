@@ -82,13 +82,19 @@ module.exports = function(grunt) {
       }
     },
     /**
-     * Sass
+     * Sass ( optional Compass )
+     *
+     * You can set the Compass Option to True. However you need Ruby-compass gems and other requirements.
+     * I was able to get it working w/ homebrew on my mac, but 13.10 ubuntu had issues
+     *
+     * It probably will work for you w/o it on. Its defaulted to off.
+     *
      */
     sass: {
       dev: {
         options: {
           style: 'expanded',
-          compass: true
+          compass: false
         },
         files: {
           'dist/css/<%= pkg.name %>-<%= pkg.version %>.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome/font-awesome.scss','assets/stylesheets/hui.scss']
@@ -97,7 +103,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           style: 'compressed',
-          compass: true
+          compass: false
         },
         files: {
           'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome/font-awesome.scss','assets/stylesheets/hui.scss']
@@ -128,19 +134,23 @@ module.exports = function(grunt) {
     * Compile documentation
     */
     jade: {
+      
         compile: {
             options: {
                 client: false,
                 pretty: true,
                 data: grunt.file.readJSON("hui-data.json"),
                 delimiters: 'handlebars-like-delimiters',
+                
             },
+            
             files: [ {
               cwd: "jade",
               src: ["**/index.jade","**/getting-started.jade","**/components.jade","**/css.jade","**/javascript.jade","**/tweak.jade"],
               dest: "docs",
               expand: true,
               ext: ".html",
+              
               rename: function() {
                 // use the source directory to create the file
                 // example with your directory structure
