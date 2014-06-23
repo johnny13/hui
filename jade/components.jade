@@ -1,0 +1,172 @@
+doctype html
+html
+  include includes/head.jade
+body
+  include includes/navigate.jade
+  .container
+    .row
+        //
+           Navmenu
+             
+        .bs-docs-section
+          .page-header
+            h1#navmenu Navmenu
+          p
+            | Navmenu is a vertical navigation component. By default it shares it look and feel with the navmenu component.
+          .bs-callout.bs-callout-info
+            h4 Custom width
+            p
+              | The navmenu is 300px wide by default. You can change this by customizing the
+              code @navmenu-width
+              | variable or by setting the width of
+              code .navmenu
+              | in your CSS.
+          h2#navmenu-default Default navmenu
+          .bs-example
+            nav.navmenu.navmenu-default(role='navigation')
+              a.navmenu-brand(href='#') Brand
+              ul.nav.navmenu-nav
+                li.active
+                  a(href='#') Link
+                li
+                  a(href='#') Link
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Dropdown
+                    b.caret
+                  ul.dropdown-menu.navmenu-nav(role='menu')
+                    li
+                      a(href='#') Action
+                    li
+                      a(href='#') Another action
+                    li
+                      a(href='#') Something else here
+                    li
+                      a(href='#') Separated link
+                    li
+                      a(href='#') One more separated link
+          pre.htmlCode
+            = '<nav class="navmenu navmenu-default" role="navigation"> \n &emsp;<a class="navmenu-brand" href="#">Brand</a> \n &emsp;&emsp;<ul class="nav navmenu-nav"> \n &emsp;&emsp;&emsp;<li class="active"><a href="#">Link</a></li> \n &emsp;&emsp;&emsp;<li><a href="#">Link</a></li> \n &emsp;&emsp;&emsp;<li class="dropdown"> \n &emsp;&emsp;&emsp;&emsp;<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a> \n &emsp;&emsp;&emsp;&emsp;&emsp;<ul class="dropdown-menu navmenu-nav" role="menu"> \n &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<li><a href="#">Action</a></li> \n &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<li><a href="#">Another action</a></li> \n &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<li><a href="#">Something else here</a></li> \n &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<li><a href="#">Separated link</a></li> \n &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<li><a href="#">One more separated link</a></li> \n &emsp;&emsp;&emsp;&emsp;&emsp;</ul> \n &emsp;&emsp;&emsp;</li> \n &emsp;&emsp;</ul> \n &emsp;</nav>'        
+                      
+          .bs-callout.bs-callout-warning
+            h4 Make navmenus accessible
+            p
+              | Be sure to add a
+              code role="navigation"
+              | to every navmenu to help with accessibility.
+          h2#navmenu-fixed Fixed to left or right
+          p
+            | Add either
+            code .navmenu-fixed-left
+            | or
+            code .navmenu-fixed-right
+            | .
+          .bs-example.bs-navmenu-fixed-example
+            nav.navmenu.navmenu-default.navmenu-fixed-left(role='navigation')
+              a.navmenu-brand(href='#') Brand
+              ul.nav.navmenu-nav
+                li.active
+                  a(href='#') Home
+                li
+                  a(href='#') Link
+                li
+                  a(href='#') Link
+          //
+             /example 
+          pre.htmlCode
+            = '<nav class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" role="navigation"> \n ... \n</nav>'         
+                      
+          .bs-callout.bs-callout-danger
+            h4 Body padding required
+            p
+              | The fixed navmenu will overlay your other content, unless you add
+              code padding
+              | to the left or right of the
+              code <body>
+              | . Try out your own values or use our snippet below. Tip: By default, the navmenu is 300px wide.
+            pre.cssCode
+              = '@media (min-width: 992px) { \n&emsp;body { \n&emsp;&emsp;padding-left: 300px; \n&emsp;} \n}'
+            p
+              | Make sure to include this 
+              strong  after
+              |  the HUI CSS.
+          h2#navmenu-offcanvas Off canvas
+          p
+            | With the
+            a(href='../javascript/#offcanvas') offcanvas plugin
+            | , you can hide the navmenu off canvas. This is especially useful for screens with a small viewport.
+          .bs-example.bs-navmenu-offcanvas-example
+            #myNavmenuCanvas
+              nav#myNavmenu.navmenu.navmenu-default.navmenu-fixed-left.offcanvas(role='navigation')
+                a.navmenu-brand(href='#') Brand
+                ul.nav.navmenu-nav
+                  li.active
+                    a(href='#') Home
+                  li
+                    a(href='#') Link
+                  li
+                    a(href='#') Link
+              .navbar.navbar-default.navbar-fixed-top
+                button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='#myNavmenu', data-canvas='#myNavmenuCanvas', data-placement='left')
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in aliquet nisl. Praesent sed leo congue, fringilla eros eu, tempus metus. Nam mollis odio ipsum, non vehicula ipsum accumsan sodales. Morbi varius vitae elit euismod cursus. Donec a dapibus justo, in facilisis nisi. Suspendisse ut turpis dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dui risus, tincidunt at odio ut, ultrices dignissim ipsum. Cras ultrices erat nec leo luctus varius. Nulla sollicitudin tincidunt nulla, ut porta mauris volutpat vitae. Suspendisse ornare dolor sit amet massa venenatis pulvinar.
+          //
+             /example 
+          pre.htmlCode
+           = '<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation"> \n ... \n</nav>'        
+            
+          .bs-callout.bs-callout-info
+            h4 Examples
+            p
+              | There is a full example for an
+              a(href='../examples/navmenu-push/') off canvas push menu
+              | as well as examples for an off canvas navmenu with an
+              a(href='../examples/navmenu/') slide in
+              | and
+              a(href='../examples/navmenu-reveal/') reveal
+              | effect.
+          h2#navmenu-inverted Inverted navmenu
+          p
+            | Modify the look of the navmenu by adding
+            code .navmenu-inverse
+            | .
+          .bs-example
+            nav.navmenu.navmenu-inverse(role='navigation')
+              a.navmenu-brand(href='#') Brand
+              ul.nav.navmenu-nav
+                li.active
+                  a(href='#') Home
+                li
+                  a(href='#') Link
+                li
+                  a(href='#') Link
+          //
+             /example 
+          pre.htmlCode
+           = '<nav class="navmenu navmenu-inverse" role="navigation"> \n ... \n</nav>'         
+                      
+        //
+           Alerts
+             
+        .bs-docs-section
+          .page-header
+            h1#alerts Alerts
+          h2#alerts-fixed Fixed to top / bottom
+          p
+            | Add
+            code .alert-fixed-top
+            | top stick the alert on top of your page. Use
+            code .alert-fixed-bottom
+            | for the bottom.
+          .bs-example
+            .alert.alert-success.alert-fixed-top
+              strong Success!
+              | Your action has been completed succefully.
+          pre.htmlCode
+            = '<div class="alert alert-success alert-fixed-top"> \n &emsp;<strong>Success!</strong> Your action has been completed succefully. \n </div>'     
+                      
+
+  include includes/footer.jade
