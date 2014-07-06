@@ -1,6 +1,6 @@
 {
-    "name": "HUI",
-    "version": "2.3.7",
+    "name": "huementui",
+    "version": "2.3.8",
     "main": "dist/hui.min.js",
     "ignore": [
         "assets",
