@@ -2,13 +2,22 @@
   "name": "hui",
   "title": "huement user interface",
   "description": "Taylor",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "homepage": "hui.huement.com",
   "copyright": "huement.com",
   "author": {
     "name": "Derek Scott",
     "email": "derek@huement.com",
     "url": "twitter.com/huement"
+  },
+  "site": {
+    "download": {
+      "source": "https://github.com/johnny13/hui/archive/master.zip",
+      "dist": "http://huementui.s3.amazonaws.com/cdn/"
+    },
+    "repo": "https://github.com/johnny13/hui",
+    "homepage": "hui.huement.com",
+    "bugs": "github.com/johnny13/hui/issues"
   },
   "scripts": {
     "test": "grunt qunit"
@@ -57,6 +66,8 @@
     "matchdep": "~0.3.0",
     "grunt-jade": "~0.4.0",
     "grunt-shell": "~0.6.4",
-    "grunt-template": "~0.2.3"
+    "grunt-template": "~0.2.3",
+    "assemble": "~0.4.40",
+    "grunt-newer": "~0.7.0"
   }
 }
