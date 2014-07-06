@@ -191,8 +191,10 @@ module.exports = function(grunt) {
     */
     bump: {
       options: {
-        files: ['package.json'],
-        updateConfigs: [],
+        files: ['package.json', 'bower.json'],
+        updateConfigs: ['pkg','bower'],
+        add: true,
+        addFiles: ['.'],
         commit: true,
         commitMessage: 'Release ver %VERSION%',
         commitFiles: ['-a'],
@@ -201,7 +203,9 @@ module.exports = function(grunt) {
         tagMessage: 'Version %VERSION%',
         push: true,
         pushTo: 'origin',
-        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+        npm: false,
+        npmTag: "Release v%VERSION%",
+        gitDescribeOptions: "--tags --always --abbrev=1 --dirty=-d"
       }
     }
   });
@@ -220,7 +224,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-template');
-  grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-push-release');
   grunt.loadNpmTasks('grunt-newer');
   
   /**
@@ -235,5 +239,5 @@ module.exports = function(grunt) {
   grunt.registerTask('docs', ['jade','watch:jadedocs']);
   
   // Release New version unto the world
-  grunt.registerTask('release', ['bump']);
+  grunt.registerTask('bump', ['bumper']);
 };
