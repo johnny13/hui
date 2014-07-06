@@ -111,8 +111,7 @@ module.exports = function(grunt) {
       }
     },
     /*
-    * Minifify Regular CSS Files
-    * used for the IE css right now but easily expandable.
+    * Internet Explorer Templating
     */
     cssmin: {
       combine: {
@@ -131,7 +130,9 @@ module.exports = function(grunt) {
     },
     /*
     * Jade Templates
-    * Compile documentation
+    * Compile Jade Templates using package.json data
+    *
+    * Used for creating the documentation
     */
     jade: {
       
@@ -139,11 +140,9 @@ module.exports = function(grunt) {
             options: {
                 client: false,
                 pretty: true,
-                data: grunt.file.readJSON("hui-data.json"),
-                delimiters: 'handlebars-like-delimiters',
-                
+                data: require('./package.json')
+                //,delimiters: 'handlebars-like-delimiters'
             },
-            
             files: [ {
               cwd: "jade",
               src: ["**/index.jade","**/getting-started.jade","**/components.jade","**/css.jade","**/javascript.jade","**/tweak.jade"],
@@ -162,18 +161,6 @@ module.exports = function(grunt) {
         }
     },
     /*
-    template: {
-        dev: {
-          src: 'jade/pages/getting-started.html',
-          dest: 'dev.html',
-          variables: {
-            css_url: 'app.css'
-            title: 'Hello World',
-            pretty: true
-          }
-        },
-    },
-    *
     * Watch - not setup by default
     */
     watch: {
@@ -186,6 +173,9 @@ module.exports = function(grunt) {
         tasks: ['jade']
       }
     },
+    /*
+    * Minify Final Results
+    */
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= pkg.homepage %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -193,6 +183,25 @@ module.exports = function(grunt) {
       build: {
         src: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js',
         dest: 'dist/js/<%= pkg.name %>.min.js'
+      }
+    },
+    /*
+    * Grunt Bump
+    * Optional Task used for Releasing New Versions
+    */
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: 'Release ver %VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'origin',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
       }
     }
   });
@@ -212,6 +221,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-bump');
+  grunt.loadNpmTasks('grunt-newer');
   
   /**
    * Load Grunt plugins.
@@ -219,11 +229,11 @@ module.exports = function(grunt) {
    */
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   
-  // Default task(s).'watch'
   grunt.registerTask('default', ['jshint','clean','copy','sass','concat','cssmin','uglify']);
   
-  // Default task(s).'watch'
+  // Command You run when you're editing the documentation
   grunt.registerTask('docs', ['jade','watch:jadedocs']);
   
-  grunt.registerTask('docstemp', ['template']);
+  // Release New version unto the world
+  grunt.registerTask('release', ['bump']);
 };

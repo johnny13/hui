@@ -1,29 +1,21 @@
 {
-  "name": "hui",
-  "version": "2.3.2",
-  "authors": [
-    "Derek Scott <derek@huement.com>"
-  ],
-  "description": "huement user interface - augment bootstrap",
-  "main": ["dist/js/hui.min.js", "dist/css/hui.min.css"],
-  "keywords": [
-    "user",
-    "interface",
-    "ui",
-    "web",
-    "os"
-  ],
-  "license": "MIT",
-  "homepage": "hui.huement.com",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "bootstrap-sass-official": "master",
-    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git"
-  }
+    "name": "HUI",
+    "version": "2.3.7",
+    "main": "dist/hui.min.js",
+    "ignore": [
+        "assets",
+        "node_modules",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        ".sass-cache",
+        "bower.json",
+        "jade",
+        "Gruntfile.js"
+    ],
+    "dependencies": {
+        "jquery": ">=1.8.3",
+        "bootstrap": "~3.0.0"
+    }
 }

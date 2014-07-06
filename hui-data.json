@@ -1,9 +1,11 @@
 {
   "name": "hui",
   "title": "huement user interface",
-  "description": "Taylor",
+  "description": "Early Preview of new Bootstrap 3 Web Framework",
+  "codename": "Taylor",
   "version": "0.1.1",
   "homepage": "hui.huement.com",
+  "cdn": "https://huementui.s3.amazonaws.com/cdn/",
   "copyright": "huement.com",
   "author": {
     "name": "Derek Scott",
