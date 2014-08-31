@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HUI Documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./../../../dist/css/hui-min.css">
+    <link rel="stylesheet" href="./../../../libs/snippet/snippet-min.css">
+    <link rel="stylesheet" href="./../../docs.css">
+    <style>
+    
+    .btn-info {
+    color: #FFF!important;
+    background-color: #5BC0DE!important;
+    border-color: #46B8DA!important;
+    }
+    
+    .btn-primary {
+    color: #FFF!important;
+    background-color: #008CBA!important;
+    border-color: #0079A1!important;
+    }
+    </style>
+  </head>
+</html>
+<body><!--
+  <Ride>the Lighting </Ride>-->
+  <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><span class="fa fa-flask"></span><strong>H</strong><strong>U</strong><strong>I</strong></a>
+      </div><!--
+      <Collect>the nav links, forms, and other content for toggling </Collect>-->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
+          <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
+          <li id="COMP"><a href="components.html"><i class="fa fa-puzzle-piece"></i> Components</a></li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-bug"></i> JavaScript<span class="caret"></span></a>
+            <ul aria-labelledby="download" class="dropdown-menu">
+              <li><a href="javascript.html">Documentation</a></li>
+              <li><a href="demos/">Demos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-cloud"></i> Tweaks<span class="caret"></span></a>
+            <ul aria-labelledby="download" class="dropdown-menu">
+              <li><a href="tweak.html">Customize</a></li>
+              <li class="divider"></li>
+              <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+              <li><a href="./bootstrap.css">bootstrap.css</a></li>
+              <li class="divider"></li>
+              <li><a href="./variables.less">variables.sass</a></li>
+              <li><a href="./bootswatch.less">Gruntfile.js</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+    </div><!--/.container-->
+  </nav>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+                <div class="bs-docs-section">
+                  <div class="page-header">
+                    <h1 id="overview">Let DJ Ralphio spin your beats.</h1>
+                    <p>Build up simple spinners with complex undertones. Preset limits allow you to trigger messages, disable the input entirely and almost much more. In the example below, you would change out <code>Track1</code> and <code>quant[1]</code> for unique values.</p>
+                  </div>
+                  <h3 id="overview-container">Spinning Digits.</h3>
+                  <p>Customize the <code>#Track1-alert</code> error message to provide quick feedback to your users when limits have been reached.</p>
+                  <p>A disabled input, with optional error message: <code>#Track1-error</code> quickly removes the number spinner from display.</p>
+                  <p>Don't forget you can always sell your grandmas jewelry and go clubbing.</p>
+                </div>
+      
+                <h2 id="buttons-labels">DJ-RALPHIO SPINNER</h2>
+                <div class="bs-example">
+        
+                  <!-- Track1 quant[1] -->
+                  <div class="input-group">
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-danger" id="Track1-minus"  data-type="minus" data-field="quant[1]">
+                              <span class="fa fa-minus"></span>
+                          </button>
+                      </span>
+
+                      <input type="text" name="Track1-error" id="Track1-error" class="form-control" value="No Reminder" style="display:none" disabled/>
+                      <input type="text" name="quant[1]" id="Track1-text" class="form-control input-number" data-dj="Track1" value="3" data-limit="3" min="3" max="72">
+
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-success" id="Track1-plus" data-type="plus" data-field="quant[1]">
+                              <span class="fa fa-plus"></span>
+                          </button>
+                      </span>
+                  </div>
+                  <small>
+                    <p style="margin-top:10px;display:none;" id="Track1-alert" class="alert alert-info alert-dismissable">
+                      No Reminder will be sent. This is not recommended.
+                    </p>
+                  </small>
+                  <div class="push" style="height:10px;"></div>
+                  <p class="lead">This has a minimum value of 3. Anything below that triggers the disabled state</p>
+        
+                </div>
+                <div class="push"></div>
+                <div class="hidden-sm hidden-xs">
+<pre class="jsCode">
+  //simple javascript function
+  DJ_RALPHIO_SPINS("Track1");
+</pre>
+                
+                 <pre class="htmlCode">
+          &lt;!-- Track1 quant[1] --&gt;
+          &lt;div class=&quot;input-group&quot;&gt;
+             &lt;span class=&quot;input-group-btn&quot;&gt;
+                 &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; id=&quot;Track1-minus&quot;  data-type=&quot;minus&quot; data-field=&quot;quant[1]&quot;&gt;
+                     &lt;span class=&quot;fa fa-minus&quot;&gt;&lt;/span&gt;
+                 &lt;/button&gt;
+             &lt;/span&gt;
+
+             &lt;input type=&quot;text&quot; id=&quot;Track1-error&quot; class=&quot;form-control&quot; value=&quot;No Reminder&quot; style=&quot;display:none&quot; disabled/&gt;
+             &lt;input type=&quot;text&quot; name=&quot;quant[1]&quot; id=&quot;Track1-text&quot; class=&quot;form-control &quot; value=&quot;3&quot; data-limit=&quot;3&quot; max=&quot;72&quot;&gt;
+
+             &lt;span class=&quot;input-group-btn&quot;&gt;
+                 &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; id=&quot;Track1-plus&quot; data-type=&quot;plus&quot; data-field=&quot;quant[1]&quot;&gt;
+                     &lt;span class=&quot;fa fa-plus&quot;&gt;&lt;/span&gt;
+                 &lt;/button&gt;
+             &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;small&gt;
+           &lt;p style=&quot;margin-top:10px;display:none;&quot; id=&quot;Track1-alert&quot; class=&quot;alert alert-info alert-dismissable&quot;&gt;
+             No Reminder will be sent. This is not recommended.
+           &lt;/p&gt;
+          &lt;/small&gt;
+          &lt;div class=&quot;push&quot; style=&quot;height:10px;&quot;&gt;&lt;/div&gt;
+          &lt;p class=&quot;lead&quot;&gt;This has a minimum value of 3. Anything below that triggers the disabled state&lt;/p&gt;
+                 </pre>
+          </div>
+          
+      <div class="push"></div><hr><div class="push"></div>
+      
+                <h2 id="buttons-labels">DJ-RALPHIO COMPLEX SPINNER</h2>
+                <div class="bs-example">
+        
+                  <!-- Track2 quant[2] -->
+                  <div class="input-group">
+            
+                      <input type="text" name="Track2" id="Track2" class="form-control input-number" value="3">
+
+                  </div>
+                  <small>
+                    <p style="margin-top:20px;display:none;" id="Track2-alert" class="alert alert-info alert-dismissable">
+                      No Reminder will be sent. This is not recommended.
+                    </p>
+                  </small>
+                  <div class="push" style="height:20px;"></div>
+                  <p class="lead"><strong>"press and hold"</strong> for "boosted" stepping. The value goes from -10 to 1000 in increments of 0.5.</p>
+
+                </div>
+<pre class="jsCode">
+  //javascript plugin
+  $("input[name='Track2']").DJRalphio({
+    min: -10,
+    max: 1000,
+    decimals: 2,
+    boostat: 5,
+    step: 0.5,
+    stepinterval: 1,
+    maxboostedstep: 50,
+    prefix: '&lt;i class='fa fa-rocket'&gt;&lt;/i&gt;'
+  });
+</pre>
+<pre class="htmlCode">
+  &lt;div class=&quot;input-group&quot;&gt;
+      &lt;input type=&quot;text&quot; name=&quot;Track2&quot; id=&quot;Track2&quot; class=&quot;form-control input-number&quot; value=&quot;3&quot;&gt;
+  &lt;/div&gt;
+</pre>
+<div class="push"></div>
+                  <div class="bs-example">
+      
+                    <!-- Track2 quant[2] -->
+                    <div class="input-group">
+            
+                        <input type="text" name="Track3" id="Track3" class="form-control input-number" value="1">
+
+                    </div>
+                    <small>
+                      <p style="margin-top:20px;display:none;" id="Track3-alert" class="alert alert-info alert-dismissable">
+                        No Reminder will be sent. This is not recommended.
+                      </p>
+                    </small>
+                    <div class="push" style="height:20px;"></div>
+                    <p class="lead">The value goes from 0.5 Hours to 8 Hours in increments of 0.5 Hours.</p>
+                      
+        
+                  </div>
+                  <div class="push"></div>
+                    <div class="bs-example">
+      
+                      <!-- Track2 quant[2] -->
+                      <div class="input-group">
+            
+                          <input type="text" name="Track4" id="Track4" class="form-control input-number" value="30">
+
+                      </div>
+                      
+                      <div class="push" style="height:20px;"></div>
+                      <p class="lead">The value goes from 30 Minutes to 480 Minutes in increments of 30 Minutes.</p>
+                     
+                    </div>
+                    <div class="push"></div>
+                      <div class="bs-example">
+      
+        
+                        <!-- Track2 quant[2] -->
+                        <div class="input-group">
+            
+                            <input type="text" name="Track5" id="Track5" class="form-control input-number" value="100">
+
+                        </div>
+                        
+                        <div class="push" style="height:20px;"></div>
+                        <p class="lead">This is a complex toolbar for stuff and things.</p>
+        
+                      </div>
+                      
+<pre class="jsCode">
+  $("input[name='Track5']").DJRalphio({
+    min: -1000,
+    max: 5000,
+    decimals: 4,
+    step: 111.5050,
+    maxboostedstep: 300,
+    postfix: "&lt;i class='fa fa-rebel'&gt;&lt;/i&gt; action",
+    postfix_extraclass: "btn btn-primary",
+    prefix: '&lt;i class='fa fa-star'&gt;&lt;/i&gt;',
+    prefix_extraclass: "btn-info"
+  });
+</pre>
+                      <div class="push"></div>
+        </div>
+      </div>
+  </div>
+  
+  <script src="./../../../libs/jquery/jquery-1.10.2.min.js"></script>
+  <script src="./../../../dist/js/hui.min.js"></script>
+  <script src="./../../../libs/modernizr/modernizr.2.6.2.custom.js"></script>
+  <script src="./../../../libs/snippet/jquery.snippet.js"></script>
+  <script type="text/javascript" src="dj-ralphio-simple.js"></script>
+  <script type="text/javascript" src="http://dev.huement.com/hui-djralphio/dist/hui-djralphio.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //SETUP SIMPLE NOTIFICATION VERSION
+      DJ_RALPHIO_SPINS("Track1");
+      
+      //COMPLEX TouchSpin Based Version
+      $("input[name='Track2']").DJRalphio({
+        min: -10,
+        max: 1000,
+        decimals: 2,
+        boostat: 5,
+        step: 0.5,
+        stepinterval: 1,
+        maxboostedstep: 50,
+        prefix: '<i class="fa fa-rocket"></i>'
+      });
+      
+      $("input[name='Track3']").DJRalphio({
+        min: 0.5,
+        max: 8,
+        decimals: 2,
+        step: 0.5,
+        maxboostedstep: 2,
+        prefix: '<i class="fa fa-history"></i>'
+      });
+      
+      $("input[name='Track4']").DJRalphio({
+        min: 30,
+        max: 480,
+        decimals: 0,
+        step: 30,
+        maxboostedstep: 180,
+        prefix: '<i class="fa fa-history"></i>'
+      });
+      
+      $("input[name='Track5']").DJRalphio({
+        min: -1000,
+        max: 5000,
+        decimals: 4,
+        step: 111.5050,
+        maxboostedstep: 300,
+        postfix: "<i class='fa fa-rebel'></i> action",
+        postfix_extraclass: "btn btn-primary",
+        prefix: '<i class="fa fa-star"></i>',
+        prefix_extraclass: "btn-info"
+      });
+
+      $("pre.htmlCode").snippet("html",{style:"whatis"});
+      $("pre.jsCode").snippet("javascript",{style:"whatis"});
+    });
+  </script>
+  <div id="Foots" class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="push">&nbsp;</div>
+        <p class="text-right">© 2014 huement.com</p>
+        <div class="push">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</body>
