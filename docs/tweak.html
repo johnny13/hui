@@ -23,16 +23,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
           <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
-          <li id="COMP"><a href="components.html"><i class="fa fa-puzzle-piece"></i> Components</a></li>
-          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-bug"></i> JavaScript<span class="caret"></span></a>
+          <li id="COMP"><a href="components.html"><i class="fa fa-toggle-on"></i> Components</a></li>
+          <li id="JS"><a href="javascript.html"><i class="fa fa-bug"></i> JavaScript</a></li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-rocket"></i> Stuff<span class="caret"></span></a>
             <ul aria-labelledby="download" class="dropdown-menu">
-              <li><a href="javascript.html">Documentation</a></li>
-              <li><a href="demos/">Demos</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-cloud"></i> Tweaks<span class="caret"></span></a>
-            <ul aria-labelledby="download" class="dropdown-menu">
-              <li><a href="tweak.html">Customize</a></li>
+              <li><a href="demos/"> <i class="fa fa-code"></i> Demos</a></li>
               <li class="divider"></li>
               <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
               <li><a href="./bootstrap.css">bootstrap.css</a></li>
@@ -185,6 +180,8 @@
     $("pre.jsCode").snippet("javascript",{style:"whatis"});
     $("pre.cssCode").snippet("css",{style:"whatis"});
     $("pre.bashCode").snippet("python",{style:"whatis"});
+    $(".switchbox").bootstrapSwitch();
+    
   </script>
   <div id="Foots" class="container">
     <div class="row">

@@ -23,16 +23,11 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
           <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
-          <li id="COMP"><a href="components.html"><i class="fa fa-puzzle-piece"></i> Components</a></li>
-          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-bug"></i> JavaScript<span class="caret"></span></a>
+          <li id="COMP"><a href="components.html"><i class="fa fa-toggle-on"></i> Components</a></li>
+          <li id="JS"><a href="javascript.html"><i class="fa fa-bug"></i> JavaScript</a></li>
+          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-rocket"></i> Stuff<span class="caret"></span></a>
             <ul aria-labelledby="download" class="dropdown-menu">
-              <li><a href="javascript.html">Documentation</a></li>
-              <li><a href="demos/">Demos</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a id="download" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-cloud"></i> Tweaks<span class="caret"></span></a>
-            <ul aria-labelledby="download" class="dropdown-menu">
-              <li><a href="tweak.html">Customize</a></li>
+              <li><a href="demos/"> <i class="fa fa-code"></i> Demos</a></li>
               <li class="divider"></li>
               <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
               <li><a href="./bootstrap.css">bootstrap.css</a></li>
@@ -46,8 +41,44 @@
     </div><!--/.container-->
   </nav>
   <div class="container">
-    <div class="row"><!--
-      <Navmenu></Navmenu>-->
+    <div class="row">
+      <div class="bs-docs-section">
+        <div class="page-header">
+          <h1 id="buttons">Lists</h1>
+        </div>
+        <div>
+          <h2 id="buttons-labels">Tegan &amp; Sara Lists</h2>
+          <p>Add Icons or Descriptive Colored Labels to Any List Group.<code>&lt;ul class="list-group Tegan"&gt;&lt;li class="list-group-item"&gt; ... &lt;/li&gt;&lt;/ul&gt;</code>to markup any list.</p>
+          <div class="bs-example">
+            <ul class="list-group Tegan">
+              <li class="list-group-item"><span class="Sara primary"></span>
+                <h4 class="list-group-item-heading">Walking with a Ghost</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit</p>
+              </li>
+              <li class="list-group-item"><span class="Sara"></span>
+                <h4 class="list-group-item-heading">City Girl</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit</p>
+              </li>
+              <li class="list-group-item"><span class="Sara success"></span>
+                <h4 class="list-group-item-heading">Back In Your Head</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit</p>
+              </li>
+              <li class="list-group-item"><span class="Sara info"></span>
+                <h4 class="list-group-item-heading">Knife Going In</h4>
+                <p class="list-group-item-text">Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit</p>
+              </li>
+            </ul>
+          </div>
+          <div class="push"></div>
+          <pre class="htmlCode">&lt;ul class=&quot;list-group Tegan&quot;&gt; 
+ &lt;li class=&quot;list-group-item&quot;&gt; 
+ &lt;span class=&quot;Sara primary&quot;&gt;&lt;/span&gt;
+ &lt;h4 class=&quot;list-group-item-heading&quot;&gt;Walking with a Ghost&lt;/h4&gt; 
+ &lt;p class=&quot;list-group-item-text&quot;&gt;Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit&lt;/p&gt; 
+ &lt;/li&gt;
+&lt;/ul&gt;</pre>
+        </div>
+      </div>
       <div class="bs-docs-section">
         <div class="page-header">
           <h1 id="navmenu">Navmenu</h1>
@@ -106,7 +137,7 @@
               <li><a href="#">Link</a></li>
             </ul>
           </nav>
-        </div><!--/example -->
+        </div>
         <pre class="htmlCode">&lt;nav class=&quot;navmenu navmenu-default navmenu-fixed-left offcanvas-sm&quot; role=&quot;navigation&quot;&gt; 
  ... 
 &lt;/nav&gt;</pre>
@@ -124,7 +155,7 @@
         <p>With the<a href="../javascript/#offcanvas">offcanvas plugin</a>, you can hide the navmenu off canvas. This is especially useful for screens with a small viewport.</p>
         <div class="bs-example bs-navmenu-offcanvas-example">
           <div id="myNavmenuCanvas">
-            <nav id="myNavmenu" role="navigation" class="navmenu navmenu-default navmenu-fixed-left offcanvas"><a href="#" class="navmenu-brand">Brand</a>
+            <nav id="myNavmenu" role="navigation" style="left:100px" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm"><a href="#" class="navmenu-brand">Brand</a>
               <ul class="nav navmenu-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Link</a></li>
@@ -167,11 +198,27 @@
         <h2 id="alerts-fixed">Fixed to top / bottom</h2>
         <p>Add<code>.alert-fixed-top</code>top stick the alert on top of your page. Use<code>.alert-fixed-bottom</code>for the bottom.</p>
         <div class="bs-example">
-          <div class="alert alert-success alert-fixed-top"><strong>Success!</strong>Your action has been completed succefully.</div>
-        </div>
+          <div class="alert alert-success alert-fixed-top"><strong>Success!</strong>Your action has been completed succefully.</div><span class="push"></span>
+        </div><span class="push"></span><span class="push"></span>
         <pre class="htmlCode">&lt;div class=&quot;alert alert-success alert-fixed-top&quot;&gt; 
  &emsp;&lt;strong&gt;Success!&lt;/strong&gt; Your action has been completed succefully. 
  &lt;/div&gt;</pre>
+      </div>
+      <div class="bs-docs-section">
+        <div class="page-header">
+          <h1 id="switch">Switch</h1>
+        </div>
+        <h2 id="alerts-fixed">Easily turn checkboxes and/or radio buttons into toggle switches.</h2>
+        <p>Add a global declaration for something like <code>$(".switchbox").bootstrapSwitch();</code>and enable autostart on all switches on all pages in your app. </p>
+        <div class="bs-example">
+          <div class="input-group">
+            <input type="checkbox" checked name="my-checkbox" class="switchbox">
+          </div><span class="push"></span>
+        </div><span class="push"></span>
+        <pre class="jsCode">$(&quot;[name='my-checkbox']&quot;).bootstrapSwitch();</pre><span class="push"></span>
+        <pre class="htmlCode">&lt;div class=&quot;input-group&quot;&gt; 
+ &lt;input type=&quot;checkbox&quot; name=&quot;my-checkbox&quot; checked&gt; 
+&lt;/div&gt;</pre>
       </div>
     </div>
   </div>
@@ -184,6 +231,8 @@
     $("pre.jsCode").snippet("javascript",{style:"whatis"});
     $("pre.cssCode").snippet("css",{style:"whatis"});
     $("pre.bashCode").snippet("python",{style:"whatis"});
+    $(".switchbox").bootstrapSwitch();
+    
   </script>
   <div id="Foots" class="container">
     <div class="row">

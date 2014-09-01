@@ -5,9 +5,36 @@ body
   include includes/navigate.jade
   .container
     .row
-        //
-           Navmenu
-             
+        .bs-docs-section
+          .page-header
+            h1#buttons Lists
+          div
+            h2#buttons-labels Tegan &amp; Sara Lists
+            p
+              | Add Icons or Descriptive Colored Labels to Any List Group.
+              code &lt;ul class="list-group Tegan"&gt;&lt;li class="list-group-item"&gt; ... &lt;/li&gt;&lt;/ul&gt;
+              | to markup any list.
+            .bs-example
+              ul.list-group.Tegan
+                li.list-group-item
+                  span.Sara.primary
+                  h4.list-group-item-heading Walking with a Ghost
+                  p.list-group-item-text Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit
+                li.list-group-item
+                  span.Sara
+                  h4.list-group-item-heading City Girl
+                  p.list-group-item-text Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit
+                li.list-group-item
+                  span.Sara.success
+                  h4.list-group-item-heading Back In Your Head
+                  p.list-group-item-text Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit
+                li.list-group-item
+                  span.Sara.info
+                  h4.list-group-item-heading Knife Going In
+                  p.list-group-item-text Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit
+            .push
+            pre.htmlCode
+                = '&lt;ul class=&quot;list-group Tegan&quot;&gt; \n &lt;li class=&quot;list-group-item&quot;&gt; \n &lt;span class=&quot;Sara primary&quot;&gt;&lt;/span&gt;\n &lt;h4 class=&quot;list-group-item-heading&quot;&gt;Walking with a Ghost&lt;/h4&gt; \n &lt;p class=&quot;list-group-item-text&quot;&gt;Lorem ipsum dolor sit quis nostrud exercitation amet, consectetur adipisicing elit&lt;/p&gt; \n &lt;/li&gt;\n&lt;/ul&gt;'
         .bs-docs-section
           .page-header
             h1#navmenu Navmenu
@@ -71,8 +98,7 @@ body
                   a(href='#') Link
                 li
                   a(href='#') Link
-          //
-             /example 
+
           pre.htmlCode
             = '<nav class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" role="navigation"> \n ... \n</nav>'         
                       
@@ -97,7 +123,7 @@ body
             | , you can hide the navmenu off canvas. This is especially useful for screens with a small viewport.
           .bs-example.bs-navmenu-offcanvas-example
             #myNavmenuCanvas
-              nav#myNavmenu.navmenu.navmenu-default.navmenu-fixed-left.offcanvas(role='navigation')
+              nav#myNavmenu.navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm(role='navigation')(style='left:100px')
                 a.navmenu-brand(href='#') Brand
                 ul.nav.navmenu-nav
                   li.active
@@ -165,8 +191,28 @@ body
             .alert.alert-success.alert-fixed-top
               strong Success!
               | Your action has been completed succefully.
+            span.push
+          span.push
+          span.push
           pre.htmlCode
             = '<div class="alert alert-success alert-fixed-top"> \n &emsp;<strong>Success!</strong> Your action has been completed succefully. \n </div>'     
-                      
-
+        
+        .bs-docs-section
+          .page-header
+            h1#switch Switch
+          h2#alerts-fixed Easily turn checkboxes and/or radio buttons into toggle switches.
+          p
+            | Add a global declaration for something like 
+            code $(".switchbox").bootstrapSwitch();
+            | and enable autostart on all switches on all pages in your app. 
+          .bs-example
+            div.input-group
+              input.switchbox(type='checkbox', checked=true, name='my-checkbox')
+            span.push
+          span.push
+          pre.jsCode
+            = '$("[name=\'my-checkbox\']").bootstrapSwitch();'
+          span.push
+          pre.htmlCode
+            = '<div class="input-group"> \n <input type="checkbox" name="my-checkbox" checked> \n</div>'
   include includes/footer.jade
