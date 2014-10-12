@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./../dist/css/hui-min.css">
     <link rel="stylesheet" href="./../libs/snippet/snippet-min.css">
     <link rel="stylesheet" href="./docs.css">
-    <script src="./../libs/modernizr/modernizr.2.6.2.custom.js"></script>
   </head>
   <body><!--
     <Ride>the Lighting </Ride>-->
@@ -21,7 +20,7 @@
         <Collect>the nav links, forms, and other content for toggling </Collect>-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li id="START"><a href="getting-started.html"><i class="fa fa-dashboard"></i> Start</a></li>
+            <li id="START"><a href="getting_started.html"><i class="fa fa-dashboard"></i> Start</a></li>
             <li id="CSS"><a href="css.html"><i class="fa fa-magic"></i> CSS</a></li>
             <li id="COMP"><a href="components.html"><i class="fa fa-toggle-on"></i> Components</a></li>
             <li id="JS"><a href="javascript.html"><i class="fa fa-bug"></i> JavaScript</a></li>
@@ -1222,7 +1221,17 @@
       <footer>
         <div class="row">
           <div class="col-lg-12">
-            <a class="btn btn-lg pull-right" href="#top">Back to top</a>
+
+            <ul class="list-unstyled">
+              <li class="pull-right"><a href="#top">Back to top</a></li>
+              <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
+              <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
+              <li><a href="https://twitter.com/thomashpark">Twitter</a></li>
+              <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
+              <li><a href="../help/#api">API</a></li>
+              <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=F22JEM3Q78JC2">Donate</a></li>
+            </ul>
+            <p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:hello@thomaspark.me">hello@thomaspark.me</a>.</p>
             <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
             <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
 
@@ -1230,22 +1239,12 @@
         </div>
 
       </footer>
+
+
     </div>
-    
-    <div id="Foots" class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="push">&nbsp;</div>
-          <p class="text-right">© 2014 huement.com</p>
-          <div class="push">&nbsp;</div>
-        </div>
-      </div>
-    </div>
-    
-    
     <script src="./../libs/jquery/jquery-1.10.2.min.js"></script>
     <script src="./../dist/js/hui.min.js"></script>
-    
+    <script src="./../libs/modernizr/modernizr.2.6.2.custom.js"></script>
     <script src="./../libs/snippet/jquery.snippet.min.js"></script>
     <script type="text/javascript">
       $("pre.htmlCode").snippet("html",{style:"whatis"});
@@ -1255,6 +1254,14 @@
       $(".switchbox").bootstrapSwitch();
       
     </script>
-    
+    <div id="Foots" class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="push">&nbsp;</div>
+          <p class="text-right">© 2014 huement.com</p>
+          <div class="push">&nbsp;</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
