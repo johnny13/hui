@@ -8597,6 +8597,11 @@ body.modal-open .bluritem {
   padding-right: 10px;
 }
 
+.panel .nav-tabs {
+  margin-bottom: -10px;
+  border-bottom: none;
+}
+
 .navmenu,
 .navbar-offcanvas {
   width: 200px;
