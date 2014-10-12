@@ -1,4 +1,4 @@
-/*! huement user interface - v2.3.10 - 2014-10-12\n* hui.huement.com
+/*! huement user interface - v2.3.11 - 2014-10-12\n* hui.huement.com
 * Copyright (c) 2014 Derek Scott; License: MIT */
  
 /*! -- Built with Love and Bootstrap 3.1.1 -- */

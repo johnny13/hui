@@ -145,7 +145,7 @@ module.exports = function(grunt) {
             },
             files: [ {
               cwd: "jade",
-              src: ["**/index.jade","**/getting-started.jade","**/components.jade","**/css.jade","**/javascript.jade","**/tweak.jade"],
+              src: ["**/index.jade","**/getting_started.jade","**/components.jade","**/css.jade","**/javascript.jade","**/tweak.jade"],
               dest: "docs",
               expand: true,
               ext: ".html",
