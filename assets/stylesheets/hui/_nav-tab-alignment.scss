@@ -95,3 +95,9 @@
     padding-right: ($grid-gutter-width / 2);
   }
 }
+
+// panel nav tabs
+.panel .nav-tabs {
+  margin-bottom:-10px;
+  border-bottom:none;
+}
