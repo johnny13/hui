@@ -20,23 +20,23 @@
 
 //Custom Badge Color Classes
 .badge-primary {
-  color: #ffffff;
+  color:$navmenu-default-link-active-color;
   background-color: $brand-primary;
 }
 .badge-warning {
-  color: #ffffff;
+  color:$navmenu-default-link-active-color;
   background-color: $brand-warning;
 }
 .badge-success {
-  color: #ffffff;
+  color:$navmenu-default-link-active-color;
   background-color: $brand-success;
 }
 .badge-info {
-  color: #ffffff;
+  color:$navmenu-default-link-active-color;
   background-color:  $brand-info;
 }
 .badge-danger {
-  color: #ffffff;
+  color:$navmenu-default-link-active-color;
   background-color:  $brand-danger;
 }
 .badge-inverse {
@@ -45,7 +45,7 @@
 
 //List Group Inverse
 .list-group-item-inverse,.list-group-item-inverse:hover {
-    color: #ffffff;
+    color:$navmenu-default-link-active-color;
     background-color: $brand-inverse;
 }
 

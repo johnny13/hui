@@ -1,8 +1,7 @@
 //
-// Variables
+// HUI Variables
 //
-// Either Twitter Bootstrap's "variables.less" or this package's
-//  "default-variables.less" should be loaded before this file.
+// Contains Unique HUI Variables for use with the SASS files
 // -------------------------------------------------------------
 
 $zindex-navmenu-fixed:     1030 !default;
@@ -19,8 +18,8 @@ $alert-fixed-width:        $screen-md-min !default;
 $navmenu-width:                     200px !default;
 $navmenu-margin-vertical:           (0.5 * $line-height-computed) !default;
 $navmenu-default-color:             #777 !default;
-$navmenu-default-bg:                #FFFFFF !default;
-$navmenu-default-border:            #B7B7B7 !default;
+$navmenu-default-bg:                #3F3F3F !default;
+$navmenu-default-border:            #373737 !default;
 
 // Navmenu links
 $navmenu-default-link-color:                #777 !default;

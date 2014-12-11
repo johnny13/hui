@@ -55,10 +55,6 @@
 .input-group-btn,
 .input-group .form-control {
   display: table-cell;
-
-  &:not(:first-child):not(:last-child) {
-    border-radius: 0;
-  }
 }
 // Addon and addon wrapper for buttons
 .input-group-addon,

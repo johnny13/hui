@@ -13,6 +13,10 @@
   }
 }
 
+/* sharp button override */
+.btn-lg, .btn-sm, .btn-xs {
+  border-radius:0px!important;
+}
 
 .btn-labeled {
   padding-top: 0;
@@ -35,4 +39,35 @@
 }
 .btn-xs .btn-label {
   @include button-label-size(1px, 5px, $border-radius-small);
+}
+
+.input-group-addon.primary {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+}
+.input-group-addon.success {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-success;
+    border-color: $brand-success;
+}
+.input-group-addon.info {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-info;
+    border-color: $brand-info;
+}
+.input-group-addon.warning {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-warning;
+    border-color: $brand-warning;
+}
+.input-group-addon.danger {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-danger;
+    border-color: $brand-danger;
+}
+.input-group-addon.inverse {
+    color: $navmenu-default-link-active-color;
+    background-color: $brand-inverse;
+    border-color: $brand-inverse;
 }

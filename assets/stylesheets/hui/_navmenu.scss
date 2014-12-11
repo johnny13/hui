@@ -118,8 +118,8 @@
 // Default navmenu
 .navmenu-default,
 .navbar-default .navbar-offcanvas {
-  background-color: $navmenu-default-bg;
-  border-color: $navmenu-default-border;
+  background-color: $navmenu-default-bg!important;
+  border-color: $navmenu-default-border!important;
 
   .navmenu-brand {
     color: $navmenu-default-brand-color;
