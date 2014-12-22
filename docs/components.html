@@ -44,7 +44,7 @@
     <div class="row">
       <div class="bs-docs-section">
         <div class="page-header">
-          <h1 id="buttons">Lists</h1>
+          <h1 id="buttons">Components</h1>
         </div>
         <div>
           <h2 id="buttons-labels">Tegan &amp; Sara Lists</h2>
@@ -201,7 +201,7 @@
           <div class="alert alert-success alert-fixed-top"><strong>Success!</strong>Your action has been completed succefully.</div><span class="push"></span>
         </div><span class="push"></span><span class="push"></span>
         <pre class="htmlCode">&lt;div class=&quot;alert alert-success alert-fixed-top&quot;&gt; 
- &emsp;&lt;strong&gt;Success!&lt;/strong&gt; Your action has been completed succefully. 
+ &emsp;&lt;strong&gt;Success!&lt;/strong&gt; Your action has been completed successfully. 
  &lt;/div&gt;</pre>
       </div>
       <div class="bs-docs-section">
@@ -209,13 +209,20 @@
           <h1 id="switch">Switch</h1>
         </div>
         <h2 id="alerts-fixed">Easily turn checkboxes and/or radio buttons into toggle switches.</h2>
-        <p>Add a global declaration for something like <code>$(".switchbox").bootstrapSwitch();</code>and enable autostart on all switches on all pages in your app. </p>
+        <p>Based on code from <a href='http://www.bootstrap-switch.org'>bootstrap-switch</a>. To activate add a global declaration for something like <code>$(".switchbox").bootstrapSwitch();</code>and enable autostart on all switches on all pages in your app. </p>
         <div class="bs-example">
           <div class="input-group">
             <input type="checkbox" checked name="my-checkbox" class="switchbox">
           </div><span class="push"></span>
         </div><span class="push"></span>
-        <pre class="jsCode">$(&quot;[name='my-checkbox']&quot;).bootstrapSwitch();</pre><span class="push"></span>
+        <pre class="jsCode">$(&quot;[name='my-checkbox']&quot;).bootstrapSwitch();
+ 
+//How to detect Changes
+$('input[name=&quot;my-checkbox&quot;]').on(&quot;switchChange.bootstrapSwitch&quot;, function(event, state) {
+  console.log(this); // DOM element 
+  console.log(event); // jQuery event 
+  console.log(state); // true | false
+});</pre><span class="push"></span>
         <pre class="htmlCode">&lt;div class=&quot;input-group&quot;&gt; 
  &lt;input type=&quot;checkbox&quot; name=&quot;my-checkbox&quot; checked&gt; 
 &lt;/div&gt;</pre>

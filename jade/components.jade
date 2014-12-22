@@ -7,7 +7,7 @@ body
     .row
         .bs-docs-section
           .page-header
-            h1#buttons Lists
+            h1#buttons Components
           div
             h2#buttons-labels Tegan &amp; Sara Lists
             p
@@ -195,14 +195,14 @@ body
           span.push
           span.push
           pre.htmlCode
-            = '<div class="alert alert-success alert-fixed-top"> \n &emsp;<strong>Success!</strong> Your action has been completed succefully. \n </div>'     
+            = '<div class="alert alert-success alert-fixed-top"> \n &emsp;<strong>Success!</strong> Your action has been completed successfully. \n </div>'     
         
         .bs-docs-section
           .page-header
             h1#switch Switch
           h2#alerts-fixed Easily turn checkboxes and/or radio buttons into toggle switches.
           p
-            | Add a global declaration for something like 
+            | Based on code from <a href='http://www.bootstrap-switch.org'>bootstrap-switch</a>. To activate add a global declaration for something like 
             code $(".switchbox").bootstrapSwitch();
             | and enable autostart on all switches on all pages in your app. 
           .bs-example
@@ -211,7 +211,7 @@ body
             span.push
           span.push
           pre.jsCode
-            = '$("[name=\'my-checkbox\']").bootstrapSwitch();'
+            = '$("[name=\'my-checkbox\']").bootstrapSwitch();\n \n//How to detect Changes\n$(\'input[name="my-checkbox"]\').on("switchChange.bootstrapSwitch", function(event, state) {\n  console.log(this); // DOM element \n  console.log(event); // jQuery event \n  console.log(state); // true | false\n});'
           span.push
           pre.htmlCode
             = '<div class="input-group"> \n <input type="checkbox" name="my-checkbox" checked> \n</div>'
