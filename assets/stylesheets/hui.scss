@@ -11,7 +11,7 @@ $brand-inverse:             #1F1F1F;
 @import "bootstrap/mixins";
 @import "hui/css3-mixins";
 @import "hui/media-queries";
-//@import "hui/filter";
+@import "hui/filter";
 
 // Load Main HUI CSS Only Augmentations to Bootstrap
 @import "hui/augment";
