@@ -355,14 +355,15 @@ input[type="checkbox"] {
 }
 
 // Feedback states
+// HUI VALIDATION MODIFICATION
 .has-success {
-  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+  @include form-control-validation($brand-success, $brand-success, $gray-lighter);
 }
 .has-warning {
-  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+  @include form-control-validation($brand-warning, $brand-warning, $gray-lighter);
 }
 .has-error {
-  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+  @include form-control-validation($brand-danger, $brand-danger, $gray-lighter);
 }
 
 // Reposition feedback icon if input has visible label above
