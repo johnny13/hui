@@ -1,8 +1,8 @@
 node_modules/*
 *.sassh-cache
+
 *.DS_Store
-*.jshintrc
-/**.jshintrc
+
 /**.DS_Store
 
 *.scssc

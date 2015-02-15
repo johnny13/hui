@@ -32,22 +32,22 @@ h1, h2, h3, h4, h5, h6,
 .fa-6{
   font-size:20em;
 }
-.fa-primary {
+.fa-text-primary, .color-primary {
 	color: $brand-primary;
 }
-.fa-success {
+.fa-text-success, .color-success {
 	color: $brand-success;
 }
-.fa-info {
+.fa-text-info, .color-info {
 	color: $brand-info;
 }
-.fa-warning {
+.fa-text-warning, .color-warning {
 	color: $brand-warning;
 }
-.fa-danger {
+.fa-text-danger, .color-danger {
 	color: $brand-danger;
 }
-.fa-inverse {
+.fa-text-inverse, .color-inverse {
 	color: $brand-inverse;
 }
 

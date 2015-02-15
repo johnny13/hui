@@ -2,14 +2,14 @@
   "name": "hui",
   "title": "huement user interface",
   "description": "Bootstrapable Interfacelifted",
-  "version": "2.3.13",
+  "version": "2.3.14",
   "codename": "Shake It Off",
-  "homepage": "hui.huement.com",
+  "homepage": "http://hui.huement.com",
   "copyright": "huement.com",
   "author": {
     "name": "Derek Scott",
     "email": "derek@huement.com",
-    "url": "twitter.com/huement"
+    "url": "https://twitter.com/huement"
   },
   "site": {
     "download": {
@@ -17,8 +17,8 @@
       "dist": "http://huementui.s3.amazonaws.com/cdn/"
     },
     "repo": "https://github.com/johnny13/hui",
-    "homepage": "hui.huement.com",
-    "bugs": "github.com/johnny13/hui/issues"
+    "homepage": "http://hui.huement.com",
+    "bugs": "https://github.com/johnny13/hui/issues"
   },
   "scripts": {
     "test": "grunt qunit"
@@ -27,14 +27,12 @@
   "sass": "./sass/hui.scss",
   "repository": {
     "type": "git",
-    "url": "github.com/johnny13/hui.git"
+    "url": "https://github.com/johnny13/hui.git"
   },
-  "bugs": {
-    "url": "github.com/johnny13/hui/issues"
-  },
+  "bugs": "https://github.com/johnny13/hui/issues",
   "license": {
     "type": "MIT",
-    "url": "github.com/johnny13/hui/blob/master/LICENSE"
+    "url": "https://github.com/johnny13/hui/blob/master/LICENSE"
   },
   "devDependencies": {
     "jquery": "1.8",
@@ -62,6 +60,8 @@
     "grunt-jscs-checker": "~0.4.0",
     "grunt-saucelabs": "~5.0.0",
     "grunt-sed": "~0.1.1",
+    "grunt-recess":"~1.0.0",
+    "browserstack-runner":"~0.2.2",
     "load-grunt-tasks": "~0.4.0",
     "markdown": "~0.5.0",
     "matchdep": "~0.3.0",
@@ -71,6 +71,7 @@
     "assemble": "~0.4.40",
     "grunt-newer": "~0.7.0",
     "grunt-bumper": "~1.0.4",
-    "grunt-push-release": "~0.1.1"
+    "grunt-push-release": "~0.1.1",
+    "grunt-contrib-sass": "~0.9.2"
   }
 }
