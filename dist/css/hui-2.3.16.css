@@ -8230,31 +8230,37 @@ button.close {
 
 .badge-primary {
   color: white;
-  background-color: #008cba;
+  background-color: #008cba !important;
+  background: #008cba !important;
 }
 
 .badge-warning {
   color: white;
-  background-color: #e99002;
+  background-color: #e99002 !important;
+  background: #e99002 !important;
 }
 
 .badge-success {
   color: white;
-  background-color: #43ac6a;
+  background-color: #43ac6a !important;
+  background: #43ac6a !important;
 }
 
 .badge-info {
   color: white;
-  background-color: #5bc0de;
+  background-color: #5bc0de !important;
+  background: #5bc0de !important;
 }
 
 .badge-danger {
   color: white;
-  background-color: #f04124;
+  background-color: #f04124 !important;
+  background: #f04124 !important;
 }
 
 .badge-inverse {
-  background-color: #1f1f1f;
+  background-color: #1f1f1f !important;
+  background: #1f1f1f !important;
 }
 
 .list-group-item-inverse, .list-group-item-inverse:hover {
