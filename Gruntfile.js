@@ -7,12 +7,12 @@
 /**
  * Grunt Module
 */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   'use strict';
-  grunt.template.addDelimiters('handlebars-like-delimiters', '{{', '}}')
+  grunt.template.addDelimiters('handlebars-like-delimiters', '{{', '}}');
   // Project configuration.
   grunt.initConfig({
-    // Metadata.
+  // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     /**
      * Project banner
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           'assets/javascripts/hui/cookie.js', // Browser to Jquery Cookie Delivery
           'assets/javascripts/hui/form.js', // Usability Upgrades
           'assets/javascripts/hui/hammer.js', // touch sensitive
-          'assets/javascripts/hui/history.js', // HTML5 History or Bust
+          'assets/javascripts/hui/history.js' // HTML5 History or Bust
         ],
         dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
       }
@@ -94,19 +94,19 @@ module.exports = function(grunt) {
       dev: {
         options: {
           style: 'expanded',
-          compass: false
+          compass: true
         },
         files: {
-          'dist/css/<%= pkg.name %>-<%= pkg.version %>.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome/font-awesome.scss','assets/stylesheets/hui.scss']
+          'dist/css/<%= pkg.name %>-<%= pkg.version %>.css': ['assets/stylesheets/bootstrap.scss', 'assets/stylesheets/font-awesome/font-awesome.scss', 'assets/stylesheets/hui.scss']
         }
       },
       dist: {
         options: {
           style: 'compressed',
-          compass: false
+          compass: true
         },
         files: {
-          'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss','assets/stylesheets/font-awesome/font-awesome.scss','assets/stylesheets/hui.scss']
+          'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss', 'assets/stylesheets/font-awesome/font-awesome.scss', 'assets/stylesheets/hui.scss']
         }
       }
     },
@@ -117,10 +117,10 @@ module.exports = function(grunt) {
       combine: {
         options: {
           banner: '<%= tag.banner %> <%= tag.iebanner %>',
-          stripBanners: false,
+          stripBanners: false
         },
         files: {
-          'dist/css/IE/ie7-min.css': ['assets/stylesheets/IE/ie.css','assets/stylesheets/IE/bootstrap-ie7.css'], //Special Helper
+          'dist/css/IE/ie7-min.css': ['assets/stylesheets/IE/ie.css', 'assets/stylesheets/IE/bootstrap-ie7.css'], //Special Helper
           'dist/css/IE/ie8-min.css': 'assets/stylesheets/IE/ie8.css',  //IE8 Blank
           'dist/css/IE/ie9-min.css': 'assets/stylesheets/IE/ie9.css',  //IE9 Blank
           'dist/css/IE/ie10-min.css': 'assets/stylesheets/IE/ie10.css', //IE10 Blank
@@ -135,30 +135,28 @@ module.exports = function(grunt) {
     * Used for creating the documentation
     */
     jade: {
-      
-        compile: {
-            options: {
-                client: false,
-                pretty: true,
-                data: require('./package.json')
-                //,delimiters: 'handlebars-like-delimiters'
-            },
-            files: [ {
-              cwd: "jade",
-              src: ["**/index.jade","**/getting_started.jade","**/components.jade","**/css.jade","**/javascript.jade","**/tweak.jade"],
-              dest: "docs",
-              expand: true,
-              ext: ".html",
-              
-              rename: function() {
-                // use the source directory to create the file
-                // example with your directory structure
-                var Xdest = '';
-                var src = 'docs/index.html/*';
-                return Xdest + src.substring(0, src.indexOf('/'));
-              }
-            } ]
-        }
+      compile: {
+        options: {
+          client: false,
+          pretty: true,
+          data: require('./package.json')
+          //,delimiters: 'handlebars-like-delimiters'
+        },
+        files: [ {
+          cwd: "jade",
+          src: ["**/index.jade", "**/getting_started.jade", "**/components.jade", "**/css.jade", "**/javascript.jade", "**/tweak.jade"],
+          dest: "docs",
+          expand: true,
+          ext: ".html",
+
+          rename: function () {
+            // use the source directory to create the file
+            // example with your directory structure
+            var Xdest = '', src = 'docs/index.html/*';
+            return Xdest + src.substring(0, src.indexOf('/'));
+          }
+        } ]
+      }
     },
     /*
     * Watch - not setup by default
@@ -192,7 +190,7 @@ module.exports = function(grunt) {
     bump: {
       options: {
         files: ['package.json', 'bower.json'],
-        updateConfigs: ['pkg','bower'],
+        updateConfigs: ['pkg', 'bower'],
         add: true,
         addFiles: ['.'],
         commit: true,
@@ -233,10 +231,10 @@ module.exports = function(grunt) {
    */
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   
-  grunt.registerTask('default', ['jshint','clean','copy','sass','concat','cssmin','uglify']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'sass', 'concat', 'cssmin', 'uglify']);
   
   // Command You run when you're editing the documentation
-  grunt.registerTask('docs', ['jade','watch:jadedocs']);
+  grunt.registerTask('docs', ['jade', 'watch:jadedocs']);
   
   // Release New version unto the world
   grunt.registerTask('bump', ['bumper']);

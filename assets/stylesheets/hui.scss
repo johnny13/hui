@@ -1,5 +1,5 @@
 // Core variables and mixins
-@import "bootstrap/variables";
+@import "bootstrap/variables-modified";
 @import "hui/variables";
 
 //Brand Web Font
@@ -11,7 +11,7 @@ $brand-inverse:             #1F1F1F;
 @import "bootstrap/mixins";
 @import "hui/css3-mixins";
 @import "hui/media-queries";
-@import "hui/filter";
+//@import "hui/filter";
 
 // Load Main HUI CSS Only Augmentations to Bootstrap
 @import "hui/augment";
@@ -27,4 +27,4 @@ $brand-inverse:             #1F1F1F;
 
 //Javascript Components
 @import "hui/offcanvas";
-@import "hui/switch";
+@import "hui/switch"; 
