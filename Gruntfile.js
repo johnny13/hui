@@ -88,7 +88,8 @@ module.exports = function (grunt) {
 	        banner: '<%= pkg.name %>-<%= pkg.version %>',
 	      },
         files: {
-          'dist/css/hui-<%= pkg.version %>-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css']
+          'dist/css/hui-<%= pkg.version %>-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css'],
+					'dist/css/hui-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css']
         }
 		  },
 		},
