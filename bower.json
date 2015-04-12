@@ -15,7 +15,6 @@
         "Gruntfile.js"
     ],
     "dependencies": {
-        "jquery": ">=1.8.3",
-        "bootstrap": "~3.0.0"
+        "jquery": ">=1.11.1"
     }
 }
