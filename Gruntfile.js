@@ -31,8 +31,9 @@ module.exports = function (grunt) {
     clean: {
       dist: ['dist']
     },
-    /**
-    * Compile Fonts Folder
+    /*
+    * Grunt Copy
+    * used for moving assests to dist
     */
     copy: {
       fonts: {
@@ -40,7 +41,13 @@ module.exports = function (grunt) {
           // includes files within path and its sub-directories
           {expand: true, flatten: true, src: ['assets/fonts/**'], dest: 'dist/fonts', filter: 'isFile'}
         ]
-      }
+      },
+		  IEStuff: {
+		    files: [
+		      // includes files within path
+		      {expand: true, flatten: true, src: ['assets/stylesheets/IE/*'], dest: 'dist/IE', filter: 'isFile'}
+		    ],
+		  }
     },
     jshint: {
       options: {
@@ -50,12 +57,50 @@ module.exports = function (grunt) {
         src: ['assets/javascripts/*.js']
       }
     },
-    concat: {
+    /**
+     * Sass ( optional Compass )
+     *
+     * You can set the Compass Option to True. However you need Ruby-compass gems and other requirements.
+     * I was able to get it working w/ homebrew on my mac, but 13.10 ubuntu had issues
+     *
+     * It probably will work for you w/o it on. Its defaulted to off.
+     *
+     */
+    sass: {
+      dev: {
+        options: {
+          style: 'expanded',
+          compass: false
+        },
+        files: {
+          'assets/stylesheets/bootstrap_built.css': 'assets/stylesheets/bootstrap.scss',
+					'assets/stylesheets/font-awesome_built.css': 'assets/stylesheets/font-awesome/font-awesome.scss',
+					'assets/stylesheets/hui_built.css': 'assets/stylesheets/hui.scss'
+        }
+      }
+    },
+    /*
+    * Minify CSS Files
+    */
+		cssmin: {
+		  minify: {
+	      options: {
+	        banner: '<%= pkg.name %>-<%= pkg.version %>',
+	      },
+        files: {
+          'dist/css/hui-<%= pkg.version %>-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css']
+        }
+		  },
+		},
+    /*
+    * Combine Sass Files
+    */
+		concat: {
       options: {
         banner: '<%= tag.banner %> <%= tag.bootbanner %>',
         stripBanners: false
       },
-      bootstrap: {
+      javascript: {
         src: [
           'assets/javascripts/bootstrap/transition.js',
           'assets/javascripts/bootstrap/alert.js',
@@ -79,54 +124,11 @@ module.exports = function (grunt) {
           'assets/javascripts/hui/history.js' // HTML5 History or Bust
         ],
         dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
-      }
-    },
-    /**
-     * Sass ( optional Compass )
-     *
-     * You can set the Compass Option to True. However you need Ruby-compass gems and other requirements.
-     * I was able to get it working w/ homebrew on my mac, but 13.10 ubuntu had issues
-     *
-     * It probably will work for you w/o it on. Its defaulted to off.
-     *
-     */
-    sass: {
-      dev: {
-        options: {
-          style: 'expanded',
-          compass: true
-        },
-        files: {
-          'dist/css/<%= pkg.name %>-<%= pkg.version %>.css': ['assets/stylesheets/bootstrap.scss', 'assets/stylesheets/font-awesome/font-awesome.scss', 'assets/stylesheets/hui.scss']
-        }
       },
-      dist: {
-        options: {
-          style: 'compressed',
-          compass: true
-        },
-        files: {
-          'dist/css/<%= pkg.name %>-min.css': ['assets/stylesheets/bootstrap.scss', 'assets/stylesheets/font-awesome/font-awesome.scss', 'assets/stylesheets/hui.scss']
-        }
-      }
-    },
-    /*
-    * Internet Explorer Templating
-    */
-    cssmin: {
-      combine: {
-        options: {
-          banner: '<%= tag.banner %> <%= tag.iebanner %>',
-          stripBanners: false
-        },
-        files: {
-          'dist/css/IE/ie7-min.css': ['assets/stylesheets/IE/ie.css', 'assets/stylesheets/IE/bootstrap-ie7.css'], //Special Helper
-          'dist/css/IE/ie8-min.css': 'assets/stylesheets/IE/ie8.css',  //IE8 Blank
-          'dist/css/IE/ie9-min.css': 'assets/stylesheets/IE/ie9.css',  //IE9 Blank
-          'dist/css/IE/ie10-min.css': 'assets/stylesheets/IE/ie10.css', //IE10 Blank
-          'dist/css/IE/ie-min.css': 'assets/stylesheets/IE/ie.css' //Global IE File
-        }
-      }
+			stylesheets: {
+	      src: ['assets/stylesheets/bootstrap_built.css','assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css'],
+	      dest: 'dist/css/<%= pkg.name %>-<%= pkg.version %>.css',
+	    },
     },
     /*
     * Jade Templates
@@ -164,7 +166,7 @@ module.exports = function (grunt) {
     watch: {
       sass: {
         files: 'assets/stylesheets/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev']
+        tasks: ['sass', 'cssmin', 'concat:stylesheets']
       },
       jadedocs: {
         files: 'jade/{,*/}*.{html,jade}',
@@ -172,7 +174,7 @@ module.exports = function (grunt) {
       }
     },
     /*
-    * Minify Final Results
+    * Minify Final Javascript Results
     */
     uglify: {
       options: {
@@ -210,6 +212,7 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -219,12 +222,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
   grunt.loadNpmTasks('browserstack-runner');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-push-release');
   grunt.loadNpmTasks('grunt-newer');
-  
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	
   /**
    * Load Grunt plugins.
    * call these from the command line, or just grunt for default.
@@ -235,6 +239,9 @@ module.exports = function (grunt) {
   
   // Command You run when you're editing the documentation
   grunt.registerTask('docs', ['jade', 'watch:jadedocs']);
+	
+	//Style Sheets Only
+	grunt.registerTask('style', ['sass', 'cssmin', 'concat:stylesheets']);
   
   // Release New version unto the world
   grunt.registerTask('bump', ['bumper']);

@@ -1,0 +1,57 @@
+/*
+ ___ __    _ _______ _______ ______   __    _ _______ _______      
+|   |  |  | |       |       |    _ | |  |  | |       |       |     
+|   |   |_| |_     _|    ___|   | || |   |_| |    ___|_     _|     
+|   |       | |   | |   |___|   |_||_|       |   |___  |   |       
+|   |  _    | |   | |    ___|    __  |  _    |    ___| |   |       
+|   | | |   | |   | |   |___|   |  | | | |   |   |___  |   |       
+|___|_|_ |__| |___|_|_______|___|__|_|_| _|__|_______|_|___|____   
+|       |  |_|  |       |   |   |       |    _ | |       |    _ |  
+|    ___|       |    _  |   |   |   _   |   | || |    ___|   | ||  
+|   |___|       |   |_| |   |   |  | |  |   |_||_|   |___|   |_||_ 
+|    ___||     ||    ___|   |___|  |_|  |    __  |    ___|    __  |
+|   |___|   _   |   |   |       |       |   |  | |   |___|   |  | |
+|_______|__| |__|___|   |_______|_______|___|  |_|_______|___|  |_|
+
+This is a Blank CSS Specifically For Including in IE Only Blocks.
+
+It's pure CSS so you can put whatever you want in here. 
+It will automatically be minified in the GruntJS build cycle.
+
+It has Support for Bootstrap 3 and CSS3 Progressive Internet Exploror or CSS3 PIE.
+
+PIE ver 2.1 beta is in the Libraries folder. You need to have the PIE.htc on your Server.
+For more info about CSS3PIE: http://css3pie.com/documentation/getting-started/
+
+*/
+.img-circle{behavior:url(/js/PIE.htc)}
+.img-rounded{behavior:url(/js/PIE.htc)}
+.img-thumbnail{behavior:url(/js/PIE.htc)}
+.table-bordered{behavior:url(/js/PIE.htc)}
+select,textarea,input,code,pre,kbd,pre{behavior:url(/js/PIE.htc)}
+.input-group-addon{behavior:url(/js/PIE.htc)}
+.btn{behavior:url(/js/PIE.htc)}
+.dropdown-menu{behavior:url(/js/PIE.htc)}
+.form-control{behavior:url(/js/PIE.htc)}
+.panel{behavior:url(/js/PIE.htc)}
+.well{behavior:url(/js/PIE.htc)}
+.nav-tabs > li > a{behavior:url(/js/PIE.htc)}
+.nav-pills > li > a{behavior:url(/js/PIE.htc)}
+.navbar{behavior:url(/js/PIE.htc)}
+.navbar-nav > li > a{behavior:url(/js/PIE.htc)}
+.navbar-toggle{behavior:url(/js/PIE.htc)}
+.navbar-toggle .icon-bar{behavior:url(/js/PIE.htc)}
+.breadcrumb{behavior:url(/js/PIE.htc)}
+.pagination{behavior:url(/js/PIE.htc)}
+.pager li > a,.pager li > span{behavior:url(/js/PIE.htc)}
+.modal-content{behavior:url(/js/PIE.htc)}
+.tooltip-inner{behavior:url(/js/PIE.htc)}
+.popover{behavior:url(/js/PIE.htc)}
+.popover-title{behavior:url(/js/PIE.htc)}
+.alert{behavior:url(/js/PIE.htc)}
+.thumbnail,.img-thumbnail{behavior:url(/js/PIE.htc)}
+.label{behavior:url(/js/PIE.htc)}
+.badge{behavior:url(/js/PIE.htc)}
+.progress{behavior:url(/js/PIE.htc)}
+.carousel-indicators li{behavior:url(/js/PIE.htc)}
+.jumbotron{behavior:url(/js/PIE.htc)}
