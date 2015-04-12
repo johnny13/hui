@@ -1,6 +1,6 @@
 {
     "name": "huementui",
-    "version": "2.3.8",
+    "version": "2.3.19",
     "main": "dist/hui.min.js",
     "ignore": [
         "assets",
@@ -11,7 +11,7 @@
         ".jshintrc",
         ".sass-cache",
         "bower.json",
-        "jade",
+				"libs",
         "Gruntfile.js"
     ],
     "dependencies": {
