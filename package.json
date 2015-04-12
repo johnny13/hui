@@ -23,8 +23,8 @@
   "scripts": {
     "test": "grunt qunit"
   },
-  "style": "./dist/css/jasny-bootstrap.css",
-  "sass": "./sass/hui.scss",
+  "style": "./dist/css/hui-min.css",
+  "sass": "./assets/stylesheets/hui.scss",
   "repository": {
     "type": "git",
     "url": "https://github.com/johnny13/hui.git"
@@ -63,12 +63,11 @@
     "grunt-newer": "~0.7.0",
     "grunt-push-release": "~0.1.1",
     "grunt-recess": "~1.0.0",
-    "grunt-sass": "^0.18.1",
     "grunt-saucelabs": "~5.0.0",
     "grunt-sed": "~0.1.1",
     "grunt-shell": "~0.6.4",
     "grunt-template": "~0.2.3",
-    "jquery": "1.8",
+    "jquery": "1.11",
     "load-grunt-tasks": "~0.4.0",
     "markdown": "~0.5.0",
     "matchdep": "~0.3.0"
