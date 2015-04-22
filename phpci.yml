@@ -6,7 +6,9 @@ build_settings:
 test:
   grunt:
     task: "docsbuild"
- 
+  php_loc:
+    directory: "assets"
+    
 complete:
   email:
     default_mailto_address: derek@huement.com
