@@ -2,17 +2,12 @@ build_settings:
   ignore:
     - "tests"
     - "libs"
-    
-test:
-  grunt:
-    task: "docsbuild"
-  php_loc:
-    
+
 complete:
   email:
     default_mailto_address: derek@huement.com
   shell:
-    command: "cp -R %buildpath% /var/www/huitest"
+    command: "cp -R %buildpath%hui /var/www/huitest"
     
 failure:
   email:
