@@ -240,6 +240,9 @@ module.exports = function (grunt) {
   // Command You run when you're editing the documentation
   grunt.registerTask('docs', ['jade', 'watch:jadedocs']);
 	
+  // Command You run when you're editing the documentation
+  //grunt.registerTask('docsbuild', ['jade']);
+	
 	//Style Sheets Only
 	grunt.registerTask('style', ['sass', 'cssmin', 'concat:stylesheets']);
   
