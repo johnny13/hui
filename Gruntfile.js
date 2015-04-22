@@ -212,7 +212,7 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-shell');
-	grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -227,7 +227,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-push-release');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 	
   /**
    * Load Grunt plugins.
@@ -241,10 +241,10 @@ module.exports = function (grunt) {
   grunt.registerTask('docs', ['jade', 'watch:jadedocs']);
 	
   // Command You run when you're editing the documentation
-  //grunt.registerTask('docsbuild', ['jade']);
+  grunt.registerTask('docsbuild', ['cssmin']);
 	
-	//Style Sheets Only
-	grunt.registerTask('style', ['sass', 'cssmin', 'concat:stylesheets']);
+  //Style Sheets Only
+  grunt.registerTask('style', ['sass', 'cssmin', 'concat:stylesheets']);
   
   // Release New version unto the world
   grunt.registerTask('bump', ['bumper']);

@@ -1,12 +1,11 @@
 build_settings:
   ignore:
-    - "node_modules"
     - "tests"
     - "libs"
     
-setup:
+test:
   grunt:
-    task: "default"
+    task: "docsbuild"
  
 complete:
   email:
