@@ -9,8 +9,8 @@ setup:
         action: "install"
 				
 test:
-	grunt:
-	   task: "default"
+    grunt:
+        task: "default"
 									
 complete:
     email:
