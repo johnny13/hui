@@ -1,8 +1,9 @@
-![BUILDSTATUSICON](http://ci.huement.com/build-status/image/4)
-
 #hui
 
 hui is an under development web framework. Its aim is to add and augment existing Bootstrap 3 CSS, Components and Javascript. It uses SASS in place of Bootstrap's regular LESS.
+
+####Current Build Status
+![BUILDSTATUSICON](http://ci.huement.com/build-status/image/4)
 
 ## Download hui
 
