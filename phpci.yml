@@ -1,24 +1,24 @@
 build_settings:
-    ignore:
-        - "node_modules"
-        - "tests"
-        - "libs"
-
+  ignore:
+    - "node_modules"
+    - "tests"
+    - "libs"
+    
 setup:
-    composer:
-        action: "install"
-		
+  composer:
+    action: "install"
+    
 test:
-    grunt:
-        task: "default"
-									
+  grunt:
+    task: "default"
+    
 complete:
-    email:
-        default_mailto_address: derek@huement.com
-    shell:
-        command: "cp -R %buildpath% /var/www/huitest"
-
+  email:
+    default_mailto_address: derek@huement.com
+  shell:
+    command: "cp -R %buildpath% /var/www/huitest"
+    
 failure:
-    email:
-        committer: true
-        default_mailto_address: derek@huement.com
+  email:
+    committer: true
+    default_mailto_address: derek@huement.com
