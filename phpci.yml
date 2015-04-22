@@ -7,7 +7,7 @@ test:
   grunt:
     task: "docsbuild"
   php_loc:
-    directory: "assets"
+    directory: "%buildpath%assets"
     
 complete:
   email:
