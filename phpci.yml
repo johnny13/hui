@@ -6,7 +6,11 @@ build_settings:
 setup:
   shell:
     command: "cp -R /var/www/phpci/PHPCI/build/%BUILD% /var/www/huitest"
-
+    
+test:
+  grunt:
+    task: "default"
+    
 complete:
   email:
     default_mailto_address: derek@huement.com
@@ -15,3 +19,4 @@ failure:
   email:
     committer: true
     default_mailto_address: derek@huement.com
+    
