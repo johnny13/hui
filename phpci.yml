@@ -5,7 +5,7 @@ build_settings:
     
 setup:
   shell:
-    command: "cp -R /var/www/phpci/PHPCI/build/%BUILD% /var/www/huitest"
+    command: "cp -R /var/www/phpci/PHPCI/build/%BUILD%/* /var/www/huitest"
     
 test:
   grunt:
