@@ -11,8 +11,7 @@ complete:
   email:
     default_mailto_address: derek@huement.com
   shell:
-    command: "cp -R %buildpath%hui/* /var/www/huitest"
-    command: "echo %buildpath%"
+    command: "cp -R %buildpath%/* /var/www/huitest"
     
 failure:
   email:
