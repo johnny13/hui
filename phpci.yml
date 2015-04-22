@@ -5,13 +5,9 @@ build_settings:
     - "libs"
     
 setup:
-  composer:
-    action: "install"
-    
-test:
   grunt:
     task: "default"
-    
+ 
 complete:
   email:
     default_mailto_address: derek@huement.com
