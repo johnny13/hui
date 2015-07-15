@@ -55,6 +55,30 @@
     background-color: $brand-inverse;
 }
 
+// Feedback states
+// HUI VALIDATION MODIFICATION
+.has-success {
+  @include form-control-validation($brand-success, $brand-success, $gray-lighter);
+}
+.has-warning {
+  @include form-control-validation($brand-warning, $brand-warning, $gray-lighter);
+}
+.has-error {
+  @include form-control-validation($brand-danger, $brand-danger, $gray-lighter);
+}
+
+// Reposition feedback icon if input has visible label above
+.has-feedback label {
+
+  & ~ .form-control-feedback {
+     top: ($line-height-computed + 5); // Height of the `label` and its margin
+  }
+  &.sr-only ~ .form-control-feedback {
+     top: 0;
+  }
+}
+
+
 //Pagination
 .pagination {
   height: 36px;

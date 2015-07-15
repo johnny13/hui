@@ -23,6 +23,15 @@ It has Support for Bootstrap 3 and CSS3 Progressive Internet Exploror or CSS3 PI
 PIE ver 2.1 beta is in the Libraries folder. You need to have the PIE.htc on your Server.
 For more info about CSS3PIE: http://css3pie.com/documentation/getting-started/
 
+Don't Forget to Unclude the PIE.htc JS 
+Also the recommened Bootstrap 3 fixes for IE 8 and Lower
+
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="css/ie8.css" type="text/css" />
+<![endif]-->
+
 */
 .img-circle{behavior:url(/js/PIE.htc)}
 .img-rounded{behavior:url(/js/PIE.htc)}
