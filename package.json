@@ -2,7 +2,7 @@
   "name": "hui",
   "title": "huement user interface",
   "description": "Bootstrapable Interfacelifted",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "codename": "Blank Space",
   "homepage": "http://hui.huement.com",
   "copyright": "huement.com",
@@ -35,9 +35,9 @@
     "url": "https://github.com/johnny13/hui/blob/master/LICENSE"
   },
   "devDependencies": {
-    "assemble": "~0.4.40",
-    "canonical-json": "~0.0.3",
-    "grunt": "~0.4.4",
+    "assemble": "*",
+    "canonical-json": "*",
+    "grunt": "*",
     "grunt-banner": "~0.2.0",
     "grunt-bumper": "~1.0.4",
     "grunt-contrib-clean": "~0.5.0",
@@ -56,7 +56,7 @@
     "grunt-jade": "~0.4.0",
     "grunt-jekyll": "~0.4.1",
     "grunt-jscs": "~1.6.0",
-	"har-validator": "~1.6.0",
+	  "har-validator": "~1.6.0",
     "grunt-newer": "~0.7.0",
     "grunt-push-release": "~0.1.1",
     "grunt-recess": "~1.0.0",
@@ -64,8 +64,6 @@
     "grunt-shell": "~0.6.4",
     "grunt-template": "~0.2.3",
     "grunt-sass": "~0.18.1",
-    "jquery": "1.11",
-    "load-grunt-tasks": "~0.4.0",
     "markdown": "~0.5.0",
     "matchdep": "~0.3.0"
   }
