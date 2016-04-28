@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="./docs.css">
   </head>
 </html>
-<body><!--
-  <Ride>the Lighting </Ride>-->
+<body>
+  <!--Ride the Lighting 
+  -->
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><span class="fa fa-flask"></span><strong>H</strong><strong>U</strong><strong>I</strong></a>
-      </div><!--
-      <Collect>the nav links, forms, and other content for toggling </Collect>-->
+      </div>
+      <!--Collect the nav links, forms, and other content for toggling 
+      -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li id="START"><a href="getting_started.html"><i class="fa fa-dashboard"></i> Start</a></li>
@@ -37,12 +39,19 @@
             </ul>
           </li>
         </ul>
-      </div><!--/.navbar-collapse -->
-    </div><!--/.container-->
+      </div>
+      <!--/.navbar-collapse 
+      -->
+    </div>
+    <!--/.container
+    -->
   </nav>
   <div class="container">
-    <div class="row"><!--
-      <Overview></Overview>-->
+    <div class="row">
+      <!--
+      Overview
+        
+      -->
       <div class="bs-docs-section">
         <div class="page-header">
           <h1 id="js-overview">Javascript</h1>
@@ -60,7 +69,7 @@
           <pre class="jsCode">$(document).off('.data-api')</pre>
           <p>Alternatively, to target a specific plugin, just include the plugin's name as a namespace along with the data-api namespace like this:</p>
           <pre class="jsCode">= '$(document).off(\'.alert.data-api\')'
-</pre>
+            </pre>
           <h3 id="js-programmatic-api">Programmatic API</h3>
           <p>We also believe you should be able to use all Bootstrap plugins purely through the JavaScript API. All public APIs are single, chainable methods, and return the collection acted upon.</p>
           <pre class="jsCode">$(&quot;.fileinput&quot;).fileinput().addClass(&quot;fat&quot;)</pre>
@@ -74,7 +83,7 @@ $(&quot;#myMenu&quot;).offcanvas('show')                // initializes and invok
         <p>Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call<code>.noConflict</code>on the plugin you wish to revert the value of.</p>
         <pre class="jsCode">\nvar bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
 $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Bootstrap functionality
-</pre>
+          </pre>
         <h3 id="js-events">Events</h3>
         <p>Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex.<code>show</code>) is triggered at the start of an event, and its past participle form (ex.<code>shown</code>) is trigger on the completion of an action.</p>
         <p>As of 3.0.0, all Bootstrap events are namespaced.</p>
@@ -115,24 +124,26 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in aliquet nisl. Praesent sed leo congue, fringilla eros eu, tempus metus. Nam mollis odio ipsum, non vehicula ipsum accumsan sodales. Morbi varius vitae elit euismod cursus. Donec a dapibus justo, in facilisis nisi. Suspendisse ut turpis dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dui risus, tincidunt at odio ut, ultrices dignissim ipsum. Cras ultrices erat nec leo luctus varius. Nulla sollicitudin tincidunt nulla, ut porta mauris volutpat vitae. Suspendisse ornare dolor sit amet massa venenatis pulvinar.</p>
           </div>
-        </div><!--/example -->
+        </div>
+        <!--/example 
+        -->
         <pre class="htmlCode">&lt;nav id=&quot;myNavmenu&quot; class=&quot;navmenu navmenu-default navmenu-fixed-left offcanvas&quot; role=&quot;navigation&quot;&gt; 
- &emsp;&lt;a class=&quot;navmenu-brand&quot; href=&quot;#&quot;&gt;Brand&lt;/a&gt; 
- &emsp;&emsp;&lt;ul class=&quot;nav navmenu-nav&quot;&gt; 
- &emsp;&emsp;&emsp;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&lt;li class=&quot;dropdown&quot;&gt; 
- &emsp;&emsp;&emsp;&emsp;&lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Dropdown &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&lt;ul class=&quot;dropdown-menu navmenu-nav&quot; role=&quot;menu&quot;&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;One more separated link&lt;/a&gt;&lt;/li&gt; 
- &emsp;&emsp;&emsp;&emsp;&emsp;&lt;/ul&gt; 
- &emsp;&emsp;&emsp;&lt;/li&gt; 
- &emsp;&emsp;&lt;/ul&gt; 
- &emsp;&lt;/nav&gt;</pre>
+ &amp;emsp;&lt;a class=&quot;navmenu-brand&quot; href=&quot;#&quot;&gt;Brand&lt;/a&gt; 
+ &amp;emsp;&amp;emsp;&lt;ul class=&quot;nav navmenu-nav&quot;&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&lt;li class=&quot;dropdown&quot;&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Dropdown &lt;b class=&quot;caret&quot;&gt;&lt;/b&gt;&lt;/a&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;ul class=&quot;dropdown-menu navmenu-nav&quot; role=&quot;menu&quot;&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;One more separated link&lt;/a&gt;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;/ul&gt; 
+ &amp;emsp;&amp;emsp;&amp;emsp;&lt;/li&gt; 
+ &amp;emsp;&amp;emsp;&lt;/ul&gt; 
+ &amp;emsp;&lt;/nav&gt;</pre>
         <div class="bs-callout bs-callout-info">
           <h4>Examples</h4>
           <p>For better understanding, have a look at the<a href="../examples/navmenu/">off canvas slide in menu</a>,<a href="../examples/navmenu-push/">off canvas push menu</a>and<a href="../examples/navmenu-reveal/">off canvas reveal menu</a>exapmles.</p>
@@ -148,7 +159,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
           <h3>Via JavaScript</h3>
           <p>Call the input mask via javascript:</p>
           <pre class="jsCode">\n$('.navmenu').offcanvas()
-</pre>
+            </pre>
           <h3>Options</h3>
           <table class="table table-bordered table-striped">
             <thead>
@@ -290,31 +301,31 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
           </div>
         </div>
         <pre class="htmlCode">&lt;table class=&quot;table table-striped table-bordered table-hover&quot;&gt;
-&emsp;&lt;thead&gt;
-&emsp;&emsp;&lt;tr&gt;
-&emsp;&emsp;&emsp;&lt;th&gt;Name&lt;/th&gt;
-&emsp;&emsp;&emsp;&lt;th&gt;Description&lt;/th&gt;
-&emsp;&emsp;&emsp;&lt;th&gt;Actions&lt;/th&gt;
-&emsp;&emsp;&lt;/tr&gt;
-&emsp;&lt;/thead&gt;
-&emsp;&emsp;&lt;tbody data-link=&quot;row&quot; class=&quot;rowlink&quot;&gt;
-&emsp;&emsp;&emsp;&lt;tr&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;&lt;a href=&quot;#inputmask&quot;&gt;Input mask&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;Input masks can be used to force the user to enter data conform a specific format.&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&lt;/tr&gt;
-&emsp;&emsp;&emsp;&lt;tr&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;&lt;a href=&quot;http://www.jasny.net/&quot; target=&quot;_blank&quot;&gt;jasny.net&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;Shared knowledge of Arnold Daniels aka Jasny.&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&lt;/tr&gt;
-&emsp;&emsp;&emsp;&lt;tr&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;&lt;a href=&quot;#rowlinkModal&quot; data-toggle=&quot;modal&quot;&gt;Launch modal&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td&gt;Toggle a modal via JavaScript by clicking this row.&lt;/td&gt;
-&emsp;&emsp;&emsp;&emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
-&emsp;&emsp;&emsp;&lt;/tr&gt;
-&emsp;&emsp;&lt;/tbody&gt;
-&emsp;&lt;/table&gt;</pre>
+&amp;emsp;&lt;thead&gt;
+&amp;emsp;&amp;emsp;&lt;tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;th&gt;Name&lt;/th&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;th&gt;Description&lt;/th&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;th&gt;Actions&lt;/th&gt;
+&amp;emsp;&amp;emsp;&lt;/tr&gt;
+&amp;emsp;&lt;/thead&gt;
+&amp;emsp;&amp;emsp;&lt;tbody data-link=&quot;row&quot; class=&quot;rowlink&quot;&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;&lt;a href=&quot;#inputmask&quot;&gt;Input mask&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;Input masks can be used to force the user to enter data conform a specific format.&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;/tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;&lt;a href=&quot;http://www.jasny.net/&quot; target=&quot;_blank&quot;&gt;jasny.net&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;Shared knowledge of Arnold Daniels aka Jasny.&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;/tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;tr&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;&lt;a href=&quot;#rowlinkModal&quot; data-toggle=&quot;modal&quot;&gt;Launch modal&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td&gt;Toggle a modal via JavaScript by clicking this row.&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;td class=&quot;rowlink-skip&quot;&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/td&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;/tr&gt;
+&amp;emsp;&amp;emsp;&lt;/tbody&gt;
+&amp;emsp;&lt;/table&gt;</pre>
         <hr class="bs-docs-separator">
         <h2 id="rowlink-usage">Usage</h2>
         <h3>Via data attributes</h3>
@@ -344,8 +355,11 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
         <h3>Methods</h3>
         <h4>.rowlink(options)</h4>
         <p>Makes the rows of a table or tbody clickable.</p>
-      </div><!--
-      <Input>mask</Input>-->
+      </div>
+      <!--
+      Input mask
+        
+      -->
       <div class="bs-docs-section bs-jasny">
         <div class="page-header">
           <h1 id="inputmask">Input mask<small>inputmask.js</small></h1>
@@ -356,7 +370,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
           <input type="text" data-mask="999-99-999-9999-9" placeholder="ISBN" class="form-control">
         </div>
         <pre class="htmlCode">\n            
-</pre>
+          </pre>
         <hr class="bs-docs-separator">
         <h2 id="inputmask-usage">Usage</h2>
         <h3>Via data attributes</h3>
@@ -438,7 +452,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
     $("pre.cssCode").snippet("css",{style:"whatis"});
     $("pre.bashCode").snippet("python",{style:"whatis"});
     $(".switchbox").bootstrapSwitch();
-    
+     
   </script>
   <div id="Foots" class="container">
     <div class="row">

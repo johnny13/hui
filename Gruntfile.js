@@ -61,17 +61,13 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'assets/javascripts/.jshintrc'
         },
-        src: {
-          src: ['assets/javascripts/*.js']
-        }
+        src: ['assets/javascripts/*.js']
       },
       app: {
         options: {
           jshintrc: 'app/js/.jshintrc'
         },
-        src: {
-          src: ['app/js/*.js']
-        }
+        src: ['app/js/*.js']
       }
     },
     /**
@@ -85,27 +81,23 @@ module.exports = function (grunt) {
      */
     sass: {
       library: {
-        dev: {
-          options: {
-            style: 'expanded',
-            compass: false
-          },
-          files: {
-            'assets/stylesheets/bootstrap_built.css': 'assets/stylesheets/bootstrap.scss',
-            'assets/stylesheets/font-awesome_built.css': 'assets/stylesheets/font-awesome/font-awesome.scss',
-            'assets/stylesheets/hui_built.css': 'assets/stylesheets/hui.scss'
-          }
+        options: {
+          style: 'expanded',
+          compass: false
+        },
+        files: {
+          'assets/stylesheets/bootstrap_built.css': 'assets/stylesheets/bootstrap.scss',
+          'assets/stylesheets/font-awesome_built.css': 'assets/stylesheets/font-awesome/font-awesome.scss',
+          'assets/stylesheets/hui_built.css': 'assets/stylesheets/hui.scss'
         }
       },
       app: {
-        dev: {
-          options: {
-            style: 'expanded',
-            compass: false
-          },
-          files: {
-            'app/css/styles.css': 'app/sass/styles.scss'
-          }
+        options: {
+          style: 'expanded',
+          compass: false
+        },
+        files: {
+          'app/css/styles.css': 'app/sass/styles.scss'
         }
       }
     },
@@ -114,81 +106,71 @@ module.exports = function (grunt) {
     */
     cssmin: {
       library: {
-        minify: {
-          options: {
-            banner: '<%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %>',
-          },
-          files: {
-            'dist/css/hui-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css']
-          }
+        options: {
+          banner: '<%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %>',
         },
+        files: {
+          'dist/css/hui-min.css': ['assets/stylesheets/bootstrap_built.css', 'assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css']
+        }
       },
       app: {
-        minify: {
-          options: {
-            banner: '<%= appdata.name %>-<%= appdata.version %> <%= grunt.template.today("yyyy-mm-dd") %>',
-          },
-          files: {
-            'dist/css/<%= appdata.name %>.min.css': ['app/css/<%= appdata.name %>.css']
-          }
+        options: {
+          banner: '<%= appdata.name %>-<%= appdata.version %> <%= grunt.template.today("yyyy-mm-dd") %>',
         },
+        files: {
+          'dist/css/<%= appdata.name %>.min.css': ['app/css/<%= appdata.name %>.css']
+        }
       }
     },
     /*
     * Combine JS & CSS Files
     */
 	concat: {
-      library: {
-        options: {
-          banner: '<%= tag.banner %> <%= tag.bootbanner %> <%= grunt.template.today("yyyy-mm-dd") %>',
-          stripBanners: false
-        },
-        javascript: {
-          src: [
-            'assets/javascripts/bootstrap/transition.js',
-            'assets/javascripts/bootstrap/alert.js',
-            'assets/javascripts/bootstrap/button.js',
-            'assets/javascripts/bootstrap/carousel.js',
-            'assets/javascripts/bootstrap/collapse.js',
-            'assets/javascripts/bootstrap/dropdown.js',
-            'assets/javascripts/bootstrap/modal.js',
-            'assets/javascripts/bootstrap/tooltip.js',
-            'assets/javascripts/bootstrap/popover.js',
-            'assets/javascripts/bootstrap/scrollspy.js',
-            'assets/javascripts/bootstrap/tab.js',
-            'assets/javascripts/bootstrap/affix.js',
-            'assets/javascripts/hui/actions.js', // additional hui functions
-            'assets/javascripts/hui/bootstrap-switch.js', // checkboxes
-            'assets/javascripts/hui/offcanvas.js', // checkboxes
-            'assets/javascripts/hui/colors.js', // When Its Gotta be Hot
-            'assets/javascripts/hui/cookie.js', // Browser to Jquery Cookie Delivery
-            'assets/javascripts/hui/form.js', // Usability Upgrades
-            'assets/javascripts/hui/hammer.js', // touch sensitive
-            'assets/javascripts/hui/history.js' // HTML5 History or Bust
-          ],
-          dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
-        },
-        stylesheets: {
-            src: ['assets/stylesheets/bootstrap_built.css','assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css'],
-            dest: 'dist/css/<%= pkg.name %>-<%= pkg.version %>.css',
-        }
+      options: {
+        banner: '<%= grunt.template.today("yyyy-mm-dd") %>',
+        stripBanners: false
       },
-      app: {
-        options: {
-          banner: '<%= appdata.name %> <%= grunt.template.today("yyyy-mm-dd") %>',
-          stripBanners: false
-        },
-        javascript: {
-          src: [
-            'app/js/*.js', // Minify App Code
-            '!app/js/<%= appdata.name %>.js'
-          ],
-          dest: 'app/js/<%= appdata.name %>.js'
-        },
-        stylesheets: {
-            src: ['app/css/*.css', '!app/css/<%= appdata.name %>.css', '!app/css/styles.css'],
-            dest: 'app/css/<%= appdata.name %>.css',
-        }
+      libraryjs: {
+        src: [
+          'assets/javascripts/bootstrap/transition.js',
+          'assets/javascripts/bootstrap/alert.js',
+          'assets/javascripts/bootstrap/button.js',
+          'assets/javascripts/bootstrap/carousel.js',
+          'assets/javascripts/bootstrap/collapse.js',
+          'assets/javascripts/bootstrap/dropdown.js',
+          'assets/javascripts/bootstrap/modal.js',
+          'assets/javascripts/bootstrap/tooltip.js',
+          'assets/javascripts/bootstrap/popover.js',
+          'assets/javascripts/bootstrap/scrollspy.js',
+          'assets/javascripts/bootstrap/tab.js',
+          'assets/javascripts/bootstrap/affix.js',
+          'assets/javascripts/hui/equalheights.js',      // EqualHeight Plugin
+          'assets/javascripts/hui/actions.js',          // additional hui functions
+          'assets/javascripts/hui/bootstrap-switch.js', // checkboxes
+          'assets/javascripts/hui/offcanvas.js',        // sliding menu
+          'assets/javascripts/hui/colors.js',           // When Its Gotta be Hot
+          'assets/javascripts/hui/storage.js',          // Localstorage
+          'assets/javascripts/hui/form.js',             // Usability Upgrades
+          'assets/javascripts/hui/hammer.js',           // touch sensitive
+          'assets/javascripts/hui/history.js'          // HTML5 History or Bust
+          
+        ],
+        dest: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js'
+      },
+      librarystyle: {
+        src: ['assets/stylesheets/bootstrap_built.css','assets/stylesheets/font-awesome_built.css','assets/stylesheets/hui_built.css'],
+        dest: 'dist/css/<%= pkg.name %>-<%= pkg.version %>.css',
+      },
+      appjs: {
+        src: [
+          'app/js/*.js', // Minify App Code
+          '!app/js/<%= appdata.name %>.js'
+        ],
+        dest: 'app/js/<%= appdata.name %>.js'
+      },
+      appstyle: {
+        src: ['app/css/*.css', '!app/css/<%= appdata.name %>.css', '!app/css/styles.css'],
+        dest: 'app/css/<%= appdata.name %>.css',
       }
     },
     /*
@@ -197,28 +179,25 @@ module.exports = function (grunt) {
     *
     * Used for creating the documentation
     */
-    jade: {
+    pug: {
       docs: {
-        compile: {
-          options: {
-            client: false,
-            pretty: true,
-            data: require('./package.json')
-            //,delimiters: 'handlebars-like-delimiters'
-          },
-          files: [ {
-            cwd: "jade",
-            src: ["**/index.jade", "**/getting_started.jade", "**/components.jade", "**/css.jade", "**/javascript.jade", "**/tweak.jade"],
-            dest: "docs",
-            expand: true,
-            ext: ".html",
-            rename: function () {
-              // use the source directory to create the file
-              // example with your directory structure
-              var Xdest = '', src = 'docs/index.html/*';
-              return Xdest + src.substring(0, src.indexOf('/'));
-            }
-          } ]
+        options: {
+          client: false,
+          pretty: true,
+          expand: true,
+          ext: ".html",
+          data: function(dest, src) {
+              // Return an object of data to pass to templates
+              return require('./package.json');
+          }
+        },
+        files: {
+          "docs/index.html": "jade/index.jade",
+          "docs/getting_started.html": "jade/getting_started.jade",
+          "docs/components.html": "jade/components.jade",
+          "docs/css.html": "jade/css.jade",
+          "docs/javascript.html": "jade/javascript.jade",
+          "docs/tweak.html": "jade/tweak.jade",
         }
       }
     },
@@ -236,7 +215,7 @@ module.exports = function (grunt) {
       },
       jadedocs: {
         files: 'jade/{,*/}*.{html,jade}',
-        tasks: ['jade:docs']
+        tasks: ['pug:docs']
       },
       app: {
         files: ['app/sass/{,*/}*.{scss,sass}','app/js/{,*/}*.js'],
@@ -251,18 +230,16 @@ module.exports = function (grunt) {
        options: {
           banner: '/*! <%= pkg.name %> <%= pkg.homepage %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
-        build: {
-          src: 'dist/js/<%= pkg.name %>-<%= pkg.version %>.js',
-          dest: 'dist/js/<%= pkg.name %>.min.js'
-        } 
+        files: {
+          'dist/js/<%= pkg.name %>.min.js': ['dist/js/<%= pkg.name %>-<%= pkg.version %>.js']
+        }
       },
       app: {
         options: {
           banner: '/*! <%= appdata.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
         },
-        build: {
-          src: 'app/js/<%= appdata.name %>.js',
-          dest: 'app/js/<%= appdata.name %>.min.js'
+        files: {
+          'app/js/<%= appdata.name %>.js': ['app/js/<%= appdata.name %>.min.js']
         }
       }
     },
@@ -322,7 +299,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-push-release');
   grunt.loadNpmTasks('grunt-newer');
@@ -358,9 +335,9 @@ module.exports = function (grunt) {
   });
   
   // Editing the documentation for a while
-  grunt.registerTask('docslive', ['jade:docs', 'watch:jadedocs']);
+  grunt.registerTask('docslive', ['pug:docs', 'watch:jadedocs']);
   // Rebuild the docs once
-  grunt.registerTask('docsbuild', ['jade:docs']);
+  grunt.registerTask('docsbuild', ['pug:docs']);
 
   // Build Sample App Once
   grunt.registerTask('appbuild', ['jshint:app', 'sass:app', 'concat:app', 'cssmin:app', 'uglify:app']);
@@ -368,12 +345,12 @@ module.exports = function (grunt) {
   grunt.registerTask('applive', ['appbuild', 'watch:app']);
   
   // Rebuild the HUI Library
-  grunt.registerTask('librarybuild', ['jshint:library', 'clean', 'copy', 'sass:library', 'concat:library', 'cssmin:library', 'uglify:library']);
+  grunt.registerTask('librarybuild', ['jshint:library', 'clean', 'copy:fonts', 'copy:IEStuff', 'sass:library', 'concat:libraryjs', 'concat:librarystyle', 'cssmin:library', 'uglify:library']);
   // App Live Reload Server
   grunt.registerTask('librarylive', ['appbuild', 'watch:library']);
   
   //Style Sheets Only
-  grunt.registerTask('huistyle', ['sass:library', 'cssmin:library', 'concat:library:stylesheets']);
+  grunt.registerTask('huistyle', ['sass:library', 'cssmin:library', 'concat:appstyle']);
   //Style Sheets Only
   grunt.registerTask('huistylelive', ['huistyle', 'watch:sass']);
   

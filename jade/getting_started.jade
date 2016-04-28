@@ -7,38 +7,38 @@ html
       .row
         .bs-docs-section
         .page-header
-          h1#hui #{ data.title }
+          h1#hui #{ title }
         p.lead
-          | #{ data.name } is an extension to
+          | #{ name } is an extension to
           a(href='http://getbootstrap.com') Twitter Bootstrap
           | , adding a number of features and components.
         p
-          | The aim of #{ data.name } is to provide all the required features for building highly interactive web applications for desktop and mobile.
+          | The aim of #{ name } is to provide all the required features for building highly interactive web applications for desktop and mobile.
         .bs-callout.bs-callout-warning
           h4 Delivered as extension only
           p
-            | Complete Bootstrap Package. #{ data.name } allows you to easily build and modify bookstrap into your own personal style. No need to include multiple files.
+            | Complete Bootstrap Package. #{ name } allows you to easily build and modify bookstrap into your own personal style. No need to include multiple files.
         
         .bs-docs-section
         .page-header
           h1#download Download
 
         p.lead
-          | #{ data.name } has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
+          | #{ name } has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
         h3#download-compiled Compiled CSS and JS
         p
-          | The fastest way to get #{ data.name } is to download the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.
+          | The fastest way to get #{ name } is to download the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.
         p
-          a.btn.btn-lg.btn-primary(href='#{ data.site.download.dist }hui-#{ data.version }.zip') Download #{ data.name }
+          a.btn.btn-lg.btn-primary(href='#{ website.download.dist }hui-#{ version }.zip') Download #{ name }
         h3#download-additional Additional downloads
         .bs-docs-dl-options
           h4
-            a(href='#{ data.site.download.source }') Download source code
+            a(href='#{ website.download.source }') Download source code
           p
-            | Get the latest #{ data.name } SASS and JavaScript source code by downloading it directly from GitHub.
+            | Get the latest #{ name } SASS and JavaScript source code by downloading it directly from GitHub.
           h4
-            a(href='#{ data.site.repo }') Clone or fork via GitHub
-          p Visit us on GitHub to clone or fork the #{ data.name } project.
+            a(href='#{ website.repo }') Clone or fork via GitHub
+          p Visit us on GitHub to clone or fork the #{ name } project.
           h4
             | Install with 
             a(href='http://bower.io') Bower
@@ -48,21 +48,21 @@ html
             | .
         pre.bashCode 
           = 'bower install huementui'
-        h3#download-cdn #{ data.name } @ cdnjs
+        h3#download-cdn #{ name } @ cdnjs
         p
           a(href='http://aws.amazon.com/s3', target='_blank') Amazon AWS S3 CDN 
           | is storage for the Internet. It is designed to make web-scale computing easier for developers. To use this CDN, swap your local instances for the CDN links listed below.
         pre.htmlCode
             = '<!-- Latest compiled and minified CSS --> \n<link rel=\"stylesheet\" href="//huementui.s3.amazonaws.com/cdn'
-            /#{ data.version }/
+            /#{ version }/
             = 'dist/css/hui-min.css">\n'
             = '<!-- Latest compiled and minified JavaScript --> \n<script src="//huementui.s3.amazonaws.com/cdn'
-            /#{ data.version }/
+            /#{ version }/
             = 'dist/js/hui.min.js"></script>'
         #callout-less-compilation.bs-callout.bs-callout-warning
-          h4 Compiling #{ data.name }'s SASS files
+          h4 Compiling #{ name }'s SASS files
           p
-            | If you work with #{ data.name }'s uncompiled source code, you need to compile the SASS files to produce usable CSS files. There are a number of ways to use and install SASS. The #{ data.name } repository will automatically set you up with an Automatically rebuilding GruntJS setup. Visit the 
+            | If you work with #{ name }'s uncompiled source code, you need to compile the SASS files to produce usable CSS files. There are a number of ways to use and install SASS. The #{ name } repository will automatically set you up with an Automatically rebuilding GruntJS setup. Visit the 
             a(href='http://sasscss.org') sass.js homepage 
             | for more information. You can also check out the official documentation for the SASS Bootstrap Files.
         //
@@ -74,14 +74,14 @@ html
         p.lead
           | Within the download you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.
         p
-          | Once downloaded, unzip the compressed folder to see the structure of (the compiled) #{ data.name }. You'll see something like this:
+          | Once downloaded, unzip the compressed folder to see the structure of (the compiled) #{ name }. You'll see something like this:
         //
-           NOTE: This info is intentionally duplicated in the README.
+         NOTE: This info is intentionally duplicated in the README.
          Copy any changes made here over to the README too. 
         pre.bashCode 
           = 'hui/\n ├── css/\n │   ├── hui.css\n │   ├── hui.min.css\n └── js/\n ├── hui.js\n └── hui.min.js'
         p
-          | This is the most basic form of #{ data.name }. We provide compiled CSS and JS (
+          | This is the most basic form of #{ name }. We provide compiled CSS and JS (
           code hui.*
           | ), as well as compiled and minified CSS and JS (
           code hui.min.*
@@ -98,7 +98,7 @@ html
             | to be included, as shown in the
             a(href='#template') starter template
             | .
-            a(href='#{ data.site.repo }/blob/v#{ data.version }/bower.json')
+            a(href='#{ website.repo }/blob/v#{ version }/bower.json')
               | Consult our
               code bower.json
             | to see which versions of jQuery are supported.
@@ -119,7 +119,7 @@ html
         .page-header
           h1#examples Examples
         p.lead
-          | Create diverse and advanced user interfaces using #{ data.name } components. See also
+          | Create diverse and advanced user interfaces using #{ name } components. See also
           a(href='#customizing') Customizing Bootstrap
           | for tips on maintaining your own Bootstrap variants.
         .row.bs-examples
